@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.9'
-
+gem 'rails', '3.2.10'
+gem 'bootstrap-sass'
 
 group :development, :test do
   gem 'rspec-rails', '2.11.0'
