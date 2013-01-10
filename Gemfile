@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.9'
+gem 'rails', '3.2.11'
 gem 'bootstrap-sass', '2.1'
 gem 'bcrypt-ruby', '3.0.1'
 
@@ -30,6 +30,8 @@ group :test do
   gem 'rb-inotify', '0.8.8'
   gem 'libnotify', '0.5.9'
   gem 'factory_girl_rails', '4.1.0'
+  gem 'cucumber-rails', '1.2.1', require: false
+  gem 'database_cleaner', '0.7.0'
 end
 
 group :production do
