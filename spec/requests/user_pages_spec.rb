@@ -71,15 +71,12 @@ describe "User Pages" do
     let(:submit) { "Create my account" }
 
     describe "with invalid information" do
-      before do
-        fill_in "Name",         with: "user1"
-        fill_in "Email",        with: "openwwoof+user1"
-        fill_in "Password",     with: "123456"
-        fill_in "Confirmation", with: "123456"
-      end
+      before { fill_profile "user1", "openwwoof+user1", "123456" }
+
       it "should not create a user" do
         expect { click_button submit }.not_to change(User, :count)
       end
+
       describe "after submission" do
         before { click_button submit }
 
@@ -89,12 +86,8 @@ describe "User Pages" do
     end
 
     describe "with valid information" do
-      before do
-        fill_in "Name",         with: "user1"
-        fill_in "Email",        with: "openwwoof+user1@gmail.com"
-        fill_in "Password",     with: "123456"
-        fill_in "Confirmation", with: "123456"
-      end
+      before { fill_profile "user1", "openwwoof+user1@gmail.com", "123456" }
+
       it "should create a user" do
         expect { click_button submit }.to change(User, :count).by(1)
       end
@@ -114,6 +107,7 @@ describe "User Pages" do
 
   describe "edit" do
     let(:user) { FactoryGirl.create(:user) }
+    let(:submit) { "Save changes" }
     before do
       sign_in user
       visit edit_user_path(user)
@@ -126,14 +120,17 @@ describe "User Pages" do
     end
 
     describe "with invalid information" do
-      before { click_button "Save changes" }
+      before { click_button submit }
       it { should have_content('error') }
     end
 
     describe "with valid information" do
       let(:new_name) { "New name" }
       let(:new_email) { "new@example.com" }
-      before { profile_edit user, new_name, new_email }
+      before do
+        fill_profile new_name, new_email, user.password
+        click_button submit
+      end
 
       it { should have_selector('title', text: new_name) }
       it { should have_selector('div.alert.alert-success') }

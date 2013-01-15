@@ -9,12 +9,11 @@ def sign_in(user)
   cookies[:remember_token] = user.remember_token
 end
 
-def profile_edit(user, new_name, new_email)
-  fill_in "Name",             with: new_name
-  fill_in "Email",            with: new_email
-  fill_in "Password",         with: user.password
-  fill_in "Confirm Password", with: user.password
-  click_button "Save changes"
+def fill_profile(name, email, password)
+  fill_in "Name",             with: name
+  fill_in "Email",            with: email
+  fill_in "Password",         with: password
+  fill_in "Confirm Password", with: password
 end
 
 RSpec::Matchers.define :have_error_message do |message|
