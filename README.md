@@ -1,3 +1,3 @@
-# OpenWwoof 
+# NiPaNiPa
 
-This is the sample application for OpenWwoof
+This is the sample application for NiPaNiPa

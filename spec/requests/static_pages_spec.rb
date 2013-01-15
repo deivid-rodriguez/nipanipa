@@ -11,7 +11,7 @@ describe "Static pages" do
 
   describe "Home Page" do
     before { visit root_path }
-    let(:heading) { 'Openwwoof' }
+    let(:heading) { 'NiPaNiPa' }
     let(:page_title) { '' }
 
     it_should_behave_like "all static pages"
@@ -56,7 +56,7 @@ describe "Static pages" do
     click_link "Home"
     click_link "I'm a volunteer"
     page.should have_selector 'title', text: full_title('Sign up')
-    click_link "openwwoof"
+    click_link "NiPaNiPa"
     page.should have_selector 'title', text: full_title('')
   end
 

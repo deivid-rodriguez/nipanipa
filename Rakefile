@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Openwwoof::Application.load_tasks
+Nipanipa::Application.load_tasks

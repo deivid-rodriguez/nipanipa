@@ -1,4 +1,4 @@
-Openwwoof::Application.routes.draw do
+Nipanipa::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 

@@ -7,7 +7,7 @@ describe ApplicationHelper do
       full_title("foo").should =~ /foo/
     end
     it "should include the base title" do
-      full_title("foo").should =~ /^Openwwoof/
+      full_title("foo").should =~ /^NiPaNiPa/
     end
     it "should not include the base title" do
       full_title("").should_not =~ /\|/

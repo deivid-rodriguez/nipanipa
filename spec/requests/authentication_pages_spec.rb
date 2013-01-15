@@ -144,7 +144,7 @@ describe "Authentication" do
           visit signup_path
         end
         it { should_not have_selector('title', text: '|') }
-        it { should have_selector('h1', text: 'Welcome to Openwwoof') }
+        it { should have_selector('h1', text: 'Welcome to NiPaNiPa') }
       end # signed-in users
 
     end # for non-admin users
