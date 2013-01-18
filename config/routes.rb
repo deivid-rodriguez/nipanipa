@@ -1,6 +1,13 @@
 Nipanipa::Application.routes.draw do
-  resources :users
-  resources :sessions, only: [:new, :create, :destroy]
+
+  # This is ugly... I think... better to user AJAX maybe...
+  # match 'users/:id' => 'feedbacks#create', via: :post, as: :user_feedbacks
+
+  resources :users do
+    resources :feedbacks, only: [:new, :create, :index, :destroy]
+  end
+
+  resources :sessions,  only: [:new, :create, :destroy]
 
   root :to => 'static_pages#home'
 
@@ -12,13 +19,8 @@ Nipanipa::Application.routes.draw do
   match 'about'   => 'static_pages#about'
   match 'contact' => 'static_pages#contact'
 
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
-
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
@@ -34,12 +36,6 @@ Nipanipa::Application.routes.draw do
   #     collection do
   #       get 'sold'
   #     end
-  #   end
-
-  # Sample resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
   #   end
 
   # Sample resource route with more complex sub-resources

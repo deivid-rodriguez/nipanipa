@@ -20,7 +20,7 @@ describe "Authentication" do
       it { should have_selector('title', text: 'Sign in') }
       it { should have_error_message('Invalid') }
       describe "after visiting another page" do
-        before { click_link "Home" }
+        before { click_link "NiPaNiPa" }
         it { should_not have_selector('div.alert.alert-error') }
       end
     end # with invalid information
@@ -30,9 +30,7 @@ describe "Authentication" do
       before { sign_in user }
 
       it { should have_selector('title', text: user.name) }
-      it { should have_link('Users', href: users_path) }
       it { should have_link('Profile', href: user_path(user)) }
-      it { should have_link('Settings', href: edit_user_path(user)) }
       it { should have_link('Sign out', href: signout_path) }
       it { should_not have_link('Sign in', href: signin_path) }
 
@@ -40,9 +38,7 @@ describe "Authentication" do
         before { click_link "Sign out" }
 
         it { should have_link('Sign in') }
-        it { should_not have_link('Users') }
         it { should_not have_link('Profile') }
-        it { should_not have_link('Settings') }
         it { should_not have_link('Sign out') }
       end
 
@@ -102,8 +98,7 @@ describe "Authentication" do
 
         end # when attempting to visit a protected page
 
-        describe "in the Users controller" do
-
+        describe "in the users controller" do
           describe "visiting the edit page" do
             before { visit edit_user_path(user) }
             it { should have_selector('title', text: 'Sign in') }
@@ -116,10 +111,51 @@ describe "Authentication" do
 
           describe "visiting the user index" do
             before { visit users_path }
-            it { should have_selector('title', text: 'Sign in')}
+            it { should have_selector('title', text: 'Sign in') }
+          end
+        end # in the users controller
+
+        describe "in the feedbacks controller" do
+          before { visit user_path(user) }
+
+          describe "visiting the new feedback page" do
+            before { visit new_user_feedback_path(user) }
+            it { should have_selector('title', text: 'Sign in') }
           end
 
-        end # in the Users controller
+          describe "clicking the 'Leave feedback' link" do
+            before { click_link("Leave feedback") }
+            it { should have_selector('title', text: 'Sign in') }
+          end
+
+         #describe "clicking the 'Contact' link" do
+         #  before { click_link("Contact") }
+         #  it { should have_selector('title', 'Sign in') }
+         #end
+
+          describe "submitting to the create action" do
+            before { post user_feedbacks_path(user) }
+            specify { response.should redirect_to(signin_path) }
+          end
+
+         describe "submitting to the destroy action" do
+           before { delete user_feedback_path(user,
+                                              FactoryGirl.create(:feedback)) }
+           specify { response.should redirect_to(signin_path) }
+         end
+        end
+
+      end # non-signed-in users
+
+      describe "signed-in users" do
+        before { sign_in user }
+
+        describe "visiting signup page" do
+          before { visit signup_path }
+
+          it { should_not have_selector('title', text: '|') }
+          it { should have_selector('h1', text: 'Welcome to NiPaNiPa') }
+        end
 
         describe "trying to edit another user" do
           let(:wrong_user) { FactoryGirl.create(:user, email: "wrong@example.com") }
@@ -136,15 +172,17 @@ describe "Authentication" do
           end
         end # trying to edit another user
 
-      end # non-signed-in users
+        describe "trying to leave feedback for themselves" do
+          describe "by visiting new feedback path" do
+            before { visit new_user_feedback_path(user) }
+            it { should_not have_selector('title', text: 'Leave feedback') }
+          end
+          describe "by submitting to the create action" do
+            before { post user_feedbacks_path(user) }
+            specify { response.should redirect_to(root_path) }
+          end
+        end # trying to leave feedback for themselves
 
-      describe "signed-in users" do
-        before do
-          sign_in user
-          visit signup_path
-        end
-        it { should_not have_selector('title', text: '|') }
-        it { should have_selector('h1', text: 'Welcome to NiPaNiPa') }
       end # signed-in users
 
     end # for non-admin users

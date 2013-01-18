@@ -27,3 +27,9 @@ RSpec::Matchers.define :have_success_message do |message|
     page.should have_selector('div.alert.alert-success', text: message)
   end
 end
+
+#RSpec::Matchers.define :have_signin_title do
+#  match do |page|
+#    page.should have_selector('title', text: 'Sign in')
+#  end
+#end

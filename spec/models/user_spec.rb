@@ -149,4 +149,52 @@ describe User do
     its(:remember_token) { should_not be_blank }
   end
 
+  describe "feedbacks associations" do
+    before do
+      @user.save
+      @sender1 = User.create!(name: "Sender1",
+                              email: "sender1@example.com",
+                              password: "foobar",
+                              password_confirmation: "foobar")
+      @sender2 = User.create!(name: "Sender2",
+                              email: "sender2@example.com",
+                              password: "foobar",
+                              password_confirmation: "foobar")
+
+    end
+    let!(:older_feedback) do
+      FactoryGirl.create(:feedback, sender: @sender1,
+                                    recipient: @user,
+                                    created_at: 1.day.ago)
+    end
+    let!(:newer_feedback) do
+      FactoryGirl.create(:feedback, sender: @sender2,
+                                    recipient: @user,
+                                    created_at: 1.hour.ago)
+    end
+
+    it "should have the right received feedbacks in the right order" do
+      @user.received_feedbacks.should == [ newer_feedback, older_feedback ]
+    end
+
+    it "should destroy associated sent feedbacks" do
+      sent_feedbacks = @sender1.sent_feedbacks.dup
+      @sender1.destroy
+      sent_feedbacks.should_not be_empty
+      sent_feedbacks.each do |sent_feedback|
+        Feedback.find_by_id(sent_feedback.id).should be_nil
+      end
+    end
+
+    it "should destroy associated received feedbacks" do
+      received_feedbacks = @user.received_feedbacks.dup
+      @user.destroy
+      received_feedbacks.should_not be_empty
+      received_feedbacks.each do |feedback|
+        Feedback.find_by_id(feedback.id).should be_nil
+      end
+    end
+
+  end
+
 end

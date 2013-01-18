@@ -57,12 +57,39 @@ describe "User Pages" do
   end
 
   describe "profile page" do
-    let(:user) { FactoryGirl.create(:user) }
-    before { visit user_path(user) }
+    let(:recipient) { FactoryGirl.create(:user) }
+    let(:sender1)   { FactoryGirl.create(:user) }
+    let(:sender2)   { FactoryGirl.create(:user) }
+    let!(:r1) { FactoryGirl.create(:feedback,
+                                   sender: sender1,
+                                   recipient: recipient,
+                                   content: "Amazing stay. Thanks!") }
+    let!(:r2) { FactoryGirl.create(:feedback,
+                                   sender: sender2,
+                                   recipient: recipient,
+                                   content: "Woooow!! That was fun!!!") }
 
-    it { should have_selector('h1',    text: user.name) }
-    it { should have_selector('title', text: user.name) }
-  end
+    before { visit user_path(recipient) }
+
+    it { should have_selector('h1',    text: recipient.name) }
+    it { should have_selector('title', text: recipient.name) }
+
+    describe "feedbacks" do
+      it { should have_content(r1.content) }
+      it { should have_content(r2.content) }
+      it { should have_content(recipient.received_feedbacks.count) }
+    end
+
+    describe "when user signed in and looking at its own profile" do
+      before do
+        sign_in recipient
+        visit user_path(recipient)
+      end
+      it { should_not have_link('Leave feedback') }
+      it { should_not have_link('Contact user') }
+    end
+
+  end # profile page
 
   describe "signup" do
 
@@ -71,7 +98,7 @@ describe "User Pages" do
     let(:submit) { "Create my account" }
 
     describe "with invalid information" do
-      before { fill_profile "user1", "openwwoof+user1", "123456" }
+      before { fill_profile "user1", "nipanipa.test+user1", "123456" }
 
       it "should not create a user" do
         expect { click_button submit }.not_to change(User, :count)
@@ -86,7 +113,7 @@ describe "User Pages" do
     end
 
     describe "with valid information" do
-      before { fill_profile "user1", "openwwoof+user1@gmail.com", "123456" }
+      before { fill_profile "user1", "nipanipa.test+user1@gmail.com", "123456" }
 
       it "should create a user" do
         expect { click_button submit }.to change(User, :count).by(1)
@@ -94,7 +121,7 @@ describe "User Pages" do
 
       describe "after saving the user" do
         before { click_button submit }
-        let(:user) { User.find_by_email('openwwoof+user1@gmail.com') }
+        let(:user) { User.find_by_email('nipanipa.test+user1@gmail.com') }
 
         it { should have_selector('title', text: user.name) }
         it { should have_success_message('Welcome') }

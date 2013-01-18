@@ -1,5 +1,145 @@
 <% provide(:title, @user.name) %>
-<h1>
-  <%= gravatar_for @user %>
-  <%= @user.name %>
-</h1>
+
+<div id="main">
+
+  <div id="col1">
+
+    <div id="col1_content" class="clearfix">
+      <div id="profile_pic">
+        <a href="members/avatar/deivid?500" id="profile_image"><%=
+          gravatar_for @user, size: 150 %></a>
+        <div id="profile_image_zoom_content" class="hidden" style="display: none;">
+          <img src="members/avatar/deivid?500" alt="Picture of deivid">
+        </div> <!-- Activate fancy zoom like bewelcome -->
+      </div> <!-- profile_pic -->
+      <ul class="linklist" id="profile_linklist">
+        <% if !current_user?(@user) %>
+        <li id="sub0" class="editmyprofile">
+          <%= link_to 'Leave feedback', new_user_feedback_path(@user.id) %>
+        </li>
+        <li><%= link_to 'Contact user', '#' %></li>
+        <% end %>
+        <li id="sub1" class="mypreferences">
+          <a style="cursor:pointer;" href="mypreferences"><span>Mis preferencias</span></a></li>
+        <li id="sub2" class="myvisitors">
+          <a style="cursor:pointer;" href="myvisitors"><span>Visitas en mi perfil</span></a></li>
+        <li id="sub3" class="space">
+          <a style="cursor:pointer;" href=""><span></span></a></li>
+        <li id="sub5" class="">
+          <a style="cursor:pointer;" href="members/deivid/comments"><span>Comentarios (0)</span></a></li>
+        <li id="sub6" class="">
+          <a style="cursor:pointer;" href="gallery/show/user/deivid/pictures"><span>Galería (0)</span></a></li>
+      </ul>
+    </div> <!-- col1_content -->
+
+  </div> <!-- col1 -->
+
+  <div id="col3">
+
+    <div id="col3_content" class="clearfix">
+
+      <div id="profile-info">
+        <div class="subcolumns">
+          <h1 id="username">
+            <strong><%= @user.name %></strong>
+          </h1> <!-- username -->
+          <div id="navigation-path">
+            <h2<strong>Madrid, Spain</strong></h2>
+            <p class="grey">
+              27 Edad<br>
+              Miembro desde: Hace 6 meses <br>
+              Último ingreso: menos de una semana
+            </p>
+          </div> <!-- navigation-path -->
+        </div> <!-- subcolumns -->
+      </div> <!-- profile-info -->
+
+      <div id="profile">
+        <div class="subcolumns" id="profile_subcolumns">
+          <div class="c50l">
+            <div class="subcl">
+              <div id="jobsummary" class="floatbox box">
+                <span class="float_right profile-edit-link">
+                  <a href="/editmyprofile">Editar</a>
+                </span>
+                <h3 class="icon info22">Descripción del Trabajo</h3>
+                <p>We require help with maintaining our land, pointing /
+                   painting the house and transforming an outbuilding into an
+                   indoor riding arena.
+                </p>
+              </div> <!-- jobsummary -->
+              <div id="accommodationinfo" class="floatbox box">
+                <span class="float_right profile-edit-link">
+                  <a href="/editmyprofile#!profileaccommodation">Editar</a>
+                </span>
+                <h3 class="icon accommodation22">Alojamiento</h3>
+                <!-- implement quickinfo icons like in BeWelcome/blablacar -->
+                <p>We have 2 bedrooms with their own bathrooms, 1double with an
+                   en-suite. The other has a french sized double bed with the
+                   bathroom next door. We offer sole use of our vaulted living
+                   room. The en-suite bedroom has it's own private entrance.
+                   We have a farmhouse sized kitchen where we eat our meals, but
+                   are happy for guests to have their meals privately in the
+                   living room if they prefer.
+              </div> <!-- profile_accommodation -->
+            </div> <!-- subcl -->
+          </div> <!-- c50l -->
+
+          <div class="c50r">
+            <div class="subcr">
+              <div id="personaldescription" class="floatbox box">
+                <span class="float_right profile-edit-link">
+                  <a href="/editmyprofile">Editar</a>
+                </span>
+                <h3 class="icon info22">Sobre mí</h3>
+                <p>
+                  My husband Brian and I moved to France in November 2010.
+                  We have a small holding with 2.5 hectares of land. We have a
+                  T/B horse, american miniature cross Shetland, dog and kitten.
+                </p>
+                <p>
+                  Our 2 sons &amp; daughter live in the UK. We have no
+                  grandchildren as yet. Before moving to France we both worked
+                  in the publishing industry. Brian as an IT consultant and I
+                  was a customer service manager. Brian enjoys reading and all
+                  forms of music for relaxation and I have the horses, crafts
+                  and a special interest in all forms of natural healing for
+                  both animals and humans.
+                </p>
+              </div> <!-- personaldescription -->
+            </div> <!-- subcr -->
+          </div> <!-- c50r -->
+
+          <div class="c50r">
+            <div class="subcr">
+              <div id="languages" class="floatbox box">
+                <span class="float_right profile-edit-link">
+                  <a href="/editmyprofile">Editar</a>
+                </span>
+                <h3>Idiomas</h3>
+                <ul class="icon profile_languages"></ul>
+              </div> <!-- languages -->
+           </div> <!-- subcr -->
+          </div> <!-- c50r -->
+          <div class="c50r">
+            <div class="subcr">
+              <div id="feedbacks" class="floatbox box">
+                <% if @user.received_feedbacks.any? %>
+                <h3 class="icon feedbacks22">Feedbacks (<%= @user.received_feedbacks.count %>)</h3>
+                <ol class="feedbacks">
+                  <%= render partial: 'feedbacks/received_feedback',
+                   collection: @received_feedbacks %>
+                </ol>
+                <%= will_paginate @received_feedbacks %>
+                <% end %>
+              </div> <!-- profile_feedbacks -->
+            </div> <!-- subcr -->
+          </div> <!-- c50r -->
+        </div> <!-- subcolumns -->
+      </div> <!-- profile -->
+    </div> <!-- col3_content -->
+    <!-- IE Column Clearing -->
+    <div id="ie_clearing">&nbsp;</div>
+    <!-- Ende: IE Column Clearing -->
+  </div> <!-- col3 -->
+</div>

@@ -1,0 +1,277 @@
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 20px;
+  color: #333333;
+  background-color: white;
+}
+
+#main {padding: 0 2em;}
+
+
+#col1{
+    float: left;
+    width: 18%;
+}
+
+#col3{
+    margin: 0 0 0 18%;
+}
+
+
+#col1 #col1_content{
+    padding: 0 2em 0 0;
+    margin: 0;
+}
+
+
+#col3_content{
+    padding: 1em 0 3em 3em;
+    margin: 0;
+    background:transparent url(../../images/bg_col3.png) no-repeat scroll 0 0;
+}
+
+#col3_content h1 {
+    padding: 0 0 .4em 0;
+}
+
+#col3_content ul, #col3_content dl,  #col3_content .box p {
+    margin: 0 0;
+    color: #333;
+}
+
+.c50l {
+  float: left;
+  width: 50%;
+}
+
+.c50r {
+  float: right;
+  margin-left: -5px;
+  width: 50%;
+}
+
+#navigation-path {
+    margin: 0 0 0.5em 0;
+}
+
+#profile_pic {
+   /* background: transparent url(../../images/pic_shadow.png) no-repeat left top; */
+    padding:1em 0 1.5em 0;
+    width:150px;
+}
+#profile-info {
+    padding: 0 0 1em 0;
+}
+
+#profile-info #username {
+    padding: 0;
+    line-height: 1.6em;
+    font-size: 1.6em;
+}
+#profile-info #username strong {
+    font-size:1.6em;
+    padding:10px 10px 10px 0;
+    color: #000000;
+}
+#profile-info #quickinfo {
+    padding-top: 4.5em;
+}
+#profile-info .profile_translations {
+    white-space: pre-line
+}
+
+#profile dl, #preferences dl, dl#profiletop {
+    display: block;
+}
+#profile dt, #preferences dt, #profiletop dt {
+    line-height: 1.5em;
+    font-size: 1em;
+    font-weight: normal;
+    width: 12em;
+    float: left;
+    clear: left;
+    margin-bottom: 0.8em;
+}
+#profile dd, #preferences dd, #profiletop dd {
+    margin-left: 12em;
+    line-height: 1.5em;
+    margin-bottom: 0.8em;
+}
+
+#profile #interests dt, #profile #accommodation dt {
+    float: none;
+    width: auto;
+    margin-bottom: 0;
+    font-weight:bold;
+}
+#profile #interests dd, #profile #accommodation dd {
+    width: auto;
+    margin-left:0;
+}
+#profile #accommodation dt.guests {
+    width: 12em;
+    float: left;
+    clear: left;
+    margin-bottom: 0.8em;
+}
+#profile #accommodation dd.guests {
+    margin-left: 12em;
+    line-height: 1.5em;
+    margin-bottom: 0.8em;
+}
+
+
+
+#profile .profile_translations {
+    padding: 0 0 1em 0;
+}
+
+#profile sup {
+    font-size: 0.8em;
+    color: #888;
+}
+#profile_subcolumns .subcl {
+    padding-right: 1em;
+}
+
+
+#profile-info #navigation-path h2 {
+    color: #333;
+    font-size: 1.2em;
+    font-weight: normal;
+}
+#profile-info #navigation-path strong {
+    font-size: 1.2em;
+    font-weight: strong;
+}
+
+/* list the spoken languages of a member */
+#profile .profile_languages li {
+    margin-right: .5em;
+}
+
+/* for the available languages of the profil content*/
+#profile-info .availablelanguages {
+    padding-right: 0.5em;
+    color: #888;
+}
+#profile-info .activelanguage {
+    font-weight: bold;
+    padding-right: 0.5em;
+}
+
+#preferences ul, #preferences select {
+    margin-bottom: 2em;
+}
+
+
+/* #profile_linklist for styles in the sidebar */
+#profile_linklist {
+    padding: 0 0;
+    list-style-type: none;
+    margin: 0 0;
+}
+#profile_linklist li {
+    color: #333;
+    font-size: 1em;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 0.5em 0em;
+}
+#profile_linklist li a {
+    color: #333;
+    font-size: 1.2em;
+}
+#profile_linklist li.active a {
+    font-weight: bold;
+}
+
+#profile_linklist .space {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border: none;
+}
+#profile_linklist .editmyprofile {
+    background: transparent url(../../images/iconsfam/pencil.png) 0 3px no-repeat;
+}
+
+/* using css3 for round corners and shadow effect (only firefoxm chrome and safari) */
+#profile .box, #profile-info .box{
+    border: 1px solid #ccc; -moz-border-radius: 8px; -webkit-border-radius: 8px; border-radius: 8px;
+    padding: 0.8em;
+    margin-bottom: 1.2em;
+    margin-left: 0;
+    margin-top: 0;
+    background: #F5F5F5;
+    -moz-box-shadow: 2px 2px 5px #ccc; -webkit-box-shadow: 2px 2px 2px #ccc; box-shadow: 2px 2px 2px #ccc;
+    width: auto;
+}
+#profile #linkpath div.profile{
+    margin-right: 5px;
+}
+#profile #linkpath div.connection{
+    margin-right: 5px;
+    margin: 15px 5px 0 0;
+    vertical-align: middle;
+}
+
+#profile .box h3, #profile #linkpath h3, #profile-info .box h3{
+    margin-bottom: 0.3em;
+    color: #333;
+    border-bottom: 1px solid #ccc;
+
+}
+
+#profile #profile-edit-form fieldset td{
+  vertical-align: top;
+}
+
+#profile #profile-edit-form fieldset td.label{
+  vertical-align: top;
+  padding-top: 0.7em;
+}
+
+/* colors for comment quality */
+.neutral { color: #333; }
+.good { color: green; }
+.bad { color: red; }
+
+.neutral, .good, .bad { font-weight: bold; font-size: 1.1em; }
+
+/* comment content */
+div.comment {
+    display: block;
+    float: left;
+    width: 70%;
+    margin: 0;
+}
+.profilecomment.counter {
+    background:none repeat scroll 0 0 #EEEEEE;
+    border:1px solid #CCCCCC;
+    border-radius:3px 3px 3px 3px;
+    margin-left:10%;
+    padding:10px;
+}
+
+.sender-picture {
+  float: right;
+}
+
+.score-icon {
+  float: right;
+  margin-right: 50px;
+}
+
+/* styles for member results lists, used in myprofile visitors */
+.myvisitors .subcolumns{margin-bottom: 1.5em;}
+.myvisitors .jobsummary{color: #777; font-style: italic;}
+.userinfo {margin-left: 55px;}
+.userinfo p {margin-bottom: 0.2em;}
+.groupbox {margin-bottom: 0.5em;}
+
+.quickinfo {clear: right; padding-top: 5em; position: bottom;}
+
+span.profile-edit-link a {
+  color: #2184E8;
+}

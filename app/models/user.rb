@@ -13,6 +13,20 @@ class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation
   has_secure_password
 
+  has_many :sent_feedbacks,
+            class_name: 'Feedback',
+           foreign_key: 'sender_id',
+               include: :recipient,
+             dependent: :destroy,
+                 order: "updated_at DESC"
+
+  has_many :received_feedbacks,
+            class_name: 'Feedback',
+           foreign_key: 'recipient_id',
+               include: :sender,
+             dependent: :destroy,
+                 order: "updated_at DESC"
+
   before_save { self.email.downcase! }
   before_save :create_remember_token
 
@@ -23,6 +37,7 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }
   validates :password_confirmation, presence: true, length: { minimum: 6 }
+
 
   private
 
