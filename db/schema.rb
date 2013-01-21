@@ -22,6 +22,9 @@ ActiveRecord::Schema.define(:version => 20130116014646) do
     t.datetime "updated_at",   :null => false
   end
 
+  add_index "feedbacks", ["recipient_id", "updated_at"], :name => "index_feedbacks_on_recipient_id_and_updated_at"
+  add_index "feedbacks", ["sender_id", "updated_at"], :name => "index_feedbacks_on_sender_id_and_updated_at"
+
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
