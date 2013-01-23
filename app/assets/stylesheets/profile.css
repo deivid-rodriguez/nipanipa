@@ -9,7 +9,6 @@ body {
 
 #main {padding: 0 2em;}
 
-
 #col1{
     float: left;
     width: 18%;
@@ -19,12 +18,10 @@ body {
     margin: 0 0 0 18%;
 }
 
-
 #col1 #col1_content{
     padding: 0 2em 0 0;
     margin: 0;
 }
-
 
 #col3_content{
     padding: 1em 0 3em 3em;
@@ -122,12 +119,6 @@ body {
     margin-bottom: 0.8em;
 }
 
-
-
-#profile .profile_translations {
-    padding: 0 0 1em 0;
-}
-
 #profile sup {
     font-size: 0.8em;
     color: #888;
@@ -135,7 +126,6 @@ body {
 #profile_subcolumns .subcl {
     padding-right: 1em;
 }
-
 
 #profile-info #navigation-path h2 {
     color: #333;
@@ -196,7 +186,7 @@ body {
     background: transparent url(../../images/iconsfam/pencil.png) 0 3px no-repeat;
 }
 
-/* using css3 for round corners and shadow effect (only firefoxm chrome and safari) */
+/* using css3 for round corners and shadow effect (only firefox chrome and safari) */
 #profile .box, #profile-info .box{
     border: 1px solid #ccc; -moz-border-radius: 8px; -webkit-border-radius: 8px; border-radius: 8px;
     padding: 0.8em;

@@ -87,31 +87,15 @@
 
           <div class="c50r">
             <div class="subcr">
+
               <div id="personaldescription" class="floatbox box">
                 <span class="float_right profile-edit-link">
                   <a href="/editmyprofile">Editar</a>
                 </span>
                 <h3 class="icon info22">Sobre mí</h3>
-                <p>
-                  My husband Brian and I moved to France in November 2010.
-                  We have a small holding with 2.5 hectares of land. We have a
-                  T/B horse, american miniature cross Shetland, dog and kitten.
-                </p>
-                <p>
-                  Our 2 sons &amp; daughter live in the UK. We have no
-                  grandchildren as yet. Before moving to France we both worked
-                  in the publishing industry. Brian as an IT consultant and I
-                  was a customer service manager. Brian enjoys reading and all
-                  forms of music for relaxation and I have the horses, crafts
-                  and a special interest in all forms of natural healing for
-                  both animals and humans.
-                </p>
+                  <%= @user.description %>
               </div> <!-- personaldescription -->
-            </div> <!-- subcr -->
-          </div> <!-- c50r -->
 
-          <div class="c50r">
-            <div class="subcr">
               <div id="languages" class="floatbox box">
                 <span class="float_right profile-edit-link">
                   <a href="/editmyprofile">Editar</a>
@@ -119,13 +103,10 @@
                 <h3>Idiomas</h3>
                 <ul class="icon profile_languages"></ul>
               </div> <!-- languages -->
-           </div> <!-- subcr -->
-          </div> <!-- c50r -->
-          <div class="c50r">
-            <div class="subcr">
+
               <div id="feedbacks" class="floatbox box">
-                <% if @user.received_feedbacks.any? %>
                 <h3 class="icon feedbacks22">Feedbacks (<%= @user.received_feedbacks.count %>)</h3>
+                <% if @user.received_feedbacks.any? %>
                 <ol class="feedbacks">
                   <%= render partial: 'feedbacks/received_feedback',
                    collection: @received_feedbacks %>
@@ -133,8 +114,10 @@
                 <%= will_paginate @received_feedbacks %>
                 <% end %>
               </div> <!-- profile_feedbacks -->
+
             </div> <!-- subcr -->
           </div> <!-- c50r -->
+
         </div> <!-- subcolumns -->
       </div> <!-- profile -->
     </div> <!-- col3_content -->

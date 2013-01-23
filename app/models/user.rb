@@ -2,16 +2,24 @@
 #
 # Table name: users
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  email      :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id              :integer          not null, primary key
+#  name            :string(255)
+#  email           :string(255)
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  password_digest :string(255)
+#  remember_token  :string(255)
+#  admin           :boolean          default(FALSE)
+#  description     :text
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :password, :password_confirmation
+  #attr_accessible :email, :name, :description, :password, :password_confirmation
+  attr_protected :admin
   has_secure_password
+
+  has_many :sectorizations
+  has_many :work_types, through: :sectorizations
 
   has_many :sent_feedbacks,
             class_name: 'Feedback',
@@ -35,6 +43,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true,
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
+  validates :description, presence: true, length: { maximum: 1000 }
   validates :password, length: { minimum: 6 }
   validates :password_confirmation, presence: true, length: { minimum: 6 }
 

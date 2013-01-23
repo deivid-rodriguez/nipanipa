@@ -1,13 +1,36 @@
 <%= render 'shared/error_messages', object: f.object %>
 
-<%= f.label :name %>
-<%= f.text_field :name %>
+<div class="subcolumns" id="profile_subcolumns">
+  <div class="c33l">
+  <%= field_set_tag "Login information" do %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
 
-<%= f.label :email %>
-<%= f.text_field :email %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
 
-<%= f.label :password %>
-<%= f.password_field :password %>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
 
-<%= f.label :password_confirmation, "Confirm Password" %>
-<%= f.password_field :password_confirmation %>
+    <%= f.label :password_confirmation, "Confirm Password" %>
+    <%= f.password_field :password_confirmation %>
+  <% end %>
+  </div>
+  <div class="c33l">
+  <%= field_set_tag "Personal information" do %>
+    <%= f.label :description, "Personal description" %>
+    <%= f.text_area :description %>
+  <% end %>
+  </div>
+  <div class="c33r">
+  <%= field_set_tag "Work information" do %>
+    <%= f.label :work_types %><br>
+    <% WorkType.all.each do |work_type| %>
+      <%= check_box_tag 'user[work_type_ids][]',
+                        work_type.id,
+                        @user.work_type_ids.include?(work_type.id),
+                        id: dom_id(work_type) %><%= work_type.name %>
+    <% end %>
+  <% end %>
+  </div>
+</div>

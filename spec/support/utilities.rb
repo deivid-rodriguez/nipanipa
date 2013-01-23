@@ -5,16 +5,16 @@ def sign_in(user)
   fill_in "Email",    with: user.email
   fill_in "Password", with: user.password
   click_button "Sign in"
-  # sign in when no using Capybara as well.
-  cookies[:remember_token] = user.remember_token
 end
 
-def fill_profile(name, email, password)
-  fill_in "Name",             with: name
-  fill_in "Email",            with: email
-  fill_in "Password",         with: password
-  fill_in "Confirm Password", with: password
+# Access fiels by "name" because content is ambiguous
+def fill_signin_info(name, email, password)
+  fill_in 'user[name]'                 , with: name
+  fill_in 'user[email]'                , with: email
+  fill_in 'user[password]'             , with: password
+  fill_in 'user[password_confirmation]', with: password
 end
+
 
 RSpec::Matchers.define :have_error_message do |message|
   match do |page|
@@ -28,8 +28,8 @@ RSpec::Matchers.define :have_success_message do |message|
   end
 end
 
-#RSpec::Matchers.define :have_signin_title do
-#  match do |page|
-#    page.should have_selector('title', text: 'Sign in')
-#  end
-#end
+RSpec::Matchers.define :have_title do |text|
+  match do |page|
+    Capybara.string(page.body).has_selector?('title', text: text)
+  end
+end

@@ -7,8 +7,8 @@ describe "Authentication" do
   describe "signin page" do
     before { visit signin_path }
 
-    it { should have_selector('h1',    text: 'Sign in') }
-    it { should have_selector('title', text: 'Sign in') }
+    it { should have_selector('h1', text: 'Sign in') }
+    it { should have_title 'Sign in' }
   end
 
   describe "signin" do
@@ -17,7 +17,7 @@ describe "Authentication" do
     describe "with invalid information" do
       before { click_button "Sign in" }
 
-      it { should have_selector('title', text: 'Sign in') }
+      it { should have_title 'Sign in' }
       it { should have_error_message('Invalid') }
       describe "after visiting another page" do
         before { click_link "NiPaNiPa" }
@@ -29,7 +29,7 @@ describe "Authentication" do
       let(:user) { FactoryGirl.create(:user) }
       before { sign_in user }
 
-      it { should have_selector('title', text: user.name) }
+      it { should have_title user.name }
       it { should have_link('Profile', href: user_path(user)) }
       it { should have_link('Sign out', href: signout_path) }
       it { should_not have_link('Sign in', href: signin_path) }
@@ -48,28 +48,8 @@ describe "Authentication" do
 
   describe "authorization" do
 
-    describe "for admin users" do
-      let(:admin) { FactoryGirl.create(:admin) }
-      before { sign_in admin }
-
-      describe "submitting a DELETE request to itself" do
-        before { delete user_path(admin) }
-        specify { response.should redirect_to(root_path) }
-      end
-    end
-
     describe "for non-admin" do
       let(:user) { FactoryGirl.create(:user) }
-
-      describe "submitting a DELETE request to the Users#destroy action" do
-        let(:non_admin) { FactoryGirl.create(:user) }
-        before do
-          sign_in non_admin
-          delete user_path(user)
-        end
-
-        specify { response.should redirect_to(root_path) }
-      end
 
       describe "non-signed-in users" do
 
@@ -81,7 +61,7 @@ describe "Authentication" do
 
           describe "after signing in" do
             it "should render the desired protected page" do
-              page.should have_selector('title', text: 'Edit user')
+              page.should have_title 'Edit user'
             end
 
             describe "when signing in again" do
@@ -90,7 +70,7 @@ describe "Authentication" do
                 sign_in user
               end
               it "should render the default (profile) page" do
-                page.should have_selector('title', text: user.name)
+                page.should have_title user.name
               end
             end
 
@@ -101,17 +81,12 @@ describe "Authentication" do
         describe "in the users controller" do
           describe "visiting the edit page" do
             before { visit edit_user_path(user) }
-            it { should have_selector('title', text: 'Sign in') }
-          end
-
-          describe "submitting to the update action" do
-            before { put user_path(user) }
-            specify { response.should redirect_to(signin_path) }
+            it { should have_title 'Sign in' }
           end
 
           describe "visiting the user index" do
             before { visit users_path }
-            it { should have_selector('title', text: 'Sign in') }
+            it { should have_title 'Sign in' }
           end
         end # in the users controller
 
@@ -120,29 +95,19 @@ describe "Authentication" do
 
           describe "visiting the new feedback page" do
             before { visit new_user_feedback_path(user) }
-            it { should have_selector('title', text: 'Sign in') }
+            it { should have_title 'Sign in' }
           end
 
           describe "clicking the 'Leave feedback' link" do
             before { click_link("Leave feedback") }
-            it { should have_selector('title', text: 'Sign in') }
+            it { should have_title 'Sign in' }
           end
 
          #describe "clicking the 'Contact' link" do
          #  before { click_link("Contact") }
-         #  it { should have_selector('title', 'Sign in') }
+         #  it { should have_title 'Sign in' }
          #end
 
-          describe "submitting to the create action" do
-            before { post user_feedbacks_path(user) }
-            specify { response.should redirect_to(signin_path) }
-          end
-
-         describe "submitting to the destroy action" do
-           before { delete user_feedback_path(user,
-                                              FactoryGirl.create(:feedback)) }
-           specify { response.should redirect_to(signin_path) }
-         end
         end
 
       end # non-signed-in users
@@ -153,35 +118,20 @@ describe "Authentication" do
         describe "visiting signup page" do
           before { visit signup_path }
 
-          it { should_not have_selector('title', text: '|') }
+          it { should_not have_title '|' }
           it { should have_selector('h1', text: 'Welcome to NiPaNiPa') }
         end
 
         describe "trying to edit another user" do
-          let(:wrong_user) { FactoryGirl.create(:user, email: "wrong@example.com") }
-          before { sign_in user }
-
-          describe "by visiting Users#edit page" do
-            before { visit edit_user_path(wrong_user) }
-            it { should_not have_selector('title', text: full_title('Edit user')) }
-          end
-
-          describe "by submitting a PUT request to the Users#update action" do
-            before { put user_path(wrong_user) }
-            specify { response.should redirect_to(root_path) }
-          end
-        end # trying to edit another user
+          let(:other_user) { FactoryGirl.create(:user) }
+          before { visit edit_user_path(other_user) }
+          it { should_not have_title full_title('Edit user') }
+        end
 
         describe "trying to leave feedback for themselves" do
-          describe "by visiting new feedback path" do
-            before { visit new_user_feedback_path(user) }
-            it { should_not have_selector('title', text: 'Leave feedback') }
-          end
-          describe "by submitting to the create action" do
-            before { post user_feedbacks_path(user) }
-            specify { response.should redirect_to(root_path) }
-          end
-        end # trying to leave feedback for themselves
+          before { visit new_user_feedback_path(user) }
+          it { should_not have_title 'Leave feedback' }
+        end
 
       end # signed-in users
 

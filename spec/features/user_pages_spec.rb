@@ -11,7 +11,7 @@ describe "User Pages" do
       visit users_path
     end
 
-    it { should have_selector('title', text: 'All users') }
+    it { should have_title 'All users' }
     it { should have_selector('h1', text: 'All users') }
 
     describe "pagination" do
@@ -52,38 +52,42 @@ describe "User Pages" do
   describe "signup page" do
     before { visit signup_path }
 
-    it { should have_selector('h1',    text: 'Sign up') }
-    it { should have_selector('title', text: full_title('Sign up')) }
+    it { should have_selector('h1', text: 'Sign up') }
+    it { should have_title full_title('Sign up') }
   end
 
   describe "profile page" do
-    let(:recipient) { FactoryGirl.create(:user) }
+    let(:user)      { FactoryGirl.create(:user) }
     let(:sender1)   { FactoryGirl.create(:user) }
     let(:sender2)   { FactoryGirl.create(:user) }
     let!(:r1) { FactoryGirl.create(:feedback,
                                    sender: sender1,
-                                   recipient: recipient,
+                                   recipient: user,
                                    content: "Amazing stay. Thanks!") }
     let!(:r2) { FactoryGirl.create(:feedback,
                                    sender: sender2,
-                                   recipient: recipient,
+                                   recipient: user,
                                    content: "Woooow!! That was fun!!!") }
 
-    before { visit user_path(recipient) }
+    before { visit user_path(user) }
 
-    it { should have_selector('h1',    text: recipient.name) }
-    it { should have_selector('title', text: recipient.name) }
+    it { should have_selector('h1', text: user.name) }
+    it { should have_title user.name }
+
+    describe "description" do
+      it { should have_content(user.description) }
+    end
 
     describe "feedbacks" do
       it { should have_content(r1.content) }
       it { should have_content(r2.content) }
-      it { should have_content(recipient.received_feedbacks.count) }
+      it { should have_content(user.received_feedbacks.count) }
     end
 
     describe "when user signed in and looking at its own profile" do
       before do
-        sign_in recipient
-        visit user_path(recipient)
+        sign_in user
+        visit user_path(user)
       end
       it { should_not have_link('Leave feedback') }
       it { should_not have_link('Contact user') }
@@ -95,11 +99,9 @@ describe "User Pages" do
 
     before { visit signup_path }
 
-    let(:submit) { "Create my account" }
+    let(:submit) { 'Create my account' }
 
     describe "with invalid information" do
-      before { fill_profile "user1", "nipanipa.test+user1", "123456" }
-
       it "should not create a user" do
         expect { click_button submit }.not_to change(User, :count)
       end
@@ -107,13 +109,19 @@ describe "User Pages" do
       describe "after submission" do
         before { click_button submit }
 
-        it { should have_selector('title', text: 'Sign up') }
+        it { should have_title 'Sign up' }
         it { should have_content('error') }
       end
     end
 
     describe "with valid information" do
-      before { fill_profile "user1", "nipanipa.test+user1@gmail.com", "123456" }
+      before { fill_signin_info "exampleUser",
+                                #"nipanipa.test+exampleUser@gmail.com",
+                                "exampleUser@example.com",
+                                "123456"
+               fill_in "Personal description", with: 'Nice description of me'
+               check 'work_type_9'
+      }
 
       it "should create a user" do
         expect { click_button submit }.to change(User, :count).by(1)
@@ -123,7 +131,7 @@ describe "User Pages" do
         before { click_button submit }
         let(:user) { User.find_by_email('nipanipa.test+user1@gmail.com') }
 
-        it { should have_selector('title', text: user.name) }
+        it { should have_title user.name }
         it { should have_success_message('Welcome') }
         it { should have_link('Sign out') }
       end
@@ -142,7 +150,7 @@ describe "User Pages" do
 
     describe "page" do
       it { should have_selector('h1', text: "Update your profile") }
-      it { should have_selector('title', text: "Edit user") }
+      it { should have_title 'Edit user' }
       it { should have_link('change', href: "http://gravatar.com/emails") }
     end
 
@@ -155,11 +163,13 @@ describe "User Pages" do
       let(:new_name) { "New name" }
       let(:new_email) { "new@example.com" }
       before do
-        fill_profile new_name, new_email, user.password
+        fill_signin_info new_name, new_email, user.password
+        fill_in "Personal description", with: user.description
+        check 'work_type_15'
         click_button submit
       end
 
-      it { should have_selector('title', text: new_name) }
+      it { should have_title new_name }
       it { should have_selector('div.alert.alert-success') }
       it { should have_link('Sign out', href: signout_path) }
       specify { user.reload.name.should  == new_name  }

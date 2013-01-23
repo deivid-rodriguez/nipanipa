@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: feedbacks
+#
+#  id           :integer          not null, primary key
+#  content      :string(255)
+#  sender_id    :integer
+#  recipient_id :integer
+#  score        :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
 class Feedback < ActiveRecord::Base
   attr_accessible :content, :score
 

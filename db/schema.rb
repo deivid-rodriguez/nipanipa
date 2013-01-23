@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130116014646) do
+ActiveRecord::Schema.define(:version => 20130122113323) do
 
   create_table "feedbacks", :force => true do |t|
     t.string   "content"
@@ -23,7 +23,17 @@ ActiveRecord::Schema.define(:version => 20130116014646) do
   end
 
   add_index "feedbacks", ["recipient_id", "updated_at"], :name => "index_feedbacks_on_recipient_id_and_updated_at"
+  add_index "feedbacks", ["sender_id", "recipient_id"], :name => "index_feedbacks_on_sender_id_and_recipient_id", :unique => true
   add_index "feedbacks", ["sender_id", "updated_at"], :name => "index_feedbacks_on_sender_id_and_updated_at"
+
+  create_table "sectorizations", :force => true do |t|
+    t.integer "user_id"
+    t.integer "work_type_id"
+  end
+
+  add_index "sectorizations", ["user_id", "work_type_id"], :name => "index_sectorizations_on_user_id_and_work_type_id", :unique => true
+  add_index "sectorizations", ["user_id"], :name => "index_sectorizations_on_user_id"
+  add_index "sectorizations", ["work_type_id"], :name => "index_sectorizations_on_work_type_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -33,9 +43,15 @@ ActiveRecord::Schema.define(:version => 20130116014646) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.boolean  "admin",           :default => false
+    t.text     "description"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
+
+  create_table "work_types", :force => true do |t|
+    t.string "name"
+    t.string "description"
+  end
 
 end

@@ -7,7 +7,7 @@ gem 'will_paginate', '3.0.3'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
-  gem 'rspec-rails', '2.11.0'
+  gem 'rspec-rails', '2.12.2'
   gem 'guard-rspec', '1.2.1'
   gem 'guard-spork', '1.2.0'
 end
@@ -29,7 +29,8 @@ end
 gem 'jquery-rails', '2.0.2'
 
 group :test do
-  gem 'capybara', '1.1.2'
+  gem 'capybara', '2.0.1'
+  gem 'launchy', '2.1.2'
   gem 'rb-inotify', '0.8.8'
   gem 'libnotify', '0.5.9'
   gem 'factory_girl_rails', '4.1.0'
