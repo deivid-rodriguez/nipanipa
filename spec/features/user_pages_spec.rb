@@ -4,50 +4,52 @@ describe "User Pages" do
 
   subject { page }
 
-  describe "index" do
-    let(:user) { FactoryGirl.create(:user) }
-    before(:each) do
-      sign_in user
-      visit users_path
-    end
+  # I don't think there'll be user index at all...
 
-    it { should have_title 'All users' }
-    it { should have_selector('h1', text: 'All users') }
+  #describe "index" do
+  #  let(:user) { FactoryGirl.create(:user) }
+  #  before(:each) do
+  #    sign_in user
+  #    visit users_path
+  #  end
 
-    describe "pagination" do
-      before(:all) { 30.times { FactoryGirl.create(:user) } }
-      after(:all)  { User.delete_all }
+  #  it { should have_title 'All users' }
+  #  it { should have_selector('h1', text: 'All users') }
 
-      it { should have_selector('div.pagination') }
+  #  describe "pagination" do
+  #    before(:all) { 30.times { FactoryGirl.create(:user) } }
+  #    after(:all)  { User.delete_all }
 
-      it "should list each user" do
-        User.paginate(page: 1).each do |user|
-          page.should have_selector('li', text: user.name)
-        end
-      end
+  #    it { should have_selector('div.pagination') }
 
-    end # pagination
+  #    it "should list each user" do
+  #      User.paginate(page: 1).each do |user|
+  #        page.should have_selector('li', text: user.name)
+  #      end
+  #    end
 
-    describe "delete links" do
-      it { should_not have_link('delete') }
+  #  end # pagination
 
-      describe "as an admin user" do
-        let(:admin) { FactoryGirl.create(:admin) }
-        before do
-          sign_in admin
-          visit users_path
-        end
+  #  describe "delete links" do
+  #    it { should_not have_link('delete') }
 
-        it { should have_link('delete', href: user_path(User.first)) }
-        it "should be able to delete another user" do
-          expect { click_link('delete').to change(User, :count).by(-1) }
-        end
-        it { should_not have_link('delete', href: user_path(admin)) }
-      end
+  #    describe "as an admin user" do
+  #      let(:admin) { FactoryGirl.create(:admin) }
+  #      before do
+  #        sign_in admin
+  #        visit users_path
+  #      end
 
-    end # delete links
+  #      it { should have_link('delete', href: user_path(User.first)) }
+  #      it "should be able to delete another user" do
+  #        expect { click_link('delete').to change(User, :count).by(-1) }
+  #      end
+  #      it { should_not have_link('delete', href: user_path(admin)) }
+  #    end
 
-  end # index
+  #  end # delete links
+
+  #end # index
 
   describe "signup page" do
     before { visit signup_path }
@@ -115,9 +117,8 @@ describe "User Pages" do
     end
 
     describe "with valid information" do
-      before { fill_signin_info "exampleUser",
-                                #"nipanipa.test+exampleUser@gmail.com",
-                                "exampleUser@example.com",
+      before { fill_signin_info "user1",
+                                "nipanipa.test+user1@gmail.com",
                                 "123456"
                fill_in "Personal description", with: 'Nice description of me'
                check 'work_type_9'
@@ -139,6 +140,7 @@ describe "User Pages" do
     end # with valid information
 
   end # signup
+
 
   describe "edit" do
     let(:user) { FactoryGirl.create(:user) }
@@ -166,6 +168,7 @@ describe "User Pages" do
         fill_signin_info new_name, new_email, user.password
         fill_in "Personal description", with: user.description
         check 'work_type_15'
+        check 'work_type_3'
         click_button submit
       end
 
@@ -174,6 +177,7 @@ describe "User Pages" do
       it { should have_link('Sign out', href: signout_path) }
       specify { user.reload.name.should  == new_name  }
       specify { user.reload.email.should == new_email }
+      specify { user.reload.work_type_ids.should == [3, 15] }
     end
 
   end # edit

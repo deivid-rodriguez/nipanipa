@@ -15,6 +15,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+    #params[:work_type_ids].each do |work_type_id|
+    #  @user.sectorizations.build(work_type_id: work_type_id)
+    #end
     if @user.save
       sign_in @user
       flash[:success] = "Welcome to NiPaNiPa!"
