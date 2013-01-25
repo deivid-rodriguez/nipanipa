@@ -4,13 +4,7 @@ Nipanipa::Application.routes.draw do
   # match 'users/:id' => 'feedbacks#create', via: :post, as: :user_feedbacks
   # This route can be invoked with user_feedbacks_url(:id => user.id)
 
-  if Rails.env.test?
-    defaults = {:locale => nil}
-  else
-    defaults = {}
-  end
-
-  scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
+  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
 
     resources :users do
       resources :feedbacks, only: [:new, :create, :index, :destroy]
@@ -28,16 +22,6 @@ Nipanipa::Application.routes.draw do
 
     root :to => 'static_pages#home'
   end
-
-  match '*path',
-    to: redirect {
-      |params,request| "/#{I18n.default_locale}/#{CGI::unescape(params[:path])}"
-    },
-    constraints: lambda {
-      |req| !req.path.starts_with? "/#{I18n.default_locale}/"
-    }
-
-  root to: redirect("/#{I18n.default_locale}")
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -68,8 +52,4 @@ Nipanipa::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
 end

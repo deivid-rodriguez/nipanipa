@@ -20,6 +20,19 @@
   border-radius: 4px;
 }
 
+fieldset {
+  legend {
+    width: auto;
+    padding: .6em;
+    font: {
+      size: 16px;
+      weight: bold;
+    }
+  }
+  border: solid 1px #CCC;
+  padding: 2em;
+}
+
 label {
   font: {
     size: 15px;

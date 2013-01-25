@@ -1,48 +1,61 @@
 <%= render 'shared/error_messages', object: f.object %>
 
-<!--
-<div class="subcolumns" id="profile_subcolumns">
-  <div class="c33l">
-  <%= field_set_tag t('users.new.login_info') do %>-->
-
-<div class="signup-field">
-  <%= f.label :name, t('users.new.name') %>
-  <%= f.text_field :name %>
-</div>
-
-<div class="signup-field">
-  <%= f.label :email, t('users.new.email') %>
-  <%= f.text_field :email %>
-</div>
-
-<div class="signup-field">
-  <%= f.label :password, t('users.new.password') %>
-  <%= f.password_field :password %>
-</div>
-
-<div class="signup-field">
-  <%= f.label :password_confirmation, t('users.new.password_confirmation') %>
-  <%= f.password_field :password_confirmation %>
-</div>
-<!--  <% end %>
-  <div class="c33l">
-  <%= field_set_tag t('users.new.personal_info') do %>
-    <%= f.label :description, t('users.new.personal_desc') %>
-    <%= f.text_area :description %>
-  <% end %>
+<%= field_set_tag t('users.new.login_info') do %>
+  <div class="signup-field">
+    <%= f.label :name, t('users.new.name') %>
+    <%= f.text_field :name %>
   </div>
-  <div class="c33r">
-  <%= field_set_tag t('users.new.work_info') do %>
-    <%= f.label :work_types, t('users.new.work_type') %><br>
-    <%= hidden_field_tag 'user[work_type_ids][]', nil %>
-    <% WorkType.all.each do |work_type| %>
-      <%= check_box_tag 'user[work_type_ids][]',
-                        work_type.id,
-                        @user.work_type_ids.include?(work_type.id),
-                        id: dom_id(work_type) %>
-      <%= label_tag dom_id(work_type), t("users.new.#{work_type.name}") %><br>
+
+  <div class="signup-field">
+    <%= f.label :email, t('users.new.email') %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="signup-field">
+    <%= f.label :password, t('users.new.password') %>
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="signup-field">
+    <%= f.label :password_confirmation, t('users.new.password_confirmation') %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+<% end %>
+
+<%= field_set_tag t('users.new.location') do %>
+  <div class="signup-field">
+    <%= f.fields_for :location do |l| %>
+      <%= l.label :address, t('users.new.location_label') %>
+      <%= l.text_field :address %>
     <% end %>
-  <% end %>
   </div>
-</div>
--->
+<% end %>
+
+<% if false %>
+
+<%= field_set_tag t('users.new.personal_info') do %>
+  <div class="signup-field">
+    <%= f.label :description, t('users.new.personal_desc') %>
+    <%= text_area :description %>
+  </div>
+<% end %>
+
+<%= field_set_tag t('users.new.work_info') do %>
+ <div class="signup-field">
+   <%= f.label :work, t('users.new.work') %>
+   <%= f.text_area :work %>
+ </div>
+ <div class="signup-field">
+   <%= f.label :work_types, t('users.new.work_type') %><br>
+   <%= hidden_field_tag 'user[work_type_ids][]', nil %>
+   <% WorkType.all.each do |work_type| %>
+     <%= check_box_tag 'user[work_type_ids][]',
+                       work_type.id,
+                       @user.work_type_ids.include?(work_type.id),
+                       id: dom_id(work_type) %>
+     <%= label_tag dom_id(work_type), t("users.new.#{work_type.name}") %><br>
+   <% end %>
+ </div>
+<% end %>
+
+<% end %>

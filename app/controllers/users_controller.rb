@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  layout 'user_new', only: :new
+  layout 'user_new', only: [:new, :create]
 
   before_filter :signed_in_user,     only: [:index, :edit, :update, :destroy]
   before_filter :same_user,          only: [:edit, :update]
@@ -17,9 +17,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    #params[:work_type_ids].each do |work_type_id|
-    #  @user.sectorizations.build(work_type_id: work_type_id)
-    #end
     if @user.save
       sign_in @user
       flash[:success] = "Welcome to NiPaNiPa!"
@@ -31,6 +28,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @user.build_location
   end
 
   def edit

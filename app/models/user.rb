@@ -18,6 +18,9 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+  belongs_to :location
+  accepts_nested_attributes_for :location
+
   has_many :sectorizations
   has_many :work_types, through: :sectorizations
 
@@ -44,9 +47,7 @@ class User < ActiveRecord::Base
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   validates :description, length: { maximum: 1000 }
-  validates :password, length: { minimum: 6 }
-  validates :password_confirmation, presence: true, length: { minimum: 6 }
-
+  validates :password, presence: true, length: { minimum: 6 }
 
   private
 

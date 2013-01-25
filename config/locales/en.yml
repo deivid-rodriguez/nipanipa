@@ -4,7 +4,7 @@
 en:
   static_pages:
     help:
-      help: "Help"
+      title: "Help"
       uhost?: "Are you a host?"
       uvolunteer?: "Are you a volunteer?"
     about:
@@ -25,6 +25,7 @@ nipanipa.test@gmail.com!"
     show:
       profile: "My profile"
       leave_feedback: "Leave feedback"
+      contact_user: "Contact user"
     new:
       title: "Sign up"
       header: "Register now! It takes 30 seconds."
@@ -52,3 +53,16 @@ nipanipa.test@gmail.com!"
     attributes:
       user:
         password_digest: "Password"
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+             confirmation: "Password and confirmation do not match"
+            name:
+              blank: "Es obligatorio especificar un nombre de usuario"
+            email:
+              taken: "That email address is already taken"
+            password_confirmation:
+              blank: "Password confirmation can't be blank"
+              too_short: "Password confirmation is too short"

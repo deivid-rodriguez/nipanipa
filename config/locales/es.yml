@@ -25,6 +25,7 @@ nipanipa.test@gmail.com"
     show:
       profile: "Mi perfil"
       leave_feedback: "Dejar una referencia"
+      contact_user: "Contactar con el usuario"
     new:
       title: "Regístrate"
       header: "Regístrate en un pliki!"
@@ -52,3 +53,16 @@ nipanipa.test@gmail.com"
     attributes:
       user:
         password_digest: "Contraseña"
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              confirmation: "La contraseña y su confirmación no coinciden"
+            name:
+              blank: "Es obligatorio especificar un nombre de usuario"
+            email:
+              taken: "Ese correo electrónico ya existe en NiPaNiPa"
+            password_confirmation:
+              blank: "La confirmación de la contraseña está vacía"
+              too_short: "La confirmación de la contraseña es demasiado corta"
