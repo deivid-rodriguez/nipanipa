@@ -4,7 +4,7 @@ def sign_in(user)
   visit signin_path
   fill_in "Email",    with: user.email
   fill_in "Password", with: user.password
-  click_button "Sign in"
+  click_button t('sessions.signin')
 end
 
 # Access fiels by "name" because content is ambiguous
@@ -14,7 +14,6 @@ def fill_signin_info(name, email, password)
   fill_in 'user[password]'             , with: password
   fill_in 'user[password_confirmation]', with: password
 end
-
 
 RSpec::Matchers.define :have_error_message do |message|
   match do |page|
@@ -33,3 +32,5 @@ RSpec::Matchers.define :have_title do |text|
     Capybara.string(page.body).has_selector?('title', text: text)
   end
 end
+
+

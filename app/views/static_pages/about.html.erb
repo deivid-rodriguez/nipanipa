@@ -1,12 +1,6 @@
-<% provide(:title,'About Us') %>
-<h1>About Us</h1>
-<h2>What NiPaNiPa is not</h2>
+<% provide :title, t('.title') %>
+<h1><%= t '.title' %></h1>
 
-<dl>
-  <dl>NiPaNiPa is not CouchSurfing</dl>
-  <dd>Both sides have to GIVE something. Volunteer gives his work, host gives
-  food and accomodation. This is not mandatory is CS.</dd>
-  <dl>NiPaNiPa is not Wwoof</dl>
-  <dd>NiPaNiPa is completely free of charge, and is not restricted to organic
-  farms</dd>
-</dl>
+<p>
+  <%= t '.description' %>
+</p>

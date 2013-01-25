@@ -195,11 +195,6 @@ describe User do
 
   end # feedbacks association
 
-  describe "when description not present" do
-    before { user.description = '' }
-    it { should_not be_valid }
-  end
-
   describe "when description too long" do
     before { user.description = 'a' * 1001 }
     it { should_not be_valid }

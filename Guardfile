@@ -3,7 +3,8 @@
 #
 require 'active_support/core_ext'
 
-guard 'spork', :cucumber => false, :rspec_env => { 'RAILS_ENV' => 'test' } do
+guard 'spork', :cucumber => false,
+               :rspec => true, :rspec_env => { 'RAILS_ENV' => 'test' } do
   watch('config/application.rb')
   watch('config/environment.rb')
   watch(%r{^config/environments/.+\.rb$})
@@ -12,7 +13,7 @@ guard 'spork', :cucumber => false, :rspec_env => { 'RAILS_ENV' => 'test' } do
   watch('Gemfile.lock')
   watch('spec/spec_helper.rb')
   watch('test/test_helper.rb')
-  watch('spec/support/')
+  watch(%r{^spec/support/.+\.rb$})
 end
 
 guard 'rspec', :version => 2, :all_after_pass => false, :cli => '--drb' do

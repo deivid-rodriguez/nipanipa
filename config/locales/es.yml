@@ -1,0 +1,54 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+es:
+  static_pages:
+    help:
+      title: "Ayuda"
+      uhost?: "¿Eres host?"
+      uvolunteer?: "¿Eres voluntario?"
+    about:
+      title: "Quiénes Somos"
+      description: "Somos una asociación con base en Alemania y España de
+diseñadores y programadores web. También somos viajeros apasionados y sentimos
+que nos faltaba algo antes de NiPaNiPa. Por eso la hicimos. Disfrutad!"
+    contact:
+      title: "Contacto"
+      description: "Ponte en contacto con nosotros mandando un email a
+nipanipa.test@gmail.com"
+    home:
+      welcome: "Bienvenido a NiPaNiPa"
+      subtitle: "Contacta a voluntarios y hosts de todo el mundo"
+      host: "Soy host"
+      volunteer: "Soy voluntario"
+  users:
+    show:
+      profile: "Mi perfil"
+      leave_feedback: "Dejar una referencia"
+    new:
+      title: "Regístrate"
+      header: "Regístrate en un pliki!"
+      already_registered: "¿Ya estás registrado?"
+      name: "Nombre de usuario"
+      email: "Correo electrónico"
+      password: "Contraseña"
+      password_confirmation: "Confirmar contraseña"
+      personal_info: "Información Personal"
+      personal_desc: "Sobre ti"
+      work_info: "Información sobre el Trabajo"
+      work_type: "Tipo de trabajo"
+      submit: "Crear mi cuenta!"
+  sessions:
+    new:
+      newuser?: "¿Nuevo usuario?"
+    signin: "Acceder"
+    signout: "Salir"
+  layouts:
+    header:
+      language: "Idioma"
+    footer:
+      news: "Noticias"
+  activerecord:
+    attributes:
+      user:
+        password_digest: "Contraseña"

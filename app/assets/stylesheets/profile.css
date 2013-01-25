@@ -26,7 +26,6 @@ body {
 #col3_content{
     padding: 1em 0 3em 3em;
     margin: 0;
-    background:transparent url(../../images/bg_col3.png) no-repeat scroll 0 0;
 }
 
 #col3_content h1 {
@@ -50,14 +49,9 @@ body {
 }
 
 #navigation-path {
-    margin: 0 0 0.5em 0;
+  margin: 0 0 0.5em 0;
 }
 
-#profile_pic {
-   /* background: transparent url(../../images/pic_shadow.png) no-repeat left top; */
-    padding:1em 0 1.5em 0;
-    width:150px;
-}
 #profile-info {
     padding: 0 0 1em 0;
 }
@@ -161,7 +155,7 @@ body {
 #profile_linklist {
     padding: 0 0;
     list-style-type: none;
-    margin: 0 0;
+    margin-top: 30px;
 }
 #profile_linklist li {
     color: #333;

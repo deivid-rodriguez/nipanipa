@@ -5,19 +5,22 @@
   <div id="col1">
 
     <div id="col1_content" class="clearfix">
-      <div id="profile_pic">
+      <div>
+        <%= gravatar_for @user, size: 150 %>
+      </div>
+        <!-- TODO: activate fancy zoom
         <a href="members/avatar/deivid?500" id="profile_image"><%=
           gravatar_for @user, size: 150 %></a>
         <div id="profile_image_zoom_content" class="hidden" style="display: none;">
           <img src="members/avatar/deivid?500" alt="Picture of deivid">
-        </div> <!-- Activate fancy zoom like bewelcome -->
-      </div> <!-- profile_pic -->
+        </div>-->
+
       <ul class="linklist" id="profile_linklist">
         <% if !current_user?(@user) %>
         <li id="sub0" class="editmyprofile">
-          <%= link_to 'Leave feedback', new_user_feedback_path(@user.id) %>
+          <%= link_to t('.leave_feedback'), new_user_feedback_path(@user.id) %>
         </li>
-        <li><%= link_to 'Contact user', '#' %></li>
+        <li><%= link_to t('.contact_user'), '#' %></li>
         <% end %>
         <li id="sub1" class="mypreferences">
           <a style="cursor:pointer;" href="mypreferences"><span>Mis preferencias</span></a></li>
@@ -25,8 +28,6 @@
           <a style="cursor:pointer;" href="myvisitors"><span>Visitas en mi perfil</span></a></li>
         <li id="sub3" class="space">
           <a style="cursor:pointer;" href=""><span></span></a></li>
-        <li id="sub5" class="">
-          <a style="cursor:pointer;" href="members/deivid/comments"><span>Comentarios (0)</span></a></li>
         <li id="sub6" class="">
           <a style="cursor:pointer;" href="gallery/show/user/deivid/pictures"><span>Galería (0)</span></a></li>
       </ul>
@@ -60,7 +61,7 @@
             <div class="subcl">
               <div id="jobsummary" class="floatbox box">
                 <span class="float_right profile-edit-link">
-                  <a href="/editmyprofile">Editar</a>
+                  <%= link_to "Editar", edit_user_path(@user.id) %>
                 </span>
                 <h3 class="icon info22">Descripción del Trabajo</h3>
                 <p>We require help with maintaining our land, pointing /
@@ -90,7 +91,7 @@
 
               <div id="personaldescription" class="floatbox box">
                 <span class="float_right profile-edit-link">
-                  <a href="/editmyprofile">Editar</a>
+                  <%= link_to "Editar", edit_user_path(@user.id) %>
                 </span>
                 <h3 class="icon info22">Sobre mí</h3>
                   <%= @user.description %>
@@ -98,7 +99,7 @@
 
               <div id="languages" class="floatbox box">
                 <span class="float_right profile-edit-link">
-                  <a href="/editmyprofile">Editar</a>
+                  <%= link_to "Editar", edit_user_path(@user.id) %>
                 </span>
                 <h3>Idiomas</h3>
                 <ul class="icon profile_languages"></ul>

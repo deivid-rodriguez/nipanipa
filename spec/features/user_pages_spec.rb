@@ -4,58 +4,27 @@ describe "User Pages" do
 
   subject { page }
 
-  # I don't think there'll be user index at all...
-
-  #describe "index" do
-  #  let(:user) { FactoryGirl.create(:user) }
-  #  before(:each) do
-  #    sign_in user
-  #    visit users_path
-  #  end
-
-  #  it { should have_title 'All users' }
-  #  it { should have_selector('h1', text: 'All users') }
-
+  # Save pagination test for searches
+  #
   #  describe "pagination" do
   #    before(:all) { 30.times { FactoryGirl.create(:user) } }
   #    after(:all)  { User.delete_all }
-
+  #
   #    it { should have_selector('div.pagination') }
-
+  #
   #    it "should list each user" do
   #      User.paginate(page: 1).each do |user|
   #        page.should have_selector('li', text: user.name)
   #      end
   #    end
-
+  #
   #  end # pagination
-
-  #  describe "delete links" do
-  #    it { should_not have_link('delete') }
-
-  #    describe "as an admin user" do
-  #      let(:admin) { FactoryGirl.create(:admin) }
-  #      before do
-  #        sign_in admin
-  #        visit users_path
-  #      end
-
-  #      it { should have_link('delete', href: user_path(User.first)) }
-  #      it "should be able to delete another user" do
-  #        expect { click_link('delete').to change(User, :count).by(-1) }
-  #      end
-  #      it { should_not have_link('delete', href: user_path(admin)) }
-  #    end
-
-  #  end # delete links
-
-  #end # index
 
   describe "signup page" do
     before { visit signup_path }
 
-    it { should have_selector('h1', text: 'Sign up') }
-    it { should have_title full_title('Sign up') }
+    it { should have_selector 'h1', text: t('users.new.header') }
+    it { should have_title full_title(t 'users.new.title') }
   end
 
   describe "profile page" do
@@ -91,8 +60,8 @@ describe "User Pages" do
         sign_in user
         visit user_path(user)
       end
-      it { should_not have_link('Leave feedback') }
-      it { should_not have_link('Contact user') }
+      it { should_not have_link t('users.show.leave_feedback') }
+      it { should_not have_link t('users.show.contact_user') }
     end
 
   end # profile page
@@ -101,7 +70,7 @@ describe "User Pages" do
 
     before { visit signup_path }
 
-    let(:submit) { 'Create my account' }
+    let(:submit) { t 'users.new.submit' }
 
     describe "with invalid information" do
       it "should not create a user" do
@@ -111,7 +80,7 @@ describe "User Pages" do
       describe "after submission" do
         before { click_button submit }
 
-        it { should have_title 'Sign up' }
+        it { should have_title t('users.new.title') }
         it { should have_content('error') }
       end
     end
@@ -120,8 +89,8 @@ describe "User Pages" do
       before { fill_signin_info "user1",
                                 "nipanipa.test+user1@gmail.com",
                                 "123456"
-               fill_in "Personal description", with: 'Nice description of me'
-               check 'work_type_9'
+#              fill_in "Personal description", with: 'Nice description of me'
+#              check 'work_type_9'
       }
 
       it "should create a user" do
@@ -134,7 +103,7 @@ describe "User Pages" do
 
         it { should have_title user.name }
         it { should have_success_message('Welcome') }
-        it { should have_link('Sign out') }
+        it { should have_link(t('sessions.signout')) }
       end
 
     end # with valid information
@@ -166,18 +135,18 @@ describe "User Pages" do
       let(:new_email) { "new@example.com" }
       before do
         fill_signin_info new_name, new_email, user.password
-        fill_in "Personal description", with: user.description
-        check 'work_type_15'
-        check 'work_type_3'
+#       fill_in "Personal description", with: user.description
+#       check 'work_type_15'
+#       check 'work_type_3'
         click_button submit
       end
 
       it { should have_title new_name }
       it { should have_selector('div.alert.alert-success') }
-      it { should have_link('Sign out', href: signout_path) }
+      it { should have_link t('sessions.signout'), href: signout_path }
       specify { user.reload.name.should  == new_name  }
       specify { user.reload.email.should == new_email }
-      specify { user.reload.work_type_ids.should == [3, 15] }
+#     specify { user.reload.work_type_ids.should == [3, 15] }
     end
 
   end # edit

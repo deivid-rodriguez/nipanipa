@@ -1,19 +1,24 @@
-<% provide(:title, "Sign in") %>
-<h1>Sign in</h1>
+<% provide :title, t('sessions.signin') %>
+<h1><%= t 'sessions.signin' %></h1>
 
 <div class="row">
   <div class="span6 offset3">
+
     <%= form_tag sessions_path do %>
 
-      <%= label_tag :email %>
-      <%= text_field_tag :email %>
+      <div class="signup-field">
+        <%= label_tag :email %>
+        <%= text_field_tag :email %>
+      </div>
 
-      <%= label_tag :password %>
-      <%= password_field_tag :password %>
+      <div class="signup-field">
+        <%= label_tag :password %>
+        <%= password_field_tag :password %>
+      </div>
 
-      <%= submit_tag "Sign in", class: "btn btn-large btn-primary" %>
+      <%= submit_tag t('sessions.signin'), class: "btn btn-large btn-primary" %>
     <% end %>
 
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+    <p><%= t '.newuser?' %> <%= link_to t('users.new.title'), signup_path %></p>
   </div>
 </div>

@@ -15,7 +15,10 @@ $grayMediumLight: #eaeaea;
 
 html { overflow-y: scroll; }
 
-body { padding-top: 60px; }
+body {
+  padding-top: 60px;
+  width: 100%
+}
 
 section { overflow: auto; }
 
@@ -94,6 +97,27 @@ p { font-size: 1.1em; line-height: 1.7em; }
   }
 }
 
+/* overriding bootstrap sass */
+.dropdown-menu {
+  min-width: 50px;
+  padding: 5px 10px;
+  li {
+    a {
+      padding: 0;
+    }
+  }
+}
+
+header {
+  background-color: green;
+}
+
+/*
+.container {
+  background: white;
+}
+
+*/
 
 /* footer */
 
@@ -163,12 +187,9 @@ input, textarea, select, .uneditable-input {
   @include box_sizing;
 }
 
-label {
-  display: inline;
-}
-
 input {
   height: auto !important;
+  display: block;
 }
 
 #error_explanation {

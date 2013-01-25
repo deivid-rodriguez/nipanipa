@@ -8,8 +8,9 @@ gem 'will_paginate', '3.0.3'
 group :development, :test do
   gem 'sqlite3', '1.3.5'
   gem 'rspec-rails', '2.12.2'
-  gem 'guard-rspec', '1.2.1'
-  gem 'guard-spork', '1.2.0'
+  gem 'guard-rspec', '2.4.0'
+  gem 'guard-spork', '1.4.1'
+  gem 'spork', '0.9.2'
 end
 
 group :development do
@@ -29,7 +30,7 @@ end
 gem 'jquery-rails', '2.0.2'
 
 group :test do
-  gem 'capybara', '2.0.1'
+  gem 'capybara', '2.0.2'
   gem 'launchy', '2.1.2'
   gem 'rb-inotify', '0.8.8'
   gem 'libnotify', '0.5.9'

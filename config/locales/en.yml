@@ -2,6 +2,52 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  static_pages:
+    help:
+      help: "Help"
+      uhost?: "Are you a host?"
+      uvolunteer?: "Are you a volunteer?"
+    about:
+      title: "About Us"
+      description: "We are a Germany and Spain based association of both web
+designers and web programmers. We are also passionate travelers and feel
+something was missing before NiPaNiPa. That's why we did it. Enjoy!"
+    contact:
+      contact: "Contact"
+      description: "Get in touch with us by sending an e-mail to
+nipanipa.test@gmail.com!"
+    home:
+      welcome: 'Welcome to NiPaNiPa'
+      subtitle: 'Contacts hosts and volunteers around the world'
+      host: "I'm a host"
+      volunteer: "I'm a volunteer"
+  users:
+    show:
+      profile: "My profile"
+      leave_feedback: "Leave feedback"
+    new:
+      title: "Sign up"
+      header: "Register now! It takes 30 seconds."
+      already_registered: "¿Already registered?"
+      name: "Name"
+      email: "Email"
+      password: "Password"
+      password_confirmation: "Password confirmation"
+      personal_info: "Personal Information"
+      personal_desc: "About you"
+      work_info: "Work Information"
+      work_type: "Type of Work"
+      submit: "Sign up!"
+  sessions:
+    new:
+      newuser?: "New user?"
+    signin: "Sign in"
+    sigout: "Sign out"
+  layouts:
+    header:
+      language: "Language"
+    footer:
+      news: "News"
   activerecord:
     attributes:
       user:

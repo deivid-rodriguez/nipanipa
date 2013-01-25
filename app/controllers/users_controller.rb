@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  layout 'user_new', only: :new
+
   before_filter :signed_in_user,     only: [:index, :edit, :update, :destroy]
   before_filter :same_user,          only: [:edit, :update]
   before_filter :not_signed_in_user, only: [:new, :create]

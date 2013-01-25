@@ -5,10 +5,10 @@
   </small>
   <nav>
     <ul>
-      <li><%= link_to "About",   about_path %></li>
-      <li><%= link_to "Contact", contact_path %></li>
+      <li><%= link_to t('static_pages.about.title')  , about_path   %></li>
+      <li><%= link_to t('static_pages.contact.title'), contact_path %></li>
       <li>
-        <%= link_to "News", 'http://trasteverestudio.blogspot.com.es/' %>
+        <%= link_to t('layouts.footer.news'), 'http://trasteverestudio.blogspot.com.es/' %>
       </li>
     </ul>
   </nav>

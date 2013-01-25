@@ -1,23 +1,25 @@
 require 'spec_helper'
 
 describe "Authentication" do
+  let(:signin)  { t 'sessions.signin'  }
+  let(:signout) { t 'sessions.signout' }
 
   subject { page }
 
   describe "signin page" do
     before { visit signin_path }
 
-    it { should have_selector('h1', text: 'Sign in') }
-    it { should have_title 'Sign in' }
+    it { should have_selector 'h1', text: signin }
+    it { should have_title signin }
   end
 
   describe "signin" do
     before { visit signin_path }
 
     describe "with invalid information" do
-      before { click_button "Sign in" }
+      before { click_button signin }
 
-      it { should have_title 'Sign in' }
+      it { should have_title signin }
       it { should have_error_message('Invalid') }
       describe "after visiting another page" do
         before { click_link "NiPaNiPa" }
@@ -26,20 +28,21 @@ describe "Authentication" do
     end # with invalid information
 
     describe "with valid information" do
+      let(:profile) { t 'users.show.profile' }
       let(:user) { FactoryGirl.create(:user) }
       before { sign_in user }
 
       it { should have_title user.name }
-      it { should have_link('Profile', href: user_path(user)) }
-      it { should have_link('Sign out', href: signout_path) }
-      it { should_not have_link('Sign in', href: signin_path) }
+      it { should have_link profile, href: user_path(user) }
+      it { should have_link signout, href: signout_path }
+      it { should_not have_link signin, href: signin_path }
 
       describe "followed by signout" do
-        before { click_link "Sign out" }
+        before { click_link signout }
 
-        it { should have_link('Sign in') }
-        it { should_not have_link('Profile') }
-        it { should_not have_link('Sign out') }
+        it { should have_link signin }
+        it { should_not have_link t('users.show.profile') }
+        it { should_not have_link signout }
       end
 
     end # with valid information
@@ -66,7 +69,7 @@ describe "Authentication" do
 
             describe "when signing in again" do
               before do
-                click_link "Sign out"
+                click_link signout
                 sign_in user
               end
               it "should render the default (profile) page" do
@@ -81,12 +84,12 @@ describe "Authentication" do
         describe "in the users controller" do
           describe "visiting the edit page" do
             before { visit edit_user_path(user) }
-            it { should have_title 'Sign in' }
+            it { should have_title signin }
           end
 
           describe "visiting the user index" do
             before { visit users_path }
-            it { should have_title 'Sign in' }
+            it { should have_title signin }
           end
         end # in the users controller
 
@@ -95,17 +98,17 @@ describe "Authentication" do
 
           describe "visiting the new feedback page" do
             before { visit new_user_feedback_path(user) }
-            it { should have_title 'Sign in' }
+            it { should have_title signin }
           end
 
-          describe "clicking the 'Leave feedback' link" do
-            before { click_link("Leave feedback") }
-            it { should have_title 'Sign in' }
+          describe "clicking leave feedback's link" do
+            before { click_link t('users.show.leave_feedback') }
+            it { should have_title signin }
           end
 
          #describe "clicking the 'Contact' link" do
          #  before { click_link("Contact") }
-         #  it { should have_title 'Sign in' }
+         #  it { should have_title signin }
          #end
 
         end
@@ -119,7 +122,7 @@ describe "Authentication" do
           before { visit signup_path }
 
           it { should_not have_title '|' }
-          it { should have_selector('h1', text: 'Welcome to NiPaNiPa') }
+          it { should have_selector 'h1', text: t('static_pages.home.welcome') }
         end
 
         describe "trying to edit another user" do
@@ -130,7 +133,7 @@ describe "Authentication" do
 
         describe "trying to leave feedback for themselves" do
           before { visit new_user_feedback_path(user) }
-          it { should_not have_title 'Leave feedback' }
+          it { should_not have_title t('users.show.leave_feedback') }
         end
 
       end # signed-in users

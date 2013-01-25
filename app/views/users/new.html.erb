@@ -1,9 +1,17 @@
-<% provide(:title,'Sign up') %>
-<h1>Sign up</h1>
+<% provide :title, t('.title') %>
 
-<div class="row">
-    <%= form_for(@user) do |f| %>
-      <%= render 'fields', f: f %>
-      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
-    <% end %>
+<div class="signup-form">
+
+  <div class="signin-tip">
+    <%= t '.already_registered' %>
+    <%= link_to t('sessions.signin'), signin_path %>
+  </div>
+
+  <h1><%= t '.header' %></h1>
+
+  <%= form_for @user do |f| %>
+    <%= render 'fields', f: f %>
+    <%= f.submit t('.submit'), class: "signup-button" %>
+  <% end %>
+
 </div>

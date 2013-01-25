@@ -1,10 +1,9 @@
 <div class="center hero-unit">
-  <h1>Welcome to NiPaNiPa</h1>
-  <h2>Contact farmers and volunteers around the world and learn more sustainable
-    ways of living</h2>
+  <h1><%= t '.welcome' %></h1>
+  <h2><%= t '.subtitle' %></h2>
 
-  <%= link_to "I'm a farmer", signup_path, class: "btn btn-large btn-primary" %>
-  <%= link_to "I'm a volunteer", signup_path, class: "btn btn-large btn-primary"  %>
+  <%= link_to t('.host'), signup_path, class: "btn btn-large btn-primary" %>
+  <%= link_to t('.volunteer'), signup_path, class: "btn btn-large btn-primary"  %>
 </div>
 
 <%= link_to image_tag("nipanipa.png", alt:"NiPaNiPa"), "#" %>

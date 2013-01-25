@@ -1,3 +1,80 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+}
+
+@mixin linear_gradient {
+  background-image: -o-linear-gradient(to_bottom, white, #E6E6E6);
+  background-image: -webkit-linear-gradient(to_bottom, white, #E6E6E6);
+  background-image: linear-gradient(to_bottom, white, #E6E6E6);
+}
+
+@mixin border_radius {
+  -moz-boder-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+
+label {
+  font: {
+    size: 15px;
+    weight: bold;
+  }
+  line-height: 30px;
+}
+div.signup-field {
+  margin-bottom: 1em;
+}
+
+.signup-main {
+  background: #E3E3E3;
+  position: relative;
+  margin-left: 200px;
+  margin-right: 200px;
+  .signup-button {
+    @include linear_gradient;
+    background-color: whiteSmoke;
+    font-size: 14px;
+    @include box_sizing;
+    padding: 4px 12px;
+    @include border_radius;
+  }
+  .signup-form {
+    margin-left: 200px;
+    margin-right: 200px;
+    padding: 50px;
+    width: 400px;
+    @include box_sizing;
+    h1 {
+      font: {
+        size: 22px;
+        weight: bold;
+      }
+      color: green;
+      line-height: 30px;
+      text-align: left;
+      letter-spacing: normal;
+    }
+    div.signin-tip {
+      position: absolute;
+      top: 0%;
+      right: 0%;
+      padding: 10px;
+    }
+//    label {
+//      font: {
+//        size: 15px;
+//        weight: bold;
+//      }
+//      line-height: 30px;
+//    }
+//    div.signup-field {
+//      margin-bottom: 1em;
+//    }
+  }
+}

@@ -2,29 +2,45 @@ Nipanipa::Application.routes.draw do
 
   # This is ugly... I think... better to user AJAX maybe...
   # match 'users/:id' => 'feedbacks#create', via: :post, as: :user_feedbacks
+  # This route can be invoked with user_feedbacks_url(:id => user.id)
 
-  resources :users do
-    resources :feedbacks, only: [:new, :create, :index, :destroy]
+  if Rails.env.test?
+    defaults = {:locale => nil}
+  else
+    defaults = {}
   end
 
-  resources :sessions,  only: [:new, :create, :destroy]
+  scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
 
-  root :to => 'static_pages#home'
+    resources :users do
+      resources :feedbacks, only: [:new, :create, :index, :destroy]
+    end
 
-  match 'signup'  => 'users#new'
-  match 'signin'  => 'sessions#new'
-  match 'signout' => 'sessions#destroy', via: :delete
+    resources :sessions,  only: [:new, :create, :destroy]
 
-  match 'help'    => 'static_pages#help'
-  match 'about'   => 'static_pages#about'
-  match 'contact' => 'static_pages#contact'
+    match 'signup'  => 'users#new'
+    match 'signin'  => 'sessions#new'
+    match 'signout' => 'sessions#destroy', via: :delete
+
+    match 'help'    => 'static_pages#help'
+    match 'about'   => 'static_pages#about'
+    match 'contact' => 'static_pages#contact'
+
+    root :to => 'static_pages#home'
+  end
+
+  match '*path',
+    to: redirect {
+      |params,request| "/#{I18n.default_locale}/#{CGI::unescape(params[:path])}"
+    },
+    constraints: lambda {
+      |req| !req.path.starts_with? "/#{I18n.default_locale}/"
+    }
+
+  root to: redirect("/#{I18n.default_locale}")
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
-
-  # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route with options:
   #   resources :products do
@@ -52,8 +68,6 @@ Nipanipa::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
-  # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.

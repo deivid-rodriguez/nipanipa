@@ -1,18 +1,30 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="navbar-inner">
+<!--  <div class="navbar-inner">-->
     <div class="container">
       <%= link_to "NiPaNiPa", root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Help", help_path %></li>
+          <li><%= link_to t('static_pages.help.title'), help_path %></li>
           <% if signed_in? %>
-          <li><%= link_to "Profile" , current_user %></li>
-          <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+          <li><%= link_to t('users.show.profile'), current_user %></li>
+          <li>
+            <%= link_to t('sessions.signout'), signout_path, method: "delete" %>
+          </li>
           <% else %>
-          <li><%= link_to "Sign in", signin_path %></li>
+          <li><%= link_to t('sessions.signin') , signin_path %></li>
           <% end %>
+          <li id="fat-menu" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=
+              t '.language' %><b class="caret"></b></a>
+            <ul class="dropdown-menu">
+            <% LANGUAGES.each do |language| %>
+              <li><%=
+                link_to_unless_current language[0], locale: language[1] %></li>
+            <% end %>
+            </ul>
+          </li>
         </ul>
-      </nav>  
+      </nav>
     </div>
-  </div>
+    <!--  </div>-->
 </header>
