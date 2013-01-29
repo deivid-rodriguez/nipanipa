@@ -24,27 +24,25 @@
 
 <%= field_set_tag t('users.new.location') do %>
   <div class="signup-field">
-    <%= f.fields_for :location do |l| %>
-      <%= l.label :address, t('users.new.location_label') %>
-      <%= l.text_field :address %>
-    <% end %>
+    <%= f.label :location %>
+    <%= text_field_tag 'location' %>
   </div>
 <% end %>
-
-<% if false %>
 
 <%= field_set_tag t('users.new.personal_info') do %>
   <div class="signup-field">
     <%= f.label :description, t('users.new.personal_desc') %>
-    <%= text_area :description %>
+    <%= f.text_area :description %>
   </div>
 <% end %>
 
 <%= field_set_tag t('users.new.work_info') do %>
  <div class="signup-field">
-   <%= f.label :work, t('users.new.work') %>
-   <%= f.text_area :work %>
+   <%= f.label :work_description, t('users.new.work') %>
+   <%= f.text_area :work_description %>
  </div>
+
+<% if false %>
  <div class="signup-field">
    <%= f.label :work_types, t('users.new.work_type') %><br>
    <%= hidden_field_tag 'user[work_type_ids][]', nil %>

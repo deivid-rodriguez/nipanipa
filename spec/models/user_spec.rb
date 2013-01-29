@@ -17,11 +17,8 @@ require 'spec_helper'
 
 describe User do
 
-  let(:user) { User.new(name: "Example User",
-                        email: "user@example.com",
-                        description: "This is me!",
-                        password: "foobar",
-                        password_confirmation: "foobar") }
+  let(:user) { build(:user) }
+
   subject { user }
 
   it { should respond_to(:name) }
@@ -151,18 +148,18 @@ describe User do
   end
 
   describe "feedbacks associations" do
-    let(:sender1) { FactoryGirl.create(:user) }
-    let(:sender2) { FactoryGirl.create(:user) }
+    let(:sender1) { create(:user) }
+    let(:sender2) { create(:user) }
     before { user.save }
     let!(:older_feedback) do
-      FactoryGirl.create(:feedback, sender: sender1,
-                                    recipient: user,
-                                    created_at: 1.day.ago)
+      create(:feedback, sender: sender1,
+                        recipient: user,
+                        created_at: 1.day.ago)
     end
     let!(:newer_feedback) do
-      FactoryGirl.create(:feedback, sender: sender2,
-                                    recipient: user,
-                                    created_at: 1.hour.ago)
+      create(:feedback, sender: sender2,
+                        recipient: user,
+                        created_at: 1.hour.ago)
     end
 
 

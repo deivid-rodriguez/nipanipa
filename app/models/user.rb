@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   belongs_to :location
-  accepts_nested_attributes_for :location
+#  accepts_nested_attributes_for :location
 
   has_many :sectorizations
   has_many :work_types, through: :sectorizations

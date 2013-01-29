@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130125161317) do
+ActiveRecord::Schema.define(:version => 20130129174428) do
 
   create_table "feedbacks", :force => true do |t|
     t.string   "content"
@@ -27,12 +27,12 @@ ActiveRecord::Schema.define(:version => 20130125161317) do
   add_index "feedbacks", ["sender_id", "updated_at"], :name => "index_feedbacks_on_sender_id_and_updated_at"
 
   create_table "locations", :force => true do |t|
-    t.string   "address"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string "address"
+    t.float  "latitude"
+    t.float  "longitude"
   end
+
+  add_index "locations", ["address"], :name => "index_locations_on_address"
 
   create_table "sectorizations", :force => true do |t|
     t.integer "user_id"
@@ -46,13 +46,14 @@ ActiveRecord::Schema.define(:version => 20130125161317) do
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "admin",           :default => false
+    t.boolean  "admin",            :default => false
     t.text     "description"
     t.integer  "location_id"
+    t.text     "work_description"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

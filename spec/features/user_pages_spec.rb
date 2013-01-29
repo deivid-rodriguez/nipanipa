@@ -7,8 +7,7 @@ describe "User Pages" do
   # Save pagination test for searches
   #
   #  describe "pagination" do
-  #    before(:all) { 30.times { FactoryGirl.create(:user) } }
-  #    after(:all)  { User.delete_all }
+  #    before(:all) { 30.times { build(:user) } }
   #
   #    it { should have_selector('div.pagination') }
   #
@@ -28,17 +27,9 @@ describe "User Pages" do
   end
 
   describe "profile page" do
-    let(:user)      { FactoryGirl.create(:user) }
-    let(:sender1)   { FactoryGirl.create(:user) }
-    let(:sender2)   { FactoryGirl.create(:user) }
-    let!(:r1) { FactoryGirl.create(:feedback,
-                                   sender: sender1,
-                                   recipient: user,
-                                   content: "Amazing stay. Thanks!") }
-    let!(:r2) { FactoryGirl.create(:feedback,
-                                   sender: sender2,
-                                   recipient: user,
-                                   content: "Woooow!! That was fun!!!") }
+    let(:user) { create(:user) }
+    let!(:r1) { create(:feedback, recipient: user) }
+    let!(:r2) { create(:feedback, recipient: user) }
 
     before { visit user_path(user) }
 
@@ -47,6 +38,14 @@ describe "User Pages" do
 
     describe "description" do
       it { should have_content(user.description) }
+    end
+
+    describe "location" do
+      it { should have_content(user.location.address) }
+    end
+
+    describe "work description" do
+      it { should have_content(user.work_description) }
     end
 
     describe "feedbacks" do
@@ -67,6 +66,7 @@ describe "User Pages" do
   end # profile page
 
   describe "signup" do
+    let(:user) { build(:user) }
 
     before { visit signup_path }
 
@@ -86,11 +86,12 @@ describe "User Pages" do
     end
 
     describe "with valid information" do
-      before { fill_signin_info "user1",
-                                "nipanipa.test+user1@gmail.com",
-                                "123456"
-#              fill_in "Personal description", with: 'Nice description of me'
-#              check 'work_type_9'
+      before {
+        fill_signin_info user.name, user.email, user.password
+        fill_in 'user[description]'     , with: user.description
+        fill_in 'location'              , with: user.location.address
+        fill_in 'user[work_description]', with: user.work_description
+#       check 'work_type_9'
       }
 
       it "should create a user" do
@@ -99,7 +100,6 @@ describe "User Pages" do
 
       describe "after saving the user" do
         before { click_button submit }
-        let(:user) { User.find_by_email('nipanipa.test+user1@gmail.com') }
 
         it { should have_title user.name }
         it { should have_success_message('Welcome') }
@@ -112,7 +112,7 @@ describe "User Pages" do
 
 
   describe "edit" do
-    let(:user) { FactoryGirl.create(:user) }
+    let(:user) { create(:user) }
     let(:submit) { "Save changes" }
     before do
       sign_in user

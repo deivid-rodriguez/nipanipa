@@ -14,8 +14,8 @@
 require 'spec_helper'
 
 describe Feedback do
-  let(:user1) { FactoryGirl.create(:user) }
-  let(:user2) { FactoryGirl.create(:user) }
+  let(:user1) { create(:user) }
+  let(:user2) { create(:user) }
   before do
     @feedback = Feedback.new
     @feedback.content   = "Debuti tio gracias. Ha sido una estancia genial."

@@ -11,7 +11,7 @@ require 'spec_helper'
 
 #describe Sectorization do
 #
-#  let(:user) { FactoryGirl.create(:user) }
+#  let(:user) { create(:user) }
 #  let(:work_type) {
 #    WorkType.create(name:'Languages',
 #                    description: 'Teaching your tongue language') }

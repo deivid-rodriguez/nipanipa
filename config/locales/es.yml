@@ -58,7 +58,10 @@ nipanipa.test@gmail.com"
         user:
           attributes:
             password:
+              blank: "La contraseña está vacía"
               confirmation: "La contraseña y su confirmación no coinciden"
+              too_short: "La contraseña es demasiado corta, debe tener al menos\
+                          6 caracteres"
             name:
               blank: "Es obligatorio especificar un nombre de usuario"
             email:

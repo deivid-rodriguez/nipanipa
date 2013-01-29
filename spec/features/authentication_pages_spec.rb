@@ -29,7 +29,7 @@ describe "Authentication" do
 
     describe "with valid information" do
       let(:profile) { t 'users.show.profile' }
-      let(:user) { FactoryGirl.create(:user) }
+      let(:user) { create(:user) }
       before { sign_in user }
 
       it { should have_title user.name }
@@ -52,7 +52,7 @@ describe "Authentication" do
   describe "authorization" do
 
     describe "for non-admin" do
-      let(:user) { FactoryGirl.create(:user) }
+      let(:user) { create(:user) }
 
       describe "non-signed-in users" do
 
@@ -126,7 +126,7 @@ describe "Authentication" do
         end
 
         describe "trying to edit another user" do
-          let(:other_user) { FactoryGirl.create(:user) }
+          let(:other_user) { create(:user) }
           before { visit edit_user_path(other_user) }
           it { should_not have_title full_title('Edit user') }
         end

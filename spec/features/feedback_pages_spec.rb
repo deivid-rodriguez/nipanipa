@@ -4,15 +4,15 @@ describe "FeedbackPages" do
 
   subject { page }
 
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { create(:user) }
   before { sign_in user }
 
   describe "feedback creation" do
-    let(:other_user) { FactoryGirl.create(:user) }
+    let(:other_user) { create(:user) }
     before { visit new_user_feedback_path(other_user) }
 
     describe "with invalid information" do
-      it "should not create a micropost" do
+      it "should not create a feedback" do
         expect { click_button "Leave feedback" }.not_to change(Feedback, :count)
       end
       describe "error messages" do

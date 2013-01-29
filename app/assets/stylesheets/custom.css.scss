@@ -33,6 +33,10 @@ textarea { resize: vertical; }
   }
 }
 
+.clearfix {
+  overflow: auto;
+  width: 100%;
+}
 
 /* typography */
 
@@ -114,12 +118,23 @@ header {
   background-color: green;
 }
 
-/*
 .container {
-  background: white;
+  margin-right: auto;
+  margin-left: auto;
+  width: 940px;
 }
 
+/*
+.container:before, .container:after {
+  content: "";
+  line-height: 0;
+}
+
+.container:after {
+  clear: both;
+}
 */
+
 
 /* footer */
 

@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+    @user.location = Location.where(address: params[:location]).first_or_create
     if @user.save
       sign_in @user
       flash[:success] = "Welcome to NiPaNiPa!"
@@ -28,7 +29,6 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    @user.build_location
   end
 
   def edit

@@ -3,9 +3,9 @@ require 'spec_helper'
 describe UsersController do
 
   describe "admin users" do
-    let(:admin) { FactoryGirl.create(:admin) }
+    let(:admin) { create(:admin) }
 
-    # sign in when no using Capybara as well
+    # sign in (without Capybara)
     before { request.cookies[:remember_token] = admin.remember_token }
 
     describe "DELETE destroy themselves" do
@@ -15,13 +15,13 @@ describe UsersController do
   end
 
   describe "non admin users" do
-    let(:user) { FactoryGirl.create(:user) }
+    let(:user) { create(:user) }
 
     describe "signed-in users" do
       before { request.cookies[:remember_token] = user.remember_token }
 
       describe "trying to act on other users" do
-        let(:other_user) { FactoryGirl.create(:user) }
+        let(:other_user) { create(:user) }
 
         describe "DELETE destroy not themselves" do
           before { delete :destroy, id: other_user.id }

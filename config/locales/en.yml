@@ -58,7 +58,9 @@ nipanipa.test@gmail.com!"
         user:
           attributes:
             password:
-             confirmation: "Password and confirmation do not match"
+              blank: "Password is empty"
+              confirmation: "Password and confirmation do not match"
+              too_short: "Password is too short, it must be 6 characters minimum"
             name:
               blank: "Es obligatorio especificar un nombre de usuario"
             email:

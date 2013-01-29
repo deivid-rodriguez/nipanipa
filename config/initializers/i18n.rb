@@ -1,5 +1,4 @@
 #encoding: utf-8
-I18n.default_locale = :es
 I18n.available_locales = [:es, :en]
 
 LANGUAGES = [

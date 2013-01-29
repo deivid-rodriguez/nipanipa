@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe FeedbacksController do
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { create(:user) }
 
   describe "POST create" do
     before { post :create, user_id: user.id }
@@ -9,7 +9,7 @@ describe FeedbacksController do
   end
 
   describe "DELETE destroy" do
-    let(:feedback) { FactoryGirl.create(:feedback) }
+    let(:feedback) { create(:feedback) }
     before { delete :destroy, id: feedback.id, user_id: user.id }
     specify { response.should redirect_to(signin_path) }
   end
