@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
+gem 'pg', '0.14.1'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
 gem 'geocoder', '1.1.6'
 
 group :development, :test do
-  gem 'sqlite3', '1.3.5'
   gem 'rspec-rails', '2.12.2'
   gem 'guard-rspec', '2.4.0'
   gem 'guard-spork', '1.4.1'
@@ -38,8 +38,7 @@ group :test do
   gem 'factory_girl_rails', '4.2.0'
   gem 'cucumber-rails', '1.2.1', require: false
   gem 'database_cleaner', '0.7.0'
+  gem 'vcr', '2.4.0'
+  gem 'webmock', '1.9.0'
 end
 
-group :production do
-  gem 'pg', '0.12.2'
-end

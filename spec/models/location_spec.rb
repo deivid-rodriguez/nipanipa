@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Location do
 
   describe "creation" do
-    let(:location) { build(:location) }
+    let(:location) { Location.new }
 
     subject { location }
 
@@ -13,8 +13,8 @@ describe Location do
 
     it { should be_valid }
 
-    describe "should not permit duplicate cities cities" do
-      let(:location_dup) { build(:location, address: location.address) }
+    describe "should not permit duplicate cities" do
+      let(:location_dup) { Location.new(address: location.address) }
 
       before { location.save }
 

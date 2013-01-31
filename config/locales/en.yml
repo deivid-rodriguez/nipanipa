@@ -68,3 +68,5 @@ nipanipa.test@gmail.com!"
             password_confirmation:
               blank: "Password confirmation can't be blank"
               too_short: "Password confirmation is too short"
+      messages:
+        record_invalid: "Invalid record"
