@@ -1,8 +1,6 @@
 require 'spec_helper'
 
-describe "User Pages" do
-
-  subject { page }
+feature "Signup Page" do
 
   # Save pagination test for searches
   #
@@ -19,136 +17,120 @@ describe "User Pages" do
   #
   #  end # pagination
 
-  describe "signup page" do
-    before { visit signup_path }
-
-    it { should have_selector 'h1', text: t('users.new.header') }
-    it { should have_title full_title(t 'users.new.title') }
+  background do
+    visit signup_path('host')
   end
 
-  describe "profile page" do
-    let(:user) { create(:user) }
-    let!(:r1) { create(:feedback, recipient: user) }
-    let!(:r2) { create(:feedback, recipient: user) }
+  scenario "signup page is correct" do
+    page.should have_selector 'h1', text: t('users.new.header')
+    page.should have_title full_title(t 'users.new.title')
+  end
 
-    before { visit user_path(user) }
+end
 
-    it { should have_selector('h1', text: user.name) }
-    it { should have_title user.name }
+feature "Profile page" do
 
-    describe "description" do
-      it { should have_content(user.description) }
-    end
+  given!(:user)      { create(:user) }
+  given!(:feedback)  { create(:feedback, recipient: user) }
 
-    describe "location" do
-      it { should have_content(user.location.address) }
-    end
+  background do
+    visit user_path(user)
+  end
 
-    describe "work description" do
-      it { should have_content(user.work_description) }
-    end
+  scenario "includes proper elements: header, title, user description, user
+            location, user work description, user feedbacks and correct links
+            depending on signin status" do
+    page.should have_selector('h1', text: user.name)
+    page.should have_title user.name
+    page.should have_content user.description
+    page.should have_content user.location.address
+    page.should have_content user.work_description
+    page.should have_content feedback.content
+    page.should have_content user.received_feedbacks.count
+    sign_in user
+    page.should_not have_link t('users.show.leave_feedback')
+    page.should_not have_link t('users.show.contact_user')
+  end
 
-    describe "feedbacks" do
-      it { should have_content(r1.content) }
-      it { should have_content(r2.content) }
-      it { should have_content(user.received_feedbacks.count) }
-    end
+end # profile page
 
-    describe "when user signed in and looking at its own profile" do
-      before do
-        sign_in user
-        visit user_path(user)
-      end
-      it { should_not have_link t('users.show.leave_feedback') }
-      it { should_not have_link t('users.show.contact_user') }
-    end
+feature "Profile edit page" do
+  given(:user) { create(:user) }
 
-  end # profile page
+  scenario "has correct header, title, and links" do
+    sign_in user
+    visit edit_user_path(user)
+    page.should have_selector('h1', text: "Update your profile")
+    page.should have_title 'Edit user'
+    page.should have_link('change', href: "http://gravatar.com/emails")
+  end
 
-  describe "signup" do
-    let(:user) { build(:user) }
+end # Profile edit page
 
-    before { visit signup_path }
+feature "Signing up" do
+  given(:user) { build_stubbed(:user) }
+  given(:submit) { t 'users.new.submit' }
 
-    let(:submit) { t 'users.new.submit' }
+  background do
+    visit signup_path('host')
+  end
 
-    describe "with invalid information" do
-      it "should not create a user" do
-        expect { click_button submit }.not_to change(User, :count)
-      end
+  scenario "submitting invalid information doesn't create user, redirects back
+            to signup page and displays error messages" do
+    expect { click_button submit }.not_to change(User, :count)
+    page.should have_title t('users.new.title')
+    page.should have_content('error')
+  end
 
-      describe "after submission" do
-        before { click_button submit }
+  scenario "submitting valid information creates user, signs in that user,
+            redirect to his profile and flash a welcome message" do
+    fill_signin_info user.name, user.email, user.password
+    fill_in 'user[description]'     , with: user.description
+    fill_in 'location'              , with: user.location.address
+    fill_in 'user[work_description]', with: user.work_description
+    #check 'work_type_9'
 
-        it { should have_title t('users.new.title') }
-        it { should have_content('error') }
-      end
-    end
+    expect { click_button submit }.to change(User, :count).by(1)
+    page.should have_link t('sessions.signout')
+    page.should have_title user.name
+    page.should have_success_message 'Welcome'
+  end
 
-    describe "with valid information" do
-      before {
-        fill_signin_info user.name, user.email, user.password
-        fill_in 'user[description]'     , with: user.description
-        fill_in 'location'              , with: user.location.address
-        fill_in 'user[work_description]', with: user.work_description
-#       check 'work_type_9'
-      }
+end # signup
 
-      it "should create a user" do
-        expect { click_button submit }.to change(User, :count).by(1)
-      end
+feature "Profile editing" do
+  given(:user) { create(:user) }
+  given(:submit) { "Save changes" }
+  given(:new_name) { "New name" }
+  given(:new_email) { "new@example.com" }
 
-      describe "after saving the user" do
-        before { click_button submit }
+  background do
+    sign_in user
+    visit edit_user_path(user)
+  end
 
-        it { should have_title user.name }
-        it { should have_success_message('Welcome') }
-        it { should have_link(t('sessions.signout')) }
-      end
+  scenario "with invalid information" do
+    click_button submit
+    page.should have_content 'error'
+  end
 
-    end # with valid information
+  scenario "with valid information" do
+    fill_signin_info new_name, new_email, user.password
+    fill_in 'user[description]', with: user.description
+    #check 'work_type_15'
+    #check 'work_type_3'
+    click_button submit
 
-  end # signup
+    page.should have_title new_name
+    page.should have_selector 'div.alert.alert-success'
+    page.should have_link t('sessions.signout'), href: signout_path
+    user.reload.name.should  == new_name
+    user.reload.email.should == new_email
+    #user.reload.work_type_ids.should == [3, 15]
+  end
 
+end # edit
 
-  describe "edit" do
-    let(:user) { create(:user) }
-    let(:submit) { "Save changes" }
-    before do
-      sign_in user
-      visit edit_user_path(user)
-    end
-
-    describe "page" do
-      it { should have_selector('h1', text: "Update your profile") }
-      it { should have_title 'Edit user' }
-      it { should have_link('change', href: "http://gravatar.com/emails") }
-    end
-
-    describe "with invalid information" do
-      before { click_button submit }
-      it { should have_content('error') }
-    end
-
-    describe "with valid information" do
-      let(:new_name) { "New name" }
-      let(:new_email) { "new@example.com" }
-      before do
-        fill_signin_info new_name, new_email, user.password
-#       fill_in "Personal description", with: user.description
-#       check 'work_type_15'
-#       check 'work_type_3'
-        click_button submit
-      end
-
-      it { should have_title new_name }
-      it { should have_selector('div.alert.alert-success') }
-      it { should have_link t('sessions.signout'), href: signout_path }
-      specify { user.reload.name.should  == new_name  }
-      specify { user.reload.email.should == new_email }
-#     specify { user.reload.work_type_ids.should == [3, 15] }
-    end
-
-  end # edit
+feature "Profile removing" do
 
 end

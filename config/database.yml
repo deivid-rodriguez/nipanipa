@@ -17,6 +17,3 @@ development:
 test: &test
   <<: *connection
   database: nipanipa_test
-
-#cucumber:
-#  <<: *test

@@ -15,7 +15,7 @@ describe UsersController do
   end
 
   describe "non admin users" do
-    let(:user) { create(:user) }
+    let(:user) { create(:user_location_stubbed) }
 
     describe "signed-in users" do
       before { request.cookies[:remember_token] = user.remember_token }

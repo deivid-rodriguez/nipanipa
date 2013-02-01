@@ -29,7 +29,7 @@ describe "Authentication" do
 
     describe "with valid information" do
       let(:profile) { t 'users.show.profile' }
-      let(:user) { create(:user) }
+      let(:user) { create(:user, location: build(:location)) }
       before { sign_in user }
 
       it { should have_title user.name }
@@ -119,7 +119,7 @@ describe "Authentication" do
         before { sign_in user }
 
         describe "visiting signup page" do
-          before { visit signup_path }
+          before { visit signup_path('host') }
 
           it { should_not have_title '|' }
           it { should have_selector 'h1', text: t('static_pages.home.welcome') }

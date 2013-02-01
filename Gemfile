@@ -36,7 +36,6 @@ group :test do
   gem 'rb-inotify', '0.8.8'
   gem 'libnotify', '0.5.9'
   gem 'factory_girl_rails', '4.2.0'
-  gem 'cucumber-rails', '1.2.1', require: false
   gem 'database_cleaner', '0.7.0'
   gem 'vcr', '2.4.0'
   gem 'webmock', '1.9.0'

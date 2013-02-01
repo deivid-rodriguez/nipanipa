@@ -14,34 +14,29 @@
 require 'spec_helper'
 
 describe Feedback do
-  let(:user1) { create(:user) }
-  let(:user2) { create(:user) }
-  before do
-    @feedback = Feedback.new
-    @feedback.content   = "Debuti tio gracias. Ha sido una estancia genial."
-    @feedback.score     = 1
-    @feedback.sender    = user1
-    @feedback.recipient = user2
-  end
+  let(:sender)    { build_stubbed(:user) }
+  let(:recipient) { build_stubbed(:user) }
+  let(:feedback)  { build_stubbed(:feedback, sender: sender,
+                                  recipient: recipient) }
 
-  subject { @feedback }
+  subject { feedback }
 
   it { should respond_to(:content) }
   it { should respond_to(:sender_id) }
   it { should respond_to(:recipient_id) }
   it { should respond_to(:score) }
-  its(:sender) { should == user1 }
-  its(:recipient) { should == user2 }
+  its(:sender)    { should == sender }
+  its(:recipient) { should == recipient }
   it { should be_valid }
 
   describe "presence validation" do
     describe "when sender is not present" do
-      before { @feedback.sender = nil }
+      before { feedback.sender = nil }
       it { should_not be_valid }
     end
 
     describe "when recipient is not present" do
-      before { @feedback.recipient = nil }
+      before { feedback.recipient = nil }
       it { should_not be_valid }
     end
   end
@@ -49,35 +44,29 @@ describe Feedback do
   describe "accessible attributes" do
     it "should not allow access to sender_id" do
       expect do
-        Feedback.new(sender: user1.id)
+        Feedback.new(sender: sender.id)
       end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
     it "should not allow access to recipient_id" do
       expect do
-        Feedback.new(recipient: user2.id)
+        Feedback.new(recipient: recipient.id)
       end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
   end
 
   describe "with blank content" do
-    before { @feedback.content = " " }
+    before { feedback.content = " " }
     it { should_not be_valid }
   end
 
   describe "with content that is too long" do
-    before { @feedback.content = "a" * 141 }
+    before { feedback.content = "a" * 141 }
     it { should_not be_valid }
   end
 
   describe "duplicated feedbacks" do
-    before do
-      @other_feedback = Feedback.new
-      @other_feedback.content = "Another feedback for that same user"
-      @other_feedback.sender = user1
-      @other_feedback.recipient = user2
-      @other_feedback.score = 1
-      @other_feedback.save!
-    end
+    let!(:other_feedback) {
+      create(:feedback, sender: sender, recipient: recipient) }
     it { should_not be_valid }
   end
 

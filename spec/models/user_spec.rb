@@ -35,11 +35,7 @@ describe User do
   it { should_not be_admin }
 
   describe "with admin attribute set to 'true'" do
-    before do
-      user.save!
-      user.toggle!(:admin)
-    end
-
+    before { user.toggle(:admin) }
     it { should be_admin }
   end
 
@@ -91,13 +87,13 @@ describe User do
   end
 
   describe "when email address is already taken" do
-    before do
-      user_with_same_email = user.dup
-      user_with_same_email.email = user.email.upcase
-      user_with_same_email.save
-    end
+    let!(:user_with_same_email) { user.dup }
+     before do
+       user_with_same_email = user.dup
+       user_with_same_email.save
+     end
 
-    it { should_not be_valid }
+     it { should_not be_valid }
   end
 
   describe "when password is not present" do
@@ -143,33 +139,29 @@ describe User do
 
   describe "remember_token is created" do
     before { user.save }
-
     its(:remember_token) { should_not be_blank }
   end
 
   describe "feedbacks associations" do
-    let(:sender1) { create(:user) }
-    let(:sender2) { create(:user) }
     before { user.save }
+    let(:s1) { build_stubbed(:user) }
+    let(:s2) { build_stubbed(:user) }
+    let(:r)  { build_stubbed(:user) }
+    let!(:sent_feedback) { create(:feedback, sender: user, recipient: r) }
     let!(:older_feedback) do
-      create(:feedback, sender: sender1,
-                        recipient: user,
-                        created_at: 1.day.ago)
+      create(:feedback, sender: s1, recipient: user, created_at: 1.day.ago)
     end
     let!(:newer_feedback) do
-      create(:feedback, sender: sender2,
-                        recipient: user,
-                        created_at: 1.hour.ago)
+      create(:feedback, sender: s2, recipient: user, created_at: 1.hour.ago)
     end
-
 
     it "should have the right received feedbacks in the right order" do
       user.received_feedbacks.should == [ newer_feedback, older_feedback ]
     end
 
     it "should destroy associated sent feedbacks" do
-      sent_feedbacks = sender1.sent_feedbacks.dup
-      sender1.destroy
+      sent_feedbacks = user.sent_feedbacks.dup
+      user.destroy
       sent_feedbacks.should_not be_empty
       sent_feedbacks.each do |sent_feedback|
         Feedback.find_by_id(sent_feedback.id).should be_nil

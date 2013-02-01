@@ -43,7 +43,7 @@ nipanipa.test@gmail.com!"
     new:
       newuser?: "New user?"
     signin: "Sign in"
-    sigout: "Sign out"
+    signout: "Sign out"
   layouts:
     header:
       language: "Language"

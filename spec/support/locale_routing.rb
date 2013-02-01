@@ -21,3 +21,16 @@ class ActionController::Integration::Session
   end
   alias_method_chain :url_for, :default_locale
 end
+
+# Fix routing error (locale not being passed in url as parameter in tests)
+class ActionView::TestCase::TestController
+  def default_url_options(options={})
+    { :locale => I18n.default_locale }
+  end
+end
+
+class ActionDispatch::Routing::RouteSet
+  def default_url_options(options={})
+    { :locale => I18n.default_locale }
+  end
+end
