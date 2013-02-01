@@ -35,7 +35,7 @@ fieldset {
 
 label {
   font: {
-    size: 15px;
+    size: 12px;
     weight: bold;
   }
   line-height: 30px;
@@ -58,10 +58,8 @@ div.signup-field {
     @include border_radius;
   }
   .signup-form {
-    margin-left: 200px;
-    margin-right: 200px;
-    padding: 50px;
-    width: 400px;
+    padding-left: 30px;
+    padding-right: 60px;
     @include box_sizing;
     h1 {
       font: {

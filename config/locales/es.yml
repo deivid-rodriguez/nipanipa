@@ -1,5 +1,9 @@
 # Sample localization file for English. Add more files in this directory for other locales.
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+#
+# WorkType values are in db, must be syncronized. Maybe a more throught solution
+# like globalize3 would be better but i do this for now
+#-------------------------------------------------------------------------------
 
 es:
   static_pages:
@@ -38,6 +42,22 @@ nipanipa.test@gmail.com"
       personal_desc: "Sobre ti"
       work_info: "Información sobre el Trabajo"
       work_type: "Tipo de trabajo"
+      work_types:
+        gardening: "Jardinería"
+        babysitting: "Canguro"
+        cooking: "Cocinero/a"
+        farming: "Granja"
+        housekeeping: "Mantenimiento de casa"
+        tourism: "Turismo"
+        language_exchange: "Intercambio lingüístico"
+        teaching: "Enseñanza"
+        construction: "Construcción"
+        elderly_care: "Tercera Edad"
+        animal_care: "Cuidado de animales"
+        humanitarian_aid: "Ayuda humanitaria"
+        technical_assistance: "Ordenadores"
+        art_project: "Proyecto artístico"
+        other: "Otro"
       submit: "Crear mi cuenta!"
   sessions:
     new:

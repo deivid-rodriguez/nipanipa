@@ -42,18 +42,32 @@
    <%= f.text_area :work_description %>
  </div>
 
-<% if false %>
  <div class="signup-field">
    <%= f.label :work_types, t('users.new.work_type') %><br>
    <%= hidden_field_tag 'user[work_type_ids][]', nil %>
-   <% WorkType.all.each do |work_type| %>
-     <%= check_box_tag 'user[work_type_ids][]',
-                       work_type.id,
-                       @user.work_type_ids.include?(work_type.id),
-                       id: dom_id(work_type) %>
-     <%= label_tag dom_id(work_type), t("users.new.#{work_type.name}") %><br>
-   <% end %>
+   <div class="control-group">
+     <div class="controls span3">
+     <% WorkType.all[0..7].each do |work_type| %>
+       <label class="checkbox">
+       <%= check_box_tag 'user[work_type_ids][]',
+                         work_type.id,
+                         @user.work_type_ids.include?(work_type.id),
+                         id: dom_id(work_type) %>
+         <%= t("users.new.work_types.#{work_type.name}") %>
+       </label>
+     <% end %>
+     </div>
+     <div class="controls span3">
+     <% WorkType.all[8..14].each do |work_type| %>
+       <label class="checkbox">
+       <%= check_box_tag 'user[work_type_ids][]',
+                         work_type.id,
+                         @user.work_type_ids.include?(work_type.id),
+                         id: dom_id(work_type) %>
+         <%= t("users.new.work_types.#{work_type.name}") %>
+       </label>
+     <% end %>
+     </div>
+   </div>
  </div>
-<% end %>
-
 <% end %>
