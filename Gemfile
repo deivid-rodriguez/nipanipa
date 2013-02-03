@@ -16,6 +16,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'debugger', '1.3.0'
   gem 'annotate', '2.5.0'
 end
 
