@@ -9,8 +9,12 @@ describe "Static pages" do
   subject { page }
 
   shared_examples_for "all static pages" do
-    it { should have_selector('h1', text: heading) }
+    it { should have_selector 'h1', text: heading }
     it { should have_title full_title(page_title) }
+    it { should have_link help                    }
+    it { should have_link about                   }
+    it { should have_link contact                 }
+    it { should have_link "NiPaNiPa"              }
   end
 
   describe "Home Page" do
@@ -47,20 +51,4 @@ describe "Static pages" do
 
     it_should_behave_like "all static pages"
   end
-
-  it "should have the right links on the layout" do
-    visit root_path
-    click_link about
-    page.should have_title full_title(about)
-    click_link help
-    page.should have_title full_title(help)
-    click_link contact
-    page.should have_title full_title(contact)
-    click_link "NiPaNiPa"
-    page.should have_title full_title('')
-    click_link t('.static_pages.home.host')
-    page.should have_title full_title(t 'users.new.title')
-    page.should_not have_link "NiPaNiPa"
-  end
-
 end

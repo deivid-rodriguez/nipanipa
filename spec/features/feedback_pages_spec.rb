@@ -1,36 +1,25 @@
 require 'spec_helper'
 
-describe "FeedbackPages" do
+feature "Creating feedbacks" do
+  given(:user)       { create(:user) }
+  given(:other_user) { create(:user) }
 
   subject { page }
 
-  let(:user) { create(:user) }
-  before { sign_in user }
-
-  describe "feedback creation" do
-    let(:other_user) { create(:user) }
-    before { visit new_user_feedback_path(other_user) }
-
-    describe "with invalid information" do
-      it "should not create a feedback" do
-        expect { click_button "Leave feedback" }.not_to change(Feedback, :count)
-      end
-      describe "error messages" do
-        before { click_button "Leave feedback" }
-        it { should have_content('error') }
-      end
-    end
-
-    describe "with valid information" do
-      before { fill_in 'feedback_content', with: "Lorem ipsum" }
-      it "should create a feedback" do
-        expect { click_button "Leave feedback" }.to change(Feedback, :count).by(1)
-      end
-      describe "should go back to the recipient profile" do
-        before { click_button "Leave feedback" }
-        it { should have_selector('h1', text: other_user.name) }
-      end
-    end
+  background do
+    sign_in user
+    visit new_user_feedback_path(other_user)
   end
 
+  # Check why it gives "You already gave feedback to that user..."
+  scenario "with invalid information" do
+    expect { click_button "Leave feedback" }.not_to change(Feedback, :count)
+    page.should have_selector '.alert-error'
+  end
+
+  scenario "with valid information" do
+    fill_in 'feedback_content', with: "Lorem ipsum"
+    expect { click_button "Leave feedback" }.to change(Feedback, :count).by(1)
+    page.should have_selector 'h1', text: other_user.name
+  end
 end

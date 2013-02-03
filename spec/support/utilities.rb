@@ -1,18 +1,10 @@
 include ApplicationHelper
 
 def sign_in(user)
-  visit signin_path
+  visit new_session_path
   fill_in "Email",    with: user.email
   fill_in "Password", with: user.password
   click_button t('sessions.signin')
-end
-
-# Access fiels by "name" because content is ambiguous
-def fill_signin_info(name, email, password)
-  fill_in 'user[name]'                 , with: name
-  fill_in 'user[email]'                , with: email
-  fill_in 'user[password]'             , with: password
-  fill_in 'user[password_confirmation]', with: password
 end
 
 RSpec::Matchers.define :have_error_message do |message|

@@ -11,8 +11,7 @@ class FeedbacksController < ApplicationController
     @feedback = @recipient.received_feedbacks.new(params[:feedback])
     @feedback.sender = @current_user
     if @feedback.save
-      flash[:success] = "Feedback created!"
-      redirect_to @recipient
+      redirect_to @recipient, notice: t('feedbacks.new.flash_notice')
     else
       flash.now[:error] = "You already gave feedback to that user"
       render 'new'
@@ -22,8 +21,7 @@ class FeedbacksController < ApplicationController
   def destroy
     @feedback = @sender.sent_feedbacks.find([:id])
     @feedback.destroy
-    flash[:sucess] = "Feedback destroyed"
-    redirect_to @sender
+    redirect_to @sender, notice: t('feedbacks.destroy.flash_notice')
   end
 
   private

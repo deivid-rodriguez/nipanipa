@@ -8,7 +8,7 @@ FactoryGirl.define do
     association :location, strategy: :build
     description "I am a test user. I live in a little house in the countryside"
     work_description "Ofrezco trabajo en casa ayudando con la contruccion de mi
-                      granero"
+granero"
 
     factory :admin do
       admin true
