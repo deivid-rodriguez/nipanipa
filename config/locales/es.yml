@@ -1,10 +1,3 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-#
-# WorkType values are in db, must be syncronized. Maybe a more throught solution
-# like globalize3 would be better but i do this for now
-#-------------------------------------------------------------------------------
-
 es:
   static_pages:
     help:
@@ -25,19 +18,26 @@ nipanipa.test@gmail.com"
       subtitle: "Contacta a voluntarios y hosts de todo el mundo"
       host: "Soy host"
       volunteer: "Soy voluntario"
+  feedbacks:
+    new:
+      flash_success: "Has dejado una nueva referencia!"
+    destroy:
+      flash_notice: "Tu referencia ha sido eliminada"
   users:
-    show:
-      profile: "Mi perfil"
-      leave_feedback: "Dejar una referencia"
-      contact_user: "Contactar con el usuario"
+    description_label_host: "Cuéntale a tus futuros voluntarios algo sobre ti o
+sobre tu familia"
+    description_label_volunteer: "Cuéntale a tu futuro anfitrión algo sobre ti"
+    work_description_label: "Describe cómo será el trabajo que el voluntario
+hará en tu casa"
+    work_types_label_host: "Selecciona los tipos de trabajo en los que se ubica
+tu oferta"
+    work_types_label_volunteer: "Selecciona el/los tipos de trabajo que estás
+buscando"
     new:
       title: "Regístrate"
-      header: "Regístrate en un pliki!"
+      header: "Registro de %{type}"
+      flash_success: "Enhorabuena! Ya estás registrado!"
       already_registered: "¿Ya estás registrado?"
-      name: "Nombre de usuario"
-      email: "Correo electrónico"
-      password: "Contraseña"
-      password_confirmation: "Confirmar contraseña"
       personal_info: "Información Personal"
       personal_desc: "Sobre ti"
       work_info: "Información sobre el Trabajo"
@@ -59,6 +59,16 @@ nipanipa.test@gmail.com"
         art_project: "Proyecto artístico"
         other: "Otro"
       submit: "Crear mi cuenta!"
+    show:
+      profile: "Mi perfil"
+      leave_feedback: "Dejar una referencia"
+      contact_user: "Contactar con el usuario"
+    edit:
+      title: "Actualización de perfil"
+      header: "Actualiza tu perfil"
+      flash_success: "Tu perfil se ha actualizado correctamente!"
+    destroy:
+      flash_notice: "Tu perfil ha sido eliminado. Vuelve cuando quieras!"
   sessions:
     new:
       newuser?: "¿Nuevo usuario?"
@@ -80,14 +90,20 @@ nipanipa.test@gmail.com"
             password:
               blank: "La contraseña está vacía"
               confirmation: "La contraseña y su confirmación no coinciden"
-              too_short: "La contraseña es demasiado corta, debe tener al menos\
-                          6 caracteres"
+              too_short: "La contraseña debe tener al menos 6 caracteres"
             name:
               blank: "Es obligatorio especificar un nombre de usuario"
             email:
               taken: "Ese correo electrónico ya existe en NiPaNiPa"
+              blank: "Es obligatorio especificar una dirección de correo
+electrónico"
             password_confirmation:
               blank: "La confirmación de la contraseña está vacía"
               too_short: "La confirmación de la contraseña es demasiado corta"
       messages:
         record_invalid: "Registro no válido"
+  helpers:
+    submit:
+      user:
+        create: "Crear mi cuenta"
+        update: "Salvar los cambios"

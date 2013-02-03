@@ -1,10 +1,7 @@
-<% provide(:title, "Edit user") %> 
-<h1>Update your profile</h1>
+<% provide(:title, t('.title')) %> 
+<h1><%= t '.header' %></h1>
 
-<%= form_for(@user) do |f| %>
-  <%= render 'fields', f: f %>
-  <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
-<% end %>
+<%= render 'form', user: @user %>
 
 <%= gravatar_for @user %>
 <%= link_to 'change', 'http://gravatar.com/emails', target: '_blank' %>

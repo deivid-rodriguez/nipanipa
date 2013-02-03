@@ -1,0 +1,32 @@
+<%= simple_form_for user, html: { class: 'form-horizontal' } do |f| %>
+
+  <%= f.hidden_field :type, name: "type", value: "#{user.type}" %>
+
+  <%= f.input :name %>
+
+  <%= f.input :email %>
+
+  <% if user.errors %>
+  <%= f.input :password, hint: false %>
+  <% else %>
+  <%= f.input :password %>
+  <% end %>
+
+  <%= f.input :password_confirmation %>
+
+  <%= f.input :location, input_html: { name: "location" } %>
+
+  <%= f.input :description,
+              label: t("users.description_label_#{user.type.to_s.underscore}") %>
+
+  <% if user.type = 'Host' %>
+  <%= f.input :work_description, label: t('users.work_description_label') %>
+  <% end %>
+
+  <%= f.association :work_types,
+                    label: t("users.work_types_label_#{user.type.to_s.underscore}"),
+                    as: :check_boxes %>
+
+  <%= f.button :submit, class: "signup-button" %>
+
+<% end %>

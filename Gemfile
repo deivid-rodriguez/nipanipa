@@ -6,6 +6,7 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
 gem 'geocoder', '1.1.6'
+gem 'simple_form', '2.0.4'
 
 group :development, :test do
   gem 'rspec-rails', '2.12.2'

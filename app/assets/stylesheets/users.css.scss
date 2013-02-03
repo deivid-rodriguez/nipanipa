@@ -20,30 +20,6 @@
   border-radius: 4px;
 }
 
-fieldset {
-  legend {
-    width: auto;
-    padding: .6em;
-    font: {
-      size: 16px;
-      weight: bold;
-    }
-  }
-  border: solid 1px #CCC;
-  padding: 2em;
-}
-
-label {
-  font: {
-    size: 12px;
-    weight: bold;
-  }
-  line-height: 30px;
-}
-div.signup-field {
-  margin-bottom: 1em;
-}
-
 .signup-main {
   background: #E3E3E3;
   position: relative;
@@ -58,19 +34,9 @@ div.signup-field {
     @include border_radius;
   }
   .signup-form {
-    padding-left: 30px;
-    padding-right: 60px;
+    padding: 50px 50px 50px 100px;
+    width: 800px;
     @include box_sizing;
-    h1 {
-      font: {
-        size: 22px;
-        weight: bold;
-      }
-      color: green;
-      line-height: 30px;
-      text-align: left;
-      letter-spacing: normal;
-    }
     div.signin-tip {
       position: absolute;
       top: 0%;

@@ -1,5 +1,4 @@
-def t(string)
-  I18n.t(string, I18n.default_locale)
-#  I18n.t(string, "es")
+def t(string, options = {})
+  I18n.t(string, I18n.locale, options)
 end
 

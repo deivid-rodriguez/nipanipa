@@ -1,10 +1,3 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-#
-# WorkType values are in db, must be syncronized. Maybe a more throught solution
-# like globalize3 would be better but i do this for now
-#-------------------------------------------------------------------------------
-
 en:
   static_pages:
     help:
@@ -25,19 +18,26 @@ nipanipa.test@gmail.com!"
       subtitle: 'Contacts hosts and volunteers around the world'
       host: "I'm a host"
       volunteer: "I'm a volunteer"
+  feedbacks:
+    new:
+      flash_success: "You left a new reference! Thanks."
+    destroy:
+      flash_notice: "Your reference was successfully deleted"
   users:
-    show:
-      profile: "My profile"
-      leave_feedback: "Leave feedback"
-      contact_user: "Contact user"
+    description_label_host: "Tell your future volunteers something about
+yourself or your family."
+    description_label_volunteer: "Tell your future host something about
+yourself"
+    work_description_label: "What the volunteer job is going to be like?"
+    work_types_label_host: "In which areas would you qualify the tasks you are
+proposing?"
+    work_types_label_volunteer: "In which of these areas would you like to
+work?"
     new:
       title: "Sign up"
-      header: "Register now! It takes 30 seconds."
+      header: "%{type} register"
+      flash_success: "Congratulations! You have successfully registered!"
       already_registered: "¿Already registered?"
-      name: "Name"
-      email: "Email"
-      password: "Password"
-      password_confirmation: "Password confirmation"
       personal_info: "Personal Information"
       personal_desc: "About you"
       work_info: "Work Information"
@@ -59,6 +59,16 @@ nipanipa.test@gmail.com!"
         art_project: "Artistic Project"
         other: "Other"
       submit: "Sign up!"
+    show:
+      profile: "My profile"
+      leave_feedback: "Leave feedback"
+      contact_user: "Contact user"
+    edit:
+      title: "Profile update"
+      header: "Update your profile"
+      flash_success: "Your profile was successfully updated!"
+    destroy:
+      flash_notice: "Your profile has been deleted. :("
   sessions:
     new:
       newuser?: "New user?"
@@ -82,11 +92,17 @@ nipanipa.test@gmail.com!"
               confirmation: "Password and confirmation do not match"
               too_short: "Password is too short, it must be 6 characters minimum"
             name:
-              blank: "Es obligatorio especificar un nombre de usuario"
+              blank: "You must specify a username"
             email:
               taken: "That email address is already taken"
+              blank: "You must specify an email address"
             password_confirmation:
               blank: "Password confirmation can't be blank"
               too_short: "Password confirmation is too short"
       messages:
         record_invalid: "Invalid record"
+  helpers:
+    submit:
+      user:
+        create: "Create my account"
+        update: "Save changes"

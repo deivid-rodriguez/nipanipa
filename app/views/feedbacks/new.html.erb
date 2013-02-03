@@ -1,14 +1,16 @@
 <% provide(:title, 'Leave feedback') %>
 <%= form_for([@recipient, @feedback]) do |f| %>
 
+<% if false %>
   <%= render 'shared/error_messages', object: @feedback %>
+<% end %>
 
   <div class="field">
     <%= f.select :score, [ ['Negative', -1], ['Neutral', 0], ['Positive', 1] ]  %>
   </div>
 
   <div class="field">
-    <%= f.text_area :content, placeholder: "Write a new feedback...", cols: 1%>
+    <%= f.text_area :content, placeholder: "Write a new feedback...", cols: 30 %>
   </div>
 
   <%= f.submit "Leave feedback", class: "btn btn-large btn-primary" %>
