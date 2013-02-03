@@ -1,24 +1,21 @@
 Nipanipa::Application.routes.draw do
 
-  # This is ugly... I think... better to user AJAX maybe...
-  # match 'users/:id' => 'feedbacks#create', via: :post, as: :user_feedbacks
-  # This route can be invoked with user_feedbacks_url(:id => user.id)
-
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
+
+    # override some routes for less cumbersome urls
+    match 'signup/:type' => 'users#new'       , via: :get,    as: :new_user
+    match 'signin'       => 'sessions#new'    , via: :get,    as: :new_session
+    match 'signout'      => 'sessions#destroy', via: :delete
 
     resources :users do
       resources :feedbacks, only: [:new, :create, :index, :destroy]
     end
 
-    resources :sessions,  only: [:new, :create, :destroy]
+    resources :sessions,  only: [:new, :create]
 
-    match 'signup'  => 'users#new'
-    match 'signin'  => 'sessions#new'
-    match 'signout' => 'sessions#destroy', via: :delete
-
-    match 'help'    => 'static_pages#help'
-    match 'about'   => 'static_pages#about'
-    match 'contact' => 'static_pages#contact'
+    match 'help'         => 'static_pages#help'
+    match 'about'        => 'static_pages#about'
+    match 'contact'      => 'static_pages#contact'
 
     root :to => 'static_pages#home'
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130129174428) do
+ActiveRecord::Schema.define(:version => 20130131202608) do
 
   create_table "feedbacks", :force => true do |t|
     t.string   "content"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20130129174428) do
     t.text     "description"
     t.integer  "location_id"
     t.text     "work_description"
+    t.string   "type"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

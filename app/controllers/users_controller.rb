@@ -16,19 +16,18 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user])
+    @user = user_type.new(params[:user])
     @user.location = Location.where(address: params[:location]).first_or_create
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to NiPaNiPa!"
-      redirect_to @user
+      redirect_to @user, flash: { success: t('users.new.flash_success') }
     else
       render 'new'
     end
   end
 
   def new
-    @user = User.new
+    @user = user_type.new
   end
 
   def edit
@@ -46,11 +45,14 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    flash[:sucess] = "User destroyed"
-    redirect_to users_url
+    redirect_to users_url, notice: t('users.destroy.flash_notice')
   end
 
   private
+
+    def user_type
+      params[:type].camelize.constantize
+    end
 
     def not_signed_in_user
       redirect_to(root_path) unless !signed_in?

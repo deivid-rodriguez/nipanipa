@@ -36,6 +36,23 @@ FactoryGirl.define do
     #end
   end
 
+  factory :host, :class => Host, parent: User do
+   type "Host"
+  end
+
+  factory :volunteer, :class => Volunteer, parent: User do
+   type "Volunteer"
+  end
+
+  factory :work_type do
+    name "Organic Farming"
+  end
+
+  factory :sectorization do
+    association :user
+    association :work_type
+  end
+
   factory :feedback do
     content "Lorem ipsum"
     association :sender

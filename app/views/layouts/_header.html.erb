@@ -10,7 +10,7 @@
           <%= link_to t('sessions.signout'), signout_path, method: "delete" %>
         </li>
         <% else %>
-        <li><%= link_to t('sessions.signin') , signin_path %></li>
+        <li><%= link_to t('sessions.signin') , new_session_path %></li>
         <% end %>
         <li id="fat-menu" class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=

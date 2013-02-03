@@ -42,7 +42,7 @@ describe UsersController do
 
     describe "PUT update non-signed-in users" do
       before { put :update, id: user.id }
-      specify { response.should redirect_to(signin_path) }
+      specify { response.should redirect_to(new_session_path) }
     end
   end
 

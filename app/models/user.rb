@@ -2,15 +2,18 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  name            :string(255)
-#  email           :string(255)
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  password_digest :string(255)
-#  remember_token  :string(255)
-#  admin           :boolean          default(FALSE)
-#  description     :text
+#  id               :integer          not null, primary key
+#  name             :string(255)
+#  email            :string(255)
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  password_digest  :string(255)
+#  remember_token   :string(255)
+#  admin            :boolean          default(FALSE)
+#  description      :text
+#  location_id      :integer
+#  work_description :text
+#  type             :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -46,7 +49,18 @@ class User < ActiveRecord::Base
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   validates :description, length: { maximum: 1000 }
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, length: { minimum: 6 }
+
+  # Keep same routes for subclasses
+  def self.inherited(child)
+    child.instance_eval do
+      alias :original_model_name :model_name
+      def model_name
+        User.model_name
+      end
+    end
+    super
+  end
 
   private
 

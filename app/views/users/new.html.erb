@@ -4,14 +4,11 @@
 
   <div class="signin-tip">
     <%= t '.already_registered' %>
-    <%= link_to t('sessions.signin'), signin_path %>
+    <%= link_to t('sessions.signin'), new_session_path %>
   </div>
 
-  <h1><%= t '.header' %></h1>
+  <h1><%= t '.header', type: @user.type %></h1>
 
-  <%= form_for @user do |f| %>
-    <%= render 'fields', f: f %>
-    <%= f.submit t('.submit'), class: "signup-button" %>
-  <% end %>
+  <%= render 'form', user: @user %>
 
 </div>

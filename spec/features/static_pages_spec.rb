@@ -20,6 +20,8 @@ describe "Static pages" do
 
     it_should_behave_like "all static pages"
     it { should_not have_title '| Home' }
+    it { should have_link t('.static_pages.home.host') }
+    it { should have_link t('.static_pages.home.volunteer') }
   end
 
   describe "Help Page" do
