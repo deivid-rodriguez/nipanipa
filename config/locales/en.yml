@@ -18,6 +18,17 @@ nipanipa.test@gmail.com!"
       subtitle: 'Contacts hosts and volunteers around the world'
       host: "I'm a host"
       volunteer: "I'm a volunteer"
+      contribute: "Contribute"
+      contribute_desc: "Support NiPaNiPa so it keeps being free, whether by
+making a donation or contributing to the site development or helping us
+translating it into your language."
+      explore: "Explore"
+      explore_desc: "Take a look at the potential friends who might host you
+durring your holidays, or check which willing workers might be around your
+area."
+      signup: "Sign up!"
+      signup_desc: "Sign up now as a host or a volunteer and fill your profile.
+It won't take you more than five minutes."
   feedbacks:
     new:
       flash_success: "You left a new reference! Thanks."

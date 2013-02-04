@@ -18,6 +18,18 @@ nipanipa.test@gmail.com"
       subtitle: "Contacta a voluntarios y hosts de todo el mundo"
       host: "Soy host"
       volunteer: "Soy voluntario"
+      contribute: "Colabora"
+      contribute_desc: "Apoya a NiPaNiPa para que siga siendo gratuito, ya sea
+haciendo una donación, colaborando en el desarollo del sitio o ayudándonos a
+traducirlo a tu idioma."
+      explore: "Explora"
+      explore_desc: "Echa un vistazo a los posibles anfitriones que te alojarán
+durante tus vacaciones, o mira a ver qué futuros voluntarios se encuentran por
+tu zona y tienen ganas de ayudarte."
+      signup: "Apúntate"
+      signup_desc: "Apúntate a NiPaNiPa, ya seas anfitrión o voluntario.
+Registrarte y completar tu perfil no te llevará ni 5 minutos. Después...
+cuéntanos lo que pasa después!"
   feedbacks:
     new:
       flash_success: "Has dejado una nueva referencia!"

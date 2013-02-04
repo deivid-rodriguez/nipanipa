@@ -18,15 +18,13 @@ describe "Static pages" do
   end
 
   describe "Home Page" do
-    before { visit root_path }
-    let(:heading) { 'NiPaNiPa' }
-    let(:page_title) { '' }
+#   before { visit root_path }
+#   let(:page_title) { '' }
 
-    it_should_behave_like "all static pages"
-    it { should_not have_title '| Home' }
-    it { should have_link t('.static_pages.home.host') }
-    it { should have_link t('.static_pages.home.volunteer') }
+#   it_should_behave_like "all static pages"
+#   it { should_not have_title '| Home' }
   end
+
 
   describe "Help Page" do
     before { visit help_path }

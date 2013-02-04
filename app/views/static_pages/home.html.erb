@@ -1,4 +1,5 @@
 <div class="center hero-unit">
+<!--
   <h1><%= t '.welcome' %></h1>
   <h2><%= t '.subtitle' %></h2>
 
@@ -9,6 +10,35 @@
   <%= link_to t('.volunteer'),
               new_user_path('volunteer'),
               class: "btn btn-large btn-primary"  %>
+-->
 </div>
 
-<%= link_to image_tag("nipanipa.png", alt:"NiPaNiPa"), "#" %>
+<ul class="thumbnails">
+  <li class="span4">
+    <%= link_to "#" do %>
+      <div class="thumbnail">
+        <%= image_tag "contribute.png", alt: "contribute" %>
+        <h3><%= t('static_pages.home.contribute') %></h3>
+        <p><%= t('static_pages.home.contribute_desc') %></p>
+      </div>
+    <% end %>
+  </li>
+   <li class="span4">
+    <%= link_to "#" do %>
+    <div class="thumbnail">
+      <%= image_tag "explore.png", alt: "contribute" %>
+      <h3><%= t('static_pages.home.explore') %></h3>
+      <p><%= t('static_pages.home.explore_desc') %></p>
+    </div>
+    <% end %>
+  </li>
+  <li class="span4">
+    <%= link_to new_user_path(type: 'host') do %>
+    <div class="thumbnail">
+      <%= image_tag "signup.png", alt: "signup" %>
+      <h3><%= t('static_pages.home.signup') %></h3>
+      <p><%= t('static_pages.home.signup_desc') %></p>
+    </div>
+    <% end %>
+  </li>
+</ul>

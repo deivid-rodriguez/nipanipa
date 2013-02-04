@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Ubuntu);
 
 /* mixins, variables, etc. */
 
@@ -18,8 +19,14 @@ form, fieldset, legend, label, input{ margin: 0; padding: 0;}
 html { overflow-y: scroll; }
 
 body {
+  margin: 0;
+  font-family: "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 20px;
+  color: #333333;
+  background-color: white;
   padding-top: 60px;
-  width: 100%
+  width: 100%;
 }
 
 section { overflow: auto; }
@@ -27,9 +34,29 @@ section { overflow: auto; }
 textarea { resize: vertical; }
 
 .center {
-  text-align: center;
-  h1 {
-    margin-bottom: 10px;
+  background: url('header.png');
+  height: 130px;
+}
+
+.thumbnails {
+  a {
+    text-decoration: none;
+    display: block;
+    color: #333;
+    &:hover {
+      background: #eee;
+    }
+  }
+}
+
+.thumbnail {
+  padding: 30px 30px 15px 30px;
+  height: 280px;
+  h3 {
+    text-align: center;
+  }
+  p {
+    text-align: justify;
   }
 }
 
@@ -105,6 +132,9 @@ p { font-size: 1.1em; line-height: 1.7em; }
   width: 33%;
 }
 
+.home-action {
+  padding: 25px;
+}
 
 /* header */
 

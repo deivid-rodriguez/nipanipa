@@ -82,20 +82,18 @@ describe "authorization" do
 
     describe "visiting signup page" do
       before { visit new_user_path(type: 'host') }
-
-      it { should_not have_title '|' }
-      it { should have_selector 'h1', text: t('static_pages.home.welcome') }
+      specify { current_path.should == root_path }
     end
 
     describe "trying to edit another user" do
       let(:other_user) { create(:user) }
       before { visit edit_user_path(other_user) }
-      it { should_not have_title full_title(t 'users.edit.title') }
+      specify { current_path.should == root_path }
     end
 
     describe "trying to leave feedback for themselves" do
       before { visit new_user_feedback_path(user) }
-      it { should_not have_title t('users.show.leave_feedback') }
+      specify { current_path.should == root_path }
     end
 
   end # signed-in users
