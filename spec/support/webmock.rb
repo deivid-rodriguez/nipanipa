@@ -1,0 +1,23 @@
+RSpec.configure do |config|
+
+  dir = "#{::Rails.root}/spec/webmock"
+  stubs = {}
+  Dir["#{dir}/**/*"].each do |path|
+    next if File.directory? path
+    uri = path.dup
+    uri.slice!("#{dir}/")
+    if File.basename(uri) == '_directory'
+      uri = File.dirname(uri)+'/'
+    end
+    stubs["http://#{uri}"] = path
+  end
+
+  config.around(:each) do |example|
+    stubs.each { |uri, path|
+      WebMock::API.stub_request(:get, uri).to_return(File.new(path)) }
+    WebMock.disable_net_connect!(allow_localhost: true)
+    example.call
+    WebMock.allow_net_connect!
+  end
+
+end

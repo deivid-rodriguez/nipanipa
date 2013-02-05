@@ -65,12 +65,6 @@ granero"
   factory :location do
     address "Madrid"
     initialize_with { Location.find_or_initialize_by_address(address) }
-    after(:build) do |loc|
-      #loc.stub(:geocode).and_return [1,1]
-      VCR.use_cassette('location', record: :new_episodes) do
-        loc.geocode
-      end
-    end
   end
 
 end
