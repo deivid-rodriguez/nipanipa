@@ -13,6 +13,16 @@ que nos faltaba algo antes de NiPaNiPa. Por eso la hicimos. Disfrutad!"
       title: "Contacto"
       description: "Ponte en contacto con nosotros mandando un email a
 nipanipa.test@gmail.com"
+    donate:
+      title: "Contribuye a NiPaNiPa"
+      description_html: "NiPaNiPa necesita de tu ayuda para seguir existiendo de
+manera independiente y gratuita. Si puedes y quieres, haz una donación. Si no
+también puedes ayudarnos colaborando en el desarrollo nipanipiano %{giturl} o
+ayudándonos con las traducciones"
+      description_link: "aquí"
+      select_amount: "Selecciona el importe"
+      input_amount: "O elige el importe que tú quieras si no está en la lista"
+      submit: "Dona!"
     home:
       welcome: "Bienvenido a NiPaNiPa"
       subtitle: "Contacta a voluntarios y hosts de todo el mundo"

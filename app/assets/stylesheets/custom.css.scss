@@ -247,17 +247,13 @@ aside {
 
 /* forms */
 
-input, textarea, select, .uneditable-input {
+input[type="text"], textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 300px;
-  height: 100px;
-  margin-bottom: 15px;
-  @include box_sizing;
-}
-
-input {
   height: auto !important;
   display: block;
+  margin-bottom: 15px;
+  @include box_sizing;
 }
 
 #error_explanation {
