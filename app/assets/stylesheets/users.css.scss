@@ -20,6 +20,32 @@
   border-radius: 4px;
 }
 
+.user-thumbnail {
+  position: relative;
+  height: 148px;
+  padding: 10px;
+  div.user-thumbnail-gravatar {
+    float:left;
+    padding-right: 15px;
+  }
+  p.user-thumbnail-login {
+    margin: 0 0 4px 0;
+    font-color: #eee;
+    font-style: italic;
+  }
+  img.user-thumbnail-rating {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+  }
+  img.user-thumbnail-available {
+    position: absolute;
+    top: 4px;
+    right: 54px;
+  }
+
+}
+
 .signup-main {
   background: #E3E3E3;
   position: relative;
@@ -289,17 +315,4 @@ div.comment {
 .score-icon {
   float: right;
   margin-right: 50px;
-}
-
-/* styles for member results lists, used in myprofile visitors */
-.myvisitors .subcolumns{margin-bottom: 1.5em;}
-.myvisitors .jobsummary{color: #777; font-style: italic;}
-.userinfo {margin-left: 55px;}
-.userinfo p {margin-bottom: 0.2em;}
-.groupbox {margin-bottom: 0.5em;}
-
-.quickinfo {clear: right; padding-top: 5em; position: bottom;}
-
-span.profile-edit-link a {
-  color: #2184E8;
 }

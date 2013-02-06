@@ -1,8 +1,31 @@
-<li>
-  <%= gravatar_for user, size: 52 %>
-  <%= link_to user.name, user %>
-  <% if current_user.admin? && !current_user?(user) %>
-    | <%= link_to "delete", user, method: :delete,
-                                  data: { confirm: "You sure?" } %>
-  <% end %>
+<li class="span9 offset3">
+  <div class="thumbnail user-thumbnail">
+    <div class="user-thumbnail-gravatar">
+      <%= gravatar_for user, size: 148, class: "pull-left" %></p>
+    </div>
+    <div class="user-thumbnail-data">
+      <h5>
+      <%= link_to user.name, user %>
+      (<%= user.location.address %>)
+      </h5>
+      <p class="user-thumbnail-login">
+        last login: login_place, login_time
+       </p>
+      <p class="user-thumbnail-shortdesc">
+        <%= truncate user.description, length: 250, separator: ' ', omission: "..."  %>
+      </p>
+      <%= image_tag 'rating.png', size: "40x40",
+                                  alt: "rating",
+                                  title: "User Rating",
+                                  class: "user-thumbnail-rating" %>
+      <%= image_tag 'available_now.png', size: "40x40",
+                                         alt: "available now",
+                                         title: "Available now!",
+                                        class: "user-thumbnail-available" %>
+      <% if current_user.admin? && !current_user?(user) %>
+        | <%= link_to "delete", user, method: :delete,
+                                data: { confirm: "You sure?" } %>
+      <% end %>
+    </div>
+  </div>
 </li>

@@ -16,7 +16,7 @@
 <ul class="thumbnails">
   <li class="span4">
     <%= link_to donate_path do %>
-      <div class="thumbnail">
+      <div class="thumbnail home-thumbnail">
         <%= image_tag "contribute.png", alt: "contribute" %>
         <h3><%= t('static_pages.home.contribute') %></h3>
         <p><%= t('static_pages.home.contribute_desc') %></p>
@@ -24,8 +24,8 @@
     <% end %>
   </li>
    <li class="span4">
-    <%= link_to "#" do %>
-    <div class="thumbnail">
+    <%= link_to users_path do %>
+    <div class="thumbnail home-thumbnail">
       <%= image_tag "explore.png", alt: "contribute" %>
       <h3><%= t('static_pages.home.explore') %></h3>
       <p><%= t('static_pages.home.explore_desc') %></p>
@@ -34,7 +34,7 @@
   </li>
   <li class="span4">
     <%= link_to new_user_path(type: 'host') do %>
-    <div class="thumbnail">
+    <div class="thumbnail home-thumbnail">
       <%= image_tag "signup.png", alt: "signup" %>
       <h3><%= t('static_pages.home.signup') %></h3>
       <p><%= t('static_pages.home.signup_desc') %></p>

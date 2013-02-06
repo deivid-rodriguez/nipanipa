@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true,
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-  validates :description, length: { maximum: 1000 }
+  validates :description, length: { maximum: 2500 }
   validates :password, length: { minimum: 6 }
 
   # Keep same routes for subclasses
@@ -60,6 +60,11 @@ class User < ActiveRecord::Base
       end
     end
     super
+  end
+
+  # Use a single partial path
+  def to_partial_path
+    "users/user"
   end
 
   private

@@ -1,20 +1,5 @@
 require 'spec_helper'
 
-# Save pagination test for searches
-#
-#  describe "pagination" do
-#    before(:all) { 30.times { build(:user) } }
-#
-#    it { should have_selector('div.pagination') }
-#
-#    it "should list each user" do
-#      User.paginate(page: 1).each do |user|
-#        page.should have_selector('li', text: user.name)
-#      end
-#    end
-#
-#  end # pagination
-
 feature "User profile creation" do
   given(:user)       { build(:user) } # build_stubbed??
   given!(:work_type) { create(:work_type) }
@@ -122,5 +107,21 @@ feature "User profile editing" do
 end
 
 feature "User profile removing" do
+
+end
+
+feature "User profile index" do
+
+  background do
+    15.times { build(:user) }
+    visit users_path
+  end
+
+  scenario "Explore all profiles from home page" do
+
+    User.paginate(page: 1).each do |user|
+      page.should have_selector('li', text: user.name)
+    end
+  end
 
 end
