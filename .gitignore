@@ -16,3 +16,6 @@
 
 # Ignore vim tags
 /.tags
+
+# Ignore application configuration
+/config/application.yml

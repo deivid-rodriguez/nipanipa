@@ -70,7 +70,13 @@ module Nipanipa
 
     # Generators automatically generate factories instead of fixtures
     config.generators do |g|
-        g.fixture_replacement :factory_girl
+      g.test_framework :rspec, fixture: true
+      g.fixture_replacement :factory_girl
+      g.view_specs false
+      g.helper_specs false
+      g.stylesheets false
+      g.javascripts false
+      g.helper false
     end
   end
 end

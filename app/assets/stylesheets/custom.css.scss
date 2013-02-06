@@ -38,16 +38,18 @@ textarea { resize: vertical; }
   height: 130px;
 }
 
-.thumbnail {
-  h3 {
-    text-align: center;
-  }
-  p {
-    text-align: justify;
-  }
+.thumbnails {
   a {
-    text-decoration: none;
     color: #333;
+    text-decoration: none;
+  }
+  div.thumbnail {
+    h3 {
+      text-align: center;
+    }
+    p {
+      text-align: justify;
+    }
     &:hover {
       background: #eee;
     }

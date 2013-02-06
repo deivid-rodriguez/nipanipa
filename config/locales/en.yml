@@ -13,15 +13,6 @@ something was missing before NiPaNiPa. That's why we did it. Enjoy!"
       contact: "Contact"
       description: "Get in touch with us by sending an e-mail to
 nipanipa.test@gmail.com!"
-    donate:
-      title: "Contribute to NiPaNiPa"
-      description_html: "NiPaNiPa needs your help to survive in an independent
-way. If you can and you would like to, make a donation. You can also help us by
-contributing to nipanipa development %{git_url} or helping with translations."
-      description_link: "here"
-      select_amount: "Select the amount"
-      input_amount: "Or choose any amount you're confortable with"
-      submit: "Donate now!"
     home:
       welcome: 'Welcome to NiPaNiPa'
       subtitle: 'Contacts hosts and volunteers around the world'
@@ -94,6 +85,18 @@ work?"
       newuser?: "New user?"
     signin: "Sign in"
     signout: "Sign out"
+  donations:
+    new:
+      flash_success: "Your donation was successful!"
+      flash_alert: "Sorry, there was some problem with your donation."
+      title: "Contribute to NiPaNiPa"
+      description_html: "NiPaNiPa needs your help to survive in an independent
+way. If you can and you would like to, make a donation. You can also help us by
+contributing to nipanipa development %{git_url} or helping with translations."
+      description_link: "here"
+      select_amount: "Select the amount"
+      input_amount: "Or choose any amount you're confortable with"
+      submit: "Donate now!"
   layouts:
     header:
       language: "Language"

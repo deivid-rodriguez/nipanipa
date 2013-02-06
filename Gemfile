@@ -7,6 +7,8 @@ gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
 gem 'geocoder', '1.1.6'
 gem 'simple_form', '2.0.4'
+gem 'figaro', '0.5.3'
+gem 'thin', '1.5.0'
 
 group :development, :test do
   gem 'rspec-rails', '2.12.2'
@@ -18,6 +20,7 @@ end
 group :development do
   gem 'debugger', '1.3.0'
   gem 'annotate', '2.5.0'
+  gem 'nifty-generators', '0.4.6'
 end
 
 # Gems used only for assets and not required
@@ -38,7 +41,5 @@ group :test do
   gem 'rb-inotify', '0.8.8'
   gem 'libnotify', '0.5.9'
   gem 'factory_girl_rails', '4.2.0'
-  gem 'database_cleaner', '0.7.0'
   gem 'webmock', '1.9.0'
 end
-

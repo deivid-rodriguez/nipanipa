@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
 
   belongs_to :location
 
+  has_many :donations
   has_many :sectorizations
   has_many :work_types, through: :sectorizations
 

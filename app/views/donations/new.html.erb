@@ -1,0 +1,17 @@
+<% provide :title, t('.title') %>
+<h1><%= t '.title' %></h1>
+<p>
+  <%= t '.description_html',
+         giturl: link_to( t('.description_link'),
+                          'https://github.com/deivid-rodriguez/nipanipa') %>
+</p>
+
+<%= form_for @donation do |f| %>
+  <p>
+    <%= f.label :amount, t('.select_amount') %>
+    <%= f.select :amount, options_for_select([ 5, 10, 20 ], 10) %>
+  </p>
+
+  <p><%= f.submit t('.submit') %></p>
+
+<% end %>
