@@ -18,7 +18,7 @@ class DonationsController < ApplicationController
     response = Donation.send_pdt_post(params[:tx])
 
     if response.body.lines.first.chomp == 'SUCCESS'
-      flash.now[:success] = t('donations.new.flash_success')
+      flash.now[:notice] = t('donations.new.flash_notice')
     else
       flash.now[:alert] = t('donations.new.flash_alert')
     end

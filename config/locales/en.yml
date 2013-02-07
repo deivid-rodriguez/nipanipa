@@ -31,7 +31,7 @@ area."
 It won't take you more than five minutes."
   feedbacks:
     new:
-      flash_success: "You left a new reference! Thanks."
+      flash_notice: "You left a new reference! Thanks."
     destroy:
       flash_notice: "Your reference was successfully deleted"
   users:
@@ -47,7 +47,7 @@ work?"
     new:
       title: "Sign up"
       header: "%{type} register"
-      flash_success: "Congratulations! You have successfully registered!"
+      flash_notice: "Congratulations! You have successfully registered!"
       already_registered: "¿Already registered?"
       personal_info: "Personal Information"
       personal_desc: "About you"
@@ -77,7 +77,7 @@ work?"
     edit:
       title: "Profile update"
       header: "Update your profile"
-      flash_success: "Your profile was successfully updated!"
+      flash_notice: "Your profile was successfully updated!"
     destroy:
       flash_notice: "Your profile has been deleted. :("
   sessions:
@@ -87,7 +87,7 @@ work?"
     signout: "Sign out"
   donations:
     new:
-      flash_success: "Your donation was successful!"
+      flash_notice: "Your donation was successful!"
       flash_alert: "Sorry, there was some problem with your donation."
       title: "Contribute to NiPaNiPa"
       description_html: "NiPaNiPa needs your help to survive in an independent

@@ -34,7 +34,7 @@ feature "User profile creation" do
 
     expect { click_button submit }.to change(User, :count).by(1)
     page.should have_title user.name
-    page.should have_success_message t('users.new.flash_success')
+    page.should have_success_message t('users.new.flash_notice')
     page.should have_link t('sessions.signout')
   end
 end
@@ -99,7 +99,7 @@ feature "User profile editing" do
     click_button submit
 
     page.should have_title new_name
-    page.should have_success_message t('users.edit.flash_success')
+    page.should have_success_message t('users.edit.flash_notice')
     page.should have_link t('sessions.signout'), href: signout_path
     user.reload.name.should  == new_name
     user.reload.work_type_ids.should == [ work_type.id ]

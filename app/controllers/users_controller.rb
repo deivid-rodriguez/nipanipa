@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @user.location = Location.where(address: params[:location]).first_or_create
     if @user.save
       sign_in @user
-      redirect_to @user, flash: { success: t('users.new.flash_success') }
+      redirect_to @user, notice: t('users.new.flash_notice')
     else
       render 'new'
     end
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   def update
     if @user.update_attributes(params[:user])
       sign_in @user
-      redirect_to @user, flash: { success: t('users.edit.flash_success') }
+      redirect_to @user, notice: t('users.edit.flash_notice')
     else
       render 'edit'
     end

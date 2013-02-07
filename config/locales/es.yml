@@ -32,7 +32,7 @@ Registrarte y completar tu perfil no te llevará ni 5 minutos. Después...
 cuéntanos lo que pasa después!"
   feedbacks:
     new:
-      flash_success: "Has dejado una nueva referencia!"
+      flash_notice: "Has dejado una nueva referencia!"
     destroy:
       flash_notice: "Tu referencia ha sido eliminada"
   users:
@@ -48,7 +48,7 @@ buscando"
     new:
       title: "Regístrate"
       header: "Registro de %{type}"
-      flash_success: "Enhorabuena! Ya estás registrado!"
+      flash_notice: "Enhorabuena! Ya estás registrado!"
       already_registered: "¿Ya estás registrado?"
       personal_info: "Información Personal"
       personal_desc: "Sobre ti"
@@ -78,7 +78,7 @@ buscando"
     edit:
       title: "Actualización de perfil"
       header: "Actualiza tu perfil"
-      flash_success: "Tu perfil se ha actualizado correctamente!"
+      flash_notice: "Tu perfil se ha actualizado correctamente!"
     destroy:
       flash_notice: "Tu perfil ha sido eliminado. Vuelve cuando quieras!"
   sessions:
@@ -88,7 +88,7 @@ buscando"
     signout: "Salir"
   donations:
     new:
-      flash_success: "Tu donación fue exitosa!"
+      flash_notice: "Tu donación fue exitosa!"
       flash_alert: "Lo siento, hubo un problema con tu donación."
       title: "Contribuye a NiPaNiPa"
       description_html: "NiPaNiPa necesita de tu ayuda para seguir existiendo de
