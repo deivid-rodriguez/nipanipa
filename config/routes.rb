@@ -25,9 +25,10 @@ Nipanipa::Application.routes.draw do
 
     resources :donations, only: [:new, :create, :show]
 
-    match 'help'    => 'static_pages#help'
-    match 'about'   => 'static_pages#about'
-    match 'contact' => 'static_pages#contact'
+    match 'help'       => 'static_pages#help'
+    match 'about'      => 'static_pages#about'
+    match 'contact'    => 'static_pages#contact'
+    match 'robots.txt' => 'static_pages#robots'
 
     root :to => 'static_pages#home'
 
