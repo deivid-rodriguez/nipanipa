@@ -4,10 +4,20 @@
 
 .home-thumbnail {
   padding: 30px 30px 15px 30px;
-  height: 280px;
+  height: 281px;
   a {
     display: block;
   }
 }
 
-
+.home-half-thumbnail {
+  padding: 15px 30px;
+  height: 122px;
+  a {
+    display: block;
+  }
+  img {
+    float: right;
+    margin: 0 0 0 20px;
+  }
+}

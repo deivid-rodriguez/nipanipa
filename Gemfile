@@ -9,6 +9,8 @@ gem 'geocoder', '1.1.6'
 gem 'simple_form', '2.0.4'
 gem 'figaro', '0.5.3'
 gem 'thin', '1.5.0'
+gem 'devise', '2.2.3'
+gem 'cancan', '1.6.9'
 
 group :development, :test do
   gem 'rspec-rails', '2.12.2'

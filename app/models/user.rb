@@ -2,28 +2,39 @@
 #
 # Table name: users
 #
-#  id               :integer          not null, primary key
-#  name             :string(255)
-#  email            :string(255)
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
-#  password_digest  :string(255)
-#  remember_token   :string(255)
-#  admin            :boolean          default(FALSE)
-#  description      :text
-#  location_id      :integer
-#  work_description :text
-#  type             :string(255)
+#  id                  :integer          not null, primary key
+#  name                :string(255)
+#  email               :string(255)      default(""), not null
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  location_id         :integer
+#  encrypted_password  :string(255)      default(""), not null
+#  remember_created_at :datetime
+#  role                :string(255)      default("non-admin")
 #
 
 class User < ActiveRecord::Base
-  attr_protected :admin
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :confirmable,
+  # :lockable, :timeoutable and :omniauthable
+  # :recoverable, :trackable
+  devise :database_authenticatable, :rememberable, :validatable, :registerable
 
-  has_secure_password
+  ROLES = %w["admin", "non-admin"]
 
+  # accessible (or protected) attributes
+  attr_accessible :name, :email, :password, :remember_me, :address
+  attr_protected :role
+
+  # validations
+  validates :name, presence: true, length: { maximum: 50 }
+  validates :description, length: { maximum: 2500 }
+
+  # associations
   belongs_to :location
 
   has_many :donations
+
   has_many :sectorizations
   has_many :work_types, through: :sectorizations
 
@@ -33,29 +44,16 @@ class User < ActiveRecord::Base
                include: :recipient,
              dependent: :destroy,
                  order: "updated_at DESC"
-
   has_many :received_feedbacks,
-            class_name: 'Feedback',
-           foreign_key: 'recipient_id',
-               include: :sender,
-             dependent: :destroy,
-                 order: "updated_at DESC"
+              class_name: 'Feedback',
+             foreign_key: 'recipient_id',
+                 include: :sender,
+               dependent: :destroy,
+                   order: "updated_at DESC"
 
-  before_save { self.email.downcase! }
-  before_save :create_remember_token
-
-  validates :name, presence: true, length: { maximum: 50 }
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true,
-                    format: { with: VALID_EMAIL_REGEX },
-                    uniqueness: { case_sensitive: false }
-  validates :description, length: { maximum: 2500 }
-  validates :password, length: { minimum: 6 }
-
-  # Keep same routes for subclasses
+  # Fake class name in subclasses so URLs get properly generated
   def self.inherited(child)
     child.instance_eval do
-      alias :original_model_name :model_name
       def model_name
         User.model_name
       end
@@ -63,15 +61,9 @@ class User < ActiveRecord::Base
     super
   end
 
-  # Use a single partial path
+  # Use a single partial path for all subclasses
   def to_partial_path
     "users/user"
   end
-
-  private
-
-    def create_remember_token
-      self.remember_token = SecureRandom.urlsafe_base64
-    end
 
 end

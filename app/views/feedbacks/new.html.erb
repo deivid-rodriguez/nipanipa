@@ -1,5 +1,6 @@
 <% provide(:title, 'Leave feedback') %>
-<%= form_for([@recipient, @feedback]) do |f| %>
+
+<%= form_for([@user, @feedback]) do |f| %>
 
 <% if false %>
   <%= render 'shared/error_messages', object: @feedback %>

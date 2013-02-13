@@ -1,47 +1,56 @@
 FactoryGirl.define do
 
-  factory :user, aliases: [:sender, :recipient] do
+  factory :user do
     sequence(:name) { |n| "User #{n}" }
     sequence(:email) { |n| "nipanipa.test+user#{n}@gmail.com" }
     password "foobar"
-    password_confirmation { password }
-    association :location, strategy: :build
     description "I am a test user. I live in a little house in the countryside"
     work_description "Ofrezco trabajo en casa ayudando con la contruccion de mi
 granero"
+    location
 
     factory :admin do
-      admin true
+      role "admin"
     end
-
-    factory :user_location_stubbed do
-      association :location, strategy: :build_stubbed
-    end
-
-    # user_with_posts will create post data after the user has been created
-    #factory :user_with_feedbacks do
-    #  # posts_count is declared as an ignored attribute and available in
-    #  # attributes on the factory, as well as the callback via the evaluator
-    #  ignore do
-    #    feedback_count 2
-    #  end
-
-    #  # the after(:create) yields two values; the user instance itself and the
-    #  # evaluator, which stores all values from the factory, including ignored
-    #  # attributes; `create_list`'s second argument is the number of records
-    #  # to create and we make sure the user is associated properly to the post
-    #  after(:create) do |user, evaluator|
-    #    FactoryGirl.create_list(:feedback, evaluator.feedback_count, recipient: user)
-    #  end
-    #end
   end
 
-  factory :host, :class => Host, parent: User do
-   type "Host"
+  factory :host, class: Host, parent: :user do
+    type "Host"
   end
 
-  factory :volunteer, :class => Volunteer, parent: User do
-   type "Volunteer"
+  factory :volunteer, class: Volunteer, parent: :user do
+    type "Volunteer"
+  end
+
+  factory :host_with_work_type, parent: :host do
+    after(:create) do |u|
+      u.work_types << FactoryGirl.create(:work_type)
+    end
+  end
+
+  factory :user_with_work_type, parent: :user do
+    after(:build) do |u|
+      u.work_types << FactoryGirl.build(:work_type)
+    end
+    before(:create) do |u|
+      u.work_types.each { |wt| wt.save! }
+    end
+  end
+
+  factory :feedback do
+    content "Lorem ipsum"
+    score { rand(3)-1 }
+    association :sender   , factory: :volunteer
+    association :recipient, factory: :host
+  end
+
+  factory :user_with_feedbacks, parent: :user do
+    ignore do
+      count 1
+    end
+    after(:create) do |u, eval|
+      FactoryGirl.create_list(:feedback, eval.count, recipient: u)
+    end
   end
 
   factory :work_type do
@@ -51,15 +60,6 @@ granero"
   factory :sectorization do
     association :user
     association :work_type
-  end
-
-  factory :feedback do
-    content "Lorem ipsum"
-    association :sender
-    association :recipient
-    #sender
-    #recipient
-    score { rand(3)-1 }
   end
 
   factory :location do

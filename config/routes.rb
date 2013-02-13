@@ -1,17 +1,27 @@
 Nipanipa::Application.routes.draw do
 
+  # first created -> highest priority.
+
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
 
-    # override some routes for less cumbersome urls
-    match 'signup/:type' => 'users#new'       , via: :get,    as: :new_user
-    match 'signin'       => 'sessions#new'    , via: :get,    as: :new_session
-    match 'signout'      => 'sessions#destroy', via: :delete
+     devise_for :users,
+                skip: :sessions,
+                controllers: { registrations: "users" }
 
-    resources :users do
-      resources :feedbacks, only: [:new, :create, :index, :destroy]
+    devise_scope :user do
+      get    'signin'  => 'devise/sessions#new'    , as: :new_user_session
+      post   'signin'  => 'devise/sessions#create' , as: :user_session
+      delete 'signout' => 'devise/sessions#destroy', as: :destroy_user_session
+
+      get 'users'     => 'users#index', as: :users
+      get 'users/:id' => 'users#show' , as: :user
+
+      get    'users/:user_id/feedbacks/new'      => 'feedbacks#new'   , as: :new_user_feedback
+      post   'users/:user_id/feedbacks'          => 'feedbacks#create', as: :user_feedbacks
+      get    'users/:user_id/feedbacks/:id/edit' => 'feedbacks#edit'  , as: :edit_user_feedback
+      put    'users/:user_id/feedbacks/:id'      => 'feedbacks#update'
+      delete 'users/:user_id/feedbacks/:id'      => 'feedbacks#destroy'
     end
-
-    resources :sessions,  only: [:new, :create]
 
     resources :donations, only: [:new, :create, :show]
 
@@ -23,8 +33,6 @@ Nipanipa::Application.routes.draw do
 
   end
 
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
 
   # Sample resource route with options:
   #   resources :products do
@@ -32,17 +40,8 @@ Nipanipa::Application.routes.draw do
   #       get 'short'
   #       post 'toggle'
   #     end
-  #
   #     collection do
   #       get 'sold'
-  #     end
-  #   end
-
-  # Sample resource route with more complex sub-resources
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', :on => :collection
   #     end
   #   end
 

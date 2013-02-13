@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe DonationsController, net: :true do
-  render_views
+
+  before { sign_in nil }
 
   it "new action should render new template" do
     get :new

@@ -14,10 +14,7 @@
 require 'spec_helper'
 
 describe Feedback do
-  let(:sender)    { build_stubbed(:user) }
-  let(:recipient) { build_stubbed(:user) }
-  let(:feedback)  { build_stubbed(:feedback, sender: sender,
-                                  recipient: recipient) }
+  let(:feedback)  { build(:feedback) }
 
   subject { feedback }
 
@@ -25,8 +22,8 @@ describe Feedback do
   it { should respond_to(:sender_id) }
   it { should respond_to(:recipient_id) }
   it { should respond_to(:score) }
-  its(:sender)    { should == sender }
-  its(:recipient) { should == recipient }
+  its(:sender)    { should == feedback.sender }
+  its(:recipient) { should == feedback.recipient }
   it { should be_valid }
 
   describe "presence validation" do
@@ -44,12 +41,12 @@ describe Feedback do
   describe "accessible attributes" do
     it "should not allow access to sender_id" do
       expect do
-        Feedback.new(sender: sender.id)
+        Feedback.new(sender: build(:user))
       end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
     it "should not allow access to recipient_id" do
       expect do
-        Feedback.new(recipient: recipient.id)
+        Feedback.new(recipient: build(:user))
       end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
   end
@@ -65,8 +62,9 @@ describe Feedback do
   end
 
   describe "duplicated feedbacks" do
-    let!(:other_feedback) {
-      create(:feedback, sender: sender, recipient: recipient) }
+    let!(:other_feedback) do
+      create(:feedback, sender: feedback.sender, recipient: feedback.recipient)
+    end
     it { should_not be_valid }
   end
 

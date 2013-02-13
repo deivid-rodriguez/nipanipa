@@ -1,6 +1,7 @@
 <li>
   <div class="sender-picture">
-    <%= link_to gravatar_for(received_feedback.sender, size:40), received_feedback.sender %>
+    <%= link_to gravatar_for(received_feedback.sender, size:40),
+                received_feedback.sender %>
   </div>
   <div class="score-icon">
     <% if received_feedback.score == 1 %>
@@ -16,7 +17,8 @@
     <strong>From <%= received_feedback.sender.name %></strong>
   </div>
   <div class="timestamp">
-    <%= time_ago_in_words(received_feedback.updated_at) %> ago
+    <%= t 'feedbacks.show.timestamp',
+          time: time_ago_in_words(received_feedback.updated_at) %>
   </div>
   <div class="content">
     <%= received_feedback.content %>

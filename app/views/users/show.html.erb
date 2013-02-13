@@ -1,4 +1,4 @@
-<% provide(:title, @user.name) %>
+<% provide :title, @user.name %>
 
 <div id="col1">
 
@@ -14,20 +14,20 @@
       -->
 
     <ul class="linklist" id="profile_linklist">
-      <% if !current_user?(@user) %>
-      <li id="sub0" class="editmyprofile">
-        <%= link_to t('.leave_feedback'), new_user_feedback_path(@user.id) %>
+      <% unless @no_feedback_link %>
+      <li id="sub0">
+        <%= link_to t('.leave_feedback'), new_user_feedback_path(@user) %>
       </li>
-      <li><%= link_to t('.contact_user'), '#' %></li>
       <% end %>
+      <li><%= link_to t('.contact_user'), '#' %></li>
       <li id="sub1" class="mypreferences">
-        <a style="cursor:pointer;" href="mypreferences"><span>Mis preferencias</span></a></li>
+        <a href="mypreferences"><span>Mis preferencias</span></a></li>
       <li id="sub2" class="myvisitors">
-        <a style="cursor:pointer;" href="myvisitors"><span>Visitas en mi perfil</span></a></li>
+        <a href="myvisitors"><span>Visitas en mi perfil</span></a></li>
       <li id="sub3" class="space">
-        <a style="cursor:pointer;" href=""><span></span></a></li>
+        <a href=""><span></span></a></li>
       <li id="sub6" class="">
-        <a style="cursor:pointer;" href="gallery/show/user/deivid/pictures"><span>Galería (0)</span></a></li>
+        <a href="gallery/show/user/deivid/pictures"><span>Galería (0)</span></a></li>
     </ul>
 
   </div> <!-- col1_content -->
@@ -70,7 +70,7 @@
 
             <div id="jobsummary" class="floatbox box">
               <span class="float_right profile-edit-link">
-                <%= link_to "Editar", edit_user_path(@user.id) %>
+                <%= link_to "Editar", edit_user_registration_path %>
               </span>
               <h3 class="icon info22">Descripción del Trabajo</h3>
               <%= @user.work_description %>
@@ -98,7 +98,7 @@
 
             <div id="personaldescription" class="floatbox box">
               <span class="float_right profile-edit-link">
-                <%= link_to "Editar", edit_user_path(@user.id) %>
+                <%= link_to "Editar", edit_user_registration_path %>
               </span>
               <h3 class="icon info22">Sobre mí</h3>
                 <%= @user.description %>
@@ -106,7 +106,7 @@
 
             <div id="languages" class="floatbox box">
               <span class="float_right profile-edit-link">
-                <%= link_to "Editar", edit_user_path(@user.id) %>
+                <%= link_to "Editar", edit_user_registration_path %>
               </span>
               <h3>Idiomas</h3>
               <ul class="icon profile_languages"></ul>

@@ -5,12 +5,12 @@ describe FeedbacksController do
 
   describe "POST create" do
     before { post :create, user_id: user.id }
-    specify { response.should redirect_to(new_session_path) }
+    specify { response.should redirect_to(new_user_session_path) }
   end
 
   describe "DELETE destroy" do
     let(:feedback) { create(:feedback) }
     before { delete :destroy, id: feedback.id, user_id: user.id }
-    specify { response.should redirect_to(new_session_path) }
+    specify { response.should redirect_to(new_user_session_path) }
   end
 end

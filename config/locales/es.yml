@@ -16,8 +16,11 @@ nipanipa.test@gmail.com"
     home:
       welcome: "Bienvenido a NiPaNiPa"
       subtitle: "Contacta a voluntarios y hosts de todo el mundo"
-      host: "Soy host"
-      volunteer: "Soy voluntario"
+      host: "Regístrate como host"
+      host_desc: "Encuentra voluntarios que te ayuden mientras se alojan en tu
+casa."
+      volunteer: "Regístrate como voluntario"
+      volunteer_desc: "Ayuda a alguien a cambio de alojamiento."
       contribute: "Colabora"
       contribute_desc: "Apoya a NiPaNiPa para que siga siendo gratuito, ya sea
 haciendo una donación, colaborando en el desarollo del sitio o ayudándonos a
@@ -35,11 +38,13 @@ cuéntanos lo que pasa después!"
       flash_notice: "Has dejado una nueva referencia!"
     destroy:
       flash_notice: "Tu referencia ha sido eliminada"
+    show:
+      timestamp: "Hace %{time}"
   users:
-    description_label_host: "Cuéntale a tus futuros voluntarios algo sobre ti o
+    desc_label_host: "Cuéntale a tus futuros voluntarios algo sobre ti o
 sobre tu familia"
-    description_label_volunteer: "Cuéntale a tu futuro anfitrión algo sobre ti"
-    work_description_label: "Describe cómo será el trabajo que el voluntario
+    desc_label_volunteer: "Cuéntale a tu futuro anfitrión algo sobre ti"
+    work_desc_label: "Describe cómo será el trabajo que el voluntario
 hará en tu casa"
     work_types_label_host: "Selecciona los tipos de trabajo en los que se ubica
 tu oferta"
@@ -48,11 +53,8 @@ buscando"
     new:
       title: "Regístrate"
       header: "Registro de %{type}"
-      flash_notice: "Enhorabuena! Ya estás registrado!"
       already_registered: "¿Ya estás registrado?"
-      personal_info: "Información Personal"
       personal_desc: "Sobre ti"
-      work_info: "Información sobre el Trabajo"
       work_type: "Tipo de trabajo"
       work_types:
         gardening: "Jardinería"
@@ -70,7 +72,8 @@ buscando"
         technical_assistance: "Ordenadores"
         art_project: "Proyecto artístico"
         other: "Otro"
-      submit: "Crear mi cuenta!"
+    create:
+      flash_notice: "Enhorabuena! Ya estás registrado!"
     show:
       profile: "Mi perfil"
       leave_feedback: "Dejar una referencia"
@@ -78,6 +81,7 @@ buscando"
     edit:
       title: "Actualización de perfil"
       header: "Actualiza tu perfil"
+    update:
       flash_notice: "Tu perfil se ha actualizado correctamente!"
     destroy:
       flash_notice: "Tu perfil ha sido eliminado. Vuelve cuando quieras!"
@@ -105,6 +109,9 @@ ayudándonos con las traducciones"
     footer:
       news: "Noticias"
   activerecord:
+    models:
+      host: "Host"
+      volunteer: "Voluntario"
     attributes:
       user:
         password_digest: "Contraseña"
@@ -118,17 +125,63 @@ ayudándonos con las traducciones"
               too_short: "La contraseña debe tener al menos 6 caracteres"
             name:
               blank: "Es obligatorio especificar un nombre de usuario"
+              too_long: "El nombre de usuario es demasiado largo"
             email:
               taken: "Ese correo electrónico ya existe en NiPaNiPa"
               blank: "Es obligatorio especificar una dirección de correo
 electrónico"
+              invalid: "Introduciste un correo electrónico con un formato raro"
             password_confirmation:
               blank: "La confirmación de la contraseña está vacía"
               too_short: "La confirmación de la contraseña es demasiado corta"
+            description:
+              too_long: "El texto es demasiado largo. Sé más breve"
       messages:
         record_invalid: "Registro no válido"
   helpers:
     submit:
-      user:
-        create: "Crear mi cuenta"
-        update: "Salvar los cambios"
+      create: "Crear mi cuenta"
+      update: "Salvar los cambios"
+  datetime:
+    distance_in_words:
+      half_a_minute: "medio minuto"
+      less_than_x_seconds:
+        one:   "menos de un segundo"
+        other: "menos de %{count} segundos"
+      x_seconds:
+        one:   "1 segundo"
+        other: "%{count} segundos"
+      less_than_x_minutes:
+        one:   "menos de un minuto"
+        other: "menos de %{count} minutos"
+      x_minutes:
+        one:   "1 minuto"
+        other: "%{count} minutos"
+      about_x_hours:
+        one:   "sobre 1 hora"
+        other: "sobre %{count} horas"
+      x_days:
+        one:   "1 día"
+        other: "%{count} días"
+      about_x_months:
+        one:   "sobre 1 mes"
+        other: "sobre %{count} meses"
+      x_months:
+        one:   "1 mes"
+        other: "%{count} meses"
+      about_x_years:
+        one:   "sobre 1 año"
+        other: "sobre %{count} años"
+      over_x_years:
+        one:   "más de 1 año"
+        other: "más de %{count} años"
+      almost_x_years:
+        one:   "casi 1 año"
+        other: "casi %{count} años"
+    prompts:
+      year:   "Año"
+      month:  "Mes"
+      day:    "Día"
+      hour:   "Hora"
+      minute: "Minuto"
+      second: "Segundo"

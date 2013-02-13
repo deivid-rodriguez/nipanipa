@@ -1,6 +1,8 @@
-<%= simple_form_for user, html: { class: 'form-horizontal' } do |f| %>
+<%= simple_form_for resource, as: resource_name,
+                              url: registration_path(resource_name),
+                              html: { class: 'form-horizontal' } do |f| %>
 
-  <%= f.hidden_field :type, name: "type", value: "#{user.type}" %>
+  <%= hidden_field_tag :type, user.type %>
 
   <%= f.input :name %>
 
@@ -17,10 +19,10 @@
   <%= f.input :location, input_html: { name: "location" } %>
 
   <%= f.input :description,
-              label: t("users.description_label_#{user.type.to_s.underscore}") %>
+              label: t("users.desc_label_#{user.type.to_s.underscore}") %>
 
-  <% if user.type = 'Host' %>
-  <%= f.input :work_description, label: t('users.work_description_label') %>
+  <% if user.type == 'Host' %>
+  <%= f.input :work_description, label: t('users.work_desc_label') %>
   <% end %>
 
   <%= f.association :work_types,
