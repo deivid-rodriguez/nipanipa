@@ -9,10 +9,12 @@
       (<%= user.location.address %>)
       </h5>
       <p class="user-thumbnail-login">
-        last login: login_place, login_time
+        <%= render 'shared/current_or_last_login', user: user %>
        </p>
       <p class="user-thumbnail-shortdesc">
-        <%= truncate user.description, length: 250, separator: ' ', omission: "..."  %>
+        <%= truncate user.description, length: 250,
+                                       separator: ' ',
+                                       omission: "..."  %>
       </p>
       <%= image_tag 'rating.png', size: "40x40",
                                   alt: "rating",

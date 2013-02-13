@@ -41,4 +41,7 @@ Nipanipa::Application.configure do
   silence_warnings do
     BCrypt::Engine::DEFAULT_COST = BCrypt::Engine::MIN_COST
   end
+
+  # Middleware
+  config.middleware.use SpoofIp, "83.39.69.109"
 end

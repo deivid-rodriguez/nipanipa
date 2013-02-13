@@ -17,7 +17,7 @@
     <strong>From <%= received_feedback.sender.name %></strong>
   </div>
   <div class="timestamp">
-    <%= t 'feedbacks.show.timestamp',
+    <%= t 'datetime.timestamp_ago',
           time: time_ago_in_words(received_feedback.updated_at) %>
   </div>
   <div class="content">

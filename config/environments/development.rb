@@ -32,11 +32,14 @@ Nipanipa::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = false
 
-# # ActionMailer Config
-# config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-# config.action_mailer.delivery_method = :smtp
-# config.action_mailer.perform_deliveries = false
-# config.action_mailer.raise_delivery_errors = true
+  # ActionMailer Config
+  # config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.perform_deliveries = false
+  # config.action_mailer.raise_delivery_errors = true
   config.action_mailer.raise_delivery_errors = false
-# config.action_mailer.default :charset => "utf-8"
+  # config.action_mailer.default :charset => "utf-8"
+
+  # Middleware
+  config.middleware.use SpoofIp, ENV["DEVELOPMENT_IP"]
 end

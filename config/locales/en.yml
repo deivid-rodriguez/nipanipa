@@ -1,4 +1,8 @@
 en:
+  shared:
+    current_or_last_login:
+      currently_logged_in: "Now online!"
+      last_login: "Last login"
   static_pages:
     help:
       title: "Help"
@@ -36,8 +40,6 @@ It won't take you more than five minutes."
       flash_notice: "You left a new reference! Thanks."
     destroy:
       flash_notice: "Your reference was successfully deleted"
-    show:
-      timestamp: "%{time} ago"
   users:
     desc_label_host: "Tell your future volunteers something about
 yourself or your family."
@@ -76,6 +78,7 @@ work?"
       profile: "My profile"
       leave_feedback: "Leave feedback"
       contact_user: "Contact user"
+      member_since: "Member since"
     edit:
       title: "Profile update"
       header: "Update your profile"
@@ -139,6 +142,7 @@ contributing to nipanipa development %{git_url} or helping with translations."
       create: "Sign up!"
       update: "Save changes"
   datetime:
+    timestamp_ago: "%{time} ago"
     distance_in_words:
       half_a_minute: "half a minute"
       less_than_x_seconds:

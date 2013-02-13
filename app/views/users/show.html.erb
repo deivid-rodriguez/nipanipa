@@ -54,8 +54,10 @@
             <h2><strong><%= @user.location.address %></strong></h2>
             <p class="grey">
               27 Edad<br>
-              Miembro desde: Hace 6 meses<br>
-              Último ingreso: menos de una semana
+              <%= t '.member_since' %>:
+              <%= t 'datetime.timestamp_ago',
+                    time: time_ago_in_words(@user.created_at) %><br>
+              <%= render 'shared/current_or_last_login', user: @user %>
             </p>
           </div> <!-- navigation-path -->
 

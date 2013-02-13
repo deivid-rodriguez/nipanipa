@@ -1,6 +1,8 @@
 class UsersController < Devise::RegistrationsController
   layout 'user_new', only: [:new, :create]
 
+  before_filter :geolocate_ip, only: [:index, :show]
+
   def new
     @user = params[:type].classify.constantize.new
   end
@@ -9,7 +11,7 @@ class UsersController < Devise::RegistrationsController
     @user = params[:type].classify.constantize.new(params[:user])
     @user.location = Location.where(address: params[:location]).first_or_create
     if @user.save
-      sign_up :user, @user
+      sign_up @user, force: true
       redirect_to @user, notice: t('users.create.flash_notice')
     else
       render 'new'
@@ -58,6 +60,10 @@ class UsersController < Devise::RegistrationsController
     end
 
   private
+
+    def geolocate_ip
+      @last_location = "#{request.location.state} (#{request.location.country})"
+    end
 
     def dont_leave_feedback?(user)
       user_signed_in? &&

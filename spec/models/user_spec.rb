@@ -8,9 +8,17 @@
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #  location_id         :integer
+#  description         :text
+#  work_description    :text
+#  type                :string(255)
 #  encrypted_password  :string(255)      default(""), not null
 #  remember_created_at :datetime
 #  role                :string(255)      default("non-admin")
+#  sign_in_count       :integer          default(0)
+#  current_sign_in_at  :datetime
+#  last_sign_in_at     :datetime
+#  current_sign_in_ip  :string(255)
+#  last_sign_in_ip     :string(255)
 #
 
 require 'spec_helper'
