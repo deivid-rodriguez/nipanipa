@@ -46,14 +46,9 @@ textarea { resize: vertical; }
     text-decoration: none;
   }
   div.thumbnail {
+    text-align: justify;
     h3 {
       text-align: center;
-    }
-    p {
-      text-align: justify;
-    }
-    &:hover {
-      background: #eee;
     }
   }
 }

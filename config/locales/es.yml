@@ -98,13 +98,19 @@ buscando"
       flash_notice: "Tu donación fue exitosa!"
       flash_alert: "Lo siento, hubo un problema con tu donación."
       title: "Contribuye a NiPaNiPa"
-      description_html: "NiPaNiPa necesita de tu ayuda para seguir existiendo de
-manera independiente y gratuita. Si puedes y quieres, haz una donación. Si no
-también puedes ayudarnos colaborando en el desarrollo nipanipiano %{giturl} o
-ayudándonos con las traducciones"
-      description_link: "aquí"
+      donate_title: "Dona!"
+      donate_desc: "NiPaNiPa necesita de tu ayuda para seguir existiendo de
+manera independiente y gratuita. Si puedes y quieres, haz una donación."
+      contribute_title: "Ayúdanos"
+      contribute_desc_dev_html: "Si sabes programar, puedes ayudarnos
+colaborando en el desarrollo nipiano %{git_url}."
+      contribute_desc_tr: "Si NiPaNiPa no está en tu lengua madre pero puedes
+entender esto, puedes ayudarnos a traducirlo."
+      contribute_desc_bug_html: "También puedes reportarnos fallos o
+solicitarnos nuevas funcionalidades %{issues_url}."
       select_amount: "Selecciona el importe"
       input_amount: "O elige el importe que tú quieras si no está en la lista"
+      here: "aquí"
       submit: "Dona!"
   layouts:
     header:
