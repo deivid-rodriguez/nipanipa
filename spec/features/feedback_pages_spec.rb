@@ -1,8 +1,6 @@
-require 'spec_helper'
-
 feature "Creating feedbacks" do
   given!(:user)       { create(:user) }
-  given!(:other_user) { create(:user) }
+  given!(:other_user) { create(:user_trackable) }
 
   subject { page }
 

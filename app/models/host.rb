@@ -7,7 +7,6 @@
 #  email               :string(255)      default(""), not null
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
-#  location_id         :integer
 #  description         :text
 #  work_description    :text
 #  type                :string(255)
@@ -19,6 +18,10 @@
 #  last_sign_in_at     :datetime
 #  current_sign_in_ip  :string(255)
 #  last_sign_in_ip     :string(255)
+#  state               :string(255)
+#  country             :string(255)
+#  latitude            :float
+#  longitude           :float
 #
 
 class Host < User

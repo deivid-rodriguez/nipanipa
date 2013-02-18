@@ -7,7 +7,6 @@
 #  email               :string(255)      default(""), not null
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
-#  location_id         :integer
 #  description         :text
 #  work_description    :text
 #  type                :string(255)
@@ -19,6 +18,10 @@
 #  last_sign_in_at     :datetime
 #  current_sign_in_ip  :string(255)
 #  last_sign_in_ip     :string(255)
+#  state               :string(255)
+#  country             :string(255)
+#  latitude            :float
+#  longitude           :float
 #
 
 class User < ActiveRecord::Base
@@ -30,16 +33,26 @@ class User < ActiveRecord::Base
   ROLES = %w["admin", "non-admin"]
 
   # accessible (or protected) attributes
-  attr_accessible :name, :email, :password, :remember_me, :address
-  attr_protected :role
+  attr_accessible :name, :email, :password, :password_confirmation,
+                  :description, :work_description, :work_type_ids, :remember_me,
+                  :state, :country
 
   # validations
   validates :name, presence: true, length: { maximum: 50 }
   validates :description, length: { maximum: 2500 }
 
-  # associations
-  belongs_to :location
+  # geocoder
+  geocoded_by :current_sign_in_ip do |obj, results|
+    if geo = results.first
+      obj.state     = geo.state
+      obj.country   = geo.country
+      obj.longitude = geo.longitude
+      obj.latitude  = geo.latitude
+    end
+  end
+  after_validation :geocode, if: :current_sign_in_ip_changed?
 
+  # associations
   has_many :donations
 
   has_many :sectorizations

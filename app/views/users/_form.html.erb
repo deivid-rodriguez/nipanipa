@@ -16,8 +16,6 @@
 
   <%= f.input :password_confirmation %>
 
-  <%= f.input :location, input_html: { name: "location" } %>
-
   <%= f.input :description,
               label: t("users.desc_label_#{user.type.to_s.underscore}") %>
 

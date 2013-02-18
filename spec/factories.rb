@@ -6,12 +6,14 @@ FactoryGirl.define do
     password "foobar"
     description "I am a test user. I live in a little house in the countryside"
     work_description "Ofrezco trabajo en casa ayudandome a construir mi granero"
-    location
-    last_sign_in_at { Time.now }
-    last_sign_in_ip ENV["TEST_IP"]
-    current_sign_in_at { Time.now}
-    current_sign_in_ip ENV["TEST_IP"]
-    sign_in_count 0
+
+    factory :user_trackable do
+      last_sign_in_at { Time.now }
+      last_sign_in_ip ENV["IP"]
+      current_sign_in_at { Time.now}
+      current_sign_in_ip ENV["IP"]
+      sign_in_count 0
+    end
 
     factory :admin do
       role "admin"
@@ -63,11 +65,6 @@ FactoryGirl.define do
   factory :sectorization do
     association :user
     association :work_type
-  end
-
-  factory :location do
-    address "Madrid"
-    initialize_with { Location.find_or_initialize_by_address(address) }
   end
 
 end

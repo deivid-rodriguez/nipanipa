@@ -7,7 +7,6 @@
 #  email               :string(255)      default(""), not null
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
-#  location_id         :integer
 #  description         :text
 #  work_description    :text
 #  type                :string(255)
@@ -19,6 +18,10 @@
 #  last_sign_in_at     :datetime
 #  current_sign_in_ip  :string(255)
 #  last_sign_in_ip     :string(255)
+#  state               :string(255)
+#  country             :string(255)
+#  latitude            :float
+#  longitude           :float
 #
 
 require 'spec_helper'
@@ -36,7 +39,11 @@ describe User do
   it { should respond_to(:remember_created_at) }
   it { should respond_to(:role) }
   it { should respond_to(:description) }
+  it { should respond_to(:longitude) }
+  it { should respond_to(:latitude) }
   it { should respond_to(:type) }
+
+  it { should respond_to(:last_sign_in_ip) }
 
   it { should be_valid }
   specify { user.role.should == "non-admin" }

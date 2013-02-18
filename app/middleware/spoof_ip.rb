@@ -6,7 +6,7 @@ class SpoofIp
   end
 
   def call(env)
-    env['HTTP_X_REAL_IP'] = @ip
+    env['HTTP_X_FORWARDED_FOR'] = @ip
     @status, @headers, @response = @app.call(env)
     [ @status, @headers, @response ]
   end

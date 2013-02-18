@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 feature "Signin" do
 
   let(:signin)  { t 'sessions.signin'    }
@@ -14,12 +12,21 @@ feature "Signin" do
     page.should have_title signin
   end
 
+  scenario "Signin correctly sets user location by geolocating the ip" do
+    sign_in user
+
+    user.reload.longitude.should_not be_nil
+    user.reload.latitude.should_not be_nil
+    user.reload.state.should_not be_nil
+    user.reload.country.should_not be_nil
+  end
+
   scenario "with invalid information should take you back to signin page and
             show error message" do
     click_button signin
 
     page.should have_title signin
-    page.should have_error_message t('devise.failure.invalid')
+    page.should have_flash_message t('devise.failure.invalid'), 'error'
   end
 
   scenario "valid information followed by signout" do

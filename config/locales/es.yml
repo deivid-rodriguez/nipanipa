@@ -74,8 +74,6 @@ buscando"
         technical_assistance: "Ordenadores"
         art_project: "Proyecto artístico"
         other: "Otro"
-    create:
-      flash_notice: "Enhorabuena! Ya estás registrado!"
     show:
       profile: "Mi perfil"
       leave_feedback: "Dejar una referencia"
@@ -84,10 +82,6 @@ buscando"
     edit:
       title: "Actualización de perfil"
       header: "Actualiza tu perfil"
-    update:
-      flash_notice: "Tu perfil se ha actualizado correctamente!"
-    destroy:
-      flash_notice: "Tu perfil ha sido eliminado. Vuelve cuando quieras!"
   sessions:
     new:
       newuser?: "¿Nuevo usuario?"

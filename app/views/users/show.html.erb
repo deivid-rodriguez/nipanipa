@@ -41,7 +41,7 @@
     <div id="profile-header" class="clearfix">
 
       <div id="profile-location">
-        <%= image_tag "http://maps.google.com/maps/api/staticmap?center=#{@user.location.latitude}%2C#{@user.location.longitude}&size=300x200&sensor=false&zoom=8", alt: "map" %>
+        <%= image_tag "http://maps.google.com/maps/api/staticmap?center=#{@user.latitude}%2C#{@user.longitude}&size=300x200&sensor=false&zoom=8", alt: "map" %>
       </div>
 
       <div id="profile-info">
@@ -51,7 +51,7 @@
           </h1> <!-- username -->
 
           <div id="navigation-path">
-            <h2><strong><%= @user.location.address %></strong></h2>
+            <h2><strong><%= "#{@user.state} (#{@user.country})" %></strong></h2>
             <p class="grey">
               27 Edad<br>
               <%= t '.member_since' %>:

@@ -32,6 +32,9 @@ Nipanipa::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = false
 
+  # Disable logging of assets
+  config.assets.logger = false
+
   # ActionMailer Config
   # config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   # config.action_mailer.delivery_method = :smtp
@@ -41,5 +44,5 @@ Nipanipa::Application.configure do
   # config.action_mailer.default :charset => "utf-8"
 
   # Middleware
-  config.middleware.use SpoofIp, ENV["DEVELOPMENT_IP"]
+  config.middleware.use SpoofIp, ENV["IP"]
 end

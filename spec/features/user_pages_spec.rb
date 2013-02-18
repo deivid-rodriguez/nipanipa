@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 feature "Host profile creation" do
   given(:host) { build(:host) }
 
@@ -12,7 +10,7 @@ feature "Host profile creation" do
   end
 
   scenario "submitting invalid information doesn't create user, redirects back
-            to signup page and displays error messages" do
+to signup page and displays error messages" do
     expect { click_button t('helpers.submit.create')
     }.not_to change(Host, :count)
     page.should have_title t('users.new.title')
@@ -20,19 +18,18 @@ feature "Host profile creation" do
   end
 
   scenario "submitting valid information creates user, signs in that user,
-            redirect to his profile and flash a welcome message" do
+redirect to his profile and flash a welcome message" do
     fill_in 'user[name]'                 , with: host.name
     fill_in 'user[email]'                , with: host.email
     fill_in 'user[password]'             , with: host.password
     fill_in 'user[password_confirmation]', with: host.password
     fill_in 'user[description]'          , with: host.description
-    fill_in 'location'                   , with: host.location.address
     fill_in 'user[work_description]'     , with: host.work_description
 
     expect { click_button t('helpers.submit.create')
     }.to change(Host, :count).by(1)
     page.should have_title host.name
-    page.should have_success_message t('users.create.flash_notice')
+    page.should have_flash_message t('devise.users.signed_up'), 'success'
     page.should have_link t('sessions.signout')
   end
 end
@@ -49,7 +46,7 @@ feature "Volunteer profile creation" do
   end
 
   scenario "submitting invalid information doesn't create user, redirects back
-            to signup page and displays error messages" do
+to signup page and displays error messages" do
     expect { click_button t('helpers.submit.create')
     }.not_to change(Volunteer, :count)
     page.should have_title t('users.new.title')
@@ -57,18 +54,17 @@ feature "Volunteer profile creation" do
   end
 
   scenario "submitting valid information creates user, signs in that user,
-            redirect to his profile and flash a welcome message" do
+redirect to his profile and flash a welcome message" do
     fill_in 'user[name]'                 , with: volunteer.name
     fill_in 'user[email]'                , with: volunteer.email
     fill_in 'user[password]'             , with: volunteer.password
     fill_in 'user[password_confirmation]', with: volunteer.password
     fill_in 'user[description]'          , with: volunteer.description
-    fill_in 'location'                   , with: volunteer.location.address
 
     expect { click_button t('helpers.submit.create')
     }.to change(Volunteer, :count).by(1)
     page.should have_title volunteer.name
-    page.should have_success_message t('users.create.flash_notice')
+    page.should have_flash_message t('devise.users.signed_up'), 'success'
     page.should have_link t('sessions.signout')
   end
 end
@@ -78,40 +74,45 @@ feature "User profile display" do
   given(:sender)     { feedback.sender    }
   given(:recipient)  { feedback.recipient }
 
-  background { visit user_path(recipient) }
+  # Force trackable hook ups and ip geolocation to happen
+  # This should be forced in creation...
+  before {
+    sign_in sender
+    sign_out
+    sign_in recipient
+    sign_out
+  }
 
-  scenario "includes proper elements: header, title, user description, user
-            location, user work description, user feedbacks and count" do
+  scenario "includes proper elements: header, title, user description, user work
+description, user feedbacks and count" do
+    sign_in recipient
+
     page.should have_selector('h1', text: recipient.name)
     page.should have_title recipient.name
     page.should have_content(recipient.description)
-    page.should have_content(recipient.location.address)
     page.should have_content(recipient.work_description)
     page.should have_content(feedback.content)
     page.should have_content(recipient.received_feedbacks.count)
     page.should have_link t('users.show.contact_user')
-  end
-
-  scenario "when visitor not signed in" do
-    page.should have_link t('users.show.leave_feedback')
-  end
-
-  scenario "when user signed in & looking at its own profile" do
-    sign_in sender
     page.should_not have_link t('users.show.leave_feedback')
   end
 
+  scenario "when visitor not signed in" do
+    visit user_path sender
+    page.should have_link t('users.show.leave_feedback')
+  end
+
   scenario "when user signed in and looking at another user's profile whom he's
-            already left feedback" do
+already left feedback" do
     sign_in sender
-    visit user_path(recipient)
+    visit user_path recipient
     page.should_not have_link t('users.show.leave_feedback')
   end
 
   scenario "when user signed in & looking at another user's whom feedback is to
-            be given" do
+be given" do
     sign_in recipient
-    visit user_path(sender)
+    visit user_path sender
     page.should have_link t('users.show.leave_feedback')
   end
 end
@@ -154,14 +155,14 @@ feature "User profile editing" do
 
   scenario "nothing introduced is valid" do
     click_button t('helpers.submit.update')
-    page.should have_success_message t('users.update.flash_notice')
+    page.should have_flash_message t('devise.users.updated'), 'success'
   end
 
   scenario "with valid information" do
     uncheck "user_work_type_ids_#{host.work_type_ids[0]}"
     click_button t('helpers.submit.update')
 
-    page.should have_success_message t('users.update.flash_notice')
+    page.should have_flash_message t('devise.users.updated'), 'success'
     page.should have_link t('sessions.signout'), href: destroy_user_session_path
     host.reload.work_type_ids.should == [ ]
   end

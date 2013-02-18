@@ -11,15 +11,9 @@ def sign_out
   click_link t('sessions.signout')
 end
 
-RSpec::Matchers.define :have_error_message do |message|
+RSpec::Matchers.define :have_flash_message do |message, type|
   match do |page|
-    page.should have_selector('div.alert.alert-error', text: message)
-  end
-end
-
-RSpec::Matchers.define :have_success_message do |message|
-  match do |page|
-    page.should have_selector('div.alert.alert-success', text: message)
+    page.should have_selector("div.alert.alert-#{type}", text: message)
   end
 end
 

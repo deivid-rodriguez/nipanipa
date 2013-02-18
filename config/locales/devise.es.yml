@@ -30,7 +30,7 @@ es:
       send_paranoid_instructions: Si tu correo existe en nuestra base de datos, vas a recibir un correo con instrucciones sobre cómo resetear tu contraseña en tu bandeja de entrada.
       updated: Tu contraseña fue cambiada. Ya iniciaste sesión.
       updated_not_active: Tu contraseña fue cambiada.
-    registrations:
+    users:
       destroyed: Tu perfil ha sido eliminado. Vuelve cuando quieras!
       signed_up: Enhorabuena, ya estás registrado!
       signed_up_but_inactive: Tu cuenta ha sido creada correctamente. Sin embargo, no hemos podido iniciar la sesión para que tu cuenta aún no está activada.

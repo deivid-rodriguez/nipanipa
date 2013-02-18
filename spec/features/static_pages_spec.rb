@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe "Static pages" do
 
   let(:help)    { t 'static_pages.help.title' }
