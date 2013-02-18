@@ -21,6 +21,8 @@ guard 'rspec', :all_after_pass => false, :cli => '--drb' do
   watch('spec/spec_helper.rb') { "spec" }
 
   # Rails example
+  watch(%r{^app/models/(.+)\.rb}) { |m|
+    ["spec/models/#{m[1]}_spec.rb", "spec/features/#{m[1]}_pages_spec.rb"]  }
   watch(%r{^app/(.+)\.rb$}) { |m| "spec/#{m[1]}_spec.rb" }
   watch(%r{^app/(.*)(\.erb|\.haml)$}) { |m| "spec/#{m[1]}#{m[2]}_spec.rb" }
   watch(%r{^app/controllers/(.+)_(controller)\.rb$}) do |m|
