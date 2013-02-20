@@ -89,8 +89,8 @@ buscando"
     signout: "Salir"
   donations:
     new:
-      flash_notice: "Tu donación fue exitosa!"
-      flash_alert: "Lo siento, hubo un problema con tu donación."
+      flash_sucess: "Tu donación fue exitosa!"
+      flash_error: "Lo siento, hubo un problema con tu donación."
       title: "Contribuye a NiPaNiPa"
       donate_title: "Dona!"
       donate_desc: "NiPaNiPa necesita de tu ayuda para seguir existiendo de

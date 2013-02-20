@@ -14,10 +14,7 @@ class UsersController < Devise::RegistrationsController
   # Override default devise update action to allow blank password (meaning no
   # change)
   def update
-    if params[:user][:password].blank?
-      params[:user].delete("password")
-      params[:user].delete("password_confirmation")
-    end
+    remove_blank_password_from_params
 
     @user = User.find(current_user.id)
     if @user.update_attributes(params[:user])
@@ -45,6 +42,13 @@ class UsersController < Devise::RegistrationsController
 
     def resource_class
       params[:type].present? ? params[:type].classify.constantize : super
+    end
+
+    def remove_blank_password_from_params
+      if params[:user][:password].blank?
+        params[:user].delete("password")
+        params[:user].delete("password_confirmation")
+      end
     end
 
 end

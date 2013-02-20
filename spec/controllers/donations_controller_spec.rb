@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe DonationsController, net: :true do
+describe DonationsController do
 
   before { sign_in nil }
 
@@ -21,8 +21,4 @@ describe DonationsController, net: :true do
     assert_response :redirect
   end
 
-# it "show action should render show template" do
-#   get :show, :id => Donation.first
-#   response.should render_template(:show)
-# end
 end

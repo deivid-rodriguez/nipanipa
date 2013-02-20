@@ -150,7 +150,9 @@ feature "User profile editing" do
   end
 
   scenario "with invalid information" do
-    # todo
+    fill_in 'user[password]', with: 'invalid'
+    click_button t('helpers.submit.update')
+    page.should have_selector '.error'
   end
 
   scenario "nothing introduced is valid" do

@@ -14,10 +14,10 @@ RSpec.configure do |config|
   stubs.each { |uri, path|
     WebMock::API.stub_request(:get, uri).to_return(File.new(path)) }
 
-  WebMock.disable_net_connect!()
+  WebMock.disable_net_connect!(allow_localhost: true)
 
-  config.before(:each, net: :true) do
-    WebMock.allow_net_connect!
-  end
+# config.before(:each, net: :true) do
+#   WebMock.allow_net_connect!
+# end
 
 end

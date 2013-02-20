@@ -39,9 +39,12 @@ gem 'jquery-rails', '2.0.2'
 
 group :test do
   gem 'capybara', '2.0.2'
+  gem 'capybara-webkit', '0.14.1'
+  gem 'database_cleaner', '0.9.1'
   gem 'launchy', '2.1.2'
   gem 'rb-inotify', '0.8.8'
   gem 'libnotify', '0.5.9'
   gem 'factory_girl_rails', '4.2.0'
   gem 'webmock', '1.9.0'
+  gem 'simplecov', '0.7.1', require: false
 end

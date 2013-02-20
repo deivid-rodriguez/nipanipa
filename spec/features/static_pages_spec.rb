@@ -47,4 +47,9 @@ describe "Static pages" do
 
     it_should_behave_like "all static pages"
   end
+
+  describe "robots.txt file" do
+    before { visit '/robots.txt' }
+    it { should have_content File.read('config/robots.test.txt') }
+  end
 end

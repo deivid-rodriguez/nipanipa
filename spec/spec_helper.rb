@@ -1,7 +1,4 @@
 # --- Instructions ---
-# Sort the contents of this file into a Spork.prefork and a Spork.each_run
-# block.
-#
 # The Spork.prefork block is run only once when the spork server is started.
 # You typically want to place most of your (slow) initializer code in here, in
 # particular, require'ing any 3rd-party gems that you don't normally modify
@@ -24,9 +21,6 @@
 # Any code that is left outside the two blocks will be run during preforking
 # *and* during each_run -- that's probably not what you want.
 #
-# These instructions should self-destruct in 10 seconds.  If they don't, feel
-# free to delete them.
-#
 require 'rubygems'
 require 'spork'
 #uncomment the following line to use spork with the debugger
@@ -36,17 +30,33 @@ Spork.prefork do
   # Loading more in this block will cause your tests to run faster. However,
   # if you change any configuration or code from libraries loaded here, you'll
   # need to restart spork for it take effect.
-  # This file is copied to spec/ when you run 'rails generate rspec:install'
   ENV["RAILS_ENV"] ||= 'test'
+  unless ENV['DRB']
+    require 'simplecov'
+    SimpleCov.start 'rails'
+  end
+
   require File.expand_path("../../config/environment", __FILE__)
+
   require 'rspec/rails'
   require 'rspec/autorun'
   require 'factory_girl'
   require 'cancan/matchers'
+  require 'capybara/rails'
+  require 'capybara/rspec'
 
   # Requires supporting ruby files with custom matchers and macros, etc,
   # in spec/support/ and its subdirectories.
   Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+
+  Capybara.register_driver :webkit_ignore_ssl do |app|
+    browser = Capybara::Webkit::Browser.new(Capybara::Webkit::Connection.new
+              ).tap do |browser|
+      browser.ignore_ssl_errors
+    end
+    Capybara::Webkit::Driver.new(app, :browser => browser)
+  end
+  Capybara.javascript_driver = :webkit_ignore_ssl
 
   RSpec.configure do |config|
     #config.include(EmailSpec::Helpers)
@@ -59,12 +69,28 @@ Spork.prefork do
     config.mock_with :rspec
 
     ## Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-    config.fixture_path = "#{::Rails.root}/spec/fixtures"
+    #config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
     # If you're not using ActiveRecord, or you'd prefer not to run each of your
     # examples within a transaction, remove the following line or assign false
     # instead of true.
-    config.use_transactional_fixtures = true
+    config.use_transactional_fixtures = false
+
+    config.before :suite do
+      DatabaseCleaner.strategy = :transaction
+    end
+
+    config.before :each, js: true do
+      DatabaseCleaner.strategy = :deletion
+    end
+
+    config.before :each do
+      DatabaseCleaner.start
+    end
+
+    config.after :each do
+      DatabaseCleaner.clean
+    end
 
     # If true, the base class of anonymous controllers will be inferred
     # automatically. This will be the default behavior in future versions of
@@ -82,10 +108,13 @@ Spork.prefork do
     # on FactoryGirl directly
     config.include FactoryGirl::Syntax::Methods
   end
-
 end
 
 Spork.each_run do
-  # This code will be run each time you run your specs.
+  if ENV['DRB']
+    require 'simplecov'
+    SimpleCov.start 'rails'
+  end
+
   FactoryGirl.reload
 end

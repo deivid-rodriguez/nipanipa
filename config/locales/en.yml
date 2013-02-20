@@ -87,8 +87,8 @@ work?"
     signout: "Sign out"
   donations:
     new:
-      flash_notice: "Your donation was successful!"
-      flash_alert: "Sorry, there was some problem with your donation."
+      flash_success: "Your donation was successful!"
+      flash_error: "Sorry, there was some problem with your donation."
       title: "Contribute to NiPaNiPa"
       donate_title: "Donate"
       donate_desc: "NiPaNiPa needs your help to survive in an independent

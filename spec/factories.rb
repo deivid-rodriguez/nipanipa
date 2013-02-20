@@ -36,18 +36,28 @@ FactoryGirl.define do
         FactoryGirl.create_list(:feedback, eval.count, recipient: u)
       end
     end
+  end
 
-    factory :host, class: Host do
-      type "Host"
-      factory :host_with_work_type do
-        after(:create) do |u|
-          u.work_types << FactoryGirl.create(:work_type)
-        end
+  factory :volunteer do
+    sequence(:name) { |n| "Volunteer #{n}" }
+    sequence(:email) { |n| "nipanipa.test+volunteer#{n}@gmail.com" }
+    password "foobar"
+    description "I am a test host. I live in a little house in the countryside"
+    work_description "Ofrezco trabajo en casa ayudandome a construir mi granero"
+  end
+
+  factory :host do
+    sequence(:name) { |n| "Host #{n}" }
+    sequence(:email) { |n| "nipanipa.test+host#{n}@gmail.com" }
+    password "foobar"
+    description "I am a test volunteer. I live in a big city full of noise and" \
+                "pollution"
+    work_description "Ofrezco mi ayuda a cambio de un lugar pa dormir"
+
+    factory :host_with_work_type do
+      after(:create) do |u|
+        u.work_types << FactoryGirl.create(:work_type)
       end
-    end
-
-    factory :volunteer, class: Volunteer, parent: :user do
-      type "Volunteer"
     end
   end
 
