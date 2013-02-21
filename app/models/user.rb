@@ -50,7 +50,7 @@ class User < ActiveRecord::Base
       obj.latitude  = geo.latitude
     end
   end
-  after_validation :geocode, if: :current_sign_in_ip_changed?
+  before_save :geocode, if: :current_sign_in_ip_changed?
 
   # associations
   has_many :donations
