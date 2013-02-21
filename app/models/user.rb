@@ -82,9 +82,9 @@ class User < ActiveRecord::Base
   end
 
   # Use a single partial path for all subclasses
-# def to_partial_path
-#   "users/user"
-# end
+  def to_partial_path
+    "users/user"
+  end
 
   def feedback_pairs
     result_list  = []
