@@ -11,6 +11,7 @@ gem 'figaro', '0.5.3'
 gem 'thin', '1.5.0'
 gem 'devise', '2.2.3'
 gem 'cancan', '1.6.9'
+gem 'jquery-rails', '2.2.1'
 
 group :development, :test do
   gem 'rspec-rails', '2.12.2'
@@ -34,8 +35,6 @@ group :assets do
   gem 'coffee-rails', '3.2.2'
   gem 'uglifier', '1.2.3'
 end
-
-gem 'jquery-rails', '2.0.2'
 
 group :test do
   gem 'capybara', '2.0.2'

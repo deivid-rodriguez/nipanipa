@@ -38,8 +38,12 @@ tu zona y tienen ganas de ayudarte."
 Registrarte y completar tu perfil no te llevará ni 5 minutos. Después...
 cuéntanos lo que pasa después!"
   feedbacks:
-    new:
+    create:
       flash_notice: "Has dejado una nueva referencia!"
+      flash_error: "Error al crear la nueva referencia... :("
+    update:
+      flash_notice: "Has actualizado la referencia!"
+      flash_error: "Error al actualizar la referencia... :("
     destroy:
       flash_notice: "Tu referencia ha sido eliminada"
   users:

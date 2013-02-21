@@ -36,8 +36,12 @@ area."
       signup_desc: "Sign up now as a host or a volunteer and fill your profile.
 It won't take you more than five minutes."
   feedbacks:
-    new:
+    create:
       flash_notice: "You left a new reference! Thanks."
+      flash_error: "Error creating the new reference... :("
+    update:
+      flash_notice: "You just edited the reference!"
+      flash_error: "Error updating the reference... :("
     destroy:
       flash_notice: "Your reference was successfully deleted"
   users:

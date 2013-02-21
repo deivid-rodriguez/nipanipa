@@ -20,4 +20,8 @@ class Feedback < ActiveRecord::Base
 
   belongs_to :sender   , class_name: 'User'
   belongs_to :recipient, class_name: 'User'
+
+  def complement
+    Feedback.find_by_sender_id_and_recipient_id(self.recipient_id, self.sender_id)
+  end
 end

@@ -8,7 +8,7 @@ class UsersController < Devise::RegistrationsController
   def show
     @user = User.find(params[:id])
     @no_feedback_link = dont_leave_feedback?(@user)
-    @received_feedbacks = @user.received_feedbacks.paginate(page: params[:page])
+    @feedback_pairs = @user.feedback_pairs
   end
 
   # Override default devise update action to allow blank password (meaning no

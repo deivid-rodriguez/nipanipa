@@ -18,7 +18,8 @@ module I18n
 
     def missing_translations_log_handler(exception, locale, key, options)
       if MissingTranslation === exception
-        missing_translations_logger.warn(exception.message)
+        missing_translations_logger.
+          warn( [Time.now, exception.message].join(": ") )
         return exception.message
       else
         raise exception

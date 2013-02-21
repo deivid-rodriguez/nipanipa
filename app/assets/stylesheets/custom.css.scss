@@ -6,8 +6,8 @@
 $grayMediumLight: #eaeaea;
 
 @mixin box_sizing {
-  -moz-box-sizing: border-box; 
-  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -283,10 +283,39 @@ input[type="text"], textarea, select, .uneditable-input {
 .feedbacks {
   list-style: none;
   margin: 10px 0 0 0;
-
   li {
-    padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
+    padding: 10px;
+    border: 1px solid #e8e8e8;
+    @include box_sizing;
+    margin-bottom: 10px;
+    div.feedback {
+      position: relative;
+      div.time_ago {
+        color: gray;
+        font-size: 0.8em;
+      }
+      div.score-icon {
+        position: absolute;
+        top: 0;
+      }
+    }
+    div.received {
+      margin-bottom: 20px;
+      div.score-icon {
+        right: 100px;
+      }
+      div.time_ago, div.sender {
+        text-align: left;
+      }
+    }
+    div.sent {
+      div.score-icon {
+        left: 100px;
+      }
+      div.time_ago, div.sender {
+        text-align: right;
+      }
+    }
   }
 }
 
@@ -304,5 +333,3 @@ aside {
     margin-bottom: 5px;
   }
 }
-
-

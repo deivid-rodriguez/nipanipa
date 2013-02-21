@@ -19,7 +19,7 @@ Nipanipa::Application.routes.draw do
       get    'users/:user_id/feedbacks/new'      => 'feedbacks#new'   , as: :new_user_feedback
       post   'users/:user_id/feedbacks'          => 'feedbacks#create', as: :user_feedbacks
       get    'users/:user_id/feedbacks/:id/edit' => 'feedbacks#edit'  , as: :edit_user_feedback
-      put    'users/:user_id/feedbacks/:id'      => 'feedbacks#update'
+      put    'users/:user_id/feedbacks/:id'      => 'feedbacks#update', as: :user_feedback
       delete 'users/:user_id/feedbacks/:id'      => 'feedbacks#destroy'
     end
 

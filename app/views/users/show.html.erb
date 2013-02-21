@@ -70,27 +70,17 @@
         <div class="c50l">
           <div class="subcl">
 
-            <div id="jobsummary" class="floatbox box">
-              <span class="float_right profile-edit-link">
-                <%= link_to "Editar", edit_user_registration_path %>
-              </span>
+            <div id="jobsummary" class="box">
+              <%= render 'edit_link', user: @user %>
               <h3 class="icon info22">Descripción del Trabajo</h3>
               <%= @user.work_description %>
             </div> <!-- jobsummary -->
 
-            <div id="accommodationinfo" class="floatbox box">
-              <span class="float_right profile-edit-link">
-                <a href="/editmyprofile#!profileaccommodation">Editar</a>
-              </span>
+            <div id="accommodationinfo" class="box">
+              <%= render 'edit_link', user: @user %>
               <h3 class="icon accommodation22">Alojamiento</h3>
               <!-- implement quickinfo icons like in BeWelcome/blablacar -->
-              <p>We have 2 bedrooms with their own bathrooms, 1double with an
-                 en-suite. The other has a french sized double bed with the
-                 bathroom next door. We offer sole use of our vaulted living
-                 room. The en-suite bedroom has it's own private entrance.
-                 We have a farmhouse sized kitchen where we eat our meals, but
-                 are happy for guests to have their meals privately in the
-                 living room if they prefer.
+              <p>Añadir parámetro...</p>
             </div> <!-- profile_accommodation -->
           </div> <!-- subcl -->
         </div> <!-- c50l -->
@@ -98,30 +88,37 @@
         <div class="c50r">
           <div class="subcr">
 
-            <div id="personaldescription" class="floatbox box">
-              <span class="float_right profile-edit-link">
-                <%= link_to "Editar", edit_user_registration_path %>
-              </span>
+            <div id="personaldescription" class="box">
+              <%= render 'edit_link', user: @user %>
               <h3 class="icon info22">Sobre mí</h3>
                 <%= @user.description %>
             </div> <!-- personaldescription -->
 
-            <div id="languages" class="floatbox box">
-              <span class="float_right profile-edit-link">
-                <%= link_to "Editar", edit_user_registration_path %>
-              </span>
+            <div id="languages" class="box">
+              <%= render 'edit_link', user: @user %>
               <h3>Idiomas</h3>
               <ul class="icon profile_languages"></ul>
             </div> <!-- languages -->
 
-            <div id="feedbacks" class="floatbox box">
-              <h3 class="icon feedbacks22">Feedbacks (<%= @user.received_feedbacks.count %>)</h3>
-              <% if @user.received_feedbacks.any? %>
-              <ol class="feedbacks">
-                <%= render partial: 'feedbacks/received_feedback',
-                 collection: @received_feedbacks %>
-              </ol>
-              <%= will_paginate @received_feedbacks %>
+            <div id="feedbacks" class="box">
+              <h3 class="icon feedbacks22">Feedbacks (<%= @feedback_pairs.count %>)</h3>
+              <% if @feedback_pairs.any? %>
+                <ol class="feedbacks">
+                  <% @feedback_pairs.each do |feedback_pair| %>
+                    <li class="feedback-pair">
+                      <% if feedback_pair[0] %>
+                       <%= render partial: 'feedbacks/feedback',
+                                  object: feedback_pair[0],
+                                  locals: { type: 'received' } %>
+                     <% end %>
+                     <% if feedback_pair[1] %>
+                       <%= render partial: 'feedbacks/feedback',
+                                  object: feedback_pair[1],
+                                  locals: { type: 'sent' } %>
+                     <% end %>
+                   </li>
+                  <% end %>
+                </ol>
               <% end %>
             </div> <!-- profile_feedbacks -->
 

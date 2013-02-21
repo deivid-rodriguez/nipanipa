@@ -21,3 +21,17 @@ feature "Creating feedbacks" do
     page.should have_selector 'h1', text: other_user.name
   end
 end
+
+feature "Destroying feedbacks" do
+  given(:feedback) { create(:feedback) }
+  given(:sender)   { feedback.sender   }
+
+  background do
+    sign_in sender
+  end
+
+  scenario "clicking feedback destroy should delete the feedback" do
+    # todo
+  end
+
+end
