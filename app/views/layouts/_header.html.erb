@@ -5,18 +5,31 @@
       <ul class="nav pull-right">
 
         <li><%= link_to t('static_pages.help.title'), help_path %></li>
-
         <% if user_signed_in? %>
           <li>
             <%= link_to t('users.show.profile'), current_user %>
           </li>
+        <% else %>
+          <li id="fat-menu" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=
+              t 'static_pages.home.signup' %><b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li>
+              <%= link_to t('activerecord.models.host'),
+                          new_user_registration_path(type: "host") %>
+            </li>
+            <li>
+              <%= link_to t('activerecord.models.volunteer'),
+                          new_user_registration_path(type: "volunteer") %>
+            </li>
+          </ul>
         <% end %>
 
         <% if user_signed_in? %>
           <li>
             <%= link_to t('sessions.signout'), destroy_user_session_path, method: :delete %>
           </li>
-        <% else %>
+        <% elsif url_for != new_user_session_path %>
           <li>
             <%= link_to t('sessions.signin') , new_user_session_path %>
           </li>
