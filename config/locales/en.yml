@@ -87,8 +87,10 @@ work?"
   sessions:
     new:
       newuser?: "New user?"
+    forgot_your_pwd?: "Forgot your password?"
     signin: "Sign in"
     signout: "Sign out"
+    rememberme: "Remember me"
   donations:
     new:
       flash_success: "Your donation was successful!"

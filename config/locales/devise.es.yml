@@ -19,12 +19,23 @@ es:
         subject: Instrucciones de confirmación
       reset_password_instructions:
         subject: Instrucciones de recuperación de contraseña
+        greeting: Hola %{name}!
+        info: Alguien ha solicitado un enlace para cambiar tu contraseña. Puedes cambiarla a través del siguiente enlace
+        change_my_pwd: Cambiar mi contraseña
+        ignore: Si no solicitaste eso, por favor ignora este correo electrónico.
+        wont_change: Tu contraseña no cambiará hasta que no accedes al enlace y crees una nueva.
       unlock_instructions:
         subject: Instrucciones para desbloquear
     omniauth_callbacks:
       failure: No has sido autorizado en la cuenta %{kind} porque "%{reason}".
       success: Has sido autorizado satisfactoriamente de la cuenta %{kind}.
     passwords:
+      new:
+        forgotten?: Recuperación de contraseña
+        send_instructions: Enviar instrucciones para recuperar mi contraseña
+      edit:
+        title: Cambio de contraseña
+        change_pwd: Cambiar mi contraseña
       no_token: No puedes acceder a esta página si no es a través de un un enlace para resetear tu contraseña. Si has llegado hasta aquí desde el email para resetear tu contraseña, por favor asegúrate de que la URL introducida está completa.
       send_instructions: Vas a recibir un correo con instrucciones sobre cómo resetear tu contraseña en unos pocos minutos.
       send_paranoid_instructions: Si tu correo existe en nuestra base de datos, vas a recibir un correo con instrucciones sobre cómo resetear tu contraseña en tu bandeja de entrada.

@@ -26,9 +26,9 @@
 
 class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable, :lockable, :timeoutable,
-  # :omniauthablAe, :recoverable
+  # :omniauthable
   devise :database_authenticatable, :rememberable, :validatable, :registerable,
-         :trackable
+         :trackable, :recoverable
 
   ROLES = %w["admin", "non-admin"]
 

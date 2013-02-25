@@ -89,8 +89,10 @@ buscando"
   sessions:
     new:
       newuser?: "¿Nuevo usuario?"
+    forgot_your_pwd?: "Olvidaste tu contraseña?"
     signin: "Acceder"
     signout: "Salir"
+    rememberme: "Recuérdame"
   donations:
     new:
       flash_sucess: "Tu donación fue exitosa!"

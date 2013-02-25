@@ -1,5 +1,6 @@
 Nipanipa::Application.configure do
-  # Settings specified here will take precedence over those in config/application.rb
+  # Settings specified here will take precedence over those in
+  # config/application.rb
 
   # Code is not reloaded between requests
   config.cache_classes = true
@@ -27,7 +28,8 @@ Nipanipa::Application.configure do
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
-  # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
+  # Force all access to the app over SSL, use Strict-Transport-Security, and use
+  # secure cookies.
   config.force_ssl = true
 
   # See everything in the log (default is :info)
@@ -45,21 +47,26 @@ Nipanipa::Application.configure do
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
 
-  # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
+  # Precompile additional assets (application.js, application.css, and all
+  # non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
 
-# # ActionMailer Config
-# config.action_mailer.default_url_options = { :host => 'example.com' }
-# config.action_mailer.delivery_method = :smtp
-# config.action_mailer.perform_deliveries = true
-# config.action_mailer.raise_delivery_errors = false
-# config.action_mailer.default :charset => "utf-8"
-# config.action_mailer.smtp_settings = {
-#   address:   "smtp.mandrillapp.com",
-#   port:      25,
-#   user_name: ENV["MANDRILL_USERNAME"],
-#   password:  ENV["MANDRILL_API_KEY"]
-# }
+  # ActionMailer Config
+  ActionMailer::Base.smtp_settings = {
+    user_name:            ENV['SENDGRID_USERNAME'],
+    password:             ENV['SENDGRID_PASSWORD'],
+    domain:               'heroku.com',
+    address:              'smtp.sendgrid.net',
+    port:                 587,
+    authentication:       :plain,
+    enable_starttls_auto: true
+  }
+  ActionMailer::Base.delivery_method ||= :smtp
+  config.action_mailer.default_url_options = { host: ENV['HOST'],
+                                               locale: I18n.locale }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "utf-8"
 
   # Enable threaded mode
   # config.threadsafe!
@@ -71,7 +78,7 @@ Nipanipa::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  # Log the query plan for queries taking more than this (works
-  # with SQLite, MySQL, and PostgreSQL)
+  # Log the query plan for queries taking more than this (works with SQLite,
+  # MySQL and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 end
