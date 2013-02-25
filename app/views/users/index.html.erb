@@ -1,10 +1,25 @@
-<%= provide :title, 'All users' %>
-<h1>All users</h1>
+<%= provide :title, index_title(params[:type]) %>
 
 <%= will_paginate %>
 
-<ul class="thumbnails">
-  <%= render @users %>
-</ul>
+<div class="row">
+  <aside class="span3 sidebar_users">
+    <ul class="nav nav-list">
+      <li class="nav-header"><%= t '.places' %></li>
+      <li class="nav-header"><%= t '.people' %></li>
+      <li class="<%= 'active' if params[:type] == 'host' %>">
+        <%= link_to t('.hosts'), users_path(type: 'host') %>
+      </li>
+      <li class="<%= 'active' if params[:type] == 'volunteer' %>">
+        <%= link_to t('.volunteers'), users_path(type: 'volunteer') %>
+      </li>
+    </ul>
+  </aside>
+  <div class="span9">
+    <ul class="thumbnails">
+      <%= render @users %>
+    </ul>
+  </div>
+</div>
 
 <%= will_paginate %>

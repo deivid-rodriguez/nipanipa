@@ -6,7 +6,6 @@
     <div class="container">
       <%= render 'layouts/messages' %>
       <%= yield %>
-      <%= render 'layouts/footer' %>
       <%= debug(params) if Rails.env.development? %>
      <script>
        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
@@ -15,5 +14,6 @@
        s.parentNode.insertBefore(g,s)}(document,'script'));
     </script>
     </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

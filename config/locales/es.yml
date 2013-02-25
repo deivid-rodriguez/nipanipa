@@ -86,6 +86,14 @@ buscando"
     edit:
       title: "Actualización de perfil"
       header: "Actualiza tu perfil"
+    index:
+      places: "Lugares"
+      people: "Gente"
+      hosts: "Anfitriones"
+      volunteers: "Voluntarios"
+      all_hosts: "Todos los anfitriones"
+      all_volunteers: "Todos los voluntarios"
+      all_users: "Todos los usuarios"
   sessions:
     new:
       newuser?: "¿Nuevo usuario?"
@@ -95,7 +103,7 @@ buscando"
     rememberme: "Recuérdame"
   donations:
     new:
-      flash_sucess: "Tu donación fue exitosa!"
+      flash_success: "Tu donación fue exitosa!"
       flash_error: "Lo siento, hubo un problema con tu donación."
       title: "Contribuye a NiPaNiPa"
       donate_title: "Dona!"

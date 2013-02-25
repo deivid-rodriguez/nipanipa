@@ -2,7 +2,8 @@ class UsersController < Devise::RegistrationsController
   layout 'user_new', only: [:new, :create]
 
   def index
-    @users = User.paginate(page: params[:page])
+    @users = resource_class.order('last_sign_in_at DESC').
+                            paginate(page: params[:page])
   end
 
   def show

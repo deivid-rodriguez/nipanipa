@@ -82,8 +82,16 @@ work?"
       contact_user: "Contact user"
       member_since: "Member since"
     edit:
-      title: "Profile update"
-      header: "Update your profile"
+      title: "Actualización de perfil"
+      header: "Actualiza tu perfil"
+    index:
+      places: "Places"
+      people: "People"
+      hosts: "Hosts"
+      volunteers: "Volunteers"
+      all_hosts: "All hosts"
+      all_volunteers: "All volunteers"
+      all_users: "All users"
   sessions:
     new:
       newuser?: "New user?"

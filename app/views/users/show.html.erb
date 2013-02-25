@@ -1,17 +1,13 @@
 <% provide :title, @user.name %>
 
-<div id="col1">
+<div class="row">
 
-  <div id="col1_content">
+  <aside class="span3">
 
     <div>
-      <%= gravatar_for @user, size: 150 %>
+      <%= gravatar_for @user, size: 220 %>
+      <!-- TODO: activate fancy zoom -->
     </div>
-
-      <!-- TODO: activate fancy zoom
-      <a href="members/avatar/deivid?500" id="profile_image"><%=
-        gravatar_for @user, size: 150 %></a>
-      -->
 
     <ul class="linklist" id="profile_linklist">
       <% unless @no_feedback_link %>
@@ -30,13 +26,9 @@
         <a href="gallery/show/user/deivid/pictures"><span>Galería (0)</span></a></li>
     </ul>
 
-  </div> <!-- col1_content -->
+  </aside>
 
-</div> <!-- col1 -->
-
-<div id="col3">
-
-  <div id="col3_content">
+  <div class="span9">
 
     <div id="profile-header" class="clearfix">
 
@@ -73,7 +65,7 @@
             <div id="jobsummary" class="box">
               <%= render 'edit_link', user: @user %>
               <h3 class="icon info22">Descripción del Trabajo</h3>
-              <%= @user.work_description %>
+              <p><%= @user.work_description %></p>
             </div> <!-- jobsummary -->
 
             <div id="accommodationinfo" class="box">
@@ -91,7 +83,7 @@
             <div id="personaldescription" class="box">
               <%= render 'edit_link', user: @user %>
               <h3 class="icon info22">Sobre mí</h3>
-                <%= @user.description %>
+              <p><%= @user.description %></p>
             </div> <!-- personaldescription -->
 
             <div id="languages" class="box">
@@ -127,8 +119,7 @@
 
       </div> <!-- subcolumns -->
     </div> <!-- profile -->
-  </div> <!-- col3_content -->
-  <!-- IE Column Clearing -->
-  <div id="ie_clearing">&nbsp;</div>
-  <!-- Ende: IE Column Clearing -->
-</div> <!-- col3 -->
+
+  </div> <!-- main content -->
+
+</div> <!-- end row -->
