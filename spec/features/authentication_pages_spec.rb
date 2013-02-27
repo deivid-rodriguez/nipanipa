@@ -8,7 +8,6 @@ feature "Signin" do
   background { visit new_user_session_path }
 
   scenario "Signin page has correct content" do
-    page.should have_selector 'h1', text: signin
     page.should have_title signin
   end
 

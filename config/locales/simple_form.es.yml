@@ -19,4 +19,7 @@ es:
     hints:
       user:
         password: "La contraseña debe tener al menos 6 caracteres"
-
+    placeholders:
+      user:
+        email: "Correo Electrónico"
+        password: "Contraseña"

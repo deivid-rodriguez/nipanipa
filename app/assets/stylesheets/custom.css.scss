@@ -68,11 +68,12 @@ textarea { resize: vertical; }
     color: #333;
     text-decoration: none;
   }
-  div.thumbnail {
-    text-align: justify;
-    h3 {
-      text-align: center;
-    }
+}
+
+.thumbnail {
+  text-align: justify;
+  h3 {
+    text-align: center;
   }
 }
 
@@ -252,12 +253,9 @@ aside {
 
 /* forms */
 
-input[type="text"], textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
-  width: 300px;
-  height: auto !important;
-  display: block;
-  margin-bottom: 15px;
+input[type="text"], input[type="password"], input[type="email"], textarea {
+  width: 100%;
+  height: auto;
   @include box_sizing;
 }
 

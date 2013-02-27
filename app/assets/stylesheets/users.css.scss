@@ -1,31 +1,32 @@
 // Place all the styles related to the Users controller here.
 
 /* users signup */
-.signup-main {
-  background: #E3E3E3;
+
+.signup-button {
+  @include linear_gradient;
+  background-color: whiteSmoke;
+  font-size: 14px;
+  @include box_sizing;
+  padding: 4px 12px;
+  @include border_radius;
+}
+
+.signup-form {
   position: relative;
-  margin-left: 200px;
-  margin-right: 200px;
-  .signup-button {
-    @include linear_gradient;
-    background-color: whiteSmoke;
-    font-size: 14px;
-    @include box_sizing;
-    padding: 4px 12px;
-    @include border_radius;
+  background: #E3E3E3;
+  padding: 50px 50px 50px 100px;
+  @include box_sizing;
+  div.signin-tip {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    padding: 10px;
   }
-  .signup-form {
-    padding: 50px 50px 50px 100px;
-    width: 800px;
-    @include box_sizing;
-    div.signin-tip {
-      position: absolute;
-      top: 0%;
-      right: 0%;
-      padding: 10px;
-    }
+  textarea {
+    height: 150px;
   }
 }
+
 
 /* users profile */
 #main {padding: 0 2em;}

@@ -2,7 +2,7 @@
 <html>
   <%= render 'layouts/head' %>
   <body>
-    <div class="signup-main span8">
+    <div class="row">
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "alert alert-#{key}") %>
     <% end %>

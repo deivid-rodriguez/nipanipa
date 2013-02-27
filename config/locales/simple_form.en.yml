@@ -18,4 +18,8 @@ en:
         password_confirmation: "Password Confirmation"
     hints:
       user:
-        password: "The password must be a least 6 characters long"
+        password: "Password must be at least 6 characters long"
+    placeholders:
+      user:
+        email: "E-mail"
+        password: "Password"

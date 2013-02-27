@@ -6,12 +6,12 @@
 
   <%= f.input :name %>
 
-  <%= f.input :email %>
+  <%= f.input :email, placeholder: false %>
 
   <% if user.errors %>
-  <%= f.input :password, hint: false %>
+  <%= f.input :password, hint: false, placeholder: false %>
   <% else %>
-  <%= f.input :password %>
+  <%= f.input :password, placeholder: false %>
   <% end %>
 
   <%= f.input :password_confirmation %>

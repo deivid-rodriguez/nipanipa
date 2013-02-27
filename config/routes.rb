@@ -4,9 +4,9 @@ Nipanipa::Application.routes.draw do
 
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
 
-     devise_for :users,
-                skip: :sessions,
-                controllers: { registrations: "users" }
+    devise_for :users,
+               skip: :sessions,
+               controllers: { registrations: "users" }
 
     devise_scope :user do
       get    'signin'  => 'devise/sessions#new'    , as: :new_user_session
