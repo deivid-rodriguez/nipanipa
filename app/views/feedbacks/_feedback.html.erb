@@ -1,24 +1,20 @@
 <div id="feedback-<%= feedback.id %>" class="feedback <%=type%>">
-  <% if type == "sent" %>
-    <div class="pull-left">
-      <%= link_to gravatar_for(feedback.sender, size:40), feedback.sender %>
-    </div>
-  <% else %>
-    <div class="pull-right">
-      <%= link_to gravatar_for(feedback.recipient, size:40), feedback.recipient %>
-    </div>
-  <% end %>
+
+  <div class="user-gravatar pull-<%= type == 'sent' ? 'left' : 'right' %>">
+    <%= link_to gravatar_for(feedback.sender, size:40), feedback.sender %>
+  </div>
+
   <% if feedback.sender == current_user %>
-    <% if type == 'sent' %>
-      <span class="pull-left profile-edit-link">
-        <%= link_to "Editar", edit_user_feedback_path(feedback.sender, feedback) %>
-      </span>
-    <% else %>
-      <span class="pull-right profile-edit-link">
+    <div class="pull-<%= type == 'sent' ? 'left' : 'right' %>">
+      <div class="profile-edit-link">
         <%= link_to "Editar", edit_user_feedback_path(feedback.recipient, feedback) %>
-      </span>
-    <% end %>
+      </div>
+      <div class="profile-edit-link">
+        <%= link_to "Borrar", user_feedback_path(feedback.recipient, feedback), method: :delete %>
+      </div>
+    </div>
   <% end %>
+
   <div class="score-icon">
     <% if feedback.score == 1 %>
       <%= image_tag("positive.ico", alt:"positive") %>
@@ -28,18 +24,22 @@
       <%= image_tag("negative.ico", alt:"negative") %>
     <% end %>
   </div>
+
   <div class="sender">
     <% if type == 'sent' %>
-      <strong>From <%= feedback.sender.name %></strong>
+      <strong><%= t '.to', name: feedback.recipient.name %></strong>
     <% else %>
-      <strong>To <%= feedback.recipient.name %></strong>
+      <strong><%= t '.from', name: feedback.sender.name %></strong>
     <% end %>
   </div>
+
   <div class="time_ago">
     <%= t 'datetime.timestamp_ago',
           time: time_ago_in_words(feedback.updated_at) %>
   </div>
+
   <div class="content">
     <%= feedback.content %>
   </div>
+
 </div>

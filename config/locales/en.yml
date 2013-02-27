@@ -36,12 +36,17 @@ area."
       signup_desc: "Sign up now as a host or a volunteer and fill your profile.
 It won't take you more than five minutes."
   feedbacks:
+    feedback:
+      from: "From %{name}"
+      to: "To %{name}"
     create:
       flash_notice: "You left a new reference! Thanks."
-      flash_error: "Error creating the new reference... :("
+      flash_error: "Error creating the new reference... :( It should not be
+longer than 300 characters"
     update:
       flash_notice: "You just edited the reference!"
-      flash_error: "Error updating the reference... :("
+      flash_error: "Error updating the reference... :( It should not be longer
+than 300 characters"
     destroy:
       flash_notice: "Your reference was successfully deleted"
   users:
@@ -81,6 +86,13 @@ work?"
       leave_feedback: "Leave feedback"
       contact_user: "Contact user"
       member_since: "Member since"
+      feedbacks: "Feedback"
+      received:
+        one: "1 received"
+        other: "%{count} received"
+      sent:
+        one: "1 sent"
+        other: "%{count} sent"
     edit:
       title: "Actualización de perfil"
       header: "Actualiza tu perfil"

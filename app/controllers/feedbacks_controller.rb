@@ -1,7 +1,7 @@
 class FeedbacksController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :create, :destroy]
   before_filter :load_user, only: [:new, :create, :edit, :update]
-  before_filter :load_feedback, only: [:edit, :update]
+  before_filter :load_feedback, only: [:edit, :update, :destroy]
 
   def new
     @feedback = current_user.sent_feedbacks.new
@@ -36,9 +36,9 @@ class FeedbacksController < ApplicationController
   end
 
   def destroy
-    @feedback = @sender.sent_feedbacks.find([:id])
+    authorize! :destroy, @feedback
     @feedback.destroy
-    redirect_to @sender, notice: t('feedbacks.destroy.flash_notice')
+    redirect_to current_user, notice: t('feedbacks.destroy.flash_notice')
   end
 
   private

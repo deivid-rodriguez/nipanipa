@@ -4,7 +4,7 @@
 
   <aside class="span3">
 
-    <div>
+    <div class="user-gravatar">
       <%= gravatar_for @user, size: 220 %>
       <!-- TODO: activate fancy zoom -->
     </div>
@@ -93,7 +93,9 @@
             </div> <!-- languages -->
 
             <div id="feedbacks" class="box">
-              <h3 class="icon feedbacks22">Feedbacks (<%= @feedback_pairs.count %>)</h3>
+              <h3 class="icon feedbacks22">
+                <%= feedback_count(@feedback_pairs) %>
+              </h3>
               <% if @feedback_pairs.any? %>
                 <ol class="feedbacks">
                   <% @feedback_pairs.each do |feedback_pair| %>

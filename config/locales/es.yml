@@ -39,12 +39,17 @@ Registrarte y completar tu perfil no te llevará ni 5 minutos. Después...
 cuéntanos lo que pasa después!"
       signin: "Entrar"
   feedbacks:
+    feedback:
+      from: "De %{name}"
+      to: "Para %{name}"
     create:
       flash_notice: "Has dejado una nueva referencia!"
-      flash_error: "Error al crear la nueva referencia... :("
+      flash_error: "Error al crear la nueva referencia... :( No debe sobrepasar
+los 300 caracteres"
     update:
       flash_notice: "Has actualizado la referencia!"
-      flash_error: "Error al actualizar la referencia... :("
+      flash_error: "Error al actualizar la referencia... :( No debe sobrepasar
+los 300 caracteres"
     destroy:
       flash_notice: "Tu referencia ha sido eliminada"
   users:
@@ -84,6 +89,13 @@ buscando"
       leave_feedback: "Dejar una referencia"
       contact_user: "Contactar con el usuario"
       member_since: "Miembro desde"
+      feedbacks: "Referencias"
+      received:
+        one: "1 recibida"
+        other: "%{count} recibidas"
+      sent:
+        one: "1 enviada"
+        other: "%{count} enviadas"
     edit:
       title: "Actualización de perfil"
       header: "Actualiza tu perfil"

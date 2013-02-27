@@ -29,6 +29,11 @@
 
 
 /* users profile */
+
+.user-gravatar {
+  border: 1px solid $grayVeryLight;
+}
+
 #main {padding: 0 2em;}
 
 .c50l {
@@ -279,4 +284,61 @@ aside.sidebar_users {
       background-color: $grayLight;
     }
   }
+}
+
+
+/* user feedbacks */
+
+.feedbacks {
+  list-style: none;
+  margin: 10px 0 0 0;
+  li {
+    padding: 10px;
+    border: 1px solid #e8e8e8;
+    @include box_sizing;
+    margin-bottom: 10px;
+    div.feedback {
+      position: relative;
+      div.time_ago {
+        color: gray;
+        font-size: 0.8em;
+      }
+      div.score-icon {
+        position: absolute;
+        top: 0;
+      }
+    }
+    div.received {
+      margin-bottom: 20px;
+      div.score-icon {
+        right: 100px;
+      }
+      div.time_ago, div.sender {
+        text-align: left;
+      }
+      div.user-gravatar {
+        margin-left: 10px;
+      }
+    }
+    div.sent {
+      div.score-icon {
+        left: 100px;
+      }
+      div.time_ago, div.sender {
+        text-align: right;
+      }
+      div.user-gravatar {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+.content {
+  display: block;
+  clear: both;
+}
+
+.timestamp {
+  color: $grayLight;
 }
