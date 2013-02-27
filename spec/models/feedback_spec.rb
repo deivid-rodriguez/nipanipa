@@ -24,15 +24,17 @@ describe Feedback do
   it { should respond_to(:score) }
   its(:sender)    { should == feedback.sender }
   its(:recipient) { should == feedback.recipient }
+  it { should respond_to(:complement) }
+
   it { should be_valid }
 
   describe "presence validation" do
-    describe "when sender is not present" do
+    context "when sender is not present" do
       before { feedback.sender = nil }
       it { should_not be_valid }
     end
 
-    describe "when recipient is not present" do
+    context "when recipient is not present" do
       before { feedback.recipient = nil }
       it { should_not be_valid }
     end
@@ -51,12 +53,12 @@ describe Feedback do
     end
   end
 
-  describe "with blank content" do
+  context "with blank content" do
     before { feedback.content = " " }
     it { should_not be_valid }
   end
 
-  describe "with content that is too long" do
+  context "with content that is too long" do
     before { feedback.content = "a" * 301 }
     it { should_not be_valid }
   end
@@ -66,6 +68,14 @@ describe Feedback do
       create(:feedback, sender: feedback.sender, recipient: feedback.recipient)
     end
     it { should_not be_valid }
+  end
+
+  describe "complement method" do
+    before { feedback.save }
+    let!(:other_feedback) do
+      create(:feedback, sender: feedback.recipient, recipient: feedback.sender)
+    end
+    it { should == other_feedback.complement }
   end
 
 end

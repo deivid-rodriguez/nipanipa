@@ -7,13 +7,12 @@ FactoryGirl.define do
     description "I am a test user. I live in a little house in the countryside"
     work_description "Ofrezco trabajo en casa ayudandome a construir mi granero"
 
-    factory :user_trackable do
-      last_sign_in_at { Time.now }
-      last_sign_in_ip ENV["IP"]
-      current_sign_in_at { Time.now}
-      current_sign_in_ip ENV["IP"]
-      sign_in_count 0
-    end
+    # simulate first login
+    last_sign_in_at { Time.now }
+    last_sign_in_ip ENV["IP"]
+    current_sign_in_at { Time.now}
+    current_sign_in_ip ENV["IP"]
+    sign_in_count 1
 
     factory :admin do
       role "admin"
@@ -50,8 +49,8 @@ FactoryGirl.define do
     sequence(:name) { |n| "Host #{n}" }
     sequence(:email) { |n| "nipanipa.test+host#{n}@gmail.com" }
     password "foobar"
-    description "I am a test volunteer. I live in a big city full of noise and" \
-                "pollution"
+    description "I am a test volunteer. I live in a big city full of noise" \
+                "and pollution"
     work_description "Ofrezco mi ayuda a cambio de un lugar pa dormir"
 
     factory :host_with_work_type do
@@ -62,7 +61,8 @@ FactoryGirl.define do
   end
 
   factory :feedback do
-    content "Lorem ipsum"
+    content "This is a sample feedback. Don't know whether it is good or bad" \
+            "because the score is random..."
     score { rand(3)-1 }
     association :sender   , factory: :volunteer
     association :recipient, factory: :host
