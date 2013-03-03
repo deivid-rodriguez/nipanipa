@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.12'
+gem 'rails', '3.2.13.rc1'
 gem 'pg', '0.14.1'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'will_paginate', '3.0.3'
@@ -15,15 +15,14 @@ gem 'jquery-rails', '2.2.1'
 group :development, :test do
   gem 'factory_girl_rails', '4.2.1'
   gem 'rspec-rails', '2.13.0'
-  gem 'guard-rspec', '2.4.0'
-  gem 'guard-spork', '1.4.1'
-  gem 'spork', '0.9.2'
+  gem 'guard-rspec', '2.4.1'
+  gem 'guard-spork', '1.5.0'
 end
 
 group :development do
-  gem 'debugger', '1.3.0'
   gem 'annotate', '2.5.0'
   gem 'nifty-generators', '0.4.6'
+  gem 'debugger', '1.4.0'
 end
 
 # Gems used only for assets and not required
@@ -41,8 +40,8 @@ group :test do
   gem 'capybara-webkit', '0.14.1'
   gem 'database_cleaner', '0.9.1'
   gem 'launchy', '2.1.2'
-  gem 'rb-inotify', '0.8.8'
-  gem 'libnotify', '0.5.9'
+  gem 'rb-inotify', '0.9.0'
+  gem 'libnotify', '0.8.0'
   gem 'webmock', '1.9.0'
   gem 'simplecov', '0.7.1', require: false
 end
