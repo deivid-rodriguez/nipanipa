@@ -13,7 +13,6 @@ gem 'cancan', '1.6.9'
 gem 'jquery-rails', '2.2.1'
 
 group :development, :test do
-  gem 'factory_girl_rails', '4.2.1'
   gem 'rspec-rails', '2.13.0'
   gem 'guard-rspec', '2.4.1'
   gem 'guard-spork', '1.5.0'
@@ -36,6 +35,7 @@ group :assets do
 end
 
 group :test do
+  gem 'factory_girl_rails', '4.2.1'
   gem 'capybara', '2.0.2'
   gem 'capybara-webkit', '0.14.1'
   gem 'database_cleaner', '0.9.1'
