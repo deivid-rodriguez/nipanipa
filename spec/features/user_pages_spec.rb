@@ -24,7 +24,6 @@ redirect to his profile and flash a welcome message" do
     fill_in 'user[password]'             , with: host.password
     fill_in 'user[password_confirmation]', with: host.password
     fill_in 'user[description]'          , with: host.description
-    fill_in 'user[work_description]'     , with: host.work_description
 
     expect { click_button t('helpers.submit.create')
     }.to change(Host, :count).by(1)
@@ -90,7 +89,6 @@ description, user feedbacks and count" do
     page.should have_selector('h1', text: recipient.name)
     page.should have_title recipient.name
     page.should have_content(recipient.description)
-    page.should have_content(recipient.work_description)
     page.should have_content(feedback.content)
     page.should have_content(recipient.received_feedbacks.count)
     page.should have_link t('users.show.contact_user')

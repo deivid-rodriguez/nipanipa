@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130306113924) do
+ActiveRecord::Schema.define(:version => 20130306163120) do
 
   create_table "donations", :force => true do |t|
     t.integer  "user_id"
@@ -75,7 +75,6 @@ ActiveRecord::Schema.define(:version => 20130306113924) do
     t.datetime "reset_password_sent_at"
     t.string   "reset_password_token"
     t.string   "type"
-    t.text     "work_description"
     t.string   "name"
     t.text     "description"
   end

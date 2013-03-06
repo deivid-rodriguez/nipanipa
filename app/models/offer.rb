@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: offers
+#
+#  id            :integer          not null, primary key
+#  title         :string(255)
+#  description   :text
+#  accomodation  :text
+#  vacancies     :integer
+#  start_date    :datetime
+#  end_date      :datetime
+#  min_stay      :integer
+#  hours_per_day :integer
+#  days_per_week :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
 class Offer < ActiveRecord::Base
   attr_accessible :accomodation, :days_per_week, :description, :end_date,
                   :hours_per_day, :min_stay, :max_candidates, :start_date, :title, :vacancies

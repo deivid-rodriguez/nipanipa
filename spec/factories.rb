@@ -5,7 +5,6 @@ FactoryGirl.define do
     sequence(:email) { |n| "nipanipa.test+user#{n}@gmail.com" }
     password "foobar"
     description "I am a test user. I live in a little house in the countryside"
-    work_description "Ofrezco trabajo en casa ayudandome a construir mi granero"
 
     # simulate first login
     last_sign_in_at { Time.now }
@@ -33,7 +32,6 @@ FactoryGirl.define do
     sequence(:email) { |n| "nipanipa.test+volunteer#{n}@gmail.com" }
     password "foobar"
     description "I am a test host. I live in a little house in the countryside"
-    work_description "Ofrezco trabajo en casa ayudandome a construir mi granero"
   end
 
   factory :host do
@@ -42,7 +40,6 @@ FactoryGirl.define do
     password "foobar"
     description "I am a test volunteer. I live in a big city full of noise" \
                 "and pollution"
-    work_description "Ofrezco mi ayuda a cambio de un lugar pa dormir"
   end
 
   factory :offer do

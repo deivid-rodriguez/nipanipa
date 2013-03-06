@@ -19,10 +19,6 @@
   <%= f.input :description,
               label: t("users.desc_label_#{user.type.to_s.underscore}") %>
 
-  <% if user.type == 'Host' %>
-  <%= f.input :work_description, label: t('users.work_desc_label') %>
-  <% end %>
-
   <%= f.button :submit, class: "signup-button" %>
 
 <% end %>

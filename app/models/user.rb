@@ -3,13 +3,9 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  name                   :string(255)
 #  email                  :string(255)      default(""), not null
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  description            :text
-#  work_description       :text
-#  type                   :string(255)
 #  encrypted_password     :string(255)      default(""), not null
 #  remember_created_at    :datetime
 #  role                   :string(255)      default("non-admin")
@@ -24,6 +20,9 @@
 #  longitude              :float
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string(255)
+#  type                   :string(255)
+#  name                   :string(255)
+#  description            :text
 #
 
 class User < ActiveRecord::Base
@@ -35,13 +34,12 @@ class User < ActiveRecord::Base
   ROLES = %w["admin", "non-admin"]
 
   # accessible (or protected) attributes
-  attr_accessible :name, :email, :password, :password_confirmation,
-                  :description, :work_description, :work_type_ids, :remember_me,
-                  :state, :country
+  attr_accessible :country, :description, :email, :name, :password,
+                  :password_confirmation, :remember_me, :state, :country
 
   # validations
-  validates :name, presence: true, length: { maximum: 50 }
   validates :description, length: { maximum: 2500 }
+  validates :name, presence: true, length: { maximum: 50 }
 
   # geocoder
   geocoded_by :current_sign_in_ip do |obj, results|
