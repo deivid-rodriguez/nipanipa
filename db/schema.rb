@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130222155634) do
+ActiveRecord::Schema.define(:version => 20130306113924) do
 
   create_table "donations", :force => true do |t|
     t.integer  "user_id"
@@ -33,6 +33,20 @@ ActiveRecord::Schema.define(:version => 20130222155634) do
   add_index "feedbacks", ["sender_id", "recipient_id"], :name => "index_feedbacks_on_sender_id_and_recipient_id", :unique => true
   add_index "feedbacks", ["sender_id", "updated_at"], :name => "index_feedbacks_on_sender_id_and_updated_at"
 
+  create_table "offers", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.text     "accomodation"
+    t.integer  "vacancies"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer  "min_stay"
+    t.integer  "hours_per_day"
+    t.integer  "days_per_week"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
   create_table "sectorizations", :force => true do |t|
     t.integer "user_id"
     t.integer "work_type_id"
@@ -43,13 +57,9 @@ ActiveRecord::Schema.define(:version => 20130222155634) do
   add_index "sectorizations", ["work_type_id"], :name => "index_sectorizations_on_work_type_id"
 
   create_table "users", :force => true do |t|
-    t.string   "name"
     t.string   "email",                  :default => "",          :null => false
     t.datetime "created_at",                                      :null => false
     t.datetime "updated_at",                                      :null => false
-    t.text     "description"
-    t.text     "work_description"
-    t.string   "type"
     t.string   "encrypted_password",     :default => "",          :null => false
     t.datetime "remember_created_at"
     t.string   "role",                   :default => "non-admin"
@@ -64,6 +74,10 @@ ActiveRecord::Schema.define(:version => 20130222155634) do
     t.float    "longitude"
     t.datetime "reset_password_sent_at"
     t.string   "reset_password_token"
+    t.string   "type"
+    t.text     "work_description"
+    t.string   "name"
+    t.text     "description"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

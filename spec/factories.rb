@@ -18,15 +18,6 @@ FactoryGirl.define do
       role "admin"
     end
 
-    factory :user_with_work_type do
-      after(:build) do |u|
-        u.work_types << FactoryGirl.build(:work_type)
-      end
-      before(:create) do |u|
-        u.work_types.each { |wt| wt.save! }
-      end
-    end
-
     factory :user_with_feedbacks do
       ignore do
         count 1
@@ -52,10 +43,37 @@ FactoryGirl.define do
     description "I am a test volunteer. I live in a big city full of noise" \
                 "and pollution"
     work_description "Ofrezco mi ayuda a cambio de un lugar pa dormir"
+  end
 
-    factory :host_with_work_type do
-      after(:create) do |u|
-        u.work_types << FactoryGirl.create(:work_type)
+  factory :offer do
+    title "This is a sample job/volunteer/callitX offer"
+    description "This is supposed to be a longer text to describe the offer." \
+                "What is the job going like? What kind of tasks do you need"  \
+                "to get done?"
+    accomodation "This will describe the accomodation"
+    vacancies 1
+
+    trait :active do
+      start_date { Time.now }
+      end_date { start_date + 3.months }
+    end
+
+    trait :inactive do
+      start_date { 1.month.from_now }
+      end_date { start_date + 3.months }
+    end
+
+    trait :expired do
+      end_date { Time.now - 1.month }
+      start_date { end_date - 3.months }
+    end
+
+    trait :with_work_type do
+      after(:build) do |o|
+        o.work_types << FactoryGirl.build(:work_type)
+      end
+      before(:create) do |o|
+        o.work_types.each { |wt| wt.save! }
       end
     end
   end

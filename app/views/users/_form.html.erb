@@ -23,10 +23,6 @@
   <%= f.input :work_description, label: t('users.work_desc_label') %>
   <% end %>
 
-  <%= f.association :work_types,
-                    label: t("users.work_types_label_#{user.type.to_s.underscore}"),
-                    as: :check_boxes %>
-
   <%= f.button :submit, class: "signup-button" %>
 
 <% end %>

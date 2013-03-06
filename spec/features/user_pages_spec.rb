@@ -136,7 +136,7 @@ end
 
 
 feature "User profile editing" do
-  given(:host) { create(:host_with_work_type) }
+  given(:host) { create(:host, email: "old_email@example.com") }
 
   background do
     visit edit_user_registration_path
@@ -150,7 +150,7 @@ feature "User profile editing" do
   end
 
   scenario "with invalid information" do
-    fill_in 'user[password]', with: 'invalid'
+    fill_in 'user[email]', with: 'invalid@example'
     click_button t('helpers.submit.update')
     page.should have_selector '.error'
   end
@@ -161,11 +161,11 @@ feature "User profile editing" do
   end
 
   scenario "with valid information" do
-    uncheck "user_work_type_ids_#{host.work_type_ids[0]}"
+    fill_in 'user[email]', with: 'new_email@example.com'
     click_button t('helpers.submit.update')
 
     page.should have_flash_message t('devise.users.updated'), 'success'
     page.should have_link t('sessions.signout'), href: destroy_user_session_path
-    host.reload.work_type_ids.should == [ ]
+    host.reload.email.should == "new_email@example.com"
   end
 end

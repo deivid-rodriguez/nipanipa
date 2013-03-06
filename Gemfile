@@ -14,7 +14,7 @@ gem 'jquery-rails', '2.2.1'
 
 group :development, :test do
   gem 'rspec-rails', '2.13.0'
-  gem 'guard-rspec', '2.4.1'
+  gem 'guard-rspec', '2.5.0'
   gem 'guard-spork', '1.5.0'
 end
 

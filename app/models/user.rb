@@ -57,9 +57,6 @@ class User < ActiveRecord::Base
   # associations
   has_many :donations
 
-  has_many :sectorizations
-  has_many :work_types, through: :sectorizations
-
   has_many :sent_feedbacks,
             class_name: 'Feedback',
            foreign_key: 'sender_id',
