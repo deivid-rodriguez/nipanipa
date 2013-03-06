@@ -59,17 +59,13 @@ Spork.prefork do
   Capybara.javascript_driver = :webkit_ignore_ssl
 
   RSpec.configure do |config|
-    #config.include(EmailSpec::Helpers)
-    #config.include(EmailSpec::Matchers)
+    config.include Devise::TestHelpers, :type => :controller
 
     # ## Mock Framework (uncomment the appropriate line)
     # config.mock_with :mocha
     # config.mock_with :flexmock
     # config.mock_with :rr
     config.mock_with :rspec
-
-    ## Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-    #config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
     # If you're not using ActiveRecord, or you'd prefer not to run each of your
     # examples within a transaction, remove the following line or assign false
