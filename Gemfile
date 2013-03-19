@@ -12,6 +12,7 @@ gem 'thin', '1.5.0'
 gem 'devise', '2.2.3'
 gem 'cancan', '1.6.9'
 gem 'jquery-rails', '2.2.1'
+gem 'ffaker', '1.15.0'
 
 group :development, :test do
   gem 'rspec-rails', '2.13.0'
@@ -44,5 +45,4 @@ group :test do
   gem 'libnotify', '0.8.0'
   gem 'webmock', '1.9.0'
   gem 'simplecov', '0.7.1', require: false
-  gem 'ffaker', '1.15.0'
 end
