@@ -1,0 +1,28 @@
+<div id="feedbacks" class="span8 box">
+
+  <h3 class="icon feedbacks22">
+    <%= feedback_count(feedbacks) %>
+  </h3>
+
+  <% if feedbacks.any? %>
+
+    <ol class="feedbacks">
+      <% feedbacks.each do |feedback_pair| %>
+        <li class="feedback-pair">
+          <% if feedback_pair[0] %>
+           <%= render partial: 'feedbacks/feedback',
+                      object: feedback_pair[0],
+                      locals: { type: 'received' } %>
+         <% end %>
+         <% if feedback_pair[1] %>
+           <%= render partial: 'feedbacks/feedback',
+                      object: feedback_pair[1],
+                      locals: { type: 'sent' } %>
+         <% end %>
+       </li>
+      <% end %>
+    </ol>
+
+  <% end %>
+
+</div>

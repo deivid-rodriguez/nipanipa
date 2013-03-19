@@ -8,6 +8,6 @@
 #
 
 class Sectorization < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :offer
   belongs_to :work_type
 end

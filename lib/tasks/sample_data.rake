@@ -1,30 +1,36 @@
+require 'ffaker'
+
 namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
 
-    # Create admin user0
-    admin = User.create!(name: "User0",
-                         email: "nipanipa.test+user0@gmail.com",
-                         password: "foobar",
-                         password_confirmation: "foobar",
-                         description: "I am the big admin of the site!")
-    admin.toggle!(:admin)
-
     # Create some users
-    99.times do |n|
+    50.times do |n|
+      type = 'user' if n == 0
+      type = ['host', 'volunteer'].sample if n > 0
       name  = Faker::Name.name
-      email = "nipanipa.test+user#{n+1}@gmail.com"
-      password  = "password"
-      User.create!(name: name,
-                   email: email,
-                   password: password,
-                   password_confirmation: password,
-                   description: "I am the sample user #{n+1} for NiPaNiPa")
+      email = "nipanipa.test+#{type}#{n}@gmail.com"
+      password  = "111111"
+      description = Faker::Lorem.paragraph(10)
+      ip = Faker::Internet.ip_v4_address
+      time = Time.now
+      user = type.classify.constantize.new(name: name,
+                                           email: email,
+                                           password: password,
+                                           password_confirmation: password,
+                                           description: description)
+      user.last_sign_in_ip = ip
+      user.last_sign_in_at = time
+      user.current_sign_in_ip = ip
+      user.current_sign_in_at = time
+      user.sign_in_count = 1
+      user.role = 'admin' if n == 0
+      user.save!
     end
 
     # Create some feedbacks
     users = User.all
-    1000.times do
+    500.times do
       from_to = (0..99).to_a.sample 2
       feedback = Feedback.new(content: Faker::Lorem.sentence(5), score: rand(3) - 1)
       feedback.sender    = users[from_to[0]]

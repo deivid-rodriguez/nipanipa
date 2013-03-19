@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe DonationsController do
 
   it "new action should render new template" do

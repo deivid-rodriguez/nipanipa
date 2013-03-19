@@ -3,7 +3,7 @@ feature "Signin" do
   let(:signin)  { t 'sessions.signin'    }
   let(:signout) { t 'sessions.signout'   }
   let(:profile) { t 'users.show.profile' }
-  let(:user)    { create(:user)          }
+  let(:user)    { create(:host)          }
 
   background { visit new_user_session_path }
 

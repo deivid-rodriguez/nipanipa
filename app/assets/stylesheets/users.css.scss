@@ -27,7 +27,6 @@
   }
 }
 
-
 /* users profile */
 
 .user-gravatar {
@@ -36,19 +35,21 @@
 
 #main {padding: 0 2em;}
 
-.c50l {
-  float: left;
-  width: 50%;
+.quickinfo {
+  text-align: center;
 }
 
-.c50r {
-  float: right;
-  margin-left: -5px;
-  width: 50%;
+#profile-header {
+  margin: 0px 0px 30px 0px;
 }
 
-#navigation-path {
-  margin: 0 0 0.5em 0;
+#profile-content {
+  margin: 0px 0px 30px 0px;
+}
+
+#personal-description {
+  text-align: justify;
+  margin-top: 30px;
 }
 
 #profile-location {
@@ -56,31 +57,10 @@
   margin-bottom: 20px
 }
 
-#profile-info {
-    padding: 0 0 1em 0;
-}
-
-#profile-info #username {
-    padding: 0;
-    line-height: 1.6em;
-    font-size: 1.6em;
-}
-#profile-info #username strong {
-    font-size:1.6em;
-    padding:10px 10px 10px 0;
-    color: #000000;
-}
-#profile-info #quickinfo {
-    padding-top: 4.5em;
-}
-#profile-info .profile_translations {
-    white-space: pre-line
-}
-
-#profile dl, #preferences dl, dl#profiletop {
+#profile-content dl, #preferences dl, dl#profiletop {
     display: block;
 }
-#profile dt, #preferences dt, #profiletop dt {
+#profile-content dt, #preferences dt, #profiletop dt {
     line-height: 1.5em;
     font-size: 1em;
     font-weight: normal;
@@ -89,65 +69,42 @@
     clear: left;
     margin-bottom: 0.8em;
 }
-#profile dd, #preferences dd, #profiletop dd {
+#profile-content dd, #preferences dd, #profiletop dd {
     margin-left: 12em;
     line-height: 1.5em;
     margin-bottom: 0.8em;
 }
 
-#profile #interests dt, #profile #accommodation dt {
+#profile-content #interests dt, #profile-content #accommodation dt {
     float: none;
     width: auto;
     margin-bottom: 0;
     font-weight:bold;
 }
-#profile #interests dd, #profile #accommodation dd {
+#profile-content #interests dd, #profile-content #accommodation dd {
     width: auto;
     margin-left:0;
 }
-#profile #accommodation dt.guests {
+#profile-content #accommodation dt.guests {
     width: 12em;
     float: left;
     clear: left;
     margin-bottom: 0.8em;
 }
-#profile #accommodation dd.guests {
+#profile-content #accommodation dd.guests {
     margin-left: 12em;
     line-height: 1.5em;
     margin-bottom: 0.8em;
 }
 
-#profile sup {
+#profile-content sup {
     font-size: 0.8em;
     color: #888;
 }
-#profile_subcolumns .subcl {
-    padding-right: 1em;
-}
-
-#profile-info #navigation-path h2 {
-    color: #333;
-    font-size: 1.2em;
-    font-weight: normal;
-}
-#profile-info #navigation-path strong {
-    font-size: 1.2em;
-    font-weight: strong;
-}
 
 /* list the spoken languages of a member */
-#profile .profile_languages li {
+#profile-content .profile_languages li {
     margin-right: .5em;
-}
-
-/* for the available languages of the profil content*/
-#profile-info .availablelanguages {
-    padding-right: 0.5em;
-    color: #888;
-}
-#profile-info .activelanguage {
-    font-weight: bold;
-    padding-right: 0.5em;
 }
 
 #preferences ul, #preferences select {
@@ -185,7 +142,7 @@
 }
 
 /* using css3 for round corners and shadow effect (only firefox chrome and safari) */
-#profile .box, #profile-info .box{
+#profile-content .box {
     border: 1px solid $grayVeryLight;
     @include border_radius;
     padding: 0.8em;
@@ -196,27 +153,27 @@
     width: auto;
     @include box_shadow;
 }
-#profile #linkpath div.profile{
+#profile-content #linkpath div.profile{
     margin-right: 5px;
 }
-#profile #linkpath div.connection{
+#profile-content #linkpath div.connection{
     margin-right: 5px;
     margin: 15px 5px 0 0;
     vertical-align: middle;
 }
 
-#profile .box h3, #profile #linkpath h3, #profile-info .box h3 {
+#profile-content .box h3, #profile-content #linkpath h3 {
     margin-bottom: 0.3em;
     color: #333;
     border-bottom: 1px solid $grayVeryLight;
     font-size: 16px;
 }
 
-#profile #profile-edit-form fieldset td{
+#profile-content #profile-edit-form fieldset td{
   vertical-align: top;
 }
 
-#profile #profile-edit-form fieldset td.label{
+#profile-content #profile-edit-form fieldset td.label{
   vertical-align: top;
   padding-top: 0.7em;
 }

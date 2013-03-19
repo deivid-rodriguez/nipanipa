@@ -7,8 +7,6 @@
 #  description :string(255)
 #
 
-require 'spec_helper'
-
 describe WorkType do
   let(:work_type) { WorkType.new }
 

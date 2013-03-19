@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe FeedbacksController do
   let(:user) { create(:user) }
 

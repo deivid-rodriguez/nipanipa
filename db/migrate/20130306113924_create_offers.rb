@@ -5,8 +5,8 @@ class CreateOffers < ActiveRecord::Migration
       t.text :description
       t.text :accomodation
       t.integer :vacancies
-      t.datetime :start_date
-      t.datetime :end_date
+      t.date :start_date
+      t.date :end_date
       t.integer :min_stay
       t.integer :hours_per_day
       t.integer :days_per_week

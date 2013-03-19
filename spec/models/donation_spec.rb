@@ -9,8 +9,6 @@
 #  updated_at :datetime         not null
 #
 
-require 'spec_helper'
-
 describe Donation do
   it "should be valid" do
     Donation.new.should be_valid

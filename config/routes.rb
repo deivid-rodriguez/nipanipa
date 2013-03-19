@@ -13,17 +13,16 @@ Nipanipa::Application.routes.draw do
       post   'signin'  => 'devise/sessions#create' , as: :user_session
       delete 'signout' => 'devise/sessions#destroy', as: :destroy_user_session
 
-      get 'users'     => 'users#index', as: :users
-      get 'users/:id' => 'users#show' , as: :user
-
-      get    'users/:user_id/feedbacks/new'      => 'feedbacks#new'   , as: :new_user_feedback
-      post   'users/:user_id/feedbacks'          => 'feedbacks#create', as: :user_feedbacks
-      get    'users/:user_id/feedbacks/:id/edit' => 'feedbacks#edit'  , as: :edit_user_feedback
-      put    'users/:user_id/feedbacks/:id'      => 'feedbacks#update', as: :user_feedback
-      delete 'users/:user_id/feedbacks/:id'      => 'feedbacks#destroy'
+      get 'users/:id'  => 'users#show', as: :user
+      get 'users'      => 'users#index', as: :users
     end
 
     resources :donations, only: [:new, :create, :show]
+
+    resources :users do
+      resources :feedbacks
+      resources :offers
+    end
 
     match 'help'       => 'static_pages#help'
     match 'about'      => 'static_pages#about'

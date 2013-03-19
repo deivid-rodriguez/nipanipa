@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130306163120) do
+ActiveRecord::Schema.define(:version => 20130319201410) do
 
   create_table "donations", :force => true do |t|
     t.integer  "user_id"
@@ -38,22 +38,23 @@ ActiveRecord::Schema.define(:version => 20130306163120) do
     t.text     "description"
     t.text     "accomodation"
     t.integer  "vacancies"
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.date     "start_date"
+    t.date     "end_date"
     t.integer  "min_stay"
     t.integer  "hours_per_day"
     t.integer  "days_per_week"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.integer  "host_id"
   end
 
   create_table "sectorizations", :force => true do |t|
-    t.integer "user_id"
+    t.integer "offer_id"
     t.integer "work_type_id"
   end
 
-  add_index "sectorizations", ["user_id", "work_type_id"], :name => "index_sectorizations_on_user_id_and_work_type_id", :unique => true
-  add_index "sectorizations", ["user_id"], :name => "index_sectorizations_on_user_id"
+  add_index "sectorizations", ["offer_id", "work_type_id"], :name => "index_sectorizations_on_user_id_and_work_type_id", :unique => true
+  add_index "sectorizations", ["offer_id"], :name => "index_sectorizations_on_user_id"
   add_index "sectorizations", ["work_type_id"], :name => "index_sectorizations_on_work_type_id"
 
   create_table "users", :force => true do |t|

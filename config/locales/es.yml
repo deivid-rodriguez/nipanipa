@@ -39,19 +39,32 @@ Registrarte y completar tu perfil no te llevará ni 5 minutos. Después...
 cuéntanos lo que pasa después!"
       signin: "Entrar"
   feedbacks:
+    feedbacks: "Referencias"
+    received:
+      one: "1 recibida"
+      other: "%{count} recibidas"
+    sent:
+      one: "1 enviada"
+      other: "%{count} enviadas"
     feedback:
       from: "De %{name}"
       to: "Para %{name}"
     create:
-      flash_notice: "Has dejado una nueva referencia!"
-      flash_error: "Error al crear la nueva referencia... :( No debe sobrepasar
+      success: "Has dejado una nueva referencia!"
+      error: "Error al crear la nueva referencia... :( No debe sobrepasar
 los 300 caracteres"
     update:
-      flash_notice: "Has actualizado la referencia!"
-      flash_error: "Error al actualizar la referencia... :( No debe sobrepasar
+      success: "Has actualizado la referencia!"
+      error: "Error al actualizar la referencia... :( No debe sobrepasar
 los 300 caracteres"
     destroy:
-      flash_notice: "Tu referencia ha sido eliminada"
+      success: "Tu referencia ha sido eliminada"
+  offers:
+    new:
+      link: "Crea una nueva oferta de voluntariado!"
+    create:
+      success: "Tu oferta de voluntariado se dio de alta correctamente"
+      error: "Hubo errores al crear tu oferta"
   users:
     desc_label_host: "Cuéntale a tus futuros voluntarios algo sobre ti o
 sobre tu familia"
@@ -86,16 +99,12 @@ buscando"
         other: "Otro"
     show:
       profile: "Mi perfil"
-      leave_feedback: "Dejar una referencia"
-      contact_user: "Contactar con el usuario"
+      leave_feedback: "Deja una referencia"
+      edit_profile: "Actualiza tu perfil"
+      contact_user: "Contacta con el usuario"
       member_since: "Miembro desde"
-      feedbacks: "Referencias"
-      received:
-        one: "1 recibida"
-        other: "%{count} recibidas"
-      sent:
-        one: "1 enviada"
-        other: "%{count} enviadas"
+      description: "Sobre mí"
+      available: "Voluntariados disponibles"
     edit:
       title: "Actualización de perfil"
       header: "Actualiza tu perfil"
@@ -116,8 +125,6 @@ buscando"
     rememberme: "Recuérdame"
   donations:
     new:
-      flash_success: "Tu donación fue exitosa!"
-      flash_error: "Lo siento, hubo un problema con tu donación."
       title: "Contribuye a NiPaNiPa"
       donate_title: "Dona!"
       donate_desc: "NiPaNiPa necesita de tu ayuda para seguir existiendo de
@@ -133,6 +140,9 @@ solicitarnos nuevas funcionalidades %{issues_url}."
       input_amount: "O elige el importe que tú quieras si no está en la lista"
       here: "aquí"
       submit: "Dona!"
+    create:
+      success: "Tu donación fue exitosa!"
+      error: "Lo siento, hubo un problema con tu donación."
   layouts:
     header:
       language: "Idioma"
@@ -140,8 +150,8 @@ solicitarnos nuevas funcionalidades %{issues_url}."
       news: "Noticias"
   activerecord:
     models:
-      host: "Host"
-      volunteer: "Voluntario"
+      Host: "Host"
+      Volunteer: "Voluntario"
     attributes:
       user:
         password_digest: "Contraseña"
@@ -173,51 +183,8 @@ electrónico"
               too_long: "La referencia es demasiado larga"
       messages:
         record_invalid: "Registro no válido"
-  helpers:
-    submit:
-      create: "Crear mi cuenta"
-      update: "Salvar los cambios"
+  will_paginate:
+    previous_label: "Página anterior"
+    next_label: "Página siguiente"
   datetime:
     timestamp_ago: "hace %{time}"
-    distance_in_words:
-      half_a_minute: "medio minuto"
-      less_than_x_seconds:
-        one:   "menos de un segundo"
-        other: "menos de %{count} segundos"
-      x_seconds:
-        one:   "1 segundo"
-        other: "%{count} segundos"
-      less_than_x_minutes:
-        one:   "menos de un minuto"
-        other: "menos de %{count} minutos"
-      x_minutes:
-        one:   "1 minuto"
-        other: "%{count} minutos"
-      about_x_hours:
-        one:   "aprox. 1 hora"
-        other: "aprox. %{count} horas"
-      x_days:
-        one:   "1 día"
-        other: "%{count} días"
-      about_x_months:
-        one:   "aprox. 1 mes"
-        other: "aprox. %{count} meses"
-      x_months:
-        one:   "1 mes"
-        other: "%{count} meses"
-      about_x_years:
-        one:   "aprox. 1 año"
-        other: "aprox. %{count} años"
-      over_x_years:
-        one:   "más de 1 año"
-        other: "más de %{count} años"
-      almost_x_years:
-        one:   "casi 1 año"
-        other: "casi %{count} años"
-    prompts:
-      year:   "Año"
-      month:  "Mes"
-      day:    "Día"
-      hour:   "Hora"
-      minute: "Minuto"
-      second: "Segundo"

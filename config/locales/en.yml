@@ -35,20 +35,34 @@ area."
       signup: "Sign up!"
       signup_desc: "Sign up now as a host or a volunteer and fill your profile.
 It won't take you more than five minutes."
+      signin: "Sign in!"
   feedbacks:
+    feedbacks: "References"
+    received:
+      one: "1 received"
+      other: "%{count} received"
+    sent:
+      one: "1 sent"
+      other: "%{count} sent"
     feedback:
       from: "From %{name}"
       to: "To %{name}"
     create:
-      flash_notice: "You left a new reference! Thanks."
-      flash_error: "Error creating the new reference... :( It should not be
+      success: "You left a new reference! Thanks."
+      error: "Error creating the new reference... :( It should not be
 longer than 300 characters"
     update:
-      flash_notice: "You just edited the reference!"
-      flash_error: "Error updating the reference... :( It should not be longer
+      success: "You just edited the reference!"
+      error: "Error updating the reference... :( It should not be longer
 than 300 characters"
     destroy:
-      flash_notice: "Your reference was successfully deleted"
+      success: "Your reference was successfully deleted"
+  offers:
+    new:
+      link: "Add a new volunteering offer!"
+    create:
+      success: "Your volunteering offer was correctly created"
+      error: "Please review the errors below"
   users:
     desc_label_host: "Tell your future volunteers something about
 yourself or your family."
@@ -84,18 +98,14 @@ work?"
     show:
       profile: "My profile"
       leave_feedback: "Leave feedback"
+      edit_profile: "Update your profile"
       contact_user: "Contact user"
       member_since: "Member since"
-      feedbacks: "Feedback"
-      received:
-        one: "1 received"
-        other: "%{count} received"
-      sent:
-        one: "1 sent"
-        other: "%{count} sent"
+      description: "About me"
+      available: "Available volunteerings"
     edit:
-      title: "Actualización de perfil"
-      header: "Actualiza tu perfil"
+      title: "Profile update"
+      header: "Update your profile"
     index:
       places: "Places"
       people: "People"
@@ -113,8 +123,6 @@ work?"
     rememberme: "Remember me"
   donations:
     new:
-      flash_success: "Your donation was successful!"
-      flash_error: "Sorry, there was some problem with your donation."
       title: "Contribute to NiPaNiPa"
       donate_title: "Donate"
       donate_desc: "NiPaNiPa needs your help to survive in an independent
@@ -130,6 +138,9 @@ would like to be implemented %{issues_url}."
       input_amount: "Or choose any amount you're confortable with"
       here: "here"
       submit: "Donate now!"
+    create:
+      success: "Your donation was successful!"
+      error: "Sorry, there was some problem with your donation."
   layouts:
     header:
       language: "Language"
@@ -169,51 +180,8 @@ would like to be implemented %{issues_url}."
               too_long: "Feeback is too long"
       messages:
         record_invalid: "Invalid record"
-  helpers:
-    submit:
-      create: "Sign up!"
-      update: "Save changes"
+  will_paginate:
+    previous_label: "Previous page"
+    next_label: "Next page"
   datetime:
     timestamp_ago: "%{time} ago"
-    distance_in_words:
-      half_a_minute: "half a minute"
-      less_than_x_seconds:
-        one:   "less than 1 second"
-        other: "less than %{count} seconds"
-      x_seconds:
-        one:   "1 second"
-        other: "%{count} seconds"
-      less_than_x_minutes:
-        one:   "less than a minute"
-        other: "less than %{count} minutes"
-      x_minutes:
-        one:   "1 minute"
-        other: "%{count} minutes"
-      about_x_hours:
-        one:   "about 1 hour"
-        other: "about %{count} hours"
-      x_days:
-        one:   "1 day"
-        other: "%{count} days"
-      about_x_months:
-        one:   "about 1 month"
-        other: "about %{count} months"
-      x_months:
-        one:   "1 month"
-        other: "%{count} months"
-      about_x_years:
-        one:   "about 1 year"
-        other: "about %{count} years"
-      over_x_years:
-        one:   "over 1 year"
-        other: "over %{count} years"
-      almost_x_years:
-        one:   "almost 1 year"
-        other: "almost %{count} years"
-    prompts:
-      year:   "Year"
-      month:  "Month"
-      day:    "Day"
-      hour:   "Hour"
-      minute: "Minute"
-      second: "Seconds"

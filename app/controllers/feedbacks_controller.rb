@@ -14,9 +14,9 @@ class FeedbacksController < ApplicationController
     @feedback.recipient = @user
     authorize! :create, @feedback
     if @feedback.save
-      redirect_to @user, notice: t('feedbacks.create.flash_notice')
+      redirect_to @user, notice: t('feedbacks.create.success')
     else
-      flash.now[:error] = t('feedbacks.create.flash_error')
+      flash.now[:error] = t('feedbacks.create.error')
       render 'new'
     end
   end
@@ -28,17 +28,16 @@ class FeedbacksController < ApplicationController
   def update
    authorize! :update, @feedback
     if @feedback.update_attributes(params[:feedback])
-      redirect_to current_user, notice: t('feedbacks.update.flash_notice')
+      redirect_to current_user, notice: t('feedbacks.update.success')
     else
-      flash.now[:error] = t('feedbacks.update.flash_error')
+      flash.now[:error] = t('feedbacks.update.error')
       render 'edit'
     end
   end
 
   def destroy
     authorize! :destroy, @feedback
-    @feedback.destroy
-    redirect_to current_user, notice: t('feedbacks.destroy.flash_notice')
+    redirect_to current_user, notice: t('feedbacks.destroy.success')
   end
 
   private

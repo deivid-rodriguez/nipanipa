@@ -7,8 +7,6 @@
 #  work_type_id :integer
 #
 
-require 'spec_helper'
-
 #describe Sectorization do
 #
 #  let(:user) { create(:user) }

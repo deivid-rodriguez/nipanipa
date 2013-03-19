@@ -50,6 +50,11 @@ FactoryGirl.define do
     accomodation "This will describe the accomodation"
     vacancies 1
 
+    trait :open do
+      start_date { Time.now }
+      end_date nil
+    end
+
     trait :active do
       start_date { Time.now }
       end_date { start_date + 3.months }
@@ -88,7 +93,7 @@ FactoryGirl.define do
   end
 
   factory :sectorization do
-    association :user
+    association :offer
     association :work_type
   end
 

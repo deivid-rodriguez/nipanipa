@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 def mock_paypal_pdt(status, donation_id)
   WebMock::API.
     stub_request(:post, "https://www.sandbox.paypal.com/cgi-bin/webscr?").
@@ -32,11 +30,11 @@ feature 'donation', js: true do
 
   scenario "successful donation" do
     mock_paypal_pdt('SUCCESS', Donation.last.id)
-    page.should have_flash_message t('donations.new.flash_success'), 'success'
+    page.should have_flash_message t('donations.create.success'), 'success'
   end
 
   scenario "unsuccessful donation" do
     mock_paypal_pdt('FAIL', Donation.last.id)
-    page.should have_flash_message t('donations.new.flash_error'), 'error'
+    page.should have_flash_message t('donations.create.error'), 'error'
   end
 end

@@ -20,8 +20,8 @@ describe "User" do
 end
 
 describe "Protected pages" do
-  let!(:user)       { create(:user) }
-  let!(:other_user) { create(:user) }
+  let!(:user)       { create(:host) }
+  let!(:other_user) { create(:volunteer) }
 
   subject { page }
 

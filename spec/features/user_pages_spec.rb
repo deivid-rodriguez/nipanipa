@@ -1,5 +1,6 @@
 feature "Host profile creation" do
   given(:host) { build(:host) }
+  given(:btn_name) { t('helpers.submit.create', model: User) }
 
   background { visit new_user_registration_path(type: "host") }
 
@@ -11,8 +12,7 @@ feature "Host profile creation" do
 
   scenario "submitting invalid information doesn't create user, redirects back
 to signup page and displays error messages" do
-    expect { click_button t('helpers.submit.create')
-    }.not_to change(Host, :count)
+    expect { click_button btn_name }.not_to change(Host, :count)
     page.should have_title t('users.new.title')
     page.should have_selector '.error'
   end
@@ -25,8 +25,7 @@ redirect to his profile and flash a welcome message" do
     fill_in 'user[password_confirmation]', with: host.password
     fill_in 'user[description]'          , with: host.description
 
-    expect { click_button t('helpers.submit.create')
-    }.to change(Host, :count).by(1)
+    expect { click_button btn_name }.to change(Host, :count).by(1)
     page.should have_title host.name
     page.should have_flash_message t('devise.users.signed_up'), 'success'
     page.should have_link t('sessions.signout')
@@ -35,6 +34,7 @@ end
 
 feature "Volunteer profile creation" do
   given(:volunteer) { build(:volunteer) }
+  given(:btn_name) { t('helpers.submit.create', model: User) }
 
   background { visit new_user_registration_path(type: "volunteer") }
 
@@ -46,8 +46,7 @@ feature "Volunteer profile creation" do
 
   scenario "submitting invalid information doesn't create user, redirects back
 to signup page and displays error messages" do
-    expect { click_button t('helpers.submit.create')
-    }.not_to change(Volunteer, :count)
+    expect { click_button btn_name }.not_to change(Volunteer, :count)
     page.should have_title t('users.new.title')
     page.should have_selector '.error'
   end
@@ -60,8 +59,7 @@ redirect to his profile and flash a welcome message" do
     fill_in 'user[password_confirmation]', with: volunteer.password
     fill_in 'user[description]'          , with: volunteer.description
 
-    expect { click_button t('helpers.submit.create')
-    }.to change(Volunteer, :count).by(1)
+    expect { click_button btn_name }.to change(Volunteer, :count).by(1)
     page.should have_title volunteer.name
     page.should have_flash_message t('devise.users.signed_up'), 'success'
     page.should have_link t('sessions.signout')
@@ -135,6 +133,7 @@ end
 
 feature "User profile editing" do
   given(:host) { create(:host, email: "old_email@example.com") }
+  given(:btn_name) { t('helpers.submit.update', model: User) }
 
   background do
     visit edit_user_registration_path
@@ -149,18 +148,18 @@ feature "User profile editing" do
 
   scenario "with invalid information" do
     fill_in 'user[email]', with: 'invalid@example'
-    click_button t('helpers.submit.update')
+    click_button btn_name
     page.should have_selector '.error'
   end
 
   scenario "nothing introduced is valid" do
-    click_button t('helpers.submit.update')
+    click_button btn_name
     page.should have_flash_message t('devise.users.updated'), 'success'
   end
 
   scenario "with valid information" do
     fill_in 'user[email]', with: 'new_email@example.com'
-    click_button t('helpers.submit.update')
+    click_button btn_name
 
     page.should have_flash_message t('devise.users.updated'), 'success'
     page.should have_link t('sessions.signout'), href: destroy_user_session_path

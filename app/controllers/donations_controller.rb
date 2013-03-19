@@ -18,9 +18,9 @@ class DonationsController < ApplicationController
     response = Donation.send_pdt_post(params[:tx])
 
     if response.body.lines.first.chomp == 'SUCCESS'
-      flash.now[:notice] = t('donations.new.flash_success')
+      flash.now[:notice] = t('donations.create.success')
     else
-      flash.now[:alert] = t('donations.new.flash_error')
+      flash.now[:alert] = t('donations.create.error')
     end
     render 'static_pages/home'
   end

@@ -3,7 +3,6 @@
 <div class="row">
 
   <aside class="span3">
-
     <div class="user-gravatar">
       <%= gravatar_for @user, size: 220 %>
       <!-- TODO: activate fancy zoom -->
@@ -11,111 +10,80 @@
 
     <ul class="linklist" id="profile_linklist">
       <% unless @no_feedback_link %>
-      <li id="sub0">
+      <li>
         <%= link_to t('.leave_feedback'), new_user_feedback_path(@user) %>
       </li>
       <% end %>
-      <li><%= link_to t('.contact_user'), '#' %></li>
-      <li id="sub1" class="mypreferences">
-        <a href="mypreferences"><span>Mis preferencias</span></a></li>
-      <li id="sub2" class="myvisitors">
-        <a href="myvisitors"><span>Visitas en mi perfil</span></a></li>
+      <li><%= link_to t('.edit_profile'), '#' %></li>
+      <% if @user == current_user %>
+      <li>
+        <%= link_to t('offers.new.link'), new_user_offer_path(current_user) %>
+      </li>
+      <% end %>
       <li id="sub3" class="space">
         <a href=""><span></span></a></li>
       <li id="sub6" class="">
-        <a href="gallery/show/user/deivid/pictures"><span>Galería (0)</span></a></li>
+      <li><%= link_to t('.contact_user'), '#' %></li>
     </ul>
-
   </aside>
 
-  <div class="span9">
+  <div class="span8">
 
-    <div id="profile-header" class="clearfix">
-
+    <div id="profile-header" class="row">
+      <% if false %>
       <div id="profile-location">
         <%= image_tag "http://maps.google.com/maps/api/staticmap?center=#{@user.latitude}%2C#{@user.longitude}&size=300x200&sensor=false&zoom=8", alt: "map" %>
       </div>
+      <% end %>
 
-      <div id="profile-info">
-        <div class="subcolumns">
-          <h1 id="username">
-            <strong><%= @user.name %></strong>
-          </h1> <!-- username -->
+      <h1 id="username" class="span8">
+        <strong><%= @user.name %></strong>
+      </h1>
 
-          <div id="navigation-path">
-            <h2><strong><%= "#{@user.state} (#{@user.country})" %></strong></h2>
-            <p class="grey">
-              27 Edad<br>
-              <%= t '.member_since' %>:
-              <%= t 'datetime.timestamp_ago',
-                    time: time_ago_in_words(@user.created_at) %><br>
-              <%= render 'shared/current_or_last_login', user: @user %>
-            </p>
-          </div> <!-- navigation-path -->
-
-        </div> <!-- subcolumns -->
-      </div> <!-- profile-info -->
+      <div class="span8">
+        <div class="row">
+          <div class="span2 quickinfo">
+            <%= image_tag "#{@user.type.underscore}_24.png" %>
+            <%= t "activerecord.models.#{@user.type}" %>
+          </div>
+           <div class="span3 quickinfo">
+            <%= image_tag 'location.png' %>
+            <%= "#{@user.state} (#{@user.country})" %>
+          </div>
+         <div class="span3 quickinfo">
+            <%= image_tag 'languages.png' %>
+            Español, Inglés
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div id="profile">
-      <div class="subcolumns" id="profile_subcolumns">
-        <div class="c50l">
-          <div class="subcl">
+    <div id="profile-content" class="row">
 
-            <div id="accommodationinfo" class="box">
-              <%= render 'edit_link', user: @user %>
-              <h3 class="icon accommodation22">Alojamiento</h3>
-              <!-- implement quickinfo icons like in BeWelcome/blablacar -->
-              <p>Añadir parámetro...</p>
-            </div> <!-- profile_accommodation -->
-          </div> <!-- subcl -->
-        </div> <!-- c50l -->
+      <div id="personal-description" class="span8 box">
+        <%= render 'edit_link', user: @user %>
+        <h3><%= t '.description' %></h3>
+        <p><%= @user.description %></p>
+      </div>
 
-        <div class="c50r">
-          <div class="subcr">
+      <% if @user.type == 'Host' %>
+      <div id="offers" class="span8 box">
+        <%= render 'edit_link', user: @user %>
+        <h3><%= t '.available' %></h3>
+        <p>
+          <% if !@user.offers.empty? %>
+          <%= render (@user.offers) %>
+          <% else %>
+           Aun no tienes ninguna oferta publicada
+          <% end %>
+        </p>
+      </div>
+      <% end %>
 
-            <div id="personaldescription" class="box">
-              <%= render 'edit_link', user: @user %>
-              <h3 class="icon info22">Sobre mí</h3>
-              <p><%= @user.description %></p>
-            </div> <!-- personaldescription -->
+      <%= render partial: 'feedbacks/feedbacks', object: @feedback_pairs %>
 
-            <div id="languages" class="box">
-              <%= render 'edit_link', user: @user %>
-              <h3>Idiomas</h3>
-              <ul class="icon profile_languages"></ul>
-            </div> <!-- languages -->
+    </div>
 
-            <div id="feedbacks" class="box">
-              <h3 class="icon feedbacks22">
-                <%= feedback_count(@feedback_pairs) %>
-              </h3>
-              <% if @feedback_pairs.any? %>
-                <ol class="feedbacks">
-                  <% @feedback_pairs.each do |feedback_pair| %>
-                    <li class="feedback-pair">
-                      <% if feedback_pair[0] %>
-                       <%= render partial: 'feedbacks/feedback',
-                                  object: feedback_pair[0],
-                                  locals: { type: 'received' } %>
-                     <% end %>
-                     <% if feedback_pair[1] %>
-                       <%= render partial: 'feedbacks/feedback',
-                                  object: feedback_pair[1],
-                                  locals: { type: 'sent' } %>
-                     <% end %>
-                   </li>
-                  <% end %>
-                </ol>
-              <% end %>
-            </div> <!-- profile_feedbacks -->
-
-          </div> <!-- subcr -->
-        </div> <!-- c50r -->
-
-      </div> <!-- subcolumns -->
-    </div> <!-- profile -->
-
-  </div> <!-- main content -->
+  </div> <!-- span8 -->
 
 </div> <!-- end row -->

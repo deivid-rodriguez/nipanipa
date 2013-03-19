@@ -7,7 +7,6 @@
   <% end %>
 <% else %>
     <%= t '.last_login' %>:
-    <%= "#{user.state} (#{user.country})" %>,
     <%= t 'datetime.timestamp_ago',
           time: time_ago_in_words(user.last_sign_in_at) %><br>
 <% end %>

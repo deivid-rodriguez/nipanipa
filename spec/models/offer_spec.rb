@@ -7,16 +7,15 @@
 #  description   :text
 #  accomodation  :text
 #  vacancies     :integer
-#  start_date    :datetime
-#  end_date      :datetime
+#  start_date    :date
+#  end_date      :date
 #  min_stay      :integer
 #  hours_per_day :integer
 #  days_per_week :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  host_id       :integer
 #
-
-require 'spec_helper'
 
 describe Offer do
 
@@ -44,7 +43,7 @@ describe Offer do
   end
 
   describe "#available?" do
-
+    specify { build(:offer, :open).available?.should be_true }
     specify { build(:offer, :active).available?.should be_true }
     specify { build(:offer, :inactive).available?.should_not be_true }
     specify { build(:offer, :expired).available?.should_not be_true }

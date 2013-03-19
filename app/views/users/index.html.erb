@@ -1,7 +1,5 @@
 <%= provide :title, index_title(params[:type]) %>
 
-<%= will_paginate %>
-
 <div class="row">
   <aside class="span3 sidebar_users">
     <ul class="nav nav-list">
@@ -19,7 +17,7 @@
     <ul class="thumbnails">
       <%= render @users %>
     </ul>
+    <%= will_paginate %>
   </div>
 </div>
 
-<%= will_paginate %>
