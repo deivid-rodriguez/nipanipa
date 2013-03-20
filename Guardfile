@@ -15,7 +15,7 @@ guard 'spork', :rspec => true, :rspec_env => { 'RAILS_ENV' => 'test' } do
 end
 
 guard 'rspec', :all_after_pass => false, :cli => '--drb' do
-  watch(%r{^spec/.+_spec\.rb$})
+  watch('spec/factories.rb')
   watch(%r{^lib/(.+)\.rb$}) { |m| "spec/lib/#{m[1]}_spec.rb" }
 
   # Rails example
@@ -42,9 +42,7 @@ guard 'rspec', :all_after_pass => false, :cli => '--drb' do
                       "spec/features/#{m[1].singularize}_pages_spec.rb")
   end
 
-  # Turnip features and steps
-  watch(%r{^spec/acceptance/(.+)\.feature$})
-  watch(%r{^spec/acceptance/steps/(.+)_steps\.rb$}) {
-    |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'spec/acceptance' }
+  # Reload specs when changing them
+  watch(%r{^spec/(.+)/(.+)_spec\.rb$}) { "spec/#{m[1]}/#{m[2]}_spec.rb" }
 
 end

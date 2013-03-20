@@ -70,13 +70,13 @@
       <div id="offers" class="span8 box">
         <%= render 'edit_link', user: @user %>
         <h3><%= t '.available' %></h3>
-        <p>
-          <% if !@user.offers.empty? %>
-          <%= render (@user.offers) %>
+        <div>
+          <% if @user.offers.empty? %>
+            <%= t('.no_offers') %>
           <% else %>
-           Aun no tienes ninguna oferta publicada
+            <%= render (@user.offers) %>
           <% end %>
-        </p>
+        </div>
       </div>
       <% end %>
 

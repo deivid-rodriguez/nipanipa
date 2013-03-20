@@ -17,7 +17,7 @@ FactoryGirl.define do
       role "admin"
     end
 
-    factory :user_with_feedbacks do
+    trait :with_feedbacks do
       ignore do
         count 1
       end
@@ -40,6 +40,17 @@ FactoryGirl.define do
     password "foobar"
     description "I am a test volunteer. I live in a big city full of noise" \
                 "and pollution"
+
+    trait :with_offers do
+      ignore do
+        count 1
+      end
+      after(:create) do |h, eval|
+        FactoryGirl.create_list(:offer, eval.count, host: h)
+      end
+    end
+
+    factory :active_host, traits: [:with_offers]
   end
 
   factory :offer do

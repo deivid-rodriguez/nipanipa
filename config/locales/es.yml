@@ -65,6 +65,14 @@ los 300 caracteres"
     create:
       success: "Tu oferta de voluntariado se dio de alta correctamente"
       error: "Hubo errores al crear tu oferta"
+    offer:
+      description: "Descripción"
+      accomodation: "Alojamiento"
+      from: "Desde"
+      to: "Hasta"
+      hours_per_day: "Horas por días"
+      days_per_week: "Días por semana"
+      vacancies: "Plazas disponibles"
   users:
     desc_label_host: "Cuéntale a tus futuros voluntarios algo sobre ti o
 sobre tu familia"
@@ -105,6 +113,7 @@ buscando"
       member_since: "Miembro desde"
       description: "Sobre mí"
       available: "Voluntariados disponibles"
+      no_offers: "Aun no tienes ninguna oferta publicada"
     edit:
       title: "Actualización de perfil"
       header: "Actualiza tu perfil"

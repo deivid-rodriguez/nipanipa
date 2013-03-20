@@ -50,6 +50,13 @@ feature "Offer display" do
 end
 
 feature "Offer listing" do
+  given(:host) { create(:active_host, count: 2) }
+
+  scenario "offers are listed in host's profile" do
+    visit user_path host
+    page.should have_content host.offers.first.title
+    page.should have_content host.offers.last.title
+  end
 end
 
 feature "Offer edition" do
