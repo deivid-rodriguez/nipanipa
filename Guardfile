@@ -8,6 +8,7 @@ guard 'spork', :rspec => true, :rspec_env => { 'RAILS_ENV' => 'test' } do
   watch('config/environment.rb')
   watch(%r{^config/environments/.+\.rb$})
   watch(%r{^config/initializers/.+\.rb$})
+  watch('config/routes.rb') { "spec" }
   watch('Gemfile')
   watch('Gemfile.lock')
   watch('spec/spec_helper.rb')
@@ -31,7 +32,6 @@ guard 'rspec', :all_after_pass => false, :cli => '--drb' do
                        "spec/features/#{m[1].singularize}_pages_spec.rb")]
   end
   watch(%r{^spec/support/(.+)\.rb$}) { "spec" }
-  watch('config/routes.rb') { "spec" }
   watch('app/controllers/application_controller.rb') { "spec/controllers" }
 
   # Capybara features specs
@@ -43,6 +43,6 @@ guard 'rspec', :all_after_pass => false, :cli => '--drb' do
   end
 
   # Reload specs when changing them
-  watch(%r{^spec/(.+)/(.+)_spec\.rb$}) { "spec/#{m[1]}/#{m[2]}_spec.rb" }
+  watch(%r{^spec/(.+)/(.+)_spec\.rb$}) { |m| "spec/#{m[1]}/#{m[2]}_spec.rb" }
 
 end
