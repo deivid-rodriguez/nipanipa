@@ -28,7 +28,7 @@ class Offer < ActiveRecord::Base
   validates :vacancies, presence: true
 
   belongs_to :host
-  has_many :canditates, class_name: 'Volunteer'
+  has_many :candidates, class_name: 'Volunteer'
 
   has_many :sectorizations
   has_many :work_types, through: :sectorizations
