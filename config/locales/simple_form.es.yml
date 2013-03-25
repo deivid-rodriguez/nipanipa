@@ -16,6 +16,10 @@ es:
         email: "Correo Electrónico"
         password: "Contraseña"
         password_confirmation: "Confirmar contraseña"
+      conversation:
+        subject: "Asunto"
+      message:
+        body: "Contenido"
     hints:
       user:
         password: "La contraseña debe tener al menos 6 caracteres"

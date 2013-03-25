@@ -1,0 +1,18 @@
+<% provide :title, t('.title') %>
+
+<div class="row">
+
+  <%= render 'layouts/sidebar', user: current_user,
+                                no_feedback_link: true %>
+
+  <div class="span8">
+
+      <h1 id="username" class="span8">
+        <strong><%= t('.header', username: @conversation.to.name) %></strong>
+      </h1>
+
+      <%= render 'form', conversation: @conversation %>
+
+  </div>
+
+</div>

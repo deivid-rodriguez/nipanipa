@@ -97,6 +97,17 @@ FactoryGirl.define do
     end
   end
 
+  factory :conversation do
+    subject "This is a sample subject"
+    association :from, factory: :volunteer
+    association :to, factory: :host
+    status 'pending'
+    association :offer
+    after(:create) do |c|
+      FactoryGirl.create(:message, to: h.to, from: h.from)
+    end
+  end
+
   factory :feedback do
     content "This is a sample feedback. Don't know whether it is good or bad" \
             "because the score is random..."

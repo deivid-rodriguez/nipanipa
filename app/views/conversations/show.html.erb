@@ -1,0 +1,28 @@
+<% title "Conversation" %>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @conversation.subject %>
+</p>
+<p>
+  <strong>From:</strong>
+  <%= @conversation.from_id %>
+</p>
+<p>
+  <strong>To:</strong>
+  <%= @conversation.to_id %>
+</p>
+<p>
+  <strong>Offer:</strong>
+  <%= @conversation.offer_id %>
+</p>
+<p>
+  <strong>Status:</strong>
+  <%= @conversation.status %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_conversation_path(@conversation) %> |
+  <%= link_to "Destroy", @conversation, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", conversations_path %>
+</p>

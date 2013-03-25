@@ -68,6 +68,19 @@ class User < ActiveRecord::Base
                dependent: :destroy,
                    order: "updated_at DESC"
 
+  has_many :sent_conversations,
+            class_name: 'Conversation',
+           foreign_key: 'from_id',
+               include: :to,
+             dependent: :destroy,
+                 order: "updated_at DESC"
+  has_many :received_conversations,
+            class_name: 'Conversation',
+           foreign_key: 'to_id',
+               include: :from,
+             dependent: :destroy,
+                 order: "updated_at DESC"
+
   # Fake class name in subclasses so URLs get properly generated
   def self.inherited(child)
     child.instance_eval do
@@ -81,6 +94,10 @@ class User < ActiveRecord::Base
   # Use a single partial path for all subclasses
   def to_partial_path
     "users/user"
+  end
+
+  def conversations
+    sent_conversations + received_conversations
   end
 
   def feedback_pairs

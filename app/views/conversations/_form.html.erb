@@ -1,0 +1,16 @@
+<%= simple_form_for [current_user, conversation],
+                    html: { class: "form-horizontal"} do |f| %>
+
+  <%= f.error_notification %>
+  <%= f.input :subject %>
+  <%= f.fields_for :messages do |m| %>
+    <%= m.hidden_field :from_id, value: current_user.id %>
+    <%= m.hidden_field :to_id,  value: conversation.to.id %>
+    <%= m.input :body %>
+  <% end %>
+  <%= f.hidden_field :offer_id, value: conversation.offer.id %>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+
+<% end %>

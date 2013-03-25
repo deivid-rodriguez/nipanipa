@@ -33,6 +33,8 @@ class Offer < ActiveRecord::Base
   has_many :sectorizations
   has_many :work_types, through: :sectorizations
 
+  has_many :conversations
+
   def available?
     start_date <= Time.now && (end_date.nil? || end_date >= Time.now )
   end

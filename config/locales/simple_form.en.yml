@@ -16,6 +16,10 @@ en:
         email: "E-mail"
         password: "Password"
         password_confirmation: "Password Confirmation"
+      conversation:
+        subject: "Subject"
+      message:
+        body: "Content"
     hints:
       user:
         password: "Password must be at least 6 characters long"

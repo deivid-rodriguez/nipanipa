@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130319201410) do
+ActiveRecord::Schema.define(:version => 20130322151109) do
+
+  create_table "conversations", :force => true do |t|
+    t.string   "subject"
+    t.integer  "from_id"
+    t.integer  "to_id"
+    t.integer  "offer_id"
+    t.string   "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "donations", :force => true do |t|
     t.integer  "user_id"
@@ -32,6 +42,15 @@ ActiveRecord::Schema.define(:version => 20130319201410) do
   add_index "feedbacks", ["recipient_id", "updated_at"], :name => "index_feedbacks_on_recipient_id_and_updated_at"
   add_index "feedbacks", ["sender_id", "recipient_id"], :name => "index_feedbacks_on_sender_id_and_recipient_id", :unique => true
   add_index "feedbacks", ["sender_id", "updated_at"], :name => "index_feedbacks_on_sender_id_and_updated_at"
+
+  create_table "messages", :force => true do |t|
+    t.text     "body"
+    t.integer  "from_id"
+    t.integer  "to_id"
+    t.integer  "conversation_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "offers", :force => true do |t|
     t.string   "title"
