@@ -33,13 +33,8 @@ Nipanipa::Application.routes.draw do
 
   end
 
-
   # Sample resource route with options:
   #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
   #     collection do
   #       get 'sold'
   #     end

@@ -55,11 +55,17 @@ FactoryGirl.define do
 
   factory :offer do
     title "This is a sample job/volunteer/callitX offer"
-    description "This is supposed to be a longer text to describe the offer." \
-                "What is the job going like? What kind of tasks do you need"  \
+    description "This is supposed to be a longer text to describe the offer. " \
+                "What is the job going like? What kind of tasks do you need "  \
                 "to get done?"
     accomodation "This will describe the accomodation"
     vacancies 1
+
+    trait :complete do
+      hours_per_day 4
+      days_per_week 5
+      min_stay 1
+    end
 
     trait :open do
       start_date { Time.now }
