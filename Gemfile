@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
-gem 'rails', '3.2.13.rc2'
+gem 'rails', '3.2.13'
 gem 'pg', '0.14.1'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'will_paginate', '3.0.3'
@@ -16,13 +16,13 @@ gem 'ffaker', '1.15.0'
 
 group :development, :test do
   gem 'rspec-rails', '2.13.0'
-  gem 'guard-rspec', '2.5.0'
+  gem 'guard-rspec', '2.5.1'
   gem 'guard-spork', '1.5.0'
 end
 
 group :development do
   gem 'annotate', '2.5.0'
-  gem 'byebug', git: 'git@github.com:deivid-rodriguez/byebug.git'
+  gem 'byebug', '0.0.1'
   gem 'debugger', '1.5.0'
 end
 
@@ -39,7 +39,7 @@ end
 group :test do
   gem 'factory_girl_rails', '4.2.1'
   gem 'capybara', '2.0.2'
-  gem 'capybara-webkit', '0.14.1'
+  gem 'capybara-webkit', '0.14.2'
   gem 'launchy', '2.1.2'
   gem 'rb-inotify', '0.9.0'
   gem 'libnotify', '0.8.0'
