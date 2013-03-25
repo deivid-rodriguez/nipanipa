@@ -1,7 +1,18 @@
 <% provide :title, t('.title') %>
-<h1><%= t '.header' %></h1>
 
-<%= render 'form', user: @user %>
+<div class="row">
 
-<%= gravatar_for @user %>
-<%= link_to 'change', 'http://gravatar.com/emails', target: '_blank' %>
+  <%= render 'layouts/sidebar', user: current_user,
+                                no_feedback_link: true %>
+
+  <div class="span8">
+
+      <h1 id="username" class="span8">
+        <strong><%= t('.header') %></strong>
+      </h1>
+
+      <%= render 'form', user: @user %>
+
+  </div>
+
+</div>

@@ -1,4 +1,4 @@
-<div>
+<div id="offer-<%= offer.id %>">
   <h3><%= offer.title %></h3>
 
   <dt><%= t('.description') %></dt>
@@ -21,5 +21,17 @@
 
   <dt><%= t('.vacancies') %></dt>
   <dd><%= offer.vacancies %></dd>
+
+  <div class="btn pull-right">
+    <% if user_signed_in? %>
+      <%= link_to t('.contact'),
+        new_user_conversation_path(current_user, offer: offer.id,
+                                                 to: offer.host.id) %>
+    <% else %>
+      <%= link_to t('.sign_up'), new_user_registration_path(type: Volunteer) %>
+      or
+      <%= link_to t('.sign_in'), new_user_session_path %>
+    <% end %>
+  </div>
 
 </div>

@@ -44,8 +44,7 @@ cuéntanos lo que pasa después!"
       header: "Nueva referencia para %{username}"
     create:
       success: "Has dejado una nueva referencia!"
-      error: "Error al crear la nueva referencia... :( No debe sobrepasar
-los 300 caracteres"
+      error: "Error al crear la nueva referencia... :("
     feedbacks: "Referencias"
     received:
       one: "1 recibida"
@@ -56,19 +55,19 @@ los 300 caracteres"
     feedback:
       from: "De %{name}"
       to: "Para %{name}"
-    create:
-      success: "Has dejado una nueva referencia!"
-      error: "Error al crear la nueva referencia... :( No debe sobrepasar
-los 300 caracteres"
+    edit:
+      title: "Editar referencia"
+      header: "Editar referencia para %{username}"
     update:
       success: "Has actualizado la referencia!"
       error: "Error al actualizar la referencia... :( No debe sobrepasar
 los 300 caracteres"
     destroy:
       success: "Tu referencia ha sido eliminada"
-  offers:
+  conversations:
     new:
-      link: "Crea una nueva oferta de voluntariado!"
+      header: "Contacta a %{username}"
+  offers:
     create:
       success: "Tu oferta de voluntariado se dio de alta correctamente"
       error: "Hubo errores al crear tu oferta"
@@ -80,6 +79,8 @@ los 300 caracteres"
       hours_per_day: "Horas por días"
       days_per_week: "Días por semana"
       vacancies: "Plazas disponibles"
+      interested: "¿Te interesa?"
+      contact: "Contacta al host!"
   users:
     desc_label_host: "Cuéntale a tus futuros voluntarios algo sobre ti o
 sobre tu familia"
@@ -112,11 +113,10 @@ buscando"
         technical_assistance: "Ordenadores"
         art_project: "Proyecto artístico"
         other: "Otro"
+    form:
+      picture: "Foto de perfil"
     show:
       profile: "Mi perfil"
-      leave_feedback: "Deja una referencia"
-      edit_profile: "Actualiza tu perfil"
-      contact_user: "Contacta con el usuario"
       member_since: "Miembro desde"
       description: "Sobre mí"
       available: "Voluntariados disponibles"
@@ -160,6 +160,14 @@ solicitarnos nuevas funcionalidades %{issues_url}."
       success: "Tu donación fue exitosa!"
       error: "Lo siento, hubo un problema con tu donación."
   layouts:
+    sidebar:
+      profile: "Perfil"
+      show_profile: "Ver mi perfil"
+      edit_profile: "Actualizar mi perfil"
+      show_conversations: "Mis mensajes"
+      leave_feedback: "Dejar una referencia"
+      create_offer: "Ofrece un voluntariado"
+      actions: "Acciones"
     header:
       language: "Idioma"
     footer:

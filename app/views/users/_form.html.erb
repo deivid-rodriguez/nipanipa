@@ -19,6 +19,16 @@
   <%= f.input :description,
               label: t("users.desc_label_#{user.type.to_s.underscore}") %>
 
-  <%= f.button :submit, class: "signup-button" %>
+  <!-- Provisional until handling pictures -->
+  <div class="control-group">
+    <label><%= t('.picture') %></label>
+    <div class="controls">
+      <%= gravatar_for @user %>
+      <%= link_to 'change', 'http://gravatar.com/emails', target: '_blank' %>
+    </div>
+  </div>
+
+  <%= f.button :submit, model: t('activerecord.models.user'),
+                        class: "signup-button pull-right" %>
 
 <% end %>

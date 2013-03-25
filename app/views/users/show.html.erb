@@ -2,30 +2,8 @@
 
 <div class="row">
 
-  <aside class="span3">
-    <div class="user-gravatar">
-      <%= gravatar_for @user, size: 220 %>
-      <!-- TODO: activate fancy zoom -->
-    </div>
-
-    <ul class="linklist" id="profile_linklist">
-      <% unless @no_feedback_link %>
-      <li>
-        <%= link_to t('.leave_feedback'), new_user_feedback_path(@user) %>
-      </li>
-      <% end %>
-      <li><%= link_to t('.edit_profile'), '#' %></li>
-      <% if @user == current_user %>
-      <li>
-        <%= link_to t('offers.new.link'), new_user_offer_path(current_user) %>
-      </li>
-      <% end %>
-      <li id="sub3" class="space">
-        <a href=""><span></span></a></li>
-      <li id="sub6" class="">
-      <li><%= link_to t('.contact_user'), '#' %></li>
-    </ul>
-  </aside>
+  <%= render 'layouts/sidebar', user: @user,
+                                no_feedback_link: @no_feedback_link %>
 
   <div class="span8">
 

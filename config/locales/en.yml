@@ -37,6 +37,13 @@ area."
 It won't take you more than five minutes."
       signin: "Sign in!"
   feedbacks:
+    new:
+      title: "New reference"
+      header: "New reference for %{username}"
+    create:
+      success: "You left a new reference!"
+      error: "There was an error when creating the reference... :("
+
     feedbacks: "References"
     received:
       one: "1 received"
@@ -47,10 +54,9 @@ It won't take you more than five minutes."
     feedback:
       from: "From %{name}"
       to: "To %{name}"
-    create:
-      success: "You left a new reference! Thanks."
-      error: "Error creating the new reference... :( It should not be
-longer than 300 characters"
+    edit:
+      title: "Edit reference"
+      header: "Edit reference for %{username}"
     update:
       success: "You just edited the reference!"
       error: "Error updating the reference... :( It should not be longer
@@ -58,11 +64,19 @@ than 300 characters"
     destroy:
       success: "Your reference was successfully deleted"
   offers:
-    new:
-      link: "Add a new volunteering offer!"
     create:
       success: "Your volunteering offer was correctly created"
       error: "Please review the errors below"
+    offer:
+      description: "Description"
+      accomodation: "Accomodation"
+      from: "From"
+      to: "Until"
+      hours_per_day: "Hours per day"
+      days_per_week: "Days per week"
+      vacancies: "Vacancies"
+      interested: "Intereseted?"
+      contact: "Contact host!"
   users:
     desc_label_host: "Tell your future volunteers something about
 yourself or your family."
@@ -95,14 +109,14 @@ work?"
         technical_assistance: "I.T."
         art_project: "Artistic Project"
         other: "Other"
+    form:
+      picture: "Profile picture"
     show:
       profile: "My profile"
-      leave_feedback: "Leave feedback"
-      edit_profile: "Update your profile"
-      contact_user: "Contact user"
       member_since: "Member since"
       description: "About me"
       available: "Available volunteerings"
+      no_offers: "You haven't proposed any volunteerings yet"
     edit:
       title: "Profile update"
       header: "Update your profile"
@@ -142,6 +156,14 @@ would like to be implemented %{issues_url}."
       success: "Your donation was successful!"
       error: "Sorry, there was some problem with your donation."
   layouts:
+    sidebar:
+      profile: "Profile"
+      show_profile: "See my profile"
+      edit_profile: "Update my profile"
+      show_conversations: "My messages"
+      leave_feedback: "Leave a reference"
+      create_offer: "Propose a new volunteering opportunity"
+      actions: "Actions"
     header:
       language: "Language"
     footer:

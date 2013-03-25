@@ -1,0 +1,34 @@
+<aside class="span3">
+
+  <div class="user-gravatar">
+    <%= gravatar_for user, size: 220 %>
+    <!-- TODO: activate fancy zoom -->
+  </div>
+
+  <% if user_signed_in? %>
+  <ul class="nav nav-list">
+    <li class="nav-header"><%= t('.profile') %></li>
+      <li><%= link_to t('.show_profile'), current_user %></li>
+      <li>
+        <%= link_to t('.edit_profile'), edit_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to t('.show_conversations'),
+            user_conversations_path(current_user) %>
+      </li>
+
+    <li class="nav-header"><%= t('.actions') %></li>
+      <% unless no_feedback_link %>
+      <li>
+        <%= link_to t('.leave_feedback'), new_user_feedback_path(user) %>
+      </li>
+      <% end %>
+      <% if current_user.is_a?(Host) %>
+      <li>
+        <%= link_to t('.create_offer'), new_user_offer_path(current_user) %>
+      </li>
+      <% end %>
+  </ul>
+  <% end %>
+
+</aside>

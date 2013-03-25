@@ -1,6 +1,6 @@
 feature "Host profile creation" do
   given(:host) { build(:host) }
-  given(:btn_name) { t('helpers.submit.create', model: User) }
+  given(:btn_name) { t('helpers.submit.user.create', model: User) }
 
   background { visit new_user_registration_path(type: "host") }
 
@@ -34,7 +34,7 @@ end
 
 feature "Volunteer profile creation" do
   given(:volunteer) { build(:volunteer) }
-  given(:btn_name) { t('helpers.submit.create', model: User) }
+  given(:btn_name) { t('helpers.submit.user.create', model: User) }
 
   background { visit new_user_registration_path(type: "volunteer") }
 
@@ -134,7 +134,7 @@ end
 
 feature "User profile editing" do
   given(:host) { create(:host, email: "old_email@example.com") }
-  given(:btn_name) { t('helpers.submit.update', model: User) }
+  given(:btn_name) { t('helpers.submit.user.update', model: User) }
 
   background do
     visit edit_user_registration_path

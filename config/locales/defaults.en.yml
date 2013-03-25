@@ -9,7 +9,7 @@ en:
     - Fri
     - Sat
     abbr_month_names:
-    - 
+    -
     - Jan
     - Feb
     - Mar
@@ -35,7 +35,7 @@ en:
       long: ! '%B %d, %Y'
       short: ! '%b %d'
     month_names:
-    - 
+    -
     - January
     - February
     - March
@@ -134,9 +134,17 @@ en:
     select:
       prompt: Please select
     submit:
-      create: Create %{model}
-      submit: Save %{model}
-      update: Update %{model}
+      defaults:
+        create: Create %{model}
+        update: Update %{model}
+      user:
+        create: "Create user"
+        update: "Update user"
+      offer:
+        create: "Create offer"
+      feedback:
+        create: "Leave a new reference"
+        update: "Edit reference"
   number:
     currency:
       format:
