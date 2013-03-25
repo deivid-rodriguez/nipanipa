@@ -39,6 +39,13 @@ Registrarte y completar tu perfil no te llevará ni 5 minutos. Después...
 cuéntanos lo que pasa después!"
       signin: "Entrar"
   feedbacks:
+    new:
+      title: "Nueva referencia"
+      header: "Nueva referencia para %{username}"
+    create:
+      success: "Has dejado una nueva referencia!"
+      error: "Error al crear la nueva referencia... :( No debe sobrepasar
+los 300 caracteres"
     feedbacks: "Referencias"
     received:
       one: "1 recibida"

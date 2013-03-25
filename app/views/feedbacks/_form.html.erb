@@ -1,0 +1,16 @@
+<%= simple_form_for [@user, @feedback],
+                  html: { class: "form-horizontal" } do |f| %>
+
+  <%= f.error_notification %>
+  <%= f.input :score,
+      collection: [['Negative', '-1'], ['Neutral', '0'], ['Positive', '1']],
+      as: :radio_buttons,
+      item_wrapper_class: 'inline' %>
+
+  <%= f.input :content, placeholder: "Write a new feedback..." %>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+
+<% end %>

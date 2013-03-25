@@ -67,9 +67,10 @@ redirect to his profile and flash a welcome message" do
 end
 
 feature "User profile display" do
-  given(:feedback)   { create(:feedback)  }
-  given(:sender)     { feedback.sender    }
-  given(:recipient)  { feedback.recipient }
+  given(:feedback)     { create(:feedback)  }
+  given(:sender)       { feedback.sender    }
+  given(:recipient)    { feedback.recipient }
+  given(:feedback_lnk) { t('layouts.sidebar.leave_feedback') }
 
   # Force trackable hook ups and ip geolocation to happen
   # This should be forced in creation...
@@ -80,8 +81,8 @@ feature "User profile display" do
     sign_out
   }
 
-  scenario "includes proper elements: header, title, user description, user work
-description, user feedbacks and count" do
+  scenario "includes proper elements: header, title, user description, user
+feedbacks and count" do
     sign_in recipient
 
     page.should have_selector('h1', text: recipient.name)
@@ -89,27 +90,27 @@ description, user feedbacks and count" do
     page.should have_content(recipient.description)
     page.should have_content(feedback.content)
     page.should have_content(recipient.received_feedbacks.count)
-    page.should have_link t('users.show.contact_user')
-    page.should_not have_link t('users.show.leave_feedback')
+    page.should_not have_link feedback_lnk
   end
 
   scenario "when visitor not signed in" do
     visit user_path sender
-    page.should have_link t('users.show.leave_feedback')
+    page.should_not have_selector 'li', text: t('layouts.sidebar.profile')
+    page.should_not have_selector 'li', text: t('layouts.sidebar.actions')
   end
 
   scenario "when user signed in and looking at another user's profile whom he's
 already left feedback" do
     sign_in sender
     visit user_path recipient
-    page.should_not have_link t('users.show.leave_feedback')
+    page.should_not have_link feedback_lnk
   end
 
   scenario "when user signed in & looking at another user's whom feedback is to
 be given" do
     sign_in recipient
     visit user_path sender
-    page.should have_link t('users.show.leave_feedback')
+    page.should have_link feedback_lnk
   end
 end
 

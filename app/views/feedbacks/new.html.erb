@@ -1,18 +1,20 @@
-<% provide(:title, 'Leave feedback') %>
+<% provide :title, t('.title') %>
 
-<%= form_for([@user, @feedback]) do |f| %>
+<div class="row">
 
-<% if false %>
-  <%= render 'shared/error_messages', object: @feedback %>
-<% end %>
+  <%= render 'layouts/sidebar', user: current_user,
+                                no_feedback_link: true %>
 
-  <div class="field">
-    <%= f.select :score, [ ['Negative', -1], ['Neutral', 0], ['Positive', 1] ]  %>
+  <div class="span8">
+
+    <div id="username">
+      <h1>
+        <strong><%= t('.header', username: @feedback.recipient.name) %></strong>
+      </h1>
+    </div>
+
+    <%= render 'form', user: @user, feedback: @feedback %>
+
   </div>
 
-  <div class="field">
-    <%= f.text_area :content, placeholder: "Write a new feedback...", cols: 30 %>
-  </div>
-
-  <%= f.submit "Leave feedback", class: "btn btn-large btn-primary" %>
-<% end %>
+</div>

@@ -37,7 +37,9 @@ class FeedbacksController < ApplicationController
 
   def destroy
     authorize! :destroy, @feedback
-    redirect_to current_user, notice: t('feedbacks.destroy.success')
+    if @feedback.destroy
+      redirect_to current_user, notice: t('feedbacks.destroy.success')
+    end
   end
 
   private

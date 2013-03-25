@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20130319201410) do
   end
 
   create_table "feedbacks", :force => true do |t|
-    t.string   "content"
+    t.text     "content"
     t.integer  "sender_id"
     t.integer  "recipient_id"
     t.integer  "score"
