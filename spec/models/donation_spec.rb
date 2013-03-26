@@ -1,12 +1,5 @@
-# == Schema Information
 #
-# Table name: donations
-#
-#  id         :integer          not null, primary key
-#  user_id    :integer
-#  amount     :decimal(, )
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+# Unit tests for Donation model
 #
 
 describe Donation do

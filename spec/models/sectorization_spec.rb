@@ -1,10 +1,5 @@
-# == Schema Information
 #
-# Table name: sectorizations
-#
-#  id           :integer          not null, primary key
-#  user_id      :integer
-#  work_type_id :integer
+# Unit tests for Sectorization model
 #
 
 #describe Sectorization do

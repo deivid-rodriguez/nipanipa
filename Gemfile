@@ -21,7 +21,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'annotate', '2.5.0'
   gem 'byebug', '0.0.1'
   gem 'debugger', '1.5.0'
 end

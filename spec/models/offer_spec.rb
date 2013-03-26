@@ -1,20 +1,5 @@
-# == Schema Information
 #
-# Table name: offers
-#
-#  id            :integer          not null, primary key
-#  title         :string(255)
-#  description   :text
-#  accomodation  :text
-#  vacancies     :integer
-#  start_date    :date
-#  end_date      :date
-#  min_stay      :integer
-#  hours_per_day :integer
-#  days_per_week :integer
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  host_id       :integer
+# Unit tests for Offer model
 #
 
 describe Offer do

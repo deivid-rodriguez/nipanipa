@@ -1,10 +1,5 @@
-# == Schema Information
 #
-# Table name: work_types
-#
-#  id          :integer          not null, primary key
-#  name        :string(255)
-#  description :string(255)
+# Unit tests for WorkType model
 #
 
 describe WorkType do
