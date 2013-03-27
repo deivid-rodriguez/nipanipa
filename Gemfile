@@ -37,8 +37,8 @@ end
 
 group :test do
   gem 'factory_girl_rails', '4.2.1'
-  gem 'capybara', git: 'git://github.com/jnicklas/capybara.git'
-  gem 'capybara-webkit', git: 'git://github.com/thoughtbot/capybara-webkit.git'
+  gem 'capybara', '2.0.3'
+  gem 'capybara-webkit', '0.14.2'
   gem 'shoulda', '3.4.0'
   gem 'launchy', '2.1.2'
   gem 'rb-inotify', '0.9.0'

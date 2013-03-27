@@ -11,6 +11,12 @@ def sign_out
   click_link t('sessions.signout')
 end
 
+RSpec::Matchers.define :have_title do |text|
+  match do |page|
+    Capybara.string(page.body).has_selector?('title', text: text)
+  end
+end
+
 RSpec::Matchers.define :have_flash_message do |message, type|
   match do |page|
     page.should have_selector("div.alert.alert-#{type}", text: message)
