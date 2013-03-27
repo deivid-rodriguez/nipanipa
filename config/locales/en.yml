@@ -62,7 +62,16 @@ It won't take you more than five minutes."
       error: "Error updating the reference... :( It should not be longer
 than 300 characters"
     destroy:
-      success: "Your reference was successfully deleted"
+      success: "Tu referencia ha sido eliminada"
+  conversations:
+    new:
+      header: "Contact %{username}"
+    index:
+      title: "My conversations"
+      header: "My conversations"
+    create:
+      success: "You started a new conversation!"
+      error: "There was an error sending the message"
   offers:
     create:
       success: "Your volunteering offer was correctly created"

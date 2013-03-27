@@ -9,7 +9,6 @@ es:
     - vie
     - sáb
     abbr_month_names:
-    -
     - ene
     - feb
     - mar
@@ -35,7 +34,6 @@ es:
       long: ! '%d de %B de %Y'
       short: ! '%d de %b'
     month_names:
-    -
     - enero
     - febrero
     - marzo
@@ -139,6 +137,8 @@ es:
       feedback:
         create: "Dejar nueva referencia"
         update: "Editar la referencia"
+      conversation:
+        create: "Comenzar una conversación"
   number:
     currency:
       format:
@@ -194,8 +194,8 @@ es:
   time:
     am: am
     formats:
-      default: ! '%A, %d de %B de %Y %H:%M:%S %z'
-      long: ! '%d de %B de %Y %H:%M'
+      default: ! '%A, %d de %B %H:%M'
+      long: ! '%A, %d de %B de %Y %H:%M:%S %z'
       short: ! '%d de %b %H:%M'
     pm: pm
   # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository

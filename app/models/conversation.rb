@@ -1,5 +1,8 @@
 class Conversation < ActiveRecord::Base
-  attr_accessible :messages_attributes, :offer_id, :status, :subject, :to_id
+  attr_accessible :from_id, :messages_attributes, :offer_id, :status, :subject,
+                  :to_id
+
+  validates :subject, presence: true, length: { minimum: 2 }
 
   has_many :messages, dependent: :destroy
   accepts_nested_attributes_for :messages

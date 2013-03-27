@@ -1,9 +1,11 @@
+#
+# Integration tests for Feedback pages
+#
+
 feature "Creating feedbacks" do
   given!(:user)        { create(:host) }
   given!(:other_user)  { create(:volunteer) }
   given(:feedback_btn) { t('helpers.submit.feedback.create') }
-
-  subject { page }
 
   background do
     sign_in user

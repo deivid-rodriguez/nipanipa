@@ -1,0 +1,25 @@
+// Place all the styles related to the Conversations controller
+
+ul.conversation-list {
+  margin: 0;
+  list-style: none;
+  list-style-type: none;
+  li {
+    line-height: 70px;
+    border-bottom: solid 1px $grayVeryLight;
+    a {
+      text-decoration: none;
+      color: $gray;
+      div.conversation-preview {
+        padding: 10px 0px;
+      }
+    }
+    &:first-child {
+      border-top: solid 1px $grayVeryLight;
+    }
+    &:hover {
+      background: #eee;
+    }
+  }
+}
+

@@ -15,14 +15,13 @@ class ConversationsController < ApplicationController
   end
 
   def create
-    #@offer = Offer.find(params[:id])
-    #@offer.candidates << current_user
-    #OfferMailer.new_subscription(@offer.host, current_user)
-    #redirect_to current_user, notice: t('offers.subscription.success')
-    @conversation = Conversation.new(params[:conversation])
+    @conversation = Conversation.new(params[:conversation].merge(
+      to_id: params[:conversation][:messages_attributes]["0"][:to_id],
+      from_id: params[:conversation][:messages_attributes]["0"][:from_id]))
     if @conversation.save
       redirect_to current_user, notice: t('conversations.create.success')
     else
+      flash.now[:error] = t('conversations.create.error')
       render :action => 'new'
     end
   end

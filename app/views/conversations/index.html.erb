@@ -7,32 +7,22 @@
 
   <div class="span8">
 
-      <h1 id="username" class="span8">
-        <strong><%= t('.header', username: @feedback.recipient.name) %></strong>
+    <div id="username">
+      <h1 >
+        <strong><%= t('.header') %></strong>
       </h1>
+    </div>
 
-      <table>
-        <tr>
-          <th>Subject</th>
-          <th>From</th>
-          <th>To</th>
-          <th>Offer</th>
-          <th>Status</th>
-        </tr>
-        <% for conversation in @conversations %>
-          <tr>
-            <td><%= conversation.subject %></td>
-            <td><%= conversation.from_id %></td>
-            <td><%= conversation.to_id %></td>
-            <td><%= conversation.offer_id %></td>
-            <td><%= conversation.status %></td>
-            <td><%= link_to "Show", conversation %></td>
-            <td><%= link_to "Edit", edit_conversation_path(conversation) %></td>
-            <td><%= link_to "Destroy", conversation, :confirm => 'Are you sure?', :method => :delete %></td>
-          </tr>
+    <ul class="conversation-list">
+    <% for conversation in @conversations %>
+      <li>
+        <%= link_to user_conversation_path(current_user, conversation) do %>
+          <%= render('preview', conversation: conversation) %>
         <% end %>
-      </table>
+      </li>
+    <% end %>
+    </ul>
 
   </div>
 
-<p><%= link_to "New Conversation", new_conversation_path %></p>
+</div>

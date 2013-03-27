@@ -67,6 +67,12 @@ los 300 caracteres"
   conversations:
     new:
       header: "Contacta a %{username}"
+    index:
+      title: "Mis mensajes"
+      header: "Mis mensajes"
+    create:
+      success: "Has iniciado una nueva conversación con un host!"
+      error: "Hubo un error en el envío del mensaje"
   offers:
     create:
       success: "Tu oferta de voluntariado se dio de alta correctamente"

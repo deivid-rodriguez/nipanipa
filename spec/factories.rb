@@ -103,9 +103,18 @@ FactoryGirl.define do
     association :to, factory: :host
     status 'pending'
     association :offer
-    after(:create) do |c|
-      FactoryGirl.create(:message, to: h.to, from: h.from)
+    after(:build) do |c|
+      c.messages << FactoryGirl.build(:message, to: c.to, from: c.from)
     end
+    before(:create) do |c|
+      c.messages.first.save!
+    end
+  end
+
+  factory :message do
+    body "This is a sample body"
+    association :from , factory: :volunteer
+    association :to, factory: :host
   end
 
   factory :feedback do
