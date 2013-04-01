@@ -1,5 +1,11 @@
 // Place all the styles related to the Conversations controller
 
+ul.chat-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
 ul.conversation-list {
   margin: 0;
   list-style: none;
@@ -23,3 +29,17 @@ ul.conversation-list {
   }
 }
 
+div.message {
+  margin-bottom: 20px;
+  div.message-content {
+    border: 1px solid $grayVeryLight;
+    padding: 10px;
+    @include border_radius;
+    @include box_sizing;
+    p.message-date {
+      text-align: right;
+      margin-bottom: 0;
+      font-size: 0.8em;
+    }
+  }
+}

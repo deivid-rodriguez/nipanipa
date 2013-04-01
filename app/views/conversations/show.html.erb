@@ -1,28 +1,36 @@
-<% title "Conversation" %>
+<% provide :title, @conversation.subject %>
 
-<p>
-  <strong>Subject:</strong>
-  <%= @conversation.subject %>
-</p>
-<p>
-  <strong>From:</strong>
-  <%= @conversation.from_id %>
-</p>
-<p>
-  <strong>To:</strong>
-  <%= @conversation.to_id %>
-</p>
-<p>
-  <strong>Offer:</strong>
-  <%= @conversation.offer_id %>
-</p>
-<p>
-  <strong>Status:</strong>
-  <%= @conversation.status %>
-</p>
+<div class="row">
 
-<p>
-  <%= link_to "Edit", edit_conversation_path(@conversation) %> |
-  <%= link_to "Destroy", @conversation, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", conversations_path %>
-</p>
+  <%= render 'layouts/sidebar', user: current_user,
+                                no_feedback_link: true %>
+
+  <div class="span8">
+
+    <div id="username">
+      <h1 >
+        <strong><%= @conversation.subject %></strong>
+      </h1>
+    </div>
+
+    <ul id="chat-list" class="chat-list">
+      <% for message in @conversation.messages %>
+      <li>
+        <%= render message %>
+      </li>
+      <% end %>
+    </ul>
+
+    <div class="row message-reply">
+      <div class="offset1 span7">
+        <%= form_tag reply_user_conversation_path(current_user, @conversation),
+                     method: :put, remote: true do |f| %>
+          <%= text_area_tag :body %>
+          <%= submit_tag t('.reply'), class: "btn btn-small pull-right" %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+
+</div>

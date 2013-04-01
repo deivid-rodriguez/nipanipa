@@ -1,4 +1,5 @@
 class ConversationsController < ApplicationController
+  respond_to :html, :js
 
   def index
     @conversations = current_user.conversations
@@ -6,6 +7,7 @@ class ConversationsController < ApplicationController
 
   def show
     @conversation = Conversation.find(params[:id])
+    @message = Message.new
   end
 
   def new
@@ -23,6 +25,21 @@ class ConversationsController < ApplicationController
     else
       flash.now[:error] = t('conversations.create.error')
       render :action => 'new'
+    end
+  end
+
+  def reply
+    @conversation = Conversation.find(params[:id])
+    @conversation.messages.build(body: params[:body], from_id: current_user.id,
+      to_id: @conversation.to == current_user ?
+             @conversation.from.id : @conversation.to.id )
+    if @conversation.save
+      respond_to do |format|
+        format.html { redirect_to user_conversations current_user }
+        format.js
+      end
+    else
+      render 'show'
     end
   end
 

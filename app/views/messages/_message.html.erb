@@ -1,0 +1,13 @@
+<div class="row message">
+  <div class="span1">
+    <%= gravatar_for message.from %>
+    </div>
+  <div class="span7 message-content">
+    <p>
+    <%= message.body %>
+    </p>
+    <p class="message-date">
+    <%= l message.created_at %>
+    </p>
+  </div>
+</div>

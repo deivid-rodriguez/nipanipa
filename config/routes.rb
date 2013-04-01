@@ -22,7 +22,9 @@ Nipanipa::Application.routes.draw do
     resources :users do
       resources :feedbacks
       resources :offers
-      resources :conversations, except: [:edit, :update]
+      resources :conversations, except: [:edit, :update] do
+        put 'reply', on: :member
+      end
     end
 
     match 'help'       => 'static_pages#help'

@@ -11,6 +11,7 @@ def sign_out
   click_link t('sessions.signout')
 end
 
+# To be removed when next capybara version is released (it will be built-in)
 RSpec::Matchers.define :have_title do |text|
   match do |page|
     Capybara.string(page.body).has_selector?('title', text: text)
@@ -23,7 +24,8 @@ RSpec::Matchers.define :have_flash_message do |message, type|
   end
 end
 
-# e.g.:
+##
+# Examples
 # @user.should have_ability(:create, for: Post.new)
 # @user.should have_ability([:create, :read], for: Post.new)
 # @user.should have_ability({create: true, read: false, update: false, destroy: true}, for: Post.new)

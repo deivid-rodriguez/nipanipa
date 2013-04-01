@@ -13,7 +13,7 @@ feature "Creating conversations" do
   background do
     sign_in volunteer
     visit user_path(host)
-    page.find("#offer-#{host.offers.first.id}").click_link new_conversation_lnk
+    within("#offer-#{host.offers.first.id}") { click_link new_conversation_lnk }
   end
 
   scenario "with invalid information" do
@@ -48,31 +48,25 @@ feature "Listing user conversations" do
     page.should have_content conversation.subject
   end
 end
-#feature "Editing feedbacks" do
-#  given!(:feedback) { create(:feedback) }
-#  given(:feedback_btn) { t('helpers.submit.feedback.update') }
-#
-#  background do
-#    sign_in feedback.sender
-#    page.find("#feedback-#{feedback.id}").click_link('Editar')
-#  end
-#
-#  scenario "with invalid information" do
-#    fill_in "feedback_content", with: "a" * 301
-#    click_button feedback_btn
-#
-#    feedback.reload.content.should_not == "a" * 301
-#    page.should have_flash_message t('feedbacks.update.error'), 'error'
-#  end
-#
-#  scenario "with valid information" do
-#    fill_in 'feedback_content', with: "New opinion"
-#    click_button feedback_btn
-#
-#    feedback.reload.content.should == "New opinion"
-#    page.should have_selector 'h1', text: feedback.sender.name
-#    page.should have_flash_message t('feedbacks.update.success'), 'success'
-#  end
-#
-#end
 
+feature "Display a conversation" do
+  given!(:conversation) { create(:conversation) }
+
+  background do
+    sign_in conversation.from
+    visit user_conversations_path(conversation.from)
+    find(:xpath,
+     "//a[@href='#{user_conversation_path(conversation.from, conversation)}']").
+     click
+  end
+
+  scenario "All messages in thread are listed" do
+    page.should have_content conversation.messages.first.body
+  end
+
+  scenario "A reply box is shown" do
+    page.should have_title conversation.subject
+    page.should have_selector 'h1', text: conversation.subject
+    page.should have_button t('conversations.show.reply')
+  end
+end
