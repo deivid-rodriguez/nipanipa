@@ -21,8 +21,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'byebug', '0.0.1'
-  gem 'debugger', '1.5.0'
+  gem 'byebug', '1.0.0'
 end
 
 # Gems used only for assets and not required
