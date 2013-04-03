@@ -1,14 +1,18 @@
 <div class="row conversation-preview">
-  <div class="span2">
-    <%= gravatar_for conversation.to %>
-    <%= conversation.to.name %>
-  </div>
-  <div class="span3"><%= conversation.subject %></div>
-  <div class="span3">
-    <%= l conversation.updated_at %>
-    <% if false %>
-    <%= link_to "Destroy",
-      user_conversation_path(current_user, conversation), :confirm => 'Are you sure?', :method => :delete %>
-    <% end %>
-  </div>
+  <%= link_to user_conversation_path(current_user, conversation) do %>
+    <div class="span2">
+      <%= gravatar_for conversation.to %>
+      <%= conversation.to.name %>
+    </div>
+    <div class="span3"><%= conversation.subject %></div>
+    <div class="span3 conversation-date">
+      <%= l conversation.updated_at %>
+    </div>
+  <% end %>
+
+  <%= link_to user_conversation_path(current_user, conversation),
+    method: :delete, data: { confirm: t('.usure?') }, remote: true do %>
+    <div id="delete-<%= conversation.id %>">
+    </div>
+  <% end %>
 </div>

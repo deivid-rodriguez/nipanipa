@@ -43,7 +43,6 @@ It won't take you more than five minutes."
     create:
       success: "You left a new reference!"
       error: "There was an error when creating the reference... :("
-
     feedbacks: "References"
     received:
       one: "1 received"
@@ -66,12 +65,17 @@ than 300 characters"
   conversations:
     new:
       header: "Contact %{username}"
+    create:
+      success: "You started a new conversation"
+      error: "There was an error sending the message"
     index:
       title: "My conversations"
       header: "My conversations"
-    create:
-      success: "You started a new conversation!"
-      error: "There was an error sending the message"
+      nomessages: "No messages"
+    show:
+      reply: "Reply"
+    preview:
+      usure: "Are you sure?"
   offers:
     create:
       success: "Your volunteering offer was correctly created"
@@ -170,6 +174,7 @@ would like to be implemented %{issues_url}."
       show_profile: "See my profile"
       edit_profile: "Update my profile"
       show_conversations: "My messages"
+      new_conversation: "Contact user"
       leave_feedback: "Leave a reference"
       create_offer: "Propose a new volunteering opportunity"
       actions: "Actions"

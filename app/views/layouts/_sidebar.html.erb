@@ -18,6 +18,10 @@
       </li>
 
     <li class="nav-header"><%= t('.actions') %></li>
+      <li>
+        <%= link_to t('.new_conversation'),
+                    new_user_conversation_path(current_user, to: user.id) %>
+      </li>
       <% unless no_feedback_link %>
       <li>
         <%= link_to t('.leave_feedback'), new_user_feedback_path(user) %>

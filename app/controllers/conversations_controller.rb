@@ -35,7 +35,7 @@ class ConversationsController < ApplicationController
              @conversation.from.id : @conversation.to.id )
     if @conversation.save
       respond_to do |format|
-        format.html { redirect_to user_conversations current_user }
+        format.html { redirect_to user_conversations_path(current_user) }
         format.js
       end
     else
@@ -46,6 +46,8 @@ class ConversationsController < ApplicationController
   def destroy
     @conversation = Conversation.find(params[:id])
     @conversation.destroy
-    redirect_to conversations_url, :notice => "Successfully destroyed conversation."
+    respond_to do |format|
+      format.js
+    end
   end
 end

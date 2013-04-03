@@ -13,15 +13,17 @@
       </h1>
     </div>
 
-    <ul class="conversation-list">
-    <% for conversation in @conversations %>
-      <li>
-        <%= link_to user_conversation_path(current_user, conversation) do %>
-          <%= render('preview', conversation: conversation) %>
-        <% end %>
-      </li>
+    <% if @conversations.empty? %>
+      <%= t('.nomessages') %>
+    <% else %>
+      <ul class="conversation-list">
+      <% for conversation in @conversations %>
+        <li id="conversation-preview-<%= conversation.id %>">
+        <%= render('preview', conversation: conversation) %>
+        </li>
+      <% end %>
+      </ul>
     <% end %>
-    </ul>
 
   </div>
 

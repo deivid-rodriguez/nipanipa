@@ -73,8 +73,11 @@ los 300 caracteres"
     index:
       title: "Mis mensajes"
       header: "Mis mensajes"
+      nomessages: "No hay mensajes"
     show:
-      reply: "Responder a este mensaje"
+      reply: "Responder"
+    preview:
+      usure?: "¿Seguro que quieres borrar la conversación?"
   offers:
     create:
       success: "Tu oferta de voluntariado se dio de alta correctamente"
@@ -173,6 +176,7 @@ solicitarnos nuevas funcionalidades %{issues_url}."
       show_profile: "Ver mi perfil"
       edit_profile: "Actualizar mi perfil"
       show_conversations: "Mis mensajes"
+      new_conversation: "Enviar mensaje al usuario"
       leave_feedback: "Dejar una referencia"
       create_offer: "Ofrece un voluntariado"
       actions: "Acciones"

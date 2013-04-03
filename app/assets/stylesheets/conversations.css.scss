@@ -13,11 +13,23 @@ ul.conversation-list {
   li {
     line-height: 70px;
     border-bottom: solid 1px $grayVeryLight;
-    a {
-      text-decoration: none;
-      color: $gray;
-      div.conversation-preview {
-        padding: 10px 0px;
+    div.conversation-preview {
+      padding: 10px 0px;
+      $deleteCrossSize: 15px;
+      a {
+        text-decoration: none;
+        color: $gray;
+        div.conversation-date {
+          width: 200px;
+        }
+        div[id^="delete-"] {
+          background: url('delete.png') no-repeat;
+          display: block;
+          margin: 27px 0;
+          width: $deleteCrossSize;
+          height: $deleteCrossSize;
+          float: right;
+        }
       }
     }
     &:first-child {

@@ -8,7 +8,9 @@
     <%= m.hidden_field :from_id,  value: current_user.id %>
     <%= m.input :body %>
   <% end %>
-  <%= f.hidden_field :offer_id, value: conversation.offer.id %>
+  <% if !conversation.offer.nil? %>
+    <%= f.hidden_field :offer_id, value: conversation.offer.id %>
+  <% end %>
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
