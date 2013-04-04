@@ -1,8 +1,6 @@
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
 #
-require 'active_support/core_ext'
-
 guard 'spork', :rspec => true, :rspec_env => { 'RAILS_ENV' => 'test' } do
   watch('config/application.rb')
   watch('config/environment.rb')
@@ -15,13 +13,13 @@ guard 'spork', :rspec => true, :rspec_env => { 'RAILS_ENV' => 'test' } do
   watch(%r{^spec/support/.+\.rb$})
 end
 
-guard 'rspec', :all_after_pass => false, :cli => '--drb' do
+guard 'rspec', :all_after_pass => false, :cli => '--drb --colour' do
   watch('spec/factories.rb')
   watch(%r{^lib/(.+)\.rb$}) { |m| "spec/lib/#{m[1]}_spec.rb" }
 
-  # Rails example
   watch(%r{^app/models/(.+)\.rb}) { |m|
-    ["spec/models/#{m[1]}_spec.rb", "spec/features/#{m[1]}_pages_spec.rb"]  }
+    ["spec/models/#{m[1]}_spec.rb", "spec/features/#{m[1]}_pages_spec.rb"] }
+
   watch(%r{^app/(.+)\.rb$}) { |m| "spec/#{m[1]}_spec.rb" }
   watch(%r{^app/(.*)(\.erb|\.haml)$}) { |m| "spec/#{m[1]}#{m[2]}_spec.rb" }
   watch(%r{^app/controllers/(.+)_(controller)\.rb$}) do |m|
@@ -44,5 +42,4 @@ guard 'rspec', :all_after_pass => false, :cli => '--drb' do
 
   # Reload specs when changing them
   watch(%r{^spec/(.+)/(.+)_spec\.rb$}) { |m| "spec/#{m[1]}/#{m[2]}_spec.rb" }
-
 end
