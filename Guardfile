@@ -14,7 +14,7 @@ guard 'spork', :rspec => true, :rspec_env => { 'RAILS_ENV' => 'test' } do
 end
 
 guard 'rspec', :all_after_pass => false, :cli => '--drb --colour' do
-  watch('spec/factories.rb')
+  watch('spec/factories.rb') { spec }
   watch(%r{^lib/(.+)\.rb$}) { |m| "spec/lib/#{m[1]}_spec.rb" }
 
   watch(%r{^app/models/(.+)\.rb}) { |m|
@@ -29,15 +29,12 @@ guard 'rspec', :all_after_pass => false, :cli => '--drb --colour' do
      (m[1][/_pages/] ? "spec/features/#{m[1]}_spec.rb" :
                        "spec/features/#{m[1].singularize}_pages_spec.rb")]
   end
-  watch(%r{^spec/support/(.+)\.rb$}) { "spec" }
   watch('app/controllers/application_controller.rb') { "spec/controllers" }
 
   # Capybara features specs
-  watch(%r{^app/views/(.+)/.*\.(erb|haml)$}) {
-    |m| "spec/features/#{m[1]}_spec.rb" }
   watch(%r{^app/views/(.+)/}) do |m|
-    (m[1][/_pages/] ? "spec/features/#{m[1]}_spec.rb" :
-                      "spec/features/#{m[1].singularize}_pages_spec.rb")
+    m[1][/_pages/] ? "spec/features/#{m[1]}_spec.rb" :
+                     "spec/features/#{m[1].singularize}_pages_spec.rb"
   end
 
   # Reload specs when changing them
