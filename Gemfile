@@ -21,8 +21,7 @@ group :development, :test do
   gem 'byebug', git: 'git@github.com:deivid-rodriguez/byebug.git'
 end
 
-# Gems used only for assets and not required
-# in production environments by default.
+# Used only for assets and not required in production environments by default.
 group :assets do
   gem 'bootstrap-sass', '2.3.1.0'
   gem 'bootstrap-will_paginate', '0.0.9'
@@ -41,4 +40,5 @@ group :test do
   gem 'libnotify', '0.8.0'
   gem 'webmock', '1.11.0'
   gem 'simplecov', '0.7.1', require: false
+  gem 'connection_pool', '1.0.0'
 end
