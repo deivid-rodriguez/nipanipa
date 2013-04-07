@@ -55,6 +55,7 @@ class ActionController::Integration::Session
 end
 
 # Fixes translations from specs
+I18n.locale = I18n.default_locale
 def t(string, options = {})
   I18n.t(string, I18n.locale, options)
 end
