@@ -22,10 +22,8 @@ feature 'donation', js: true do
   background do
     visit new_donation_path
     select '20', from: 'donation[amount]'
-    # Sleep 1 to workaround race condition between the action posted to the
-    # server and the test checking the database...
-    expect { click_button t 'donations.new.submit'; sleep 1 }.
-      to change(Donation, :count).by(1)
+    click_button t('donations.new.submit')
+    expect { Donation.count }.to change_by(1)
   end
 
   scenario "successful donation" do

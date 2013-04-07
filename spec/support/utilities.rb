@@ -25,6 +25,24 @@ RSpec::Matchers.define :have_title do |text|
   end
 end
 
+RSpec::Matchers.define :change_by do |count|
+  match do |block|
+    begin
+      Timeout.timeout(Capybara.default_wait_time) do
+        value = block.call
+        begin
+          sleep(0.1)
+          old_value = value
+          value = block.call
+        end until value == old_value + count
+        true
+      end
+    rescue TimeoutError
+      false
+    end
+  end
+end
+
 RSpec::Matchers.define :have_flash_message do |message, type|
   match do |page|
     page.should have_selector("div.alert.alert-#{type}", text: message)

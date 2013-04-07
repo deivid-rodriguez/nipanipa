@@ -136,8 +136,8 @@ describe 'User deletes a conversation', js: true do
 
     context 'and deletes the same conversation' do
       it 'is also removed from database' do
-        expect { click_link "delete-link-#{conversation.id}" }.
-          to change(Conversation, :count).by(-1)
+        click_link "delete-link-#{conversation.id}"
+        expect { Conversation.count }.to change_by(-1)
         page.should_not have_selector \
           "li#conversation-preview-#{conversation.id}"
       end
