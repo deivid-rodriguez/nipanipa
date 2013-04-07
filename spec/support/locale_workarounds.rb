@@ -53,3 +53,8 @@ class ActionController::Integration::Session
   end
   alias_method_chain :url_for, :default_locale
 end
+
+# Fixes translations from specs
+def t(string, options = {})
+  I18n.t(string, I18n.locale, options)
+end
