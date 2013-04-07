@@ -1,3 +1,5 @@
+require 'active_support/inflector'
+
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
 #
