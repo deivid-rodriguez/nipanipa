@@ -1,12 +1,14 @@
 class ConversationsController < ApplicationController
-  respond_to :html, :js
+  respond_to :html
+  respond_to :js, only: [:reply, :destroy]
+
+  before_filter :load_conversation, only: [:show, :reply, :destroy]
 
   def index
     @conversations = current_user.conversations
   end
 
   def show
-    @conversation = Conversation.find(params[:id])
     @message = Message.new
   end
 
@@ -29,7 +31,6 @@ class ConversationsController < ApplicationController
   end
 
   def reply
-    @conversation = Conversation.find(params[:id])
     @conversation.messages.build(body: params[:body], from_id: current_user.id,
       to_id: @conversation.to == current_user ?
              @conversation.from.id : @conversation.to.id )
@@ -44,10 +45,16 @@ class ConversationsController < ApplicationController
   end
 
   def destroy
-    @conversation = Conversation.find(params[:id])
     @conversation.destroy
     respond_to do |format|
       format.js
     end
   end
+
+  private
+
+    def load_conversation
+      @conversation = Conversation.find(params[:id])
+    end
+
 end
