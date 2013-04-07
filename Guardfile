@@ -16,7 +16,7 @@ guard 'spork', :rspec => true, :rspec_env => { 'RAILS_ENV' => 'test' } do
 end
 
 guard 'rspec', :all_after_pass => false, :cli => '--drb --colour' do
-  watch('spec/factories.rb') { spec }
+  watch('spec/factories.rb') { "spec" }
   watch(%r{^lib/(.+)\.rb$}) { |m| "spec/lib/#{m[1]}_spec.rb" }
 
   watch(%r{^app/models/(.+)\.rb}) { |m|
