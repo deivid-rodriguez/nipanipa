@@ -22,3 +22,6 @@
 
 # SimpleCov results
 /coverage
+
+# Byebug startup file
+.byebugrc

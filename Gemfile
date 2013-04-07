@@ -18,10 +18,7 @@ group :development, :test do
   gem 'rspec-rails', '2.13.0'
   gem 'guard-rspec', '2.5.2'
   gem 'guard-spork', '1.5.0'
-end
-
-group :development do
-  gem 'byebug', '1.0.0'
+  gem 'byebug', git: 'git@github.com:deivid-rodriguez/byebug.git'
 end
 
 # Gems used only for assets and not required

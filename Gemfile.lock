@@ -1,3 +1,11 @@
+GIT
+  remote: git@github.com:deivid-rodriguez/byebug.git
+  revision: 6774806099fd89907201246019210f4852852628
+  specs:
+    byebug (1.0.1)
+      columnize (~> 0.3.6)
+      debugger-linecache (~> 1.2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -38,9 +46,6 @@ GEM
     bourne (1.4.0)
       mocha (~> 0.13.2)
     builder (3.0.4)
-    byebug (1.0.0)
-      columnize (~> 0.3.6)
-      debugger-linecache (~> 1.2.0)
     cancan (1.6.9)
     capybara (2.0.3)
       mime-types (>= 1.16)
@@ -236,7 +241,7 @@ DEPENDENCIES
   bcrypt-ruby (= 3.0.1)
   bootstrap-sass (= 2.3.1.0)
   bootstrap-will_paginate (= 0.0.9)
-  byebug (= 1.0.0)
+  byebug!
   cancan (= 1.6.9)
   capybara (= 2.0.3)
   capybara-webkit (= 0.14.2)
