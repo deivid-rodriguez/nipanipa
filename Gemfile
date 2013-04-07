@@ -40,5 +40,5 @@ group :test do
   gem 'libnotify', '0.8.0'
   gem 'webmock', '1.11.0'
   gem 'simplecov', '0.7.1', require: false
-  gem 'connection_pool', '1.0.0'
+  gem 'database_cleaner', '0.9.1'
 end
