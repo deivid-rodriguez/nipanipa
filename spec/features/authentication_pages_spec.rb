@@ -1,5 +1,8 @@
-feature "Signin" do
+#
+# Integration tests for Authentication pages
+#
 
+feature 'Signin' do
   let(:signin)  { t 'sessions.signin'    }
   let(:signout) { t 'sessions.signout'   }
   let(:profile) { t 'users.show.profile' }
@@ -7,11 +10,11 @@ feature "Signin" do
 
   background { visit new_user_session_path }
 
-  scenario "Signin page has correct content" do
+  scenario 'Signin page has correct content' do
     page.should have_title signin
   end
 
-  scenario "Signin correctly sets user location by geolocating the ip" do
+  scenario 'Signin correctly sets user location by geolocating the ip' do
     sign_in user
 
     user.reload.longitude.should_not be_nil
@@ -20,15 +23,15 @@ feature "Signin" do
     user.reload.country.should_not be_nil
   end
 
-  scenario "with invalid information should take you back to signin page and
-            show error message" do
+  scenario 'with invalid information should take you back to signin page and' \
+           'show error message' do
     click_button signin
 
     page.should have_title signin
     page.should have_flash_message t('devise.failure.invalid'), 'error'
   end
 
-  scenario "valid information followed by signout" do
+  scenario 'valid information followed by signout' do
     sign_in user
 
     page.should have_title user.name
@@ -41,5 +44,4 @@ feature "Signin" do
     page.should_not have_link profile, href: user_path(user)
     page.should_not have_link signout
   end
-
 end # signin

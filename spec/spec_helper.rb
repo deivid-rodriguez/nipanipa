@@ -84,6 +84,8 @@ Spork.each_run do
     SimpleCov.start 'rails'
   end
 
+  FactoryGirl.reload
+
   # Forces all threads to share the same connection. This works on
   # Capybara because it starts the web server in a thread.
   class ActiveRecord::Base
@@ -94,6 +96,4 @@ Spork.each_run do
     end
   end
   ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
-
-  FactoryGirl.reload
 end
