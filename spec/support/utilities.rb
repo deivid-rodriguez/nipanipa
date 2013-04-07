@@ -11,6 +11,13 @@ def sign_out
   click_link t('sessions.signout')
 end
 
+def reply(text)
+  within(".message-reply") do
+    fill_in "body", with: text
+    click_button t('conversations.show.reply')
+  end
+end
+
 # To be removed when next capybara version is released (it will be built-in)
 RSpec::Matchers.define :have_title do |text|
   match do |page|

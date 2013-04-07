@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130322151109) do
+ActiveRecord::Schema.define(:version => 20130404160719) do
 
   create_table "conversations", :force => true do |t|
     t.string   "subject"
@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(:version => 20130322151109) do
     t.integer  "to_id"
     t.integer  "offer_id"
     t.string   "status"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.boolean  "deleted_from", :default => false
+    t.boolean  "deleted_to",   :default => false
   end
 
   create_table "donations", :force => true do |t|

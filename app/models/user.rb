@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  # :token_authenticatable, :confirmable, :lockable, :timeoutable,
-  # :omniauthable
   devise :database_authenticatable, :rememberable, :validatable, :registerable,
          :trackable, :recoverable
 
@@ -71,6 +69,10 @@ class User < ActiveRecord::Base
 
   def conversations
     sent_conversations + received_conversations
+  end
+
+  def non_deleted_conversations
+    sent_conversations.deleted_by_sender + received_conversations.deleted_by_recipient
   end
 
   def feedback_pairs

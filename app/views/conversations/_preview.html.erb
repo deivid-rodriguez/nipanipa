@@ -11,7 +11,9 @@
   <% end %>
 
   <%= link_to user_conversation_path(current_user, conversation),
-    method: :delete, data: { confirm: t('.usure?') }, remote: true do %>
+              method: :delete, data: { confirm: t('.usure?') },
+              id: "delete-link-#{conversation.id}",
+              remote: true do %>
     <div id="delete-<%= conversation.id %>">
     </div>
   <% end %>

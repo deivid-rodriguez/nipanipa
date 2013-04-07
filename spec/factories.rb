@@ -103,18 +103,25 @@ FactoryGirl.define do
     association :to, factory: :host
     status 'pending'
     association :offer
+    #
+    #after(:create) do |c|
+    #  FactoryGirl.create_list(:message, 1, conversation: c,
+    #                                       to: c.to,
+    #                                       from: c.from)
+    #end
     after(:build) do |c|
-      c.messages << FactoryGirl.build(:message, to: c.to, from: c.from)
+      c.messages << FactoryGirl.build(:message, conversation: c, to: c.to, from: c.from)
     end
-    before(:create) do |c|
-      c.messages.first.save!
+    after(:create) do |c|
+      c.messages.each { |m| m.save! }
     end
   end
 
   factory :message do
+    association :conversation, strategy: :build
     body "This is a sample body"
-    association :from , factory: :volunteer
-    association :to, factory: :host
+    association :from , factory: :volunteer, strategy: :build
+    association :to, factory: :host, strategy: :build
   end
 
   factory :feedback do

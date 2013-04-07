@@ -5,7 +5,7 @@ class ConversationsController < ApplicationController
   before_filter :load_conversation, only: [:show, :reply, :destroy]
 
   def index
-    @conversations = current_user.conversations
+    @conversations = current_user.non_deleted_conversations
   end
 
   def show
@@ -23,32 +23,31 @@ class ConversationsController < ApplicationController
       to_id: params[:conversation][:messages_attributes]["0"][:to_id],
       from_id: params[:conversation][:messages_attributes]["0"][:from_id]))
     if @conversation.save
-      redirect_to current_user, notice: t('conversations.create.success')
+      redirect_to user_conversations_path(current_user),
+                  notice: t('conversations.create.success')
     else
       flash.now[:error] = t('conversations.create.error')
-      render :action => 'new'
+      render 'new'
     end
   end
 
   def reply
-    @conversation.messages.build(body: params[:body], from_id: current_user.id,
-      to_id: @conversation.to == current_user ?
-             @conversation.from.id : @conversation.to.id )
-    if @conversation.save
-      respond_to do |format|
-        format.html { redirect_to user_conversations_path(current_user) }
-        format.js
-      end
-    else
-      render 'show'
+    @conversation.messages.build(body:    params[:body],
+                                 from_id: current_user.id,
+                                 to_id:   other_user.id )
+    @conversation.reset_deleted_marks
+    if !@conversation.save
+      flash.now[:error] = t('conversations.reply.error')
     end
+    respond_with(@conversation,
+                 location: user_conversation_path(current_user, @conversation))
   end
 
   def destroy
-    @conversation.destroy
-    respond_to do |format|
-      format.js
-    end
+    @conversation.mark_as_deleted(current_user)
+    @conversation.destroy if @conversation.deleted_by_both?
+    flash[:notice] = t('Conversations.destroy.success')
+    respond_with(@conversation, location: user_conversations_path(current_user))
   end
 
   private
@@ -57,4 +56,7 @@ class ConversationsController < ApplicationController
       @conversation = Conversation.find(params[:id])
     end
 
+    def other_user
+      current_user == @conversation.to ? @conversation.from : @conversation.to
+    end
 end
