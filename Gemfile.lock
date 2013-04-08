@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:deivid-rodriguez/byebug.git
-  revision: f698da95d5766a89a6c6713d6ecd4e187c9c7493
+  revision: f950123161200cc9d9172c035bc6bf6b1b66bd7d
   specs:
     byebug (1.0.1)
       columnize (~> 0.3.6)
@@ -222,7 +222,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.37)
-    uglifier (1.3.0)
+    uglifier (2.0.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
     warden (1.2.1)
@@ -267,6 +267,6 @@ DEPENDENCIES
   simple_form (= 2.1.0)
   simplecov (= 0.7.1)
   thin (= 1.5.1)
-  uglifier (= 1.3.0)
+  uglifier (= 2.0.1)
   webmock (= 1.11.0)
   will_paginate (= 3.0.4)

@@ -27,7 +27,7 @@ group :assets do
   gem 'bootstrap-will_paginate', '0.0.9'
   gem 'sass-rails',   '3.2.6'
   gem 'coffee-rails', '3.2.2'
-  gem 'uglifier', '1.3.0'
+  gem 'uglifier', '2.0.1'
 end
 
 group :test do

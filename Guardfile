@@ -16,8 +16,7 @@ guard 'spork', :rspec => true, :rspec_env => { 'RAILS_ENV' => 'test' } do
 end
 
 guard 'rspec', :all_after_pass => false, :cli => '--drb --colour' do
-  watch('spec/factories.rb') { "spec" }
-  watch(%r{^lib/(.+)\.rb$}) { |m| "spec/lib/#{m[1]}_spec.rb" }
+  watch(%r{^config/locales/(.*)\.rb$}) { |m| "spec/features" }
 
   watch(%r{^app/models/(.+)\.rb}) { |m|
     ["spec/models/#{m[1]}_spec.rb", "spec/features/#{m[1]}_pages_spec.rb"] }
@@ -40,5 +39,6 @@ guard 'rspec', :all_after_pass => false, :cli => '--drb --colour' do
   end
 
   # Reload specs when changing them
+  watch('spec/factories.rb') { "spec" }
   watch(%r{^spec/(.+)/(.+)_spec\.rb$}) { |m| "spec/#{m[1]}/#{m[2]}_spec.rb" }
 end
