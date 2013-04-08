@@ -3,18 +3,18 @@ FactoryGirl.define do
   factory :user do
     sequence(:name) { |n| "User #{n}" }
     sequence(:email) { |n| "nipanipa.test+user#{n}@gmail.com" }
-    password "foobar"
-    description "I am a test user. I live in a little house in the countryside"
+    password 'foobar'
+    description 'I am a test user. I live in a little house in the countryside'
 
     # simulate first login
     last_sign_in_at { Time.now }
-    last_sign_in_ip ENV["IP"]
+    last_sign_in_ip ENV['IP']
     current_sign_in_at { Time.now}
-    current_sign_in_ip ENV["IP"]
+    current_sign_in_ip ENV['IP']
     sign_in_count 1
 
     factory :admin do
-      role "admin"
+      role 'admin'
     end
 
     trait :with_feedbacks do
@@ -30,16 +30,16 @@ FactoryGirl.define do
   factory :volunteer do
     sequence(:name) { |n| "Volunteer #{n}" }
     sequence(:email) { |n| "nipanipa.test+volunteer#{n}@gmail.com" }
-    password "foobar"
-    description "I am a test host. I live in a little house in the countryside"
+    password 'foobar'
+    description 'I am a test host. I live in a little house in the countryside'
   end
 
   factory :host do
     sequence(:name) { |n| "Host #{n}" }
     sequence(:email) { |n| "nipanipa.test+host#{n}@gmail.com" }
-    password "foobar"
-    description "I am a test volunteer. I live in a big city full of noise" \
-                "and pollution"
+    password 'foobar'
+    description 'I am a test volunteer. I live in a big city full of noise' \
+                'and pollution'
 
     trait :with_offers do
       ignore do
@@ -54,11 +54,11 @@ FactoryGirl.define do
   end
 
   factory :offer do
-    title "This is a sample job/volunteer/callitX offer"
-    description "This is supposed to be a longer text to describe the offer. " \
-                "What is the job going like? What kind of tasks do you need "  \
-                "to get done?"
-    accomodation "This will describe the accomodation"
+    title 'This is a sample job/volunteer/callitX offer'
+    description 'This is supposed to be a longer text to describe the offer. ' \
+                'What is the job going like? What kind of tasks do you need '  \
+                'to get done?'
+    accomodation 'This will describe the accomodation'
     vacancies 1
 
     trait :complete do
@@ -98,42 +98,48 @@ FactoryGirl.define do
   end
 
   factory :conversation do
-    subject "This is a sample subject"
+    subject 'This is a sample subject'
     association :from, factory: :volunteer
     association :to, factory: :host
     status 'pending'
     association :offer
-    #
-    #after(:create) do |c|
-    #  FactoryGirl.create_list(:message, 1, conversation: c,
-    #                                       to: c.to,
-    #                                       from: c.from)
-    #end
     after(:build) do |c|
-      c.messages << FactoryGirl.build(:message, conversation: c, to: c.to, from: c.from)
+      c.messages << FactoryGirl.build(:message, conversation: c,
+                                                to: c.to,
+                                                from: c.from)
     end
     after(:create) do |c|
-      c.messages.each { |m| m.save! }
+      FactoryGirl.create_list(:message, 1, conversation: c,
+                                           to: c.to,
+                                           from: c.from)
     end
+    #after(:build) do |c|
+    #  c.messages << FactoryGirl.build(:message, conversation: c,
+    #                                            to: c.to,
+    #                                            from: c.from)
+    #end
+    #after(:create) do |c|
+    #  c.messages.each { |m| m.save! }
+    #end
   end
 
   factory :message do
-    association :conversation, strategy: :build
-    body "This is a sample body"
-    association :from , factory: :volunteer, strategy: :build
-    association :to, factory: :host, strategy: :build
+    association :conversation
+    body 'This is a sample body'
+    association :from , factory: :volunteer
+    association :to, factory: :host
   end
 
   factory :feedback do
-    content "This is a sample feedback. Don't know whether it is good or bad" \
-            "because the score is random..."
+    content 'This is a sample feedback. Don\'t know whether it is good or bad' \
+            'because the score is random...'
     score { rand(3)-1 }
     association :sender   , factory: :volunteer
     association :recipient, factory: :host
   end
 
   factory :work_type do
-    name "Organic Farming"
+    name 'Organic Farming'
   end
 
   factory :sectorization do

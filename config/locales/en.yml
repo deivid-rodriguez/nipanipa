@@ -76,6 +76,8 @@ than 300 characters"
       reply: "Reply"
     preview:
       usure: "Are you sure?"
+    reply:
+      error: "Error sending the message..."
   offers:
     create:
       success: "Your volunteering offer was correctly created"

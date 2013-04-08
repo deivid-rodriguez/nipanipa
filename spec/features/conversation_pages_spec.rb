@@ -61,15 +61,15 @@ describe 'Create a conversation' do
 
 end
 
-feature 'Listing user conversations' do
-  given!(:conversation) { create(:conversation) }
+describe 'Listing user conversations' do
+  let!(:conversation) { create(:conversation) }
 
-  background do
+  before do
     sign_in conversation.from
     click_link t('layouts.sidebar.show_conversations')
   end
 
-  scenario 'user conversations should be listed' do
+  it 'properly lists user conversations' do
     page.should have_content conversation.subject
   end
 end
@@ -95,21 +95,31 @@ describe 'Display a conversation' do
     page.should have_button t('conversations.show.reply')
   end
 
-  describe 'and reply to it', js: true do
-    let!(:message) { build(:message, conversation: conversation,
-                                     from: conversation.from,
-                                     to: conversation.to) }
-    before do
-      reply(message.body)
+  describe 'and reply to it', :js do
+    context 'successfully' do
+      let(:message) { build(:message, conversation: conversation,
+                                      from: conversation.from,
+                                      to: conversation.to) }
+      before { reply(message.body) }
+
+      it 'shows the message just replied' do
+        page.should have_content message.body
+      end
     end
 
-    it 'shows the message just replied' do
-      page.should have_content message.body
+    context 'unsuccessfully' do
+      before { reply("") }
+
+      it 'shows an error message and keeps user in the same page' do
+        page.should have_flash_message t('conversations.reply.error'), 'error'
+        page.should have_button t('conversations.show.reply')
+      end
     end
   end
+
 end
 
-describe 'User deletes a conversation', js: true do
+describe 'User deletes a conversation', :js do
   let(:conversation) { create(:conversation) }
 
   before do

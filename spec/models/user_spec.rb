@@ -3,8 +3,15 @@
 #
 
 describe User do
-
   let(:user) { build(:user) }
+
+  it "has a valid factory" do
+    create(:user).should be_valid
+  end
+
+  it "has a valid soft factory" do
+    build(:user).should be_valid
+  end
 
   subject { user }
 
@@ -18,7 +25,6 @@ describe User do
   it { should respond_to(:longitude) }
   it { should respond_to(:latitude) }
   it { should respond_to(:type) }
-
   it { should respond_to(:last_sign_in_ip) }
 
   it { should be_valid }

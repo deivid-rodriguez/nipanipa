@@ -78,6 +78,8 @@ los 300 caracteres"
       reply: "Responder"
     preview:
       usure?: "¿Seguro que quieres borrar la conversación?"
+    reply:
+      error: "Error en el envío del mensaje..."
   offers:
     create:
       success: "Tu oferta de voluntariado se dio de alta correctamente"
