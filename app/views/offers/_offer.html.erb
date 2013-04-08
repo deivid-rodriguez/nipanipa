@@ -28,9 +28,10 @@
         new_user_conversation_path(current_user, offer: offer.id,
                                                  to: offer.host.id) %>
     <% else %>
-      <%= link_to t('.sign_up'), new_user_registration_path(type: Volunteer) %>
+      <%= link_to t('static_pages.home.signup'),
+                  new_user_registration_path(type: Volunteer) %>
       or
-      <%= link_to t('.sign_in'), new_user_session_path %>
+      <%= link_to t('sessions.signin'), new_user_session_path %>
     <% end %>
   </div>
 

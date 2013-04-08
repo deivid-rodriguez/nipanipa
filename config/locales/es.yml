@@ -37,7 +37,6 @@ tu zona y tienen ganas de ayudarte."
       signup_desc: "Apúntate a NiPaNiPa, ya seas anfitrión o voluntario.
 Registrarte y completar tu perfil no te llevará ni 5 minutos. Después...
 cuéntanos lo que pasa después!"
-      signin: "Acceder"
   feedbacks:
     new:
       title: "Nueva referencia"
@@ -188,8 +187,8 @@ solicitarnos nuevas funcionalidades %{issues_url}."
       news: "Noticias"
   activerecord:
     models:
-      Host: "Host"
-      Volunteer: "Voluntario"
+      host: "Host"
+      volunteer: "Voluntario"
     attributes:
       user:
         password_digest: "Contraseña"

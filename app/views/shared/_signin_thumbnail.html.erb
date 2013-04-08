@@ -1,6 +1,6 @@
 <div class="thumbnail home-thumbnail">
   <%= image_tag "signin.png", alt: "signin" %>
-  <h3><%= t('static_pages.home.signin') %></h3>
+  <h3><%= t('sessions.signin') %></h3>
   <%= simple_form_for :user, url: user_session_path do |f| %>
     <%= f.input_field :email   , autofocus: true %>
     <%= f.input_field :password, hint: false %>

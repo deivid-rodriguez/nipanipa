@@ -35,7 +35,6 @@ area."
       signup: "Sign up!"
       signup_desc: "Sign up now as a host or a volunteer and fill your profile.
 It won't take you more than five minutes."
-      signin: "Sign in!"
   feedbacks:
     new:
       title: "New reference"
