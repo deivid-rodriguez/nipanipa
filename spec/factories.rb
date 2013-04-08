@@ -104,23 +104,11 @@ FactoryGirl.define do
     status 'pending'
     association :offer
     after(:build) do |c|
-      c.messages << FactoryGirl.build(:message, conversation: c,
-                                                to: c.to,
-                                                from: c.from)
+      c.messages.build(body: 'This is a sample body', to_id: c.to.id, from_id: c.from.id)
     end
     after(:create) do |c|
-      FactoryGirl.create_list(:message, 1, conversation: c,
-                                           to: c.to,
-                                           from: c.from)
+      c.messages.each { |m| m.save! }
     end
-    #after(:build) do |c|
-    #  c.messages << FactoryGirl.build(:message, conversation: c,
-    #                                            to: c.to,
-    #                                            from: c.from)
-    #end
-    #after(:create) do |c|
-    #  c.messages.each { |m| m.save! }
-    #end
   end
 
   factory :message do

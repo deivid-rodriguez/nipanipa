@@ -1,5 +1,5 @@
 $('div.alert').remove();
 $('body > .container').prepend('<%= j render "layouts/messages" %>');
-<% if not @conversation.errors %>
+<% if @conversation.errors.empty? %>
   $('ul#chat-list').append('<%= j render(@conversation.messages.last) %>');
 <% end %>

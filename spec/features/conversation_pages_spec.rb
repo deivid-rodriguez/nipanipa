@@ -96,19 +96,17 @@ describe 'Display a conversation' do
   end
 
   describe 'and reply to it', :js do
+
     context 'successfully' do
-      let(:message) { build(:message, conversation: conversation,
-                                      from: conversation.from,
-                                      to: conversation.to) }
-      before { reply(message.body) }
+      before { reply('This is a sample body') }
 
       it 'shows the message just replied' do
-        page.should have_content message.body
+        page.should have_content 'This is a sample body'
       end
     end
 
     context 'unsuccessfully' do
-      before { reply("") }
+      before { reply('') }
 
       it 'shows an error message and keeps user in the same page' do
         page.should have_flash_message t('conversations.reply.error'), 'error'
@@ -120,7 +118,7 @@ describe 'Display a conversation' do
 end
 
 describe 'User deletes a conversation', :js do
-  let(:conversation) { create(:conversation) }
+  let!(:conversation) { create(:conversation) }
 
   before do
     sign_in conversation.from
@@ -154,14 +152,11 @@ describe 'User deletes a conversation', :js do
     end
 
     context 'and replies to the same conversation' do
-      let(:message) { build(:message, conversation: conversation,
-                                      from: conversation.from,
-                                      to: conversation.to) }
       before do
         within("#conversation-preview-#{conversation.id}") do
           click_link conversation.subject
         end
-        reply(message.body)
+        reply('This is a sample body')
         sign_out
         sign_in conversation.from
         visit user_conversations_path(conversation.from)

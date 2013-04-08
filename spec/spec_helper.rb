@@ -59,23 +59,7 @@ Spork.prefork do
     # config.mock_with :rr
     config.mock_with :rspec
 
-    config.use_transactional_fixtures = false
-
-    config.before :suite do
-      DatabaseCleaner.strategy = :transaction
-    end
-
-    config.before :each, js: true do
-      DatabaseCleaner.strategy = :deletion
-    end
-
-    config.before :each do
-      DatabaseCleaner.start
-    end
-
-    config.after :each do
-      DatabaseCleaner.clean
-    end
+    config.use_transactional_fixtures = true
 
     # If true, the base class of anonymous controllers will be inferred
     # automatically. This will be the default behavior in future versions of
@@ -102,4 +86,17 @@ Spork.each_run do
   end
 
   FactoryGirl.reload
+
+  # Forces all threads to share the same connection. This works on
+  # Capybara because it starts the web server in a thread.
+  class ActiveRecord::Base
+    mattr_accessor :shared_connection
+    @@shared_connection = nil
+    def self.connection
+      @@shared_connection || \
+        ConnectionPool::Wrapper.new(:size => 1) { retrieve_connection }
+    end
+  end
+  ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
+
 end
