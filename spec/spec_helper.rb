@@ -84,19 +84,15 @@ Spork.each_run do
     require 'simplecov'
     SimpleCov.start 'rails'
   end
-
   FactoryGirl.reload
 
-  # Forces all threads to share the same connection. This works on
-  # Capybara because it starts the web server in a thread.
-  class ActiveRecord::Base
-    mattr_accessor :shared_connection
-    @@shared_connection = nil
-    def self.connection
-      @@shared_connection || \
-        ConnectionPool::Wrapper.new(:size => 1) { retrieve_connection }
+  ## Forces all threads to share the same connection. capybara-webkit starts the
+  ## web server in another thread and transactions are not shared between threads
+  ## by default.
+  ActiveRecord::ConnectionAdapters::ConnectionPool.class_eval do
+    def current_connection_id
+      Thread.main.object_id
     end
   end
-  ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
 
 end

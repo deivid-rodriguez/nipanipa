@@ -72,7 +72,6 @@ GEM
       execjs
     coffee-script-source (1.6.2)
     columnize (0.3.6)
-    connection_pool (1.0.0)
     crack (0.3.2)
     daemons (1.1.9)
     debugger-linecache (1.2.0)
@@ -244,7 +243,6 @@ DEPENDENCIES
   capybara (= 2.1.0)
   capybara-webkit!
   coffee-rails (= 3.2.2)
-  connection_pool (= 1.0.0)
   devise (= 2.2.3)
   factory_girl_rails (= 4.2.1)
   ffaker (= 1.15.0)
