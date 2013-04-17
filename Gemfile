@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 gem 'rails', '3.2.13'
-gem 'pg', '0.15.0'
+gem 'pg', '0.15.1'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'will_paginate', '3.0.4'
 gem 'geocoder', '1.1.6'
@@ -18,7 +18,7 @@ group :development, :test do
   gem 'rspec-rails', '2.13.0'
   gem 'guard-rspec', '2.5.2'
   gem 'guard-spork', '1.5.0'
-  gem 'byebug', git: 'git@github.com:deivid-rodriguez/byebug.git'
+  gem 'byebug', github: 'deivid-rodriguez/byebug'
 end
 
 # Used only for assets and not required in production environments by default.
@@ -32,8 +32,8 @@ end
 
 group :test do
   gem 'factory_girl_rails', '4.2.1'
-  gem 'capybara', '2.0.3'
-  gem 'capybara-webkit', '0.14.2'
+  gem 'capybara', '2.1.0'
+  gem 'capybara-webkit', github: 'thoughtbot/capybara-webkit'
   gem 'shoulda', '3.4.0'
   gem 'launchy', '2.2.0'
   gem 'rb-inotify', '0.9.0'
