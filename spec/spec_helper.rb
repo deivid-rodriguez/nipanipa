@@ -15,14 +15,20 @@ require 'spork'
 #uncomment the following line to use spork with the debugger
 #require 'spork/ext/ruby-debug'
 
+def start_simple_cov
+  require 'simplecov'
+  SimpleCov.start 'rails' do
+    add_filter '/vendor/ruby/'
+  end
+end
+
 Spork.prefork do
   # Loading more in this block will cause your tests to run faster. However,
   # if you change any configuration or code from libraries loaded here, you'll
   # need to restart spork for it take effect.
   ENV["RAILS_ENV"] ||= 'test'
   unless ENV['DRB']
-    require 'simplecov'
-    SimpleCov.start 'rails'
+    start_simple_cov
   end
 
   require File.expand_path("../../config/environment", __FILE__)
@@ -75,9 +81,9 @@ end
 
 Spork.each_run do
   if ENV['DRB']
-    require 'simplecov'
-    SimpleCov.start 'rails'
+    start_simple_cov
   end
+
   FactoryGirl.reload
 
   ## Forces all threads to share the same connection. capybara-webkit starts the
