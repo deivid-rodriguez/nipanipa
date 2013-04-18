@@ -16,6 +16,7 @@ feature "Offer creation" do
   given(:offer)      { build(:offer, :complete) }
 
   background do
+    visit root_path
     sign_in user
     click_link t('layouts.sidebar.create_offer')
   end
@@ -48,6 +49,7 @@ feature "Offer subscribe" do
   given(:volunteer) { create(:volunteer) }
 
   background do
+    visit root_path
     sign_in volunteer
     visit user_path host
   end

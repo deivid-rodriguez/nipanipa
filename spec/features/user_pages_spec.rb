@@ -136,14 +136,14 @@ feature 'User profile index' do
   end
 end
 
-
 feature 'User profile editing' do
   given(:host) { create(:host, email: 'old_email@example.com') }
   given(:btn_name) { t('helpers.submit.user.update', model: User) }
 
   background do
-    visit edit_user_registration_path
+    visit root_path
     sign_in host
+    visit edit_user_registration_path
   end
 
   scenario 'profile page has correct header, title and links' do

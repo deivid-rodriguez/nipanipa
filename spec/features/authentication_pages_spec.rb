@@ -8,9 +8,10 @@ feature 'Signin' do
   let(:profile) { t 'users.show.profile' }
   let(:user)    { create(:host)          }
 
-  background { visit new_user_session_path }
+  background { visit root_path }
 
   scenario 'Signin page has correct content' do
+    click_link signin
     page.should have_title signin
   end
 
@@ -25,6 +26,7 @@ feature 'Signin' do
 
   scenario 'with invalid information should take you back to signin page and' \
            'show error message' do
+    click_link signin
     click_button signin
 
     page.should have_title signin

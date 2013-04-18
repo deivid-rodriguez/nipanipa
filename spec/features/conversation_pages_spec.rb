@@ -10,6 +10,7 @@ describe 'Create a conversation' do
   let(:create_conv_btn) { t('helpers.submit.conversation.create') }
 
   before do
+    visit root_path
     sign_in volunteer
     visit user_path(host)
   end
@@ -65,6 +66,7 @@ describe 'Listing user conversations' do
   let!(:conversation) { create(:conversation) }
 
   before do
+    visit root_path
     sign_in conversation.from
     click_link t('layouts.sidebar.show_conversations')
   end
@@ -78,6 +80,7 @@ describe 'Display a conversation', :js do
   let!(:conversation) { create(:conversation) }
 
   before do
+    visit root_path
     sign_in conversation.to
     visit user_conversations_path(conversation.to)
     find_link("show-link-#{conversation.id}").trigger('click')
@@ -118,6 +121,7 @@ describe 'User deletes a conversation', :js do
   let!(:conversation) { create(:conversation) }
 
   before do
+    visit root_path
     sign_in conversation.from
     visit user_conversations_path(conversation.from)
     find_link("delete-link-#{conversation.id}").trigger('click')

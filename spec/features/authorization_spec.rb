@@ -10,7 +10,10 @@ describe "User" do
       let!(:feedback_by_me) { build(:feedback, sender: volunteer) }
       let!(:feedback_for_me) { build(:feedback, recipient: volunteer) }
 
-      before { sign_in volunteer }
+      before do
+       visit root_path
+       sign_in volunteer
+      end
 
       it { should be_able_to(:manage, feedback_by_me) }
       it { should_not be_able_to(:manage, feedback_for_me) }
@@ -30,7 +33,9 @@ describe "Protected pages" do
       it "stores redirects back after log in and then forgets" do
         visit protected_page
         page.should have_title t('sessions.signin')
-        sign_in user
+        fill_in 'user[email]',    with: user.email
+        fill_in 'user[password]', with: user.password
+        click_button t('sessions.signin')
         current_path.should == protected_page
         click_link t('sessions.signout')
         sign_in user
@@ -57,7 +62,10 @@ describe "Protected pages" do
   #end
 
   describe "signed-in users" do
-    before { sign_in user }
+    before do
+      visit root_path
+      sign_in user
+    end
 
     describe "visiting signup page" do
       before { visit new_user_registration_path(type: "host") }

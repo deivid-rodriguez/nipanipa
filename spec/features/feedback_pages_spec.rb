@@ -8,6 +8,7 @@ feature "Creating feedbacks" do
   given(:feedback_btn) { t('helpers.submit.feedback.create') }
 
   background do
+    visit root_path
     sign_in user
     visit new_user_feedback_path(other_user)
   end
@@ -30,6 +31,7 @@ feature "Editing feedbacks" do
   given(:feedback_btn) { t('helpers.submit.feedback.update') }
 
   background do
+    visit root_path
     sign_in feedback.sender
     page.find("#feedback-#{feedback.id}").click_link('Editar')
   end
@@ -57,6 +59,7 @@ feature "Destroying feedbacks" do
   given!(:feedback) { create(:feedback) }
 
   background do
+    visit root_path
     sign_in feedback.sender
   end
 
