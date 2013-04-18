@@ -1,5 +1,6 @@
 <div class="row conversation-preview">
-  <%= link_to user_conversation_path(current_user, conversation) do %>
+  <%= link_to user_conversation_path(current_user, conversation),
+      id: "show-link-#{conversation.id}" do %>
     <div class="span2">
       <%= gravatar_for conversation.to %>
       <%= conversation.to.name %>

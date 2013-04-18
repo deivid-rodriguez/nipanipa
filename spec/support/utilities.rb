@@ -12,10 +12,9 @@ def sign_out
 end
 
 def reply(text)
-  within(".message-reply") do
-    fill_in "body", with: text
-    click_button t('conversations.show.reply')
-  end
+  fill_in 'body', with: "#{text}"
+  click_button t('conversations.show.reply')
+  page.should have_content "#{text}" # assert text appears before going on
 end
 
 

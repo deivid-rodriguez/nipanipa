@@ -74,15 +74,13 @@ describe 'Listing user conversations' do
   end
 end
 
-describe 'Display a conversation' do
+describe 'Display a conversation', :js do
   let!(:conversation) { create(:conversation) }
 
   before do
-    sign_in conversation.from
-    visit user_conversations_path(conversation.from)
-    within("#conversation-preview-#{conversation.id}") do
-      click_link conversation.subject
-    end
+    sign_in conversation.to
+    visit user_conversations_path(conversation.to)
+    find_link("show-link-#{conversation.id}").trigger('click')
   end
 
   it 'lists all messages in thread' do
@@ -95,13 +93,12 @@ describe 'Display a conversation' do
     page.should have_button t('conversations.show.reply')
   end
 
-  describe 'and reply to it', :js do
-
+  describe 'and reply to it' do
     context 'successfully' do
-      before { reply('This is a sample body') }
+      before { reply('This is a sample reply') }
 
       it 'shows the message just replied' do
-        page.should have_content 'This is a sample body'
+        page.should have_content 'This is a sample reply'
       end
     end
 
@@ -123,8 +120,7 @@ describe 'User deletes a conversation', :js do
   before do
     sign_in conversation.from
     visit user_conversations_path(conversation.from)
-    page.driver.accept_js_confirms!
-    click_link "delete-link-#{conversation.id}"
+    find_link("delete-link-#{conversation.id}").trigger('click')
   end
 
   it 'removes conversation from list' do
@@ -144,19 +140,17 @@ describe 'User deletes a conversation', :js do
 
     context 'and deletes the same conversation' do
       it 'is also removed from database' do
-        click_link "delete-link-#{conversation.id}"
-        expect { Conversation.count }.to change_by(-1)
+        find_link("delete-link-#{conversation.id}").trigger('click')
         page.should_not have_selector \
           "li#conversation-preview-#{conversation.id}"
+        Conversation.count.should eq(0)
       end
     end
 
     context 'and replies to the same conversation' do
       before do
-        within("#conversation-preview-#{conversation.id}") do
-          click_link conversation.subject
-        end
-        reply('This is a sample body')
+        find_link("show-link-#{conversation.id}").trigger('click')
+        reply('This is a sample reply')
         sign_out
         sign_in conversation.from
         visit user_conversations_path(conversation.from)

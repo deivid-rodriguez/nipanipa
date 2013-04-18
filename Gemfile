@@ -33,9 +33,9 @@ end
 group :test do
   gem 'factory_girl_rails', '4.2.1'
   gem 'capybara', '2.1.0'
-  gem 'capybara-webkit', github: 'thoughtbot/capybara-webkit'
+  gem 'poltergeist', '1.2.0'
   gem 'shoulda', '3.4.0'
-  gem 'launchy', '2.2.0'
+  gem 'launchy', '2.3.0'
   gem 'rb-inotify', '0.9.0'
   gem 'libnotify', '0.8.0'
   gem 'webmock', '1.11.0'

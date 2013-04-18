@@ -38,15 +38,9 @@ Spork.prefork do
 
   require 'capybara/rails'
   require 'capybara/rspec'
+  require 'capybara/poltergeist'
 
-  Capybara.register_driver :webkit_ignore_ssl do |app|
-    browser = Capybara::Webkit::Browser.new(Capybara::Webkit::Connection.new
-              ).tap do |browser|
-      browser.ignore_ssl_errors
-    end
-    Capybara::Webkit::Driver.new(app, :browser => browser)
-  end
-  Capybara.javascript_driver = :webkit_ignore_ssl
+  Capybara.javascript_driver = :poltergeist
 
   RSpec.configure do |config|
     config.include Devise::TestHelpers, :type => :controller
@@ -94,5 +88,4 @@ Spork.each_run do
       Thread.main.object_id
     end
   end
-
 end
