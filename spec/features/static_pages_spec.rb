@@ -7,7 +7,6 @@ describe "Static pages" do
   subject { page }
 
   shared_examples_for "all static pages" do
-    it { should have_selector 'h1', text: heading }
     it { should have_title full_title(page_title) }
     it { should have_link help                    }
     it { should have_link about                   }
@@ -16,35 +15,35 @@ describe "Static pages" do
   end
 
   describe "Home Page" do
-#   before { visit root_path }
-#   let(:page_title) { '' }
+    let(:page_title) { '' }
+    before { visit root_path }
 
-#   it_should_behave_like "all static pages"
-#   it { should_not have_title '| Home' }
+    it_should_behave_like "all static pages"
+    it { should_not have_title '| Home' }
   end
 
 
   describe "Help Page" do
-    before { visit help_path }
-    let(:heading) { help }
     let(:page_title) { help }
+    before { visit help_path }
 
+    it { should have_selector 'h1', text: help }
     it_should_behave_like "all static pages"
   end
 
   describe "About Page" do
-    before { visit about_path }
-    let(:heading) { about }
     let(:page_title) { about }
+    before { visit about_path }
 
+    it { should have_selector 'h1', text: about }
     it_should_behave_like "all static pages"
   end
 
   describe "Contact Page" do
     before { visit contact_path }
-    let(:heading) { contact }
     let(:page_title) { contact }
 
+    it { should have_selector 'h1', text: contact }
     it_should_behave_like "all static pages"
   end
 

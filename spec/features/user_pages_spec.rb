@@ -3,8 +3,8 @@
 #
 
 feature 'Host profile creation' do
-  given(:host)     { build(:host) }
-  given(:btn_name) { t('helpers.submit.user.create') }
+  given(:host)            { build(:host) }
+  given(:create_user_btn) { t('helpers.submit.user.create') }
 
   background { visit new_user_registration_path(type: 'host') }
 
@@ -16,7 +16,7 @@ feature 'Host profile creation' do
 
   scenario 'submitting invalid information doesn\'t create user, redirects ' \
            'back to signup page and displays error messages' do
-    expect { click_button btn_name }.not_to change(Host, :count)
+    expect { click_button create_user_btn }.not_to change(Host, :count)
     page.should have_title t('users.new.title')
     page.should have_selector '.error'
   end
@@ -29,7 +29,7 @@ feature 'Host profile creation' do
     fill_in 'user[password_confirmation]', with: host.password
     fill_in 'user[description]'          , with: host.description
 
-    expect { click_button btn_name }.to change(Host, :count).by(1)
+    expect { click_button create_user_btn }.to change(Host, :count).by(1)
     page.should have_title host.name
     page.should have_flash_message t('devise.users.signed_up'), 'success'
     page.should have_link t('sessions.signout')
@@ -37,8 +37,8 @@ feature 'Host profile creation' do
 end
 
 feature 'Volunteer profile creation' do
-  given(:volunteer) { build(:volunteer) }
-  given(:btn_name)  { t('helpers.submit.user.create') }
+  given(:volunteer)       { build(:volunteer) }
+  given(:create_user_btn) { t('helpers.submit.user.create') }
 
   background { visit new_user_registration_path(type: 'volunteer') }
 
@@ -51,7 +51,7 @@ feature 'Volunteer profile creation' do
 
   scenario 'submitting invalid information doesn\'t create user, redirects ' \
            'back to signup page and displays error messages' do
-    expect { click_button btn_name }.not_to change(Volunteer, :count)
+    expect { click_button create_user_btn }.not_to change(Volunteer, :count)
     page.should have_title t('users.new.title')
     page.should have_selector '.error'
   end
@@ -64,7 +64,7 @@ feature 'Volunteer profile creation' do
     fill_in 'user[password_confirmation]', with: volunteer.password
     fill_in 'user[description]'          , with: volunteer.description
 
-    expect { click_button btn_name }.to change(Volunteer, :count).by(1)
+    expect { click_button create_user_btn }.to change(Volunteer, :count).by(1)
     page.should have_title volunteer.name
     page.should have_flash_message t('devise.users.signed_up'), 'success'
     page.should have_link t('sessions.signout')
@@ -79,12 +79,13 @@ feature 'User profile display' do
 
   # Force trackable hook ups and ip geolocation to happen
   # This should be forced in creation...
-  before {
+  before do
+    visit root_path
     sign_in sender
     sign_out
     sign_in recipient
     sign_out
-  }
+  end
 
   scenario 'includes proper elements: header, title, user description, user ' \
            'feedbacks and count' do
@@ -125,7 +126,7 @@ end
 
 feature 'User profile index' do
   background do
-    15.times { build(:user) }
+    5.times { build(:user) }
     visit users_path
   end
 
@@ -138,7 +139,7 @@ end
 
 feature 'User profile editing' do
   given(:host) { create(:host, email: 'old_email@example.com') }
-  given(:btn_name) { t('helpers.submit.user.update', model: User) }
+  given(:update_user_btn) { t('helpers.submit.user.update', model: User) }
 
   background do
     visit root_path
@@ -154,18 +155,18 @@ feature 'User profile editing' do
 
   scenario 'with invalid information' do
     fill_in 'user[email]', with: 'invalid@example'
-    click_button btn_name
+    click_button update_user_btn
     page.should have_selector '.error'
   end
 
   scenario 'nothing introduced is valid' do
-    click_button btn_name
+    click_button update_user_btn
     page.should have_flash_message t('devise.users.updated'), 'success'
   end
 
   scenario 'with valid information' do
     fill_in 'user[email]', with: 'new_email@example.com'
-    click_button btn_name
+    click_button update_user_btn
 
     page.should have_flash_message t('devise.users.updated'), 'success'
     page.should have_link t('sessions.signout'), href: destroy_user_session_path

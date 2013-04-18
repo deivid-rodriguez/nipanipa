@@ -10,10 +10,10 @@ def fill_in_minimum_info
 end
 
 feature "Offer creation" do
-  given(:user)       { create(:host) }
-  given(:btn_name)   { t('helpers.submit.offer.create') }
-  given!(:work_type) { create(:work_type, name: 'cooking') }
-  given(:offer)      { build(:offer, :complete) }
+  given(:user)             { create(:host) }
+  given(:create_offer_btn) { t('helpers.submit.offer.create') }
+  given!(:work_type)       { create(:work_type, name: 'cooking') }
+  given(:offer)            { build(:offer, :complete) }
 
   background do
     visit root_path
@@ -22,13 +22,13 @@ feature "Offer creation" do
   end
 
   scenario "with invalid information" do
-    click_button btn_name
+    click_button create_offer_btn
     page.should have_flash_message t('offers.create.error'), 'error'
   end
 
   scenario "with minimal information" do
     fill_in_minimum_info
-    click_button btn_name
+    click_button create_offer_btn
     page.should have_flash_message t('offers.create.success'), 'success'
   end
 
@@ -38,7 +38,7 @@ feature "Offer creation" do
     select "#{offer.days_per_week}", from: 'offer[days_per_week]'
     select "#{offer.min_stay}"     , from: 'offer[min_stay]'
     check 'cooking'
-    click_button btn_name
+    click_button create_offer_btn
     page.should have_flash_message t('offers.create.success'), 'success'
   end
 
