@@ -17,17 +17,19 @@ def reply(text)
   page.should have_content "#{text}" # assert text appears before going on
 end
 
-
-RSpec::Matchers.define :change_by do |count|
+RSpec::Matchers.define :become do |count|
   match do |block|
     begin
-      Timeout.timeout(Capybara.default_wait_time) do
-        value = block.call
-        begin
-          sleep(0.1)
-          old_value = value
-          value = block.call
-        end until value == old_value + count
+      value = block.call
+      if value != count
+        Timeout.timeout(Capybara.default_wait_time) do
+          begin
+            sleep(0.1)
+            value = block.call
+          end until value == count
+          true
+        end
+      else
         true
       end
     rescue TimeoutError

@@ -23,7 +23,7 @@ feature 'donation', js: true do
     visit new_donation_path
     select '20', from: 'donation[amount]'
     click_button t('donations.new.submit')
-    expect { Donation.count }.to change_by(1)
+    expect { Donation.count }.to become(1)
   end
 
   scenario "successful donation" do
