@@ -1,9 +1,13 @@
 <% provide :title, t('sessions.signin') %>
 
 <div class="offset4 span4">
-  <div class="thumbnail user-thumbnail">
-    <%= image_tag "signin.png", alt: "signin" %>
-    <h3><%= t('sessions.signin') %></h3>
+  <div class="thumbnail signin-thumbnail">
+    <div class="header">
+      <%= image_tag "host_small.png", alt: "host" %>
+      <%= image_tag "volunteer_small.png", alt: "volunteer" %>
+      <%= image_tag "explore_small.png", alt: "explore" %>
+      <h3><%= t('sessions.signin') %></h3>
+    </div>
     <%= render 'shared/signin' %>
   </div>
 </div>

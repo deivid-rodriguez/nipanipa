@@ -22,7 +22,7 @@
         <div class="row">
           <div class="span2 quickinfo">
             <%= image_tag "#{@user.type.underscore}_24.png" %>
-            <%= t "activerecord.models.#{@user.type}" %>
+            <%= t "activerecord.models.#{@user.type.underscore}" %>
           </div>
            <div class="span3 quickinfo">
             <%= image_tag 'location.png' %>
