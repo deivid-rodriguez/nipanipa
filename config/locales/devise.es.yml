@@ -32,7 +32,7 @@ es:
     passwords:
       new:
         forgotten?: Recuperación de contraseña
-        send_instructions: Enviar instrucciones para recuperar mi contraseña
+        send_instructions: Envíame instrucciones
       edit:
         title: Cambio de contraseña
         change_pwd: Cambiar mi contraseña

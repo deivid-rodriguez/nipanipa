@@ -1,11 +1,15 @@
-<h2><%= t '.forgotten?' %></h2>
+<% provide :title, t('.forgotten?') %>
 
-<%= simple_form_for(resource, as: resource_name,
-                              url: password_path(resource_name),
-                              html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+<div class="offset4 span4">
+  <div class="thumbnail signin-thumbnail">
+    <h5><%= t '.forgotten?' %></h5>
+    <%= simple_form_for(resource, as: resource_name,
+                                 url: password_path(resource_name),
+                                 html: { method: :post }) do |f| %>
+      <%= devise_error_messages! %>
 
-  <%= f.input :email, autofocus: true %>
-  <%= f.button :submit, t('.send_instructions'), class: "signup-button" %>
-
-<% end %>
+      <%= f.input_field :email, autofocus: true %>
+      <%= f.button :submit, t('.send_instructions'), class: "signup-button" %>
+    <% end %>
+  </div>
+</div>

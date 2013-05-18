@@ -32,7 +32,7 @@ en:
     passwords:
       new:
         forgotten?: Forgot your password?
-        send_instructions: Send me reset password instructions
+        send_instructions: Send me instructions
       edit:
         title: Change your password
         change_pwd: Change my password!
