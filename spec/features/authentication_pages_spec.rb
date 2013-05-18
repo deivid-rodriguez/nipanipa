@@ -11,8 +11,14 @@ feature 'Signin' do
   background { visit root_path }
 
   scenario 'Signin page has correct content' do
-    click_link signin
+    visit new_user_session_path
     page.should have_title signin
+  end
+
+  scenario 'Signin dropdown menu has correct content' do
+    click_link signin
+    page.should have_selector 'input#user_email'
+    page.should have_selector 'input#user_password'
   end
 
   scenario 'Signin correctly sets user location by geolocating the ip' do
@@ -42,7 +48,7 @@ feature 'Signin' do
 
     click_link signout
 
-    page.should have_link signin, href: new_user_session_path
+    page.should have_link signin
     page.should_not have_link profile, href: user_path(user)
     page.should_not have_link signout
   end

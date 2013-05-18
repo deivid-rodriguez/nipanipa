@@ -2,29 +2,35 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.home-thumbnail {
-  padding: 30px 30px 15px 30px;
-  height: 281px;
-  a {
-    display: block;
-  }
+$grayExplore: #e1ddc4;
+$greenHost: #9ab6aa;
+$redVolunteer: #f1c5c2;
+
+.explore-thumbnail {
+  padding: 20px 290px;
+  height: 210px;
+  background: $grayExplore;
   &:hover {
-    background: #eee;
+    background: darken($grayExplore, 10%);
   }
 }
 
-.home-half-thumbnail {
-  padding: 15px 30px;
-  height: 122px;
-  a {
-    display: block;
-  }
-  img {
-    float: right;
-    margin: 0 0 0 20px;
-  }
+.user-thumbnail {
+  padding: 20px 100px;
+  height: 180px;
+}
+
+.host-thumbnail {
+  background: $greenHost;
   &:hover {
-    background: #eee;
+    background: darken($greenHost, 10%);
+  }
+}
+
+.volunteer-thumbnail {
+  background: $redVolunteer;
+  &:hover {
+    background: darken($redVolunteer, 10%);
   }
 }
 

@@ -20,10 +20,10 @@ nipanipa.test@gmail.com"
     home:
       welcome: "Bienvenido a NiPaNiPa"
       subtitle: "Contacta a voluntarios y hosts de todo el mundo"
-      host: "Regístrate como host"
+      host: "Soy host"
       host_desc: "Encuentra voluntarios que te ayuden mientras se alojan en tu
 casa."
-      volunteer: "Regístrate como voluntario"
+      volunteer: "Soy voluntario"
       volunteer_desc: "Ayuda a alguien a cambio de alojamiento."
       contribute: "Colabora"
       contribute_desc: "Apoya a NiPaNiPa para que siga siendo gratuito, ya sea
