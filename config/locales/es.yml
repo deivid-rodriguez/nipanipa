@@ -208,6 +208,7 @@ solicitarnos nuevas funcionalidades %{issues_url}."
               blank: "Es obligatorio especificar una dirección de correo
 electrónico"
               invalid: "Introduciste un correo electrónico con un formato raro"
+              not_found: "Ese correo electrónico no existe en NiPaNiPa"
             password_confirmation:
               blank: "La confirmación de la contraseña está vacía"
               too_short: "La confirmación de la contraseña es demasiado corta"

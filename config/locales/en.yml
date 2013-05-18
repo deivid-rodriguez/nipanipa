@@ -205,6 +205,7 @@ would like to be implemented %{issues_url}."
               taken: "That email address is already taken"
               blank: "You must specify an email address"
               invalid: "That email looks weird... Check the format"
+              not_found: "That email address doesn't exist in NiPaNiPa"
             password_confirmation:
               blank: "Password confirmation can't be blank"
               too_short: "Password confirmation is too short"

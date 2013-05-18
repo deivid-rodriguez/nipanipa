@@ -6,7 +6,7 @@ Nipanipa::Application.routes.draw do
 
     devise_for :users,
                skip: :sessions,
-               controllers: { registrations: "users" }
+               controllers: { registrations: "users", passwords: "passwords" }
 
     devise_scope :user do
       get    'signin'  => 'devise/sessions#new'    , as: :new_user_session
