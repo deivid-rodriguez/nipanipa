@@ -19,6 +19,7 @@ group :development, :test do
   gem 'guard-rspec', '3.0.0'
   gem 'guard-spork', '1.5.0'
   gem 'byebug', '1.1.1'
+  gem 'pry-rails', '0.3.0'
 end
 
 # Used only for assets and not required in production environments by default.
