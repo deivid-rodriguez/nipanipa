@@ -104,7 +104,6 @@ proposing?"
 work?"
     new:
       title: "Sign up"
-      header: "%{type} register"
       already_registered: "¿Already registered?"
       personal_desc: "About you"
       work_type: "Type of Work"
@@ -126,6 +125,7 @@ work?"
         other: "Other"
     form:
       picture: "Profile picture"
+      header: "%{type} register"
     show:
       profile: "My profile"
       member_since: "Member since"
@@ -186,8 +186,8 @@ would like to be implemented %{issues_url}."
       news: "News"
   activerecord:
     models:
-      host: "Host"
-      volunteer: "Volunteer"
+      host: "host"
+      volunteer: "volunteer"
     attributes:
       user:
         password_digest: "Password"

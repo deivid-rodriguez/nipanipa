@@ -2,6 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.forgot-your-pwd {
-  margin-top: 10px;
+.signin-wrapper {
+  background: $white;
+  @include border_radius;
+  .signin-form {
+    width: 250px;
+    margin: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: left;
+    .header {
+      img {
+        display: inline;
+        margin: 0px 5px;
+      }
+      text-align: center;
+    }
+    .forgot-your-pwd {
+      margin-top: 10px;
+    }
+  }
 }
+
+

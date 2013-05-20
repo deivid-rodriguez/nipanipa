@@ -1,5 +1,4 @@
 class UsersController < Devise::RegistrationsController
-  layout 'user_new', only: [:new, :create]
 
   def index
     @users = resource_class.order('last_sign_in_at DESC').

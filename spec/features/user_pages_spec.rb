@@ -9,9 +9,10 @@ feature 'Host profile creation' do
   background { visit new_user_registration_path(type: 'host') }
 
   scenario 'signup page has proper content' do
-    page.should have_selector 'h1', text: t('users.new.header', type: 'Host')
+    page.should have_selector 'h1', text: t('users.form.header',
+                                            type: t('activerecord.models.host'))
     page.should have_title full_title(t 'users.new.title')
-    page.should_not have_link 'NiPaNiPa'
+    page.should have_link 'NiPaNiPa'
   end
 
   scenario 'submitting invalid information doesn\'t create user, redirects ' \
@@ -23,11 +24,13 @@ feature 'Host profile creation' do
 
   scenario 'submitting valid information creates user, signs in that user, ' \
            'redirects to his profile and flash a welcome message' do
-    fill_in 'user[name]'                 , with: host.name
-    fill_in 'user[email]'                , with: host.email
-    fill_in 'user[password]'             , with: host.password
-    fill_in 'user[password_confirmation]', with: host.password
-    fill_in 'user[description]'          , with: host.description
+    within '.signup-form' do
+      fill_in 'user[name]'                 , with: host.name
+      fill_in 'user[email]'                , with: host.email
+      fill_in 'user[password]'             , with: host.password
+      fill_in 'user[password_confirmation]', with: host.password
+      fill_in 'user[description]'          , with: host.description
+    end
 
     expect { click_button create_user_btn }.to change(Host, :count).by(1)
     page.should have_title host.name
@@ -44,9 +47,10 @@ feature 'Volunteer profile creation' do
 
   scenario 'signup page has proper content' do
     page.should \
-      have_selector 'h1', text: t('users.new.header', type: 'Volunteer')
+      have_selector 'h1', text: t('users.form.header',
+                                  type: t('activerecord.models.volunteer'))
     page.should have_title full_title(t 'users.new.title')
-    page.should_not have_link 'NiPaNiPa'
+    page.should have_link 'NiPaNiPa'
   end
 
   scenario 'submitting invalid information doesn\'t create user, redirects ' \
@@ -58,11 +62,13 @@ feature 'Volunteer profile creation' do
 
   scenario 'submitting valid information creates user, signs in that user, ' \
            'redirects to his profile and flash a welcome message' do
-    fill_in 'user[name]'                 , with: volunteer.name
-    fill_in 'user[email]'                , with: volunteer.email
-    fill_in 'user[password]'             , with: volunteer.password
-    fill_in 'user[password_confirmation]', with: volunteer.password
-    fill_in 'user[description]'          , with: volunteer.description
+    within '.signup-form' do
+      fill_in 'user[name]'                 , with: volunteer.name
+      fill_in 'user[email]'                , with: volunteer.email
+      fill_in 'user[password]'             , with: volunteer.password
+      fill_in 'user[password_confirmation]', with: volunteer.password
+      fill_in 'user[description]'          , with: volunteer.description
+    end
 
     expect { click_button create_user_btn }.to change(Volunteer, :count).by(1)
     page.should have_title volunteer.name

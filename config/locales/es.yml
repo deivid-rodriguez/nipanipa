@@ -106,7 +106,6 @@ tu oferta"
 buscando"
     new:
       title: "Regístrate"
-      header: "Registro de %{type}"
       already_registered: "¿Ya estás registrado?"
       personal_desc: "Sobre ti"
       work_type: "Tipo de trabajo"
@@ -128,6 +127,7 @@ buscando"
         other: "Otro"
     form:
       picture: "Foto de perfil"
+      header: "Registro de %{type}"
     show:
       profile: "Mi perfil"
       member_since: "Miembro desde"
@@ -188,8 +188,8 @@ solicitarnos nuevas funcionalidades %{issues_url}."
       news: "Noticias"
   activerecord:
     models:
-      host: "Host"
-      volunteer: "Voluntario"
+      host: "host"
+      volunteer: "voluntario"
     attributes:
       user:
         password_digest: "Contraseña"
