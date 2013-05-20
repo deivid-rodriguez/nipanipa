@@ -3,7 +3,7 @@ require 'active_support/inflector'
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
 #
-guard 'spork', :rspec => true, :rspec_env => { 'RAILS_ENV' => 'test' } do
+guard :spork, :rspec => true, :rspec_env => { 'RAILS_ENV' => 'test' } do
   watch('config/application.rb')
   watch('config/environment.rb')
   watch(%r{^config/environments/.+\.rb$})
@@ -15,7 +15,7 @@ guard 'spork', :rspec => true, :rspec_env => { 'RAILS_ENV' => 'test' } do
   watch(%r{^spec/support/.+\.rb$})
 end
 
-guard 'rspec', :all_after_pass => false, :cli => '--drb --colour' do
+guard :rspec, keep_failed: true, all_on_start: true, :cli => '--drb --colour' do
   watch(%r{^config/locales/(.*)\.rb$}) { |m| "spec/features" }
 
   watch(%r{^app/models/(.+)\.rb}) { |m|
