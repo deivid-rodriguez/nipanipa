@@ -201,50 +201,52 @@ div.comment {
 
 
 /* users index */
-
-.user-thumbnail {
-  position: relative;
-  height: 148px;
-  padding: 10px;
-  div.user-thumbnail-gravatar {
-    border: 1px solid $grayVeryLight;
-    float: left;
-  }
-  div.user-thumbnail-data {
-    margin-left: 180px;
-  }
-  p.user-thumbnail-login {
-    margin: 0 0 4px 0;
-    color: $gray;
-    font-size: 0.9em;
-    font-style: italic;
-  }
-  img.user-thumbnail-rating {
-    position: absolute;
-    top: 4px;
-    right: 4px;
-  }
-  img.user-thumbnail-available {
-    position: absolute;
-    top: 4px;
-    right: 54px;
-  }
-}
-
-aside.sidebar_users {
-  background: $graySuperLight;
+.main_list {
+  background: $white;
   @include border_radius;
-  li.active > a {
-    background-color: $grayLight;
-    &:hover {
+  padding: 20px 0;
+  margin-right: -20px;
+  .sidebar_users {
+    background: $graySuperLight;
+    @include border_radius;
+    li.active > a {
       background-color: $grayLight;
+      &:hover {
+        background-color: $grayLight;
+      }
+    }
+  }
+  div.span9 {
+    margin-right: -20px;
+    .user-thumbnail {
+    position: relative;
+    padding-right: 15px;
+    height: 193px;
+    @include border_radius;
+    .user-thumbnail-badges {
+      float: left;
+      .karma {
+        padding-top: 10px;
+        span {
+         font-size: 16px;
+        }
+      }
+    }
+      div.user-thumbnail-data {
+        margin-left: 180px;
+      }
+      p.user-thumbnail-login {
+        margin: 0 0 4px 0;
+        color: $gray;
+        font-size: 0.9em;
+        font-style: italic;
+      }
     }
   }
 }
 
 
 /* user feedbacks */
-
 .feedbacks {
   list-style: none;
   margin: 10px 0 0 0;

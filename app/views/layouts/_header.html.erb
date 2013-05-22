@@ -14,7 +14,7 @@
             <li>
               <%= link_to t('users.show.profile'), current_user %>
             </li>
-          <% elsif url_for != new_user_registration_path %>
+          <% elsif url_for != new_user_registration_path && url_for != root_path %>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=
                 t 'static_pages.home.signup' %><b class="caret"></b></a>

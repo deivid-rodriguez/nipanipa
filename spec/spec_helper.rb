@@ -12,8 +12,6 @@
 # *and* during each_run -- that's probably not what you want.
 #
 require 'spork'
-#uncomment the following line to use spork with the debugger
-#require 'spork/ext/ruby-debug'
 
 def start_simple_cov
   require 'simplecov'

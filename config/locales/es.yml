@@ -145,6 +145,8 @@ buscando"
       all_hosts: "Todos los anfitriones"
       all_volunteers: "Todos los voluntarios"
       all_users: "Todos los usuarios"
+    user:
+      karma: "karma"
   sessions:
     new:
       newuser?: "¿Nuevo usuario?"

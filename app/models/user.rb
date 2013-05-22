@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
   ROLES = %w["admin", "non-admin"]
 
   # accessible (or protected) attributes
-  attr_accessible :country, :description, :email, :name, :password,
-                  :password_confirmation, :remember_me, :state, :country
+  attr_accessible :country, :description, :email, :karma, :name, :password,
+                  :password_confirmation, :remember_me, :state
 
   # validations
   validates :description, length: { maximum: 2500 }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130404160719) do
+ActiveRecord::Schema.define(:version => 20130521162103) do
 
   create_table "conversations", :force => true do |t|
     t.string   "subject"
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(:version => 20130404160719) do
     t.string   "type"
     t.string   "name"
     t.text     "description"
+    t.integer  "karma",                  :default => 0
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

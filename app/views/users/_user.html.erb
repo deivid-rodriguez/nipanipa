@@ -1,7 +1,11 @@
-<li class="span9 offset3">
+<li class="span9">
   <div class="thumbnail user-thumbnail">
-    <div class="user-thumbnail-gravatar">
+    <div class="user-thumbnail-badges">
       <%= gravatar_for user, size: 148, class: "pull-left" %>
+      <div class="karma">
+        <span><strong><%= user.karma %></strong></span>
+         <%= t('.karma') %>
+      </div>
     </div>
     <div class="user-thumbnail-data">
       <h5>
@@ -16,14 +20,6 @@
                                        separator: ' ',
                                        omission: "..."  %>
       </p>
-      <%= image_tag 'rating.png', size: "40x40",
-                                  alt: "rating",
-                                  title: "User Rating",
-                                  class: "user-thumbnail-rating" %>
-      <%= image_tag 'available_now.png', size: "40x40",
-                                         alt: "available now",
-                                         title: "Available now!",
-                                        class: "user-thumbnail-available" %>
     </div>
   </div>
 </li>

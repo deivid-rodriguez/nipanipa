@@ -143,6 +143,8 @@ work?"
       all_hosts: "All hosts"
       all_volunteers: "All volunteers"
       all_users: "All users"
+    user:
+      karma: "karma"
   sessions:
     new:
       newuser?: "New user?"
