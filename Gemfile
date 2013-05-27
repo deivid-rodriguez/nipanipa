@@ -15,20 +15,20 @@ gem 'jquery-rails', '2.2.1'
 gem 'ffaker', '1.16.1'
 
 group :development, :test do
-  gem 'rspec-rails', '2.13.1'
+  gem 'rspec-rails', '2.13.2'
   gem 'guard-rspec', '3.0.0'
   gem 'guard-spork', '1.5.0'
-  gem 'byebug', '1.1.1'
+  gem 'byebug', '1.3.0'
   gem 'pry-rails', '0.3.0'
 end
 
 # Used only for assets and not required in production environments by default.
 group :assets do
-  gem 'bootstrap-sass', '2.3.1.0'
+  gem 'bootstrap-sass', '2.3.1.2'
   gem 'bootstrap-will_paginate', '0.0.9'
   gem 'sass-rails',   '3.2.6'
   gem 'coffee-rails', '3.2.2'
-  gem 'uglifier', '2.1.0'
+  gem 'uglifier', '2.1.1'
 end
 
 group :test do
