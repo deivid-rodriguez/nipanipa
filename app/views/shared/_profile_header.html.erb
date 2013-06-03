@@ -55,7 +55,7 @@
             </div>
             <div class="content_info">
               <span><strong><%= t('.type') %>:</strong></span>
-              <%= t "activerecord.models.#{user.type.underscore}" %>
+              <%= (t "activerecord.models.#{user.type.underscore}").camelize %>
             </div>
           </div>
           <div class="quickinfo">
