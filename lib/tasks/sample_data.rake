@@ -12,8 +12,16 @@ namespace :db do
       -1
     end
 
+    def rand_work_type_ids
+      (1..@n_work_types).to_a.sample rand(3)
+    end
+
+    @n_users = 50
+    @n_work_types = WorkType.all.size
+    @n_languages = Language.all.size
+
     # Create some users
-    50.times do |n|
+    @n_users.times do |n|
       type = 'user' if n == 0
       type = ['host', 'volunteer'].sample if n > 0
       name  = Faker::Name.name
@@ -32,6 +40,7 @@ namespace :db do
       user.current_sign_in_ip = ip
       user.current_sign_in_at = time
       user.sign_in_count = 1
+      user.work_type_ids = rand_work_type_ids
       user.role = 'admin' if n == 0
       user.save!
     end
@@ -39,11 +48,11 @@ namespace :db do
     # Create some feedbacks
     users = User.all
     500.times do
-      from_to = (1..50).to_a.sample 2
+      from_to = (1..@n_users).to_a.sample 2
       loop do
         break if Feedback.where(sender_id: from_to[0],
                                 recipient_id: from_to[1]).empty?
-        from_to = (1..50).to_a.sample 2
+        from_to = (1..@n_users).to_a.sample 2
       end
       feedback = Feedback.new content: Faker::Lorem.sentence(5),
                               score: rand_score
@@ -52,6 +61,21 @@ namespace :db do
       feedback.recipient.karma += feedback.score
       feedback.recipient.save!
       feedback.save!
+    end
+
+    # Create some language skills
+    75.times do
+      user = (1..@n_users).to_a.shuffle[0]
+      lang = (1..@n_languages).to_a.shuffle[0]
+      loop do
+        break if LanguageSkill.where(language_id: lang, user_id: user).empty?
+        user = (1..@n_users).to_a.shuffle[0]
+        lang = (1..@n_languages).to_a.shuffle[0]
+      end
+      language_skill =
+        LanguageSkill.new language_id: lang, user_id: user,
+                          level: LanguageSkill.level.values[rand(5)]
+      language_skill.save!
     end
 
   end
