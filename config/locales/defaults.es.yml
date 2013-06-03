@@ -53,14 +53,14 @@ es:
   datetime:
     distance_in_words:
       about_x_hours:
-        one: alrededor de 1 hora
-        other: alrededor de %{count} horas
+        one: 1 hora
+        other: "%{count} horas"
       about_x_months:
-        one: alrededor de 1 mes
-        other: alrededor de %{count} meses
+        one: 1 mes
+        other: "%{count} meses"
       about_x_years:
-        one: alrededor de 1 año
-        other: alrededor de %{count} años
+        one: 1 año
+        other: "%{count} años"
       almost_x_years:
         one: casi 1 año
         other: casi %{count} años
@@ -132,8 +132,6 @@ es:
       user:
         create: "Crear usuario"
         update: "Actualizar usuario"
-      offer:
-        create: "Crear oferta"
       feedback:
         create: "Dejar nueva referencia"
         update: "Editar la referencia"

@@ -4,6 +4,23 @@ es:
       currently_logged_in: "¡Está ahora online!"
       last_login: "Último acceso"
     not_specified: "No especificado"
+    profile_header:
+      type: "Tipo de usuario"
+      location: "Lugar"
+      last_login: "Ultimo acceso"
+      member_since: "Miembro desde"
+      categories: "Categorías"
+      languages: "Idiomas"
+      unknown: "Desconocido"
+      general: "Vista general"
+      conversations: "Mensajes"
+      feedback: "Referencias"
+      pictures: "Fotos"
+      edit: "Editar perfil"
+      new_conversation: "Enviar mensaje"
+      new_feedback: "Dejar referencia"
+      edit_feedback: "Cambiar la referencia"
+      report_user: "Alertar sobre usuario"
   static_pages:
     help:
       title: "Ayuda"
@@ -45,6 +62,8 @@ cuéntanos lo que pasa después!"
     create:
       success: "Has dejado una nueva referencia!"
       error: "Error al crear la nueva referencia... :("
+    index:
+      nofeedback: "No hay ninguna referencia"
     feedbacks: "Referencias"
     received:
       one: "1 recibida"
@@ -72,7 +91,6 @@ los 300 caracteres"
       error: "Hubo un error en el envío del mensaje"
     index:
       title: "Mis mensajes"
-      header: "Mis mensajes"
       nomessages: "No hay mensajes"
     show:
       reply: "Responder"
@@ -80,60 +98,37 @@ los 300 caracteres"
       usure?: "¿Seguro que quieres borrar la conversación?"
     reply:
       error: "Error en el envío del mensaje..."
-  offers:
-    create:
-      success: "Tu oferta de voluntariado se dio de alta correctamente"
-      error: "Hubo errores al crear tu oferta"
-    offer:
-      description: "Descripción"
-      accomodation: "Alojamiento"
-      from: "Desde"
-      to: "Hasta"
-      hours_per_day: "Horas por días"
-      days_per_week: "Días por semana"
-      vacancies: "Plazas disponibles"
-      interested: "¿Te interesa?"
-      contact: "Contacta al host!"
   users:
-    desc_label_host: "Cuéntale a tus futuros voluntarios algo sobre ti o
+    form:
+      description_host: "Cuéntale a tus futuros voluntarios algo sobre ti o
 sobre tu familia"
-    desc_label_volunteer: "Cuéntale a tu futuro anfitrión algo sobre ti"
-    work_desc_label: "Describe cómo será el trabajo que el voluntario
-hará en tu casa"
-    work_types_label_host: "Selecciona los tipos de trabajo en los que se ubica
-tu oferta"
-    work_types_label_volunteer: "Selecciona el/los tipos de trabajo que estás
-buscando"
+      description_volunteer: "Cuéntale a tu futuro anfitrión algo sobre ti"
+      skills_host: "Describe cómo será el trabajo que el voluntario hará en tu
+casa"
+      skills_volunteer: "¿Qué sabes hacer? ¿Qué habilidades consideras que
+podrían interesar a algún anfitrión?"
+      picture: "Foto de perfil"
+    language_skills:
+      title: "También puedes contarnos qué idiomas conoces"
+      add_language: "añadir idioma"
+    language_skill_fields:
+      language: "Idioma"
+      level: "Nivel"
+      remove_language: "eliminar idioma"
+    work_types:
+      title_host: "Selecciona el/los tipos de trabajo en los que se ubica tu
+oferta"
+      title_volunteer: "Selecciona el/los tipos de trabajo que estás buscando"
     new:
       title: "Regístrate"
       already_registered: "¿Ya estás registrado?"
       personal_desc: "Sobre ti"
       work_type: "Tipo de trabajo"
-      work_types:
-        gardening: "Jardinería"
-        babysitting: "Canguro"
-        cooking: "Cocinero/a"
-        farming: "Granja"
-        housekeeping: "Mantenimiento de casa"
-        tourism: "Turismo"
-        language_exchange: "Intercambio lingüístico"
-        teaching: "Enseñanza"
-        construction: "Construcción"
-        elderly_care: "Tercera Edad"
-        animal_care: "Cuidado de animales"
-        humanitarian_aid: "Ayuda humanitaria"
-        technical_assistance: "Ordenadores"
-        art_project: "Proyecto artístico"
-        other: "Otro"
-    form:
-      picture: "Foto de perfil"
       header: "Registro de %{type}"
     show:
       profile: "Mi perfil"
-      member_since: "Miembro desde"
       description: "Sobre mí"
       available: "Voluntariados disponibles"
-      no_offers: "Aun no tienes ninguna oferta publicada"
     edit:
       title: "Actualización de perfil"
       header: "Actualiza tu perfil"
@@ -147,6 +142,22 @@ buscando"
       all_users: "Todos los usuarios"
     user:
       karma: "karma"
+  work_types:
+    gardening: "Jardinería"
+    babysitting: "Canguro"
+    cooking: "Cocinero/a"
+    farming: "Granja"
+    housekeeping: "Mantenimiento de casa"
+    tourism: "Turismo"
+    language_exchange: "Intercambio lingüístico"
+    teaching: "Enseñanza"
+    construction: "Construcción"
+    elderly_care: "Tercera Edad"
+    animal_care: "Cuidado de animales"
+    humanitarian_aid: "Ayuda humanitaria"
+    technical_assistance: "Ordenadores"
+    art_project: "Proyecto artístico"
+    other: "Otro"
   sessions:
     new:
       newuser?: "¿Nuevo usuario?"
@@ -175,15 +186,6 @@ solicitarnos nuevas funcionalidades %{issues_url}."
       success: "Tu donación fue exitosa!"
       error: "Lo siento, hubo un problema con tu donación."
   layouts:
-    sidebar:
-      profile: "Perfil"
-      show_profile: "Ver mi perfil"
-      edit_profile: "Actualizar mi perfil"
-      show_conversations: "Mis mensajes"
-      new_conversation: "Enviar mensaje al usuario"
-      leave_feedback: "Dejar una referencia"
-      create_offer: "Ofrece un voluntariado"
-      actions: "Acciones"
     header:
       language: "Idioma"
     footer:
@@ -229,3 +231,11 @@ electrónico"
     next_label: "Página siguiente"
   datetime:
     timestamp_ago: "hace %{time}"
+  enumerize:
+    language_skill:
+      level:
+        just_hello: "hola y adiós"
+        beginner: "principiante"
+        intermediate: "intermedio"
+        expert: "experto"
+        native: "nativo"

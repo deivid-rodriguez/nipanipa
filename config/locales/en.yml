@@ -78,20 +78,6 @@ than 300 characters"
       usure: "Are you sure?"
     reply:
       error: "Error sending the message..."
-  offers:
-    create:
-      success: "Your volunteering offer was correctly created"
-      error: "Please review the errors below"
-    offer:
-      description: "Description"
-      accomodation: "Accomodation"
-      from: "From"
-      to: "Until"
-      hours_per_day: "Hours per day"
-      days_per_week: "Days per week"
-      vacancies: "Vacancies"
-      interested: "Intereseted?"
-      contact: "Contact host!"
   users:
     desc_label_host: "Tell your future volunteers something about
 yourself or your family."
@@ -131,7 +117,6 @@ work?"
       member_since: "Member since"
       description: "About me"
       available: "Available volunteerings"
-      no_offers: "You haven't proposed any volunteerings yet"
     edit:
       title: "Profile update"
       header: "Update your profile"
@@ -173,15 +158,6 @@ would like to be implemented %{issues_url}."
       success: "Your donation was successful!"
       error: "Sorry, there was some problem with your donation."
   layouts:
-    sidebar:
-      profile: "Profile"
-      show_profile: "See my profile"
-      edit_profile: "Update my profile"
-      show_conversations: "My messages"
-      new_conversation: "Contact user"
-      leave_feedback: "Leave a reference"
-      create_offer: "Propose a new volunteering opportunity"
-      actions: "Actions"
     header:
       language: "Language"
     footer:

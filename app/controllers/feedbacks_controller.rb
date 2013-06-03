@@ -1,7 +1,8 @@
 class FeedbacksController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :create, :destroy]
-  before_filter :load_user, only: [:new, :create, :edit, :update]
+  before_filter :load_user, only: [:new, :create, :index, :edit, :update]
   before_filter :load_feedback, only: [:edit, :update, :destroy]
+  before_filter :set_page_id, only: [:index]
 
   def new
     @feedback = current_user.sent_feedbacks.new
@@ -19,6 +20,11 @@ class FeedbacksController < ApplicationController
       flash.now[:error] = t('feedbacks.create.error')
       render 'new'
     end
+  end
+
+  def index
+    authorize! :index, @feedback
+    @feedback_pairs = @user.feedback_pairs
   end
 
   def edit
@@ -52,4 +58,7 @@ class FeedbacksController < ApplicationController
       @feedback = current_user.sent_feedbacks.find(params[:id])
     end
 
+    def set_page_id
+      @page_id = :feedback
+    end
 end

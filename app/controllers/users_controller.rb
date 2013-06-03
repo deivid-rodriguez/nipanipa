@@ -1,4 +1,7 @@
 class UsersController < Devise::RegistrationsController
+  def new
+    @user = resource_class.new
+  end
 
   def index
     @users = resource_class.order('last_sign_in_at DESC').
@@ -6,14 +9,23 @@ class UsersController < Devise::RegistrationsController
   end
 
   def show
+    @page_id = :general
     @user = User.find(params[:id])
-    @no_feedback_link = dont_leave_feedback?(@user)
+    @given_feedback = user_signed_in? ?
+      Feedback.find_by_sender_id_and_recipient_id(current_user.id, @user.id) :
+      nil
     @feedback_pairs = @user.feedback_pairs
+  end
+
+  def edit
+    @page_id = :edit
+    render 'edit'
   end
 
   # Override default devise update action to allow blank password (meaning no
   # change)
   def update
+    @page_id = :edit
     remove_blank_password_from_params
 
     @user = User.find(current_user.id)
@@ -34,14 +46,16 @@ class UsersController < Devise::RegistrationsController
 
   private
 
-    def dont_leave_feedback?(user)
-      user_signed_in? &&
-      ( current_user == @user ||
-        Feedback.find_by_sender_id_and_recipient_id(current_user.id, @user.id) )
-    end
-
     def resource_class
       params[:type].present? ? params[:type].classify.constantize : super
+    end
+
+    def devise_mapping
+      Devise.mappings[:user]
+    end
+
+    def resource_name
+      devise_mapping.name
     end
 
     def remove_blank_password_from_params

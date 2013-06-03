@@ -1,67 +1,23 @@
 <% provide :title, @user.name %>
 
-<div class="row">
+<div class="row profile-wrapper">
 
-  <%= render 'layouts/sidebar', user: @user,
-                                no_feedback_link: @no_feedback_link %>
+  <%= render 'shared/profile_header', user: @user,
+                                      page_id: @page_id,
+                                      given_feedback: @given_feedback %>
 
-  <div class="span8">
+  <div class="span12 profile-content">
+    <div class="row profile-content-wrapper">
 
-    <div id="profile-header" class="row">
-      <% if false %>
-      <div id="profile-location">
-        <%= image_tag "http://maps.google.com/maps/api/staticmap?center=#{@user.latitude}%2C#{@user.longitude}&size=300x200&sensor=false&zoom=8", alt: "map" %>
-      </div>
-      <% end %>
+       <div id="personal-description" class="span6 box">
+         <%= render 'edit_link', user: @user %>
+         <h3><%= t '.description' %></h3>
+         <p><%= @user.description %></p>
+       </div>
 
-      <h1 id="username" class="span8">
-        <strong><%= @user.name %></strong>
-      </h1>
-
-      <div class="span8">
-        <div class="row">
-          <div class="span2 quickinfo">
-            <%= image_tag "#{@user.type.underscore}_24.png" %>
-            <%= t "activerecord.models.#{@user.type.underscore}" %>
-          </div>
-           <div class="span3 quickinfo">
-            <%= image_tag 'location.png' %>
-            <%= "#{@user.state} (#{@user.country})" %>
-          </div>
-         <div class="span3 quickinfo">
-            <%= image_tag 'languages.png' %>
-            Español, Inglés
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="profile-content" class="row">
-
-      <div id="personal-description" class="span8 box">
-        <%= render 'edit_link', user: @user %>
-        <h3><%= t '.description' %></h3>
-        <p><%= @user.description %></p>
-      </div>
-
-      <% if @user.type == 'Host' %>
-      <div id="offers" class="span8 box">
-        <%= render 'edit_link', user: @user %>
-        <h3><%= t '.available' %></h3>
-        <div>
-          <% if @user.offers.empty? %>
-            <%= t('.no_offers') %>
-          <% else %>
-            <%= render (@user.offers) %>
-          <% end %>
-        </div>
-      </div>
-      <% end %>
-
-      <%= render partial: 'feedbacks/feedbacks', object: @feedback_pairs %>
+     <%= render partial: 'feedbacks/feedbacks', object: @feedback_pairs %>
 
     </div>
+  </div>
 
-  </div> <!-- span8 -->
-
-</div> <!-- end row -->
+</div>

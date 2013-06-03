@@ -1,0 +1,17 @@
+<div class="control-group span10">
+  <label class="control-label">
+    <%= t(".title_#{user.type.underscore}") %>
+  </label>
+  <div class="controls">
+    <% 3.times do |i| %>
+      <div class="span3 checkbox-list">
+        <% f.collection_check_boxes :work_type_ids,
+                                     WorkType.where(id: 5*i+1..5*(i+1)),
+                                    :id, :name do |b| %>
+        <%= content_tag(:label, class: 'checkbox') do %>
+          <%= b.check_box + t("work_types.#{b.text}") %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

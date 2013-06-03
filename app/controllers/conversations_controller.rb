@@ -3,6 +3,7 @@ class ConversationsController < ApplicationController
   respond_to :js, only: [:reply, :destroy]
 
   before_filter :load_conversation, only: [:show, :reply, :destroy]
+  before_filter :set_page_id
 
   def index
     @conversations = current_user.non_deleted_conversations
@@ -13,8 +14,7 @@ class ConversationsController < ApplicationController
   end
 
   def new
-    @conversation = Conversation.new(offer_id: params[:offer],
-                                     to_id: params[:to])
+    @conversation = Conversation.new(to_id: params[:to])
     @conversation.messages.build
   end
 
@@ -58,5 +58,9 @@ class ConversationsController < ApplicationController
 
     def other_user
       current_user == @conversation.to ? @conversation.from : @conversation.to
+    end
+
+    def set_page_id
+      @page_id = :conversations
     end
 end

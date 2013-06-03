@@ -84,9 +84,9 @@ Spork.each_run do
 
   FactoryGirl.reload
 
-  ## Forces all threads to share the same connection. capybara-webkit starts the
-  ## web server in another thread and transactions are not shared between threads
-  ## by default.
+  # Forces all threads to share the same connection. capybara drivers start the
+  # web server in another thread and transactions are not shared between threads
+  # by default.
   ActiveRecord::ConnectionAdapters::ConnectionPool.class_eval do
     def current_connection_id
       Thread.main.object_id

@@ -3,63 +3,37 @@
 #
 
 describe 'Create a conversation' do
-  let!(:host)           { create(:host, :with_offers) }
+  let!(:host)           { create(:host) }
   let!(:volunteer)      { create(:volunteer) }
   let(:conversation)    { build(:conversation, from: volunteer, to: host) }
-  let(:new_conv_lnk)    { t('offers.offer.contact') }
   let(:create_conv_btn) { t('helpers.submit.conversation.create') }
 
+  # Force trackable hook ups and ip geolocation to happen
+  # This should be forced in creation...
   before do
     visit root_path
+    sign_in host
+    sign_out
     sign_in volunteer
     visit user_path(host)
+    click_link t('shared.profile_header.new_conversation')
   end
 
-  # XXX: Add extra functionality when associated to offer
-  context 'regarding an offer' do
-    before do
-      within("#offer-#{host.offers.first.id}") { click_link new_conv_lnk }
-    end
-
-    it 'works with invalid information' do
-      expect { click_button create_conv_btn }.
-        not_to change(Conversation, :count)
-      page.should have_flash_message t('conversations.create.error'), 'error'
-    end
-
-    it 'works with valid information' do
-      fill_in 'conversation[subject]', with: conversation.subject
-      fill_in 'conversation[messages_attributes][0][body]',
-              with: conversation.messages.first.body
-      expect { click_button create_conv_btn }.
-        to change(Conversation, :count).by(1)
-      page.should \
-        have_flash_message t('conversations.create.success'), 'success'
-    end
+  it 'works with invalid information' do
+    expect { click_button create_conv_btn }.
+      not_to change(Conversation, :count)
+    page.should have_flash_message t('conversations.create.error'), 'error'
   end
 
-  context 'not regarding an offer' do
-    before do
-      within('.nav-list') { click_link t('layouts.sidebar.new_conversation') }
-    end
-
-    it 'works with invalid information' do
-      expect { click_button create_conv_btn }.
-        not_to change(Conversation, :count)
-      page.should have_flash_message t('conversations.create.error'), 'error'
-    end
-
-    it 'works with valid information' do
-      fill_in 'conversation[subject]', with: conversation.subject
-      fill_in 'conversation[messages_attributes][0][body]',
-              with: conversation.messages.first.body
-      expect { click_button create_conv_btn }.
-        to change(Conversation, :count).by(1)
-      page.should \
-        have_flash_message t('conversations.create.success'), 'success'
-    end
+  it 'works with valid information' do
+    fill_in 'conversation[subject]', with: conversation.subject
+    fill_in 'conversation[messages_attributes][0][body]',
+            with: conversation.messages.first.body
+    expect { click_button create_conv_btn }.
+      to change(Conversation, :count).by(1)
+    page.should \
+      have_flash_message t('conversations.create.success'), 'success'
   end
-
 end
 
 describe 'Listing user conversations' do
@@ -68,7 +42,7 @@ describe 'Listing user conversations' do
   before do
     visit root_path
     sign_in conversation.from
-    click_link t('layouts.sidebar.show_conversations')
+    click_link t('shared.profile_header.conversations')
   end
 
   it 'properly lists user conversations' do

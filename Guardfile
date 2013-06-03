@@ -31,6 +31,7 @@ guard :rspec, keep_failed: true, all_on_start: true, :cli => '--drb --colour' do
                        "spec/features/#{m[1].singularize}_pages_spec.rb")]
   end
   watch('app/controllers/application_controller.rb') { "spec/controllers" }
+  watch('app/helpers/application_helper.rb') { 'spec/features' }
 
   # Capybara features specs
   watch(%r{^app/views/(.+)/}) do |m|

@@ -1,0 +1,21 @@
+<% provide :title, t('.title') %>
+
+<div class="row profile-wrapper">
+
+  <%= render 'shared/profile_header', user: @user,
+                                      page_id: @page_id,
+                                      given_feedback: @given_feedback %>
+
+  <div class="span8">
+
+    <% if @feedback_pairs.empty? %>
+      <div class="offset3 no-elements">
+        <em><%= t('.nofeedback') %></em>
+      </div>
+    <% else %>
+     <%= render partial: 'feedbacks/feedbacks', object: @feedback_pairs %>
+   <% end %>
+
+  </div>
+
+</div>

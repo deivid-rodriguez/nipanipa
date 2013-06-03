@@ -5,8 +5,10 @@ class User < ActiveRecord::Base
   ROLES = %w["admin", "non-admin"]
 
   # accessible (or protected) attributes
-  attr_accessible :country, :description, :email, :karma, :name, :password,
-                  :password_confirmation, :remember_me, :state
+  attr_accessible :country, :description, :email, :karma,
+                  :language_skills_attributes, :name, :password,
+                  :password_confirmation, :remember_me, :skills, :state,
+                  :work_type_ids
 
   # validations
   validates :description, length: { maximum: 2500 }
@@ -25,6 +27,13 @@ class User < ActiveRecord::Base
 
   # associations
   has_many :donations
+
+  has_many :sectorizations
+  has_many :work_types, through: :sectorizations
+
+  has_many :language_skills
+  accepts_nested_attributes_for :language_skills
+  has_many :languages, through: :language_skills
 
   has_many :sent_feedbacks,
             class_name: 'Feedback',

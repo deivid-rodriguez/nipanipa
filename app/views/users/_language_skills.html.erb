@@ -1,0 +1,9 @@
+<div class="control-group span10">
+  <label class="control-label">
+    <%= t('.title') %>
+  </label>
+  <%= f.simple_fields_for :language_skills %>
+  <div class="controls">
+    <%= f.link_to_add t('.add_language'), :language_skills %>
+  </div>
+</div>

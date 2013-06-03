@@ -1,7 +1,7 @@
 class Offer < ActiveRecord::Base
   attr_accessible :accomodation, :days_per_week, :description, :end_date,
                   :hours_per_day, :min_stay, :max_candidates, :start_date,
-                  :title, :vacancies, :work_type_ids
+                  :title, :vacancies
 
   validates :accomodation, presence: true
   validates :description, presence: true
@@ -10,9 +10,6 @@ class Offer < ActiveRecord::Base
 
   belongs_to :host
   has_many :candidates, class_name: 'Volunteer'
-
-  has_many :sectorizations
-  has_many :work_types, through: :sectorizations
 
   has_many :conversations
 

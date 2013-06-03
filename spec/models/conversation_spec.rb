@@ -18,8 +18,6 @@ describe Conversation do
 
   it { should accept_nested_attributes_for(:messages) }
 
-  it { should belong_to(:offer) }
-
   it { should belong_to(:from).class_name('User') }
   it { should belong_to(:to).class_name('User') }
 

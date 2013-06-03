@@ -11,11 +11,17 @@ es:
     error_notification:
       default_message: "Por favor, revise los problemas que siguen:"
     labels:
+      defaults:
+        accomodation: "Describe el tipo de alojamiento que ofreces a tus
+voluntarios"
       user:
         name: "Nombre de Usuario"
         email: "Correo Electrónico"
         password: "Contraseña"
         password_confirmation: "Confirmar contraseña"
+        language_skills:
+          language: "Idioma2"
+          level: "Nivel3"
       conversation:
         subject: "Asunto"
       message:

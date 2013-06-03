@@ -11,13 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130521162103) do
+ActiveRecord::Schema.define(:version => 20130530131230) do
 
   create_table "conversations", :force => true do |t|
     t.string   "subject"
     t.integer  "from_id"
     t.integer  "to_id"
-    t.integer  "offer_id"
     t.string   "status"
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
@@ -45,6 +44,21 @@ ActiveRecord::Schema.define(:version => 20130521162103) do
   add_index "feedbacks", ["sender_id", "recipient_id"], :name => "index_feedbacks_on_sender_id_and_recipient_id", :unique => true
   add_index "feedbacks", ["sender_id", "updated_at"], :name => "index_feedbacks_on_sender_id_and_updated_at"
 
+  create_table "language_skills", :force => true do |t|
+    t.integer "user_id"
+    t.integer "language_id"
+    t.string  "level"
+  end
+
+  add_index "language_skills", ["language_id"], :name => "index_language_skills_on_language_id"
+  add_index "language_skills", ["user_id", "language_id"], :name => "index_language_skills_on_user_id_and_language_id", :unique => true
+  add_index "language_skills", ["user_id"], :name => "index_language_skills_on_user_id"
+
+  create_table "languages", :force => true do |t|
+    t.string "code", :limit => 2
+    t.string "name"
+  end
+
   create_table "messages", :force => true do |t|
     t.text     "body"
     t.integer  "from_id"
@@ -54,28 +68,13 @@ ActiveRecord::Schema.define(:version => 20130521162103) do
     t.datetime "updated_at",      :null => false
   end
 
-  create_table "offers", :force => true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.text     "accomodation"
-    t.integer  "vacancies"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.integer  "min_stay"
-    t.integer  "hours_per_day"
-    t.integer  "days_per_week"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-    t.integer  "host_id"
-  end
-
   create_table "sectorizations", :force => true do |t|
-    t.integer "offer_id"
+    t.integer "user_id"
     t.integer "work_type_id"
   end
 
-  add_index "sectorizations", ["offer_id", "work_type_id"], :name => "index_sectorizations_on_user_id_and_work_type_id", :unique => true
-  add_index "sectorizations", ["offer_id"], :name => "index_sectorizations_on_user_id"
+  add_index "sectorizations", ["user_id", "work_type_id"], :name => "index_sectorizations_on_user_id_and_work_type_id", :unique => true
+  add_index "sectorizations", ["user_id"], :name => "index_sectorizations_on_user_id"
   add_index "sectorizations", ["work_type_id"], :name => "index_sectorizations_on_work_type_id"
 
   create_table "users", :force => true do |t|
@@ -100,6 +99,11 @@ ActiveRecord::Schema.define(:version => 20130521162103) do
     t.string   "name"
     t.text     "description"
     t.integer  "karma",                  :default => 0
+    t.text     "accomodation"
+    t.text     "skills"
+    t.integer  "min_stay"
+    t.integer  "hours_per_day"
+    t.integer  "days_per_week"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

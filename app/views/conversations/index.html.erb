@@ -1,20 +1,15 @@
 <% provide :title, t('.title') %>
 
-<div class="row">
+<div class="row profile-wrapper">
 
-  <%= render 'layouts/sidebar', user: current_user,
-                                no_feedback_link: true %>
+  <%= render 'shared/profile_header', user: current_user, page_id: @page_id %>
 
   <div class="span8">
 
-    <div id="username">
-      <h1 >
-        <strong><%= t('.header') %></strong>
-      </h1>
-    </div>
-
     <% if @conversations.empty? %>
-      <%= t('.nomessages') %>
+      <div class="offset3 no-elements">
+        <em><%= t('.nomessages') %></em>
+      </div>
     <% else %>
       <ul class="conversation-list">
       <% for conversation in @conversations %>

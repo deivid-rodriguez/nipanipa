@@ -9,7 +9,7 @@ feature 'Host profile creation' do
   background { visit new_user_registration_path(type: 'host') }
 
   scenario 'signup page has proper content' do
-    page.should have_selector 'h1', text: t('users.form.header',
+    page.should have_selector 'h1', text: t('users.new.header',
                                             type: t('activerecord.models.host'))
     page.should have_title full_title(t 'users.new.title')
     page.should have_link 'NiPaNiPa'
@@ -47,7 +47,7 @@ feature 'Volunteer profile creation' do
 
   scenario 'signup page has proper content' do
     page.should \
-      have_selector 'h1', text: t('users.form.header',
+      have_selector 'h1', text: t('users.new.header',
                                   type: t('activerecord.models.volunteer'))
     page.should have_title full_title(t 'users.new.title')
     page.should have_link 'NiPaNiPa'
@@ -81,7 +81,6 @@ feature 'User profile display' do
   given(:feedback)     { create(:feedback)  }
   given(:sender)       { feedback.sender    }
   given(:recipient)    { feedback.recipient }
-  given(:feedback_lnk) { t('layouts.sidebar.leave_feedback') }
 
   # Force trackable hook ups and ip geolocation to happen
   # This should be forced in creation...
@@ -97,32 +96,32 @@ feature 'User profile display' do
            'feedbacks and count' do
     sign_in recipient
 
-    page.should have_selector('h1', text: recipient.name)
+    page.should have_selector('div.username', text: recipient.name)
     page.should have_title recipient.name
     page.should have_content(recipient.description)
     page.should have_content(feedback.content)
     page.should have_content(recipient.received_feedbacks.count)
-    page.should_not have_link feedback_lnk
+    page.should_not have_link t('users.show.new_feedback')
+    page.should_not have_link t('users.show.edit_feedback')
   end
 
   scenario 'when visitor not signed in' do
     visit user_path sender
-    page.should_not have_selector 'li', text: t('layouts.sidebar.profile')
-    page.should_not have_selector 'li', text: t('layouts.sidebar.actions')
+    # It should show something to encourage registration
   end
 
   scenario 'when user signed in and looking at another user\'s profile whom ' \
            'he has already left feedback' do
     sign_in sender
     visit user_path recipient
-    page.should_not have_link feedback_lnk
+    page.should have_link t('shared.profile_header.edit_feedback')
   end
 
   scenario 'when user signed in & looking at another user\'s whom feedback ' \
            'is to be given' do
     sign_in recipient
     visit user_path sender
-    page.should have_link feedback_lnk
+    page.should have_link t('shared.profile_header.new_feedback')
   end
 end
 
@@ -154,7 +153,6 @@ feature 'User profile editing' do
   end
 
   scenario 'profile page has correct header, title and links' do
-    page.should have_selector 'h1', text: t('users.edit.header')
     page.should have_title t('users.edit.title')
     page.should have_link 'change', href: 'http://gravatar.com/emails'
   end

@@ -9,8 +9,11 @@ feature "Creating feedbacks" do
 
   background do
     visit root_path
+    sign_in other_user
+    sign_out
     sign_in user
-    visit new_user_feedback_path(other_user)
+    visit user_path(other_user)
+    click_link t('shared.profile_header.new_feedback')
   end
 
   scenario "with invalid information" do
@@ -21,7 +24,7 @@ feature "Creating feedbacks" do
   scenario "with valid information" do
     fill_in 'feedback_content', with: "Lorem ipsum"
     expect { click_button feedback_btn }.to change(Feedback, :count).by(1)
-    page.should have_selector 'h1', text: other_user.name
+    page.should have_selector 'div.username', text: other_user.name
     page.should have_flash_message t('feedbacks.create.success'), 'success'
   end
 end
@@ -49,7 +52,7 @@ feature "Editing feedbacks" do
     click_button feedback_btn
 
     feedback.reload.content.should == "New opinion"
-    page.should have_selector 'h1', text: feedback.sender.name
+    page.should have_selector 'div.username', text: feedback.sender.name
     page.should have_flash_message t('feedbacks.update.success'), 'success'
   end
 
@@ -66,7 +69,7 @@ feature "Destroying feedbacks" do
   scenario "successfully" do
     expect { page.find("#feedback-#{feedback.id}").click_link('Borrar')
     }.to change(Feedback, :count).by(-1)
-    page.should have_selector 'h1', text: feedback.sender.name
+    page.should have_selector 'div.username', text: feedback.sender.name
     page.should_not have_css "div#feedback-#{feedback.id}"
     page.should have_flash_message t('feedbacks.destroy.success'), 'success'
   end

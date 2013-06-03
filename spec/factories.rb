@@ -31,68 +31,58 @@ FactoryGirl.define do
     sequence(:name) { |n| "Volunteer #{n}" }
     sequence(:email) { |n| "nipanipa.test+volunteer#{n}@gmail.com" }
     password 'foobar'
-    description 'I am a test host. I live in a little house in the countryside'
+    description 'I am a test volunteer. I live in a big city full of noise' \
+                'and pollution'
+    skills 'What can you do? What kind of tasks are you good at?'
+
+    trait :with_work_type do
+      after(:build) do |v|
+        v.work_types << FactoryGirl.build(:work_type)
+      end
+      before(:create) do |v|
+        v.work_types.each { |wt| wt.save! }
+      end
+    end
+
+    trait :with_language do
+      after(:build) do |v|
+        v.languages << FactoryGirl.buid(:language)
+      end
+      before(:create) do |v|
+        v.languages.each { |l| l.save! }
+      end
+    end
   end
 
   factory :host do
     sequence(:name) { |n| "Host #{n}" }
     sequence(:email) { |n| "nipanipa.test+host#{n}@gmail.com" }
     password 'foobar'
-    description 'I am a test volunteer. I live in a big city full of noise' \
-                'and pollution'
-
-    trait :with_offers do
-      ignore do
-        count 1
-      end
-      after(:create) do |h, eval|
-        FactoryGirl.create_list(:offer, eval.count, host: h)
-      end
-    end
-
-    factory :active_host, traits: [:with_offers]
-  end
-
-  factory :offer do
-    title 'This is a sample job/volunteer/callitX offer'
-    description 'This is supposed to be a longer text to describe the offer. ' \
-                'What is the job going like? What kind of tasks do you need '  \
-                'to get done?'
-    accomodation 'This will describe the accomodation'
-    vacancies 1
-
-    trait :complete do
-      hours_per_day 4
-      days_per_week 5
-      min_stay 1
-    end
-
-    trait :open do
-      start_date { Time.now }
-      end_date nil
-    end
-
-    trait :active do
-      start_date { Time.now }
-      end_date { start_date + 3.months }
-    end
-
-    trait :inactive do
-      start_date { 1.month.from_now }
-      end_date { start_date + 3.months }
-    end
-
-    trait :expired do
-      end_date { Time.now - 1.month }
-      start_date { end_date - 3.months }
-    end
+    description 'I am a test host. I live in a little house in the countryside'
+    skills 'This is supposed to be a longer text to describe the '        \
+           'volunteering What is the job going to be like? What kind of ' \
+           'tasks do you need to get done?'
+    accomodation 'The kind of accomodation you will be providing your ' \
+                 'volunteers.'
+    hours_per_day 4
+    days_per_week 5
+    min_stay 1
 
     trait :with_work_type do
-      after(:build) do |o|
-        o.work_types << FactoryGirl.build(:work_type)
+      after(:build) do |h|
+        h.work_types << FactoryGirl.build(:work_type)
       end
-      before(:create) do |o|
-        o.work_types.each { |wt| wt.save! }
+      before(:create) do |h|
+        h.work_types.each { |wt| wt.save! }
+      end
+    end
+
+    trait :with_language do
+      after(:build) do |h|
+        h.languages << FactoryGirl.buid(:language)
+      end
+      before(:create) do |h|
+        h.languages.each { |l| l.save! }
       end
     end
   end
@@ -102,7 +92,6 @@ FactoryGirl.define do
     association :from, factory: :volunteer
     association :to, factory: :host
     status 'pending'
-    association :offer
     after(:build) do |c|
       c.messages.build(body: 'This is a sample body', to_id: c.to.id, from_id: c.from.id)
     end
@@ -131,8 +120,17 @@ FactoryGirl.define do
   end
 
   factory :sectorization do
-    association :offer
+    association :user
     association :work_type
   end
 
+  factory :language do
+    code 'EN'
+    name 'English'
+  end
+
+  factory :language_skill do
+    association :user
+    association :language
+  end
 end

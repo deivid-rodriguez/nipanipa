@@ -1,41 +1,60 @@
-<%= simple_form_for resource, as: resource_name,
-                              url: registration_path(resource_name),
-                              html: { class: 'form-horizontal' } do |f| %>
-
-  <div class="control-group">
-    <h1 class="control-label">
-      <%= t '.header', type: t("activerecord.models.#{user.type.underscore}") %>
-    </h1>
-    <div class="controls">
-      <%= image_tag "#{user.type.underscore}_big.png" %>
-    </div>
-  </div>
+<div class="row">
+  <%= simple_nested_form_for resource,
+                             as: resource_name,
+                             url: registration_path(resource_name),
+                             html: { class: 'form-horizontal offset1 span10' },
+                             defaults: { wrapper_html: { class: 'span5' },
+                                         placeholder: false } do |f| %>
 
   <%= hidden_field_tag :type, user.type %>
 
-  <%= f.input :name %>
+  <div class="row">
+    <%= f.input :name %>
+    <%= f.input :email %>
+  </div>
 
-  <%= f.input :email, placeholder: false %>
+  <div class="row">
+    <%= f.input :password, hint: (user.errors ? false : true) %>
+    <%= f.input :password_confirmation %>
+  </div>
 
-  <% if user.errors %>
-  <%= f.input :password, hint: false, placeholder: false %>
-  <% else %>
-  <%= f.input :password, placeholder: false %>
+  <div class="row">
+    <%= f.input :description, label: t(".description_#{user.type.underscore}"),
+                              wrapper_html: { class: 'span10' } %>
+   </div>
+
+  <div class="row">
+    <%= render 'language_skills', f: f %>
+  </div>
+
+  <div class="row">
+    <%= render 'work_types', f: f, user: user %>
+  </div>
+
+  <div class="row">
+    <%= f.input :skills, label: t(".skills_#{user.type.underscore}"),
+                          wrapper_html: { class: 'span10' } %>
+  </div>
+
+  <% if user.type == "Host" %>
+    <div class="row">
+      <%= f.input :accomodation, wrapper_html: { class: 'span10' } %>
+    </div>
   <% end %>
 
-  <%= f.input :password_confirmation %>
-
-  <%= f.input :description,
-              label: t("users.desc_label_#{user.type.underscore}") %>
-
   <!-- Provisional until handling pictures -->
-  <label class="control-label"><%= t('.picture') %></label>
-  <div class="controls">
-    <%= gravatar_for @user %>
-    <%= link_to 'change', 'http://gravatar.com/emails', target: '_blank' %>
+  <div class="row">
+    <div class="control-group span10">
+      <label class="control-label"><%= t('.picture') %></label>
+      <div class="controls">
+        <%= gravatar_for @user %>
+        <%= link_to 'change', 'http://gravatar.com/emails', target: '_blank' %>
+      </div>
+    </div>
   </div>
 
   <%= f.button :submit, model: t('activerecord.models.user'),
                         class: "signup-button pull-right" %>
 
 <% end %>
+</div>

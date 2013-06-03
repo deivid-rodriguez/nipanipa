@@ -5,4 +5,8 @@ class WorkType < ActiveRecord::Base
   has_many :users, through: :sectorizations
 
   validates :name, presence: true
+
+  def to_s
+    I18n.translate("work_types.#{name}")
+  end
 end

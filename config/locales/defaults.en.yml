@@ -140,8 +140,6 @@ en:
       user:
         create: "Create user"
         update: "Update user"
-      offer:
-        create: "Create offer"
       feedback:
         create: "Leave a new reference"
         update: "Edit reference"

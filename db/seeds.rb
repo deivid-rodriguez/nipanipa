@@ -1,24 +1,98 @@
 # This file should contain all the record creation needed to seed the database
-# with its default values. The data can then be loaded with the rake db:seed (or
-# created alongside the db with db:setup)
+# with its default values. The data can then be loaded with the rake db:seed  or
+# created alongside the db with db:setup
 #
 # Examples:
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+#   cities = City.create [{ name: 'Chicago' }, { name: 'Copenhagen' }]
+#   Mayor.create name: 'Emanuel', city: cities.first
 
 # Create default job sectors
-WorkType.create(name: 'gardening')
-WorkType.create(name: 'babysitting')
-WorkType.create(name: 'cooking')
-WorkType.create(name: 'farming')
-WorkType.create(name: 'housekeeping')
-WorkType.create(name: 'tourism')
-WorkType.create(name: 'language_exchange')
-WorkType.create(name: 'teaching')
-WorkType.create(name: 'construction')
-WorkType.create(name: 'elderly_care')
-WorkType.create(name: 'animal_care')
-WorkType.create(name: 'humanitarian_aid')
-WorkType.create(name: 'technical_assistance')
-WorkType.create(name: 'art_project')
-WorkType.create(name: 'other')
+WorkType.create name: 'gardening'
+WorkType.create name: 'babysitting'
+WorkType.create name: 'cooking'
+WorkType.create name: 'farming'
+WorkType.create name: 'housekeeping'
+WorkType.create name: 'tourism'
+WorkType.create name: 'language_exchange'
+WorkType.create name: 'teaching'
+WorkType.create name: 'construction'
+WorkType.create name: 'elderly_care'
+WorkType.create name: 'animal_care'
+WorkType.create name: 'humanitarian_aid'
+WorkType.create name: 'technical_assistance'
+WorkType.create name: 'art_project'
+WorkType.create name: 'other'
+
+# Create default languages
+Language.create name: 'Afrikaans', code: 'AF'
+Language.create name: 'Albanian', code: 'SQ'
+Language.create name: 'Arabic', code: 'AR'
+Language.create name: 'Armenian', code: 'HY'
+Language.create name: 'Basque', code: 'EU'
+Language.create name: 'Bengali', code: 'BN'
+Language.create name: 'Bulgarian', code: 'BG'
+Language.create name: 'Catalan', code: 'CA'
+Language.create name: 'Cambodian', code: 'KM'
+Language.create name: 'Chinese', code: 'ZH'
+Language.create name: 'Croatian', code: 'HR'
+Language.create name: 'Czech', code: 'CS'
+Language.create name: 'Danish', code: 'DA'
+Language.create name: 'Dutch', code: 'NL'
+Language.create name: 'English', code: 'EN'
+Language.create name: 'Estonian', code: 'ET'
+Language.create name: 'Fiji', code: 'FJ'
+Language.create name: 'Finnish', code: 'FI'
+Language.create name: 'French', code: 'FR'
+Language.create name: 'Georgian', code: 'KA'
+Language.create name: 'German', code: 'DE'
+Language.create name: 'Greek', code: 'EL'
+Language.create name: 'Gujarati', code: 'GU'
+Language.create name: 'Hebrew', code: 'HE'
+Language.create name: 'Hindi', code: 'HI'
+Language.create name: 'Hungarian', code: 'HU'
+Language.create name: 'Icelandic', code: 'IS'
+Language.create name: 'Indonesian', code: 'ID'
+Language.create name: 'Irish', code: 'GA'
+Language.create name: 'Italian', code: 'IT'
+Language.create name: 'Japanese', code: 'JA'
+Language.create name: 'Javanese', code: 'JW'
+Language.create name: 'Korean', code: 'KO'
+Language.create name: 'Latin', code: 'LA'
+Language.create name: 'Latvian', code: 'LV'
+Language.create name: 'Lithuanian', code: 'LT'
+Language.create name: 'Macedonian', code: 'MK'
+Language.create name: 'Malay', code: 'MS'
+Language.create name: 'Malayalam', code: 'ML'
+Language.create name: 'Maltese', code: 'MT'
+Language.create name: 'Maori', code: 'MI'
+Language.create name: 'Marathi', code: 'MR'
+Language.create name: 'Mongolian', code: 'MN'
+Language.create name: 'Nepali', code: 'NE'
+Language.create name: 'Norwegian', code: 'NO'
+Language.create name: 'Persian', code: 'FA'
+Language.create name: 'Polish', code: 'PL'
+Language.create name: 'Portuguese', code: 'PT'
+Language.create name: 'Punjabi', code: 'PA'
+Language.create name: 'Quechua', code: 'QU'
+Language.create name: 'Romanian', code: 'RO'
+Language.create name: 'Russian', code: 'RU'
+Language.create name: 'Samoan', code: 'SM'
+Language.create name: 'Serbian', code: 'SR'
+Language.create name: 'Slovak', code: 'SK'
+Language.create name: 'Slovenian', code: 'SL'
+Language.create name: 'Spanish', code: 'ES'
+Language.create name: 'Swahili', code: 'SW'
+Language.create name: 'Swedish', code: 'SV'
+Language.create name: 'Tamil', code: 'TA'
+Language.create name: 'Tatar', code: 'TT'
+Language.create name: 'Telugu', code: 'TE'
+Language.create name: 'Thai', code: 'TH'
+Language.create name: 'Tibetan', code: 'BO'
+Language.create name: 'Tonga', code: 'TO'
+Language.create name: 'Turkish', code: 'TR'
+Language.create name: 'Ukrainian', code: 'UK'
+Language.create name: 'Urdu', code: 'UR'
+Language.create name: 'Uzbek', code: 'UZ'
+Language.create name: 'Vietnamese', code: 'VI'
+Language.create name: 'Welsh', code: 'CY'
+Language.create name: 'Xhosa', code: 'XH'
