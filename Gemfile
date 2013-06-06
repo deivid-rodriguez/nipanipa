@@ -20,8 +20,7 @@ group :development, :test do
   gem 'rspec-rails', '2.13.2'
   gem 'guard-rspec', '3.0.1'
   gem 'guard-spork', '1.5.0'
-  gem 'byebug', '1.3.1'
-  gem 'pry-rails', '0.3.0'
+  gem 'pry-byebug', '1.1.0'
 end
 
 # Used only for assets and not required in production environments by default.
