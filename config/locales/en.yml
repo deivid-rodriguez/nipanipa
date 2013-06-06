@@ -4,6 +4,23 @@ en:
       currently_logged_in: "Now online!"
       last_login: "Last login"
     not_specified: "Not specified"
+    profile_header:
+      type: "I am a "
+      location: "Location"
+      last_login: "Last access"
+      member_since: "Member since"
+      categories: "Categories"
+      languages: "Languages"
+      unknown: "Unkown"
+      general: "General"
+      conversations: "Messages"
+      feedback: "Feeback"
+      pictures: "Pictures"
+      edit: "Edit profile"
+      new_conversation: "New message"
+      new_feedback: "Leave a reference"
+      edit_feedback: "Change your reference"
+      report_user: "Alert about this user"
   static_pages:
     help:
       title: "Help"
@@ -41,9 +58,12 @@ It won't take you more than five minutes."
       title: "New reference"
       header: "New reference for %{username}"
     create:
-      success: "You left a new reference!"
-      error: "There was an error when creating the reference... :("
-    feedbacks: "References"
+      success: "Has dejado una nueva referencia!"
+      error: "Error al crear la nueva referencia... :("
+    index:
+    feedbacks:
+      title: "Feedback"
+      nofeedback: "There are no feedbacks yet"
     received:
       one: "1 received"
       other: "%{count} received"
@@ -52,7 +72,7 @@ It won't take you more than five minutes."
       other: "%{count} sent"
     feedback:
       from: "From %{name}"
-      to: "To %{name}"
+      to: "TO %{name}"
     edit:
       title: "Edit reference"
       header: "Edit reference for %{username}"
@@ -70,7 +90,6 @@ than 300 characters"
       error: "There was an error sending the message"
     index:
       title: "My conversations"
-      header: "My conversations"
       nomessages: "No messages"
     show:
       reply: "Reply"
@@ -79,44 +98,35 @@ than 300 characters"
     reply:
       error: "Error sending the message..."
   users:
-    desc_label_host: "Tell your future volunteers something about
-yourself or your family."
-    desc_label_volunteer: "Tell your future host something about
-yourself"
-    work_desc_label: "What the volunteer job is going to be like?"
-    work_types_label_host: "In which areas would you qualify the tasks you are
-proposing?"
-    work_types_label_volunteer: "In which of these areas would you like to
-work?"
+    form:
+      description_host: "Tell your future volunteers something about yourself
+or your family."
+      description_volunteer: "Tell your future host something about yourself"
+      skills_host: "Describe the tasks the volunteer will assume"
+      skills_volunteer: "What are your skills? What can you do? Why would a
+host be interested in you?"
+    picture: "Profile picture"
+    language_skills:
+      title: "Which languages can you speak?"
+      add_language: "add language"
+    language_skill_fields:
+      language: "Language"
+      level: "Level"
+      remove_language: "remove language"
+    work_types:
+      title_host: "Pick the job categories which apply to your offer"
+      title_volunteer: "Pick the type/s of job you're looking for"
     new:
       title: "Sign up"
       already_registered: "¿Already registered?"
       personal_desc: "About you"
       work_type: "Type of Work"
-      work_types:
-        gardening: "Gardening"
-        babysitting: "Babysitting"
-        cooking: "Cooking"
-        farming: "Farming"
-        housekeeping: "Housekeeping"
-        tourism: "Tourism"
-        language_exchange: "Language exchange"
-        teaching: "Teaching"
-        construction: "Construction"
-        elderly_care: "Elderly Care"
-        animal_care: "Animal Care"
-        humanitarian_aid: "Humanitarian Aid"
-        technical_assistance: "I.T."
-        art_project: "Artistic Project"
-        other: "Other"
-    form:
-      picture: "Profile picture"
-      header: "%{type} register"
     show:
-      profile: "My profile"
-      member_since: "Member since"
-      description: "About me"
-      available: "Available volunteerings"
+      profile: "Mi perfil"
+      description: "Sobre mí"
+      accomodation: "Alojamiento"
+      skills_host: "Skills required / Volunteering description"
+      skills_volunteer: "Skills offered / Volunteering searched"
     edit:
       title: "Profile update"
       header: "Update your profile"
@@ -130,6 +140,22 @@ work?"
       all_users: "All users"
     user:
       karma: "karma"
+  work_types:
+    gardening: "Gardening"
+    babysitting: "Babysitting"
+    cooking: "Cooking"
+    farming: "Farming"
+    housekeeping: "Housekeeping"
+    tourism: "Tourism"
+    language_exchange: "Language exchange"
+    teaching: "Teaching"
+    construction: "Construction"
+    elderly_care: "Elderly Care"
+    animal_care: "Animal Care"
+    humanitarian_aid: "Humanitarian Aid"
+    technical_assistance: "I.T."
+    art_project: "Artistic Project"
+    other: "Other"
   sessions:
     new:
       newuser?: "New user?"

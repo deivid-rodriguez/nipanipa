@@ -9,13 +9,33 @@
   <div class="span12 profile-content">
     <div class="row profile-content-wrapper">
 
-       <div id="personal-description" class="span6 box">
-         <%= render 'edit_link', user: @user %>
-         <h3><%= t '.description' %></h3>
-         <p><%= @user.description %></p>
-       </div>
+      <div class="span6">
+        <div id="personal-description" class="box">
+          <%= render 'edit_link', user: @user %>
+          <h3><%= t '.description' %></h3>
+          <p><%= @user.description %></p>
+        </div>
 
-     <%= render partial: 'feedbacks/feedbacks', object: @feedback_pairs %>
+        <div class="box">
+          <%= render partial: 'feedbacks/feedbacks', object: @feedback_pairs %>
+        </div>
+      </div>
+
+      <div class="span6">
+        <div class="box">
+          <%= render 'edit_link', user: @user %>
+          <h3><%= t ".skills_#{@user.type.underscore}" %></h3>
+          <p><%= @user.skills %></p>
+        </div>
+
+        <% if @user.type == "Host" %>
+          <div class="box">
+            <%= render 'edit_link', user: @user %>
+            <h3><%= t ".accomodation" %></h3>
+            <p><%= @user.accomodation %></p>
+          </div>
+        <% end %>
+      </div>
 
     </div>
   </div>

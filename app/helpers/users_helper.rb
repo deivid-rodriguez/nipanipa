@@ -19,7 +19,7 @@ module UsersHelper
   end
 
   def feedback_count(feedbacks)
-    "#{t 'feedbacks.feedbacks'} " \
+    "#{t 'feedbacks.feedbacks.title'} " \
     "( #{t 'feedbacks.received', count: @feedback_pairs.count{ |f| !f[0].nil? }}" \
     ", #{t 'feedbacks.sent', count: @feedback_pairs.count{ |f| !f[1].nil? }} )"
   end

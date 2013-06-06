@@ -103,7 +103,7 @@
                 <em><%= t('.unknown') %></em>
               <% else %>
                 <% user.language_skills.each do |ls| %>
-                  <%= "#{ls.language.name} (#{ls.level})" %><br />
+                  <%= "#{ls.language.name} (#{ls.level.text})" %><br />
                 <% end %>
               <% end %>
             </div>

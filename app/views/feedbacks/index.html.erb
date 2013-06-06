@@ -6,16 +6,12 @@
                                       page_id: @page_id,
                                       given_feedback: @given_feedback %>
 
-  <div class="span8">
+  <div class="span12 profile-content">
+    <div class="row profile-content-wrapper">
 
-    <% if @feedback_pairs.empty? %>
-      <div class="offset3 no-elements">
-        <em><%= t('.nofeedback') %></em>
+      <div class="span7 box">
+         <%= render partial: 'feedbacks/feedbacks', object: @feedback_pairs %>
       </div>
-    <% else %>
-     <%= render partial: 'feedbacks/feedbacks', object: @feedback_pairs %>
-   <% end %>
 
-  </div>
-
+    </div>
 </div>

@@ -141,8 +141,10 @@ en:
         create: "Create user"
         update: "Update user"
       feedback:
-        create: "Leave a new reference"
+        create: "Leave new reference!"
         update: "Edit reference"
+      conversation:
+        create: "Start a conversation"
   number:
     currency:
       format:

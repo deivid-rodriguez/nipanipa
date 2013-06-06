@@ -63,8 +63,9 @@ cuéntanos lo que pasa después!"
       success: "Has dejado una nueva referencia!"
       error: "Error al crear la nueva referencia... :("
     index:
+    feedbacks:
+      title: "Referencias"
       nofeedback: "No hay ninguna referencia"
-    feedbacks: "Referencias"
     received:
       one: "1 recibida"
       other: "%{count} recibidas"
@@ -124,11 +125,12 @@ oferta"
       already_registered: "¿Ya estás registrado?"
       personal_desc: "Sobre ti"
       work_type: "Tipo de trabajo"
-      header: "Registro de %{type}"
     show:
       profile: "Mi perfil"
       description: "Sobre mí"
-      available: "Voluntariados disponibles"
+      accomodation: "Alojamiento"
+      skills_host: "Habilidades requeridas / descripción del voluntariado"
+      skills_volunteer: "Habilidades / tipo de voluntariado buscado"
     edit:
       title: "Actualización de perfil"
       header: "Actualiza tu perfil"

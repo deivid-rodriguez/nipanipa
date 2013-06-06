@@ -14,8 +14,8 @@
 }
 
 .signup-form {
-  padding: 20px 0px;
   margin-left: 0px;
+  padding: 20px 0px;
   textarea {
     height: 150px;
   }
@@ -64,9 +64,9 @@
 
 /* users profile */
 .profile-wrapper {
+  margin-left: 0px;
   text-align: left;
   background: $white;
-  margin-left: 0px;
   padding-bottom: 20px;
 }
 
@@ -149,40 +149,30 @@ div, li {
   }
 }
 
-/* using css3 for round corners and shadow effect (only firefox chrome and safari) */
-.profile-content .box {
-    border: 1px solid $grayVeryLight;
-    @include border_radius;
-    padding: 0.8em;
-    margin-bottom: 1.2em;
-    margin-left: 0;
-    margin-top: 0;
-    background: $graySuperLight;
-    @include box_shadow;
-}
-.profile-content #linkpath div.profile{
-    margin-right: 5px;
-}
-.profile-content #linkpath div.connection{
-    margin-right: 5px;
-    margin: 15px 5px 0 0;
-    vertical-align: middle;
-}
-
-.profile-content .box h3, #profile-content #linkpath h3 {
-    margin-bottom: 0.3em;
-    color: #333;
-    border-bottom: 1px solid $grayVeryLight;
-    font-size: 16px;
-}
-
-.profile-content #profile-edit-form fieldset td{
-  vertical-align: top;
-}
-
-.profile-content #profile-edit-form fieldset td.label{
-  vertical-align: top;
-  padding-top: 0.7em;
+.profile-content {
+  margin-left: 0px;
+  .profile-content-wrapper {
+    margin: 10px 0px;
+    .span6 {
+      margin-left: 0px;
+      .box {
+        margin: 20px;
+        width: 440px;
+        border: 1px solid $grayVeryLight;
+        @include border_radius;
+        @include box_sizing;
+        padding: 0.8em;
+        background: $graySuperLight;
+        @include box_shadow;
+        h3 {
+          margin-bottom: 0.3em;
+          color: #333;
+          border-bottom: 1px solid $grayVeryLight;
+          font-size: 16px;
+        }
+      }
+    }
+  }
 }
 
 /* colors for comment quality */
@@ -253,16 +243,16 @@ div.comment {
   }
 }
 
-
 /* user feedbacks */
-.feedbacks {
+ol.feedbacks {
+  margin: 0;
   list-style: none;
-  margin: 10px 0 0 0;
   li {
     padding: 10px;
+    margin-bottom: 10px;
+
     border: 1px solid #e8e8e8;
     @include box_sizing;
-    margin-bottom: 10px;
     div.feedback {
       position: relative;
       div.time_ago {
