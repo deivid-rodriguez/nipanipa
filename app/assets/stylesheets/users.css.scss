@@ -19,10 +19,6 @@
   textarea {
     height: 150px;
   }
-  .user_language_skills_language {
-    margin-left: 0px;
-    font-size: 12px;
-  }
   .signup-button {
     @include linear_gradient;
     background-color: whiteSmoke;
@@ -41,24 +37,43 @@
       margin: 0px;
     }
   }
-  .fields {
-    width: 100%;
-    .language-select {
-      padding-top: 10px;
-      width: 220px;
-      margin: 0px 20px 0px 0px;
-      select {
-        width: 100%;
-        float: right;
-      }
+  .images .fields {
+    height: auto;
+    display: inline;
+    .current-picture {
+      display: inline;
     }
-    .language-link {
-      margin-top: 5px;
-      width: 100px;
+    .new-picture {
+      display: block;
+      margin-top: 10px;
     }
   }
-  .add_nested_fields {
-    margin-left: 20px;
+  #language-selection {
+    padding-top: 10px;
+    width: 600px;
+    .user_language_skills_language {
+      margin-left: 0px;
+      font-size: 12px;
+    }
+    .fields {
+      .language-select {
+        height: 30px;
+        width: 220px;
+        margin: 0px 20px 10px 0px;
+        select {
+          float: right;
+        }
+      }
+      .language-link {
+        line-height: 30px;
+        margin: 0px 20px 0px 0px;
+        width: 100px;
+      }
+    }
+  }
+  #language-add {
+    width: 600px;
+    float: left;
   }
 }
 
@@ -72,13 +87,13 @@
 
 .profile-header {
   margin-left: 0px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   position: relative;
   border-bottom: 1px solid rgb(221, 221, 221);
   .profile-header-wrapper {
-    .user-gravatar {
-      float: left;
+    .user-picture {
       width: 260px;
+      height: 260px;
     }
     .user-tips {
       width: 660px;
@@ -152,7 +167,7 @@ div, li {
 .profile-content {
   margin-left: 0px;
   .profile-content-wrapper {
-    margin: 10px 0px;
+    margin: 0px;
     .span6 {
       margin-left: 0px;
       .box {

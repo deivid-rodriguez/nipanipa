@@ -73,24 +73,6 @@
       </div>
       <div class="row profile-tabs">
         <ul class="nav nav-tabs">
-        <% if false %>
-          <li class="active">
-          <a href="#"><%= t('.general') %></a>
-          </li>
-          <li>
-            <%= link_to t('.messages'),
-                        user_conversations_path(current_user) %>
-          </li>
-          <li>
-            <%= link_to t('.feedback'),
-                        user_feedbacks_path(current_user) %>
-          </li>
-          <li><a href="#"><%= t('.pictures') %></a></li>
-          <li>
-            <%= link_to t('.edit'),
-                        edit_user_path(current_user) %>
-          </li>
-        <% end %>
         <%= debug page_id %>
         <%= tab_builder(user, page_id) %>
         </ul>

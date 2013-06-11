@@ -20,6 +20,7 @@ Nipanipa::Application.routes.draw do
     resources :donations, only: [:new, :create, :show]
 
     resources :users do
+      resources :pictures
       resources :feedbacks
       resources :conversations, except: [:edit, :update] do
         put 'reply', on: :member

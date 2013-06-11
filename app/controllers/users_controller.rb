@@ -1,6 +1,7 @@
 class UsersController < Devise::RegistrationsController
   def new
     @user = resource_class.new
+    @user.build_pictures
   end
 
   def index
@@ -18,8 +19,9 @@ class UsersController < Devise::RegistrationsController
   end
 
   def edit
+    @user = current_user
+    @user.build_pictures
     @page_id = :edit
-    render 'edit'
   end
 
   # Override default devise update action to allow blank password (meaning no

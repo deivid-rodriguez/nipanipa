@@ -10,24 +10,26 @@
     <div class="row profile-content-wrapper">
 
       <div class="span6">
-        <div id="personal-description" class="box">
+        <div class="box">
           <%= render 'edit_link', user: @user %>
           <h3><%= t '.description' %></h3>
           <p><%= @user.description %></p>
         </div>
 
         <div class="box">
-          <%= render partial: 'feedbacks/feedbacks', object: @feedback_pairs %>
-        </div>
-      </div>
-
-      <div class="span6">
-        <div class="box">
           <%= render 'edit_link', user: @user %>
           <h3><%= t ".skills_#{@user.type.underscore}" %></h3>
           <p><%= @user.skills %></p>
         </div>
 
+        <div class="box">
+          <h3><%= t '.feedback' %></h3>
+          <%= render partial: 'feedbacks/feedbacks', object: @feedback_pairs %>
+        </div>
+
+      </div>
+
+      <div class="span6">
         <% if @user.type == "Host" %>
           <div class="box">
             <%= render 'edit_link', user: @user %>
@@ -35,6 +37,14 @@
             <p><%= @user.accomodation %></p>
           </div>
         <% end %>
+
+        <div class="box">
+          <h3><%= t '.pictures' %></h3>
+          <% @user.pictures.each do |p| %>
+            <%= image_tag p.picture.url(:thumb) unless p.avatar%>
+          <% end %>
+        </div>
+
       </div>
 
     </div>

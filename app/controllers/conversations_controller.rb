@@ -2,6 +2,7 @@ class ConversationsController < ApplicationController
   respond_to :html
   respond_to :js, only: [:reply, :destroy]
 
+  before_filter :load_user
   before_filter :load_conversation, only: [:show, :reply, :destroy]
   before_filter :set_page_id
 
@@ -51,6 +52,10 @@ class ConversationsController < ApplicationController
   end
 
   private
+
+    def load_user
+      @user = current_user
+    end
 
     def load_conversation
       @conversation = Conversation.find(params[:id])

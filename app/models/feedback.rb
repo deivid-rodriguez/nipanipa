@@ -16,9 +16,10 @@ class Feedback < ActiveRecord::Base
   end
 
   def update_karma
-    if changed? and !changed_attributes[:score].nil?
-      recipient.karma -= changed_attributes[:score]
+    if new_record?
       recipient.karma += score
+    elsif score_changed?
+      recipient.karma += (score - score_was)
     end
   end
 

@@ -7,8 +7,4 @@ class LanguageSkill < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :language
-
-  def to_s
-    "#{I18n.translate language} (#{I18n.translate level})"
-  end
 end

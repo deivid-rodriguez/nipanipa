@@ -1,0 +1,9 @@
+<% if pictures.empty? %>
+  <div class="no-elements">
+    <em><%= t('.nopictures') %></em>
+  </div>
+<% else %>
+  <% pictures.each do |p| %>
+    <%= image_tag p.picture.url(:medium) unless p.avatar %>
+  <% end %>
+<% end %>

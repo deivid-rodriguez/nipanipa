@@ -84,6 +84,9 @@ cuéntanos lo que pasa después!"
 los 300 caracteres"
     destroy:
       success: "Tu referencia ha sido eliminada"
+  pictures:
+    pictures:
+      nopictures: "No has subido ninguna foto"
   conversations:
     new:
       header: "Contacta a %{username}"
@@ -108,7 +111,10 @@ sobre tu familia"
 casa"
       skills_volunteer: "¿Qué sabes hacer? ¿Qué habilidades consideras que
 podrían interesar a algún anfitrión?"
-      picture: "Foto de perfil"
+    profile_picture:
+      title: "Foto de perfil"
+    additional_pictures:
+      title: "También puedes subir más fotos si quieres"
     language_skills:
       title: "También puedes contarnos qué idiomas conoces"
       add_language: "añadir idioma"
@@ -122,13 +128,16 @@ oferta"
       title_volunteer: "Selecciona el/los tipos de trabajo que estás buscando"
     new:
       title: "Regístrate"
+      header: "Registro de %{type}"
       already_registered: "¿Ya estás registrado?"
       personal_desc: "Sobre ti"
       work_type: "Tipo de trabajo"
     show:
       profile: "Mi perfil"
       description: "Sobre mí"
+      feedback: "Referencias"
       accomodation: "Alojamiento"
+      pictures: "Imágenes"
       skills_host: "Habilidades requeridas / descripción del voluntariado"
       skills_volunteer: "Habilidades / tipo de voluntariado buscado"
     edit:

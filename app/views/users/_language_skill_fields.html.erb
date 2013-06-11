@@ -1,11 +1,13 @@
-<div class="span3 language-select">
-  <%= f.collection_select :language_id, Language.all, :id, :name,
-  include_blank: t('.language') %>
-</div>
-<div class="span3 language-select">
-  <%= f.select :level, LanguageSkill.level.options,
-               include_blank: t('.level') %>
-</div>
-<div class="span3 language-link">
-  <%= f.link_to_remove t('.remove_language') %>
+<div class="fields">
+  <div class="span3 language-select">
+    <%= f.collection_select :language_id, Language.all, :id, :name,
+                            include_blank: t('.language') %>
+  </div>
+  <div class="span3 language-select">
+    <%= f.select :level, LanguageSkill.level.options,
+                 include_blank: t('.level') %>
+  </div>
+  <div class="span3 language-link">
+    <%= f.link_to_remove t('.remove_language') %>
+  </div>
 </div>

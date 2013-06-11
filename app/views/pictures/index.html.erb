@@ -1,0 +1,17 @@
+<% provide :title, t('.title') %>
+
+<div class="row profile-wrapper">
+
+  <%= render 'shared/profile_header', user: @user,
+                                      page_id: @page_id,
+                                      given_feedback: @given_feedback %>
+
+  <div class="span12 profile-content">
+    <div class="row profile-content-wrapper">
+
+      <div class="span10 box">
+         <%= render partial: 'pictures/pictures', object: @pictures %>
+      </div>
+
+    </div>
+</div>

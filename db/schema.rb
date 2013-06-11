@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130530131230) do
+ActiveRecord::Schema.define(:version => 20130610112340) do
 
   create_table "conversations", :force => true do |t|
     t.string   "subject"
@@ -66,6 +66,15 @@ ActiveRecord::Schema.define(:version => 20130530131230) do
     t.integer  "conversation_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+  end
+
+  create_table "pictures", :force => true do |t|
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+    t.integer  "user_id"
+    t.boolean  "avatar",               :default => false
   end
 
   create_table "sectorizations", :force => true do |t|

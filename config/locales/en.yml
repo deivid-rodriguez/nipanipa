@@ -105,7 +105,8 @@ or your family."
       skills_host: "Describe the tasks the volunteer will assume"
       skills_volunteer: "What are your skills? What can you do? Why would a
 host be interested in you?"
-    picture: "Profile picture"
+    profile_picture:
+      title: "Profile picture"
     language_skills:
       title: "Which languages can you speak?"
       add_language: "add language"
@@ -118,12 +119,14 @@ host be interested in you?"
       title_volunteer: "Pick the type/s of job you're looking for"
     new:
       title: "Sign up"
+      header: "%{type} registration"
       already_registered: "¿Already registered?"
       personal_desc: "About you"
       work_type: "Type of Work"
     show:
       profile: "Mi perfil"
       description: "Sobre mí"
+      feedback: "Feedback"
       accomodation: "Alojamiento"
       skills_host: "Skills required / Volunteering description"
       skills_volunteer: "Skills offered / Volunteering searched"

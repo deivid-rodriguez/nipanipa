@@ -133,4 +133,15 @@ FactoryGirl.define do
     association :user
     association :language
   end
+
+  factory :picture do
+    picture_file_name 'sample_picture.png'
+    picture_content_type 'image/png'
+    picture_updated_at { Time.now }
+    association :user
+
+    factory :avatar do
+      avatar true
+    end
+  end
 end

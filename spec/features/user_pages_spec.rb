@@ -154,7 +154,6 @@ feature 'User profile editing' do
 
   scenario 'profile page has correct header, title and links' do
     page.should have_title t('users.edit.title')
-    page.should have_link 'change', href: 'http://gravatar.com/emails'
   end
 
   scenario 'with invalid information' do

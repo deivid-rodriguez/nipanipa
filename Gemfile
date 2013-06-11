@@ -15,6 +15,7 @@ gem 'jquery-rails', '2.2.1'
 gem 'ffaker', '1.16.1'
 gem 'enumerize', '0.6.1'
 gem 'nested_form', '0.3.2'
+gem 'paperclip', '3.4.2'
 
 group :development, :test do
   gem 'rspec-rails', '2.13.2'

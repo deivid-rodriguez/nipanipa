@@ -26,3 +26,6 @@ vendor/ruby
 # Byebug startup file
 .byebugrc
 .gdb_history
+
+# Paperclip attachments
+public/system

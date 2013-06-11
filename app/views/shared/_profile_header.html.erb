@@ -1,7 +1,11 @@
 <div class="span12 profile-header">
   <div class="row profile-header-wrapper">
-    <div class="user-gravatar span4">
-      <%= gravatar_for user, size: 260 %>
+    <div class="user-picture span4">
+      <% if @user.avatar.empty? %>
+        <%= image_tag 'default_avatar.png' %>
+      <% else %>
+        <%= image_tag @user.avatar.picture.url(:medium) %>
+      <% end %>
     </div>
     <div class="user-tips span8">
       <div class="row">
@@ -90,7 +94,8 @@
             </div>
             <div class="content_info">
               <span><strong><%= t('.categories') %>:</strong></span>
-                <%= user.work_types.join(', ') %>
+                <%= user.work_types.map { |wt|
+                  t("work_types.#{wt.name}") }.join(', ') %>
             </div>
           </div>
           <div class="quickinfo">
@@ -102,9 +107,8 @@
               <% if user.language_skills.empty? %>
                 <em><%= t('.unknown') %></em>
               <% else %>
-                <% user.language_skills.each do |ls| %>
-                  <%= "#{ls.language.name} (#{ls.level.text})" %><br />
-                <% end %>
+                <%= user.language_skills.map { |ls|
+                      "#{ls.language.name} (#{ls.level.text})" }.join(', ') %>
               <% end %>
             </div>
           </div>
