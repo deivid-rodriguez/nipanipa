@@ -2,40 +2,46 @@
 # Integration tests for User pages
 #
 
-feature 'Host profile creation' do
-  given(:host)            { build(:host) }
-  given(:create_user_btn) { t('helpers.submit.user.create') }
-
-  background { visit new_user_registration_path(type: 'host') }
-
-  scenario 'signup page has proper content' do
-    page.should have_selector 'h1', text: t('users.new.header',
-                                            type: t('activerecord.models.host'))
-    page.should have_title full_title(t 'users.new.title')
-    page.should have_link 'NiPaNiPa'
+describe 'Host profile creation' do
+  let!(:host) do
+    wts = create_list(:work_type, 5)
+    build(:host, work_types: wts.sample(3))
   end
+  let(:create_user_btn) { t('helpers.submit.user.create') }
 
-  scenario 'submitting invalid information doesn\'t create user, redirects ' \
-           'back to signup page and displays error messages' do
-    expect { click_button create_user_btn }.not_to change(Host, :count)
-    page.should have_title t('users.new.title')
-    page.should have_selector '.error'
-  end
+  subject { page }
+  before { visit new_user_registration_path(type: 'host') }
 
-  scenario 'submitting valid information creates user, signs in that user, ' \
-           'redirects to his profile and flash a welcome message' do
-    within '.signup-form' do
-      fill_in 'user[name]'                 , with: host.name
-      fill_in 'user[email]'                , with: host.email
-      fill_in 'user[password]'             , with: host.password
-      fill_in 'user[password_confirmation]', with: host.password
-      fill_in 'user[description]'          , with: host.description
+  it { should have_selector 'h1', text: t('users.new.header',
+                                  type: t('activerecord.models.host')) }
+  it { should have_title full_title(t 'users.new.title') }
+  it { should have_link 'NiPaNiPa' }
+
+  context 'when submitting invalid information' do
+    before do
+      expect { click_button create_user_btn }.not_to change(Host, :count)
     end
 
-    expect { click_button create_user_btn }.to change(Host, :count).by(1)
-    page.should have_title host.name
-    page.should have_flash_message t('devise.users.signed_up'), 'success'
-    page.should have_link t('sessions.signout')
+    it { should have_title t('users.new.title') }
+    it { should have_selector '.error' }
+  end
+
+  context 'when submitting valid information' do
+    before do
+      within '.signup-form' do
+        fill_in 'user[name]'                 , with: host.name
+        fill_in 'user[email]'                , with: host.email
+        fill_in 'user[password]'             , with: host.password
+        fill_in 'user[password_confirmation]', with: host.password
+        fill_in 'user[description]'          , with: host.description
+        host.work_type_ids.each { |id| check "user_work_type_ids_#{id}" }
+      end
+      expect { click_button create_user_btn }.to change(Host, :count).by(1)
+    end
+
+    it { should have_title host.name }
+    it { should have_flash_message t('devise.users.signed_up'), 'success' }
+    it { should have_link t('sessions.signout') }
   end
 end
 

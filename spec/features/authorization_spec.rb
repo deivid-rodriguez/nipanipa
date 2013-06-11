@@ -1,22 +1,28 @@
 describe "User" do
 
   describe "abilities" do
-    subject { ability }
-    let(:volunteer) { nil }
-    let(:ability) { Ability.new(volunteer) }
+    subject { user }
+    let(:user) { nil }
 
     context "when is a regular logged in user" do
-      let!(:volunteer) { create(:volunteer) }
-      let!(:feedback_by_me) { build(:feedback, sender: volunteer) }
-      let!(:feedback_for_me) { build(:feedback, recipient: volunteer) }
+      let!(:ability) { Ability.new(user) }
+      let!(:user) { create(:volunteer) }
+      let!(:feedback_by_me)  { build(:feedback, sender: user) }
+      let!(:feedback_for_me) { build(:feedback, recipient: user) }
 
       before do
        visit root_path
-       sign_in volunteer
+       sign_in user
       end
 
-      it { should be_able_to(:manage, feedback_by_me) }
-      it { should_not be_able_to(:manage, feedback_for_me) }
+      it { should_not have_ability(:manage, for: feedback_for_me) }
+      it { should have_ability(:manage, for: feedback_by_me) }
+    end
+
+    context "when it's an admin user" do
+      let!(:user) { create(:admin) }
+
+      it { should have_ability(:manage, for: Feedback.new) }
     end
   end
 

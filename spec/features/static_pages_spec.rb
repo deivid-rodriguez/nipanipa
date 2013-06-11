@@ -52,4 +52,5 @@ describe "Static pages" do
     before { visit '/robots.txt' }
     it { should have_content File.read('config/robots.test.txt') }
   end
+
 end

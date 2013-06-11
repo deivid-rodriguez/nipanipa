@@ -9,7 +9,7 @@ FactoryGirl.define do
     # simulate first login
     last_sign_in_at { Time.now }
     last_sign_in_ip ENV['IP']
-    current_sign_in_at { Time.now}
+    current_sign_in_at { Time.now }
     current_sign_in_ip ENV['IP']
     sign_in_count 1
 
@@ -18,9 +18,8 @@ FactoryGirl.define do
     end
 
     trait :with_feedbacks do
-      ignore do
-        count 1
-      end
+      ignore { count 1 }
+
       after(:create) do |u, eval|
         FactoryGirl.create_list(:feedback, eval.count, recipient: u)
       end
@@ -35,6 +34,13 @@ FactoryGirl.define do
                 'and pollution'
     skills 'What can you do? What kind of tasks are you good at?'
 
+    # simulate first login
+    last_sign_in_at { Time.now }
+    last_sign_in_ip ENV['IP']
+    current_sign_in_at { Time.now }
+    current_sign_in_ip ENV['IP']
+    sign_in_count 1
+
     trait :with_work_type do
       after(:build) do |v|
         v.work_types << FactoryGirl.build(:work_type)
@@ -46,7 +52,7 @@ FactoryGirl.define do
 
     trait :with_language do
       after(:build) do |v|
-        v.languages << FactoryGirl.buid(:language)
+        v.languages << FactoryGirl.build(:language)
       end
       before(:create) do |v|
         v.languages.each { |l| l.save! }
@@ -68,9 +74,20 @@ FactoryGirl.define do
     days_per_week 5
     min_stay 1
 
-    trait :with_work_type do
-      after(:build) do |h|
-        h.work_types << FactoryGirl.build(:work_type)
+    # simulate first login
+    last_sign_in_at { Time.now }
+    last_sign_in_ip ENV['IP']
+    current_sign_in_at { Time.now }
+    current_sign_in_ip ENV['IP']
+    sign_in_count 1
+
+    trait :with_work_types do
+      ignore { count 1 }
+
+      after(:build) do |h, eval|
+        eval.count.times do
+          h.work_types << FactoryGirl.build(:work_type)
+        end
       end
       before(:create) do |h|
         h.work_types.each { |wt| wt.save! }
@@ -116,7 +133,7 @@ FactoryGirl.define do
   end
 
   factory :work_type do
-    name 'Organic Farming'
+    sequence(:name) { |n| "Work Type #{n%15}" }
   end
 
   factory :sectorization do

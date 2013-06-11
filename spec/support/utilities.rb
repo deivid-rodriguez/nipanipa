@@ -54,8 +54,9 @@ RSpec::Matchers.define :have_ability do |ability_hash, options = {}|
     ability         = Ability.new(user)
     target          = options[:for]
     @ability_result = {}
-    ability_hash    = {ability_hash => true} if ability_hash.is_a? Symbol # e.g.: :create => {:create => true}
-    ability_hash    = ability_hash.inject({}){|_, i| _.merge({i=>true}) } if ability_hash.is_a? Array # e.g.: [:create, :read] => {:create=>true, :read=>true}
+    ability_hash    = {ability_hash => true} if ability_hash.is_a? Symbol
+    ability_hash    = ability_hash.inject({}){|_, i| _.merge({i=>true}) } if
+      ability_hash.is_a? Array
     ability_hash.each do |action, true_or_false|
       @ability_result[action] = ability.can?(action, target)
     end

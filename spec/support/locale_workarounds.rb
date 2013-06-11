@@ -12,26 +12,6 @@ class ActionDispatch::Routing::RouteSet
   end
 end
 
-# Fixes the missing default locale problem in controller specs
-# See http://www.ruby-forum.com/topic/3448797#1041659
-class ActionController::TestCase
-  module Behavior
-    def process_with_default_locale(action, parameters = nil,
-                                            session = nil,
-                                            flash = nil,
-                                            http_method = 'GET')
-      parameters = {
-        :locale => I18n.default_locale
-      }.merge( parameters || {} )
-      process_without_default_locale(action, parameters,
-                                             session,
-                                             flash,
-                                             http_method)
-    end
-    alias_method_chain :process, :default_locale
-  end
-end
-
 module ActionDispatch::Assertions::RoutingAssertions
   def assert_recognizes_with_default_locale(expected_options, path,
                                                               extras = {},

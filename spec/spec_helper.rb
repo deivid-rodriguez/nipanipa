@@ -74,6 +74,9 @@ Spork.prefork do
     # attributes_for, and their *_list counterparts) without having to call them
     # on FactoryGirl directly
     config.include FactoryGirl::Syntax::Methods
+
+    # Stop on the first fail
+    config.fail_fast = true
   end
 end
 

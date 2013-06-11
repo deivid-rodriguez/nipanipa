@@ -17,19 +17,19 @@ describe Feedback do
 
   it { should be_valid }
 
-  describe "presence validation" do
-    context "when sender is not present" do
+  describe 'presence validation' do
+    context 'when sender is not present' do
       before { feedback.sender = nil }
       it { should_not be_valid }
     end
 
-    context "when recipient is not present" do
+    context 'when recipient is not present' do
       before { feedback.recipient = nil }
       it { should_not be_valid }
     end
   end
 
-  describe "accessible attributes" do
+  describe 'accessible attributes' do
     it "should not allow access to sender_id" do
       expect do
         Feedback.new(sender: build(:user))
@@ -42,29 +42,48 @@ describe Feedback do
     end
   end
 
-  context "with blank content" do
-    before { feedback.content = " " }
+  context 'with blank content' do
+    before { feedback.content = ' ' }
     it { should_not be_valid }
   end
 
-  context "with content that is too long" do
-    before { feedback.content = "a" * 301 }
+  context 'with content that is too long' do
+    before { feedback.content = 'a' * 301 }
     it { should_not be_valid }
   end
 
-  describe "duplicated feedbacks" do
+  describe 'duplicated feedbacks' do
     let!(:other_feedback) do
       create(:feedback, sender: feedback.sender, recipient: feedback.recipient)
     end
     it { should_not be_valid }
   end
 
-  describe "complement method" do
-    before { feedback.save }
+  describe '#complement' do
     let!(:other_feedback) do
       create(:feedback, sender: feedback.recipient, recipient: feedback.sender)
     end
+    before { feedback.save }
     it { should == other_feedback.complement }
   end
 
+  describe '#update_karma' do
+    context 'when new_feedback' do
+      it "initializes recipient's karma" do
+        expect { feedback.save }.
+          to change(feedback.recipient, :karma).by(feedback.score)
+      end
+    end
+
+    context 'when updated feedback' do
+      let!(:other_feedback) { create(:feedback, score: -1) }
+
+      before { other_feedback.score = 1 }
+
+      it "updates recipient's karma" do
+        expect { other_feedback.save }.
+          to change(other_feedback.recipient, :karma).by(2)
+      end
+    end
+  end
 end
