@@ -81,7 +81,10 @@ It won't take you more than five minutes."
       error: "Error updating the reference... :( It should not be longer
 than 300 characters"
     destroy:
-      success: "Tu referencia ha sido eliminada"
+      success: "Your reference has been removed"
+  pictures:
+    pictures:
+      nopictures: "You didn't upload any pictures yet"
   conversations:
     new:
       header: "Contact %{username}"
@@ -107,6 +110,8 @@ or your family."
 host be interested in you?"
     profile_picture:
       title: "Profile picture"
+    additional_pictures:
+      title: "You can upload additional pictures if you want"
     language_skills:
       title: "Which languages can you speak?"
       add_language: "add language"
@@ -128,6 +133,7 @@ host be interested in you?"
       description: "Sobre mí"
       feedback: "Feedback"
       accomodation: "Alojamiento"
+      pictures: "Pictures"
       skills_host: "Skills required / Volunteering description"
       skills_volunteer: "Skills offered / Volunteering searched"
     edit:

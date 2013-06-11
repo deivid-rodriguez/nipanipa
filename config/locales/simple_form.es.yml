@@ -19,9 +19,6 @@ voluntarios"
         email: "Correo Electrónico"
         password: "Contraseña"
         password_confirmation: "Confirmar contraseña"
-        language_skills:
-          language: "Idioma2"
-          level: "Nivel3"
       conversation:
         subject: "Asunto"
       message:
