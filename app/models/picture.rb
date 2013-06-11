@@ -6,7 +6,7 @@ class Picture < ActiveRecord::Base
 
   has_attached_file :picture, styles: lambda { |attachment|
     if attachment.instance.avatar
-      { thumb: '100x100#', medium: '200x200#' }
+      { thumb: '100x100#', small: '140x140#', medium: '200x200#' }
     else
       { thumb: '100x100>', medium: '200x200>' }
     end }

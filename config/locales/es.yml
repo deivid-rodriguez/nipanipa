@@ -85,8 +85,10 @@ los 300 caracteres"
     destroy:
       success: "Tu referencia ha sido eliminada"
   pictures:
+    index:
+      title: "Imágenes"
     pictures:
-      nopictures: "No has subido ninguna foto"
+      nopictures: "No hay ninguna foto"
   conversations:
     new:
       header: "Contacta a %{username}"

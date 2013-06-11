@@ -1,7 +1,7 @@
 <li class="span9">
   <div class="thumbnail user-thumbnail">
     <div class="user-thumbnail-badges">
-      <%= gravatar_for user, size: 148, class: "pull-left" %>
+      <%= avatar_for user, style: :small %>
       <div class="karma">
         <span><strong><%= user.karma %></strong></span>
          <%= t('.karma') %>

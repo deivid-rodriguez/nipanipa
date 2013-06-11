@@ -83,8 +83,10 @@ than 300 characters"
     destroy:
       success: "Your reference has been removed"
   pictures:
+    index:
+      title: "Photos"
     pictures:
-      nopictures: "You didn't upload any pictures yet"
+      nopictures: "There are no photos yet"
   conversations:
     new:
       header: "Contact %{username}"

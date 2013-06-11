@@ -9,7 +9,7 @@
                                      WorkType.limit(5).offset(5*i),
                                     :id, :name do |b| %>
           <%= content_tag(:label, class: 'checkbox') do %>
-            <%= b.check_box + b.object %>
+            <%= b.check_box + t("work_types.#{b.text}") %>
           <% end %>
         <% end %>
       </div>

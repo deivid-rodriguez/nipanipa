@@ -1,7 +1,7 @@
 <div id="feedback-<%= feedback.id %>" class="feedback <%=type%>">
 
-  <div class="user-gravatar pull-<%= type == 'sent' ? 'left' : 'right' %>">
-    <%= link_to gravatar_for(feedback.sender, size:40), feedback.sender %>
+  <div class="thumb-avatar pull-<%= type == 'sent' ? 'left' : 'right' %>">
+    <%= link_to avatar_for(feedback.sender, style: :thumb), feedback.sender %>
   </div>
 
   <% if feedback.sender == current_user %>
