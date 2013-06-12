@@ -19,9 +19,11 @@ gem 'paperclip', '3.4.2'
 
 group :development, :test do
   gem 'rspec-rails', '2.13.2'
-  gem 'guard-rspec', '3.0.1'
-  gem 'guard-spork', '1.5.0'
-  gem 'pry-byebug', '1.1.0' unless ENV['CI']
+  unless ENV['CI']
+    gem 'guard-rspec', '3.0.1'
+    gem 'guard-spork', '1.5.0'
+    gem 'pry-byebug', '1.1.0'
+  end
 end
 
 # Used only for assets and not required in production environments by default.

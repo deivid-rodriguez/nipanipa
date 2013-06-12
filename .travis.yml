@@ -1,9 +1,22 @@
+---
 language: ruby
 rvm:
-  - 2.0.0
+- 2.0.0
+env:
+  global:
+  - PAYPAL_URL=https://www.sandbox.paypal.com/cgi-bin/webscr?
+  - IP=83.39.69.109
+  - secure: |-
+      AmR6J1S8LHM/0eq79r9grp83BQc6bJHFfA73LQBtu/qwr5t4r89i8XCD5FYj
+      shhMmIxlrALRhs2th2KJ3/EDWojWR7JEHIWM55K+myoeLaiVmyXDfYqCwVKs
+      Yzfzh9dqrFDgrPZML7oy0QWE/mgUnCpQrlfYc8KuR09ENaJ1d/A=
+  - secure: |-
+      m+RFNm+fh8zfsUtz9IndNjMntrt6vCQnSmmnnia3MuuZT7ujJXmIKSSKCAdv
+      9PJ7xWMOwUoBESIKAwVkil8nm58KDTkAMnFy+xAGJkjItCQqMUq4afANQSTj
+      oWjFHxp9RjEV4UQWpGfQ6KWXWF7H9oz+GZzd8p+s9z0sugF+Iog=
 bundler_args: --without development
 before_script:
-  - psql -c "CREATE USER nipanipa CREATEDB PASSWORD 'nipanipa';" -U postgres
-  - psql -c 'CREATE DATABASE nipanipa_test WITH OWNER nipanipa;' -U postgres
+- psql -c "CREATE USER nipanipa CREATEDB PASSWORD 'nipanipa';" -U postgres
+- psql -c 'CREATE DATABASE nipanipa_test WITH OWNER nipanipa;' -U postgres
 script:
-  - bundle exec rake db:migrate spec
+- bundle exec rake db:migrate spec
