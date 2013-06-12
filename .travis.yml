@@ -3,7 +3,7 @@ rvm:
   - 2.0.0
 bundler_args: --without development
 before_script:
-  - psql -c 'CREATE DATABASE nipanipa_test;' -U postgres
   - psql -c "CREATE USER nipanipa WITH PASSWORD 'nipanipa';" -U postgres
+  - psql -c 'CREATE DATABASE nipanipa_test WITH OWNER nipanipa;' -U postgres
 script:
   - bundle exec rake db:migrate spec
