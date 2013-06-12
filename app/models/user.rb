@@ -79,10 +79,6 @@ class User < ActiveRecord::Base
     "users/user"
   end
 
-  def conversations
-    sent_conversations + received_conversations
-  end
-
   def non_deleted_conversations
     sent_conversations.deleted_by_sender + received_conversations.deleted_by_recipient
   end
