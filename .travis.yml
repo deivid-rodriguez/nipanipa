@@ -1,4 +1,7 @@
+language: ruby
+bundler_args: --without development
 before_script:
-  - psql -c 'create database nipanipa_test;' -U postgres
+  - psql -c 'CREATE DATABASE nipanipa_test;' -U postgres
+  - psql -c "CREATE USER nipanipa WITH PASSWORD 'nipanipa';" -U postgres
 rvm:
   - 2.0.0
