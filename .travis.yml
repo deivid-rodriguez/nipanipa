@@ -1,8 +1,9 @@
 language: ruby
+rvm:
+  - 2.0.0
 bundler_args: --without development
 before_script:
   - psql -c 'CREATE DATABASE nipanipa_test;' -U postgres
   - psql -c "CREATE USER nipanipa WITH PASSWORD 'nipanipa';" -U postgres
-  - bundle exec rake db:test:prepare
-rvm:
-  - 2.0.0
+script:
+  - bundle exec rake db:migrate spec
