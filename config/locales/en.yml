@@ -232,6 +232,10 @@ would like to be implemented %{issues_url}."
             content:
               blank: "Write something about the user"
               too_long: "Feeback is too long"
+        picture:
+          attributes:
+            image_file_size:
+              in_between: "File can't be bigger than 500Kb... :("
       messages:
         record_invalid: "Invalid record"
   will_paginate:

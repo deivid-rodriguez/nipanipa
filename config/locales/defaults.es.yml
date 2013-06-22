@@ -137,6 +137,9 @@ es:
         update: "Editar la referencia"
       conversation:
         create: "Comenzar una conversación"
+      picture:
+        create: "Subir foto"
+        update: "Actualizar foto"
   number:
     currency:
       format:

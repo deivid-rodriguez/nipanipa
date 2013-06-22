@@ -35,7 +35,7 @@
         <div class="box">
           <h3><%= t '.pictures' %></h3>
           <% @user.pictures.each do |p| %>
-            <%= image_tag p.picture.url(:thumb) unless p.avatar%>
+            <%= image_tag p.image.url(:small) unless p.avatar%>
           <% end %>
         </div>
 

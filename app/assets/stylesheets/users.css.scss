@@ -37,41 +37,39 @@
       margin: 0px;
     }
   }
-  .images .fields {
-    height: auto;
-    display: inline;
-    .current-picture {
-      display: inline;
-    }
-    .new-picture {
-      display: block;
-      margin-top: 10px;
-    }
-  }
-  #language-selection {
+  #picture-selection, #language-selection {
     padding-top: 10px;
     width: 600px;
-    .user_language_skills_language {
-      margin-left: 0px;
-      font-size: 12px;
-    }
     .fields {
-      .language-select {
+      height: auto;
+      .nested-select {
         height: 30px;
-        width: 220px;
-        margin: 0px 20px 10px 0px;
-        select {
-          float: right;
-        }
       }
-      .language-link {
+      .picture-select {
+        @extend .nested-select;
+        margin: 0px 0px 10px 0px;
+        width: 310px;
+      }
+      .language-select {
+        @extend .nested-select;
+        margin: 0px 20px 10px 0px;
+        width: 220px;
+      }
+      .nested-link {
         line-height: 30px;
         margin: 0px 20px 0px 0px;
+      }
+      .picture-link {
+        @extend .nested-link;
+        width: 270px;
+      }
+      .language-link {
+        @extend .nested-link;
         width: 100px;
       }
     }
   }
-  #language-add {
+  #picture-add, #language-add {
     width: 600px;
     float: left;
   }
@@ -97,17 +95,12 @@
     }
     .user-tips {
       width: 660px;
-      .username {
-        font-size: 26px;
-        margin: 25px 0px;
-        text-align: left;
-        span {
-          font-size: 16px;
-          text-align: center;
-        }
+      .title {
+        margin-top: 25px;
+        margin-bottom: 20px;
       }
       .quickinfo {
-        margin-bottom: 15px;
+        margin-bottom: 20px;
         padding-left: 10px;
         line-height: 24px;
         font-size: 11px;
@@ -232,23 +225,24 @@ div.comment {
   div.span9 {
     margin-right: -20px;
     .user-thumbnail {
-    position: relative;
-    padding-right: 15px;
-    height: 193px;
-    @include border_radius;
-    .user-thumbnail-badges {
-      float: left;
-      .karma {
-        padding-top: 10px;
-        span {
-         font-size: 16px;
+      @extend .thumbnail;
+      position: relative;
+      padding-right: 15px;
+      height: 193px;
+      @include border_radius;
+      .user-thumbnail-badges {
+        float: left;
+        .karma {
+          padding-top: 10px;
+          span {
+           font-size: 16px;
+          }
         }
       }
-    }
-      div.user-thumbnail-data {
+      .user-thumbnail-data {
         margin-left: 180px;
       }
-      p.user-thumbnail-login {
+      .user-thumbnail-login {
         margin: 0 0 4px 0;
         color: $gray;
         font-size: 0.9em;

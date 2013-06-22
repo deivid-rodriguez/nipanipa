@@ -5,6 +5,7 @@ es:
       last_login: "Último acceso"
     not_specified: "No especificado"
     profile_header:
+      karma: "Karma"
       type: "Tipo de usuario"
       location: "Lugar"
       last_login: "Ultimo acceso"
@@ -85,10 +86,30 @@ los 300 caracteres"
     destroy:
       success: "Tu referencia ha sido eliminada"
   pictures:
+    new:
+      title: "Agrega una foto"
+      subtitle: "Las fotos molan, dan confianza y demuestran a los otros
+usuarios que eres una persona de verdad, a parte de lo feo que eres (es broma!)"
+    create:
+      success: "Foto subida con éxito!"
+      error: "Error al subir la foto... :("
     index:
       title: "Imágenes"
+      new_picture: "Añadir una foto"
+    edit:
+      title: "Editar foto"
+      subtitle: "Puedes cambiar el nombre de la foto, seleccionar una nueva o
+marcarla como foto principal"
+    update:
+      success: "Foto actualizada correctamente"
+      error: "Error al actualizar la foto"
     pictures:
+      delete: "Borrar foto"
+      edit: "Editar foto"
       nopictures: "No hay ninguna foto"
+    destroy:
+      success: "Foto borrada correctamente"
+      error: "Error al borrar la foto"
   conversations:
     new:
       header: "Contacta a %{username}"
@@ -113,10 +134,9 @@ sobre tu familia"
 casa"
       skills_volunteer: "¿Qué sabes hacer? ¿Qué habilidades consideras que
 podrían interesar a algún anfitrión?"
-    profile_picture:
-      title: "Foto de perfil"
-    additional_pictures:
-      title: "También puedes subir más fotos si quieres"
+    pictures:
+      title: "Sube alguna foto, las fotos molan"
+      add_picture: "añadir foto"
     language_skills:
       title: "También puedes contarnos qué idiomas conoces"
       add_language: "añadir idioma"
@@ -205,6 +225,7 @@ solicitarnos nuevas funcionalidades %{issues_url}."
       news: "Noticias"
   activerecord:
     models:
+      picture: "foto"
       host: "host"
       volunteer: "voluntario"
     attributes:
@@ -216,15 +237,14 @@ solicitarnos nuevas funcionalidades %{issues_url}."
           attributes:
             password:
               blank: "La contraseña está vacía"
-              confirmation: "La contraseña y su confirmación no coinciden"
+              confirmation: "No coincide con la confirmación..."
               too_short: "La contraseña debe tener al menos 6 caracteres"
             name:
-              blank: "Es obligatorio especificar un nombre de usuario"
+              blank: "Necesito un nombre de usuario..."
               too_long: "El nombre de usuario es demasiado largo"
             email:
-              taken: "Ese correo electrónico ya existe en NiPaNiPa"
-              blank: "Es obligatorio especificar una dirección de correo
-electrónico"
+              taken: "Ese correo ya existe en NiPaNiPa"
+              blank: "Necesito una dirección de e-mail..."
               invalid: "Introduciste un correo electrónico con un formato raro"
               not_found: "Ese correo electrónico no existe en NiPaNiPa"
             password_confirmation:
@@ -237,6 +257,10 @@ electrónico"
             content:
               blank: "Escribe algo sobre el usuario"
               too_long: "La referencia es demasiado larga"
+        picture:
+          attributes:
+            image_file_size:
+              in_between: "El fichero no puede pesar más de 500Kb... :("
       messages:
         record_invalid: "Registro no válido"
   will_paginate:

@@ -11,22 +11,23 @@ gem 'figaro', '0.6.4'
 gem 'thin', '1.5.1'
 gem 'devise', '2.2.4'
 gem 'cancan', '1.6.10'
-gem 'jquery-rails', '2.2.1'
+gem 'jquery-rails', '3.0.1'
 gem 'ffaker', '1.16.1'
 gem 'enumerize', '0.6.1'
 gem 'nested_form', '0.3.2'
-gem 'paperclip', '3.4.2'
+gem 'carrierwave', '0.8.0'
+gem 'mini_magick', '3.6.0'
 
 group :development, :test do
   gem 'rspec-rails', '2.13.2'
-  gem 'guard-rspec', '3.0.1'
-  gem 'guard-spork', '1.5.0'
+  gem 'guard-rspec', '3.0.2'
+  gem 'guard-spork', '1.5.1'
   gem 'pry-byebug', '1.1.0' unless ENV['CI']
 end
 
 # Used only for assets and not required in production environments by default.
 group :assets do
-  gem 'bootstrap-sass', '2.3.1.3'
+  gem 'bootstrap-sass', '2.3.2.0'
   gem 'bootstrap-will_paginate', '0.0.9'
   gem 'sass-rails',   '3.2.6'
   gem 'coffee-rails', '3.2.2'

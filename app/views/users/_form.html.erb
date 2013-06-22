@@ -40,14 +40,6 @@
     </div>
   <% end %>
 
-  <div class="row images">
-    <%= render 'profile_picture', f: f %>
-  </div>
-
-  <div class="row images">
-    <%= render 'additional_pictures', f: f %>
-  </div>
-
   <%= f.button :submit, model: t('activerecord.models.user'),
                         class: "signup-button pull-right" %>
 

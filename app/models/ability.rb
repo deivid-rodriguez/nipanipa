@@ -6,11 +6,15 @@ class Ability
     user ||= User.new # guest user (not logged in)
 
     # everyone can read
-    can :read, :all
+    can :read, User
+    can :read, Picture
+    can :read, Feedback
 
     if user.role == "admin"
       can :manage, :all
     elsif user.role == "non-admin"
+      can    :manage, User,     id: user.id
+      can    :manage, Picture,  user_id: user.id
       can    :manage, Feedback, sender: user
       cannot :manage, Feedback, recipient: user
     end

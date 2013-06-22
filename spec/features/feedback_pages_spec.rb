@@ -29,7 +29,7 @@ describe 'Creating feedbacks' do
       choose  'feedback_score_1'
       expect { click_button feedback_btn }.to change(Feedback, :count).by(1)
     end
-    it { should have_selector 'div.username', text: feedback.recipient.name }
+    it { should have_selector 'h3', text: feedback.recipient.name }
     it { should have_flash_message t('feedbacks.create.success'), 'success' }
   end
 end
@@ -68,7 +68,7 @@ describe 'Editing feedbacks' do
     it 'gets updated with the new content' do
       expect(feedback.reload.content).to eq('New opinion')
     end
-    it { should have_selector 'div.username', text: feedback.sender.name }
+    it { should have_selector 'h3', text: feedback.sender.name }
     it { should have_flash_message t('feedbacks.update.success'), 'success' }
   end
 
@@ -129,7 +129,7 @@ describe 'Destroying feedbacks' do
   end
 
   context 'successfully' do
-    it { should have_selector 'div.username', text: feedback.sender.name }
+    it { should have_selector 'h3', text: feedback.sender.name }
     it { should_not have_css "div#feedback-#{feedback.id}" }
     it { should have_flash_message t('feedbacks.destroy.success'), 'success' }
   end

@@ -1,7 +1,7 @@
 <ul class="thumbnails">
   <li class="span12">
     <%= link_to users_path do %>
-      <div class="thumbnail explore-thumbnail">
+      <div class="explore-thumbnail">
         <%= image_tag "explore.png", alt: "explore" %>
         <h3><%= t('static_pages.home.explore') %></h3>
         <p><%= t('static_pages.home.explore_desc') %></p>
@@ -10,7 +10,7 @@
   </li>
   <li class="span6">
     <%= link_to new_user_registration_path(type: "host") do %>
-      <div class="thumbnail signup-thumbnail host-thumbnail">
+      <div class="host-thumbnail">
         <%= image_tag "host.png", alt: "signup host" %>
         <h3><%= t('static_pages.home.host') %></h3>
         <p><%= t('static_pages.home.host_desc') %></p>
@@ -19,7 +19,7 @@
   </li>
   <li class="span6">
     <%= link_to new_user_registration_path(type: "volunteer") do %>
-      <div class="thumbnail signup-thumbnail volunteer-thumbnail">
+      <div class="volunteer-thumbnail">
         <%= image_tag "volunteer.png", alt: "signup volunteer" %>
         <h3><%= t('static_pages.home.volunteer') %></h3>
         <p><%= t('static_pages.home.volunteer_desc') %></p>

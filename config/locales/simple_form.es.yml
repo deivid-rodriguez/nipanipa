@@ -23,6 +23,10 @@ voluntarios"
         subject: "Asunto"
       message:
         body: "Contenido"
+      picture:
+        name: "Título para la foto"
+        image: "Fichero con la foto"
+        avatar: "¿Marcar como foto principal?"
     hints:
       user:
         password: "La contraseña debe tener al menos 6 caracteres"

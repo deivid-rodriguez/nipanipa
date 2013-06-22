@@ -27,5 +27,8 @@ vendor/ruby
 .byebugrc
 .gdb_history
 
-# Paperclip attachments
-public/system
+# Carrierwave attachments
+public/uploads
+
+# Ack startup file
+.ackrc

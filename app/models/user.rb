@@ -35,8 +35,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :language_skills
   has_many :languages, through: :language_skills
 
-  has_many :pictures
-  accepts_nested_attributes_for :pictures, allow_destroy: true
+  has_many :pictures, dependent: :destroy
 
   has_many :sent_feedbacks,
             class_name: 'Feedback',
@@ -93,16 +92,7 @@ class User < ActiveRecord::Base
     result_list.concat(sent_list.map { |x| [nil, x] })
   end
 
-  def avatar
-    self.pictures.where(avatar: true)
-  end
-
-  def build_pictures
-    if avatar.empty?
-      pictures.build(avatar: true)
-    end
-    (5 - pictures.where(avatar: false).size).times do
-      pictures.build
-    end
+  def main_picture
+    pictures.select { |p| p.avatar }.first
   end
 end

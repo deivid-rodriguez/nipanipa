@@ -1,0 +1,14 @@
+<%= simple_form_for [current_user, @picture],
+                    html: { class: 'form-horizontal',
+                            multipart: true } do |f| %>
+  <%= f.input :name %>
+  <%= f.input :image %>
+  <%= f.input :avatar %>
+
+  <div class='control-group'>
+    <div class='controls'>
+      <%= f.button :submit, model: t('activerecord.models.picture') %>
+    </div>
+  </div>
+
+<% end %>

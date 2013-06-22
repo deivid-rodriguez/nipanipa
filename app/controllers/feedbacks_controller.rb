@@ -23,7 +23,6 @@ class FeedbacksController < ApplicationController
   end
 
   def index
-    authorize! :index, @feedback
     @feedback_pairs = @user.feedback_pairs
   end
 

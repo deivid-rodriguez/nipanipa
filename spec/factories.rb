@@ -152,9 +152,9 @@ FactoryGirl.define do
   end
 
   factory :picture do
-    picture_file_name 'sample_picture.png'
-    picture_content_type 'image/png'
-    picture_updated_at { Time.now }
+    name 'My funny picture'
+    image 'my_image.png'
+    avatar false
     association :user
 
     factory :avatar do

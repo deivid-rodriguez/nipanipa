@@ -1,9 +1,4 @@
 class UsersController < Devise::RegistrationsController
-  def new
-    @user = resource_class.new
-    @user.build_pictures
-  end
-
   def index
     @users = resource_class.order('last_sign_in_at DESC').
                             paginate(page: params[:page])
@@ -20,7 +15,6 @@ class UsersController < Devise::RegistrationsController
 
   def edit
     @user = current_user
-    @user.build_pictures
     @page_id = :edit
   end
 
@@ -56,15 +50,10 @@ class UsersController < Devise::RegistrationsController
       Devise.mappings[:user]
     end
 
-    def resource_name
-      devise_mapping.name
-    end
-
     def remove_blank_password_from_params
       if params[:user][:password].blank?
         params[:user].delete("password")
         params[:user].delete("password_confirmation")
       end
     end
-
 end

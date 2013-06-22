@@ -1,0 +1,40 @@
+// Place all the styles related to the Pictures controller
+
+.profile-titled {
+  .profile-titled-wrapper {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    .title {
+      margin-bottom: 20px;
+    }
+    .subtitle {
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+    .form {
+      width: 448px;
+      label, input, textarea, select, .checkbox {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.picture-thumbnail {
+  @extend .thumbnail;
+  margin: 0px 20px 20px 20px;
+  a {
+    display: inline;
+  }
+}
+
+.new-picture {
+  font-size: 14px;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.index-pictures {
+  margin: 0;
+}
+

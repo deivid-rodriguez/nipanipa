@@ -7,7 +7,7 @@
       <%= f.simple_fields_for :language_skills, wrapper: false %>
     </div>
     <div id="language-add">
-      <%= f.link_to_add t('.add_language'), :language_skills, "data-target" => "#language-selection" %>
+      <%= f.link_to_add t('.add_language'), :language_skills, data: { target: '#language-selection' } %>
     </div>
   </div>
 </div>

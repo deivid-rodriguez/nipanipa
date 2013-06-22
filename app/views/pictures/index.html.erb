@@ -7,11 +7,17 @@
                                       given_feedback: @given_feedback %>
 
   <div class="span12 profile-content">
-    <div class="row profile-content-wrapper">
-
-      <div class="span10 box">
-         <%= render partial: 'pictures/pictures', object: @pictures %>
+      <div class="row new-picture">
+        <% if can? :manage, @user %>
+          <p>
+            <%= link_to t('.new_picture'), new_user_picture_path(current_user) %>
+          </p>
+        <% end %>
       </div>
 
-    </div>
+      <div class="row index-pictures">
+        <%= render 'pictures', pictures: @pictures, user: @user %>
+      </div>
+  </div>
+
 </div>

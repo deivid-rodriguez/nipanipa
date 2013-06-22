@@ -1,0 +1,13 @@
+<div class="control-group span10">
+  <label class="control-label">
+    <%= t('.title') %>
+  </label>
+  <div class="controls">
+    <div id="picture-selection">
+      <%= f.simple_fields_for :pictures, wrapper: false %>
+    </div>
+    <div id="picture-add">
+      <%= f.link_to_add t('.add_picture'), :pictures, data: { target: '#picture-selection' } %>
+    </div>
+  </div>
+</div>

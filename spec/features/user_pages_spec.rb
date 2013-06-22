@@ -102,7 +102,7 @@ feature 'User profile display' do
            'feedbacks and count' do
     sign_in recipient
 
-    page.should have_selector('div.username', text: recipient.name)
+    page.should have_selector('h3', text: recipient.name)
     page.should have_title recipient.name
     page.should have_content(recipient.description)
     page.should have_content(feedback.content)
