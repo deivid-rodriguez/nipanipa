@@ -20,6 +20,10 @@ en:
         subject: "Subject"
       message:
         body: "Content"
+      picture:
+        name: "Caption for the picture"
+        image: "File with the picture"
+        avatar: "Mark as main picture?"
     hints:
       user:
         password: "Password must be at least 6 characters long"

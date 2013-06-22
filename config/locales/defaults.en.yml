@@ -145,6 +145,9 @@ en:
         update: "Edit reference"
       conversation:
         create: "Start a conversation"
+      picture:
+        create: "Upload picture"
+        update: "Update picture"
   number:
     currency:
       format:

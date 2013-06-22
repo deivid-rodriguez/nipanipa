@@ -190,7 +190,7 @@ oferta"
     humanitarian_aid: "Ayuda humanitaria"
     technical_assistance: "Ordenadores"
     art_project: "Proyecto artístico"
-    other: "Otro"
+    woofing: "Wooffing"
   sessions:
     new:
       newuser?: "¿Nuevo usuario?"

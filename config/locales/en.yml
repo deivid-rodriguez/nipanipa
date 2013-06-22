@@ -5,6 +5,7 @@ en:
       last_login: "Last login"
     not_specified: "Not specified"
     profile_header:
+      karma: "Karma"
       type: "I am a "
       location: "Location"
       last_login: "Last access"
@@ -83,10 +84,31 @@ than 300 characters"
     destroy:
       success: "Your reference has been removed"
   pictures:
+    new:
+      title: "Upload a new picture"
+      subtitle: "Pictures are cool, they provide trust for other users and
+show you are a real person, besides how ugly you are... (kidding!)"
+    create:
+      success: "Picture successfully uploaded!"
+      error: "Error uploading the picture... :("
     index:
-      title: "Photos"
+      title: "Pictures"
+      new_picture: "Add a new picture"
+    edit:
+      title: "Editar foto"
+      subtitle: "You can change the caption, select a new picture or mark the
+picture as your main picture which will appear in listings and at the top of
+your profile"
+    update:
+      success: "Picture updated successfully!"
+      error: "Error updating the picture..."
     pictures:
-      nopictures: "There are no photos yet"
+      delete: "Remove picture"
+      edit: "Edit picture"
+      nopictures: "There are no pictures yet"
+    destroy:
+      success: "Pictures"
+      error: "Error removing the picture..."
   conversations:
     new:
       header: "Contact %{username}"
@@ -166,7 +188,7 @@ host be interested in you?"
     humanitarian_aid: "Humanitarian Aid"
     technical_assistance: "I.T."
     art_project: "Artistic Project"
-    other: "Other"
+    woofing: "Wooffing"
   sessions:
     new:
       newuser?: "New user?"
@@ -201,6 +223,7 @@ would like to be implemented %{issues_url}."
       news: "News"
   activerecord:
     models:
+      picture: "picture"
       host: "host"
       volunteer: "volunteer"
     attributes:
