@@ -219,6 +219,7 @@ would like to be implemented %{issues_url}."
   layouts:
     header:
       language: "Language"
+      search: "Search"
     footer:
       news: "News"
   activerecord:

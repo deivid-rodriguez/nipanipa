@@ -5,10 +5,8 @@
         <%= link_to root_path, class: "brand" do %>
           <%= image_tag "logo.png", alt: "NiPaNiPa" %>
         <% end %>
-        <form class="navbar-search">
-          <input type="text" class="search-query span3" placeholder="Buscar">
-        </form>
         <ul class="nav pull-right">
+          <li><%= link_to t('.search'), users_path %></li>
           <li><%= link_to t('static_pages.help.title'), help_path %></li>
           <% if user_signed_in? %>
             <li>

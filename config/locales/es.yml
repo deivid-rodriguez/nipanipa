@@ -221,6 +221,7 @@ solicitarnos nuevas funcionalidades %{issues_url}."
   layouts:
     header:
       language: "Idioma"
+      search: "Buscar"
     footer:
       news: "Noticias"
   activerecord:
