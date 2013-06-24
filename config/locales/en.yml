@@ -225,8 +225,8 @@ would like to be implemented %{issues_url}."
   activerecord:
     models:
       picture: "picture"
-      host: "host"
-      volunteer: "volunteer"
+      Host: "host"
+      Volunteer: "volunteer"
     attributes:
       user:
         password_digest: "Password"

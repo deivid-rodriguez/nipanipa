@@ -16,6 +16,5 @@ env:
 bundler_args: --without development
 before_script:
 - psql -c "CREATE USER nipanipa CREATEDB PASSWORD 'nipanipa';" -U postgres
-- psql -c 'CREATE DATABASE nipanipa_test WITH OWNER nipanipa;' -U postgres
 script:
 - bundle exec rake db:setup db:test:prepare spec

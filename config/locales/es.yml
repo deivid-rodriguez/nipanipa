@@ -226,8 +226,8 @@ solicitarnos nuevas funcionalidades %{issues_url}."
   activerecord:
     models:
       picture: "foto"
-      host: "host"
-      volunteer: "voluntario"
+      Host: "host"
+      Volunteer: "voluntario"
     attributes:
       user:
         password_digest: "Contraseña"

@@ -13,7 +13,7 @@ describe 'Host profile creation' do
   before { visit new_user_registration_path(type: 'host') }
 
   it { should have_selector 'h1', text: t('users.new.header',
-                                  type: t('activerecord.models.host')) }
+                                  type: t('activerecord.models.Host')) }
   it { should have_title full_title(t 'users.new.title') }
   it { should have_link 'NiPaNiPa' }
 
@@ -54,7 +54,7 @@ feature 'Volunteer profile creation' do
   scenario 'signup page has proper content' do
     page.should \
       have_selector 'h1', text: t('users.new.header',
-                                  type: t('activerecord.models.volunteer'))
+                                  type: t('activerecord.models.Volunteer'))
     page.should have_title full_title(t 'users.new.title')
     page.should have_link 'NiPaNiPa'
   end

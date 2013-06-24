@@ -5,7 +5,7 @@
   <div class="signup-title">
     <h1>
       <%= image_tag "#{@user.type.underscore}.png" %>
-      <%= t '.header', type: t("activerecord.models.#{@user.type.underscore}") %>
+      <%= t('.header', type: t("activerecord.models.#{@user.type}")).humanize %>
     </h1>
   </div>
 
