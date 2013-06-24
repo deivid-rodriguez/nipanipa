@@ -36,6 +36,8 @@ class User < ActiveRecord::Base
   has_many :languages, through: :language_skills
 
   has_many :pictures, dependent: :destroy
+  accepts_nested_attributes_for :pictures,
+    reject_if: proc { |att| att['image'].blank? && att['image_cache'].blank? }
 
   has_many :sent_feedbacks,
             class_name: 'Feedback',

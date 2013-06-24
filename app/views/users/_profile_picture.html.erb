@@ -1,0 +1,17 @@
+<div class="control-group span10">
+  <label class="control-label">
+    <%= t('.title') %>
+  </label>
+  <div class="controls">
+     <%= f.simple_fields_for :pictures do |pf| %>
+       <% if pf.object.avatar %>
+         <%= pf.file_field :image %>
+         <%= pf.hidden_field :image_cache %>
+         <%= pf.hidden_field :avatar, value: true %>
+         <% unless pf.object.image.path.blank? %>
+           <%= image_tag pf.object.image.url(:thumb) %>
+         <% end %>
+       <% end %>
+     <% end %>
+  </div>
+</div>

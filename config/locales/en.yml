@@ -62,6 +62,7 @@ It won't take you more than five minutes."
       success: "Has dejado una nueva referencia!"
       error: "Error al crear la nueva referencia... :("
     index:
+      title: "Feedback"
     feedbacks:
       title: "Feedback"
       nofeedback: "There are no feedbacks yet"
@@ -133,9 +134,10 @@ or your family."
       skills_volunteer: "What are your skills? What can you do? Why would a
 host be interested in you?"
     profile_picture:
-      title: "Profile picture"
-    additional_pictures:
-      title: "You can upload additional pictures if you want"
+      title: "Profile picture, show yourselves!"
+    pictures:
+      title: "Upload some pictures, pictures are cool"
+      add_picture: "add picture"
     language_skills:
       title: "Which languages can you speak?"
       add_language: "add language"
@@ -158,6 +160,7 @@ host be interested in you?"
       feedback: "Feedback"
       accomodation: "Alojamiento"
       pictures: "Pictures"
+      references: "Feedback"
       skills_host: "Skills required / Volunteering description"
       skills_volunteer: "Skills offered / Volunteering searched"
     edit:

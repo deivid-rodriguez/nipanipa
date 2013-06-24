@@ -1,8 +1,13 @@
 <% provide :title, t('.title') %>
 
-<div class="row profile-wrapper">
+<div class="row form-wrapper">
 
-  <%= render 'shared/profile_header', user: current_user, page_id: @page_id %>
+  <div class="form-title">
+    <h1>
+      <%= image_tag "#{@user.type.underscore}.png" %>
+      <%= t('.header', type: t("activerecord.models.#{@user.type}")).humanize %>
+    </h1>
+  </div>
 
   <div class="signup-form span12">
     <%= render 'form', user: @user %>

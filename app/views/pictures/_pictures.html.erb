@@ -5,21 +5,25 @@
 <% else %>
   <ul class='thumbnails'>
     <% pictures.each do |p| %>
-      <li class='span6'>
-        <div class='picture-thumbnail'>
-          <% if can? :manage, p %>
-            <div class='actions'>
-              <%= link_to t('.delete'), user_picture_path(current_user, p),
-                                      method: :delete %> |
-              <%= link_to t('.edit'), edit_user_picture_path(current_user, p) %>
+      <% unless p.avatar %>
+        <li class='span6'>
+          <div class='picture-thumbnail'>
+            <% if can? :manage, p %>
+              <div class='actions'>
+                <%= link_to t('.delete'),
+                            user_picture_path(current_user, p),
+                            method: :delete %> |
+                <%= link_to t('.edit'),
+                            edit_user_picture_path(current_user, p) %>
+              </div>
+            <% end %>
+            <%= image_tag p.image.url(:large) %>
+            <div class="caption">
+              <h5><%= p.name %></h5>
             </div>
-          <% end %>
-          <%= image_tag p.image.url(:large) unless p.avatar %>
-          <div class="caption">
-            <h5><%= p.name %></h5>
           </div>
-        </div>
-      </li>
+        </li>
+      <% end %>
     <% end %>
   </ul>
 <% end %>

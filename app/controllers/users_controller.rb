@@ -1,4 +1,9 @@
 class UsersController < Devise::RegistrationsController
+  def new
+    @user = resource_class.new
+    @user.pictures.build(avatar: true)
+  end
+
   def index
     @users = resource_class.order('last_sign_in_at DESC').
                             paginate(page: params[:page])
@@ -15,6 +20,7 @@ class UsersController < Devise::RegistrationsController
 
   def edit
     @user = current_user
+    @user.pictures.build(avatar: true) if @user.main_picture.nil?
     @page_id = :edit
   end
 

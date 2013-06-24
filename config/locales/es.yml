@@ -63,6 +63,7 @@ cuéntanos lo que pasa después!"
       success: "Has dejado una nueva referencia!"
       error: "Error al crear la nueva referencia... :("
     index:
+      title: "Referencias"
     feedbacks:
       title: "Referencias"
       nofeedback: "No hay ninguna referencia"
@@ -133,6 +134,8 @@ sobre tu familia"
 casa"
       skills_volunteer: "¿Qué sabes hacer? ¿Qué habilidades consideras que
 podrían interesar a algún anfitrión?"
+    profile_picture:
+      title: "Foto de perfil... muéstrate!"
     pictures:
       title: "Sube alguna foto, las fotos molan"
       add_picture: "añadir foto"
@@ -159,6 +162,7 @@ oferta"
       feedback: "Referencias"
       accomodation: "Alojamiento"
       pictures: "Imágenes"
+      references: "Referencias"
       skills_host: "Habilidades requeridas / descripción del voluntariado"
       skills_volunteer: "Habilidades / tipo de voluntariado buscado"
     edit:

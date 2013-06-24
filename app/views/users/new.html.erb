@@ -1,8 +1,8 @@
 <% provide :title, t('.title') %>
 
-<div class="row signup-wrapper">
+<div class="row form-wrapper">
 
-  <div class="signup-title">
+  <div class="form-title">
     <h1>
       <%= image_tag "#{@user.type.underscore}.png" %>
       <%= t('.header', type: t("activerecord.models.#{@user.type}")).humanize %>

@@ -10,6 +10,7 @@
     <div class="row profile-content-wrapper">
 
       <div class="span7 box">
+         <h3><%= feedback_count(@feedback_pairs) %></h3>
          <%= render partial: 'feedbacks/feedbacks', object: @feedback_pairs %>
       </div>
 

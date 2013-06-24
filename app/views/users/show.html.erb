@@ -33,13 +33,12 @@
         <% end %>
 
         <div class="box">
-          <h3><%= t '.pictures' %></h3>
-          <% @user.pictures.each do |p| %>
-            <%= image_tag p.image.url(:small) unless p.avatar%>
-          <% end %>
+          <h3><%= link_to t('.pictures'), user_pictures_path(@user) %></h3>
+          <%= render 'pictures', pictures: @user.pictures %>
         </div>
 
         <div class="box">
+          <h3><%= link_to feedback_count(@feedback_pairs), user_feedbacks_path(@user) %></h3>
           <%= render partial: 'feedbacks/feedbacks', object: @feedback_pairs %>
         </div>
       </div>
