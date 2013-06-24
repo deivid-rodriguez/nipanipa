@@ -130,7 +130,7 @@ es:
         create: Crear %{model}
         update: Actualizar %{model}
       user:
-        create: "Crear usuario"
+        create: "Registrarme!"
         update: "Actualizar usuario"
       feedback:
         create: "Dejar nueva referencia"

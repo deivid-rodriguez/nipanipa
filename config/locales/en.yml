@@ -39,9 +39,9 @@ nipanipa.test@gmail.com!"
     home:
       welcome: 'Welcome to NiPaNiPa'
       subtitle: 'Contacts hosts and volunteers around the world'
-      host: "Sign up as host"
+      host: "I'm a host"
       host_desc: "Find volunteers to help you while they stay at your place"
-      volunteer: "Sign up as volunteer"
+      volunteer: "I'm a volunteer"
       volunteer_desc: "Help someone in exchange for accomodation"
       contribute: "Contribute"
       contribute_desc: "Support NiPaNiPa so it keeps being free, whether by
@@ -188,7 +188,7 @@ host be interested in you?"
     humanitarian_aid: "Humanitarian Aid"
     technical_assistance: "I.T."
     art_project: "Artistic Project"
-    woofing: "Wooffing"
+    wwoofing: "Wwoofing"
   sessions:
     new:
       newuser?: "New user?"

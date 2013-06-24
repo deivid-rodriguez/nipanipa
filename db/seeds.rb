@@ -21,7 +21,7 @@ WorkType.create name: 'animal_care'
 WorkType.create name: 'humanitarian_aid'
 WorkType.create name: 'technical_assistance'
 WorkType.create name: 'art_project'
-WorkType.create name: 'other'
+WorkType.create name: 'wwoofing'
 
 # Create default languages
 Language.create name: 'Afrikaans', code: 'AF'
