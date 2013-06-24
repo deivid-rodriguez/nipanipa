@@ -3,7 +3,7 @@
     <%= link_to users_path do %>
       <div class="explore-thumbnail">
         <%= image_tag "explore.png", alt: "explore" %>
-        <h3><%= t('static_pages.home.explore') %></h3>
+        <h2><%= t('static_pages.home.explore') %></h2>
         <p><%= t('static_pages.home.explore_desc') %></p>
       </div>
     <% end %>
@@ -12,7 +12,7 @@
     <%= link_to new_user_registration_path(type: "host") do %>
       <div class="host-thumbnail">
         <%= image_tag "host.png", alt: "signup host" %>
-        <h3><%= t('static_pages.home.host') %></h3>
+        <h2><%= t('static_pages.home.host') %></h2>
         <p><%= t('static_pages.home.host_desc') %></p>
       </div>
     <% end %>
@@ -21,7 +21,7 @@
     <%= link_to new_user_registration_path(type: "volunteer") do %>
       <div class="volunteer-thumbnail">
         <%= image_tag "volunteer.png", alt: "signup volunteer" %>
-        <h3><%= t('static_pages.home.volunteer') %></h3>
+        <h2><%= t('static_pages.home.volunteer') %></h2>
         <p><%= t('static_pages.home.volunteer_desc') %></p>
       </div>
     <% end %>
