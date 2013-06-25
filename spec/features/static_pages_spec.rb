@@ -18,7 +18,7 @@ describe "Static pages" do
     let(:page_title) { '' }
     before { visit root_path }
 
-    it_should_behave_like "all static pages"
+    it_behaves_like "all static pages"
     it { should_not have_title '| Home' }
     it { should_not have_link t('home.signup') }
   end
@@ -29,7 +29,7 @@ describe "Static pages" do
     before { visit help_path }
 
     it { should have_selector 'h1', text: help }
-    it_should_behave_like "all static pages"
+    it_behaves_like "all static pages"
   end
 
   describe "About Page" do
@@ -37,7 +37,7 @@ describe "Static pages" do
     before { visit about_path }
 
     it { should have_selector 'h1', text: about }
-    it_should_behave_like "all static pages"
+    it_behaves_like "all static pages"
   end
 
   describe "Contact Page" do
@@ -45,7 +45,7 @@ describe "Static pages" do
     let(:page_title) { contact }
 
     it { should have_selector 'h1', text: contact }
-    it_should_behave_like "all static pages"
+    it_behaves_like "all static pages"
   end
 
   describe "robots.txt file" do

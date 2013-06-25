@@ -18,4 +18,4 @@ before_script:
 - psql -c "CREATE USER nipanipa CREATEDB PASSWORD 'nipanipa';" -U postgres
 script:
 - bundle exec rake db:setup
-- bundle exec spec
+- bundle exec rake spec
