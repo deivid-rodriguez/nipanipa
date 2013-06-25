@@ -1,11 +1,16 @@
 module UsersHelper
 
   def avatar_for user, options = { style: :small }
-    main_pict = user.main_picture
     style = options[:style]
-    default_avatar = "default_avatar_#{style.to_s}.png"
-    url = main_pict.nil? ? default_avatar : main_pict.image.url(style)
-    image_tag url, alt: 'Profile Picture'
+    main_pict = user.main_picture
+    if main_pict
+      url = main_pict.image.url(style)
+      alt = main_pict.name
+    else
+      url = "default_avatar_#{style.to_s}.png"
+      alt = 'Default avatar'
+    end
+    image_tag url, alt: alt
   end
 
   def index_title(type)

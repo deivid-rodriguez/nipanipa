@@ -136,9 +136,6 @@ casa"
 podrían interesar a algún anfitrión?"
     profile_picture:
       title: "Foto de perfil... muéstrate!"
-    pictures:
-      title: "Sube alguna foto, las fotos molan"
-      add_picture: "añadir foto"
     language_skills:
       title: "También puedes contarnos qué idiomas conoces"
       add_language: "añadir idioma"

@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe Picture do
-  let(:profile_picture) { build(:picture) }
+  let(:picture) { build(:picture) }
 
-  subject { profile_picture }
+  subject { picture }
 
   it { should respond_to(:name) }
   it { should respond_to(:image) }

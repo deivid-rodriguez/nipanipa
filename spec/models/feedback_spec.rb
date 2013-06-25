@@ -32,12 +32,12 @@ describe Feedback do
   describe 'accessible attributes' do
     it "should not allow access to sender_id" do
       expect do
-        Feedback.new(sender: build(:user))
+        Feedback.new(sender: build(:host))
       end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
     it "should not allow access to recipient_id" do
       expect do
-        Feedback.new(recipient: build(:user))
+        Feedback.new(recipient: build(:host))
       end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
   end

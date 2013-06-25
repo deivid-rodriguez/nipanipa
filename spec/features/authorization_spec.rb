@@ -20,7 +20,7 @@ describe "User" do
     end
 
     context "when it's an admin user" do
-      let!(:user) { create(:admin) }
+      let!(:user) { create(:host, :admin) }
 
       it { should have_ability(:manage, for: Feedback.new) }
     end

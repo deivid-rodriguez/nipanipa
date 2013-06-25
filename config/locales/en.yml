@@ -135,9 +135,6 @@ or your family."
 host be interested in you?"
     profile_picture:
       title: "Profile picture, show yourselves!"
-    pictures:
-      title: "Upload some pictures, pictures are cool"
-      add_picture: "add picture"
     language_skills:
       title: "Which languages can you speak?"
       add_language: "add language"
