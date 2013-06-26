@@ -13,16 +13,6 @@ module UsersHelper
     image_tag url, alt: alt
   end
 
-  def index_title(type)
-    if type == 'host'
-      t 'users.index.all_hosts'
-    elsif type == 'volunteer'
-      t 'users.index.all_volunteers'
-    else
-      t 'users.index.all_users'
-    end
-  end
-
   def feedback_count(feedbacks)
     "#{t 'feedbacks.feedbacks.title'} " \
     "( #{t 'feedbacks.received', count: @feedback_pairs.count{ |f| !f[0].nil? }}" \

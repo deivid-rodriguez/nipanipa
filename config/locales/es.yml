@@ -166,13 +166,11 @@ oferta"
       title: "Actualización de perfil"
       header: "Actualiza tu perfil"
     index:
+      title: "Buscar"
       places: "Lugares"
       people: "Gente"
       hosts: "Anfitriones"
       volunteers: "Voluntarios"
-      all_hosts: "Todos los anfitriones"
-      all_volunteers: "Todos los voluntarios"
-      all_users: "Todos los usuarios"
     user:
       karma: "karma"
   work_types:

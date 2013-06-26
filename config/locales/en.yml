@@ -164,13 +164,11 @@ host be interested in you?"
       title: "Profile update"
       header: "Update your profile"
     index:
+      title: "Search"
       places: "Places"
       people: "People"
       hosts: "Hosts"
       volunteers: "Volunteers"
-      all_hosts: "All hosts"
-      all_volunteers: "All volunteers"
-      all_users: "All users"
     user:
       karma: "karma"
   work_types:
