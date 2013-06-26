@@ -2,25 +2,36 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.signin-wrapper {
-  background: $white;
-  @include border_radius;
-  .signin-form {
-    width: 250px;
-    margin: auto;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    text-align: left;
-    .header {
-      img {
-        display: inline;
-        margin: 0px 5px;
-      }
-      text-align: center;
+.signin-thumbnail {
+  @extend .thumbnail;
+  width: 240px;
+  margin: auto;
+  margin-top: 20px;
+  padding: 15px 30px;
+  text-align: left;
+  .header {
+    img {
+      display: inline;
+      margin: 0px 5px;
     }
-    .forgot-your-pwd {
-      margin-top: 10px;
-    }
+    text-align: center;
+  }
+  .forgot-your-pwd {
+    margin-top: 10px;
+  }
+}
+
+.signin-dropdown {
+  @extend .thumbnail;
+  border: none;
+  padding: 10px;
+  width: 250px;
+  text-align: left;
+  a {
+    display: block;
+  }
+  .signup-button {
+    width: 100%;
   }
 }
 

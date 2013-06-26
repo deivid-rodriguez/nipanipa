@@ -2,54 +2,102 @@
 # Integration tests for Authentication pages
 #
 
-feature 'Signin' do
+describe 'Signin' do
   let(:signin)  { t 'sessions.signin'    }
   let(:signout) { t 'sessions.signout'   }
   let(:profile) { t 'users.show.profile' }
   let(:user)    { create(:host)          }
 
-  background { visit root_path }
+  subject { page }
 
-  scenario 'Signin page has correct content' do
-    visit new_user_session_path
-    page.should have_title signin
+  before { visit root_path }
+
+  describe 'page has correct content' do
+    before { visit new_user_session_path }
+
+    it { should have_title signin }
   end
 
-  scenario 'Signin dropdown menu has correct content' do
-    click_link signin
-    page.should have_selector 'input#user_email'
-    page.should have_selector 'input#user_password'
+  describe 'dropdown menu has correct content' do
+    before { click_link signin }
+
+    it { should have_selector 'input#user_email' }
+    it { should have_selector 'input#user_password' }
   end
 
-  scenario 'Signin correctly sets user location by geolocating the ip' do
-    sign_in user
 
-    user.reload.longitude.should_not be_nil
-    user.reload.latitude.should_not be_nil
-    user.reload.state.should_not be_nil
-    user.reload.country.should_not be_nil
+  # XXX: Review.. this fields are currently set in the factory
+  describe 'geolocation' do
+    before { sign_in user }
+
+    it 'correctly sets user location by geolocating the ip' do
+      user.reload.longitude.should_not be_nil
+      user.reload.latitude.should_not be_nil
+      user.reload.state.should_not be_nil
+      user.reload.country.should_not be_nil
+    end
   end
 
-  scenario 'with invalid information should take you back to signin page and' \
-           'show error message' do
-    click_link signin
-    click_button signin
+  context 'with invalid information' do
+    before do
+      click_link signin
+      click_button signin
+    end
 
-    page.should have_title signin
-    page.should have_flash_message t('devise.failure.invalid'), 'error'
+    it { should have_title signin }
+    it { should have_flash_message t('devise.failure.invalid'), 'error' }
   end
 
-  scenario 'valid information followed by signout' do
-    sign_in user
+  context 'with valid information' do
+    before { sign_in user }
 
-    page.should have_title user.name
-    page.should have_link profile, href: user_path(user)
-    page.should_not have_link signin, href: new_user_session_path
+    it { should have_title user.name }
+    it { should have_link profile, href: user_path(user) }
+    it { should_not have_link signin, href: new_user_session_path }
 
-    click_link signout
+    context 'and then signout' do
+      before { click_link signout }
 
-    page.should have_link signin
-    page.should_not have_link profile, href: user_path(user)
-    page.should_not have_link signout
+      it { should have_link signin }
+      it { should_not have_link profile, href: user_path(user) }
+      it { should_not have_link signout }
+    end
   end
 end # signin
+
+describe 'Password recovery' do
+  let!(:user) { create(:volunteer) }
+
+  subject { page }
+
+  before do
+    visit root_path
+    click_link t('sessions.signin')
+    click_link t('sessions.forgot_your_pwd?')
+  end
+
+  context 'with correct email' do
+    before do
+      within 'div.signin-thumbnail' do
+        fill_in 'user[email]', with: user.email
+        click_button t('devise.passwords.new.send_instructions')
+      end
+    end
+
+    it { should have_flash_message \
+           t('devise.passwords.send_instructions'), 'success' }
+  end
+
+  context 'with wrong email' do
+    before do
+      within 'div.signin-thumbnail' do
+        fill_in 'user[email]', with: "mywrongemail@example.com"
+        click_button t('devise.passwords.new.send_instructions')
+      end
+    end
+
+    it { should have_flash_message \
+           t('activerecord.errors.models.user.attributes.email.not_found'),
+           'error' }
+  end
+end

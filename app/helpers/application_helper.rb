@@ -39,5 +39,4 @@ module ApplicationHelper
     end
     content.html_safe
   end
-
 end

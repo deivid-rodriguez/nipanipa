@@ -31,7 +31,7 @@ es:
       success: Has sido autorizado satisfactoriamente de la cuenta %{kind}.
     passwords:
       new:
-        forgotten?: Recuperación de contraseña
+        forgotten?: Recuperar contraseña
         send_instructions: Envíame instrucciones
       edit:
         title: Cambio de contraseña

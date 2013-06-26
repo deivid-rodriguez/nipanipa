@@ -1,10 +1,16 @@
 class PasswordsController < Devise::PasswordsController
-  after_filter :flash_errors
 
-  # Just show first error of first attribute
-  def flash_errors
-    unless resource.errors.empty?
-      flash[:error] = resource.errors.messages.values.first.first
+  def create
+    self.resource =
+      resource_class.send_reset_password_instructions(resource_params)
+
+    if successfully_sent?(resource)
+      respond_with({},
+        location: after_sending_reset_password_instructions_path_for(resource_name))
+    else
+      flash.now[:error] = resource.errors.full_messages.first
+      respond_with(resource)
     end
   end
+
 end
