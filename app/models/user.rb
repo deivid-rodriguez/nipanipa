@@ -75,11 +75,6 @@ class User < ActiveRecord::Base
     super
   end
 
-  # Use a single partial path for all subclasses
-  def to_partial_path
-    "users/user"
-  end
-
   def non_deleted_conversations
     sent_conversations.deleted_by_sender + received_conversations.deleted_by_recipient
   end
