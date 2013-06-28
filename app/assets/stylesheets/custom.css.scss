@@ -177,6 +177,15 @@ header {
 }
 
 
+/* main content */
+.main {
+  margin-left: 0px;
+  text-align: left;
+  background: $white;
+  padding-bottom: 20px;
+}
+
+
 /* footer */
 
 footer {
@@ -194,7 +203,16 @@ footer {
   ul {
     float: right;
     list-style: none;
-    li { float: left; margin-left: 10px; }
+    li {
+      float: left;
+      border-right: 1px solid $grayLight;
+      padding-left: 5px;
+      padding-right: 5px;
+      line-height: 12px;
+    }
+    li:last-child {
+      border-right: none;
+    }
   }
 }
 

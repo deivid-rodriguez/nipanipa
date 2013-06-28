@@ -1,22 +1,18 @@
 <% provide :title, t('.title') %>
 
-<div class="row profile-wrapper">
+<div class="span12 profile-titled">
+  <div class="row profile-titled-wrapper">
 
-  <div class="span12 profile-titled">
-    <div class="row profile-titled-wrapper">
+    <div class="offset2 span8 title">
+      <h3><%= t('.title') %></h3>
+    </div>
 
-      <div class="offset2 span8 title">
-        <h3><%= t('.title') %></h3>
-      </div>
+    <div class="offset2 span8 subtitle">
+      <em><%= t('.subtitle') %></em>
+    </div>
 
-      <div class="offset2 span8 subtitle">
-        <em><%= t('.subtitle') %></em>
-      </div>
-
-      <div class="offset2 span8 form">
-         <%= render partial: 'form', object: @pictures %>
-      </div>
+    <div class="offset2 span8 form">
+       <%= render partial: 'form', object: @pictures %>
     </div>
   </div>
-
 </div>

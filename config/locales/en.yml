@@ -23,6 +23,8 @@ en:
       edit_feedback: "Change your reference"
       report_user: "Alert about this user"
   static_pages:
+    terms:
+      title: "Terms and Conditions"
     help:
       title: "Help"
       uhost?: "Are you a host?"
@@ -51,7 +53,7 @@ translating it into your language."
       explore_desc: "Take a look at the potential friends who might host you
 durring your holidays, or check which willing workers might be around your
 area."
-      signup: "Sign up!"
+      signup: "Sign up"
       signup_desc: "Sign up now as a host or a volunteer and fill your profile.
 It won't take you more than five minutes."
   feedbacks:

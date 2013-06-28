@@ -1,25 +1,21 @@
 <% provide :title, t('.title') %>
 
-<div class="row profile-wrapper">
+<%= render 'shared/profile_header', user: current_user, page_id: @page_id %>
 
-  <%= render 'shared/profile_header', user: current_user, page_id: @page_id %>
+<div class="span8">
 
-  <div class="span8">
-
-    <% if @conversations.empty? %>
-      <div class="offset3 no-elements">
-        <em><%= t('.nomessages') %></em>
-      </div>
-    <% else %>
-      <ul class="conversation-list">
-      <% for conversation in @conversations %>
-        <li id="conversation-preview-<%= conversation.id %>">
-        <%= render('preview', conversation: conversation) %>
-        </li>
-      <% end %>
-      </ul>
+  <% if @conversations.empty? %>
+    <div class="offset3 no-elements">
+      <em><%= t('.nomessages') %></em>
+    </div>
+  <% else %>
+    <ul class="conversation-list">
+    <% for conversation in @conversations %>
+      <li id="conversation-preview-<%= conversation.id %>">
+      <%= render('preview', conversation: conversation) %>
+      </li>
     <% end %>
-
-  </div>
+    </ul>
+  <% end %>
 
 </div>

@@ -30,6 +30,7 @@ Nipanipa::Application.routes.draw do
     match 'help'       => 'static_pages#help'
     match 'about'      => 'static_pages#about'
     match 'contact'    => 'static_pages#contact'
+    match 'terms'      => 'static_pages#terms'
     match 'robots.txt' => 'static_pages#robots'
 
     root :to => 'static_pages#home'

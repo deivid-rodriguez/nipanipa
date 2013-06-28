@@ -1,11 +1,12 @@
 <div class="container">
 <footer class="footer">
   <small>
-    NiPaNiPa by
+    (ↄ) 2013 NiPaNiPa by
     <%= link_to "Trastévere", 'http://trasteverestudio.com' %>
   </small>
   <nav>
     <ul>
+      <li><%= link_to t('static_pages.terms.title')  , terms_path   %></li>
       <li><%= link_to t('static_pages.about.title')  , about_path   %></li>
       <li><%= link_to t('static_pages.contact.title'), contact_path %></li>
       <li>

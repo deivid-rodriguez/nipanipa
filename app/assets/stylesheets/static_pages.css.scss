@@ -41,3 +41,15 @@ $redVolunteer: #f1c5c2;
     color: #0088cc;
   }
 }
+
+.terms {
+  ol {
+    h5 {
+      margin-top: 15px;
+    }
+    ol {
+    list-style-type: lower-alpha;
+    }
+  }
+  padding: 50px;
+}

@@ -23,6 +23,8 @@ es:
       edit_feedback: "Cambiar la referencia"
       report_user: "Alertar sobre usuario"
   static_pages:
+    terms:
+      title: "Términos y Condiciones"
     help:
       title: "Ayuda"
       uhost?: "¿Eres host?"

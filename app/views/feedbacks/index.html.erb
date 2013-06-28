@@ -1,18 +1,16 @@
 <% provide :title, t('.title') %>
 
-<div class="row profile-wrapper">
+<%= render 'shared/profile_header', user: @user,
+                                    page_id: @page_id,
+                                    given_feedback: @given_feedback %>
 
-  <%= render 'shared/profile_header', user: @user,
-                                      page_id: @page_id,
-                                      given_feedback: @given_feedback %>
+<div class="span12 profile-content">
+  <div class="row profile-content-wrapper">
 
-  <div class="span12 profile-content">
-    <div class="row profile-content-wrapper">
-
-      <div class="span7 box">
-         <h3><%= feedback_count(@feedback_pairs) %></h3>
-         <%= render partial: 'feedbacks/feedbacks', object: @feedback_pairs %>
-      </div>
-
+    <div class="span7 box">
+       <h3><%= feedback_count(@feedback_pairs) %></h3>
+       <%= render partial: 'feedbacks/feedbacks', object: @feedback_pairs %>
     </div>
+
+  </div>
 </div>
