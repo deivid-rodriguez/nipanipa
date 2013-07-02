@@ -10,6 +10,7 @@ describe 'Host profile creation' do
   let(:create_user_btn) { t('helpers.submit.user.create') }
 
   subject { page }
+
   before { visit new_user_registration_path(type: 'host') }
 
   it { should have_selector 'h1', text: t('users.new.header',
@@ -45,48 +46,54 @@ describe 'Host profile creation' do
   end
 end
 
-feature 'Volunteer profile creation' do
-  given(:volunteer)       { build(:volunteer) }
-  given(:create_user_btn) { t('helpers.submit.user.create') }
+describe 'Volunteer profile creation' do
+  let(:volunteer)       { build(:volunteer) }
+  let(:create_user_btn) { t('helpers.submit.user.create') }
 
-  background { visit new_user_registration_path(type: 'volunteer') }
+  subject { page }
 
-  scenario 'signup page has proper content' do
-    page.should \
-      have_selector 'h1', text: t('users.new.header',
-                                  type: t('activerecord.models.Volunteer'))
-    page.should have_title full_title(t 'users.new.title')
-    page.should have_link 'NiPaNiPa'
-  end
+  before { visit new_user_registration_path(type: 'volunteer') }
 
-  scenario 'submitting invalid information doesn\'t create user, redirects ' \
-           'back to signup page and displays error messages' do
-    expect { click_button create_user_btn }.not_to change(Volunteer, :count)
-    page.should have_title t('users.new.title')
-    page.should have_selector '.error'
-  end
+  it { should have_selector 'h1', text: t('users.new.header',
+                                  type: t('activerecord.models.Volunteer')) }
+  it { should have_title full_title(t 'users.new.title') }
+  it { should have_link 'NiPaNiPa' }
 
-  scenario 'submitting valid information creates user, signs in that user, ' \
-           'redirects to his profile and flash a welcome message' do
-    within '.signup-form' do
-      fill_in 'user[name]'                 , with: volunteer.name
-      fill_in 'user[email]'                , with: volunteer.email
-      fill_in 'user[password]'             , with: volunteer.password
-      fill_in 'user[password_confirmation]', with: volunteer.password
-      fill_in 'user[description]'          , with: volunteer.description
+  context 'when submitting invalid information' do
+    before do
+      expect { click_button create_user_btn }.not_to change(Volunteer, :count)
     end
 
-    expect { click_button create_user_btn }.to change(Volunteer, :count).by(1)
-    page.should have_title volunteer.name
-    page.should have_flash_message t('devise.users.signed_up'), 'success'
-    page.should have_link t('sessions.signout')
+    it { should have_title t('users.new.title') }
+    it { should have_selector '.error' }
+  end
+
+  context 'when submitting valid information' do
+    before do
+      within '.signup-form' do
+        fill_in 'user[name]'                 , with: volunteer.name
+        fill_in 'user[email]'                , with: volunteer.email
+        fill_in 'user[password]'             , with: volunteer.password
+        fill_in 'user[password_confirmation]', with: volunteer.password
+        fill_in 'user[description]'          , with: volunteer.description
+      end
+      expect { click_button create_user_btn }.to change(Volunteer, :count).by(1)
+    end
+
+    it { should have_title volunteer.name }
+    it { should have_flash_message t('devise.users.signed_up'), 'success' }
+    it { should have_link t('sessions.signout') }
   end
 end
 
-feature 'User profile display' do
-  given(:feedback)     { create(:feedback)  }
-  given(:sender)       { feedback.sender    }
-  given(:recipient)    { feedback.recipient }
+describe 'User profile display' do
+  let(:new_feedback)  { t('shared.profile_header.new_feedback')  }
+  let(:edit_feedback) { t('shared.profile_header.edit_feedback') }
+  let(:feedback)  { create(:feedback)  }
+  let(:sender)    { feedback.sender    }
+  let(:recipient) { feedback.recipient }
+
+  subject { page }
 
   # Force trackable hook ups and ip geolocation to happen
   # This should be forced in creation...
@@ -98,87 +105,118 @@ feature 'User profile display' do
     sign_out
   end
 
-  scenario 'includes proper elements: header, title, user description, user ' \
-           'feedbacks and count' do
-    sign_in recipient
-
-    page.should have_selector('h3', text: recipient.name)
-    page.should have_title recipient.name
-    page.should have_content(recipient.description)
-    page.should have_content(feedback.content)
-    page.should have_content(recipient.received_feedbacks.count)
-    page.should_not have_link t('users.show.new_feedback')
-    page.should_not have_link t('users.show.edit_feedback')
+  shared_examples_for 'user profile' do
+    it { should have_selector('h3', text: user.name) }
+    it { should have_title user.name }
+    it { should have_content(user.description) }
+    it { should have_content(feedback.content) }
+    it { should have_content(user.received_feedbacks.count) }
   end
 
-  scenario 'when visitor not signed in' do
-    visit user_path sender
-    # It should show something to encourage registration
+  context 'when visitor is the profile owner' do
+    before { sign_in recipient }
+
+    it_behaves_like 'user profile' do
+      let(:user) { recipient }
+    end
+    it { should_not have_link new_feedback  }
+    it { should_not have_link edit_feedback }
   end
 
-  scenario 'when user signed in and looking at another user\'s profile whom ' \
-           'he has already left feedback' do
-    sign_in sender
-    visit user_path recipient
-    page.should have_link t('shared.profile_header.edit_feedback')
+  context 'when visitor is not signed in' do
+    before { visit user_path sender }
+
+    it_behaves_like 'user profile' do
+      let(:user) { sender }
+    end
+    it { should_not have_link new_feedback  }
+    it { should_not have_link edit_feedback }
   end
 
-  scenario 'when user signed in & looking at another user\'s whom feedback ' \
-           'is to be given' do
-    sign_in recipient
-    visit user_path sender
-    page.should have_link t('shared.profile_header.new_feedback')
+  context 'when visitor already left feedback' do
+    before do
+      sign_in sender
+      visit user_path recipient
+    end
+
+    it_behaves_like 'user profile' do
+      let(:user) { recipient }
+    end
+    it { should_not have_link new_feedback  }
+    it { should have_link edit_feedback }
+  end
+
+  context 'when visitor did not leave feedback yet' do
+    before do
+      sign_in recipient
+      visit user_path sender
+    end
+
+    it_behaves_like 'user profile' do
+      let(:user) { sender }
+    end
+    it { should have_link new_feedback  }
+    it { should_not have_link edit_feedback }
   end
 end
 
-feature 'User profile removing' do
+describe 'User profile removing' do
 
 end
 
-feature 'User profile index' do
-  background do
-    5.times { build(:user) }
+describe 'User profile index' do
+  before do
+    2.times { create(:host) }
+    2.times { create(:volunteer) }
     visit users_path
   end
 
-  scenario 'Explore all profiles from home page' do
+  it 'lists all profiles' do
     User.paginate(page: 1).each do |user|
       page.should have_selector('li', text: user.name)
     end
   end
 end
 
-feature 'User profile editing' do
-  given(:host) { create(:host, email: 'old_email@example.com') }
-  given(:update_user_btn) { t('helpers.submit.user.update', model: User) }
+describe 'User profile editing' do
+  let(:host)        { create(:host, email: 'old_email@example.com') }
+  let(:update_user) { t('helpers.submit.user.update', model: User)  }
 
-  background do
+  subject { page }
+
+  before do
     visit root_path
     sign_in host
     visit edit_user_registration_path
   end
 
-  scenario 'profile page has correct header, title and links' do
-    page.should have_title t('users.edit.title')
+  it { should have_title t('users.edit.title') }
+
+  context 'with invalid information' do
+    before do
+      fill_in 'user[email]', with: 'invalid@example'
+      click_button update_user
+    end
+
+    it { should have_selector '.error' }
   end
 
-  scenario 'with invalid information' do
-    fill_in 'user[email]', with: 'invalid@example'
-    click_button update_user_btn
-    page.should have_selector '.error'
+  context 'with nothing introduced' do
+    before { click_button update_user }
+
+    it { should have_flash_message t('devise.users.updated'), 'success' }
   end
 
-  scenario 'nothing introduced is valid' do
-    click_button update_user_btn
-    page.should have_flash_message t('devise.users.updated'), 'success'
-  end
+  context 'with valid information' do
+    before do
+      fill_in 'user[email]', with: 'new_email@example.com'
+      click_button update_user
+    end
 
-  scenario 'with valid information' do
-    fill_in 'user[email]', with: 'new_email@example.com'
-    click_button update_user_btn
-
-    page.should have_flash_message t('devise.users.updated'), 'success'
-    page.should have_link t('sessions.signout'), href: destroy_user_session_path
-    host.reload.email.should == 'new_email@example.com'
+    it { should have_flash_message t('devise.users.updated'), 'success' }
+    it { should have_link t('sessions.signout'), href: destroy_user_session_path }
+    it 'updates host correctly' do
+      host.reload.email.should == 'new_email@example.com'
+    end
   end
 end
