@@ -6,6 +6,10 @@ $grayExplore: #e1ddc4;
 $greenHost: #9ab6aa;
 $redVolunteer: #f1c5c2;
 
+.home {
+  background-color: $grayBackground;
+}
+
 .explore-thumbnail {
   @extend .thumbnail;
   padding: 20px 290px;
