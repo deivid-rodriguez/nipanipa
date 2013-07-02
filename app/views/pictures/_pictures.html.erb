@@ -14,7 +14,8 @@
                             user_picture_path(current_user, p),
                             method: :delete %> |
                 <%= link_to t('.edit'),
-                            edit_user_picture_path(current_user, p) %>
+                            edit_user_picture_path(current_user, p),
+                            name: "image-#{p.id}" %>
               </div>
             <% end %>
             <%= image_tag p.image.url(:large) %>

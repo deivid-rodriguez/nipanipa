@@ -5,7 +5,7 @@
     <div class="container">
       <%= render 'layouts/header' %>
       <%= render 'layouts/messages' %>
-      <div class="row main">
+      <div class="main row">
         <%= yield %>
       </div>
       <script>
@@ -14,7 +14,7 @@
         g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
         s.parentNode.insertBefore(g,s)}(document,'script'));
       </script>
+      <%= render 'layouts/footer' %>
     </div>
-    <%= render 'layouts/footer' %>
   </body>
 </html>

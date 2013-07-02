@@ -157,12 +157,11 @@ div, li {
     .span6 {
       margin-left: 0px;
       .box {
-        margin: 20px;
-        width: 440px;
+        margin: 0px 0px 20px 20px;
         border: 1px solid $grayVeryLight;
         @include border_radius;
         @include box_sizing;
-        padding: 0.8em;
+        padding: 9px;
         background: $graySuperLight;
         @include box_shadow;
         h3 {
@@ -200,46 +199,43 @@ div.comment {
 
 
 /* users index */
-.main_list {
-  background: $white;
+.sidebar-users {
+  width: 180px;
+  margin-top: 20px;
+  background: $graySuperLight;
   @include border_radius;
-  padding: 20px 0;
-  margin-right: -20px;
-  .sidebar_users {
-    background: $graySuperLight;
-    @include border_radius;
-    li.active > a {
+  li.active > a {
+    background-color: $grayLight;
+    &:hover {
       background-color: $grayLight;
-      &:hover {
-        background-color: $grayLight;
-      }
     }
   }
-  li.span9 {
-    margin-right: -20px;
-    .user-thumbnail {
-      overflow: hidden;
-      @extend .thumbnail;
-      padding-right: 15px;
-      @include border_radius;
-      .user-thumbnail-badges {
-        float: left;
-        .karma {
-          padding-top: 10px;
-          span {
-           font-size: 16px;
-          }
+}
+.list-users {
+  padding: 20px 0;
+  margin-right: 20px;
+  .user-thumbnail {
+    overflow: hidden;
+    @extend .thumbnail;
+    padding-right: 15px;
+    @include border_radius;
+    .user-thumbnail-badges {
+      float: left;
+      .karma {
+        padding-top: 10px;
+        span {
+         font-size: 16px;
         }
       }
-      .user-thumbnail-data {
-        margin-left: 180px;
-      }
-      .user-thumbnail-login {
-        margin: 0 0 4px 0;
-        color: $gray;
-        font-size: 0.9em;
-        font-style: italic;
-      }
+    }
+    .user-thumbnail-data {
+      margin-left: 180px;
+    }
+    .user-thumbnail-login {
+      margin: 0 0 4px 0;
+      color: $gray;
+      font-size: 0.9em;
+      font-style: italic;
     }
   }
 }
