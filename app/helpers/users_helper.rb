@@ -1,6 +1,6 @@
 module UsersHelper
 
-  def avatar_for user, options = { style: :small }
+  def avatar_for user, options = { style: :small_cropped }
     style = options[:style]
     main_pict = user.main_picture
     if main_pict
