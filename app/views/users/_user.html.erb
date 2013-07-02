@@ -1,25 +1,30 @@
 <li class="span9">
-  <div class="thumbnail user-thumbnail">
-    <div class="user-thumbnail-badges">
-      <%= avatar_for user, style: :small %>
-      <div class="karma">
-        <span><strong><%= user.karma %></strong></span>
-         <%= t('.karma') %>
+  <%= link_to user do %>
+    <div class="user-thumbnail">
+      <div class="user-thumbnail-badges">
+        <%= avatar_for user, style: :small_cropped %>
+        <div class="karma">
+          <span><strong><%= user.karma %></strong></span>
+           <%= t('.karma') %>
+        </div>
+      </div>
+      <div class="user-thumbnail-data">
+        <h5>
+          <% if user.name %>
+            <%= "#{user.name} (#{user.state}, #{user.country})" %>
+          <% else %>
+            <%= "#{user.name} (#{user.country})" %>
+          <% end %>
+        </h5>
+        <p class="user-thumbnail-login">
+          <%= render 'shared/current_or_last_login', user: user %>
+        </p>
+        <p class="user-thumbnail-shortdesc">
+          <%= truncate user.description, length: 250,
+                                         separator: ' ',
+                                         omission: "..."  %>
+        </p>
       </div>
     </div>
-    <div class="user-thumbnail-data">
-      <h5>
-      <%= link_to user.name, user %>
-      (<%= "#{user.state}, #{user.country}" %>)
-      </h5>
-      <p class="user-thumbnail-login">
-        <%= render 'shared/current_or_last_login', user: user %>
-      </p>
-      <p class="user-thumbnail-shortdesc">
-        <%= truncate user.description, length: 250,
-                                       separator: ' ',
-                                       omission: "..."  %>
-      </p>
-    </div>
-  </div>
+  <% end %>
 </li>

@@ -40,8 +40,12 @@ class ImageUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [40, 40]
   end
 
+  version :small_cropped do
+    process resize_to_fill: [140, 140]
+  end
+
   version :small do
-    process resize_to_limit: [100, 100]
+    process resize_to_limit: [140, 140]
   end
 
   version :medium do

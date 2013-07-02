@@ -215,13 +215,12 @@ div.comment {
       }
     }
   }
-  div.span9 {
+  li.span9 {
     margin-right: -20px;
     .user-thumbnail {
+      overflow: hidden;
       @extend .thumbnail;
-      position: relative;
       padding-right: 15px;
-      height: 193px;
       @include border_radius;
       .user-thumbnail-badges {
         float: left;

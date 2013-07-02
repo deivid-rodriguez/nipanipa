@@ -23,20 +23,26 @@ describe ImageUploader do
   end
 
   context 'the small version' do
-    it "should scale down a landscape image to fit within 100x100" do
-      @uploader.small.should be_no_larger_than(100, 100)
+    it "should scale down a landscape image to fit within 140x140" do
+      @uploader.small.should be_no_larger_than(140, 140)
+    end
+  end
+
+  context 'the small cropped version' do
+    it "should scale down a landscape image to be exactly 140x140" do
+      @uploader.small_cropped.should have_dimensions(140, 140)
     end
   end
 
   context 'the medium version' do
     it "should scale down a landscape image to be exactly 260x260" do
-      @uploader.small.should have_dimensions(100, 100)
+      @uploader.medium.should have_dimensions(260, 260)
     end
   end
 
-  context 'the small version' do
+  context 'the large version' do
     it "should scale down a landscape image to fit within 350x350" do
-      @uploader.small.should be_no_larger_than(350, 350)
+      @uploader.large.should be_no_larger_than(350, 350)
     end
   end
 end
