@@ -4,27 +4,26 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile ~/.gitignore_global
 
-# Ignore the default SQLite database.
-/db/*.sqlite3
+# Logfiles and tempfiles.
+log/*.log
+tmp
 
-# Ignore all logfiles and tempfiles.
-/log/*.log
-/tmp
-
-# Ignore vim tags
-/.tags
+# Vim tags
+.tags
 
 # Ignore application configuration
-/config/application.yml
+config/application.yml
 
 # SimpleCov results
-/coverage
+coverage
 
 # Ignore gems installed for the project
 vendor/ruby
 
 # Byebug startup file
 .byebugrc
+
+# Gdb command history
 .gdb_history
 
 # Carrierwave attachments
@@ -32,3 +31,6 @@ public/uploads
 
 # Ack startup file
 .ackrc
+
+# rvm/rbenv conf files
+.ruby-version

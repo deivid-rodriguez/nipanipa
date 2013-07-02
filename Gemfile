@@ -7,7 +7,7 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'will_paginate', '3.0.4'
 gem 'geocoder', '1.1.8'
 gem 'simple_form', '2.1.0'
-gem 'figaro', '0.6.4'
+gem 'figaro', '0.7.0'
 gem 'thin', '1.5.1'
 gem 'devise', '2.2.4'
 gem 'cancan', '1.6.10'
@@ -22,7 +22,7 @@ group :development, :test do
   gem 'rspec-rails', '2.13.2'
   gem 'guard-rspec', '3.0.2'
   gem 'guard-spork', '1.5.1'
-  gem 'pry-byebug', '1.1.0' unless ENV['CI']
+  gem 'pry-byebug', '1.1.1' unless ENV['CI']
 end
 
 # Used only for assets and not required in production environments by default.
@@ -42,6 +42,6 @@ group :test do
   gem 'launchy', '2.3.0'
   gem 'rb-inotify', '0.9.0'
   gem 'libnotify', '0.8.0'
-  gem 'webmock', '1.11.0'
+  gem 'webmock', '1.12.3'
   gem 'simplecov', '0.7.1', require: false
 end
