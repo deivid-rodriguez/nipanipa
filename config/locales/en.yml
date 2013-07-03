@@ -87,6 +87,7 @@ than 300 characters"
     destroy:
       success: "Your reference has been removed"
   pictures:
+    nopictures: "There are no pictures yet"
     new:
       title: "Upload a new picture"
       subtitle: "Pictures are cool, they provide trust for other users and
@@ -108,7 +109,6 @@ your profile"
     pictures:
       delete: "Remove picture"
       edit: "Edit picture"
-      nopictures: "There are no pictures yet"
     destroy:
       success: "Pictures"
       error: "Error removing the picture..."

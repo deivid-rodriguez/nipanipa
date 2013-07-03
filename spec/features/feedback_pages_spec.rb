@@ -82,7 +82,6 @@ describe 'Listing feedbacks' do
   before { visit root_path }
 
   shared_examples 'feedback list' do
-    it { should have_selector 'h3', text: t('users.show.feedback') }
     it { should have_selector 'li', text: feedbacks[0].content }
     it { should have_selector 'li', text: feedbacks[1].content }
     it { should have_selector 'li', text: feedbacks[2].content }
@@ -92,6 +91,7 @@ describe 'Listing feedbacks' do
     before { sign_in feedbacks[0].recipient }
 
     context 'in main profile view' do
+      it { should have_selector 'h3', text: t('users.show.feedback') }
       it_behaves_like 'feedback list'
     end
 
@@ -105,6 +105,7 @@ describe 'Listing feedbacks' do
     before { sign_in feedbacks[0].sender }
 
     context 'in main profile view' do
+      it { should have_selector 'h3', text: t('users.show.feedback') }
       it_behaves_like 'feedback list'
     end
 

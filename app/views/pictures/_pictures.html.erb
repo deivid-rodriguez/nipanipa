@@ -1,30 +1,28 @@
 <% if pictures.empty? %>
   <div class='no-elements'>
-    <em><%= t('.nopictures') %></em>
+    <em><%= t('pictures.nopictures') %></em>
   </div>
 <% else %>
   <ul class='thumbnails'>
     <% pictures.each do |p| %>
-      <% unless p.avatar %>
-        <li class='span6'>
-          <div class='picture-thumbnail'>
-            <% if can? :manage, p %>
-              <div class='actions'>
-                <%= link_to t('.delete'),
-                            user_picture_path(current_user, p),
-                            method: :delete %> |
-                <%= link_to t('.edit'),
-                            edit_user_picture_path(current_user, p),
-                            name: "image-#{p.id}" %>
-              </div>
-            <% end %>
-            <%= image_tag p.image.url(:large) %>
-            <div class="caption">
-              <h5><%= p.name %></h5>
+      <li class='span6'>
+        <div class='picture-thumbnail'>
+          <% if can? :manage, p %>
+            <div class='actions'>
+              <%= link_to t('.delete'),
+                          user_picture_path(current_user, p),
+                          method: :delete %> |
+              <%= link_to t('.edit'),
+                          edit_user_picture_path(current_user, p),
+                          name: "image-#{p.id}" %>
             </div>
+          <% end %>
+          <%= image_tag p.image.url(:large) %>
+          <div class="caption">
+            <h5><%= p.name %></h5>
           </div>
-        </li>
-      <% end %>
+        </div>
+      </li>
     <% end %>
   </ul>
 <% end %>

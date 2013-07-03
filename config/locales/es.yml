@@ -88,6 +88,7 @@ los 300 caracteres"
     destroy:
       success: "Tu referencia ha sido eliminada"
   pictures:
+    nopictures: "No hay ninguna foto"
     new:
       title: "Agrega una foto"
       subtitle: "Las fotos molan, dan confianza y demuestran a los otros
@@ -108,7 +109,6 @@ marcarla como foto principal"
     pictures:
       delete: "Borrar foto"
       edit: "Editar foto"
-      nopictures: "No hay ninguna foto"
     destroy:
       success: "Foto borrada correctamente"
       error: "Error al borrar la foto"

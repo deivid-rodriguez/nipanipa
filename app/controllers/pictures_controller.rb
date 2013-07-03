@@ -7,11 +7,6 @@ class PicturesController < ApplicationController
   end
 
   def create
-#   if params[:picture][:avatar] == "1" and current_user.main_picture
-#     main_picture = current_user.main_picture
-#     main_picture.avatar = false
-#     main_picture.save
-#   end
     @picture = current_user.pictures.build(params[:picture])
     if @picture.save
       redirect_to user_pictures_path(current_user),
@@ -24,7 +19,7 @@ class PicturesController < ApplicationController
 
   def index
     @page_id = :pictures
-    @pictures = @user.pictures.where(avatar: false)
+    @pictures = @user.pictures
   end
 
   def edit
