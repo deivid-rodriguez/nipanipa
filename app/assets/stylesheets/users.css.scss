@@ -112,12 +112,12 @@
       .send-message-link {
         position: absolute;
         bottom: -1px;
-        right: 160px;
+        right: 180px;
       }
       .leave-feedback-link {
         position: absolute;
         bottom: -1px;
-        right: 0;
+        right: 10px;
       }
       .send-message-link, .leave-feedback-link {
         @include box_sizing;
@@ -127,8 +127,9 @@
         font-size: 12px;
         line-height: 24px;
         width: 160px;
+        background: $grayExplore;
         &:hover {
-          background: lighten($greenLogo,20%);
+          background: darken($grayExplore, 10%);
         }
         a {
           color: $black;
@@ -143,7 +144,6 @@
 
 div.no-elements {
   margin-left: 20px;
-  margin-bottom: 20px;
   font-size: 16px;
 }
 .label_info {

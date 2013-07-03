@@ -1,12 +1,14 @@
 @import "bootstrap";
 
 /* mixins, variables, etc. */
-
 $grayBackground: #ebebdf;
 $grayMediumLight: #eaeaea;
 $grayVeryLight: #ccc;
 $graySuperLight: #f5f5f5;
 $greenLogo: #568a7e;
+$grayExplore: #e1ddc4;
+$greenHost: #9ab6aa;
+$redVolunteer: #f1c5c2;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
