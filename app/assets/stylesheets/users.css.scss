@@ -83,17 +83,17 @@
   border-bottom: 1px solid rgb(221, 221, 221);
   .profile-header-wrapper {
     .user-picture {
-      width: 260px;
-      height: 260px;
+      width: 265px;
     }
     .user-tips {
-      width: 660px;
+      width: 655px;
       .title {
         margin-top: 25px;
         margin-bottom: 20px;
       }
       .quickinfo {
-        margin-bottom: 20px;
+        overflow: hidden;
+        margin-bottom: 12px;
         padding-left: 10px;
         line-height: 24px;
         font-size: 11px;
@@ -104,20 +104,29 @@
       .profile-tabs {
         position: absolute;
         bottom: -1px;
-        left: 300px;
+        left: 305px;
         .nav {
           margin-bottom: 0px;
         }
       }
-      .action-pad {
+      .send-message-link {
+        position: absolute;
+        bottom: -1px;
+        right: 160px;
+      }
+      .leave-feedback-link {
+        position: absolute;
+        bottom: -1px;
+        right: 0;
+      }
+      .send-message-link, .leave-feedback-link {
         @include box_sizing;
-        border-bottom: 1px solid $grayVeryLight;
+        border-top: 1px solid $grayVeryLight;
         border-left: 1px solid $grayVeryLight;
         padding: 6px 8px;
         font-size: 12px;
-        margin: 0px;
-        width: 180px;
         line-height: 24px;
+        width: 160px;
         &:hover {
           background: lighten($greenLogo,20%);
         }
@@ -136,18 +145,12 @@ div.no-elements {
   font-size: 16px;
 }
 
-.no-elements {
-
+.label_info {
+  float: left;
+  width: 30px;
 }
-
-div, li {
-  .label_info {
-    float: left;
-    width: 30px;
-  }
-  .content_info {
-    margin-left: 30px;
-  }
+.content_info {
+  margin-left: 30px;
 }
 
 .profile-content {

@@ -5,45 +5,11 @@
     </div>
     <div class="user-tips span8">
       <div class="row">
-        <div class="span4 title">
+        <div class="span8 title">
           <h3>
             <strong><%= user.name %></strong>
           </h3>
         </div>
-        <% if user_signed_in? and current_user != user %>
-          <div class="span2 action-pad">
-            <% unless given_feedback %>
-              <%= link_to new_user_feedback_path(user) do %>
-                <div class="label_info">
-                  <%= image_tag 'feedback.png' %>
-                </div>
-                <div class="content_info">
-                  <%= t('.new_feedback') %>
-                </div>
-              <% end %>
-            <% else %>
-              <%= link_to edit_user_feedback_path(user, given_feedback) do %>
-                <div class="label_info">
-                  <%= image_tag 'feedback.png' %>
-                </div>
-                <div class="content_info">
-                  <%= t('.edit_feedback') %>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-          <div class="span2 action-pad">
-            <%= link_to new_user_conversation_path(current_user,
-                                                   to: user.id) do %>
-              <div class="label_info">
-                <%= image_tag 'envelope.png' %>
-              </div>
-              <div class="content_info">
-                <%= t('.new_conversation') %>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
       </div>
 
       <div class="row">
@@ -55,6 +21,15 @@
             <div class="content_info">
               <span><strong><%= t('.type') %>:</strong></span>
               <%= t("activerecord.models.#{user.type}").camelize %>
+            </div>
+          </div>
+          <div class="quickinfo">
+            <div class="label_info">
+              <%= image_tag "karma.png" %>
+            </div>
+            <div class="content_info">
+              <span><strong><%= t('.karma') %>:</strong></span>
+              <%= user.karma %>
             </div>
           </div>
           <div class="quickinfo">
@@ -83,16 +58,7 @@
           </div>
         </div>
         <div class="span4">
-          <div class="quickinfo">
-            <div class="label_info">
-              <%= image_tag "karma.png" %>
-            </div>
-            <div class="content_info">
-              <span><strong><%= t('.karma') %>:</strong></span>
-              <%= user.karma %>
-            </div>
-          </div>
-          <div class="quickinfo">
+          <div class="quickinfo" id="categoriesinfo">
             <div class="label_info">
             <%= image_tag 'tag.png' %>
             </div>
@@ -102,7 +68,7 @@
                   t("work_types.#{wt.name}") }.join(', ') %>
             </div>
           </div>
-          <div class="quickinfo">
+          <div class="quickinfo" id="languagesinfo">
             <div class="label_info">
             <%= image_tag 'languages.png' %>
             </div>
@@ -119,10 +85,47 @@
         </div>
       </div>
 
-      <div class="row profile-tabs">
-        <ul class="nav nav-tabs">
-          <%= tab_builder(user, page_id) %>
-        </ul>
+      <div class="row">
+        <div class="profile-tabs">
+          <ul class="nav nav-tabs">
+            <%= tab_builder(user, page_id) %>
+          </ul>
+        </div>
+        <% if user_signed_in? and current_user != user %>
+          <div class="leave-feedback-link">
+            <% unless given_feedback %>
+              <%= link_to new_user_feedback_path(user) do %>
+                <div class="label_info">
+                  <%= image_tag 'feedback.png' %>
+                </div>
+                <div class="content_info">
+                  <%= t('.new_feedback') %>
+                </div>
+              <% end %>
+            <% else %>
+              <%= link_to edit_user_feedback_path(user, given_feedback) do %>
+                <div class="label_info">
+                  <%= image_tag 'feedback.png' %>
+                </div>
+                <div class="content_info">
+                  <%= t('.edit_feedback') %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="send-message-link">
+            <%= link_to new_user_conversation_path(current_user,
+                                                   to: user.id) do %>
+              <div class="label_info">
+                <%= image_tag 'envelope.png' %>
+              </div>
+              <div class="content_info">
+                <%= t('.new_conversation') %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+
       </div>
     </div>
    </div>

@@ -35,8 +35,8 @@ describe ImageUploader do
   end
 
   context 'the medium version' do
-    it "should scale down a landscape image to be exactly 260x260" do
-      @uploader.medium.should have_dimensions(260, 260)
+    it "should scale down a landscape image to be exactly 265x265" do
+      @uploader.medium.should have_dimensions(265, 265)
     end
   end
 
