@@ -11,14 +11,13 @@ es:
     error_notification:
       default_message: "Por favor, revise los problemas que siguen:"
     labels:
-      defaults:
-        accomodation: "Describe el tipo de alojamiento que ofreces a tus
-voluntarios"
       user:
         name: "Nombre de Usuario"
         email: "Correo Electrónico"
         password: "Contraseña"
         password_confirmation: "Confirmar contraseña"
+        accomodation: "Describe el tipo de alojamiento que ofreces a tus
+voluntarios"
       conversation:
         subject: "Asunto"
       message:
@@ -27,9 +26,20 @@ voluntarios"
         name: "Título para la foto"
         image: "Fichero con la foto"
         avatar: "¿Marcar como foto principal?"
+      feedback:
+        score: "Puntuación"
+        content: "Cuéntanos tu experiencia con este usuario"
+      donation:
+        amount: "Existimos únicamente gracias vuestras aportaciones. Ayúdanos!"
     hints:
       user:
         password: "La contraseña debe tener al menos 6 caracteres"
+      feedback:
+        score: "Tu puntuación influye positiva o negativamente en el karma del
+usuario"
+      donation:
+        amount: "Si dejas el campo a 0, completarás la referencia sin donar
+nada"
     placeholders:
       user:
         email: "Correo Electrónico"

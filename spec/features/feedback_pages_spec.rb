@@ -2,13 +2,14 @@
 # Integration tests for Feedback pages
 #
 
-describe 'Creating feedbacks' do
+describe 'Leaving feedback' do
   let!(:feedback)    { build(:feedback) }
   let(:feedback_btn) { t('helpers.submit.feedback.create') }
 
   subject { page }
 
   before do
+    Capybara.current_driver = :mechanize
     visit root_path
     sign_in feedback.sender
     visit user_path(feedback.recipient)
@@ -17,18 +18,51 @@ describe 'Creating feedbacks' do
 
   context 'with invalid information' do
     before do
-      expect { click_button feedback_btn }.not_to change(Feedback, :count)
+      click_button feedback_btn
     end
 
+    it "doesn't save a feedback in db" do
+      Donation.count.should == 0
+      Feedback.count.should == 0
+    end
     it { should have_flash_message t('feedbacks.create.error'), 'error' }
+    it "doesn't update recipient's karma" do
+      feedback.recipient.karma.should eq(0)
+    end
   end
 
-  context 'with valid information' do
+  context 'with valid information and no donation' do
     before do
+      choose  'feedback_score_positive'
       fill_in 'feedback[content]', with: 'Lorem ipsum'
-      choose  'feedback_score_1'
-      expect { click_button feedback_btn }.to change(Feedback, :count).by(1)
+      click_button feedback_btn
     end
+
+    it "correctly updates db" do
+      Donation.count.should == 0
+      Feedback.count.should == 1
+      feedback.recipient.reload.karma.should eq(1)
+    end
+
+    it { should have_selector 'h3', text: feedback.recipient.name }
+    it { should have_flash_message t('feedbacks.create.success'), 'success' }
+  end
+
+  context 'with valid information and donation' do
+    before do
+      choose  'feedback_score_positive'
+      fill_in 'feedback[content]', with: 'Lorem ipsum'
+      fill_in 'feedback[donation_attributes][amount]', with: 20
+      click_button feedback_btn
+      mock_paypal_pdt('SUCCESS', Donation.last.id)
+    end
+
+    it 'correctly updates db' do
+      Donation.count.should == 1
+      Feedback.count.should == 1
+      feedback.recipient.karma.should eq(0)
+    end
+
     it { should have_selector 'h3', text: feedback.recipient.name }
     it { should have_flash_message t('feedbacks.create.success'), 'success' }
   end
@@ -36,7 +70,7 @@ end
 
 
 describe 'Editing feedbacks' do
-  let!(:feedback)    { create(:feedback) }
+  let!(:feedback)    { create(:feedback, score: :positive) }
   let(:feedback_btn) { t('helpers.submit.feedback.update') }
 
   subject { page }
@@ -61,13 +95,18 @@ describe 'Editing feedbacks' do
 
   context 'with valid information' do
     before do
-      fill_in 'feedback_content', with: 'New opinion'
+      fill_in 'feedback_content', with: 'New really bad opinion'
+      choose  'feedback_score_negative'
       click_button feedback_btn
     end
 
     it 'gets updated with the new content' do
-      expect(feedback.reload.content).to eq('New opinion')
+      expect(feedback.reload.content).to eq('New really bad opinion')
+      Donation.count.should == 0
+      Feedback.count.should == 1
+      feedback.recipient.reload.karma.should eq(-1)
     end
+
     it { should have_selector 'h3', text: feedback.sender.name }
     it { should have_flash_message t('feedbacks.update.success'), 'success' }
   end
@@ -117,19 +156,22 @@ describe 'Listing feedbacks' do
 end
 
 describe 'Destroying feedbacks' do
-  let!(:feedback) { create(:feedback) }
+  let!(:feedback)  { create(:feedback, score: :positive) }
+  let!(:recipient) { feedback.recipient }
 
   subject { page }
 
   before do
     visit root_path
     sign_in feedback.sender
-    expect { page.find("#feedback-#{feedback.id}").click_link('Borrar') }.
-      to change(Feedback, :count).by(-1)
-
+    page.find("#feedback-#{feedback.id}").click_link('Borrar')
   end
 
   context 'successfully' do
+    it 'updates recipients karma and feedback count' do
+      Feedback.count.should == 0
+      recipient.reload.karma.should eq(0)
+    end
     it { should have_selector 'h3', text: feedback.sender.name }
     it { should_not have_css "div#feedback-#{feedback.id}" }
     it { should have_flash_message t('feedbacks.destroy.success'), 'success' }

@@ -16,6 +16,7 @@ en:
         email: "E-mail"
         password: "Password"
         password_confirmation: "Password Confirmation"
+        accomodation: "Describe the type of accomodation you are offering"
       conversation:
         subject: "Subject"
       message:
@@ -24,9 +25,19 @@ en:
         name: "Caption for the picture"
         image: "File with the picture"
         avatar: "Mark as main picture?"
+      feedback:
+        score: "Score"
+        content: "What was your experience with %{user} like?"
+      donation:
+        amount: "We exist thanks to your contributions. Help us!"
     hints:
       user:
         password: "Password must be at least 6 characters long"
+      feedback:
+        score: "Your score will increase or decrease %{user}'s karma"
+      donation:
+        amount: "If you leave it as 0, you'll complete the reference without
+donating anything"
     placeholders:
       user:
         email: "E-mail"

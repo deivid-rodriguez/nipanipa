@@ -1,0 +1,18 @@
+// Place all the styles related to the Pictures controller
+
+.feedback-form {
+  label, input, textarea, select, .checkbox {
+    font-size: 12px;
+  }
+  textarea {
+    width: 400px;
+    height: 150px;
+  }
+  #feedback_donation_attributes_amount {
+    width: 40px;
+  }
+  .form-actions {
+    background-color: $white;
+    border: none;
+  }
+}

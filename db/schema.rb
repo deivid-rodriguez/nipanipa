@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130614102818) do
+ActiveRecord::Schema.define(:version => 20130705055246) do
 
   create_table "conversations", :force => true do |t|
     t.string   "subject"
@@ -26,9 +26,10 @@ ActiveRecord::Schema.define(:version => 20130614102818) do
 
   create_table "donations", :force => true do |t|
     t.integer  "user_id"
-    t.decimal  "amount"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.decimal  "amount",      :precision => 4, :scale => 2
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+    t.integer  "feedback_id"
   end
 
   create_table "feedbacks", :force => true do |t|

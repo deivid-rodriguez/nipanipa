@@ -58,8 +58,20 @@ area."
 It won't take you more than five minutes."
   feedbacks:
     new:
-      title: "New reference"
-      header: "New reference for %{username}"
+      title: "New reference for %{username}"
+      subtitle: "Thanks for leaving your feedback. NiPaNiPa's trust network is
+impossible without your opinions. Plus, your donations are the only way to keep
+our site running."
+    form:
+      feedback_for_user: "Feedback for %{username}"
+      feedback_for_nipa: "Donation for NiPaNiPa"
+      donated_already_html: "Thanks for rewarding NiPaNiPa in exchange for a
+nice experience. You can keep on contributing %{donations_url}"
+      here: "here"
+    edit:
+      title: "Edit reference for %{username}"
+      subtitle: "Improve or change your reference any way you want. Opinions are
+not inmutable!"
     create:
       success: "Has dejado una nueva referencia!"
       error: "Error al crear la nueva referencia... :("
@@ -77,9 +89,6 @@ It won't take you more than five minutes."
     feedback:
       from: "From %{name}"
       to: "TO %{name}"
-    edit:
-      title: "Edit reference"
-      header: "Edit reference for %{username}"
     update:
       success: "You just edited the reference!"
       error: "Error updating the reference... :( It should not be longer
@@ -267,3 +276,18 @@ would like to be implemented %{issues_url}."
     next_label: "Next page"
   datetime:
     timestamp_ago: "%{time} ago"
+  enumerize:
+    language_skill:
+      level:
+        just_hello: "just hello"
+        beginner: "beginner"
+        intermediate: "intermediate"
+        expert: "expert"
+        native: "native"
+    feedback:
+      score:
+        negative: "Negative"
+        neutral: "Neutral"
+        positive: "Positive"
+
+

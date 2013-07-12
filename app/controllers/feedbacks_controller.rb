@@ -7,6 +7,7 @@ class FeedbacksController < ApplicationController
   def new
     @feedback = current_user.sent_feedbacks.new
     @feedback.recipient = @user
+    @feedback.build_donation
     authorize! :new, @feedback
   end
 
@@ -15,7 +16,15 @@ class FeedbacksController < ApplicationController
     @feedback.recipient = @user
     authorize! :create, @feedback
     if @feedback.save
-      redirect_to @user, notice: t('feedbacks.create.success')
+      # To detect whether we are coming from a feedback in donations controller
+      session[:from_feedback] = true
+      if @feedback.donation
+        redirect_to \
+          @feedback.donation.paypal_url(donation_url(@feedback.donation.id)),
+          notice: t('feedbacks.create.success')
+      else
+        redirect_to @user, notice: t('feedbacks.create.success')
+      end
     else
       flash.now[:error] = t('feedbacks.create.error')
       render 'new'
@@ -27,6 +36,7 @@ class FeedbacksController < ApplicationController
   end
 
   def edit
+   @feedback.build_donation if !@feedback.donation
    authorize! :edit, @feedback
   end
 
@@ -42,8 +52,9 @@ class FeedbacksController < ApplicationController
 
   def destroy
     authorize! :destroy, @feedback
+    flash.now[:notice] = t('feedbacks.destroy.success')
     if @feedback.destroy
-      redirect_to current_user, notice: t('feedbacks.destroy.success')
+      redirect_to :back, notice: t('feedbacks.destroy.success')
     end
   end
 

@@ -20,7 +20,7 @@ es:
       edit: "Editar perfil"
       new_conversation: "Enviar mensaje"
       new_feedback: "Dejar referencia"
-      edit_feedback: "Cambiar la referencia"
+      edit_feedback: "Editar referencia"
       report_user: "Alertar sobre usuario"
   static_pages:
     terms:
@@ -59,8 +59,20 @@ Registrarte y completar tu perfil no te llevará ni 5 minutos. Después...
 cuéntanos lo que pasa después!"
   feedbacks:
     new:
-      title: "Nueva referencia"
-      header: "Nueva referencia para %{username}"
+      title: "Referencia para %{username}"
+      subtitle: "Gracias por dejar tu referencia. La confianza mutua entre hosts
+y voluntarios es imposible sin vuestras puntuaciones. Y NiPaNiPa es inviable
+económicamente si no \"tasáis\" vuestras experiencias y aportáis vuestro granito
+de arena."
+    form:
+      feedback_for_user: "Referencia para %{username}"
+      feedback_for_nipa: "Donación para NiPaNiPa"
+      donated_already_html: "Gracias por haber recompensado a NiPaNiPa por esta
+experiencia. Siempre puedes seguir colaborando %{donations_url}"
+      here: "aquí"
+    edit:
+      title: "Editar referencia para %{username}"
+      subtitle: "Corrige o mejora tu referencia como gustes"
     create:
       success: "Has dejado una nueva referencia!"
       error: "Error al crear la nueva referencia... :("
@@ -78,9 +90,6 @@ cuéntanos lo que pasa después!"
     feedback:
       from: "De %{name}"
       to: "Para %{name}"
-    edit:
-      title: "Editar referencia"
-      header: "Editar referencia para %{username}"
     update:
       success: "Has actualizado la referencia!"
       error: "Error al actualizar la referencia... :( No debe sobrepasar
@@ -277,3 +286,10 @@ solicitarnos nuevas funcionalidades %{issues_url}."
         intermediate: "intermedio"
         expert: "experto"
         native: "nativo"
+    feedback:
+      score:
+        negative: "Negativa"
+        neutral: "Neutral"
+        positive: "Positiva"
+
+

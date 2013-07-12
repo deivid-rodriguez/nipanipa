@@ -1,16 +1,27 @@
 <%= simple_form_for [@user, @feedback],
-                  html: { class: "form-horizontal" } do |f| %>
-
+                    html: { class: "form-horizontal" } do |f| %>
   <%= f.error_notification %>
-  <%= f.input :score,
-      collection: [['Negative', '-1'], ['Neutral', '0'], ['Positive', '1']],
-      as: :radio_buttons,
-      item_wrapper_class: 'inline' %>
 
-  <%= f.input :content, placeholder: "Write a new feedback..." %>
+  <fieldset>
+    <legend><%= t('.feedback_for_user', username: @user.name) %></legend>
+    <%= f.input :score, as: :radio_buttons, item_wrapper_class: 'inline' %>
+    <%= f.input :content %>
+  </fieldset>
+
+  <fieldset>
+    <legend><%= t('.feedback_for_nipa') %></legend>
+    <% if @feedback.donation and @feedback.donation.amount %>
+      <%= t('.donated_already_html',
+            donations_url: link_to(t('.here'), new_donation_path)) %>
+    <% else %>
+      <%= f.simple_fields_for :donation do |d|%>
+        <%= d.input :amount, as: :currency %>
+        <%= d.hidden_field :user_id, value: @user.id %>
+      <% end %>
+    <% end %>
+  </fieldset>
 
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
-
 <% end %>

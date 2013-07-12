@@ -78,9 +78,8 @@ FactoryGirl.define do
   end
 
   factory :feedback do
-    content 'This is a sample feedback. Don\'t know whether it is good or bad' \
-            'because the score is random...'
-    score { rand(3)-1 }
+    content 'This is a sample feedback.'
+    score :neutral
     association :sender   , factory: :volunteer
     association :recipient, factory: :host
   end
@@ -102,6 +101,7 @@ FactoryGirl.define do
   factory :language_skill do
     association :user, factory: :host
     association :language
+    level :intermediate
   end
 
   factory :picture do

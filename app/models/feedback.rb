@@ -1,5 +1,9 @@
 class Feedback < ActiveRecord::Base
-  attr_accessible :content, :score
+  attr_accessible :content, :donation_attributes, :score
+
+  extend Enumerize
+  enumerize :score, in: { negative: -1, neutral: 0, positive: 1 },
+                    default: :neutral
 
   validates    :sender_id, presence: true, uniqueness: { scope: :recipient_id }
   validates :recipient_id, presence: true
@@ -11,19 +15,30 @@ class Feedback < ActiveRecord::Base
   before_save :update_karma
   before_destroy :remove_karma
 
+  has_one :donation
+  accepts_nested_attributes_for :donation,
+                                reject_if: proc { |attr| attr[:amount] == "0" }
+
   def complement
     Feedback.find_by_sender_id_and_recipient_id(self.recipient_id, self.sender_id)
   end
 
   def update_karma
     if new_record?
-      recipient.karma += score
-    elsif score_changed?
-      recipient.karma += (score - score_was)
+      if score.value != 0
+        recipient.karma += score.value
+        recipient.save
+      end
+    elsif score_changed? and score_was and score.value != score_was
+      recipient.karma += (score.value - score_was)
+      recipient.save
     end
   end
 
   def remove_karma
-    recipient.karma -= score
+    if score.value != 0
+      recipient.karma -= score.value
+      recipient.save
+    end
   end
 end

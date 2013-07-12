@@ -1,7 +1,9 @@
 class Donation < ActiveRecord::Base
-  attr_accessible :user_id, :amount
+  attr_accessible :user_id, :amount, :feedback_id
 
   belongs_to :user
+
+  belongs_to :feedback
 
   def paypal_url(return_url)
     values = {
@@ -10,7 +12,7 @@ class Donation < ActiveRecord::Base
       item_name: 'Friends of NiPaNiPa',
       amount: self.amount,
       return: return_url,
-      invoice: id,
+      invoice: id + 1000,
     }
     ENV["PAYPAL_URL"] + values.to_query
   end

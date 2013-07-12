@@ -43,6 +43,7 @@ Spork.prefork do
   require 'capybara/rails'
   require 'capybara/rspec'
   require 'capybara/poltergeist'
+  require 'capybara/mechanize'
 
   Capybara.javascript_driver = :poltergeist
 

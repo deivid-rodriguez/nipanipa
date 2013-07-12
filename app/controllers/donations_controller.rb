@@ -14,15 +14,14 @@ class DonationsController < ApplicationController
 
   def show
     @donation = Donation.find(params[:id])
-
     response = Donation.send_pdt_post(params[:tx])
-
     if response.body.lines.first.chomp == 'SUCCESS'
-      flash.now[:notice] = t('donations.create.success')
+      flash[:notice] = session[:from_feedback] ? t('feedbacks.create.success') : t('donations.create.success')
     else
-      flash.now[:alert] = t('donations.create.error')
+      flash[:alert] = session[:from_feedback] ? t('feedbacks.create.error') : t('donations.create.error')
     end
-    render 'static_pages/home'
+    session.delete(:from_feedback)
+    redirect_to @donation.user || root_path
   end
 
   # We don't activate IPN for now

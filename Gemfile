@@ -22,7 +22,7 @@ group :development, :test do
   gem 'rspec-rails', '2.13.2'
   gem 'guard-rspec', '3.0.2'
   gem 'guard-spork', '1.5.1'
-  gem 'pry-byebug', '1.1.1' unless ENV['CI']
+  gem 'pry-byebug', '1.1.2'
 end
 
 # Used only for assets and not required in production environments by default.
@@ -37,6 +37,7 @@ end
 group :test do
   gem 'factory_girl_rails', '4.2.1'
   gem 'capybara', '2.1.0'
+  gem 'capybara-mechanize', '1.1.0'
   gem 'poltergeist', '1.3.0'
   gem 'shoulda', '3.5.0'
   gem 'launchy', '2.3.0'
