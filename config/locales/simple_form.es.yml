@@ -18,10 +18,6 @@ es:
         password_confirmation: "Confirmar contraseña"
         accomodation: "Describe el tipo de alojamiento que ofreces a tus
 voluntarios"
-      conversation:
-        subject: "Asunto"
-      message:
-        body: "Contenido"
       picture:
         name: "Título para la foto"
         image: "Fichero con la foto"

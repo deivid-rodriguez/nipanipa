@@ -1,5 +1,15 @@
 // Place all the styles related to the Conversations controller
 
+.conversation-form {
+  textarea {
+    height: 150px;
+  }
+  .form-actions {
+    background-color: $white;
+    border: none;
+  }
+}
+
 ul.chat-list {
   margin: 0;
   padding: 0;
@@ -7,7 +17,7 @@ ul.chat-list {
 }
 
 ul.conversation-list {
-  margin: 0;
+  margin: 0 0 20px 0;
   list-style: none;
   list-style-type: none;
   li {
@@ -19,8 +29,11 @@ ul.conversation-list {
       a {
         text-decoration: none;
         color: $gray;
+        div.conversation-from {
+          width: 160px;
+        }
         div.conversation-date {
-          width: 200px;
+          width: 180px;
         }
         div[id^="delete-"] {
           background: url('delete.png') no-repeat;

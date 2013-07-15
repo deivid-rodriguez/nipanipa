@@ -239,6 +239,10 @@ would like to be implemented %{issues_url}."
     attributes:
       user:
         password_digest: "Password"
+      conversation:
+        subject: "Subject"
+      message:
+        body: "Body"
     errors:
       models:
         user:

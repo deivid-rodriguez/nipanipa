@@ -1,8 +1,8 @@
 <div class="row conversation-preview">
   <%= link_to user_conversation_path(current_user, conversation),
       id: "show-link-#{conversation.id}" do %>
-    <div class="span2">
-      <%= avatar_for conversation.to %>
+    <div class="span2 conversation-from">
+      <%= avatar_for conversation.to, style: :thumb_message %>
       <%= conversation.to.name %>
     </div>
     <div class="span3"><%= conversation.subject %></div>

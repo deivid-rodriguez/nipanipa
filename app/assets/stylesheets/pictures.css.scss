@@ -1,24 +1,7 @@
 // Place all the styles related to the Pictures controller
 
-.profile-titled {
-  .profile-titled-wrapper {
-    margin-top: 40px;
-    margin-bottom: 20px;
-    .title {
-      margin-bottom: 20px;
-    }
-    .subtitle {
-      font-size: 14px;
-      margin-bottom: 25px;
-    }
-  }
-}
-
 .picture-form {
   width: 448px;
-  label, input, textarea, select, .checkbox {
-    font-size: 12px;
-  }
 }
 
 .picture-thumbnail {

@@ -187,6 +187,20 @@ header {
   background: $white;
 }
 
+.main-titled {
+  .main-titled-wrapper {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    .title {
+      margin-bottom: 20px;
+    }
+    .subtitle {
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+  }
+}
+
 
 /* footer */
 
@@ -261,6 +275,11 @@ aside {
 
 
 /* forms */
+
+label, input[type="text"], input[type="password"], input[type="email"],
+textarea, select, .checkbox {
+  font-size: 12px;
+}
 
 input[type="text"], input[type="password"], input[type="email"], textarea {
   width: 100%;

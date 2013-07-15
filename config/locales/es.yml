@@ -123,7 +123,7 @@ marcarla como foto principal"
       error: "Error al borrar la foto"
   conversations:
     new:
-      header: "Contacta a %{username}"
+      title: "Contacta a %{username}"
     create:
       success: "Has iniciado una nueva conversación con un host!"
       error: "Hubo un error en el envío del mensaje"
@@ -241,6 +241,10 @@ solicitarnos nuevas funcionalidades %{issues_url}."
     attributes:
       user:
         password_digest: "Contraseña"
+      conversation:
+        subject: "Asunto"
+      message:
+        body: "Contenido"
     errors:
       models:
         user:

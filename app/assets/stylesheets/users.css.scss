@@ -27,9 +27,6 @@
     padding: 4px 12px;
     @include border_radius;
   }
-  input, textarea, select, .checkbox {
-    font-size: 12px;
-  }
   .checkbox-list {
     width: 186px;
     margin: 0px 20px 0px 0px;

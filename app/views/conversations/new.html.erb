@@ -1,15 +1,15 @@
-<% provide :title, t('.title') %>
+<% provide :title, t('.title', username: @conversation.to.name) %>
 
-<div class="row">
+<div class="span12 main-titled">
+  <div class="row main-titled-wrapper">
 
-  <div class="span8">
+    <div class="offset2 span8 title">
+      <h3><%= t('.title', username: @conversation.to.name) %></h3>
+    </div>
 
-      <h1 id="username" class="span8">
-        <strong><%= t('.header', username: @conversation.to.name) %></strong>
-      </h1>
-
+    <div class="offset2 span8 conversation-form">
       <%= render 'form', conversation: @conversation %>
+    </div>
 
   </div>
-
 </div>
