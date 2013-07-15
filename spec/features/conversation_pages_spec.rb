@@ -66,7 +66,7 @@ describe 'Display a conversation', :js do
 
   it 'shows a reply box' do
     page.should have_title conversation.subject
-    page.should have_selector 'h1', text: conversation.subject
+    page.should have_selector 'h3', text: conversation.subject
     page.should have_button t('conversations.show.reply')
   end
 

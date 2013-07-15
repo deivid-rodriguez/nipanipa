@@ -1,31 +1,32 @@
 <% provide :title, @conversation.subject %>
 
-<div class="row">
+<div class="span12 main-titled">
+  <div class="row main-titled-wrapper">
 
-  <div class="span8">
-
-    <div id="username">
-      <h1 >
-        <strong><%= @conversation.subject %></strong>
-      </h1>
+    <div class="offset2 span7 title">
+      <h3><%= @conversation.subject %></h3>
     </div>
 
-    <ul id="chat-list" class="chat-list">
-      <% for message in @conversation.messages %>
-      <li>
-        <%= render message %>
-      </li>
-      <% end %>
-    </ul>
+    <div class="span1 back">
+      <%= link_to t('.back_html'), user_conversations_path(current_user) %>
+    </div>
 
-    <div class="row message-reply">
-      <div class="offset1 span7">
-        <%= form_tag reply_user_conversation_path(current_user, @conversation),
-                     method: :put, remote: true do |f| %>
-          <%= text_area_tag :body %>
-          <%= submit_tag t('.reply'), class: "btn btn-small pull-right" %>
+    <div class="offset2 span8 chat-list">
+      <ul id="chat-list">
+        <% for message in @conversation.messages %>
+        <li>
+          <%= render message %>
+        </li>
         <% end %>
-      </div>
+      </ul>
+    </div>
+
+    <div class="offset3 span7 message-reply">
+      <%= form_tag reply_user_conversation_path(current_user, @conversation),
+                   method: :put, remote: true do |f| %>
+        <%= text_area_tag :body %>
+        <%= submit_tag t('.reply'), class: "btn btn-small pull-right" %>
+      <% end %>
     </div>
 
   </div>

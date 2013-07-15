@@ -132,6 +132,7 @@ marcarla como foto principal"
       nomessages: "No hay mensajes"
     show:
       reply: "Responder"
+      back_html: "Volver &#8617;"
     preview:
       usure?: "¿Seguro que quieres borrar la conversación?"
     reply:

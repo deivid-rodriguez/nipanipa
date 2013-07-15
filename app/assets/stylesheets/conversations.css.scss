@@ -10,7 +10,12 @@
   }
 }
 
-ul.chat-list {
+.back {
+  text-align: right;
+  line-height: 24px;
+}
+
+#chat-list {
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -56,12 +61,27 @@ ul.conversation-list {
 
 div.message {
   margin-bottom: 20px;
-  div.message-content {
+  .message-from {
+    @include box_sizing;
+    @include border_radius;
+    border: 1px solid $grayVeryLight;
+  }
+  .message-content {
+    background: lighten(#568a7e, 50%);
+    position: relative;
+    .bubble-triangle {
+      background: url('bubble-triangle.png') no-repeat;
+      position: absolute;
+      width: 12px;
+      height: 10px;
+      top: 10px;
+      left: -12px;
+    }
     border: 1px solid $grayVeryLight;
     padding: 10px;
     @include border_radius;
     @include box_sizing;
-    p.message-date {
+    .message-date {
       text-align: right;
       margin-bottom: 0;
       font-size: 0.8em;

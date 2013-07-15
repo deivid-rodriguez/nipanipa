@@ -1,8 +1,10 @@
 <div class="row message">
-  <div class="span1">
-    <%= avatar_for message.from, style: :thumb %>
+  <div class="span1 message-from">
+    <%= avatar_for message.from, style: :thumb_message %>
   </div>
   <div class="span7 message-content">
+    <div class="bubble-triangle">
+    </div>
     <p>
     <%= message.body %>
     </p>
