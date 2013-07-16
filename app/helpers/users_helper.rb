@@ -16,12 +16,12 @@ module UsersHelper
   def feedback_count feedbacks
     received_count = feedbacks.count { |f| !!f[0] }
     sent_count     = feedbacks.count { |f| !!f[1] }
-    if received_count == 0 and sent_count == 0
-      "#{t 'feedbacks.feedbacks.title'}"
-    else
-      "#{t 'feedbacks.feedbacks.title'}("                  \
-      "#{t 'feedbacks.received', count: received_count}, " \
-      "#{t 'feedbacks.sent', count: sent_count})"
+    ret = "#{t 'feedbacks.feedbacks.title'}"
+    if received_count != 0 || sent_count != 0
+      ret += " (%s, %s)" % [
+        t('feedbacks.received', count: received_count),
+        t('feedbacks.sent', count: sent_count)
+      ]
     end
   end
 
