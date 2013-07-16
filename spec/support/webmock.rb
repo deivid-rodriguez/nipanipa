@@ -1,3 +1,5 @@
+require 'webmock'
+
 RSpec.configure do |config|
   dir = "#{::Rails.root}/spec/webmock"
   stubs = {}

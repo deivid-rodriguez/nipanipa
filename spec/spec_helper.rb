@@ -33,7 +33,6 @@ Spork.prefork do
 
   require 'rspec/rails'
   require 'rspec/autorun'
-  require 'factory_girl'
   require 'cancan/matchers'
 
   # Requires supporting ruby files with custom matchers and macros, etc,
@@ -74,6 +73,7 @@ Spork.prefork do
     # Use the core set of syntax methods (build, build_stubbed, create,
     # attributes_for, and their *_list counterparts) without having to call them
     # on FactoryGirl directly
+    require 'factory_girl'
     config.include FactoryGirl::Syntax::Methods
 
     # Stop on the first fail
