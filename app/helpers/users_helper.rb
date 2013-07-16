@@ -16,13 +16,14 @@ module UsersHelper
   def feedback_count feedbacks
     received_count = feedbacks.count { |f| !!f[0] }
     sent_count     = feedbacks.count { |f| !!f[1] }
-    ret = "#{t 'feedbacks.feedbacks.title'}"
+    count_str = "#{t 'feedbacks.feedbacks.title'}"
     if received_count != 0 || sent_count != 0
-      ret += " (%s, %s)" % [
+      count_str += " (%s, %s)" % [
         t('feedbacks.received', count: received_count),
         t('feedbacks.sent', count: sent_count)
       ]
     end
+    return count_str
   end
 
 end
