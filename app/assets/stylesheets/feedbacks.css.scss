@@ -13,3 +13,58 @@
     border: none;
   }
 }
+
+.feedbacks {
+  margin: 0;
+  list-style: none;
+  background: #ebebdf;
+  li {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid $grayVeryLight;
+    @include box_sizing;
+    div.feedback {
+      position: relative;
+      div.time_ago {
+        color: gray;
+        font-size: 0.8em;
+      }
+      div.score-icon {
+        position: absolute;
+        top: 0;
+      }
+    }
+    div.received {
+      margin-bottom: 20px;
+      div.score-icon {
+        right: 100px;
+      }
+      div.time_ago, div.sender {
+        text-align: left;
+      }
+      div.thumb-avatar {
+        margin-left: 10px;
+      }
+    }
+    div.sent {
+      div.score-icon {
+        left: 100px;
+      }
+      div.time_ago, div.sender {
+        text-align: right;
+      }
+      div.thumb-avatar {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+.content {
+  display: block;
+  clear: both;
+}
+
+.timestamp {
+  color: $grayLight;
+}

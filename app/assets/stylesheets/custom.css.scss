@@ -188,16 +188,14 @@ header {
 }
 
 .main-titled {
-  .main-titled-wrapper {
-    margin-top: 40px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  .title {
     margin-bottom: 20px;
-    .title {
-      margin-bottom: 20px;
-    }
-    .subtitle {
-      font-size: 14px;
-      margin-bottom: 25px;
-    }
+  }
+  .subtitle {
+    font-size: 14px;
+    margin-bottom: 25px;
   }
 }
 
