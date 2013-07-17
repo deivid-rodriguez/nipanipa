@@ -34,3 +34,6 @@ public/uploads
 
 # rvm/rbenv conf files
 .ruby-version
+
+# Bundle config is machine specific
+.bundle
