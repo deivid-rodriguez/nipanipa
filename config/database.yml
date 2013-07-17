@@ -2,18 +2,20 @@ connection: &connection
   adapter: postgresql
   encoding: unicode
   host: localhost
-  username: nipanipa
-  password: nipanipa
+  database: <%= ENV['DB_NAME'] %>
+  username: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASS'] %>
   pool: 5
   timeout: 5000
 
 development:
   <<: *connection
-  database: nipanipa_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test: &test
+test:
   <<: *connection
-  database: nipanipa_test
+
+production:
+  <<: *connection

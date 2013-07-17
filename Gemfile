@@ -8,7 +8,6 @@ gem 'will_paginate', '3.0.4'
 gem 'geocoder', '1.1.8'
 gem 'simple_form', '2.1.0'
 gem 'figaro', '0.7.0'
-gem 'thin', '1.5.1'
 gem 'devise', '2.2.4'
 gem 'cancan', '1.6.10'
 gem 'jquery-rails', '3.0.1'
@@ -46,3 +45,6 @@ group :test do
   gem 'webmock', '1.12.3'
   gem 'simplecov', '0.7.1', require: false
 end
+
+# Deployment
+gem 'capistrano', '2.15.5'
