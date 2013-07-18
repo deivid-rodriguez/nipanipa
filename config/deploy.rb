@@ -27,8 +27,6 @@ namespace :deploy do
 
   desc "Copy example configuration file to the release"
   task :setup_config, roles: :app do
-    sudo "ln -snf #{current_path}/config/apache.conf " \
-         "/etc/apache2/sites-available/#{application}"
     run "mkdir -p #{shared_path}/config"
     put File.read("config/application.example.yml"),
         "#{shared_path}/config/application.yml"
@@ -38,7 +36,9 @@ namespace :deploy do
 
   desc "Link non-source-controlled configuration to the release"
   task :symlink_config, roles: :app do
-    run "ln -nfs #{shared_path}/config/application.yml " \
+    sudo "ln -snf #{current_path}/config/apache.conf " \
+         "/etc/apache2/sites-available/#{application}"
+    run "ln -snf #{shared_path}/config/application.yml " \
                 "#{release_path}/config/application.yml"
   end
   after "deploy:finalize_update", "deploy:symlink_config"
