@@ -1,0 +1,23 @@
+# Add application configuration variables here, as shown below.
+
+PAYPAL_URL: ""
+PAYPAL_PDT_AT: ""
+PAYPAL_ACCOUNT: ""
+
+HOST: ""
+IP: ""
+
+production:
+  DB_NAME: ''
+  DB_USER: ''
+  DB_PASS: ''
+
+test:
+  DB_NAME: ''
+  DB_USER: ''
+  DB_PASS: ''
+
+development:
+  DB_NAME: ''
+  DB_USER: ''
+  DB_PASS: ''
