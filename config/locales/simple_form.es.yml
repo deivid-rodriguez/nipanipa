@@ -21,7 +21,6 @@ voluntarios"
       picture:
         name: "Título para la foto"
         image: "Fichero con la foto"
-        avatar: "¿Marcar como foto principal?"
       feedback:
         score: "Puntuación"
         content: "Cuéntanos tu experiencia con este usuario"

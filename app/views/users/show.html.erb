@@ -3,42 +3,38 @@
 <%= render 'shared/profile_header', user: @user, page_id: @page_id,
                                     given_feedback: @given_feedback %>
 
-<div class="span12 profile-content">
-  <div class="row profile-content-wrapper">
-
-    <div class="span6">
-      <div class="box">
-        <%= render 'edit_link', user: @user %>
-        <h3><%= t '.description' %></h3>
-        <p><%= @user.description %></p>
-      </div>
-
-      <div class="box">
-        <%= render 'edit_link', user: @user %>
-        <h3><%= t ".skills_#{@user.type.underscore}" %></h3>
-        <p><%= @user.skills %></p>
-      </div>
+<div class="row profile-content">
+  <div class="span6">
+    <div class="box">
+      <%= render 'edit_link', user: @user %>
+      <h3><%= t '.description' %></h3>
+      <p><%= @user.description %></p>
     </div>
 
-    <div class="span6">
-      <% if @user.type == "Host" %>
-        <div class="box">
-          <%= render 'edit_link', user: @user %>
-          <h3><%= t ".accomodation" %></h3>
-          <p><%= @user.accomodation %></p>
-        </div>
-      <% end %>
+    <div class="box">
+      <%= render 'edit_link', user: @user %>
+      <h3><%= t ".skills_#{@user.type.underscore}" %></h3>
+      <p><%= @user.skills %></p>
+    </div>
+  </div>
 
+  <div class="span6">
+    <% if @user.type == "Host" %>
       <div class="box">
-        <h3><%= link_to t('.pictures'), user_pictures_path(@user) %></h3>
-        <%= render 'pictures', pictures: @user.pictures %>
+        <%= render 'edit_link', user: @user %>
+        <h3><%= t ".accomodation" %></h3>
+        <p><%= @user.accomodation %></p>
       </div>
+    <% end %>
 
-      <div class="box">
-        <h3><%= link_to feedback_count(@feedback_pairs), user_feedbacks_path(@user) %></h3>
-        <%= render partial: 'feedbacks/feedbacks', object: @feedback_pairs %>
-      </div>
+    <div class="box">
+      <h3><%= link_to t('.pictures'), user_pictures_path(@user) %></h3>
+      <%= render 'pictures', pictures: @user.pictures %>
     </div>
 
+    <div class="box">
+      <h3><%= link_to feedback_count(@feedback_pairs), user_feedbacks_path(@user) %></h3>
+      <%= render partial: 'feedbacks/feedbacks', object: @feedback_pairs %>
+    </div>
   </div>
 </div>

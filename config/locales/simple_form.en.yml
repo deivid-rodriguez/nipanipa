@@ -20,7 +20,6 @@ en:
       picture:
         name: "Caption for the picture"
         image: "File with the picture"
-        avatar: "Mark as main picture?"
       feedback:
         score: "Score"
         content: "What was your experience with %{user} like?"

@@ -6,7 +6,6 @@ es:
     not_specified: "No especificado"
     profile_header:
       karma: "Karma"
-      type: "Tipo de usuario"
       location: "Lugar"
       last_login: "Ultimo acceso"
       member_since: "Miembro desde"

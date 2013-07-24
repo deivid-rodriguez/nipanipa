@@ -4,6 +4,11 @@
   width: 448px;
 }
 
+.picture-thumbnails {
+  @extend .thumbnails;
+  margin: 0;
+}
+
 .picture-thumbnail {
   @extend .thumbnail;
   margin: 0px 20px 20px 20px;
@@ -14,11 +19,5 @@
 
 .new-picture {
   font-size: 14px;
-  margin: 0;
   padding-left: 20px;
 }
-
-.index-pictures {
-  margin: 0;
-}
-

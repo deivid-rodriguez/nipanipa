@@ -4,16 +4,12 @@
                                     page_id: @page_id,
                                     given_feedback: @given_feedback %>
 
-<div class="span12 profile-content">
-  <div class="row new-picture">
-    <% if can? :manage, @user %>
-      <p>
-        <%= link_to t('.new_picture'), new_user_picture_path(current_user) %>
-      </p>
-    <% end %>
-  </div>
+<div class="row profile-content">
+  <% if can? :manage, @user %>
+    <p class="new-picture">
+      <%= link_to t('.new_picture'), new_user_picture_path(current_user) %>
+    </p>
+  <% end %>
 
-  <div class="row index-pictures">
-    <%= render 'pictures', pictures: @pictures, user: @user %>
-  </div>
+  <%= render 'pictures', pictures: @pictures, user: @user %>
 </div>

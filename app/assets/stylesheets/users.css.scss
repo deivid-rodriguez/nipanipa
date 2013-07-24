@@ -80,7 +80,9 @@
   border-bottom: 1px solid rgb(221, 221, 221);
   .profile-header-wrapper {
     .user-picture {
-      width: 265px;
+      width: 260px;
+      @include box_sizing;
+      padding: 20px;
     }
     .user-tips {
       width: 655px;
@@ -94,9 +96,6 @@
         padding-left: 10px;
         line-height: 24px;
         font-size: 11px;
-      }
-      .login-info {
-        line-height: 12px;
       }
       .profile-tabs {
         position: absolute;
@@ -152,25 +151,23 @@ div.no-elements {
 }
 
 .profile-content {
-  margin-left: 0px;
-  .profile-content-wrapper {
-    margin: 0px;
-    .span6 {
-      margin-left: 0px;
-      .box {
-        margin: 0px 0px 20px 20px;
-        border: 1px solid $grayVeryLight;
-        @include border_radius;
-        @include box_sizing;
-        padding: 9px;
-        background: $graySuperLight;
-        @include box_shadow;
-        h3 {
-          margin-bottom: 0.3em;
-          color: #333;
-          border-bottom: 1px solid $grayVeryLight;
-          font-size: 16px;
-        }
+  margin: 0px 10px 20px 10px;
+  .span6 {
+    margin: 0px 10px 0px 10px;
+    width: 440px;
+    .box {
+      margin: 0px 0px 20px 0px;
+      border: 1px solid $grayVeryLight;
+      @include border_radius;
+      @include box_sizing;
+      padding: 9px;
+      background: $graySuperLight;
+      @include box_shadow;
+      h3 {
+        margin-bottom: 0.3em;
+        color: #333;
+        border-bottom: 1px solid $grayVeryLight;
+        font-size: 16px;
       }
     }
   }

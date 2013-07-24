@@ -1,16 +1,18 @@
 module UsersHelper
 
   def avatar_for user, options = { style: :small_cropped }
-    style = options[:style]
-    main_pict = user.main_picture
-    if main_pict
-      url = main_pict.image.url(style)
-      alt = main_pict.name
-    else
-      url = "default_avatar_#{style.to_s}.png"
-      alt = 'Default avatar'
-    end
+    range = karma_to_type(user.karma)
+    url = "#{user.type.underscore}#{range}_#{options[:style]}.png"
+    alt = "#{user.type} avatar"
     image_tag url, alt: alt
+  end
+
+  def karma_to_type karma
+    return 1 if karma < 0
+    return 2 if karma == 0
+    return 3 if karma == 1
+    return 4 if karma == 2
+    return 5
   end
 
   def feedback_count feedbacks

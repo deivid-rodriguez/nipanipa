@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130705055246) do
+ActiveRecord::Schema.define(:version => 20130724155440) do
 
   create_table "conversations", :force => true do |t|
     t.string   "subject"
@@ -71,7 +71,6 @@ ActiveRecord::Schema.define(:version => 20130705055246) do
 
   create_table "pictures", :force => true do |t|
     t.integer "user_id"
-    t.boolean "avatar",  :default => false
     t.string  "name"
     t.string  "image"
   end

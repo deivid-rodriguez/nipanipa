@@ -108,11 +108,6 @@ FactoryGirl.define do
     name 'My funny picture'
     image { Rack::Test::UploadedFile.new(
               File.join(Rails.root, 'spec', 'fixtures', 'test_image.png')) }
-    avatar false
     association :user, factory: :host
-
-    factory :avatar do
-      avatar true
-    end
   end
 end

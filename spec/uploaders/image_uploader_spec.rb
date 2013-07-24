@@ -8,7 +8,8 @@ describe ImageUploader do
   before do
     ImageUploader.enable_processing = true
     @uploader = ImageUploader.new(user, :image)
-    @uploader.store!(File.open("#{Rails.root}/app/assets/images/default_avatar_medium.png"))
+    @uploader.store!(
+      File.open("#{Rails.root}/app/assets/images/host1_small_cropped.png"))
   end
 
   after do
@@ -35,8 +36,8 @@ describe ImageUploader do
   end
 
   context 'the medium version' do
-    it "should scale down a landscape image to be exactly 265x265" do
-      @uploader.medium.should have_dimensions(265, 265)
+    it "should scale down a landscape image to be exactly 220x220" do
+      @uploader.medium.should have_dimensions(220, 220)
     end
   end
 

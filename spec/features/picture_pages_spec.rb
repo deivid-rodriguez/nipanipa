@@ -15,50 +15,24 @@ describe 'Uploading a new picture' do
     fill_in 'picture[name]', with: picture.name
   end
 
-  describe 'a main picture' do
-    before { check 'picture[avatar]' }
-
-    describe 'successfully' do
-      before do
-        attach_file 'picture[image]', 'spec/fixtures/test_image.png'
-        click_button t('helpers.submit.picture.create')
-      end
-
-      it { should have_selector 'div.user-picture', 'test_image.png' }
-      it { should have_flash_message t('pictures.create.success'), 'success' }
+  describe 'successfully' do
+    before do
+      attach_file 'picture[image]', 'spec/fixtures/test_image.png'
+      click_button t('helpers.submit.picture.create')
     end
 
-    describe 'unsuccessfully' do
-      before do
-        attach_file 'picture[image]', 'spec/fixtures/test_image.txt'
-        click_button t('helpers.submit.picture.create')
-      end
-
-      it { should_not have_selector 'div.user-picture', 'test_image.txt' }
-      it { should have_flash_message t('pictures.create.error'), 'error' }
-    end
+    it { should have_selector 'div.picture-thumbnail', 'test_image.png' }
+    it { should have_flash_message t('pictures.create.success'), 'success' }
   end
 
-  describe 'a secondary picture' do
-    describe 'successfully' do
-      before do
-        attach_file 'picture[image]', 'spec/fixtures/test_image.png'
-        click_button t('helpers.submit.picture.create')
-      end
-
-      it { should have_selector 'div.picture-thumbnail', 'test_image.png' }
-      it { should have_flash_message t('pictures.create.success'), 'success' }
+  describe 'unsuccessfully' do
+    before do
+      attach_file 'picture[image]', 'spec/fixtures/test_image.txt'
+      click_button t('helpers.submit.picture.create')
     end
-
-    describe 'unsuccessfully' do
-      before do
-        attach_file 'picture[image]', 'spec/fixtures/test_image.txt'
-        click_button t('helpers.submit.picture.create')
-      end
 
       it { should_not have_selector 'div.picture-thumbnail', 'test_image.txt' }
-      it { should have_flash_message t('pictures.create.error'), 'error' }
-    end
+    it { should have_flash_message t('pictures.create.error'), 'error' }
   end
 end
 

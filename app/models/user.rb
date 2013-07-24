@@ -93,8 +93,4 @@ class User < ActiveRecord::Base
     end
     result_list.concat(sent_list.map { |x| [nil, x] })
   end
-
-  def main_picture
-    pictures.select { |p| p.avatar }.first
-  end
 end

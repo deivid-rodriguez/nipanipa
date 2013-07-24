@@ -4,6 +4,8 @@
                                     page_id: @page_id,
                                     given_feedback: @given_feedback %>
 
-<div class="span6">
-  <%= render partial: 'feedbacks/feedbacks', object: @feedback_pairs %>
+<div class="row profile-content">
+  <div class="span6">
+   <%= render partial: 'feedbacks/feedbacks', object: @feedback_pairs %>
+  </div>
 </div>

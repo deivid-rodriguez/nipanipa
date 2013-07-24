@@ -6,6 +6,15 @@
   background-color: $grayBackground;
 }
 
+.home-thumbnails {
+  @extend .thumbnails;
+  a {
+    color: #333;
+    text-decoration: none;
+  }
+  margin: 0 0 0 -20px;
+}
+
 .explore-thumbnail {
   @extend .thumbnail;
   padding: 20px 290px;

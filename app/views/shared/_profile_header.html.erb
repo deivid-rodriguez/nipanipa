@@ -16,15 +16,6 @@
         <div class="span4">
           <div class="quickinfo">
             <div class="label_info">
-              <%= image_tag "#{user.type.underscore}_icon.png" %>
-            </div>
-            <div class="content_info">
-              <span><strong><%= t('.type') %>:</strong></span>
-              <%= t("activerecord.models.#{user.type}").camelize %>
-            </div>
-          </div>
-          <div class="quickinfo">
-            <div class="label_info">
               <%= image_tag "karma.png" %>
             </div>
             <div class="content_info">
@@ -42,15 +33,21 @@
               <%= user.country %>
             </div>
           </div>
-          <div class="quickinfo login-info">
+          <div class="quickinfo">
             <div class="label_info">
-            <%= image_tag 'calendar.png' %>
+            <%= image_tag 'signin.png' %>
             </div>
             <div class="content_info">
               <span><strong><%= t('.last_login') %>:</strong></span>
               <%= t 'datetime.timestamp_ago',
                     time: time_ago_in_words(user.current_sign_in_at) %>
-              <br />
+            </div>
+          </div>
+          <div class="quickinfo">
+            <div class="label_info">
+            <%= image_tag 'calendar.png' %>
+            </div>
+            <div class="content_info">
               <span><strong><%= t('.member_since') %>:</strong></span>
               <%= t 'datetime.timestamp_ago',
                     time: time_ago_in_words(user.created_at) %>
@@ -64,8 +61,12 @@
             </div>
             <div class="content_info">
               <span><strong><%= t('.categories') %>:</strong></span>
+              <% if user.work_types.empty? %>
+                <em><%= t('.unknown') %></em>
+              <% else %>
                 <%= user.work_types.map { |wt|
                   t("work_types.#{wt.name}") }.join(', ') %>
+              <% end %>
             </div>
           </div>
           <div class="quickinfo" id="languagesinfo">

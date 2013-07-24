@@ -42,12 +42,6 @@
     </div>
   <% end %>
 
-  <% if user.new_record? %>
-    <div class="row">
-      <%= render 'profile_picture', f: f %>
-    </div>
-  <% end %>
-
   <%= f.button :submit, model: t('activerecord.models.user'),
                         class: "signup-button pull-right" %>
 
