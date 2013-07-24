@@ -11,7 +11,7 @@ module UsersHelper
     return 1 if karma < 0
     return 2 if karma == 0
     return 3 if karma == 1
-    return 4 if karma == 2
+    return 4 if karma >= 2 && karma < 10
     return 5
   end
 
