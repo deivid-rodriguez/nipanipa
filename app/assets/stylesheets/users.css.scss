@@ -198,8 +198,8 @@ div.comment {
 
 /* users index */
 .sidebar-users {
+  padding: 20px 0;
   width: 180px;
-  margin-top: 20px;
   background: $graySuperLight;
   @include border_radius;
   li.active > a {
