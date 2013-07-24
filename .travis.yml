@@ -28,6 +28,6 @@ env:
       n/JUv72go5Kp7Hla+sXCbyobGZIguW17n6Wr17jNYge9858ygec=
 bundler_args: --without development
 script:
-- bundle exec rake:db:create_user
+- bundle exec rake db:create_user
 - bundle exec rake db:setup
 - bundle exec rake spec
