@@ -138,6 +138,16 @@
   }
 }
 
+.profile-header-host {
+  @extend .profile-header;
+  background: lighten($greenHost, 20%);
+}
+
+.profile-header-volunteer {
+  @extend .profile-header;
+  background: lighten($redVolunteer, 7%);
+}
+
 div.no-elements {
   margin-left: 20px;
   font-size: 16px;
@@ -213,6 +223,7 @@ div.comment {
 .list-users {
   padding: 20px 0;
   .user-thumbnail {
+    border: 1px solid #ddd;
     overflow: hidden;
     @extend .thumbnail;
     padding-right: 15px;
