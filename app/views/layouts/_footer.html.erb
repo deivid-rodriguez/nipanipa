@@ -1,15 +1,31 @@
 <footer class="container">
-  <small>
-    (ↄ) 2013 NiPaNiPa by
-    <%= link_to "Trastévere", 'http://trasteverestudio.com' %>
-  </small>
-  <nav>
+  <nav class="footer-links">
     <ul>
+      <li><small>
+        (ↄ) 2013 NiPaNiPa by
+        <%= link_to "Trastévere", 'http://trasteverestudio.com' %>
+      </small></li>
       <li><%= link_to t('static_pages.terms.title')  , terms_path   %></li>
       <li><%= link_to t('static_pages.about.title')  , about_path   %></li>
       <li><%= link_to t('static_pages.contact.title'), contact_path %></li>
+    </ul>
+  </nav>
+  <nav class="social-links">
+    <ul>
       <li>
-        <%= link_to t('layouts.footer.news'), 'http://trasteverestudio.com' %>
+        <%= link_to 'http://facebook.com' do %>
+          <%= image_tag 'facebook.png', alt: 'Facebook' %>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to 'https://twitter.com/nipanipaproject' do %>
+          <%= image_tag 'twitter.png', alt: 'Twitter' %>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to 'https://github.com/deivid-rodriguez/nipanipa' do %>
+          <%= image_tag 'github.png', alt: 'Github' %>
+        <% end %>
       </li>
     </ul>
   </nav>

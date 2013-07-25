@@ -88,6 +88,7 @@ textarea { resize: vertical; }
 }
 
 .thumbnail {
+  border: none;
   text-align: center;
   a {
     display: block;
@@ -201,31 +202,45 @@ header {
 
 
 /* footer */
-
+$footer_width: 48px;
+$footer_padding: 15px;
+$footer_line_height: 12px;
 footer {
-  margin-top: 30px;
-  padding-top: 5px;
-  border-top: 1px solid $grayMediumLight;
+  padding-top: $footer_padding;
+  padding-bottom: $footer_padding;
   color: $grayLight;
+  position: relative;
   a {
     color: $gray;
     &:hover {
       color: $grayDarker;
     }
   }
-  small { float: left; }
-  ul {
-    float: right;
-    list-style: none;
+  .footer-links ul {
+    position: absolute;
+    top: $footer_width/2 + $footer_padding - $footer_line_height/2;
+    float: left;
     li {
-      float: left;
       border-right: 1px solid $grayLight;
-      padding-left: 5px;
-      padding-right: 5px;
-      line-height: 12px;
+      line-height: $footer_line_height;
     }
     li:last-child {
       border-right: none;
+    }
+  }
+  .social-links ul {
+    float: right;
+    a:hover {
+
+    }
+  }
+  ul {
+    margin: 0;
+    list-style: none;
+    li {
+      float: left;
+      padding-left: 5px;
+      padding-right: 5px;
     }
   }
 }
