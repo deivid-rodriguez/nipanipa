@@ -16,13 +16,13 @@ gem 'enumerize', '0.6.1'
 gem 'nested_form', '0.3.2'
 gem 'carrierwave', '0.9.0'
 gem 'mini_magick', '3.6.0'
+gem 'ffaker', '1.16.2'
 
 group :development, :test do
   gem 'rspec-rails', '2.14.0'
   gem 'guard-rspec', '3.0.2'
   gem 'guard-spork', '1.5.1'
   gem 'pry-byebug', '1.1.2'
-  gem 'ffaker', '1.16.2'
 end
 
 # Used only for assets and not required in production environments by default.
