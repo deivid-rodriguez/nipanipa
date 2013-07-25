@@ -2,19 +2,17 @@
 <html>
   <%= render 'layouts/head' %>
   <body>
-    <div class="container">
-      <%= render 'layouts/header' %>
-      <%= render 'layouts/messages' %>
-      <div class="main row">
-        <%= yield %>
-      </div>
-      <script>
-        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-        s.parentNode.insertBefore(g,s)}(document,'script'));
-      </script>
-      <%= render 'layouts/footer' %>
+    <%= render 'layouts/header' %>
+    <%= render 'layouts/messages' %>
+    <div class="main row container">
+      <%= yield %>
     </div>
+    <script>
+      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

@@ -64,13 +64,15 @@ a {
   margin-top: 10px;
   margin-bottom: 10px;
   .navbar-inner {
-    background-color: $grayBackground;
-    background-image: none;
+    background: none;
     font-size: 14px;
     border: none;
     @include box_shadow(0px);
     .nav {
       padding-top: 47px;
+      li.dropdown.open > .dropdown-toggle {
+        background: none;
+      }
     }
   }
 }
@@ -181,7 +183,6 @@ header {
 
 /* main content */
 .main {
-  margin-left: 0px;
   text-align: left;
   background: $white;
 }
