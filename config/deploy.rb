@@ -25,6 +25,12 @@ namespace :deploy do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
 
+  desc "reload the database with seed data"
+  task :seed, roles: :db do
+    run "cd #{current_path} && bundle exec rake db:seed RAILS_ENV=#{rails_env}"
+  end
+  after "deploy:setup", "deploy:seed"
+
   desc "Copy example configuration file to the release"
   task :setup_config, roles: :app do
     run "mkdir -p #{shared_path}/config"
@@ -32,7 +38,7 @@ namespace :deploy do
         "#{shared_path}/config/application.yml"
     puts "Now edit #{shared_path}/config/application.yml with correct settings"
   end
-  after "deploy:setup", "deploy:setup_config"
+  after "deploy:seed", "deploy:setup_config"
 
   desc "Link non-source-controlled configuration to the release"
   task :symlink_config, roles: :app do
