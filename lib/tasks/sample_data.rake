@@ -46,7 +46,7 @@ namespace :db do
 
     # Create some feedbacks
     users = User.all
-    500.times do
+    250.times do
       from_to = (1..@n_users).to_a.sample 2
       loop do
         break if Feedback.where(sender_id: from_to[0],
@@ -63,7 +63,7 @@ namespace :db do
     end
 
     # Create some language skills
-    75.times do
+    100.times do
       user = (1..@n_users).to_a.shuffle[0]
       lang = (1..@n_languages).to_a.shuffle[0]
       loop do
