@@ -45,7 +45,7 @@ namespace :deploy do
     sudo "ln -snf #{current_path}/config/apache.conf " \
          "/etc/apache2/sites-available/#{application}"
     run "ln -snf #{shared_path}/config/application.yml " \
-                "#{release_path}/config/application.yml"
+                "#{current_path}/config/application.yml"
   end
   after "deploy:finalize_update", "deploy:symlink_config"
 
