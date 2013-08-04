@@ -28,4 +28,9 @@ module UsersHelper
     return count_str
   end
 
+  def user_location user
+    return t('.unknown') if user.country.blank?
+    return user.country if user.state.blank?
+    return "#{user.state}, #{user.country}"
+  end
 end

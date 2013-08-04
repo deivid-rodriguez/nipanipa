@@ -42,10 +42,10 @@ namespace :deploy do
 
   desc "Link non-source-controlled configuration to the release"
   task :symlink_config, roles: :app do
-    sudo "ln -snf #{current_path}/config/apache.conf " \
+    sudo "ln -snf #{release_path}/config/apache.conf " \
          "/etc/apache2/sites-available/#{application}"
     run "ln -snf #{shared_path}/config/application.yml " \
-                "#{current_path}/config/application.yml"
+                "#{release_path}/config/application.yml"
   end
   after "deploy:finalize_update", "deploy:symlink_config"
 

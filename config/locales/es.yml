@@ -184,6 +184,8 @@ oferta"
       volunteers: "Voluntarios"
     user:
       karma: "karma"
+      location: "Lugar"
+      unknown: "Desconocido"
   work_types:
     gardening: "Jardinería"
     babysitting: "Canguro"

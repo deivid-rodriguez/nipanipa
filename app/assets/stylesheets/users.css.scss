@@ -240,11 +240,22 @@ div.comment {
     .user-thumbnail-data {
       margin-left: 180px;
     }
-    .user-thumbnail-login {
+    .user-thumbnail-login, .user-thumbnail-location {
       margin: 0 0 4px 0;
       color: $gray;
       font-size: 0.9em;
       font-style: italic;
+    }
+    .user-thumbnail-location {
+      text-align: right;
+    }
+    .user-thumbnail-login {
+      width: 249px;
+      float: left;
+      text-align: left;
+    }
+    .user-thumbnail-shortdesc {
+      text-align: left;
     }
   }
 }

@@ -9,21 +9,19 @@
         </div>
       </div>
       <div class="user-thumbnail-data">
-        <h5>
-          <% if user.name %>
-            <%= "#{user.name} (#{user.state}, #{user.country})" %>
-          <% else %>
-            <%= "#{user.name} (#{user.country})" %>
-          <% end %>
-        </h5>
-        <p class="user-thumbnail-login">
+        <h5><%= user.name %></h5>
+        <div class="user-thumbnail-login">
           <%= render 'shared/current_or_last_login', user: user %>
-        </p>
-        <p class="user-thumbnail-shortdesc">
-          <%= truncate user.description, length: 250,
+        </div>
+        <div class="user-thumbnail-location">
+          <%=  t('.location') + ': ' %>
+          <%= user_location user %>
+        </div>
+        <div class="user-thumbnail-shortdesc">
+          <%= truncate user.description, length: 400,
                                          separator: ' ',
                                          omission: "..."  %>
-        </p>
+        </div>
       </div>
     </div>
   <% end %>

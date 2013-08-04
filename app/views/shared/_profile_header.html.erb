@@ -29,8 +29,7 @@
             </div>
             <div class="content_info">
             <span><strong><%= t('.location') %>:</strong></span>
-              <%= user.state ? "#{user.state}, " : '' %>
-              <%= user.country %>
+              <%= user_location user %>
             </div>
           </div>
           <div class="quickinfo">

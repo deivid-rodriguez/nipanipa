@@ -11,10 +11,10 @@ en:
       member_since: "Member since"
       categories: "Categories"
       languages: "Languages"
-      unknown: "Unkown"
+      unknown: "Unknown"
       general: "General"
       conversations: "Messages"
-      feedback: "Feeback"
+      feedback: "Feedback"
       pictures: "Pictures"
       edit: "Edit profile"
       new_conversation: "New message"
@@ -87,7 +87,7 @@ not inmutable!"
       other: "%{count} sent"
     feedback:
       from: "From %{name}"
-      to: "TO %{name}"
+      to: "To %{name}"
     update:
       success: "You just edited the reference!"
       error: "Error updating the reference... :( It should not be longer
@@ -181,6 +181,8 @@ host be interested in you?"
       volunteers: "Volunteers"
     user:
       karma: "karma"
+      location: "Location"
+      unknown: "Unknown"
   work_types:
     gardening: "Gardening"
     babysitting: "Babysitting"
@@ -267,7 +269,7 @@ would like to be implemented %{issues_url}."
           attributes:
             content:
               blank: "Write something about the user"
-              too_long: "Feeback is too long"
+              too_long: "Feedback is too long"
         picture:
           attributes:
             image_file_size:
