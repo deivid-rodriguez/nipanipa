@@ -30,13 +30,15 @@ en:
       uvolunteer?: "Are you a volunteer?"
     about:
       title: "About Us"
-      description: "We are a Germany and Spain based association of both web
-designers and web programmers. We are also passionate travelers and feel
+      description: "We are a Germany and Spain based association of both web designers
+and web programmers. We are also passionate travelers and cultural exchangers and feel
 something was missing before NiPaNiPa. That's why we did it. Enjoy!"
     contact:
       title: "Contact"
-      description: "Get in touch with us by sending an e-mail to
-nipanipa.test@gmail.com!"
+      description_html: "NiPaNiPa is in beta phase and we need all possible feedback to
+correct errors and make it better. We haven't had the time to make a proper contact
+form but please send an e-mail to %{mail} and let us know what you think,
+what can be improved or just say hello!"
     home:
       welcome: 'Welcome to NiPaNiPa'
       subtitle: 'Contacts hosts and volunteers around the world'

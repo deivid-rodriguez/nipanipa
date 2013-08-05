@@ -36,7 +36,7 @@ describe "Static pages" do
     let(:page_title) { about }
     before { visit about_path }
 
-    it { should have_selector 'h1', text: about }
+    it { should have_selector 'h2', text: about }
     it_behaves_like "all static pages"
   end
 
@@ -44,7 +44,7 @@ describe "Static pages" do
     before { visit contact_path }
     let(:page_title) { contact }
 
-    it { should have_selector 'h1', text: contact }
+    it { should have_selector 'h2', text: contact }
     it_behaves_like "all static pages"
   end
 

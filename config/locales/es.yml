@@ -35,8 +35,11 @@ diseñadores y programadores web. También somos viajeros apasionados y sentimos
 que nos faltaba algo antes de NiPaNiPa. Por eso la hicimos. Disfrutad!"
     contact:
       title: "Contacto"
-      description: "Ponte en contacto con nosotros mandando un email a
-nipanipa.test@gmail.com"
+      description_html: "NiPaNiPa se encuentra en fase de pruebas, así que ahora es
+cuando más nos hacen falta vuestras opiniones. Aún no hemos tenido tiempo de elaborar
+un formulario de contacto en condiciones, pero mientras tanto puedes ponerte en
+contacto con nosotros enviando un e-mail a %{mail}. Dinos qué opinas del sitio, qué
+cosas no funcionan, qué se puede mejorar o simplemente manda un saludo!"
     home:
       welcome: "Bienvenido a NiPaNiPa"
       subtitle: "Contacta a voluntarios y hosts de todo el mundo"
