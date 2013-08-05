@@ -16,6 +16,6 @@ namespace :db do
   task kill_pg_connections: :environment do
     db_name = ENV['DB_NAME']
     system \
-      "sudo kill `ps xa | grep \"[p]ostgres:.*#{db_name}\" | cut -f1 -d' '`"
+      "sudo kill `ps xa | grep \"[p]ostgres:.*#{db_name}\" | awk '{print $1}'`"
   end
 end
