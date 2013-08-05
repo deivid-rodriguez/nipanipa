@@ -7,9 +7,9 @@ FactoryGirl.define do
 
     # simulate first login
     last_sign_in_at { Time.now }
-    last_sign_in_ip ENV['IP']
+    last_sign_in_ip ENV['FAKE_IP']
     current_sign_in_at { Time.now }
-    current_sign_in_ip ENV['IP']
+    current_sign_in_ip ENV['FAKE_IP']
     sign_in_count 1
 
     trait :admin do

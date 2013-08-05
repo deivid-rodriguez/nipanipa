@@ -5,7 +5,7 @@ rvm:
 env:
   global:
   - PAYPAL_URL=https://www.sandbox.paypal.com/cgi-bin/webscr?
-  - IP=83.39.69.109
+  - FAKE_IP=83.39.69.109
   - secure: |-
       AmR6J1S8LHM/0eq79r9grp83BQc6bJHFfA73LQBtu/qwr5t4r89i8XCD5FYj
       shhMmIxlrALRhs2th2KJ3/EDWojWR7JEHIWM55K+myoeLaiVmyXDfYqCwVKs

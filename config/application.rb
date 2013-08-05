@@ -10,11 +10,14 @@ if defined?(Bundler)
 end
 
 # Load per environment configuration
-config = YAML.load(File.read(File.expand_path('../application.yml', __FILE__)))
-config.merge! config.fetch(Rails.env, {})
-config.each do |key, value|
-  ENV[key] = value.to_s unless value.kind_of? Hash
+def load_configuration
+  conf = YAML.load(File.read(File.expand_path('../application.yml', __FILE__)))
+  conf.merge! conf.fetch(Rails.env, {})
+  conf.each do |key, value|
+    ENV[key] = value.to_s unless value.kind_of? Hash
+  end
 end
+load_configuration unless ENV['CI'] # We separately set ENV for travis
 
 module Nipanipa
   class Application < Rails::Application

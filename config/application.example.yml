@@ -4,20 +4,20 @@ PAYPAL_URL: ""
 PAYPAL_PDT_AT: ""
 PAYPAL_ACCOUNT: ""
 
-HOST: ""
-IP: ""
+development:
+  DB_NAME: ''
+  DB_USER: ''
+  DB_PASS: ''
 
 production:
   DB_NAME: ''
   DB_USER: ''
   DB_PASS: ''
+  MAIL_HOST: ''
+  SECRET_TOKEN: ''
 
 test:
   DB_NAME: ''
   DB_USER: ''
   DB_PASS: ''
-
-development:
-  DB_NAME: ''
-  DB_USER: ''
-  DB_PASS: ''
+  FAKE_IP: ''
