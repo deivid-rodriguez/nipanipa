@@ -1,4 +1,3 @@
-# --- Instructions ---
 # Note: You can modify files loaded *from* the Spork.each_run block without
 # restarting the spork server.  However, this file itself will not be reloaded,
 # so if you change any of the code inside the each_run block, you still need to
@@ -25,6 +24,7 @@ Spork.prefork do
   # if you change any configuration or code from libraries loaded here, you'll
   # need to restart spork for it take effect.
   ENV["RAILS_ENV"] ||= 'test'
+
   unless ENV['DRB']
     start_simple_cov
   end
