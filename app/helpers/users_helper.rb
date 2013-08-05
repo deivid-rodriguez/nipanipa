@@ -33,4 +33,19 @@ module UsersHelper
     return user.country if user.state.blank?
     return "#{user.state}, #{user.country}"
   end
+
+  def user_categories user
+    return content_tag(:em, t('.unknown')) if user.work_types.empty?
+    user.work_types.map{ |wt| t("work_types.#{wt.name}") }.join(', ')
+  end
+
+  def user_languages user
+    return content_tag(:em, t('.unknown')) if user.language_skills.empty?
+    user.language_skills.map{
+      |ls| "#{ls.language.name} (#{ls.level.text})" }.join(', ')
+  end
+
+  def i18n_timeago timestamp
+    t 'datetime.timestamp_ago', time: time_ago_in_words(timestamp)
+  end
 end

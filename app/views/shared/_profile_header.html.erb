@@ -6,82 +6,26 @@
     <div class="user-tips span8">
       <div class="row">
         <div class="span8 title">
-          <h3>
-            <strong><%= user.name %></strong>
-          </h3>
+          <h3><strong><%= user.name %></strong></h3>
         </div>
       </div>
 
       <div class="row">
         <div class="span4">
-          <div class="quickinfo">
-            <div class="label_info">
-              <%= image_tag "karma.png" %>
-            </div>
-            <div class="content_info">
-              <span><strong><%= t('.karma') %>:</strong></span>
-              <%= user.karma %>
-            </div>
-          </div>
-          <div class="quickinfo">
-            <div class="label_info">
-              <%= image_tag 'location.png' %>
-            </div>
-            <div class="content_info">
-            <span><strong><%= t('.location') %>:</strong></span>
-              <%= user_location user %>
-            </div>
-          </div>
-          <div class="quickinfo">
-            <div class="label_info">
-            <%= image_tag 'last_login.png' %>
-            </div>
-            <div class="content_info">
-              <span><strong><%= t('.last_login') %>:</strong></span>
-              <%= t 'datetime.timestamp_ago',
-                    time: time_ago_in_words(user.current_sign_in_at) %>
-            </div>
-          </div>
-          <div class="quickinfo">
-            <div class="label_info">
-            <%= image_tag 'member_since.png' %>
-            </div>
-            <div class="content_info">
-              <span><strong><%= t('.member_since') %>:</strong></span>
-              <%= t 'datetime.timestamp_ago',
-                    time: time_ago_in_words(user.created_at) %>
-            </div>
-          </div>
+          <%= render 'shared/badge', name: 'karma', content: user.karma %>
+          <%= render 'shared/badge', name: 'location',
+                                     content: user_location(user) %>
+          <%= render 'shared/badge',
+                     name: 'last_login',
+                     content: i18n_timeago(user.current_sign_in_at) %>
+          <%= render 'shared/badge', name: 'member_since',
+                                     content: i18n_timeago(user.created_at) %>
         </div>
         <div class="span4">
-          <div class="quickinfo" id="categoriesinfo">
-            <div class="label_info">
-            <%= image_tag 'categories.png' %>
-            </div>
-            <div class="content_info">
-              <span><strong><%= t('.categories') %>:</strong></span>
-              <% if user.work_types.empty? %>
-                <em><%= t('.unknown') %></em>
-              <% else %>
-                <%= user.work_types.map { |wt|
-                  t("work_types.#{wt.name}") }.join(', ') %>
-              <% end %>
-            </div>
-          </div>
-          <div class="quickinfo" id="languagesinfo">
-            <div class="label_info">
-            <%= image_tag 'languages.png' %>
-            </div>
-            <div class="content_info">
-              <span><strong><%= t('.languages') %>:</strong></span>
-              <% if user.language_skills.empty? %>
-                <em><%= t('.unknown') %></em>
-              <% else %>
-                <%= user.language_skills.map { |ls|
-                      "#{ls.language.name} (#{ls.level.text})" }.join(', ') %>
-              <% end %>
-            </div>
-          </div>
+          <%= render 'shared/badge', name: 'categories',
+                                     content: user_categories(user) %>
+          <%= render 'shared/badge', name: 'languages',
+                                     content: user_languages(user) %>
         </div>
       </div>
 

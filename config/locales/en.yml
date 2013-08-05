@@ -5,12 +5,6 @@ en:
       last_login: "Last login"
     not_specified: "Not specified"
     profile_header:
-      karma: "Karma"
-      location: "Location"
-      last_login: "Last access"
-      member_since: "Member since"
-      categories: "Categories"
-      languages: "Languages"
       unknown: "Unknown"
       general: "General"
       conversations: "Messages"
@@ -21,6 +15,13 @@ en:
       new_feedback: "Leave a reference"
       edit_feedback: "Change your reference"
       report_user: "Alert about this user"
+    badge:
+      karma: "Karma"
+      location: "Location"
+      last_login: "Last access"
+      member_since: "Member since"
+      categories: "Categories"
+      languages: "Languages"
   static_pages:
     terms:
       title: "Terms and Conditions"

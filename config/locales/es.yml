@@ -5,12 +5,6 @@ es:
       last_login: "Último acceso"
     not_specified: "No especificado"
     profile_header:
-      karma: "Karma"
-      location: "Lugar"
-      last_login: "Ultimo acceso"
-      member_since: "Miembro desde"
-      categories: "Categorías"
-      languages: "Idiomas"
       unknown: "Desconocido"
       general: "Vista general"
       conversations: "Mensajes"
@@ -21,6 +15,13 @@ es:
       new_feedback: "Dejar referencia"
       edit_feedback: "Editar referencia"
       report_user: "Alertar sobre usuario"
+    badge:
+      karma: "Karma"
+      location: "Lugar"
+      last_login: "Ultimo acceso"
+      member_since: "Miembro desde"
+      categories: "Categorías"
+      languages: "Idiomas"
   static_pages:
     terms:
       title: "Términos y Condiciones"
