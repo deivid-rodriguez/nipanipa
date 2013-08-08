@@ -7,10 +7,10 @@
   <% if feedback.sender == current_user %>
     <div class="pull-<%= type == 'sent' ? 'left' : 'right' %>">
       <div class="profile-edit-link">
-        <%= link_to "Editar", edit_user_feedback_path(feedback.recipient, feedback) %>
+        <%= link_to t('shared.edit'), edit_user_feedback_path(feedback.recipient, feedback) %>
       </div>
       <div class="profile-edit-link">
-        <%= link_to "Borrar", user_feedback_path(feedback.recipient, feedback), method: :delete %>
+        <%= link_to t('shared.delete'), user_feedback_path(feedback.recipient, feedback), method: :delete %>
       </div>
     </div>
   <% end %>

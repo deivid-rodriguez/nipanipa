@@ -4,6 +4,8 @@ en:
       currently_logged_in: "Now online!"
       last_login: "Last login"
     not_specified: "Not specified"
+    edit: "Edit"
+    delete: "Delete"
     profile_header:
       unknown: "Unknown"
       general: "General"
@@ -81,7 +83,7 @@ not inmutable!"
       title: "Feedback"
     feedbacks:
       title: "Feedback"
-      nofeedback: "There are no feedbacks yet"
+      nofeedback: "There is no feedback"
     received:
       one: "1 received"
       other: "%{count} received"
@@ -165,7 +167,7 @@ host be interested in you?"
       personal_desc: "About you"
       work_type: "Type of Work"
     show:
-      profile: "Mi perfil"
+      profile: "My profile"
       description: "About me / us"
       feedback: "Feedback"
       accomodation: "Accomodation"

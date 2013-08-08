@@ -4,6 +4,8 @@ es:
       currently_logged_in: "¡Está ahora online!"
       last_login: "Último acceso"
     not_specified: "No especificado"
+    edit: "Editar"
+    delete: "Borrar"
     profile_header:
       unknown: "Desconocido"
       general: "Vista general"
