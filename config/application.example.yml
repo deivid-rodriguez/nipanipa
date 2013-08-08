@@ -1,13 +1,12 @@
 # Add application configuration variables here, as shown below.
 
-PAYPAL_URL: ""
-PAYPAL_PDT_AT: ""
-PAYPAL_ACCOUNT: ""
-
 development:
   DB_NAME: ''
   DB_USER: ''
   DB_PASS: ''
+  PAYPAL_URL: ''
+  PAYPAL_PDT_AT: ''
+  PAYPAL_ACCOUNT: ''
 
 production:
   DB_NAME: ''
@@ -15,9 +14,15 @@ production:
   DB_PASS: ''
   MAIL_HOST: ''
   SECRET_TOKEN: ''
+  PAYPAL_URL: ''
+  PAYPAL_PDT_AT: ''
+  PAYPAL_ACCOUNT: ''
 
 test:
   DB_NAME: ''
   DB_USER: ''
   DB_PASS: ''
   FAKE_IP: ''
+  PAYPAL_URL: ''
+  PAYPAL_PDT_AT: ''
+  PAYPAL_ACCOUNT: ''

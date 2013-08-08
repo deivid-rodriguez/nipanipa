@@ -155,8 +155,8 @@ podrían interesar a algún anfitrión?"
       title: "También puedes contarnos qué idiomas conoces"
       add_language: "añadir idioma"
     language_skill_fields:
-      language: "Idioma"
-      level: "Nivel"
+      language: "Selecciona idioma"
+      level: "Selecciona tu nivel"
       remove_language: "eliminar idioma"
     work_types:
       title_host: "Selecciona el/los tipos de trabajo en los que se ubica tu

@@ -152,8 +152,8 @@ host be interested in you?"
       title: "Which languages can you speak?"
       add_language: "add language"
     language_skill_fields:
-      language: "Language"
-      level: "Level"
+      language: "Select a language"
+      level: "Select your skill"
       remove_language: "remove language"
     work_types:
       title_host: "Pick the job categories which apply to your offer"
