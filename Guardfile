@@ -1,21 +1,13 @@
 require 'active_support/inflector'
 
-# A sample Guardfile
+#
 # More info at https://github.com/guard/guard#readme
 #
-guard :spork, :rspec => true, :rspec_env => { 'RAILS_ENV' => 'test' } do
-  watch('config/application.rb')
-  watch('config/environment.rb')
-  watch(%r{^config/environments/.+\.rb$})
-  watch(%r{^config/initializers/.+\.rb$})
-  watch('config/routes.rb') { "spec" }
-  watch('Gemfile')
-  watch('Gemfile.lock')
-  watch('spec/spec_helper.rb')
-  watch(%r{^spec/support/.+\.rb$})
-end
+guard :rspec, spring: true,
+              keep_failed: true,
+              all_on_start: true,
+              cli: '--colour' do
 
-guard :rspec, keep_failed: true, all_on_start: true, :cli => '--drb --colour' do
   watch(%r{^config/locales/(.*)\.rb$}) { |m| "spec/features" }
 
   watch(%r{^app/models/(.+)\.rb}) { |m|

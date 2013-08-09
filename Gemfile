@@ -18,9 +18,9 @@ gem 'mini_magick', '3.6.0'
 gem 'ffaker', '1.16.2'
 
 group :development, :test do
+  gem 'spring', '0.0.10'
   gem 'rspec-rails', '2.14.0'
   gem 'guard-rspec', '3.0.2'
-  gem 'guard-spork', '1.5.1'
   gem 'pry-byebug', '1.1.2'
 end
 
