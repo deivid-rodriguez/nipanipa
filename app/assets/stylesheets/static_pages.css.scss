@@ -56,13 +56,14 @@
 }
 
 .static-page {
+  h5 {
+    margin-top: 15px;
+  }
+  h4 {
+    margin-top: 20px;
+  }
   ol {
-    h5 {
-      margin-top: 15px;
-    }
-    ol {
-    list-style-type: lower-alpha;
-    }
+  list-style-type: lower-alpha;
   }
   padding: 50px;
 }

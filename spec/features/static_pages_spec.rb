@@ -28,7 +28,7 @@ describe "Static pages" do
     let(:page_title) { help }
     before { visit help_path }
 
-    it { should have_selector 'h1', text: help }
+    it { should have_selector 'h2', text: help }
     it_behaves_like "all static pages"
   end
 
