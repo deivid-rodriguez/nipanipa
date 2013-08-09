@@ -4,6 +4,9 @@
   <ul class="nav nav-list">
     <li class="nav-header"><%= t '.places' %></li>
     <li class="nav-header"><%= t '.people' %></li>
+    <li class="<%= 'active' if params[:type].nil? %>">
+      <%= link_to t('.all'), users_path %>
+    </li>
     <li class="<%= 'active' if params[:type] == 'host' %>">
       <%= link_to t('.hosts'), users_path(type: 'host') %>
     </li>

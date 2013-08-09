@@ -184,6 +184,7 @@ host be interested in you?"
       people: "People"
       hosts: "Hosts"
       volunteers: "Volunteers"
+      all: "All"
     user:
       karma: "karma"
       location: "Location"

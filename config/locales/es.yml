@@ -188,6 +188,7 @@ oferta"
       people: "Gente"
       hosts: "Anfitriones"
       volunteers: "Voluntarios"
+      all: "Todos"
     user:
       karma: "karma"
       location: "Lugar"
