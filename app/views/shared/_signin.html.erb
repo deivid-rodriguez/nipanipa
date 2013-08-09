@@ -1,5 +1,5 @@
 <%= simple_form_for :user, url: user_session_path do |f| %>
-  <%= f.input_field :email   , autofocus: true %>
+  <%= f.input_field :email   , autofocus: true, value: nil %>
   <%= f.input_field :password, hint: false %>
   <%= f.input :remember_me, as: :boolean,
                             inline_label: t('sessions.rememberme'),
