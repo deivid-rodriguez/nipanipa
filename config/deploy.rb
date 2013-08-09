@@ -13,6 +13,8 @@ set :branch, "master"
 
 set :use_sudo, false
 
+set :shared_children, shared_children + %w{public/uploads}
+
 after "deploy:restart", "deploy:cleanup"
 
 default_run_options[:pty] = true
@@ -29,7 +31,6 @@ namespace :deploy do
   task :seed, roles: :db do
     run "cd #{current_path} && bundle exec rake db:seed RAILS_ENV=#{rails_env}"
   end
-  after "deploy:setup", "deploy:seed"
 
   desc "Copy example configuration file to the release"
   task :setup_config, roles: :app do
@@ -38,7 +39,7 @@ namespace :deploy do
         "#{shared_path}/config/application.yml"
     puts "Now edit #{shared_path}/config/application.yml with correct settings"
   end
-  after "deploy:seed", "deploy:setup_config"
+  after "deploy:setup", "deploy:setup_config"
 
   desc "Link non-source-controlled configuration to the release"
   task :symlink_config, roles: :app do
