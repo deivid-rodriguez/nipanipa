@@ -1,23 +1,24 @@
 <% provide :title, t('.title') %>
-<h1><%= t '.title' %></h1>
 
-<ul class="thumbnails">
-  <li class="span6">
-    <div class="contribute-thumbnail">
+<div class="static-page">
+  <h2><%= t '.title' %></h2>
+
+  <ul class="thumbnails">
+    <li class="contribute-thumbnail">
       <h3><%= t '.donate_title' %></h3>
       <p><%= t '.donate_desc' %></p>
       <p>
-      <%= form_for @donation do |f| %>
-        <%= f.label :amount, t('.select_amount') %>
-        <%= f.select :amount, options_for_select([ 5, 10, 20 ], 10) %>
-        <%= f.submit t('.submit'), class: "btn" %>
+      <%= simple_form_for @donation do |d| %>
+        <%= d.input_field :amount, as: :select, collection: 1..20,
+                                                include_blank: false %>
+        <div class="form-actions">
+          <%= d.button :submit %>
+        </div>
       <% end %>
       </p>
-    </div>
-   </li>
+     </li>
 
-   <li class="span6">
-    <div class="contribute-thumbnail">
+     <li class="contribute-thumbnail">
       <h3><%= t '.contribute_title' %></h3>
       <ul>
         <li>
@@ -40,9 +41,6 @@
           </p>
         </li>
       </ul>
-    </div>
-  </li>
-</ul>
-
-
-
+    </li>
+  </ul>
+</div>

@@ -217,7 +217,8 @@ host be interested in you?"
       title: "Contribute to NiPaNiPa"
       donate_title: "Donate"
       donate_desc: "NiPaNiPa needs your help to survive in an independent
-way. If you can and you would like to, make a donation."
+way. If you can and you would like to, make a donation. To that end, select the amount
+(in USD) that you want to donate."
       contribute_title: "Help us"
       contribute_desc_dev_html: "If you are a web developer (or you want to be),
 you can help us by contributing to nipanipa development %{git_url}."
@@ -236,6 +237,7 @@ would like to be implemented %{issues_url}."
     header:
       language: "Language"
       search: "Search"
+      donate: "Donate"
     footer:
       news: "News"
   activerecord:

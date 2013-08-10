@@ -140,6 +140,8 @@ es:
       picture:
         create: "Subir foto"
         update: "Actualizar foto"
+      donation:
+        create: "Dona ahora!"
   number:
     currency:
       format:

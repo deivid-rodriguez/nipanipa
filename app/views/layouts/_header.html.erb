@@ -5,6 +5,7 @@
           <%= image_tag "logo.png", alt: "NiPaNiPa" %>
         <% end %>
         <ul class="nav pull-right">
+          <li><%= link_to t('.donate'), new_donation_path %></li>
           <li><%= link_to t('.search'), users_path %></li>
           <li><%= link_to t('static_pages.help.title'), help_path %></li>
           <% if user_signed_in? %>

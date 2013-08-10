@@ -219,9 +219,10 @@ oferta"
   donations:
     new:
       title: "Contribuye a NiPaNiPa"
-      donate_title: "Dona!"
+      donate_title: "Dona"
       donate_desc: "NiPaNiPa necesita de tu ayuda para seguir existiendo de
-manera independiente y gratuita. Si puedes y quieres, haz una donación."
+manera independiente y gratuita. Si puedes y quieres, haz una donación. Para ello,
+selecciona el importe (en dólares americanos) que deseas donar."
       contribute_title: "Ayúdanos"
       contribute_desc_dev_html: "Si sabes programar, puedes ayudarnos
 colaborando en el desarrollo nipiano %{git_url}."
@@ -232,7 +233,7 @@ solicitarnos nuevas funcionalidades %{issues_url}."
       select_amount: "Selecciona el importe"
       input_amount: "O elige el importe que tú quieras si no está en la lista"
       here: "aquí"
-      submit: "Dona!"
+      submit: "Dona ahora!"
     create:
       success: "Tu donación fue exitosa!"
       error: "Lo siento, hubo un problema con tu donación."
@@ -240,6 +241,7 @@ solicitarnos nuevas funcionalidades %{issues_url}."
     header:
       language: "Idioma"
       search: "Buscar"
+      donate: "Ayúdanos"
     footer:
       news: "Noticias"
   activerecord:
