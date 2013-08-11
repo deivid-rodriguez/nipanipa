@@ -64,7 +64,7 @@ describe 'Leaving feedback' do
     end
 
     it { should have_selector 'h3', text: feedback.recipient.name }
-    it { should have_flash_message t('feedbacks.create.success'), 'success' }
+    it { should have_flash_message t('donations.create.success'), 'success' }
   end
 end
 
@@ -76,6 +76,7 @@ describe 'Editing feedbacks' do
   subject { page }
 
   before do
+    Capybara.current_driver = :mechanize
     visit root_path
     sign_in feedback.sender
     page.find("#feedback-#{feedback.id}").click_link('Editar')
@@ -93,7 +94,7 @@ describe 'Editing feedbacks' do
     it { should have_flash_message t('feedbacks.update.error'), 'error' }
   end
 
-  context 'with valid information' do
+  context 'with valid information and no donation' do
     before do
       fill_in 'feedback_content', with: 'New really bad opinion'
       choose  'feedback_score_negative'
@@ -111,6 +112,22 @@ describe 'Editing feedbacks' do
     it { should have_flash_message t('feedbacks.update.success'), 'success' }
   end
 
+  context 'with valid information and donation' do
+    before do
+      fill_in 'feedback[donation_attributes][amount]', with: 20
+      click_button feedback_btn
+      mock_paypal_pdt('SUCCESS', Donation.last.id)
+    end
+
+    it 'correctly updates db' do
+      Donation.count.should == 1
+      Feedback.count.should == 1
+      feedback.recipient.karma.should eq(1)
+    end
+
+    it { should have_selector 'h3', text: feedback.recipient.name }
+    it { should have_flash_message t('donations.create.success'), 'success' }
+  end
 end
 
 describe 'Listing feedbacks' do

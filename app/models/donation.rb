@@ -12,7 +12,7 @@ class Donation < ActiveRecord::Base
       item_name: 'Friends of NiPaNiPa',
       amount: self.amount,
       return: return_url,
-      invoice: id + 1000,
+      invoice: id
     }
     ENV["PAYPAL_URL"] + values.to_query
   end

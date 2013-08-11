@@ -16,11 +16,10 @@ class DonationsController < ApplicationController
     @donation = Donation.find(params[:id])
     response = Donation.send_pdt_post(params[:tx])
     if response.body.lines.first.chomp == 'SUCCESS'
-      flash[:notice] = session[:from_feedback] ? t('feedbacks.create.success') : t('donations.create.success')
+      flash[:notice] = t('donations.create.success')
     else
-      flash[:alert] = session[:from_feedback] ? t('feedbacks.create.error') : t('donations.create.error')
+      flash[:alert] = t('donations.create.error')
     end
-    session.delete(:from_feedback)
     redirect_to @donation.user || root_path
   end
 
@@ -28,5 +27,4 @@ class DonationsController < ApplicationController
   # Check railcast #142 to implement it
   # def notify
   # end
-
 end

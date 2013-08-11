@@ -96,8 +96,8 @@ FactoryGirl.define do
   end
 
   factory :language do
-    code 'EN'
-    name 'English'
+    sequence(:code) { |n| "L#{n%10}" }
+    sequence(:name) { |n| "Language#{n%10}" }
   end
 
   factory :language_skill do

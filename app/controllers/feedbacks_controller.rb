@@ -16,12 +16,9 @@ class FeedbacksController < ApplicationController
     @feedback.recipient = @user
     authorize! :create, @feedback
     if @feedback.save
-      # To detect whether we are coming from a feedback in donations controller
-      session[:from_feedback] = true
       if @feedback.donation
         redirect_to \
-          @feedback.donation.paypal_url(donation_url(@feedback.donation.id)),
-          notice: t('feedbacks.create.success')
+          @feedback.donation.paypal_url(donation_url(@feedback.donation.id))
       else
         redirect_to @user, notice: t('feedbacks.create.success')
       end
@@ -36,14 +33,20 @@ class FeedbacksController < ApplicationController
   end
 
   def edit
-   @feedback.build_donation if !@feedback.donation
    authorize! :edit, @feedback
+   @feedback.build_donation if !@feedback.donation
+   session[:return_to] = request.referer
   end
 
   def update
-   authorize! :update, @feedback
+    authorize! :update, @feedback
     if @feedback.update_attributes(params[:feedback])
-      redirect_to current_user, notice: t('feedbacks.update.success')
+      if @feedback.donation
+        redirect_to \
+          @feedback.donation.paypal_url(donation_url(@feedback.donation.id))
+      else
+        redirect_to session[:return_to], notice: t('feedbacks.update.success')
+      end
     else
       flash.now[:error] = t('feedbacks.update.error')
       render 'edit'
