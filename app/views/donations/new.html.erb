@@ -3,22 +3,31 @@
 <div class="static-page">
   <h2><%= t '.title' %></h2>
 
+  <p><%= t '.intro' %></p>
+
   <ul class="thumbnails">
     <li class="contribute-thumbnail">
       <h3><%= t '.donate_title' %></h3>
       <p><%= t '.donate_desc' %></p>
-      <p>
       <%= simple_form_for @donation do |d| %>
         <%= d.input_field :amount, as: :select, collection: 1..20,
                                                 include_blank: false %>
-        <div class="form-actions">
-          <%= d.button :submit %>
-        </div>
+        <%= d.hidden_field :user_id, value: current_user.try(:id) %>
+        <%= d.button :submit %>
       <% end %>
-      </p>
-     </li>
+      <div class='flattr'>
+        <div class="flattr-btn">
+          <%= link_to '', 'http://nipanipa.com',
+                          class: 'FlattrButton',
+                          data: { 'flattr-uid' => 'nipanipa',
+                                  'flattr-tags' => 'work-exchange, opensource',
+                                  'flattr-category' => 'text' }  %>
+        </div>
+        <%= t('.flattr') %>
+      </div>
+    </li>
 
-     <li class="contribute-thumbnail">
+    <li class="contribute-thumbnail">
       <h3><%= t '.contribute_title' %></h3>
       <ul>
         <li>

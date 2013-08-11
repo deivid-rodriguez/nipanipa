@@ -215,10 +215,11 @@ host be interested in you?"
   donations:
     new:
       title: "Contribute to NiPaNiPa"
+      intro: "NiPaNiPa needs your help to survive in an independent way. How can
+you help?"
       donate_title: "Donate"
-      donate_desc: "NiPaNiPa needs your help to survive in an independent
-way. If you can and you would like to, make a donation. To that end, select the amount
-(in USD) that you want to donate."
+      donate_desc: "Help us economically. To that end, select the amount (in
+USD) that you want to donate."
       contribute_title: "Help us"
       contribute_desc_dev_html: "If you are a web developer (or you want to be),
 you can help us by contributing to nipanipa development %{git_url}."
@@ -230,6 +231,7 @@ would like to be implemented %{issues_url}."
       input_amount: "Or choose any amount you're confortable with"
       here: "here"
       submit: "Donate now!"
+      flattr: "You can also flattr us!"
     create:
       success: "Your donation was successful!"
       error: "Sorry, there was some problem with your donation."
