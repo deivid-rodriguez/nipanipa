@@ -15,13 +15,14 @@ gem 'enumerize', '0.6.1'
 gem 'nested_form', '0.3.2'
 gem 'carrierwave', '0.9.0'
 gem 'mini_magick', '3.6.0'
-gem 'ffaker', '1.16.2'
+gem 'ffaker', '1.18.0'
 
 group :development, :test do
   gem 'spring', '0.0.10'
   gem 'rspec-rails', '2.14.0'
   gem 'guard-rspec', '3.0.2'
   gem 'pry-byebug', '1.1.2'
+  gem 'byebug', '1.8.1'
 end
 
 # Used only for assets and not required in production environments by default.
@@ -40,7 +41,7 @@ group :test do
   gem 'poltergeist', '1.3.0'
   gem 'shoulda', '3.5.0'
   gem 'launchy', '2.3.0'
-  gem 'rb-inotify', '0.9.0'
+  gem 'rb-inotify', '0.9.1'
   gem 'libnotify', '0.8.1'
   gem 'webmock', '1.13.0'
   gem 'simplecov', '0.7.1', require: false
