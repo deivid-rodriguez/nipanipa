@@ -29,5 +29,6 @@ env:
 bundler_args: --without development
 script:
 - bundle exec rake db:create_user
-- bundle exec rake db:reset
+- bundle exec rake db:setup
+- bundle exec rake db:test:prepare
 - bundle exec rspec
