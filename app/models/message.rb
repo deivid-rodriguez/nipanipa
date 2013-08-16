@@ -6,4 +6,12 @@ class Message < ActiveRecord::Base
 
   belongs_to :from, class_name: 'User'
   belongs_to :to, class_name: 'User'
+
+  after_create :send_message_notification
+
+  private
+
+    def send_message_notification
+      UserMailer.message_reception(self).deliver
+    end
 end

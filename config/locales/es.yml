@@ -308,5 +308,10 @@ solicitarnos nuevas funcionalidades %{issues_url}."
         negative: "Negativa"
         neutral: "Neutral"
         positive: "Positiva"
-
+  user_mailer:
+    message_reception:
+      subject: "Has recibido un nuevo mensaje de %{from}"
+      greeting: "Hola %{name}!"
+      message: "Otro usuario de NiPaNiPa te ha contactado a través de nuestra
+web. Para ver el mensaje, haz click en el siguiente enlace"
 

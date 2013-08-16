@@ -304,5 +304,11 @@ would like to be implemented %{issues_url}."
         negative: "Negative"
         neutral: "Neutral"
         positive: "Positive"
+  user_mailer:
+    message_reception:
+      subject: "You received a new message from %{from}"
+      greeting: "Hi %{name}!"
+      message: "Another user from NiPaNiPa has contacted you through our web
+site. To view the message, click on the following link"
 
 

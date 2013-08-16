@@ -12,18 +12,29 @@ describe 'Create a conversation' do
     click_link t('shared.profile_header.new_conversation')
   end
 
-  it 'works with invalid information' do
-    expect { click_button create_conv }.not_to change(Conversation, :count)
-    page.should have_flash_message t('conversations.create.error'), 'error'
+  context 'when incorrect content' do
+    before do
+      expect { click_button create_conv }.not_to change(Conversation, :count)
+    end
+
+    it 'shows an error message' do
+      page.should have_flash_message t('conversations.create.error'), 'error'
+    end
   end
 
-  it 'works with valid information' do
-    fill_in 'conversation[subject]', with: conversation.subject
-    fill_in 'conversation[messages_attributes][0][body]',
-            with: conversation.messages.first.body
+  context 'when correct content' do
+    before do
+      fill_in 'conversation[subject]', with: conversation.subject
+      fill_in 'conversation[messages_attributes][0][body]',
+              with: conversation.messages.first.body
+      expect { click_button create_conv }.to change(Conversation, :count).by(1)
+    end
 
-    expect { click_button create_conv }.to change(Conversation, :count).by(1)
-    page.should have_flash_message t('conversations.create.success'), 'success'
+    it 'shows a success message' do
+      page.should have_flash_message t('conversations.create.success'), 'success'
+    end
+
+    it { sends_notification_email(conversation.to) }
   end
 end
 
@@ -67,6 +78,8 @@ describe 'Display a conversation', :js do
       it 'shows the message just replied' do
         page.should have_content 'This is a sample reply'
       end
+
+      it { sends_notification_email(conversation.to) }
     end
 
     context 'unsuccessfully' do
@@ -80,7 +93,7 @@ describe 'Display a conversation', :js do
   end
 end
 
-describe 'User deletes a conversation', :js do
+describe 'Deleting conversations', :js do
   let!(:conversation) { create(:conversation) }
 
   before do

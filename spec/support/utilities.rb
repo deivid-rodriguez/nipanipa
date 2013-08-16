@@ -7,6 +7,9 @@ def sign_in(user)
   click_button t('sessions.signin')
 end
 
+def sends_notification_email(recipient)
+  expect(ActionMailer::Base.deliveries.last.to).to include(recipient.email)
+end
 
 def sign_out
   click_link t('sessions.signout')
