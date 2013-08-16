@@ -36,7 +36,7 @@ GEM
     bootstrap-will_paginate (0.0.9)
       will_paginate
     builder (3.0.4)
-    byebug (1.8.1)
+    byebug (1.8.2)
       columnize (~> 0.3.6)
       debugger-linecache (~> 1.2.0)
     cancan (1.6.10)
@@ -271,7 +271,7 @@ DEPENDENCIES
   bcrypt-ruby (= 3.1.1)
   bootstrap-sass (= 2.3.2.1)
   bootstrap-will_paginate (= 0.0.9)
-  byebug (= 1.8.1)
+  byebug (= 1.8.2)
   cancan (= 1.6.10)
   capistrano (= 2.15.5)
   capybara (= 2.1.0)
