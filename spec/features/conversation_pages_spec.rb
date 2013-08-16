@@ -8,12 +8,8 @@ describe 'Create a conversation' do
   let(:conversation)    { build(:conversation, from: volunteer, to: host) }
   let(:create_conv_btn) { t('helpers.submit.conversation.create') }
 
-  # Force trackable hook ups and ip geolocation to happen
-  # This should be forced in creation...
   before do
     visit root_path
-    sign_in host
-    sign_out
     sign_in volunteer
     visit user_path(host)
     click_link t('shared.profile_header.new_conversation')

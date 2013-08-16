@@ -28,5 +28,4 @@ class Conversation < ActiveRecord::Base
   def reset_deleted_marks
     self.deleted_from = self.deleted_to = false
   end
-
 end

@@ -3,11 +3,11 @@
 #
 
 describe Conversation do
-  it "has a valid factory" do
+  it 'has a valid factory' do
     create(:conversation).should be_valid
   end
 
-  it "has a valid soft factory" do
+  it 'has a valid soft factory' do
     build(:conversation).should be_valid
   end
 
@@ -21,10 +21,10 @@ describe Conversation do
   it { should belong_to(:from).class_name('User') }
   it { should belong_to(:to).class_name('User') }
 
-  describe "methods" do
+  describe 'methods' do
     let!(:conversation) { build(:conversation) }
 
-    it "#mark_as_deleted" do
+    it '#mark_as_deleted' do
       conversation.mark_as_deleted(conversation.from)
       conversation.deleted_from.should be_true
 
@@ -32,7 +32,7 @@ describe Conversation do
       conversation.deleted_to.should be_true
     end
 
-    it "#deleted_by_both" do
+    it '#deleted_by_both' do
       conversation.deleted_by_both?.should be_false
       conversation.mark_as_deleted(conversation.from)
       conversation.mark_as_deleted(conversation.to)
