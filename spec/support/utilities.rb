@@ -7,6 +7,7 @@ def sign_in(user)
   click_button t('sessions.signin')
 end
 
+
 def sign_out
   click_link t('sessions.signout')
 end

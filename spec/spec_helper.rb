@@ -19,7 +19,10 @@ require 'capybara/mechanize'
 Capybara.javascript_driver = :poltergeist
 
 RSpec.configure do |config|
-  config.include Devise::TestHelpers, :type => :controller
+  config.include Devise::TestHelpers, type: :controller
+  config.include Warden::Test::Helpers, type: :feature
+  config.before(:all) { Warden.test_mode! }
+  config.after(:each) { Warden.test_reset! }
 
   config.treat_symbols_as_metadata_keys_with_true_values = true
 

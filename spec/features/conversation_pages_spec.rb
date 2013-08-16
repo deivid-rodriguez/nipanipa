@@ -3,21 +3,17 @@
 #
 
 describe 'Create a conversation' do
-  let!(:host)           { create(:host) }
-  let!(:volunteer)      { create(:volunteer) }
-  let(:conversation)    { build(:conversation, from: volunteer, to: host) }
-  let(:create_conv_btn) { t('helpers.submit.conversation.create') }
+  let!(:conversation) { build(:conversation) }
+  let(:create_conv)  { t('helpers.submit.conversation.create') }
 
   before do
-    visit root_path
-    sign_in volunteer
-    visit user_path(host)
+    login_as conversation.from
+    visit user_path(conversation.to)
     click_link t('shared.profile_header.new_conversation')
   end
 
   it 'works with invalid information' do
-    expect { click_button create_conv_btn }.
-      not_to change(Conversation, :count)
+    expect { click_button create_conv }.not_to change(Conversation, :count)
     page.should have_flash_message t('conversations.create.error'), 'error'
   end
 
@@ -25,10 +21,9 @@ describe 'Create a conversation' do
     fill_in 'conversation[subject]', with: conversation.subject
     fill_in 'conversation[messages_attributes][0][body]',
             with: conversation.messages.first.body
-    expect { click_button create_conv_btn }.
-      to change(Conversation, :count).by(1)
-    page.should \
-      have_flash_message t('conversations.create.success'), 'success'
+
+    expect { click_button create_conv }.to change(Conversation, :count).by(1)
+    page.should have_flash_message t('conversations.create.success'), 'success'
   end
 end
 
@@ -36,8 +31,8 @@ describe 'Listing user conversations' do
   let!(:conversation) { create(:conversation) }
 
   before do
-    visit root_path
-    sign_in conversation.from
+    login_as conversation.from
+    visit user_path(conversation.from)
     click_link t('shared.profile_header.conversations')
   end
 
@@ -50,8 +45,7 @@ describe 'Display a conversation', :js do
   let!(:conversation) { create(:conversation) }
 
   before do
-    visit root_path
-    sign_in conversation.to
+    login_as conversation.from
     visit user_conversations_path(conversation.to)
     find_link("show-link-#{conversation.id}").trigger('click')
   end
@@ -84,15 +78,13 @@ describe 'Display a conversation', :js do
       end
     end
   end
-
 end
 
 describe 'User deletes a conversation', :js do
   let!(:conversation) { create(:conversation) }
 
   before do
-    visit root_path
-    sign_in conversation.from
+    login_as conversation.from
     visit user_conversations_path(conversation.from)
     find_link("delete-link-#{conversation.id}").trigger('click')
   end
@@ -103,8 +95,8 @@ describe 'User deletes a conversation', :js do
 
   context 'when the other user goes to message list' do
     before do
-      sign_out
-      sign_in conversation.to
+      logout conversation.from
+      login_as conversation.to
       visit user_conversations_path(conversation.to)
     end
 
@@ -125,8 +117,8 @@ describe 'User deletes a conversation', :js do
       before do
         find_link("show-link-#{conversation.id}").trigger('click')
         reply('This is a sample reply')
-        sign_out
-        sign_in conversation.from
+        logout conversation.to
+        login_as conversation.from
         visit user_conversations_path(conversation.from)
       end
 
@@ -134,7 +126,5 @@ describe 'User deletes a conversation', :js do
         page.should have_selector "li#conversation-preview-#{conversation.id}"
       end
     end
-
   end
-
 end
