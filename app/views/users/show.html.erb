@@ -8,13 +8,13 @@
     <div class="box">
       <%= render 'edit_link', user: @user %>
       <h3><%= t '.description' %></h3>
-      <p><%= @user.description %></p>
+      <p><%= simple_format(@user.description) %></p>
     </div>
 
     <div class="box">
       <%= render 'edit_link', user: @user %>
       <h3><%= t ".skills_#{@user.type.underscore}" %></h3>
-      <p><%= @user.skills %></p>
+      <p><%= simple_format(@user.skills) %></p>
     </div>
   </div>
 
@@ -23,7 +23,7 @@
       <div class="box">
         <%= render 'edit_link', user: @user %>
         <h3><%= t ".accomodation" %></h3>
-        <p><%= @user.accomodation %></p>
+        <p><%= simple_format(@user.accomodation) %></p>
       </div>
     <% end %>
 

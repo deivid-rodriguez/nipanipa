@@ -6,7 +6,7 @@
     <div class="bubble-triangle">
     </div>
     <p>
-    <%= message.body %>
+    <%= simple_format(message.body) %>
     </p>
     <p class="message-date">
     <%= l message.created_at %>
