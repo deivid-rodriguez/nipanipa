@@ -4,7 +4,7 @@
                                     page_id: @page_id,
                                     given_feedback: @given_feedback %>
 
-<div class="profile-content">
+<div id="profile-content">
   <% if can? :manage, @user %>
     <p class="new-picture">
       <%= link_to t('.new_picture'), new_user_picture_path(current_user) %>

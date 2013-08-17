@@ -2,7 +2,7 @@
 
 <%= render 'shared/profile_header', user: current_user, page_id: @page_id %>
 
-<div class="span8 profile-content">
+<div id="profile-content" class="span8 profile-content">
   <% if @conversations.empty? %>
     <div class="no-elements">
       <em><%= t('.nomessages') %></em>

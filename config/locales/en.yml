@@ -1,5 +1,6 @@
 en:
   shared:
+    nomessages: "No messages"
     current_or_last_login:
       currently_logged_in: "Now online!"
       last_login: "Last login"
