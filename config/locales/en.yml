@@ -136,6 +136,7 @@ your profile"
       nomessages: "No messages"
     show:
       reply: "Reply"
+      back_html: "Back &#8617;"
     preview:
       usure: "Are you sure?"
     reply:
