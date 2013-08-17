@@ -50,15 +50,15 @@ Nipanipa::Application.configure do
 
   # ActionMailer Config
   config.action_mailer.delivery_method = :smtp
-# config.action_mailer.smtp_settings = {
-#   address:              'smtp.sendgrid.net',
-#   user_name:            ENV['SENDGRID_USERNAME'],
-#   password:             ENV['SENDGRID_PASSWORD'],
-#   domain:               'nipanipa.com',
-#   port:                 587,
-#   authentication:       :plain,
-#   enable_starttls_auto: true
-# }
+  config.action_mailer.smtp_settings = {
+    address:              ENV['MAIL_SERVER'],
+    user_name:            ENV['MAIL_USER'],
+    password:             ENV['MAIL_PASS'],
+    domain:               ENV['MAIL_HOST'],
+    port:                 587,
+    authentication:       :plain,
+    enable_starttls_auto: true
+  }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
 

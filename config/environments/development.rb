@@ -37,10 +37,10 @@ Nipanipa::Application.configure do
   # ActionMailer Config
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
+    address:              ENV['MAIL_SERVER'],
     user_name:            ENV['MAIL_USER'],
     password:             ENV['MAIL_PASS'],
-    domain:               'nipanipa.com',
+    domain:               ENV['MAIL_HOST'],
     port:                 587,
     authentication:       :plain,
     enable_starttls_auto: true
