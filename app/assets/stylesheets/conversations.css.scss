@@ -1,6 +1,10 @@
 // Place all the styles related to the Conversations controller
 
-.conversation-other {
+textarea#body {
+  height: 150px;
+}
+
+.conversation-form {
   textarea {
     height: 150px;
   }
@@ -34,7 +38,7 @@ ul.conversation-list {
       a {
         text-decoration: none;
         color: $gray;
-        div.conversation-from {
+        div.conversation-other {
           width: 160px;
         }
         div.conversation-date {
