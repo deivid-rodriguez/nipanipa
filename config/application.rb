@@ -77,8 +77,15 @@ module Nipanipa
       g.helper false
     end
 
+    # i18n
+    # All translations from config/locales/*.rb,yml are auto loaded.
+    # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+    I18n.default_locale = :es
+    I18n.locale = I18n.default_locale
+
     # Mailing
-    config.action_mailer.default_url_options = { host: ENV['MAIL_HOST'] }
+    config.action_mailer.default_url_options = { host: ENV['MAIL_HOST'],
+                                                 locale: I18n.locale }
     config.action_mailer.default charset: 'utf-8'
     config.action_mailer.asset_host = "http://#{ENV['MAIL_HOST']}"
   end
