@@ -13,6 +13,7 @@ describe Conversation do
 
   it { should validate_presence_of(:subject) }
   it { should ensure_length_of(:subject).is_at_least(2) }
+  it { should ensure_length_of(:subject).is_at_most(72) }
 
   it { should have_many(:messages).dependent(:destroy) }
 

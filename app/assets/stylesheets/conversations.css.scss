@@ -27,6 +27,7 @@ textarea#body {
 
 ul.conversation-list {
   margin: 0 0 20px 0;
+  width: 900px;
   list-style: none;
   list-style-type: none;
   li {
@@ -38,17 +39,10 @@ ul.conversation-list {
       a {
         text-decoration: none;
         color: $gray;
-        .conversation-other {
-          width: 160px;
-        }
         .conversation-date {
-          width: 180px;
+          width: 170px;
           text-align: right;
           padding-right: 15px;
-          margin-left: 15px;
-        }
-        .conversation-subject {
-          margin-left: 15px;
         }
         div[id^="delete-"] {
           background: url('delete.png') no-repeat;

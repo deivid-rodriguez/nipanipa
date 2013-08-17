@@ -1,13 +1,13 @@
 <div class="row conversation-preview">
   <%= link_to other_user(conversation) do %>
-    <div class="span2 conversation-other">
+    <div class="span3 conversation-other">
       <%= avatar_for other_user(conversation), style: :thumb_message %>
       <%= other_user(conversation).name %>
     </div>
   <% end %>
   <%= link_to conversation_path(conversation),
       id: "show-link-#{conversation.id}" do %>
-    <div class="span3 conversation-subject">
+    <div class="span6 conversation-subject">
       <%= conversation.subject %>
     </div>
     <div class="span3 conversation-date">

@@ -2,11 +2,11 @@
 
 <%= render 'shared/profile_header', user: current_user, page_id: @page_id %>
 
-<div id="profile-content" class="span8 profile-content">
+<div id="profile-content">
   <% if @conversations.empty? %>
     <%= render 'shared/empty', message: 'nomessages' %>
   <% else %>
-    <ul class="conversation-list">
+    <ul class="conversation-list span12">
     <% for conversation in @conversations %>
       <li id="conversation-preview-<%= conversation.id %>">
         <%= render('preview', conversation: conversation) %>
