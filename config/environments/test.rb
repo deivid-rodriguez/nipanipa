@@ -43,5 +43,5 @@ Nipanipa::Application.configure do
   end
 
   # Middleware
-  config.middleware.use SpoofIp, ENV["IP"]
+  config.middleware.use SpoofIp, ENV['FAKE_IP']
 end
