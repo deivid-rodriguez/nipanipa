@@ -309,6 +309,6 @@ would like to be implemented %{issues_url}."
       subject: "You received a new message from %{from}"
       greeting: "Hi %{name}!"
       message: "Another user from NiPaNiPa has contacted you through our web
-site. To view the message, click on the following link"
+site. To view the message, click on the following link:"
 
 

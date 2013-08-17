@@ -76,5 +76,11 @@ module Nipanipa
       g.javascripts false
       g.helper false
     end
+
+    # Mailing
+    config.action_mailer.default_url_options = { host: ENV['MAIL_HOST'],
+                                                 locale: I18n.locale }
+    config.action_mailer.default charset: 'utf-8'
+    config.action_mailer.asset_host = "http://#{ENV['MAIL_HOST']}"
   end
 end

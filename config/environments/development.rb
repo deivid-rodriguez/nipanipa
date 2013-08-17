@@ -35,11 +35,18 @@ Nipanipa::Application.configure do
   config.assets.logger = false
 
   # ActionMailer Config
-  config.action_mailer.default_url_options = { host: '0.0.0.0:3000', locale: I18n.locale }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = false
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    user_name:            ENV['MAIL_USER'],
+    password:             ENV['MAIL_PASS'],
+    domain:               'nipanipa.com',
+    port:                 587,
+    authentication:       :plain,
+    enable_starttls_auto: true
+  }
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default :charset => "utf-8"
 
   # Middleware
   config.middleware.use SpoofIp, ENV["IP"]

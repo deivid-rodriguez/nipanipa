@@ -1,5 +1,36 @@
-<%= t('.greeting') %>
-
-<%= t('.message') %>
-
-<%= user_conversation_path(@message.to, @message) %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style type="text/css">
+      body, td {
+        color: #000000;
+        font-size: 14px;
+        font-family: Helvetica, Arial, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <table width="100%" id="background" border="0" cellpadding="0" cellspacing="0">
+      <tr><td align="center" valign="top">
+        <table width="650" id="main" border="0" cellpadding="0" cellspacing="10">
+          <tr>
+            <td id="header" colspan="2">
+              <%= link_to image_tag('logo.png'), ENV['MAIL_HOST'] %>
+            </td>
+          </tr>
+          <tr class="message">
+            <td valign="top">
+              <p><%= t('.greeting', name: @msg.to.name) %></p>
+              <p>
+                <%= t('.message') %>
+                <%= link_to user_conversation_url(@msg.to, @msg.conversation),
+                            user_conversation_url(@msg.to, @msg.conversation) %>
+              </p>
+            </td>
+          </tr>
+        </table>
+      </td></tr>
+    </table>
+  </body>
+</html>

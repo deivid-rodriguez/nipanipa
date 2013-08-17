@@ -313,5 +313,4 @@ solicitarnos nuevas funcionalidades %{issues_url}."
       subject: "Has recibido un nuevo mensaje de %{from}"
       greeting: "Hola %{name}!"
       message: "Otro usuario de NiPaNiPa te ha contactado a través de nuestra
-web. Para ver el mensaje, haz click en el siguiente enlace"
-
+web. Para ver el mensaje, haz click en el siguiente enlace:"
