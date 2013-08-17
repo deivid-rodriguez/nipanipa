@@ -4,9 +4,7 @@
 
 <div id="profile-content" class="span8 profile-content">
   <% if @conversations.empty? %>
-    <div class="no-elements">
-      <em><%= t('.nomessages') %></em>
-    </div>
+    <%= render 'shared/empty', message: 'nomessages' %>
   <% else %>
     <ul class="conversation-list">
     <% for conversation in @conversations %>

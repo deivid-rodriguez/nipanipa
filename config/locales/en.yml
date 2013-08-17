@@ -1,6 +1,8 @@
 en:
   shared:
     nomessages: "No messages"
+    nopictures: "There are no pictures yet"
+    nofeedback: "There is no feedback"
     current_or_last_login:
       currently_logged_in: "Now online!"
       last_login: "Last login"
@@ -84,7 +86,6 @@ not inmutable!"
       title: "Feedback"
     feedbacks:
       title: "Feedback"
-      nofeedback: "There is no feedback"
     received:
       one: "1 received"
       other: "%{count} received"
@@ -101,7 +102,6 @@ than 300 characters"
     destroy:
       success: "Your reference has been removed"
   pictures:
-    nopictures: "There are no pictures yet"
     new:
       title: "Upload a new picture"
       subtitle: "Pictures are cool, they provide trust for other users and
@@ -134,7 +134,6 @@ your profile"
       error: "There was an error sending the message"
     index:
       title: "My conversations"
-      nomessages: "No messages"
     show:
       reply: "Reply"
       back_html: "Back &#8617;"

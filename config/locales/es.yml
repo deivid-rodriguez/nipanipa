@@ -1,6 +1,8 @@
 es:
   shared:
     nomessages: "No hay mensajes"
+    nopictures: "No hay ninguna foto"
+    nofeedback: "No hay ninguna referencia"
     current_or_last_login:
       currently_logged_in: "¡Está ahora online!"
       last_login: "Último acceso"
@@ -86,7 +88,6 @@ experiencia. Siempre puedes seguir colaborando %{donations_url}"
       title: "Referencias"
     feedbacks:
       title: "Referencias"
-      nofeedback: "No hay ninguna referencia"
     received:
       one: "1 recibida"
       other: "%{count} recibidas"
@@ -103,7 +104,6 @@ los 300 caracteres"
     destroy:
       success: "Tu referencia ha sido eliminada"
   pictures:
-    nopictures: "No hay ninguna foto"
     new:
       title: "Agrega una foto"
       subtitle: "Las fotos molan, dan confianza y demuestran a los otros
@@ -135,7 +135,6 @@ marcarla como foto principal"
       error: "Hubo un error en el envío del mensaje"
     index:
       title: "Mis mensajes"
-      nomessages: "No hay mensajes"
     show:
       reply: "Responder"
       back_html: "Volver &#8617;"

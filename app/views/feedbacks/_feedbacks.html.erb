@@ -1,7 +1,5 @@
 <% if feedbacks.empty? %>
-  <div class='no-elements'>
-    <em><%= t('.nofeedback') %></em>
-  </div>
+  <%= render 'shared/empty', message: 'nofeedback' %>
 <% else %>
   <ol class="feedbacks">
     <% feedbacks.each do |feedback_pair| %>

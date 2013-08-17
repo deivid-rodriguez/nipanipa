@@ -1,7 +1,5 @@
 <% if pictures.empty? %>
-  <div class="no-elements"  >
-    <em><%= t('pictures.nopictures') %></em>
-  </div>
+  <%= render 'shared/empty', message: 'nopictures' %>
 <% end %>
 <% pictures.each do |p| %>
   <%= link_to user_pictures_path(p.user, anchor: "image-#{p.id}") do %>
