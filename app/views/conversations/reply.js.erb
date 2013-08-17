@@ -2,4 +2,5 @@ $('div.alert').remove();
 $('body > .container').prepend('<%= j render "layouts/messages" %>');
 <% if @conversation.errors.empty? %>
   $('ul#chat-list').append('<%= j render(@conversation.messages.last) %>');
+  $('textarea#body').val('');
 <% end %>

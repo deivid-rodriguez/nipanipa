@@ -23,7 +23,7 @@
 
     <div class="offset3 span7 message-reply">
       <%= form_tag reply_user_conversation_path(current_user, @conversation),
-                   method: :put, remote: true do |f| %>
+                   method: :put, remote: true do %>
         <%= text_area_tag :body %>
         <%= submit_tag t('.reply'), class: "btn btn-small pull-right" %>
       <% end %>
