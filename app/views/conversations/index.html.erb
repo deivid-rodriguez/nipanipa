@@ -11,7 +11,7 @@
     <ul class="conversation-list">
     <% for conversation in @conversations %>
       <li id="conversation-preview-<%= conversation.id %>">
-      <%= render('preview', conversation: conversation) %>
+        <%= render('preview', conversation: conversation) %>
       </li>
     <% end %>
     </ul>

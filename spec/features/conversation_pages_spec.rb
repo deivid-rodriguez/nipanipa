@@ -49,6 +49,8 @@ describe 'Listing user conversations' do
 
   it 'properly lists user conversations' do
     page.should have_content conversation.subject
+    page.should have_link conversation.to.name
+    page.should_not have_link conversation.from.name
   end
 end
 
