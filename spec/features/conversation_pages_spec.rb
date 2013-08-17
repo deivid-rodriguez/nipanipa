@@ -59,7 +59,7 @@ describe 'Display a conversation', :js do
 
   before do
     login_as conversation.from
-    visit user_conversations_path(conversation.to)
+    visit conversations_path
     find_link("show-link-#{conversation.id}").trigger('click')
   end
 
@@ -100,7 +100,7 @@ describe 'Deleting conversations', :js do
 
   before do
     login_as conversation.from
-    visit user_conversations_path(conversation.from)
+    visit conversations_path
     find_link("delete-link-#{conversation.id}").trigger('click')
   end
 
@@ -112,7 +112,7 @@ describe 'Deleting conversations', :js do
     before do
       logout conversation.from
       login_as conversation.to
-      visit user_conversations_path(conversation.to)
+      visit conversations_path
     end
 
     it 'conversation should still be there' do
@@ -134,7 +134,7 @@ describe 'Deleting conversations', :js do
         reply('This is a sample reply')
         logout conversation.to
         login_as conversation.from
-        visit user_conversations_path(conversation.from)
+        visit conversations_path
       end
 
       it 'reappears in the first user\'s message list' do

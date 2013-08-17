@@ -24,8 +24,7 @@ class ConversationsController < ApplicationController
       to_id: params[:conversation][:messages_attributes]["0"][:to_id],
       from_id: params[:conversation][:messages_attributes]["0"][:from_id]))
     if @conversation.save
-      redirect_to user_conversations_path(current_user),
-                  notice: t('conversations.create.success')
+      redirect_to conversations_path, notice: t('conversations.create.success')
     else
       flash.now[:error] = t('conversations.create.error')
       render 'new'
@@ -40,15 +39,14 @@ class ConversationsController < ApplicationController
     if !@conversation.save
       flash.now[:error] = t('conversations.reply.error')
     end
-    respond_with(@conversation,
-                 location: user_conversation_path(current_user, @conversation))
+    respond_with(@conversation, location: conversation_path(@conversation))
   end
 
   def destroy
     @conversation.mark_as_deleted(current_user)
     @conversation.destroy if @conversation.deleted_by_both?
     flash.now[:notice] = t('conversations.destroy.success')
-    respond_with(@conversation, location: user_conversations_path(current_user))
+    respond_with(@conversation, location: conversations_path)
   end
 
   private

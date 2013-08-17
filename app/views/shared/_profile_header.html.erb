@@ -58,8 +58,7 @@
             <% end %>
           </div>
           <div class="send-message-link">
-            <%= link_to new_user_conversation_path(current_user,
-                                                   to: user.id) do %>
+            <%= link_to new_conversation_path(to: user.id) do %>
               <div class="label_info">
                 <%= image_tag 'envelope.png' %>
               </div>

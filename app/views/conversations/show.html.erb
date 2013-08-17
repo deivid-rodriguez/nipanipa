@@ -8,7 +8,7 @@
     </div>
 
     <div class="span1 back">
-      <%= link_to t('.back_html'), user_conversations_path(current_user) %>
+      <%= link_to t('.back_html'), conversations_path %>
     </div>
 
     <div class="offset2 span8 chat-list">
@@ -22,7 +22,7 @@
     </div>
 
     <div class="offset3 span7 message-reply">
-      <%= form_tag reply_user_conversation_path(current_user, @conversation),
+      <%= form_tag reply_conversation_path(@conversation),
                    method: :put, remote: true do %>
         <%= text_area_tag :body %>
         <%= submit_tag t('.reply'), class: "btn btn-small pull-right" %>

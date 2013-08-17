@@ -24,8 +24,8 @@
               <p><%= t('.greeting', name: @msg.to.name) %></p>
               <p>
                 <%= t('.message') %>
-                <%= link_to user_conversation_url(@msg.to, @msg.conversation),
-                            user_conversation_url(@msg.to, @msg.conversation) %>
+                <%= link_to conversation_url(@msg.conversation),
+                            conversation_url(@msg.conversation) %>
               </p>
             </td>
           </tr>
