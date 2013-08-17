@@ -38,13 +38,17 @@ ul.conversation-list {
       a {
         text-decoration: none;
         color: $gray;
-        div.conversation-other {
+        .conversation-other {
           width: 160px;
         }
-        div.conversation-date {
-          width: 170px;
+        .conversation-date {
+          width: 180px;
           text-align: right;
           padding-right: 15px;
+          margin-left: 15px;
+        }
+        .conversation-subject {
+          margin-left: 15px;
         }
         div[id^="delete-"] {
           background: url('delete.png') no-repeat;
