@@ -47,7 +47,7 @@ class ConversationsController < ApplicationController
   def destroy
     @conversation.mark_as_deleted(current_user)
     @conversation.destroy if @conversation.deleted_by_both?
-    flash[:notice] = t('Conversations.destroy.success')
+    flash.now[:notice] = t('conversations.destroy.success')
     respond_with(@conversation, location: user_conversations_path(current_user))
   end
 
