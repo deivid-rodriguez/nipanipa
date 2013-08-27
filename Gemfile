@@ -11,7 +11,7 @@ gem 'simple_form', '2.1.0'
 gem 'devise', '2.2.5'
 gem 'cancan', '1.6.10'
 gem 'jquery-rails', '3.0.4'
-gem 'enumerize', '0.6.1'
+gem 'enumerize', '0.7.0'
 gem 'nested_form', '0.3.2'
 gem 'carrierwave', '0.9.0'
 gem 'mini_magick', '3.6.0'
@@ -31,7 +31,7 @@ group :assets do
   gem 'bootstrap-will_paginate', '0.0.9'
   gem 'sass-rails',   '3.2.6'
   gem 'coffee-rails', '3.2.2'
-  gem 'uglifier', '2.1.2'
+  gem 'uglifier', '2.2.0'
 end
 
 group :test do
