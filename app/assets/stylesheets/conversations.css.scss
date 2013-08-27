@@ -60,7 +60,7 @@ ul.conversation-list {
   }
 }
 
-div.message {
+.message {
   margin-bottom: 20px;
   .message-from {
     @include box_sizing;
@@ -68,24 +68,55 @@ div.message {
     border: 1px solid $grayVeryLight;
   }
   .message-content {
-    background: lighten(#568a7e, 50%);
+    background: $grayBackground;
     position: relative;
     .bubble-triangle {
-      background: url('bubble-triangle.png') no-repeat;
       position: absolute;
       width: 12px;
       height: 10px;
       top: 10px;
-      left: -12px;
     }
     border: 1px solid $grayVeryLight;
     padding: 10px;
     @include border_radius;
     @include box_sizing;
     .message-date {
-      text-align: right;
       margin-bottom: 0;
       font-size: 0.8em;
     }
+  }
+}
+
+.message-right {
+  @extend .message;
+  .message-from {
+    float: right;
+  }
+  .message-content {
+    text-align: right;
+  }
+  .bubble-triangle {
+    background: url('triangle-right.png') no-repeat;
+    right: -12px;
+  }
+  .message-date {
+    text-align: left;
+  }
+}
+
+.message-left {
+  @extend .message;
+  .message-from {
+    float: left;
+  }
+  .message-content {
+    text-align: left;
+  }
+  .bubble-triangle {
+    background: url('triangle-left.png') no-repeat;
+    left: -12px;
+  }
+  .message-date {
+    text-align: right;
   }
 }
