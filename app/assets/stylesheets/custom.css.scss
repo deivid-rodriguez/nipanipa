@@ -172,9 +172,13 @@ p {
 /* overriding bootstrap sass */
 .dropdown-menu {
   min-width: 50px;
-  padding: 5px 10px;
   li {
+    padding: 5px 10px;
     a {
+      &:hover {
+        background: none;
+        color: $gray;
+      }
       padding: 0;
     }
   }
@@ -233,9 +237,6 @@ footer {
   }
   .social-links ul {
     float: right;
-    a:hover {
-
-    }
   }
   ul {
     margin: 0;
