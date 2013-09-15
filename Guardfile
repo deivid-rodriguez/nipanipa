@@ -28,7 +28,6 @@ guard :rspec, spring: true, keep_failed: true, all_on_start: true,
   watch(%r{^app/views/(.+)/}) { |m|
     m[1][/_pages/] ? "spec/features/#{m[1]}_spec.rb" :
                      "spec/features/#{m[1].singularize}_pages_spec.rb" }
-  end
 
   # Reload specs when changing them
   watch('spec/factories.rb')           { 'spec'                             }
