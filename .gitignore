@@ -4,12 +4,9 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile ~/.gitignore_global
 
-# Logfiles and tempfiles.
+# Logfiles and tempfiles
 log/*.log
 tmp
-
-# Vim tags
-.tags
 
 # Ignore application configuration
 config/application.yml
@@ -23,14 +20,8 @@ vendor/ruby
 # Byebug startup file
 .byebugrc
 
-# Gdb command history
-.gdb_history
-
 # Carrierwave attachments
 public/uploads
-
-# Ack startup file
-.ackrc
 
 # rvm/rbenv conf files
 .ruby-version
