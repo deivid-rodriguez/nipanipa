@@ -59,9 +59,6 @@ RSpec.configure do |config|
   # on FactoryGirl directly
   require 'factory_girl'
   config.include FactoryGirl::Syntax::Methods
-
-  # Stop on the first fail
-  config.fail_fast = true
 end
 
 # Requires supporting ruby files with custom matchers and macros, etc,
