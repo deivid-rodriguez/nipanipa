@@ -16,9 +16,8 @@ class FeedbacksController < ApplicationController
     @feedback.recipient = @user
     authorize! :create, @feedback
     if @feedback.save
-      if @feedback.donation
-        redirect_to \
-          @feedback.donation.paypal_url(donation_url(@feedback.donation.id))
+      if donation = @feedback.donation
+        redirect_to donation.paypal_url(donation_url(donation.id))
       else
         redirect_to @user, notice: t('feedbacks.create.success')
       end
@@ -41,9 +40,8 @@ class FeedbacksController < ApplicationController
   def update
     authorize! :update, @feedback
     if @feedback.update(feedback_params)
-      if @feedback.donation
-        redirect_to \
-          @feedback.donation.paypal_url(donation_url(@feedback.donation.id))
+      if donation = @feedback.donation
+        redirect_to donation.paypal_url(donation_url(donation.id))
       else
         redirect_to session[:return_to], notice: t('feedbacks.update.success')
       end
