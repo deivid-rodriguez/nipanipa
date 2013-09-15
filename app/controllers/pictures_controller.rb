@@ -7,7 +7,7 @@ class PicturesController < ApplicationController
   end
 
   def create
-    @picture = current_user.pictures.build(params[:picture])
+    @picture = current_user.pictures.build(picture_params)
     if @picture.save
       redirect_to user_pictures_path(current_user),
                   notice: t('pictures.create.success')
@@ -27,7 +27,7 @@ class PicturesController < ApplicationController
   end
 
   def update
-    if @picture.update_attributes(params[:picture])
+    if @picture.update(picture_params)
       redirect_to user_pictures_path(current_user),
                   notice: t('pictures.update.success')
     else
@@ -44,6 +44,10 @@ class PicturesController < ApplicationController
   end
 
   private
+
+    def picture_params
+      params.require(:picture).permit(:image, :image_cache, :name, :user_id)
+    end
 
     def load_user
       @user = User.find(params[:user_id])

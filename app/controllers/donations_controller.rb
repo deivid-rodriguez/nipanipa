@@ -4,7 +4,7 @@ class DonationsController < ApplicationController
   end
 
   def create
-    @donation = Donation.new(params[:donation])
+    @donation = Donation.new(donation_params)
     if @donation.save
       redirect_to @donation.paypal_url(donation_url(@donation.id))
     else
@@ -27,4 +27,10 @@ class DonationsController < ApplicationController
   # Check railcast #142 to implement it
   # def notify
   # end
+
+  private
+
+    def donation_params
+      params.require(:donation).permit(:amount, :feedback_id, :user_id)
+    end
 end

@@ -4,12 +4,6 @@ class User < ActiveRecord::Base
 
   ROLES = %w["admin", "non-admin"]
 
-  # accessible (or protected) attributes
-  attr_accessible :country, :description, :email, :karma,
-                  :language_skills_attributes, :name, :password,
-                  :password_confirmation, :pictures_attributes, :remember_me,
-                  :skills, :state, :work_type_ids
-
   # validations
   validates :description, length: { maximum: 2500 }
   validates :name, presence: true, length: { maximum: 50 }
@@ -40,30 +34,28 @@ class User < ActiveRecord::Base
     reject_if: proc { |att| att['image'].blank? && att['image_cache'].blank? }
 
   has_many :sent_feedbacks,
+           -> { order(updated_at: :desc).includes(:recipient) },
             class_name: 'Feedback',
            foreign_key: 'sender_id',
-               include: :recipient,
-             dependent: :destroy,
-                 order: "updated_at DESC"
+             dependent: :destroy
+
   has_many :received_feedbacks,
-              class_name: 'Feedback',
-             foreign_key: 'recipient_id',
-                 include: :sender,
-               dependent: :destroy,
-                   order: "updated_at DESC"
+           -> { order(updated_at: :desc).includes(:sender) },
+            class_name: 'Feedback',
+           foreign_key: 'recipient_id',
+             dependent: :destroy
 
   has_many :sent_conversations,
+           -> { order(updated_at: :desc).includes(:to) },
             class_name: 'Conversation',
            foreign_key: 'from_id',
-               include: :to,
-             dependent: :destroy,
-                 order: "updated_at DESC"
+             dependent: :destroy
+
   has_many :received_conversations,
+           -> { order(updated_at: :desc).includes(:from) },
             class_name: 'Conversation',
            foreign_key: 'to_id',
-               include: :from,
-             dependent: :destroy,
-                 order: "updated_at DESC"
+             dependent: :destroy
 
   # Fake class name in subclasses so URLs get properly generated
   def self.inherited(child)

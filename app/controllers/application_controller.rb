@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
   before_filter :update_last_sign_in_at
 
+  def default_url_options
+    { locale: I18n.locale }
+  end
+
   protected
 
     def update_last_sign_in_at
@@ -23,7 +27,6 @@ class ApplicationController < ActionController::Base
         I18n.locale = I18n.default_locale
       end
 
-      Rails.application.routes.default_url_options[:locale] = I18n.locale
       ActionMailer::Base.default_url_options[:locale] = I18n.locale
       # current_user.locale
       # request.subdomain

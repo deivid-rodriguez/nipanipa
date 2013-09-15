@@ -20,9 +20,9 @@ class ConversationsController < ApplicationController
   end
 
   def create
-    @conversation = Conversation.new(params[:conversation].merge(
-      to_id: params[:conversation][:messages_attributes]["0"][:to_id],
-      from_id: params[:conversation][:messages_attributes]["0"][:from_id]))
+    @conversation = Conversation.new(conversation_params.merge(
+        to_id: conversation_params[:messages_attributes]["0"][:to_id],
+      from_id: conversation_params[:messages_attributes]["0"][:from_id]))
     if @conversation.save
       redirect_to conversations_path, notice: t('conversations.create.success')
     else
@@ -50,6 +50,11 @@ class ConversationsController < ApplicationController
   end
 
   private
+
+    def conversation_params
+      params.require(:conversation)
+            .permit(:subject, messages_attributes: [:body, :from_id, :to_id])
+    end
 
     def load_user
       @user = current_user

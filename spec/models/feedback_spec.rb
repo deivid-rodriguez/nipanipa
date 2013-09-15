@@ -29,19 +29,6 @@ describe Feedback do
     end
   end
 
-  describe 'accessible attributes' do
-    it "should not allow access to sender_id" do
-      expect do
-        Feedback.new(sender: build(:host))
-      end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
-    end
-    it "should not allow access to recipient_id" do
-      expect do
-        Feedback.new(recipient: build(:host))
-      end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
-    end
-  end
-
   context 'with blank content' do
     before { feedback.content = ' ' }
     it { should_not be_valid }

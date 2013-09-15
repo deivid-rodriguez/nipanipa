@@ -29,6 +29,10 @@ RSpec.configure do |config|
     ActionMailer::Base.deliveries = []
   end
 
+  config.before(:each, type: :feature) do
+    default_url_options[:locale] = I18n.default_locale
+  end
+
   config.treat_symbols_as_metadata_keys_with_true_values = true
 
   # ## Mock Framework (uncomment the appropriate line)

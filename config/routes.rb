@@ -1,7 +1,6 @@
 Nipanipa::Application.routes.draw do
 
   # first created -> highest priority.
-
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
 
     devise_for :users,
@@ -28,27 +27,13 @@ Nipanipa::Application.routes.draw do
       put 'reply', on: :member
     end
 
-    match 'help'       => 'static_pages#help'
-    match 'about'      => 'static_pages#about'
-    match 'contact'    => 'static_pages#contact'
-    match 'terms'      => 'static_pages#terms'
-    match 'robots.txt' => 'static_pages#robots'
+    get 'help'       => 'static_pages#help'
+    get 'about'      => 'static_pages#about'
+    get 'contact'    => 'static_pages#contact'
+    get 'terms'      => 'static_pages#terms'
+    get 'robots.txt' => 'static_pages#robots'
 
-    root :to => 'static_pages#home'
-
+    root 'static_pages#home'
   end
 
-  # Sample resource route with options:
-  #   resources :products do
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Sample resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
 end

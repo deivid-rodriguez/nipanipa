@@ -5,7 +5,7 @@
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
 if Rails.env.production?
-  Nipanipa::Application.config.secret_token = ENV['SECRET_TOKEN']
+  Nipanipa::Application.config.secret_key_base = ENV['SECRET_TOKEN']
 else
-  Nipanipa::Application.config.secret_token = 'x' * 30
+  Nipanipa::Application.config.secret_key_base = 'x' * 30
 end

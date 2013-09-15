@@ -12,7 +12,7 @@ class FeedbacksController < ApplicationController
   end
 
   def create
-    @feedback = current_user.sent_feedbacks.new(params[:feedback])
+    @feedback = current_user.sent_feedbacks.new(feedback_params)
     @feedback.recipient = @user
     authorize! :create, @feedback
     if @feedback.save
@@ -40,7 +40,7 @@ class FeedbacksController < ApplicationController
 
   def update
     authorize! :update, @feedback
-    if @feedback.update_attributes(params[:feedback])
+    if @feedback.update(feedback_params)
       if @feedback.donation
         redirect_to \
           @feedback.donation.paypal_url(donation_url(@feedback.donation.id))
@@ -62,6 +62,10 @@ class FeedbacksController < ApplicationController
   end
 
   private
+
+    def feedback_params
+      params.require(:feedback).permit(:content, :score, donation_attributes: [:amount, :user_id])
+    end
 
     def load_user
       @user = User.find(params[:user_id])

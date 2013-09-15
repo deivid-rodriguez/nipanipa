@@ -30,13 +30,6 @@ describe User do
   it { should be_valid }
   specify { user.role.should == "non-admin" }
 
-  describe "after mass assigning role attribute" do
-    it "should raise an error" do
-      expect{ User.new(role: "admin")
-      }.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
-    end
-  end
-
   describe "when name is not present" do
     before { user.name = " " }
     it { should_not be_valid }
@@ -119,7 +112,7 @@ describe User do
     end
 
     it "should destroy associated sent feedbacks" do
-      sent_feedbacks = user.sent_feedbacks.dup
+      sent_feedbacks = user.sent_feedbacks.to_a
       user.destroy
       sent_feedbacks.should_not be_empty
       sent_feedbacks.each do |sent_feedback|
@@ -128,7 +121,7 @@ describe User do
     end
 
     it "should destroy associated received feedbacks" do
-      received_feedbacks = user.received_feedbacks.dup
+      received_feedbacks = user.received_feedbacks.to_a
       user.destroy
       received_feedbacks.should_not be_empty
       received_feedbacks.each do |feedback|

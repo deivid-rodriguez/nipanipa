@@ -1,5 +1,4 @@
 class Feedback < ActiveRecord::Base
-  attr_accessible :content, :donation_attributes, :score
 
   extend Enumerize
   enumerize :score, in: { negative: -1, neutral: 0, positive: 1 },

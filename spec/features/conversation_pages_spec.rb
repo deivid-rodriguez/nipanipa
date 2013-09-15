@@ -110,8 +110,8 @@ describe 'Deleting conversations', :js do
 
   context 'when the other user goes to message list' do
     before do
-      logout conversation.from
-      login_as conversation.to
+      sign_out
+      sign_in(conversation.to)
       visit conversations_path
     end
 
@@ -132,8 +132,8 @@ describe 'Deleting conversations', :js do
       before do
         find_link("show-link-#{conversation.id}").trigger('click')
         reply('This is a sample reply')
-        logout conversation.to
-        login_as conversation.from
+        sign_out
+        sign_in(conversation.from)
         visit conversations_path
       end
 

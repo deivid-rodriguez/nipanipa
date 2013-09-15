@@ -1,8 +1,5 @@
 class Donation < ActiveRecord::Base
-  attr_accessible :user_id, :amount, :feedback_id
-
   belongs_to :user
-
   belongs_to :feedback
 
   def paypal_url(return_url)
