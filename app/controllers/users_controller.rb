@@ -44,13 +44,15 @@ class UsersController < Devise::RegistrationsController
     def host_params
       params.require(:user)
             .permit(:accomodation, :description, :email, :name, :password,
-                    :password_confirmation, :skills, work_type_ids: [])
+                    :password_confirmation, :skills,
+                    language_skills_attributes: [], work_type_ids: [])
     end
 
     def volunteer_params
       params.require(:user)
             .permit(:description, :email, :name, :password,
-                    :password_confirmation, :skills, work_type_ids: [])
+                    :password_confirmation, :skills,
+                    language_skills_attributes: [], work_type_ids: [])
     end
 
     def resource_class
