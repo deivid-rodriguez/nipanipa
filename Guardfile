@@ -30,12 +30,7 @@ guard :rspec, spring: true, keep_failed: true, all_on_start: true,
                      "spec/features/#{m[1].singularize}_pages_spec.rb" }
 
   # Reload specs when changing them
-  watch('spec/factories.rb')       { 'spec' }
-  watch(%r{^spec/support/.*\.rb$}) { 'spec' }
-  watch(%r{^spec/.+_spec\.rb$})
-end
-
-guard 'rails' do
-  watch('Gemfile.lock')
-  watch(%r{^(config|lib)/.*})
+  watch('spec/factories.rb')           { 'spec'                             }
+  watch(%r{^spec/support/.*\.rb$})     { 'spec'                             }
+  watch(%r{^spec/(.+)/(.+)_spec\.rb$}) { |m| "spec/#{m[1]}/#{m[2]}_spec.rb" }
 end
