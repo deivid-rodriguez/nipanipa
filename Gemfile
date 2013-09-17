@@ -28,6 +28,7 @@ group :development, :test do
   gem 'spring', github: 'jonleighton/spring'
   gem 'rspec-rails', '2.14.0'
   gem 'guard-rspec', '3.0.2'
+  gem 'guard-rails', '0.4.7'
   gem 'guard', '2.0.0.pre'
   gem 'byebug', '2.1.1'
   gem 'ruby-debug-passenger'
