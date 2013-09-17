@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/deivid-rodriguez/byebug.git
+  revision: d65c79fbd5fe01533992f369f8dba1a571771799
+  specs:
+    byebug (2.1.1)
+      columnize (~> 0.3.6)
+      debugger-linecache (~> 1.2.0)
+
+GIT
   remote: git://github.com/jonleighton/spring.git
   revision: 38214cfd773daaa3345604743f795271824dcf49
   specs:
@@ -40,9 +48,6 @@ GEM
     bootstrap-will_paginate (0.0.9)
       will_paginate
     builder (3.1.4)
-    byebug (2.1.1)
-      columnize (~> 0.3.6)
-      debugger-linecache (~> 1.2.0)
     cancan (1.6.10)
     capistrano (2.15.5)
       highline
@@ -275,7 +280,7 @@ DEPENDENCIES
   bcrypt-ruby (= 3.1.2)
   bootstrap-sass (= 2.3.2.2)
   bootstrap-will_paginate (= 0.0.9)
-  byebug (= 2.1.1)
+  byebug!
   cancan (= 1.6.10)
   capistrano (= 2.15.5)
   capybara (= 2.1.0)
