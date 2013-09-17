@@ -12,6 +12,7 @@ es:
       default_message: "Por favor, revise los problemas que siguen:"
     labels:
       user:
+        availability: "En qué meses estás disponible?"
         name: "Nombre de Usuario"
         email: "Correo Electrónico"
         password: "Contraseña"

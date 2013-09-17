@@ -21,7 +21,15 @@
   <div class="row">
     <%= f.input :description, label: t(".description_#{user.type.underscore}"),
                               wrapper_html: { class: 'span10' } %>
-   </div>
+  </div>
+
+  <div class="row">
+    <%= f.input :availability, as: :check_boxes,
+          item_wrapper_class: :inline, wrapper_html: { class: 'span10' },
+          collection: User::AVAILABILITY,
+          label_method: lambda{ |m| l(Date.strptime(m, '%b'), format: :month) },
+          value_method: :to_s %>
+  </div>
 
   <div class="row">
     <%= render 'language_skills', f: f %>

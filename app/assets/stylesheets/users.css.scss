@@ -34,6 +34,11 @@
       margin: 0px;
     }
   }
+  .user_availability {
+    .checkbox.inline + .checkbox.inline {
+      margin-left: 18px;
+    }
+  }
   #language-selection {
     padding-top: 10px;
     width: 600px;

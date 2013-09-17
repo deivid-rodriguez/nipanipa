@@ -57,6 +57,16 @@ class User < ActiveRecord::Base
            foreign_key: 'to_id',
              dependent: :destroy
 
+  AVAILABILITY = %w[jan feb mar apr jun jul aug sep oct nov dec]
+
+  def availability=(availability)
+    self.availability_mask = ArrayMask.new(AVAILABILITY).mask(availability)
+  end
+
+  def availability
+    ArrayMask.new(AVAILABILITY).unmask(self.availability_mask)
+  end
+
   # Fake class name in subclasses so URLs get properly generated
   def self.inherited(child)
     child.instance_eval do
