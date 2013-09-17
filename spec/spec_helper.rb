@@ -11,18 +11,11 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'cancan/matchers'
 
-require 'capybara/rails'
-require 'capybara/rspec'
-require 'capybara/poltergeist'
-require 'capybara/mechanize'
-
-Capybara.javascript_driver = :poltergeist
-
 RSpec.configure do |config|
   config.include Devise::TestHelpers, type: :controller
   config.include Warden::Test::Helpers, type: :feature
 
-  config.before(:all) { Warden.test_mode! }
+  config.before(:suite) { Warden.test_mode! }
 
   config.after(:each) do
     Warden.test_reset!
@@ -60,6 +53,14 @@ RSpec.configure do |config|
   require 'factory_girl'
   config.include FactoryGirl::Syntax::Methods
 end
+
+require 'capybara/rails'
+require 'capybara/rspec'
+require 'capybara/poltergeist'
+require 'capybara/mechanize'
+
+Capybara.javascript_driver = :poltergeist
+Capybara.asset_host = 'http://nipanipa.local.com'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.

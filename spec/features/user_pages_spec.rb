@@ -1,162 +1,104 @@
 #
 # Integration tests for User pages
 #
-
-describe 'Host profile creation' do
-  let!(:host) do
-    wts = create_list(:work_type, 5)
-    build(:host, work_types: wts.sample(3))
+#
+shared_examples_for 'user profile' do
+  it { should have_selector('h3', text: user.name) }
+  it { should have_title user.name }
+  it { should have_content(user.description) }
+  it 'has all feedbacks' do
+    user.received_feedbacks.each { |f| page.should have_content(f.content) }
   end
-  let(:create_user_btn) { t('helpers.submit.user.create') }
-
-  subject { page }
-
-  before { visit new_user_registration_path(type: 'host') }
-
-  it { should have_selector 'h1', text: t('users.new.header',
-                                  type: t('activerecord.models.Host')) }
-  it { should have_title full_title(t 'users.new.title') }
-  it { should have_link 'NiPaNiPa' }
-
-  context 'when submitting invalid information' do
-    before do
-      expect { click_button create_user_btn }.not_to change(Host, :count)
-    end
-
-    it { should have_title t('users.new.title') }
-    it { should have_selector '.error' }
-  end
-
-  context 'when submitting valid information' do
-    before do
-      within '.signup-form' do
-        fill_in 'user[name]'                 , with: host.name
-        fill_in 'user[email]'                , with: host.email
-        fill_in 'user[password]'             , with: host.password
-        fill_in 'user[password_confirmation]', with: host.password
-        fill_in 'user[description]'          , with: host.description
-        host.work_type_ids.each { |id| check "user_work_type_ids_#{id}" }
-      end
-      expect { click_button create_user_btn }.to change(Host, :count).by(1)
-    end
-
-    it { should have_title host.name }
-    it { should have_flash_message t('devise.users.signed_up'), 'success' }
-    it { should have_link t('sessions.signout') }
+  it { should have_content(user.received_feedbacks.count) }
+  it 'has all of user worktypes' do
+    user.work_types.each { |wt| page.should have_content(wt.name) }
   end
 end
 
-describe 'Volunteer profile creation' do
-  let(:volunteer)       { build(:volunteer) }
-  let(:create_user_btn) { t('helpers.submit.user.create') }
+describe 'Profile creation' do
+  let(:work_types) { create_list(:work_type, 5) }
 
-  subject { page }
+  describe 'Host' do
+    let!(:host) { build(:host, work_types: work_types.sample(3)) }
+    let(:create_user_btn) { t('helpers.submit.user.create') }
 
-  before { visit new_user_registration_path(type: 'volunteer') }
+    subject { page }
 
-  it { should have_selector 'h1', text: t('users.new.header',
-                                  type: t('activerecord.models.Volunteer')) }
-  it { should have_title full_title(t 'users.new.title') }
-  it { should have_link 'NiPaNiPa' }
+    before { visit new_user_registration_path(type: 'host') }
 
-  context 'when submitting invalid information' do
-    before do
-      expect { click_button create_user_btn }.not_to change(Volunteer, :count)
-    end
+    it { should have_selector 'h1', text: t('users.new.header', type: t('activerecord.models.host')).titleize }
+    it { should have_title full_title(t 'users.new.title') }
+    it { should have_link 'NiPaNiPa' }
 
-    it { should have_title t('users.new.title') }
-    it { should have_selector '.error' }
-  end
-
-  context 'when submitting valid information' do
-    before do
-      within '.signup-form' do
-        fill_in 'user[name]'                 , with: volunteer.name
-        fill_in 'user[email]'                , with: volunteer.email
-        fill_in 'user[password]'             , with: volunteer.password
-        fill_in 'user[password_confirmation]', with: volunteer.password
-        fill_in 'user[description]'          , with: volunteer.description
+    context 'when submitting invalid information' do
+      before do
+        expect { click_button create_user_btn }.not_to change(Host, :count)
       end
-      expect { click_button create_user_btn }.to change(Volunteer, :count).by(1)
+
+      it { should have_title t('users.new.title') }
+      it { should have_selector '.error' }
     end
 
-    it { should have_title volunteer.name }
-    it { should have_flash_message t('devise.users.signed_up'), 'success' }
-    it { should have_link t('sessions.signout') }
-  end
-end
+    context 'when submitting valid information' do
+      before do
+        within '.signup-form' do
+          fill_in 'user[name]'                 , with: host.name
+          fill_in 'user[email]'                , with: host.email
+          fill_in 'user[password]'             , with: host.password
+          fill_in 'user[password_confirmation]', with: host.password
+          fill_in 'user[description]'          , with: host.description
+          host.work_type_ids.each { |id| check "user_work_type_ids_#{id}" }
+          check "user_availability_feb"
+        end
+        expect { click_button create_user_btn }.to change(Host, :count).by(1)
+      end
 
-describe 'User profile display' do
-  let(:new_feedback)  { t('shared.profile_header.new_feedback')  }
-  let(:edit_feedback) { t('shared.profile_header.edit_feedback') }
-  let(:feedback)  { create(:feedback)  }
-  let(:sender)    { feedback.sender    }
-  let(:recipient) { feedback.recipient }
-
-  subject { page }
-
-  # Force trackable hook ups and ip geolocation to happen
-  # This should be forced in creation...
-  before do
-    visit root_path
-    sign_in sender
-    sign_out
-    sign_in recipient
-    sign_out
+      it { should have_title host.name }
+      it { should have_flash_message t('devise.users.signed_up'), 'success' }
+      it { should have_link t('sessions.signout') }
+    end
   end
 
-  shared_examples_for 'user profile' do
-    it { should have_selector('h3', text: user.name) }
-    it { should have_title user.name }
-    it { should have_content(user.description) }
-    it { should have_content(feedback.content) }
-    it { should have_content(user.received_feedbacks.count) }
-  end
+  describe 'Volunteer' do
+    let(:volunteer)       { build(:volunteer) }
+    let(:create_user_btn) { t('helpers.submit.user.create') }
 
-  context 'when visitor is the profile owner' do
-    before { sign_in recipient }
+    subject { page }
 
-    it_behaves_like 'user profile' do
-      let(:user) { recipient }
-    end
-    it { should_not have_link new_feedback  }
-    it { should_not have_link edit_feedback }
-  end
+    before { visit new_user_registration_path(type: 'volunteer') }
 
-  context 'when visitor is not signed in' do
-    before { visit user_path sender }
+    it { should have_selector 'h1', text: t('users.new.header', type: t('activerecord.models.volunteer')).titleize }
+    it { should have_title full_title(t 'users.new.title') }
+    it { should have_link 'NiPaNiPa' }
 
-    it_behaves_like 'user profile' do
-      let(:user) { sender }
-    end
-    it { should_not have_link new_feedback  }
-    it { should_not have_link edit_feedback }
-  end
+    context 'when submitting invalid information' do
+      before do
+        expect { click_button create_user_btn }.not_to change(Volunteer, :count)
+      end
 
-  context 'when visitor already left feedback' do
-    before do
-      sign_in sender
-      visit user_path recipient
+      it { should have_title t('users.new.title') }
+      it { should have_selector '.error' }
     end
 
-    it_behaves_like 'user profile' do
-      let(:user) { recipient }
-    end
-    it { should_not have_link new_feedback  }
-    it { should have_link edit_feedback }
-  end
+    context 'when submitting valid information' do
+      before do
+        within '.signup-form' do
+          fill_in 'user[name]'                 , with: volunteer.name
+          fill_in 'user[email]'                , with: volunteer.email
+          fill_in 'user[password]'             , with: volunteer.password
+          fill_in 'user[password_confirmation]', with: volunteer.password
+          fill_in 'user[description]'          , with: volunteer.description
+          volunteer.work_type_ids.each { |id| check "user_work_type_ids_#{id}" }
+          check "user_availability_feb"
+        end
+        expect { click_button create_user_btn }.to change(Volunteer, :count).by(1)
+      end
 
-  context 'when visitor did not leave feedback yet' do
-    before do
-      sign_in recipient
-      visit user_path sender
+      it_behaves_like('user profile') { let(:user) { volunteer } }
+      it { should have_title volunteer.name }
+      it { should have_flash_message t('devise.users.signed_up'), 'success' }
+      it { should have_link t('sessions.signout') }
     end
-
-    it_behaves_like 'user profile' do
-      let(:user) { sender }
-    end
-    it { should have_link new_feedback  }
-    it { should_not have_link edit_feedback }
   end
 end
 

@@ -3,9 +3,11 @@ describe 'donation' do
     Capybara.current_driver = :mechanize
     visit new_donation_path
     select '20', from: 'donation[amount]'
-    click_button t('donations.new.submit')
+    click_button t('helpers.submit.donation.create')
     expect { Donation.count }.to become(1)
   end
+
+  after { Capybara.use_default_driver }
 
   subject { page }
 

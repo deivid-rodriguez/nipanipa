@@ -149,6 +149,8 @@ en:
       picture:
         create: "Upload picture"
         update: "Update picture"
+      donation:
+        create: "Donate now!"
   number:
     currency:
       format:

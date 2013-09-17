@@ -231,7 +231,6 @@ would like to be implemented %{issues_url}."
       select_amount: "Select the amount"
       input_amount: "Or choose any amount you're confortable with"
       here: "here"
-      submit: "Donate now!"
       flattr: "You can also flattr us!"
     create:
       success: "Your donation was successful!"
@@ -246,8 +245,8 @@ would like to be implemented %{issues_url}."
   activerecord:
     models:
       picture: "picture"
-      Host: "host"
-      Volunteer: "volunteer"
+      host: "host"
+      volunteer: "volunteer"
     attributes:
       user:
         password_digest: "Password"

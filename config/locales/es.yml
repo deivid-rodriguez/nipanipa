@@ -234,7 +234,6 @@ solicitarnos nuevas funcionalidades %{issues_url}."
       select_amount: "Selecciona el importe"
       input_amount: "O elige el importe que tú quieras si no está en la lista"
       here: "aquí"
-      submit: "Dona ahora!"
       flattr: "O haznos una microdonación a través de flattr"
     create:
       success: "Tu donación fue exitosa!"
@@ -249,8 +248,8 @@ solicitarnos nuevas funcionalidades %{issues_url}."
   activerecord:
     models:
       picture: "foto"
-      Host: "host"
-      Volunteer: "voluntario"
+      host: "host"
+      volunteer: "voluntario"
     attributes:
       user:
         password_digest: "Contraseña"

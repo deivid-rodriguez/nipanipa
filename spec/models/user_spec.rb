@@ -15,17 +15,19 @@ describe User do
 
   subject { user }
 
-  it { should respond_to(:name) }
-  it { should respond_to(:email) }
-  it { should respond_to(:password) }
-  it { should respond_to(:encrypted_password) }
+  it { should respond_to(:availability)        }
+  it { should respond_to(:description)         }
+  it { should respond_to(:email)               }
+  it { should respond_to(:encrypted_password)  }
+  it { should respond_to(:languages)           }
+  it { should respond_to(:last_sign_in_ip)     }
+  it { should respond_to(:latitude)            }
+  it { should respond_to(:longitude)           }
+  it { should respond_to(:name)                }
+  it { should respond_to(:password)            }
   it { should respond_to(:remember_created_at) }
-  it { should respond_to(:role) }
-  it { should respond_to(:description) }
-  it { should respond_to(:longitude) }
-  it { should respond_to(:latitude) }
-  it { should respond_to(:type) }
-  it { should respond_to(:last_sign_in_ip) }
+  it { should respond_to(:role)                }
+  it { should respond_to(:type)                }
 
   it { should be_valid }
   specify { user.role.should == "non-admin" }

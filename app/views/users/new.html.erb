@@ -5,7 +5,8 @@
   <div class="form-title">
     <h1>
       <%= image_tag "#{@user.type.underscore}.png" %>
-      <%= t('.header', type: t("activerecord.models.#{@user.type}")).humanize %>
+      <%= t('.header',
+            type: t("activerecord.models.#{@user.type.underscore}")).titleize %>
     </h1>
   </div>
 

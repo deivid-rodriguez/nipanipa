@@ -10,7 +10,7 @@ describe 'Uploading a new picture' do
   before do
     visit root_path
     sign_in picture.user
-    click_link t('shared.profile_header.pictures')
+    click_link t('shared.profile_header.pictures'), match: :first
     click_link t('pictures.index.new_picture')
     fill_in 'picture[name]', with: picture.name
   end
@@ -44,7 +44,7 @@ describe 'Updating a picture' do
   before do
     visit root_path
     sign_in picture.user
-    click_link t('shared.profile_header.pictures')
+    click_link t('shared.profile_header.pictures'), match: :first
     click_link t('pictures.pictures.edit')
   end
 
@@ -77,7 +77,7 @@ describe 'Removing a picture' do
   before do
     visit root_path
     sign_in picture.user
-    click_link t('shared.profile_header.pictures')
+    click_link t('shared.profile_header.pictures'), match: :first
     click_link t('pictures.pictures.delete')
   end
 

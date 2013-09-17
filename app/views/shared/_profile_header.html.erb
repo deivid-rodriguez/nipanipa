@@ -46,15 +46,6 @@
                   <%= t('.new_feedback') %>
                 </div>
               <% end %>
-            <% else %>
-              <%= link_to edit_user_feedback_path(user, given_feedback) do %>
-                <div class="label_info">
-                  <%= image_tag 'feedback.png' %>
-                </div>
-                <div class="content_info">
-                  <%= t('.edit_feedback') %>
-                </div>
-              <% end %>
             <% end %>
           </div>
           <div class="send-message-link">

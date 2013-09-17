@@ -3,71 +3,100 @@
 #
 
 describe 'Leaving feedback' do
-  let!(:feedback)    { build(:feedback) }
-  let(:feedback_btn) { t('helpers.submit.feedback.create') }
+  let!(:feedback)        { build(:feedback)                        }
+  let(:new_feedback_lnk) { t('shared.profile_header.new_feedback') }
 
   subject { page }
 
-  before do
-    Capybara.current_driver = :mechanize
-    visit root_path
-    sign_in feedback.sender
-    visit user_path(feedback.recipient)
-    click_link t('shared.profile_header.new_feedback')
-  end
+  describe '"new feedback" link' do
+    before { visit user_path(feedback.recipient) }
 
-  context 'with invalid information' do
-    before do
-      click_button feedback_btn
+    context 'when visitor not signed in' do
+      it { should_not have_link new_feedback_lnk }
     end
 
-    it "doesn't save a feedback in db" do
-      Donation.count.should == 0
-      Feedback.count.should == 0
-    end
-    it { should have_flash_message t('feedbacks.create.error'), 'error' }
-    it "doesn't update recipient's karma" do
-      feedback.recipient.karma.should eq(0)
+    context 'when visitor signed in' do
+      before { mock_sign_in feedback.sender }
+
+      context 'and looking at own profile' do
+        it { should_not have_link new_feedback_lnk }
+      end
+
+      context 'and looking at other profile' do
+        before { visit user_path(feedback.recipient) }
+        it { should have_link new_feedback_lnk }
+      end
     end
   end
 
-  context 'with valid information and no donation' do
+  context 'workflow' do
+    let(:feedback_btn) { t('helpers.submit.feedback.create') }
+
     before do
-      choose  'feedback_score_positive'
-      fill_in 'feedback[content]', with: 'Lorem ipsum'
-      click_button feedback_btn
+      Capybara.current_driver = :mechanize
+      mock_sign_in feedback.sender
+      visit user_path(feedback.recipient)
+      click_link new_feedback_lnk
     end
 
-    it "correctly updates db" do
-      Donation.count.should == 0
-      Feedback.count.should == 1
-      feedback.recipient.reload.karma.should eq(1)
+    after { Capybara.use_default_driver }
+
+    context 'with incomplete information' do
+      before { click_button feedback_btn }
+
+      it "doesn't save a feedback in db" do
+        Donation.count.should == 0
+        Feedback.count.should == 0
+      end
+
+      it { should have_flash_message t('feedbacks.create.error'), 'error' }
+
+      it "doesn't update recipient's karma" do
+        feedback.recipient.karma.should eq(0)
+      end
     end
 
-    it { should have_selector 'h3', text: feedback.recipient.name }
-    it { should have_flash_message t('feedbacks.create.success'), 'success' }
-  end
+    context 'with valid information and no donation' do
+      before do
+        choose  'feedback_score_positive'
+        fill_in 'feedback[content]', with: feedback.content
+        click_button feedback_btn
+      end
 
-  context 'with valid information and donation' do
-    before do
-      choose  'feedback_score_positive'
-      fill_in 'feedback[content]', with: 'Lorem ipsum'
-      fill_in 'feedback[donation_attributes][amount]', with: 20
-      click_button feedback_btn
-      mock_paypal_pdt('SUCCESS', Donation.last.id)
+      it "correctly updates db" do
+        Donation.count.should == 0
+        Feedback.count.should == 1
+        feedback.recipient.reload.karma.should eq(1)
+      end
+
+      it { should have_content feedback.content }
+      it { should have_link t('shared.edit') }
+      it { should have_selector 'h3', text: feedback.recipient.name }
+      it { should have_flash_message t('feedbacks.create.success'), 'success' }
     end
 
-    it 'correctly updates db' do
-      Donation.count.should == 1
-      Feedback.count.should == 1
-      feedback.recipient.karma.should eq(0)
-    end
+    context 'with valid information and donation' do
+      before do
+        choose  'feedback_score_positive'
+        fill_in 'feedback[content]', with: feedback.content
+        fill_in 'feedback[donation_attributes][amount]', with: 20
+        click_button feedback_btn
+        mock_paypal_pdt('SUCCESS', Donation.last.id)
+      end
 
-    it { should have_selector 'h3', text: feedback.recipient.name }
-    it { should have_flash_message t('donations.create.success'), 'success' }
+      it 'correctly updates db' do
+        Donation.count.should == 1
+        Feedback.count.should == 1
+        feedback.recipient.karma.should eq(0)
+      end
+
+      it { should have_content feedback.content }
+      it { should have_link t('shared.edit') }
+      it { should have_selector 'h3', text: feedback.recipient.name }
+      it { should have_flash_message t('donations.create.success'), 'success' }
+    end
   end
 end
-
 
 describe 'Editing feedbacks' do
   let!(:feedback)    { create(:feedback, score: :positive) }
@@ -77,10 +106,11 @@ describe 'Editing feedbacks' do
 
   before do
     Capybara.current_driver = :mechanize
-    visit root_path
-    sign_in feedback.sender
-    page.find("#feedback-#{feedback.id}").click_link('Editar')
+    mock_sign_in feedback.sender
+    page.find("#feedback-#{feedback.id}").click_link(t('shared.edit'))
   end
+
+  after { Capybara.use_default_driver }
 
   context 'with invalid information' do
     before do
@@ -135,8 +165,6 @@ describe 'Listing feedbacks' do
 
   subject { page }
 
-  before { visit root_path }
-
   shared_examples 'feedback list' do
     it { should have_selector 'li', text: feedbacks[0].content }
     it { should have_selector 'li', text: feedbacks[1].content }
@@ -144,7 +172,7 @@ describe 'Listing feedbacks' do
   end
 
   context 'when listing received feedbacks' do
-    before { sign_in feedbacks[0].recipient }
+    before { mock_sign_in feedbacks[0].recipient }
 
     context 'in main profile view' do
       it { should have_selector 'h3', text: t('users.show.feedback') }
@@ -158,7 +186,7 @@ describe 'Listing feedbacks' do
   end
 
   context 'when listing sent feedbacks' do
-    before { sign_in feedbacks[0].sender }
+    before { mock_sign_in feedbacks[0].sender }
 
     context 'in main profile view' do
       it { should have_selector 'h3', text: t('users.show.feedback') }
@@ -179,9 +207,8 @@ describe 'Destroying feedbacks' do
   subject { page }
 
   before do
-    visit root_path
-    sign_in feedback.sender
-    page.find("#feedback-#{feedback.id}").click_link('Borrar')
+    mock_sign_in feedback.sender
+    page.find("#feedback-#{feedback.id}").click_link(t('shared.delete'))
   end
 
   context 'successfully' do

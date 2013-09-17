@@ -11,6 +11,11 @@ def sign_in(user)
   click_button t('sessions.signin')
 end
 
+def mock_sign_in(user)
+  login_as user
+  visit user_path(user)
+end
+
 def sends_notification_email(recipient)
   expect(ActionMailer::Base.deliveries.last.to).to include(recipient.email)
 end
