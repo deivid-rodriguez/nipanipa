@@ -258,5 +258,8 @@ describe 'User profile editing' do
     it 'updates host correctly' do
       host.reload.email.should == 'new_email@example.com'
     end
+    it 'redirects back to user profile' do
+      current_path.should == user_path(host)
+    end
   end
 end

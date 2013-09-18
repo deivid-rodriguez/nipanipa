@@ -26,6 +26,11 @@ class UsersController < Devise::RegistrationsController
 
   private
 
+    # Override redirect after profile edition
+    def after_update_path_for(resource)
+      resource
+    end
+
     # Override devise default of asking password for updates
     def update_resource(resource, params)
       resource.update_without_password(params)
