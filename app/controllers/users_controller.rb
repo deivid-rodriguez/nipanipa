@@ -62,7 +62,13 @@ class UsersController < Devise::RegistrationsController
         work_type_ids: [])
     end
 
+    # Correctly resolve actual class from params
     def resource_class
       params[:type].present? ? params[:type].classify.constantize : super
+    end
+
+    # Use a single devise mapping for both classes
+    def devise_mapping
+      Devise.mappings[:user]
     end
 end
