@@ -188,28 +188,6 @@ div.no-elements {
   }
 }
 
-/* colors for comment quality */
-.neutral { color: #333; }
-.good { color: green; }
-.bad { color: red; }
-
-.neutral, .good, .bad { font-weight: bold; font-size: 1.1em; }
-
-/* comment content */
-div.comment {
-    display: block;
-    float: left;
-    width: 70%;
-    margin: 0;
-}
-.profilecomment.counter {
-    background: none repeat scroll 0 0 #EEEEEE;
-    border: 1px solid $grayVeryLight;
-    @include border_radius;
-    margin-left: 10%;
-    padding: 10px;
-}
-
 
 /* users index */
 .sidebar-users {
