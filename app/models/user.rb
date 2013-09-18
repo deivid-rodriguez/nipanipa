@@ -57,7 +57,7 @@ class User < ActiveRecord::Base
            foreign_key: 'to_id',
              dependent: :destroy
 
-  AVAILABILITY = %w[jan feb mar apr jun jul aug sep oct nov dec]
+  AVAILABILITY = %w[jan feb mar apr may jun jul aug sep oct nov dec]
 
   def availability=(availability)
     self.availability_mask = ArrayMask.new(AVAILABILITY).mask(availability)
