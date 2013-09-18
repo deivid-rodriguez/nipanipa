@@ -133,6 +133,8 @@ marcarla como foto principal"
     create:
       success: "Has iniciado una nueva conversación con un host!"
       error: "Hubo un error en el envío del mensaje"
+    destroy:
+      success: "La conversación fue borrada correctamente"
     index:
       title: "Mis mensajes"
     show:
