@@ -28,7 +28,7 @@ RSpec.configure do |config|
 
   config.treat_symbols_as_metadata_keys_with_true_values = true
 
-  # ## Mock Framework (uncomment the appropriate line)
+  ## Mock Framework (uncomment the appropriate line)
   # config.mock_with :mocha
   # config.mock_with :flexmock
   # config.mock_with :rr
