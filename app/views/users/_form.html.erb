@@ -27,6 +27,7 @@
     <%= f.input :availability, as: :check_boxes,
           item_wrapper_class: :inline, wrapper_html: { class: 'span10' },
           collection: User::AVAILABILITY,
+          checked: user.availability,
           label_method: lambda{ |m| l(Date.strptime(m, '%b'), format: :month) },
           value_method: :to_s %>
   </div>
