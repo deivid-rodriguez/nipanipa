@@ -171,6 +171,7 @@ oferta"
       personal_desc: "Sobre ti"
       work_type: "Tipo de trabajo"
     show:
+      availability: "Disponibilidad"
       profile: "Mi perfil"
       description: "Sobre mí"
       feedback: "Referencias"

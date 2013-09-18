@@ -188,6 +188,23 @@ div.no-elements {
   }
 }
 
+table.calendar {
+  text-align: center;
+  border: none;
+  border-collapse: collapse;
+  tbody {
+    tr {
+      th {
+        padding: 0;
+        font-weight: normal;
+      }
+      td {
+        padding: 0;
+        width: 34px;
+      }
+    }
+  }
+}
 
 /* users index */
 .sidebar-users {

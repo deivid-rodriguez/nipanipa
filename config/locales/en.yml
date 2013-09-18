@@ -168,6 +168,7 @@ host be interested in you?"
       personal_desc: "About you"
       work_type: "Type of Work"
     show:
+      availability: "Availability"
       profile: "My profile"
       description: "About me / us"
       feedback: "Feedback"

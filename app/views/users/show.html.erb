@@ -19,6 +19,12 @@
   </div>
 
   <div class="span6">
+    <div class="box">
+      <%= render 'edit_link', user: @user %>
+      <h3><%= t('.availability') %></h3>
+      <%= render 'calendar', availability: @user.availability %>
+    </div>
+
     <% if @user.type == "Host" %>
       <div class="box">
         <%= render 'edit_link', user: @user %>

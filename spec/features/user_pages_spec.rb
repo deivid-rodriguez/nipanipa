@@ -10,9 +10,20 @@ shared_examples_for 'user profile' do
     user.received_feedbacks.each { |f| page.should have_content(f.content) }
   end
   it { should have_content(user.received_feedbacks.count) }
+  it 'has all feedbacks' do
+    user.sent_feedbacks.each { |f| page.should have_content(f.content) }
+  end
+  it { should have_content(user.sent_feedbacks.count) }
   it 'has all of user worktypes' do
     user.work_types.each { |wt| page.should have_content(wt.name) }
   end
+  it 'has correct user availability' do
+    page.should have_content("✘ ✔ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘")
+  end
+end
+
+shared_examples_for 'user list' do
+
 end
 
 describe 'Profile creation' do

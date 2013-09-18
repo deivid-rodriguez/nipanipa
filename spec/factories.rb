@@ -4,7 +4,7 @@ FactoryGirl.define do
     sequence(:name) { |n| "User #{n}" }
     sequence(:email) { |n| "nipanipa.test+user#{n}@gmail.com" }
     password 'foobar'
-    availability_mask 2**7-1
+    availability { %w[jan feb mar apr may jun jul aug sep oct nov dic] }
 
     # simulate first login
     last_sign_in_at { Time.now }
