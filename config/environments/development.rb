@@ -43,12 +43,6 @@ Nipanipa::Application.configure do
   # Middleware
   config.middleware.use SpoofIp, ENV["IP"]
 
-  # Use pry instead of IRB
-  silence_warnings do
-  begin
-    require 'pry'
-    IRB = Pry
-  rescue LoadError
-    end
-  end
+  # Use Pry as the default console
+  config.console = Pry
 end

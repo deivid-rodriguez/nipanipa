@@ -44,6 +44,6 @@ Nipanipa::Application.configure do
   # Middleware
   config.middleware.use SpoofIp, ENV['FAKE_IP']
 
-# # Server assets from dev env to correctly show css in save_and_open_page
-# config.action_controller.asset_host = 'http://nipanipa.local.com'
+  # Use Pry as the default console
+  config.console = Pry
 end
