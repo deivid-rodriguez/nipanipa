@@ -47,10 +47,6 @@ FactoryGirl.define do
       end
     end
 
-    trait :admin do
-      role 'admin'
-    end
-
     factory :host, class: 'Host' do
       sequence(:name) { |n| "Host #{n}" }
       description 'We are a test host. We live in the countryside in the wild'
