@@ -1,8 +1,4 @@
 class UsersController < Devise::RegistrationsController
-  def new
-    @user = resource_class.new
-  end
-
   def index
     @users = resource_class
     if params[:availability] == 'now'
