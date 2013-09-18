@@ -17,6 +17,14 @@ FactoryGirl.define do
       role 'admin'
     end
 
+    trait :available_just_now do
+      availability { [DateTime.now().strftime('%b').downcase] }
+    end
+
+    trait :not_available do
+      availability []
+    end
+
     trait :with_work_types do
       ignore { count 1 }
 

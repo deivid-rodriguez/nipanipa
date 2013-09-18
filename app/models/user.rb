@@ -59,6 +59,9 @@ class User < ActiveRecord::Base
 
   AVAILABILITY = %w[jan feb mar apr may jun jul aug sep oct nov dec]
 
+  scope :currently_available,
+        -> { where("availability_mask & #{2**(DateTime.now().mon-1)} > 0") }
+
   def availability=(availability)
     self.availability_mask = ArrayMask.new(AVAILABILITY).mask(availability)
   end

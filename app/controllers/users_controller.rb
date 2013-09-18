@@ -4,8 +4,11 @@ class UsersController < Devise::RegistrationsController
   end
 
   def index
-    @users = resource_class.order('last_sign_in_at DESC').
-                            paginate(page: params[:page])
+    @users = resource_class
+    if params[:availability] == 'now'
+      @users = @users.currently_available
+    end
+    @users = @users.order('last_sign_in_at DESC').paginate(page: params[:page])
   end
 
   def show

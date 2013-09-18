@@ -118,15 +118,102 @@ describe 'User profile removing' do
 end
 
 describe 'User profile index' do
-  before do
-    2.times { create(:host) }
-    2.times { create(:volunteer) }
-    visit users_path
-  end
+  let!(:host_available)          { create(:host, :available_just_now)      }
+  let!(:host_not_available)      { create(:host, :not_available)           }
+  let!(:volunteer_available)     { create(:volunteer, :available_just_now) }
+  let!(:volunteer_not_available) { create(:volunteer, :not_available)      }
+
+  before { visit users_path }
 
   it 'lists all profiles' do
-    User.paginate(page: 1).each do |user|
+    User.all.each do |user|
       page.should have_selector('li', text: user.name)
+    end
+  end
+
+  describe 'available profiles' do
+    before { click_link t('users.index.now') }
+
+    describe 'filtering' do
+      it 'shows correct list' do
+        page.should have_selector('li', text: host_available.name)
+        page.should have_selector('li', text: volunteer_available.name)
+        page.should_not have_selector('li', text: host_not_available.name)
+        page.should_not have_selector('li', text: volunteer_not_available.name)
+      end
+    end
+
+    describe 'unfiltering' do
+      before { click_link t('users.index.whenever') }
+
+      it 'shows correct list' do
+        page.should have_selector('li', text: host_available.name)
+        page.should have_selector('li', text: volunteer_available.name)
+        page.should have_selector('li', text: host_not_available.name)
+        page.should have_selector('li', text: volunteer_not_available.name)
+      end
+    end
+  end
+
+  describe 'host profiles' do
+    before { click_link t('users.index.hosts') }
+
+    describe 'filtering' do
+      it 'shows correct list' do
+        page.should have_selector('li', text: host_available.name)
+        page.should_not have_selector('li', text: volunteer_available.name)
+        page.should have_selector('li', text: host_not_available.name)
+        page.should_not have_selector('li', text: volunteer_not_available.name)
+      end
+    end
+
+    describe 'unfiltering' do
+      before { click_link t('users.index.all') }
+
+      it 'shows correct list' do
+        page.should have_selector('li', text: host_available.name)
+        page.should have_selector('li', text: volunteer_available.name)
+        page.should have_selector('li', text: host_not_available.name)
+        page.should have_selector('li', text: volunteer_not_available.name)
+      end
+    end
+  end
+
+  describe 'volunteer profiles' do
+    before { click_link t('users.index.volunteers') }
+
+    describe 'filtering' do
+      it 'shows correct list' do
+        page.should_not have_selector('li', text: host_available.name)
+        page.should have_selector('li', text: volunteer_available.name)
+        page.should_not have_selector('li', text: host_not_available.name)
+        page.should have_selector('li', text: volunteer_not_available.name)
+      end
+    end
+
+    describe 'unfiltering' do
+      before { click_link t('users.index.all') }
+
+      it 'shows correct list' do
+        page.should have_selector('li', text: host_available.name)
+        page.should have_selector('li', text: volunteer_available.name)
+        page.should have_selector('li', text: host_not_available.name)
+        page.should have_selector('li', text: volunteer_not_available.name)
+      end
+    end
+  end
+
+  describe 'mixed filters' do
+    before do
+      click_link t('users.index.hosts')
+      click_link t('users.index.now')
+    end
+
+    it 'shows correct list' do
+      page.should have_selector('li', text: host_available.name)
+      page.should_not have_selector('li', text: volunteer_available.name)
+      page.should_not have_selector('li', text: host_not_available.name)
+      page.should_not have_selector('li', text: volunteer_not_available.name)
     end
   end
 end
