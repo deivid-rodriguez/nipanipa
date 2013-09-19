@@ -1,0 +1,42 @@
+it:
+  simple_form:
+    yes: Si
+    no: No
+    required:
+      text: obbligatorio
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won"t be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: Per favore, verifica i problemi che seguono
+    labels:
+      user:
+        availability: Quando sei disponibile?
+        name: Nome di utentu
+        email: Mail
+        password: Password
+        password_confirmation: Conferma di password
+        accomodation: Descrive il tipo di alloggio che provedi ai volontari
+      picture:
+        name: Titolo per la foto
+        image: File con la foto
+      feedback:
+        score: Puntuazione
+        content: Raccontaci l'esperienza con questo utente
+      donation:
+        amount: Esistiamo soltanto grazie alle vostre donazioni. Aiutaci!
+    hints:
+      user:
+        password: La password deve avere almeno 6 caratteri
+      feedback:
+        score: "La puntuaziona influenza positiva o negativamente nel karma
+dell'utente"
+      donation:
+        amount: "Si lasci questo campo a 0, lascerai la referenza senza donare
+niente"
+    placeholders:
+      user:
+        email: Mail
+        password: Password
+

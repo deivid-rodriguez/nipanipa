@@ -1,9 +1,10 @@
 #encoding: utf-8
-I18n.available_locales = [:es, :en]
+I18n.available_locales = [:es, :en, :it]
 
 LANGUAGES = [
+              ['English',                  'en'],
               ["Espa&ntilde;ol".html_safe, 'es'],
-              ['English',                  'en']
+              ['Italiano',                 'it']
             ]
 
 # A simple exception handler that behaves like the default exception handler

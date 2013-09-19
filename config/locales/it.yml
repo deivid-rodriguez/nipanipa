@@ -1,0 +1,270 @@
+it:
+  shared:
+    nomessages: Non ci sono messaggi
+    nopictures: Non c'è nessuna foto
+    nofeedback: Non ci sono referenze
+    current_or_last_login:
+      currently_logged_in: È online proprio adesso!
+      last_login: Ultimo accesso
+    not_specified: Non especificato
+    edit: Modificare
+    delete: Cancellare
+    profile_header:
+      unknown: Sconosciuto
+      general: Vista principale
+      conversations: Conversazioni
+      feedback: Referenze
+      pictures: Foto
+      edit: Modificare profilo
+      new_conversation: Enviare un messaggio
+      new_feedback: Lasciare referenza
+      edit_feedback: Modificare referenza
+      report_user: Segnalare questo usuario
+    badge:
+      karma: Karma
+      location: Luogo
+      last_login: Ultimo acceso
+      member_since: Membro da
+      categories: Categorie
+      languages: Lingue
+  static_pages:
+    terms:
+      title: Condizioni d'uso
+    help:
+      title: Aiuto
+      uhost?: Sei host?
+      uvolunteer?: Sei volontario?
+    about:
+      title: Chi siamo?
+      description: "Siamo un gruppo di web designers e web developers stabiliti
+in Germania ed Spagna. Siamo anche passionati viaggiatori y chi mancava qualcosa
+prima di NiPaNiPa. Dunque l'abbiamo fatta. Divertitevi!"
+    contact:
+      title: Contatto
+      description_html: "NiPaNiPa si trova in fase di test. È adesso che ci
+servono tanto le vostre opinioni. Non abbiamo fatto a tempo per mettere insieme
+un bel formulario di conttato ma per il momento puoi raggiungerci inviando una
+mail a %{mail}. Dici cosa pensi sul sito, che cose non funzionano, che cosa
+possa migliorare oppure manda un abbraccio e basta!"
+    home:
+      welcome: Benvenuto a NiPaNiPa
+      subtitle: Contatta volontari ed hosts in tutto il mondo
+      host: Sono host
+      host_desc: Alloggia qualcuno in scambio di aiuto
+      volunteer: Sono volontario
+      volunteer_desc: Aiuta qualcuno in scambio di allogio
+      contribute: Collabora
+      contribute_desc: "Il tuo sostegno ci auita a rimanere gratuiti. Fa una
+donazione, collabora nello sviluppo del sito oppure auitaci a tradurlo alla tua
+lingua."
+      explore: Esplora
+      explore_desc: "Da un'occhiata ai possibili host che ti allogieranno nelle
+tue vacanze oppure cerca volontari che sono vicino a te e sono pronti per
+aiutarti col tuo progetto."
+      signup: Iscriviti!
+      signup_desc: "Iscriviti a NiPaNiPa, sia come host che volontario.
+Non ci vogliono neanche 5 minuti!"
+  feedbacks:
+    new:
+      title: Referenza per %{username}
+      subtitle: "Grazie per la tua referenza. La fiduccia tra host e volontari
+non è possibile senza le vostre opinioni. Y NiPaNiPa non è possibile senza le
+vostre donazione che per noi sono un prezzo che voi mettete alla vostra
+esperienza."
+    form:
+      feedback_for_user: Referenza per %{username}
+      feedback_for_nipa: Donazione per NiPaNiPa
+      donated_already_html: "Grazie dalla tua donazione, sei un genio o genia.
+Quando vuoi farne un altra, vai %{donations_url}"
+      here: qui
+    edit:
+      title: Modificara la referenza per %{username}
+      subtitle: Modifica o migliora la referenza come voui
+    create:
+      success: Hai lasciato una nuova referenza
+      error: C'è stato un errore al creare la nuova referenza... :(
+    index:
+      title: Referenze
+    feedbacks:
+      title: Referenze
+    received:
+      one: 1 ricevuta
+      other: "%{count} ricevute"
+    sent:
+      one: 1 inviata
+      other: "%{count} inviate"
+    feedback:
+      from: Da %{name}
+      to: Per %{name}
+    update:
+      success: Hai modificato la referenza!
+      error: "C'è stato un errore al modificare la referenza. Non deve essere
+pìù lunga de 300 carattere"
+    destroy:
+      success: La tua referenza è stata cancellata
+  pictures:
+    new:
+      title: Aggiungi una foto
+      subtitle: Le foto sono belle e rendono conto che sei una persona reale.
+    create:
+      success: Foto caricata correttamente!
+      error: Errore caricando la foto... :("
+    index:
+      title: Immagini
+      new_picture: Aggiungere una foto
+    edit:
+      title: Modificare la foto
+      subtitle: Puoi cambiare nome a la foto o sceglierne una nuova
+    update:
+      success: Foto modificata correttamente
+      error: Errore al modificare la foto
+    pictures:
+      delete: Cancellare foto
+      edit: Modificare foto
+    destroy:
+      success: Foto cancellata correttamente"
+      error: Errore al cancellare la foto
+  conversations:
+    new:
+      title: Contatta %{username}
+    create:
+      success: Hai iniziato una conversazione! :)
+      error: C'è stato un error nello invio del messagio
+    destroy:
+      success: La conversazione è stata cancellata correttamente
+    index:
+      title: I miei messaggi
+    show:
+      reply: Rispondere
+      back_html: Tornare &#8617;
+    preview:
+      usure?: Sei sicuro che vuoi cancellare la conversazione?
+    reply:
+      error: Error nello invio del messagio...
+  users:
+    form:
+      description_host: "Racconta ai prossimi volontari qualcosa su di te o la
+tua famiglia"
+      description_volunteer: Racconta al tuo host qualcosa su di te
+      skills_host: "Descrivi come è il tipo di lavoro che il volontario dovra
+fare da te"
+      skills_volunteer: "Cosa sai fare? Che cose pensi che possano interessare
+ai host da quelli che sai fare?"
+    language_skills:
+      title: Quale lingue sai parlare?
+      add_language: aggiungi lingue
+    language_skill_fields:
+      language: Selezziona lingua
+      level: Selezziona il tuo livello
+      remove_language: Cancella lingua
+    work_types:
+      title_host: "Selezziona uno o vari settori per categorizzare il
+volontariato che offri"
+      title_volunteer: Selezziona il/i tipo/i di lavoro che stai cercando
+      title: Iscriviti
+      header: Iscrizione di %{type}
+      already_registered: Sei gia iscritto?
+      personal_desc: Su di te
+      work_type: Tipo di lavoro
+    show:
+      availability: Disponibilità
+      profile: Il mio profilo
+      description: Su di me
+      feedback: Referenze
+      accomodation: Allogio
+      pictures: Immagini
+      references: Referenze
+      skills_host: Descrizione del lavoro
+      skills_volunteer: Abilità
+    edit:
+      title: Modificazione del profilo
+      header: Modifica il tuo profilo
+    index:
+      title: Cercare
+      availability: Disponibilità
+      whenever: Indifferente
+      now: Disponibili adesso
+      places: Luoghi
+      people: Gente
+      hosts: Host
+      volunteers: Volontari
+      all: Tutti
+    user:
+      karma: karma
+      location: Posto
+      unknown: Sconosciuto
+  work_types:
+    gardening: Giardineria
+    babysitting: Baby-sitter
+    cooking: Cuoco/a
+    farming: Azienda agricola
+    housekeeping: Manutenzione della casa
+    tourism: Turismo
+    language_exchange: Scambio linguistico
+    teaching: Insegnamento
+    construction: Costruzione
+    elderly_care: Anziani
+    animal_care: Cura degli animali
+    humanitarian_aid: Aiuti di guerra
+    technical_assistance: Computer
+    art_project: Progetto artistico
+    wwoofing: Wwoofing
+  sessions:
+    new:
+      newuser?: Nuovo utente?
+    forgot_your_pwd?: password dimenticata?
+    signin: Login
+    signout: Uscire
+    rememberme: Ricordami
+  donations:
+    new:
+      title: Contribuisci a NiPaNiPa
+      intro: "NiPaNiPa ha bisogno del tuo aiuto per sopravvivere in modo
+indipendente e gratuito. Come è che puoi aiutarci?"
+      donate_title: Dona
+      donate_desc: "Se puoi e vuoi, fai una donazione. Per farla, metti il monto
+(in dollari americani) que desideri donare."
+      contribute_title: Autaci
+      contribute_desc_dev_html: "Se sai programmare, puoi autarci con lo sviluppo
+di NiPaNiPa %{git_url}."
+      contribute_desc_tr: "Se NiPaNiPa no è tradotta alla tua lingua madre ma
+puoi capire questo, puoi autarci a tradurla."
+      contribute_desc_bug_html: "Puoi anche segnalare errori o chiederci nuove
+funzionalità %{issues_url}."
+      select_amount: Seleziona il monto
+      input_amount: O scrivi quanto vuoi donare se il monto non c'è nella lista
+      here: qui
+      flattr: Or fai una microdonazione con flattr
+    create:
+      success: La donazione ha avuto successo!
+      error: "Scusa, la donazione non ha avuto successo... Riprova dopo o segnala
+l'errore."
+  layouts:
+    header:
+      language: Lingua
+      search: Cercare
+      donate: Aiutaci
+    footer:
+      news: Novità
+  will_paginate:
+    previous_label: Pagina anteriore
+    next_label: Pagina seguente
+  enumerize:
+    language_skill:
+      level:
+        just_hello: ciao e grazie
+        beginner: principiante
+        intermediate: intermedio
+        expert: esperto
+        native: nativo
+    feedback:
+      score:
+        negative: Negativa
+        neutral: Neutrale
+        positive: Positiva
+  user_mailer:
+    message_reception:
+      subject: Hai ricevuto un nuovo messagio di %{from}
+      greeting: Ciao %{name}!
+      message: "Altro utente di NiPaNiPa te ha conttatato sul nostro sito. Per
+vedere il messagio, clicca qui:"

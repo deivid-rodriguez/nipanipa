@@ -1,0 +1,25 @@
+it:
+    mailer:
+      reset_password_instructions:
+        greeting: Ciao %name!
+        info: "Qualcuno ha richiesto un link per reimpostare la tua password.
+Puoi cambiarla clickando questo link"
+        change_my_pwd: Reimpostare la mia password
+        ignore: Se non hai richiesto questo, per favore ignora questa email.
+        wont_change: "La tua password non cambierà finche non accedi al link e
+crei una nuova."
+    passwords:
+      new:
+        forgotten?: Reimpostare la password
+        send_instructions: Inviami istruzioni
+      edit:
+        title: Cambio di password
+        change_pwd: Cambiare la mia password
+    users:
+      destroyed: Arrivederci! L'account è stato cancellato. Speriamo di rivederci presto.
+      signed_up: Iscrizione eseguita correttamente. Se abilitata, una conferma è stata inviata al tuo indirizzo email.
+      signed_up_but_inactive: Iscrizione eseguita correttamente. Però non puoi accedere in quanto il tuo account non è ancora attivo.
+      signed_up_but_locked: Iscrizione eseguita correttamente. Però non puoi accedere in quanto il tuo account è bloccato.
+      signed_up_but_unconfirmed: Ti è stato inviato un messaggio con un link di conferma. Ti invitiamo a visitare il link per attivare il tuo account.
+      update_needs_confirmation: Il tuo account è stato aggiornato, ma dobbiamo verificare la tua email. Ti invitiamo a consultare la tua email e cliccare sul link di conferma.
+      updated: Il tuo account è stato aggiornato.
