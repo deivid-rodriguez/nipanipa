@@ -161,6 +161,7 @@ ai host da quelli che sai fare?"
       title_host: "Selezziona uno o vari settori per categorizzare il
 volontariato che offri"
       title_volunteer: Selezziona il/i tipo/i di lavoro che stai cercando
+    new:
       title: Iscriviti
       header: Iscrizione di %{type}
       already_registered: Sei gia iscritto?
