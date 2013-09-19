@@ -116,8 +116,7 @@ usuarios que eres una persona de verdad, a parte de lo feo que eres (es broma!)"
       new_picture: "Añadir una foto"
     edit:
       title: "Editar foto"
-      subtitle: "Puedes cambiar el nombre de la foto, seleccionar una nueva o
-marcarla como foto principal"
+      subtitle: "Puedes cambiar el nombre de la foto o seleccionar una nueva"
     update:
       success: "Foto actualizada correctamente"
       error: "Error al actualizar la foto"
@@ -153,8 +152,6 @@ sobre tu familia"
 casa"
       skills_volunteer: "¿Qué sabes hacer? ¿Qué habilidades consideras que
 podrían interesar a algún anfitrión?"
-    profile_picture:
-      title: "Foto de perfil... muéstrate!"
     language_skills:
       title: "También puedes contarnos qué idiomas conoces"
       add_language: "añadir idioma"

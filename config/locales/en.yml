@@ -151,8 +151,6 @@ or your family."
       skills_host: "Describe the tasks the volunteer will assume"
       skills_volunteer: "What are your skills? What can you do? Why would a
 host be interested in you?"
-    profile_picture:
-      title: "Profile picture, show yourselves!"
     language_skills:
       title: "Which languages can you speak?"
       add_language: "add language"
