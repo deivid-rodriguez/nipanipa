@@ -20,7 +20,7 @@ describe "Static pages" do
 
     it_behaves_like "all static pages"
     it { should_not have_title '| Home' }
-    it { should_not have_link t('home.signup') }
+    it { should_not have_link t('static_pages.home.signup') }
   end
 
 
