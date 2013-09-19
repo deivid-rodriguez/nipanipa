@@ -6,7 +6,7 @@ require 'active_support/inflector'
 guard :rspec, spring: true, keep_failed: true, all_on_start: true,
               cli: '--colour --fail-fast' do
 
-  watch(%r{^config/locales/.*\.rb$})              { 'spec/features' }
+  watch(%r{^config/locales/.*\.yml$})             { 'spec/features' }
   watch(%r{^config/environments/test.rb$})        { 'spec'          }
   watch(%r{^config/environments/development.rb$}) { 'spec'          }
   watch(%r{^config/.*\.rb$})                      { 'spec'          }
