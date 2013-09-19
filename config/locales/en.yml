@@ -228,8 +228,8 @@ USD) that you want to donate."
       contribute_title: "Help us"
       contribute_desc_dev_html: "If you are a web developer (or you want to be),
 you can help us by contributing to nipanipa development %{git_url}."
-      contribute_desc_tr: "If NiPaNiPa is not translated into your tongue
-language but you can understand this, you can help us translate it!"
+      contribute_desc_tr: "If NiPaNiPa is not translated into your mother tongue
+but you can understand this, you can help us translate it!"
       contribute_desc_bug_html: "You can also report bugs or new features you
 would like to be implemented %{issues_url}."
       select_amount: "Select the amount"
@@ -246,55 +246,9 @@ would like to be implemented %{issues_url}."
       donate: "Donate"
     footer:
       news: "News"
-  activerecord:
-    models:
-      picture: "picture"
-      host: "host"
-      volunteer: "volunteer"
-    attributes:
-      user:
-        password_digest: "Password"
-      conversation:
-        subject: "Subject"
-      message:
-        body: "Body"
-    errors:
-      models:
-        user:
-          attributes:
-            password:
-              blank: "Password is empty"
-              confirmation: "Password and confirmation do not match"
-              too_short: "Password is too short, it must be 6 characters minimum"
-            name:
-              blank: "You must specify a username"
-              too_long: "That username is too long"
-            email:
-              taken: "That email address is already taken"
-              blank: "You must specify an email address"
-              invalid: "That email looks weird... Check the format"
-              not_found: "That email address doesn't exist in NiPaNiPa"
-            password_confirmation:
-              blank: "Password confirmation can't be blank"
-              too_short: "Password confirmation is too short"
-            description:
-              too_long: "The text is too long. Be brief"
-        feedback:
-          attributes:
-            content:
-              blank: "Write something about the user"
-              too_long: "Feedback is too long"
-        picture:
-          attributes:
-            image_file_size:
-              in_between: "File can't be bigger than 500Kb... :("
-      messages:
-        record_invalid: "Invalid record"
   will_paginate:
     previous_label: "Previous page"
     next_label: "Next page"
-  datetime:
-    timestamp_ago: "%{time} ago"
   enumerize:
     language_skill:
       level:
