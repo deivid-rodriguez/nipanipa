@@ -130,7 +130,7 @@ usuarios que eres una persona de verdad, a parte de lo feo que eres (es broma!)"
     new:
       title: "Contacta a %{username}"
     create:
-      success: "Has iniciado una nueva conversación con un host!"
+      success: "Has iniciado una nueva conversación!"
       error: "Hubo un error en el envío del mensaje"
     destroy:
       success: "La conversación fue borrada correctamente"
