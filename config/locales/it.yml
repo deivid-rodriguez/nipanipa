@@ -164,9 +164,6 @@ volontariato che offri"
     new:
       title: Iscriviti
       header: Iscrizione di %{type}
-      already_registered: Sei gia iscritto?
-      personal_desc: Su di te
-      work_type: Tipo di lavoro
     show:
       availability: Disponibilità
       profile: Il mio profilo

@@ -164,9 +164,6 @@ host be interested in you?"
     new:
       title: "Sign up"
       header: "%{type} registration"
-      already_registered: "¿Already registered?"
-      personal_desc: "About you"
-      work_type: "Type of Work"
     show:
       availability: "Availability"
       profile: "My profile"

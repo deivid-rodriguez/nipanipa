@@ -166,9 +166,6 @@ oferta"
     new:
       title: "Regístrate"
       header: "Registro de %{type}"
-      already_registered: "¿Ya estás registrado?"
-      personal_desc: "Sobre ti"
-      work_type: "Tipo de trabajo"
     show:
       availability: "Disponibilidad"
       profile: "Mi perfil"
