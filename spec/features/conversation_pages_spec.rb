@@ -58,7 +58,8 @@ describe 'Display a conversation', :js do
   let!(:conversation) { create(:conversation) }
 
   before do
-    login_as conversation.from
+    visit root_path
+    sign_in(conversation.from)
     visit conversations_path
     find_link("show-link-#{conversation.id}").trigger('click')
   end
