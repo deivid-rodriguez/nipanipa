@@ -1,5 +1,5 @@
 class FeedbacksController < ApplicationController
-  before_filter :authenticate_user!, only: [:new, :create, :destroy]
+  before_filter :authenticate_user!, except: [:index]
   before_filter :load_user, only: [:new, :create, :index, :edit, :update]
   before_filter :load_feedback, only: [:edit, :update, :destroy]
   before_filter :set_page_id, only: [:index]

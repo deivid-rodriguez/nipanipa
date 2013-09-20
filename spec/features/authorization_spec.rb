@@ -29,24 +29,21 @@ describe "User" do
 end
 
 describe "Protected pages" do
-  let!(:user)       { create(:host) }
-  let!(:other_user) { create(:volunteer) }
+  let!(:user) { create(:host) }
 
   subject { page }
 
   shared_examples "all protected pages" do
-    describe "back and redirect" do
-      it "stores redirects back after log in and then forgets" do
-        visit protected_page
-        page.should have_title t('sessions.signin')
-        fill_in 'user[email]',    with: user.email
-        fill_in 'user[password]', with: user.password
-        click_button t('sessions.signin')
-        current_path.should == protected_page
-        click_link t('sessions.signout')
-        sign_in user
-        page.should have_title user.name
-      end
+    it "stores redirects back after log in and then forgets" do
+      visit protected_page
+      page.should have_title t('sessions.signin')
+      fill_in 'user[email]',    with: user.email
+      fill_in 'user[password]', with: user.password
+      click_button t('sessions.signin')
+      current_path.should == protected_page
+      click_link t('sessions.signout')
+      sign_in user
+      page.should have_title user.name
     end
   end
 
@@ -57,15 +54,43 @@ describe "Protected pages" do
   end
 
   describe "new feedback page" do
+    let!(:other_user) { create(:volunteer) }
+
     it_behaves_like "all protected pages" do
       let(:protected_page) { new_user_feedback_path(other_user) }
     end
   end
 
-  #scenario "clicking the 'Contact' link" do
-  #  before { click_link("Contact") }
-  #  page.should_behave_like "all protected pages"
-  #end
+  describe 'edit feedback page' do
+    let!(:feedback)  { create(:feedback, sender: user) }
+
+    it_behaves_like 'all protected pages' do
+      let(:protected_page) {
+        edit_user_feedback_path(feedback.recipient, feedback) }
+    end
+  end
+
+  describe 'new conversation page' do
+    let!(:other_user) { create(:volunteer) }
+
+    it_behaves_like 'all protected pages' do
+      let(:protected_page) { new_conversation_path(other_user) }
+    end
+  end
+
+  describe 'show conversation page' do
+    let!(:conversation)  { create(:conversation, from: user) }
+
+    it_behaves_like 'all protected pages' do
+      let(:protected_page) { conversation_path(conversation) }
+    end
+  end
+
+  describe 'list conversations page' do
+    it_behaves_like 'all protected pages' do
+      let(:protected_page) { conversations_path }
+    end
+  end
 
   describe "signed-in users" do
     before do

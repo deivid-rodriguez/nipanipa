@@ -23,7 +23,9 @@ Nipanipa::Application.routes.draw do
       resources :feedbacks
     end
 
-    resources :conversations, except: [:edit, :update] do
+    get 'conversations/new/:to' => 'conversations#new', as: :new_conversation
+    resources :conversations, except: [:new, :edit, :update],
+                              constraints: { id: /\d+/ } do
       put 'reply', on: :member
     end
 

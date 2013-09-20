@@ -2,12 +2,13 @@ class ConversationsController < ApplicationController
   respond_to :html
   respond_to :js, only: [:reply, :destroy]
 
-  before_filter :load_user
+  before_filter :authenticate_user!
+  before_filter :load_user, only: [:index]
   before_filter :load_conversation, only: [:show, :reply, :destroy]
   before_filter :set_page_id
 
   def index
-    @conversations = current_user.non_deleted_conversations
+    @conversations = Conversation.non_deleted(current_user)
   end
 
   def show
@@ -61,7 +62,7 @@ class ConversationsController < ApplicationController
     end
 
     def load_conversation
-      @conversation = Conversation.find(params[:id])
+      @conversation = Conversation.non_deleted(current_user).find(params[:id])
     end
 
     def other_user

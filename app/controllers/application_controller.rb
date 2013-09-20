@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
   before_filter :update_last_sign_in_at
 
+  after_filter :store_location
+
   def default_url_options
     { locale: I18n.locale }
   end
@@ -38,5 +40,16 @@ class ApplicationController < ActionController::Base
 
     def after_sign_in_path_for(resource)
       stored_location_for(resource) || current_user
+    end
+
+    # store last url for post-login redirect to whatever the user last visited
+    def store_location
+      unless (request.fullpath =~ /signin/   || \
+              request.fullpath =~ /signout/  || \
+              request.fullpath == root_path  || \
+              request.fullpath =~ /sign_up/  || \
+              request.xhr?) # don't store ajax calls
+        session[:user_return_to] = request.fullpath
+      end
     end
 end

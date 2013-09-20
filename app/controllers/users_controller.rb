@@ -27,6 +27,11 @@ class UsersController < Devise::RegistrationsController
       resource
     end
 
+    # Override redirect after signup
+    def after_sign_up_path_for(resource)
+      resource
+    end
+
     # Override devise default of asking password for updates
     def update_resource(resource, params)
       resource.update_without_password(params)

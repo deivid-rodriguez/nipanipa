@@ -85,10 +85,6 @@ class User < ActiveRecord::Base
     "users/user"
   end
 
-  def non_deleted_conversations
-    sent_conversations.deleted_by_sender + received_conversations.deleted_by_recipient
-  end
-
   def feedback_pairs
     result_list  = []
     sent_list = self.sent_feedbacks

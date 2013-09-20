@@ -7,8 +7,9 @@ class Conversation < ActiveRecord::Base
   belongs_to :from, class_name: 'User'
   belongs_to :to, class_name: 'User'
 
-  scope :deleted_by_sender   , -> { where(deleted_from: false) }
-  scope :deleted_by_recipient, -> { where(deleted_to: false) }
+  scope :non_deleted, ->(user) {
+     where('(from_id = ? AND deleted_from = false) OR ' \
+           '(to_id = ? AND deleted_to = false)', user, user) }
 
   def mark_as_deleted(user)
     if user == self.from
