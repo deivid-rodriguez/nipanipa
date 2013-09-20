@@ -12,7 +12,7 @@ describe 'Create a conversation' do
     click_link t('shared.profile_header.new_conversation')
   end
 
-  context 'when incorrect content' do
+  context 'with incorrect content' do
     before do
       expect { click_button create_conv }.not_to change(Conversation, :count)
     end
@@ -22,7 +22,7 @@ describe 'Create a conversation' do
     end
   end
 
-  context 'when correct content' do
+  context 'with correct content' do
     before do
       fill_in 'conversation[subject]', with: conversation.subject
       fill_in 'conversation[messages_attributes][0][body]',
