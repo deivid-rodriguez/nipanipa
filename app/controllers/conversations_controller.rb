@@ -57,6 +57,7 @@ class ConversationsController < ApplicationController
             .permit(:subject, messages_attributes: [:body, :from_id, :to_id])
     end
 
+    # Some actions need this variable in the view
     def load_user
       @user = current_user
     end
