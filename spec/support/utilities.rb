@@ -16,8 +16,15 @@ def mock_sign_in(user)
   visit user_path(user)
 end
 
+# TODO: convert to a matcher
 def sends_notification_email(recipient)
-  expect(ActionMailer::Base.deliveries.last.to).to include(recipient.email)
+  last_email = ActionMailer::Base.deliveries.last
+  expect(last_email.to).to include(recipient.email) if last_email
+end
+
+def doesnt_send_notification_email(recipient)
+  last_email = ActionMailer::Base.deliveries.last
+  expect(last_email.to).not_to include(recipient.email) if last_email
 end
 
 def sign_out

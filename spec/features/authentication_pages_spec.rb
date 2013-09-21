@@ -76,6 +76,11 @@ describe 'Password recovery' do
     click_link t('sessions.forgot_your_pwd?')
   end
 
+  shared_examples 'paranoid' do
+    it { should have_flash_message \
+                t('devise.passwords.send_paranoid_instructions'), 'success' }
+  end
+
   context 'with correct email' do
     before do
       within 'div.signin-thumbnail' do
@@ -84,8 +89,8 @@ describe 'Password recovery' do
       end
     end
 
-    it { should have_flash_message \
-           t('devise.passwords.send_instructions'), 'success' }
+    it_behaves_like 'paranoid'
+    it { sends_notification_email(user) }
   end
 
   context 'with wrong email' do
@@ -96,8 +101,7 @@ describe 'Password recovery' do
       end
     end
 
-    it { should have_flash_message \
-           t('activerecord.errors.models.user.attributes.email.not_found'),
-           'error' }
+    it_behaves_like 'paranoid'
+    it { doesnt_send_notification_email(user) }
   end
 end

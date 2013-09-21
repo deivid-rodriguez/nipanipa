@@ -44,10 +44,11 @@ class ApplicationController < ActionController::Base
 
     # store last url for post-login redirect to whatever the user last visited
     def store_location
-      unless (request.fullpath =~ /signin/   || \
-              request.fullpath =~ /signout/  || \
-              request.fullpath == root_path  || \
-              request.fullpath =~ /sign_up/  || \
+      unless (request.fullpath =~ /signin/    || \
+              request.fullpath =~ /signout/   || \
+              request.fullpath == root_path   || \
+              request.fullpath =~ /sign_up/   || \
+              request.fullpath =~ /password/  || \
               request.xhr?) # don't store ajax calls
         session[:user_return_to] = request.fullpath
       end
