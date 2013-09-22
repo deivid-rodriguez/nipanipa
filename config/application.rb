@@ -43,6 +43,7 @@ module Nipanipa
     end
 
     # All translations from config/locales/*.rb,yml are auto loaded.
+    config.i18n.load_path += Dir["#{Rails.root}/config/locales/**/*.yml"]
     config.i18n.locale = config.i18n.default_locale = :en
 
     # Mailing.
