@@ -6,4 +6,4 @@ en:
     formats:
       default: ! '%a, %d %b at %H:%M'
   datetime:
-    timestamp_ago: %{time} ago
+    timestamp_ago: "%{time} ago"

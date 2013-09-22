@@ -1,6 +1,6 @@
 it:
   date:
     formats:
-      month: "%b"
+      month: '%b'
   datetime:
-    timestamp_ago: %{time} fa
+    timestamp_ago: "%{time} fa"
