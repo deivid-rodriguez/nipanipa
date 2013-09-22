@@ -1,4 +1,5 @@
 it:
+  devise:
     mailer:
       reset_password_instructions:
         greeting: Ciao %name!

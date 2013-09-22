@@ -267,3 +267,62 @@ solicitarnos nuevas funcionalidades %{issues_url}."
       greeting: "Hola %{name}!"
       message: "Otro usuario de NiPaNiPa te ha contactado a través de nuestra
 web. Para ver el mensaje, haz click en el siguiente enlace:"
+  helpers:
+    submit:
+      user:
+        create: "Registrarme!"
+        update: "Actualizar usuario"
+      feedback:
+        create: "Dejar nueva referencia"
+        update: "Editar la referencia"
+      conversation:
+        create: "Comenzar una conversación"
+      picture:
+        create: "Subir foto"
+        update: "Actualizar foto"
+      donation:
+        create: "Dona ahora!"
+  activerecord:
+    models:
+      picture: "foto"
+      host: "host"
+      volunteer: "voluntario"
+    attributes:
+      user:
+        password_digest: "Contraseña"
+      conversation:
+        subject: "Asunto"
+      message:
+        body: "Contenido"
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank: "La contraseña está vacía"
+              confirmation: "No coincide con la confirmación..."
+              too_short: "La contraseña debe tener al menos 6 caracteres"
+            name:
+              blank: "Necesito un nombre de usuario..."
+              too_long: "El nombre de usuario es demasiado largo"
+            email:
+              taken: "Ese correo ya existe en NiPaNiPa"
+              blank: "Necesito una dirección de e-mail..."
+              invalid: "Introduciste un correo electrónico con un formato raro"
+              not_found: "Ese correo electrónico no existe en NiPaNiPa"
+            password_confirmation:
+              blank: "La confirmación de la contraseña está vacía"
+              too_short: "La confirmación de la contraseña es demasiado corta"
+            description:
+              too_long: "El texto es demasiado largo. Sé más breve"
+        feedback:
+          attributes:
+            content:
+              blank: "Escribe algo sobre el usuario"
+              too_long: "La referencia es demasiado larga"
+        picture:
+          attributes:
+            image_file_size:
+              in_between: "El fichero no puede pesar más de 500Kb... :("
+      messages:
+        record_invalid: "Registro no válido"

@@ -1,7 +1,7 @@
 it:
   simple_form:
-    yes: Si
-    no: No
+    'yes': 'Si'
+    'no': 'No'
     required:
       text: obbligatorio
       mark: '*'
@@ -39,4 +39,3 @@ niente"
       user:
         email: Mail
         password: Password
-

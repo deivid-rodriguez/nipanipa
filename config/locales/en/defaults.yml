@@ -1,69 +1,9 @@
 en:
   date:
     formats:
-      month: "%b"
-  datetime:
-    timestamp_ago: "%{time} ago"
-  helpers:
-    submit:
-      user:
-        create: "I'm done!"
-        update: "Update user"
-      feedback:
-        create: "Leave new reference!"
-        update: "Edit reference"
-      conversation:
-        create: "Start a conversation"
-      picture:
-        create: "Upload picture"
-        update: "Update picture"
-      donation:
-        create: "Donate now!"
+      month: '%b'
   time:
     formats:
       default: ! '%a, %d %b at %H:%M'
-  activerecord:
-    models:
-      picture: "picture"
-      host: "host"
-      volunteer: "volunteer"
-    attributes:
-      user:
-        password_digest: "Password"
-      conversation:
-        subject: "Subject"
-      message:
-        body: "Body"
-    errors:
-      models:
-        user:
-          attributes:
-            password:
-              blank: "Password is empty"
-              confirmation: "Password and confirmation do not match"
-              too_short: "Password is too short, it must be 6 characters minimum"
-            name:
-              blank: "You must specify a username"
-              too_long: "That username is too long"
-            email:
-              taken: "That email address is already taken"
-              blank: "You must specify an email address"
-              invalid: "That email looks weird... Check the format"
-              not_found: "That email address doesn't exist in NiPaNiPa"
-            password_confirmation:
-              blank: "Password confirmation can't be blank"
-              too_short: "Password confirmation is too short"
-            description:
-              too_long: "The text is too long. Be brief"
-        feedback:
-          attributes:
-            content:
-              blank: "Write something about the user"
-              too_long: "Feedback is too long"
-        picture:
-          attributes:
-            image_file_size:
-              in_between: "File can't be bigger than 500Kb... :("
-      messages:
-        record_invalid: "Invalid record"
-
+  datetime:
+    timestamp_ago: %{time} ago

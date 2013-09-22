@@ -266,3 +266,62 @@ l'errore."
       greeting: Ciao %{name}!
       message: "Altro utente di NiPaNiPa te ha conttatato sul nostro sito. Per
 vedere il messagio, clicca qui:"
+  helpers:
+    submit:
+      user:
+        create: Iscrivirmi!
+        update: Modificare utente
+      feedback:
+        create: Lasciare referenza
+        update: Modificare referenza
+      conversation:
+        create: Cominciare una conversazione
+      picture:
+        create: Caricare foto
+        update: Modificare foto
+      donation:
+        create: Dona adesso!
+  activerecord:
+    models:
+      picture: foto
+      host: host
+      volunteer: volontario
+    attributes:
+      user:
+        password_digest: password
+      conversation:
+        subject: Soggetto
+      message:
+        body: corpo
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank: La password è vuota
+              confirmation: Password e conferma male abibinati
+              too_short: Password deve essere di almeno 6 carattere
+            name:
+              blank: Ho bisogno di un nome di utente
+              too_long: Il nome è troppo lungo
+            email:
+              taken: Quella mail gia esiste in NiPaNiPa
+              blank: Ho bisogno di una mail
+              invalid: Il formato di quella mail è sbagliato
+              not_found: Quella mail non esiste in NiPaNiPa
+            password_confirmation:
+              blank: La conferma della password è vuota
+              too_short: La conferma della password è troppo corta
+            description:
+              too_long: Il testo è troppo longo. Essere più conciso!
+        feedback:
+          attributes:
+            content:
+              blank: Devi scrivere qualcosa
+              too_long: La referenza è troppo lunga
+        picture:
+          attributes:
+            image_file_size:
+              in_between: Il file non deve essere più grande di 500Kb... :(
+      messages:
+        record_invalid: Registro non valido
