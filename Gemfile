@@ -31,7 +31,7 @@ group :development, :test do
   gem 'rspec-rails', '2.14.0'
   gem 'guard-rspec', '3.0.3'
   gem 'guard', '2.0.0.pre2'
-  gem 'pry-byebug', path: '~/Proyectos/pry-byebug'
+  gem 'pry-byebug', github: 'deivid-rodriguez/pry-byebug'
   gem 'byebug', github: 'deivid-rodriguez/byebug'
   gem 'factory_girl_rails', '4.2.1'
 end

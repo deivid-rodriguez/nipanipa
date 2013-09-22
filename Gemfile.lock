@@ -7,19 +7,18 @@ GIT
       debugger-linecache (~> 1.2.0)
 
 GIT
+  remote: git://github.com/deivid-rodriguez/pry-byebug.git
+  revision: 6fec7407e55640907b583c6827dd27cbe9c30bea
+  specs:
+    pry-byebug (1.1.2)
+      byebug (~> 2.1)
+      pry (~> 0.9.12)
+
+GIT
   remote: git://github.com/jonleighton/spring.git
   revision: 38214cfd773daaa3345604743f795271824dcf49
   specs:
     spring (0.0.10)
-
-PATH
-  remote: ~/Proyectos/pry-byebug
-  specs:
-    pry-byebug (1.1.2)
-      byebug (~> 2.2)
-      pry (~> 0.9.12)
-      pry-doc (~> 0.4.6)
-      pry-stack_explorer (~> 0.4.9)
 
 GEM
   remote: https://rubygems.org/
@@ -52,8 +51,6 @@ GEM
     arel (4.0.0)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
-    binding_of_caller (0.7.2)
-      debug_inspector (>= 0.0.1)
     bootstrap-sass (2.3.2.2)
       sass (~> 3.2)
     bootstrap-will_paginate (0.0.10)
@@ -93,7 +90,6 @@ GEM
     columnize (0.3.6)
     crack (0.4.1)
       safe_yaml (~> 0.9.0)
-    debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
     devise (3.1.0)
       bcrypt-ruby (~> 3.0)
@@ -189,12 +185,6 @@ GEM
       coderay (~> 1.0.5)
       method_source (~> 0.8)
       slop (~> 3.4)
-    pry-doc (0.4.6)
-      pry (>= 0.9)
-      yard (>= 0.8)
-    pry-stack_explorer (0.4.9.1)
-      binding_of_caller (>= 0.7)
-      pry (>= 0.9.11)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
@@ -292,7 +282,6 @@ GEM
     will_paginate (3.0.5)
     xpath (2.0.0)
       nokogiri (~> 1.3)
-    yard (0.8.7.2)
 
 PLATFORMS
   ruby
