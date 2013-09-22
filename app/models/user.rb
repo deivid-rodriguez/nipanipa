@@ -84,14 +84,4 @@ class User < ActiveRecord::Base
   def to_partial_path
     "users/user"
   end
-
-  def feedback_pairs
-    result_list  = []
-    sent_list = self.sent_feedbacks
-    self.received_feedbacks.each do |feedback|
-      result_list << [feedback, feedback.complement]
-      sent_list -= [feedback.complement]
-    end
-    result_list.concat(sent_list.map { |x| [nil, x] })
-  end
 end

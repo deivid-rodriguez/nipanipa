@@ -28,7 +28,7 @@ class FeedbacksController < ApplicationController
   end
 
   def index
-    @feedback_pairs = @user.feedback_pairs
+    @feedback_pairs = Feedback.pairs(@user)
   end
 
   def edit

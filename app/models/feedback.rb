@@ -18,8 +18,11 @@ class Feedback < ActiveRecord::Base
   accepts_nested_attributes_for :donation,
                                 reject_if: proc { |attr| attr[:amount] == "0" }
 
+  scope :sent    , ->(user) { where(sender: user)    }
+  scope :received, ->(user) { where(recipient: user) }
+
   def complement
-    Feedback.find_by_sender_id_and_recipient_id(self.recipient_id, self.sender_id)
+    Feedback.find_by(sender: recipient, recipient: sender)
   end
 
   def update_karma
@@ -39,5 +42,15 @@ class Feedback < ActiveRecord::Base
       recipient.karma -= score.value
       recipient.save
     end
+  end
+
+  def self.pairs(user)
+    result_list  = []
+    sent_list = Feedback.sent(user)
+    Feedback.received(user).each do |feedback|
+      result_list << [feedback, feedback.complement]
+      sent_list -= [feedback.complement]
+    end
+    result_list.concat(sent_list.map { |x| [nil, x] })
   end
 end
