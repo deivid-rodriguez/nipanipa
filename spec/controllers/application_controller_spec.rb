@@ -1,5 +1,7 @@
 # Nothing routes to ApplicationController so just choose one controller
 describe StaticPagesController do
+  before { @old_locale = I18n.locale }
+  after { I18n.locale = @old_locale }
 
   context 'locale is set as a parameter' do
     before do
