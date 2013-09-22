@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/deivid-rodriguez/byebug.git
-  revision: d65c79fbd5fe01533992f369f8dba1a571771799
+  revision: 6a86e61e11f7b7753ee2ab3c3ff988122dd35d51
   specs:
-    byebug (2.1.1)
+    byebug (2.2.0)
       columnize (~> 0.3.6)
       debugger-linecache (~> 1.2.0)
 
@@ -11,6 +11,15 @@ GIT
   revision: 38214cfd773daaa3345604743f795271824dcf49
   specs:
     spring (0.0.10)
+
+PATH
+  remote: ~/Proyectos/pry-byebug
+  specs:
+    pry-byebug (1.1.2)
+      byebug (~> 2.2)
+      pry (~> 0.9.12)
+      pry-doc (~> 0.4.6)
+      pry-stack_explorer (~> 0.4.9)
 
 GEM
   remote: https://rubygems.org/
@@ -43,6 +52,8 @@ GEM
     arel (4.0.0)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     bootstrap-sass (2.3.2.2)
       sass (~> 3.2)
     bootstrap-will_paginate (0.0.10)
@@ -82,6 +93,7 @@ GEM
     columnize (0.3.6)
     crack (0.4.1)
       safe_yaml (~> 0.9.0)
+    debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
     devise (3.1.0)
       bcrypt-ruby (~> 3.0)
@@ -177,6 +189,12 @@ GEM
       coderay (~> 1.0.5)
       method_source (~> 0.8)
       slop (~> 3.4)
+    pry-doc (0.4.6)
+      pry (>= 0.9)
+      yard (>= 0.8)
+    pry-stack_explorer (0.4.9.1)
+      binding_of_caller (>= 0.7)
+      pry (>= 0.9.11)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
@@ -305,6 +323,7 @@ DEPENDENCIES
   nested_form (= 0.3.2)
   pg (= 0.17.0)
   poltergeist (= 1.4.1)
+  pry-byebug!
   quiet_assets (= 1.0.2)
   rails (= 4.0.0)
   rails-i18n (= 4.0.0.pre2)
