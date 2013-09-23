@@ -1,29 +1,32 @@
 #
 # Integration tests for User pages
 #
-#
+
 shared_examples_for 'user profile' do
-  it { should have_selector('h3', text: user.name) }
-  it { should have_title user.name }
-  it { should have_content(user.description) }
-  it 'has all feedbacks' do
+  it 'has the user name in the title' do
+    page.should have_title user.name
+  end
+  it 'has the user description' do
+    page.should have_content(user.description)
+  end
+  it 'has all received feedback' do
     user.received_feedbacks.each { |f| page.should have_content(f.content) }
   end
-  it { should have_content(user.received_feedbacks.count) }
-  it 'has all feedbacks' do
+  it 'has the count of received feedback' do
+    page.should have_content(user.received_feedbacks.count)
+  end
+  it 'has all sent feedback' do
     user.sent_feedbacks.each { |f| page.should have_content(f.content) }
   end
-  it { should have_content(user.sent_feedbacks.count) }
+  it 'has the count of sent feedback' do
+    page.should have_content(user.sent_feedbacks.count)
+  end
   it 'has all of user worktypes' do
     user.work_types.each { |wt| page.should have_content(wt.name) }
   end
   it 'has correct user availability' do
     page.should have_content("✘ ✔ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘")
   end
-end
-
-shared_examples_for 'user list' do
-
 end
 
 describe 'Profile creation' do
@@ -111,10 +114,6 @@ describe 'Profile creation' do
       it { should have_link t('sessions.signout') }
     end
   end
-end
-
-describe 'User profile removing' do
-
 end
 
 describe 'User profile index' do
