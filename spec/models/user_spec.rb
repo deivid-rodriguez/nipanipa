@@ -126,8 +126,8 @@ describe User do
       received_feedbacks = user.received_feedbacks.to_a
       user.destroy
       received_feedbacks.should_not be_empty
-      received_feedbacks.each do |feedback|
-        Feedback.find_by(id: feedback.id).should be_nil
+      received_feedbacks.each do |received_feedback|
+        Feedback.find_by(id: received_feedback.id).should be_nil
       end
     end
 
