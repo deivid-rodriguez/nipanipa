@@ -264,7 +264,7 @@ l'errore."
     message_reception:
       subject: Hai ricevuto un nuovo messagio di %{from}
       greeting: Ciao %{name}!
-      message: "Altro utente di NiPaNiPa tr ha conttatato sul nostro sito. Per
+      message: "Altro utente di NiPaNiPa ti ha conttatato sul nostro sito. Per
 vedere il messagio, clicca qui:"
   helpers:
     submit:
