@@ -6,7 +6,7 @@ it:
     current_or_last_login:
       currently_logged_in: È online proprio adesso!
       last_login: Ultimo accesso
-    not_specified: Non especificato
+    not_specified: Non specificato
     edit: Modificare
     delete: Cancellare
     profile_header:
@@ -16,10 +16,10 @@ it:
       feedback: Referenze
       pictures: Foto
       edit: Modificare profilo
-      new_conversation: Enviare un messaggio
+      new_conversation: Inviare un messaggio
       new_feedback: Lasciare referenza
       edit_feedback: Modificare referenza
-      report_user: Segnalare questo usuario
+      report_user: Segnalare questo utente
     badge:
       karma: Karma
       location: Luogo
@@ -37,39 +37,39 @@ it:
     about:
       title: Chi siamo?
       description: "Siamo un gruppo di web designers e web developers stabiliti
-in Germania ed Spagna. Siamo anche passionati viaggiatori y chi mancava qualcosa
-prima di NiPaNiPa. Dunque l'abbiamo fatta. Divertitevi!"
+in Germania e in Spagna. Siamo anche appassionati viaggiatori a cui mancava
+qualcosa prima di NiPaNiPa. Dunque l'abbiamo fatta. Divertitevi!"
     contact:
       title: Contatto
-      description_html: "NiPaNiPa si trova in fase di test. È adesso che ci
+      description_html: "NiPaNiPa si trova in fase di prova. È adesso che ci
 servono tanto le vostre opinioni. Non abbiamo fatto a tempo per mettere insieme
 un bel formulario di conttato ma per il momento puoi raggiungerci inviando una
-mail a %{mail}. Dici cosa pensi sul sito, che cose non funzionano, che cosa
-possa migliorare oppure manda un abbraccio e basta!"
+mail a %{mail}. Dicci cosa pensi del sito, che cosa non funziona, che cosa
+può essere migliorato oppure manda un abbraccio e basta!"
     home:
       welcome: Benvenuto a NiPaNiPa
       subtitle: Contatta volontari ed hosts in tutto il mondo
       host: Sono host
-      host_desc: Alloggia qualcuno in scambio di aiuto
+      host_desc: Da alloggio a qualcuno in cambio di aiuto
       volunteer: Sono volontario
-      volunteer_desc: Aiuta qualcuno in scambio di allogio
+      volunteer_desc: Aiuta qualcuno in cambio di allogio
       contribute: Collabora
-      contribute_desc: "Il tuo sostegno ci auita a rimanere gratuiti. Fa una
-donazione, collabora nello sviluppo del sito oppure auitaci a tradurlo alla tua
+      contribute_desc: "Il tuo sostegno ci aiuta a rimanere gratuiti. Fai una
+donazione, collabora nello sviluppo del sito oppure auitaci a tradurlo nella tua
 lingua."
       explore: Esplora
-      explore_desc: "Da un'occhiata ai possibili host che ti allogieranno nelle
-tue vacanze oppure cerca volontari che sono vicino a te e sono pronti per
-aiutarti col tuo progetto."
+      explore_desc: "Dai un'occhiata ai possibili host che ti alloggeranno nel
+tuo viaggio oppure cerca volontari che sono vicino a te e sono pronti per
+aiutarti nel tuo progetto."
       signup: Iscriviti!
-      signup_desc: "Iscriviti a NiPaNiPa, sia come host che volontario.
+      signup_desc: "Iscriviti a NiPaNiPa, sia come host sia come volontario.
 Non ci vogliono neanche 5 minuti!"
   feedbacks:
     new:
       title: Referenza per %{username}
-      subtitle: "Grazie per la tua referenza. La fiduccia tra host e volontari
-non è possibile senza le vostre opinioni. Y NiPaNiPa non è possibile senza le
-vostre donazione che per noi sono un prezzo che voi mettete alla vostra
+      subtitle: "Grazie per la tua referenza. La fiducia tra host e volontari
+non è possibile senza le vostre opinioni. E NiPaNiPa non è possibile senza le
+vostre donazioni che per noi sono un valore che voi date alla vostra
 esperienza."
     form:
       feedback_for_user: Referenza per %{username}
@@ -78,11 +78,11 @@ esperienza."
 Quando vuoi farne un altra, vai %{donations_url}"
       here: qui
     edit:
-      title: Modificara la referenza per %{username}
+      title: Modificare la referenza per %{username}
       subtitle: Modifica o migliora la referenza come voui
     create:
       success: Hai lasciato una nuova referenza
-      error: C'è stato un errore al creare la nuova referenza... :(
+      error: C'è stato un errore nel creare la nuova referenza... :(
     index:
       title: Referenze
     feedbacks:
@@ -98,14 +98,14 @@ Quando vuoi farne un altra, vai %{donations_url}"
       to: Per %{name}
     update:
       success: Hai modificato la referenza!
-      error: "C'è stato un errore al modificare la referenza. Non deve essere
-pìù lunga de 300 carattere"
+      error: "C'è stato un errore nel modificare la referenza. Non deve essere
+pìù lunga de 300 caratteri"
     destroy:
       success: La tua referenza è stata cancellata
   pictures:
     new:
       title: Aggiungi una foto
-      subtitle: Le foto sono belle e rendono conto che sei una persona reale.
+      subtitle: Le foto sono belle e rendono l'idea che sei una persona reale.
     create:
       success: Foto caricata correttamente!
       error: Errore caricando la foto... :("
@@ -114,7 +114,7 @@ pìù lunga de 300 carattere"
       new_picture: Aggiungere una foto
     edit:
       title: Modificare la foto
-      subtitle: Puoi cambiare nome a la foto o sceglierne una nuova
+      subtitle: Puoi cambiare nome alla foto o sceglierne una nuova
     update:
       success: Foto modificata correttamente
       error: Errore al modificare la foto
@@ -129,7 +129,7 @@ pìù lunga de 300 carattere"
       title: Contatta %{username}
     create:
       success: Hai iniziato una conversazione! :)
-      error: C'è stato un error nello invio del messagio
+      error: C'è stato un errore nell'invio del messagio
     destroy:
       success: La conversazione è stata cancellata correttamente
     index:
@@ -140,27 +140,27 @@ pìù lunga de 300 carattere"
     preview:
       usure?: Sei sicuro che vuoi cancellare la conversazione?
     reply:
-      error: Error nello invio del messagio...
+      error: Error nello invio del messaggio...
   users:
     form:
-      description_host: "Racconta ai prossimi volontari qualcosa su di te o la
-tua famiglia"
+      description_host: "Racconta ai prossimi volontari qualcosa su di te o
+sulla tua famiglia"
       description_volunteer: Racconta al tuo host qualcosa su di te
-      skills_host: "Descrivi come è il tipo di lavoro che il volontario dovra
+      skills_host: "Descrivi come è il tipo di lavoro che il volontario dovrà
 fare da te"
-      skills_volunteer: "Cosa sai fare? Che cose pensi che possano interessare
-ai host da quelli che sai fare?"
+      skills_volunteer: "Cosa sai fare? Che cose pensi che possa interessare
+agli host di quello che sai fare?"
     language_skills:
-      title: Quale lingue sai parlare?
+      title: Quali lingue parli?
       add_language: aggiungi lingue
     language_skill_fields:
-      language: Selezziona lingua
-      level: Selezziona il tuo livello
+      language: Seleziona lingua
+      level: Seleziona il tuo livello
       remove_language: Cancella lingua
     work_types:
-      title_host: "Selezziona uno o vari settori per categorizzare il
+      title_host: "Seleziona uno o vari settori per categorizzare il
 volontariato che offri"
-      title_volunteer: Selezziona il/i tipo/i di lavoro che stai cercando
+      title_volunteer: Seleziona il/i tipo/i di lavoro che stai cercando
     new:
       title: Iscriviti
       header: Iscrizione di %{type}
@@ -175,13 +175,13 @@ volontariato che offri"
       skills_host: Descrizione del lavoro
       skills_volunteer: Abilità
     edit:
-      title: Modificazione del profilo
+      title: Modifica del profilo
       header: Modifica il tuo profilo
     index:
       title: Cercare
       availability: Disponibilità
       whenever: Indifferente
-      now: Disponibili adesso
+      now: Disponibile adesso
       places: Luoghi
       people: Gente
       hosts: Host
@@ -192,7 +192,7 @@ volontariato che offri"
       location: Posto
       unknown: Sconosciuto
   work_types:
-    gardening: Giardineria
+    gardening: Giardinaggio
     babysitting: Baby-sitter
     cooking: Cuoco/a
     farming: Azienda agricola
@@ -220,17 +220,17 @@ volontariato che offri"
       intro: "NiPaNiPa ha bisogno del tuo aiuto per sopravvivere in modo
 indipendente e gratuito. Come è che puoi aiutarci?"
       donate_title: Dona
-      donate_desc: "Se puoi e vuoi, fai una donazione. Per farla, metti il monto
+      donate_desc: "Se puoi e vuoi, fai una donazione. Per farla, metti la cifra
 (in dollari americani) que desideri donare."
       contribute_title: Autaci
-      contribute_desc_dev_html: "Se sai programmare, puoi autarci con lo sviluppo
-di NiPaNiPa %{git_url}."
-      contribute_desc_tr: "Se NiPaNiPa no è tradotta alla tua lingua madre ma
+      contribute_desc_dev_html: "Se sai programmare, puoi autarci con lo
+sviluppo di NiPaNiPa %{git_url}."
+      contribute_desc_tr: "Se NiPaNiPa no è tradotto nella tua lingua madre, ma
 puoi capire questo, puoi autarci a tradurla."
       contribute_desc_bug_html: "Puoi anche segnalare errori o chiederci nuove
 funzionalità %{issues_url}."
-      select_amount: Seleziona il monto
-      input_amount: O scrivi quanto vuoi donare se il monto non c'è nella lista
+      select_amount: Seleziona la cifra
+      input_amount: O scrivi quanto vuoi donare se la cifra non è nella lista
       here: qui
       flattr: Or fai una microdonazione con flattr
     create:
@@ -264,7 +264,7 @@ l'errore."
     message_reception:
       subject: Hai ricevuto un nuovo messagio di %{from}
       greeting: Ciao %{name}!
-      message: "Altro utente di NiPaNiPa te ha conttatato sul nostro sito. Per
+      message: "Altro utente di NiPaNiPa tr ha conttatato sul nostro sito. Per
 vedere il messagio, clicca qui:"
   helpers:
     submit:
@@ -275,7 +275,7 @@ vedere il messagio, clicca qui:"
         create: Lasciare referenza
         update: Modificare referenza
       conversation:
-        create: Cominciare una conversazione
+        create: Comincia una conversazione
       picture:
         create: Caricare foto
         update: Modificare foto
@@ -299,21 +299,21 @@ vedere il messagio, clicca qui:"
           attributes:
             password:
               blank: La password è vuota
-              confirmation: Password e conferma male abibinati
+              confirmation: Password e conferma non coincidono
               too_short: Password deve essere di almeno 6 carattere
             name:
               blank: Ho bisogno di un nome di utente
               too_long: Il nome è troppo lungo
             email:
-              taken: Quella mail gia esiste in NiPaNiPa
+              taken: Quella mail esiste gia in NiPaNiPa
               blank: Ho bisogno di una mail
-              invalid: Il formato di quella mail è sbagliato
+              invalid: Il formato di questa mail è sbagliato
               not_found: Quella mail non esiste in NiPaNiPa
             password_confirmation:
               blank: La conferma della password è vuota
               too_short: La conferma della password è troppo corta
             description:
-              too_long: Il testo è troppo longo. Essere più conciso!
+              too_long: Il testo è troppo lungo. Devi essere più conciso!
         feedback:
           attributes:
             content:
