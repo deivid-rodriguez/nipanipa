@@ -118,7 +118,7 @@ describe User do
       user.destroy
       sent_feedbacks.should_not be_empty
       sent_feedbacks.each do |sent_feedback|
-        Feedback.find_by_id(sent_feedback.id).should be_nil
+        Feedback.find_by(id: sent_feedback.id).should be_nil
       end
     end
 
@@ -127,7 +127,7 @@ describe User do
       user.destroy
       received_feedbacks.should_not be_empty
       received_feedbacks.each do |feedback|
-        Feedback.find_by_id(feedback.id).should be_nil
+        Feedback.find_by(id: feedback.id).should be_nil
       end
     end
 
