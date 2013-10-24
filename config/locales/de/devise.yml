@@ -1,0 +1,21 @@
+en:
+  devise:
+    mailer:
+      reset_password_instructions:
+        greeting: Hello %{name}!
+        info: "Someone has requested a link to change your password. You can do
+this through the link below."
+        change_my_pwd: Change my password
+        ignore: If you didn't request this, please ignore this email.
+        wont_change: "Your password won't change until you access the link above
+and create a new one."
+    passwords:
+      new:
+        forgotten?: Forgot your password?
+        send_instructions: Send me instructions
+      edit:
+        title: Change your password
+        change_pwd: Change my password!
+    users:
+      signed_up: Welcome! You have signed up successfully.
+      updated: You updated your account successfully!
