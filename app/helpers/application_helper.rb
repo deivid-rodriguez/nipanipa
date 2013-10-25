@@ -20,7 +20,7 @@ module ApplicationHelper
     if user_signed_in? and current_user == user
       user_tabs = {
         conversations: { name: t('.conversations'), path: conversations_path },
-        edit: { name: t('.edit'), path: edit_user_path(current_user) } }
+        edit: { name: t('.edit'), path: edit_user_registration_path } }
       tabs = general_tabs.merge(user_tabs)
     else
       tabs = general_tabs
