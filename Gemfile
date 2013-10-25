@@ -28,7 +28,6 @@ gem 'quiet_assets', '1.0.2'
 
 group :development, :test do
   gem 'rspec-rails', '2.14.0'
-  gem 'pry-byebug', github: 'deivid-rodriguez/pry-byebug'
   gem 'guard-rspec', '4.0.3'
   gem 'guard', '2.2.2'
   gem 'byebug', github: 'deivid-rodriguez/byebug'

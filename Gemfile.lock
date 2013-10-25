@@ -6,14 +6,6 @@ GIT
       columnize (~> 0.3.6)
       debugger-linecache (~> 1.2.0)
 
-GIT
-  remote: git://github.com/deivid-rodriguez/pry-byebug.git
-  revision: 6fec7407e55640907b583c6827dd27cbe9c30bea
-  specs:
-    pry-byebug (1.1.2)
-      byebug (~> 2.1)
-      pry (~> 0.9.12)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -306,7 +298,6 @@ DEPENDENCIES
   nested_form (= 0.3.2)
   pg (= 0.17.0)
   poltergeist (= 1.4.1)
-  pry-byebug!
   quiet_assets (= 1.0.2)
   rails (= 4.0.0)
   rails-i18n (= 4.0.0)
