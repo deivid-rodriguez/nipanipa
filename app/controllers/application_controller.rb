@@ -8,6 +8,14 @@ class ApplicationController < ActionController::Base
 
   after_filter :store_location
 
+  # Apply strong_parameters filtering before CanCan authorization
+  # See https://github.com/ryanb/cancan/issues/571#issuecomment-10753675
+  before_filter do
+    resource = controller_name.singularize.to_sym
+    method = "#{resource}_params"
+    params[resource] &&= send(method) if respond_to?(method, true)
+  end
+
   def default_url_options
     { locale: I18n.locale }
   end
