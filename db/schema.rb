@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 20130915163445) do
     t.integer  "from_id"
     t.integer  "to_id"
     t.string   "status"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.boolean  "deleted_from", default: false
     t.boolean  "deleted_to",   default: false
   end
@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 20130915163445) do
   create_table "donations", force: true do |t|
     t.integer  "user_id"
     t.decimal  "amount",      precision: 4, scale: 2
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "feedback_id"
   end
 
@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 20130915163445) do
     t.integer  "sender_id"
     t.integer  "recipient_id"
     t.integer  "score"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "feedbacks", ["recipient_id", "updated_at"], name: "index_feedbacks_on_recipient_id_and_updated_at", using: :btree
@@ -68,8 +68,8 @@ ActiveRecord::Schema.define(version: 20130915163445) do
     t.integer  "from_id"
     t.integer  "to_id"
     t.integer  "conversation_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "pictures", force: true do |t|
@@ -88,9 +88,12 @@ ActiveRecord::Schema.define(version: 20130915163445) do
   add_index "sectorizations", ["work_type_id"], name: "index_sectorizations_on_work_type_id", using: :btree
 
   create_table "users", force: true do |t|
+    t.string   "name"
     t.string   "email",                  default: "",          null: false
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "description"
+    t.string   "type"
     t.string   "encrypted_password",     default: "",          null: false
     t.datetime "remember_created_at"
     t.string   "role",                   default: "non-admin"
@@ -105,9 +108,6 @@ ActiveRecord::Schema.define(version: 20130915163445) do
     t.float    "longitude"
     t.datetime "reset_password_sent_at"
     t.string   "reset_password_token"
-    t.string   "type"
-    t.string   "name"
-    t.text     "description"
     t.integer  "karma",                  default: 0
     t.text     "accomodation"
     t.text     "skills"
