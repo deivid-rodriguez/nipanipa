@@ -14,12 +14,6 @@ GIT
       byebug (~> 2.1)
       pry (~> 0.9.12)
 
-GIT
-  remote: git://github.com/jonleighton/spring.git
-  revision: 38214cfd773daaa3345604743f795271824dcf49
-  specs:
-    spring (0.0.10)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -321,7 +315,6 @@ DEPENDENCIES
   sass-rails (= 4.0.1)
   shoulda (= 3.5.0)
   simple_form (= 3.0.0)
-  spring!
   turbolinks (= 1.3.0)
   uglifier (= 2.2.1)
   webmock (= 1.15.0)

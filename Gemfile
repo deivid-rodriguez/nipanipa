@@ -27,7 +27,6 @@ gem 'turbolinks', '1.3.0'
 gem 'quiet_assets', '1.0.2'
 
 group :development, :test do
-  gem 'spring', github: 'jonleighton/spring'
   gem 'rspec-rails', '2.14.0'
   gem 'pry-byebug', github: 'deivid-rodriguez/pry-byebug'
   gem 'guard-rspec', '4.0.3'
