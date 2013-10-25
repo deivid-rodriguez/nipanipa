@@ -1,7 +1,8 @@
 #encoding: utf-8
-I18n.available_locales = [:es, :en, :it]
+I18n.available_locales = [:de, :en, :es, :it]
 
 LANGUAGES = [
+              ['Deutsch',                  'de'],
               ['English',                  'en'],
               ["Espa&ntilde;ol".html_safe, 'es'],
               ['Italiano',                 'it']
