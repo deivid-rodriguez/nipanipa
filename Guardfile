@@ -3,8 +3,8 @@ require 'active_support/inflector'
 #
 # More info at https://github.com/guard/guard#readme
 #
-guard :rspec, spring: true, keep_failed: true, all_on_start: true,
-              cli: '--colour --fail-fast' do
+guard :rspec, keep_failed: true, all_on_start: true,
+              cmd: 'rspec --colour --fail-fast' do
 
   watch(%r{^config/locales/.*\.yml$})             { 'spec/features' }
   watch(%r{^config/environments/test.rb$})        { 'spec'          }
