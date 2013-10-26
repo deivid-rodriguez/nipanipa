@@ -1,326 +1,328 @@
 de:
   shared:
-    nomessages: "No messages"
-    nopictures: "There are no pictures yet"
-    nofeedback: "There is no feedback"
+    nomessages: "Keine Nachrichten"
+    nopictures: "Es sind noch keine Photos vorhanden."
+    nofeedback: "Es ist noch kein Feedback vorhanden."
     current_or_last_login:
-      currently_logged_in: "Now online!"
-      last_login: "Last login"
-    not_specified: "Not specified"
-    edit: "Edit"
-    delete: "Delete"
+      currently_logged_in: "Jetzt online!"
+      last_login: "Letzter Login"
+    not_specified: "Nicht angegeben"
+    edit: "Bearbeiten"
+    delete: "Löschen"
     profile_header:
-      unknown: "Unknown"
-      general: "General"
-      conversations: "Messages"
+      unknown: "Unbekannt"
+      general: "Allgemein"
+      conversations: "Nachrichten"
       feedback: "Feedback"
-      pictures: "Pictures"
-      edit: "Edit profile"
-      new_conversation: "New message"
-      new_feedback: "Leave a reference"
-      edit_feedback: "Change your reference"
-      report_user: "Alert about this user"
+      pictures: "Fotos"
+      edit: "Profil bearbeiten"
+      new_conversation: "Neue Nachricht"
+      new_feedback: "Referenz hinterlassen"
+      edit_feedback: "Referenz ändern"
+      report_user: "Diesen Benutzer melden"
     badge:
       karma: "Karma"
-      location: "Location"
-      last_login: "Last access"
-      member_since: "Member since"
-      categories: "Categories"
-      languages: "Languages"
+      location: "Ort"
+      last_login: "Letzter Login"
+      member_since: "Mitglied seit"
+      categories: "Kategorien"
+      languages: "Sprachen"
   static_pages:
     terms:
-      title: "Terms and Conditions"
+      title: "Nutzungsbedingungen"
     help:
-      title: "Help"
-      uhost?: "Are you a host?"
-      uvolunteer?: "Are you a volunteer?"
+      title: "Hilfe"
+      uhost?: "Bist du ein Gastgeber?"
+      uvolunteer?: "Bist du ein Helfer?"
     about:
-      title: "About Us"
-      description: "We are a Germany and Spain based association of both web designers
-and web programmers. We are also passionate travelers and cultural exchangers and feel
-something was missing before NiPaNiPa. That's why we did it. Enjoy!"
+      title: "Über uns"
+      description: "Wir sind ein in Deutschland und Spanien ansässiger Zusammenschluss von Webdesignern 
+      und Programmierern. Neben unserer Tätigkeit sind wir begeisterte Reisende, die sich für den
+      Austausch zwischen Kulturen einsetzen. Vor der Existenz von NiPaNiPa hatten wir das Gefühl, dass etwas fehlt, 
+      und so haben wir es erschaffen. Viel Spaß!"
     contact:
-      title: "Contact"
-      description_html: "NiPaNiPa is in beta phase and we need all possible feedback to
-correct errors and make it better. We haven't had the time to make a proper contact
-form but please send an e-mail to %{mail} and let us know what you think,
-what can be improved or just say hello!"
+      title: "Kontakt"
+      description_html: "NiPaNiPa ist noch in der Betaphase. Daher benötigen wir jedes Feedback, das wir 
+      bekommen können, um Fehler zu korrigieren und NiPaNiPa zu verbessern. Bisher hatten wir noch nicht 
+      die Zeit, ein Kontaktformular zu erstellen, also schickt einfach eine Mail an %{mail}, wenn ihr 
+      Anregungen oder Verbesserungsvorschläge habt oder einfach Hallo sagen wollt!"
     home:
-      welcome: 'Welcome to NiPaNiPa'
-      subtitle: 'Contacts hosts and volunteers around the world'
-      host: "I'm a host"
-      host_desc: "Find volunteers to help you while they stay at your place"
-      volunteer: "I'm a volunteer"
-      volunteer_desc: "Help someone in exchange for accomodation"
-      contribute: "Contribute"
-      contribute_desc: "Support NiPaNiPa so it keeps being free, whether by
-making a donation or contributing to the site development or helping us
-translating it into your language."
-      explore: "Explore"
-      explore_desc: "Take a look at the potential friends who might host you
-durring your holidays, or check which willing workers might be around your
-area."
-      signup: "Sign up"
-      signup_desc: "Sign up now as a host or a volunteer and fill your profile.
-It won't take you more than five minutes."
+      welcome: 'Willkommen bei NiPaNiPa'
+      subtitle: 'Verbindet Gastgeber und freiwillige Helfer rund um den Globus'
+      host: "Ich bin Gastgeber"
+      host_desc: "Beherberge Reisende und erhalte dafür Hilfe"
+      volunteer: "Ich bin Helfer"
+      volunteer_desc: "Hilf jemanden und erhalte dafür eine Unterkunft"
+      contribute: "Mitwirken"
+      contribute_desc: "Unterstütze NiPaNiPa, damit es kostenlos bleiben kann!
+      Hilf uns mit einer Spende, durch die Mitwirkung an der Entwicklung der
+      Seite oder durch die Übersetzung in deine Sprache.
+      explore: "Entdecken"
+      explore_desc: "Entdecke zukünftige Freunde, die dich während deiner 
+      Reisen beherbergen können, oder finde heraus, welche arbeitswilligen
+      Reisenden gerade in deiner Gegend sind!"
+      signup: "Registrieren"
+      signup_desc: "Registriere dich jetzt als Gastgeber oder Helfer und erstelle dein Profil.
+Es dauert nicht länger als fünf Minuten!"
   feedbacks:
     new:
-      title: "New reference for %{username}"
-      subtitle: "Thanks for leaving your feedback. NiPaNiPa's trust network is
-impossible without your opinions. Plus, your donations are the only way to keep
-our site running."
+      title: "Neue Referenz für %{username}"
+      subtitle: "Danke für dein Feedback. NiPaNiPa ist ein Vertrauensnetzwerk und 
+wäre ohne eure Rückmeldung nicht möglich. Einzig und allein euren Spenden ist es zu 
+verdanken, dass die Seite aufrechterhalten werden kann."
     form:
-      feedback_for_user: "Feedback for %{username}"
-      feedback_for_nipa: "Donation for NiPaNiPa"
-      donated_already_html: "Thanks for rewarding NiPaNiPa in exchange for a
-nice experience. You can keep on contributing %{donations_url}"
-      here: "here"
+      feedback_for_user: "Feedback für %{username}"
+      feedback_for_nipa: "Spende für NiPaNiPa"
+      donated_already_html: "Danke, dass du NiPaNiPa für die gute Erfahrung 
+      belohnst! Unter %{donations_url} kannst du uns weiter unterstützen."
+      here: "hier"
     edit:
-      title: "Edit reference for %{username}"
-      subtitle: "Improve or change your reference any way you want. Opinions are
-not inmutable!"
+      title: "Referenz für %{username} bearbeiten"
+      subtitle: "Verbessere oder ändere deine Referenz ganz so, wie du willst. 
+      Jede Meinung kann sich ändern!"
     create:
-      success: "Has dejado una nueva referencia!"
-      error: "Error al crear la nueva referencia... :("
+      success: "Du hast erfolgreich eine neue Referenz hinterlassen!"
+      error: "Fehler beim Erstellen der neuen Referenz... :("
     index:
       title: "Feedback"
     feedbacks:
       title: "Feedback"
     received:
-      one: "1 received"
-      other: "%{count} received"
+      one: "1 erhalten"
+      other: "%{count} erhalten"
     sent:
-      one: "1 sent"
-      other: "%{count} sent"
+      one: "1 gesendet"
+      other: "%{count} gesendet"
     feedback:
-      from: "From %{name}"
-      to: "To %{name}"
+      from: "Von %{name}"
+      to: "Für %{name}"
     update:
-      success: "You just edited the reference!"
-      error: "Error updating the reference... :( It should not be longer
-than 300 characters"
+      success: "Du hast die Referenz erfolgreich bearbeitet!"
+      error: "Fehler beim Aktualisieren der Referenz... :( Die Referenz darf
+      nicht länger als 300 Zeichen sein"
     destroy:
-      success: "Your reference has been removed"
+      success: "Deine Referenz wurde entfernt"
   pictures:
     new:
-      title: "Upload a new picture"
-      subtitle: "Pictures are cool, they provide trust for other users and
-show you are a real person, besides how ugly you are... (kidding!)"
+      title: "Ein neues Foto hochladen"
+      subtitle: "Foto sind cool. Sie zeigen dein Vertrauen in die anderen
+      Benutzer und zeigen, dass du auch wirklich ein Mensch bist - ganz
+      egal, wie du aussiehst! ;-) "
     create:
-      success: "Picture successfully uploaded!"
-      error: "Error uploading the picture... :("
+      success: "Dein Foto wurde erfolgreich hochgeladen!"
+      error: "Fehler beim Hochladen des Fotos... :("
     index:
-      title: "Pictures"
-      new_picture: "Add a new picture"
+      title: "Fotos"
+      new_picture: "Ein neues Foto hinzufügen"
     edit:
-      title: "Editar foto"
-      subtitle: "You can change the caption, select a new picture or mark the
-picture as your main picture which will appear in listings and at the top of
-your profile"
+      title: "Foto bearbeiten"
+      subtitle: "Du kannst die Bildunterschrift ändern, ein neues Foto
+      auswählen oder ein Foto als dein Hauptfoto festlegen, welches in der
+      Übersicht und oben in deinem Profil angezeigt wird."
     update:
-      success: "Picture updated successfully!"
-      error: "Error updating the picture..."
+      success: "Dein Foto wurde erfolgreich aktualisiert!"
+      error: "Fehler beim Hochladen des Fotos..."
     pictures:
-      delete: "Remove picture"
-      edit: "Edit picture"
+      delete: "Foto entfernen"
+      edit: "Foto bearbeiten"
     destroy:
-      success: "Pictures"
-      error: "Error removing the picture..."
+      success: "Fotos"
+      error: "Fehler beim Entfernen des Fotos..."
   conversations:
     new:
-      title: "Contact %{username}"
+      title: "%{username} kontaktieren"
     create:
-      success: "You started a new conversation"
-      error: "There was an error sending the message"
+      success: "Du hast eine neue Unterhaltung begonnen"
+      error: "Beim Senden der Nachricht ist ein Fehler aufgetreten"
     destroy:
-      success: "Conversación was removed correctly!"
+      success: "Die Unterhaltung wurde erfolgreich gelöscht!"
     index:
-      title: "My conversations"
+      title: "Meine Unterhaltungen"
     show:
-      reply: "Reply"
-      back_html: "Back &#8617;"
+      reply: "Antworten"
+      back_html: "Zurück &#8617;"
     preview:
-      usure?: "Are you sure?"
+      usure?: "Bist du dir sicher?"
     reply:
-      error: "Error sending the message..."
+      error: "Fehler beim Senden der Nachricht..."
   users:
     form:
-      description_host: "Tell your future volunteers something about yourself
-or your family."
-      description_volunteer: "Tell your future host something about yourself"
-      skills_host: "Describe the tasks the volunteer will assume"
-      skills_volunteer: "What are your skills? What can you do? Why would a
-host be interested in you?"
+      description_host: "Erzähl deinen zukünftigen Helfern etwas über dich oder deine 
+      Familie."
+      description_volunteer: "Erzähl deinem zukünftigen Gastgeber etwas über dich."
+      skills_host: "Beschreibe die Aufgaben, die den Helfer erwarten"
+      skills_volunteer: "Was sind deine Fähigkeiten? Was kannst du tun? Warum könnte 
+      ein zukünftiger Gastgeber sich für dich interessieren?"
     language_skills:
-      title: "Which languages can you speak?"
-      add_language: "add language"
+      title: "Welche Sprachen sprichst du?"
+      add_language: "Sprache hinzufügen"
     language_skill_fields:
-      language: "Select a language"
-      level: "Select your skill"
-      remove_language: "remove language"
+      language: "Sprache auswählen"
+      level: "Fertigkeitsgrad auswählen"
+      remove_language: "Sprache entfernen"
     work_types:
-      title_host: "Pick the job categories which apply to your offer"
-      title_volunteer: "Pick the type/s of job you're looking for"
+      title_host: "Wähle aus, welchen Kategorien die Arbeit entspricht, die du anbietest"
+      title_volunteer: "Wähle aus, welche Arten der Arbeit du suchst"
     new:
-      title: "Sign up"
-      header: "%{type} registration"
+      title: "Registrieren"
+      header: "%{type} Registrierung"
     show:
-      availability: "Availability"
-      profile: "My profile"
-      description: "About me / us"
+      availability: "Verfügbarkeit"
+      profile: "Mein Profil"
+      description: "Über mich / uns"
       feedback: "Feedback"
-      accomodation: "Accomodation"
-      pictures: "Pictures"
+      accomodation: "Unterkunft"
+      pictures: "Fotos"
       references: "Feedback"
-      skills_host: "Skills required / Job description"
-      skills_volunteer: "Skills offered / Job searched"
+      skills_host: "Gesuchte Fähigkeiten / Beschreibung der Arbeit"
+      skills_volunteer: "Angebotene Fähigkeiten / Gesuchte Arbeit"
     edit:
-      title: "Profile update"
-      header: "Update your profile"
+      title: "Profil aktualisieren"
+      header: "Aktualisiere dein Profil"
     index:
-      title: "Search"
-      availability: "Availability"
-      whenever: "Whenever"
-      now: "Currently available"
-      places: "Places"
-      people: "People"
-      hosts: "Hosts"
-      volunteers: "Volunteers"
-      all: "All"
+      title: "Suche"
+      availability: "Verfügbarkeit"
+      whenever: "Egal wann"
+      now: "Momentan verfügbar"
+      places: "Orte"
+      people: "Leute"
+      hosts: "Gastgeber"
+      volunteers: "Helfer"
+      all: "Alle"
     user:
-      karma: "karma"
-      location: "Location"
-      unknown: "Unknown"
+      karma: "Karma"
+      location: "Ort"
+      unknown: "Unbekannt"
   work_types:
-    gardening: "Gardening"
+    gardening: "Gartenarbeit"
     babysitting: "Babysitting"
-    cooking: "Cooking"
-    farming: "Farming"
-    housekeeping: "Housekeeping"
-    tourism: "Tourism"
-    language_exchange: "Language exchange"
-    teaching: "Teaching"
-    construction: "Construction"
-    elderly_care: "Elderly Care"
-    animal_care: "Animal Care"
-    humanitarian_aid: "Humanitarian Aid"
+    cooking: "Kochen"
+    farming: "Landwirtschaft/Farmarbeit"
+    housekeeping: "Haushalt"
+    tourism: "Tourismus"
+    language_exchange: "Sprachaustausch"
+    teaching: "Unterrichten"
+    construction: "Bauarbeiten"
+    elderly_care: "Altenpflege"
+    animal_care: "Tierpflege"
+    humanitarian_aid: "Humanitäre Hilfe"
     technical_assistance: "I.T."
-    art_project: "Artistic Project"
+    art_project: "Kunstprojekte"
     wwoofing: "Wwoofing"
   sessions:
     new:
-      newuser?: "New user?"
-    forgot_your_pwd?: "Forgot your password?"
-    signin: "Sign in"
-    signout: "Sign out"
-    rememberme: "Remember me"
+      newuser?: "Neuer Benutzer?"
+    forgot_your_pwd?: "Passwort vergessen?"
+    signin: "Login"
+    signout: "Logout"
+    rememberme: "An mich erinnern"
   donations:
     new:
-      title: "Contribute to NiPaNiPa"
-      intro: "NiPaNiPa needs your help to survive in an independent way. How can
-you help?"
-      donate_title: "Donate"
-      donate_desc: "Help us economically. To that end, select the amount (in
-USD) that you want to donate."
-      contribute_title: "Help us"
-      contribute_desc_dev_html: "If you are a web developer (or you want to be),
-you can help us by contributing to nipanipa development %{git_url}."
-      contribute_desc_tr: "If NiPaNiPa is not translated into your mother tongue
-but you can understand this, you can help us translate it!"
-      contribute_desc_bug_html: "You can also report bugs or new features you
-would like to be implemented %{issues_url}."
-      select_amount: "Select the amount"
-      input_amount: "Or choose any amount you're confortable with"
-      here: "here"
-      flattr: "You can also flattr us!"
+      title: "Zu NiPaNiPa beitragen"
+      intro: "NiPaNiPa braucht deine Hilfe, um unabhängig überleben zu können. 
+      Wie kannst du uns helfen?"
+      donate_title: "Spenden"
+      donate_desc: "Hilf uns finanziell. Wähle hierzu den Betrag (in
+USD), den du spenden möchtest."
+      contribute_title: "Hilf uns"
+      contribute_desc_dev_html: "Wenn du ein Webentwickler bist (oder gerne sein möchtest),
+kannst du uns helfen, indem du %{git_url} an der Entwicklung von NiPaNiPa mitwirkst."
+      contribute_desc_tr: "Wenn NiPaNiPa noch nicht in deine Muttersprache übersetzt wurde
+und du das hier verstehen kannst, kannst du uns beim Übersetzen helfen!"
+      contribute_desc_bug_html: "Außerdem kannst du uns %{issues_url} mögliche Bugs berichten und sagen,
+welche Funktionen dir noch fehlen."
+      select_amount: "Betrag wählen"
+      input_amount: "Oder wähle einen anderen Betrag, der dir zusagt"
+      here: "hier"
+      flattr: "Du kannst uns auch flattrn!"
     create:
-      success: "Your donation was successful!"
-      error: "Sorry, there was some problem with your donation."
+      success: "Deine Spende war erfolgreich!"
+      error: "Es tut uns leid, bei deiner Spende ist ein Problem aufgetaucht."
   layouts:
     header:
-      language: "Language"
-      search: "Search"
-      donate: "Donate"
+      language: "Sprache"
+      search: "Suchen"
+      donate: "Spenden"
     footer:
-      news: "News"
+      news: "Neuigkeiten"
   will_paginate:
-    previous_label: "Previous page"
-    next_label: "Next page"
+    previous_label: "Vorherige Seite"
+    next_label: "Nächste Seite"
   enumerize:
     language_skill:
       level:
-        just_hello: "just hello"
-        beginner: "beginner"
-        intermediate: "intermediate"
-        expert: "expert"
-        native: "native"
+        just_hello: "nur Hallo"
+        beginner: "Anfänger"
+        intermediate: "Fortgeschritten"
+        expert: "Experte"
+        native: "Muttersprache"
     feedback:
       score:
-        negative: "Negative"
+        negative: "Negativ"
         neutral: "Neutral"
-        positive: "Positive"
+        positive: "Positiv"
   user_mailer:
     message_reception:
-      subject: "You received a new message from %{from}"
-      greeting: "Hi %{name}!"
-      message: "Another user from NiPaNiPa has contacted you through our web
-site. To view the message, click on the following link:"
+      subject: "Du hast eine neue Nachricht von %{from}!"
+      greeting: "Hallo %{name}!"
+      message: "Ein anderer NiPaNiPa-Benutzer hat dich auf unserer Website
+kontaktiert. Um die Nachricht zu lesen, klicke auf den folgenden Link:"
   helpers:
     submit:
       user:
-        create: "I'm done!"
-        update: "Update user"
+        create: "Fertig!"
+        update: "Benutzer aktualisieren"
       feedback:
-        create: "Leave new reference!"
-        update: "Edit reference"
+        create: "Eine neue Referenz hinterlassen!"
+        update: "EReferenz bearbeiten"
       conversation:
-        create: "Start a conversation"
+        create: "Eine Unterhaltung beginnen"
       picture:
-        create: "Upload picture"
-        update: "Update picture"
+        create: "Foto hochladen"
+        update: "Foto aktualisieren"
       donation:
-        create: "Donate now!"
+        create: "Jetzt spenden!"
   activerecord:
     models:
-      picture: "picture"
-      host: "host"
-      volunteer: "volunteer"
+      picture: "Foto"
+      host: "Gastgeber"
+      volunteer: "Helfer"
     attributes:
       user:
-        password_digest: "Password"
+        password_digest: "Passwort"
       conversation:
-        subject: "Subject"
+        subject: "Betreff"
       message:
-        body: "Body"
+        body: "Nachrichtentext"
     errors:
       models:
         user:
           attributes:
             password:
-              blank: "Password is empty"
-              confirmation: "Password and confirmation do not match"
-              too_short: "Password is too short, it must be 6 characters minimum"
+              blank: "Das Passwortfeld ist leer"
+              confirmation: "Das Passwort und die Bestätigung stimmen nicht überein"
+              too_short: "Das Passwort ist zu kurz. Es muss mindestens 6 Zeichen umfassen"
             name:
-              blank: "You must specify a username"
-              too_long: "That username is too long"
+              blank: "Du musst einen Benutzernamen angeben"
+              too_long: "Dieser Benutzername ist zu lang"
             email:
-              taken: "That email address is already taken"
-              blank: "You must specify an email address"
-              invalid: "That email looks weird... Check the format"
-              not_found: "That email address doesn't exist in NiPaNiPa"
+              taken: "Diese E-Mail-Adresse ist bereits vergeben"
+              blank: "Du musst eine E-Mail-Adresse angeben"
+              invalid: "Diese E-Mail-Adresse sieht seltsam aus... kontrolliere sie noch mal"
+              not_found: "Diese E-Mail-Adresse gibt es bei NiPaNiPa nicht"
             password_confirmation:
-              blank: "Password confirmation can't be blank"
-              too_short: "Password confirmation is too short"
+              blank: "Das Feld zur Passwortbestätigung kann nicht leer sein"
+              too_short: "Die Passwortbestätigung ist zu kurz"
             description:
-              too_long: "The text is too long. Be brief"
+              too_long: "Der Text ist zu lang. Fasse dich kürzer"
         feedback:
           attributes:
             content:
-              blank: "Write something about the user"
-              too_long: "Feedback is too long"
+              blank: "Schreib etwas über den Benutzer"
+              too_long: "Das Feedback ist zu lang"
         picture:
           attributes:
             image_file_size:
-              in_between: "File can't be bigger than 500Kb... :("
+              in_between: "Die Datei darf nicht größer sein als  500 Kb... :("
       messages:
-        record_invalid: "Invalid record"
+        record_invalid: "Ungültiges Verzeichnis"
