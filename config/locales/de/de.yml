@@ -36,16 +36,18 @@ de:
       uvolunteer?: "Bist du ein Helfer?"
     about:
       title: "Über uns"
-      description: "Wir sind ein in Deutschland und Spanien ansässiger Zusammenschluss von Webdesignern
-und Programmierern. Neben unserer Tätigkeit sind wir begeisterte Reisende, die sich für den
-Austausch zwischen Kulturen einsetzen. Vor der Existenz von NiPaNiPa hatten wir das Gefühl, dass etwas fehlt,
-und so haben wir es erschaffen. Viel Spaß!"
+      description: "Wir sind ein in Deutschland und Spanien ansässiger
+Zusammenschluss von Webdesignern und Programmierern. Neben unserer Tätigkeit
+sind wir begeisterte Reisende, die sich für den Austausch zwischen Kulturen
+einsetzen. Vor der Existenz von NiPaNiPa hatten wir das Gefühl, dass etwas
+fehlt, und so haben wir es erschaffen. Viel Spaß!"
     contact:
       title: "Kontakt"
-      description_html: "NiPaNiPa ist noch in der Betaphase. Daher benötigen wir jedes Feedback, das wir 
-bekommen können, um Fehler zu korrigieren und NiPaNiPa zu verbessern. Bisher hatten wir noch nicht 
-die Zeit, ein Kontaktformular zu erstellen, also schickt einfach eine Mail an %{mail}, wenn ihr 
-Anregungen oder Verbesserungsvorschläge habt oder einfach Hallo sagen wollt!"
+      description_html: "NiPaNiPa ist noch in der Betaphase. Daher benötigen wir
+jedes Feedback, das wir bekommen können, um Fehler zu korrigieren und NiPaNiPa
+zu verbessern. Bisher hatten wir noch nicht die Zeit, ein Kontaktformular zu
+erstellen, also schickt einfach eine Mail an %{mail}, wenn ihr Anregungen oder
+Verbesserungsvorschläge habt oder einfach Hallo sagen wollt!"
     home:
       welcome: 'Willkommen bei NiPaNiPa'
       subtitle: 'Verbindet Gastgeber und freiwillige Helfer rund um den Globus'
@@ -58,27 +60,27 @@ Anregungen oder Verbesserungsvorschläge habt oder einfach Hallo sagen wollt!"
 Hilf uns mit einer Spende, durch die Mitwirkung an der Entwicklung der
 Seite oder durch die Übersetzung in deine Sprache.
       explore: "Entdecken"
-      explore_desc: "Entdecke zukünftige Freunde, die dich während deiner 
+      explore_desc: "Entdecke zukünftige Freunde, die dich während deiner
 Reisen beherbergen können, oder finde heraus, welche arbeitswilligen
 Reisenden gerade in deiner Gegend sind!"
       signup: "Registrieren"
-      signup_desc: "Registriere dich jetzt als Gastgeber oder Helfer und erstelle dein Profil.
-Es dauert nicht länger als fünf Minuten!"
+      signup_desc: "Registriere dich jetzt als Gastgeber oder Helfer und
+erstelle dein Profil. Es dauert nicht länger als fünf Minuten!"
   feedbacks:
     new:
       title: "Neue Referenz für %{username}"
-      subtitle: "Danke für dein Feedback. NiPaNiPa ist ein Vertrauensnetzwerk und 
-wäre ohne eure Rückmeldung nicht möglich. Einzig und allein euren Spenden ist es zu 
-verdanken, dass die Seite aufrechterhalten werden kann."
+      subtitle: "Danke für dein Feedback. NiPaNiPa ist ein Vertrauensnetzwerk
+und wäre ohne eure Rückmeldung nicht möglich. Einzig und allein euren Spenden
+ist es zu verdanken, dass die Seite aufrechterhalten werden kann."
     form:
       feedback_for_user: "Feedback für %{username}"
       feedback_for_nipa: "Spende für NiPaNiPa"
-      donated_already_html: "Danke, dass du NiPaNiPa für die gute Erfahrung 
+      donated_already_html: "Danke, dass du NiPaNiPa für die gute Erfahrung
 belohnst! Unter %{donations_url} kannst du uns weiter unterstützen."
       here: "hier"
     edit:
       title: "Referenz für %{username} bearbeiten"
-      subtitle: "Verbessere oder ändere deine Referenz ganz so, wie du willst. 
+      subtitle: "Verbessere oder ändere deine Referenz ganz so, wie du willst.
 Jede Meinung kann sich ändern!"
     create:
       success: "Du hast erfolgreich eine neue Referenz hinterlassen!"
@@ -116,9 +118,9 @@ egal, wie du aussiehst! ;-) "
       new_picture: "Ein neues Foto hinzufügen"
     edit:
       title: "Foto bearbeiten"
-      subtitle: "Du kannst die Bildunterschrift ändern, ein neues Foto
-auswählen oder ein Foto als dein Hauptfoto festlegen, welches in der
-Übersicht und oben in deinem Profil angezeigt wird."
+      subtitle: "Du kannst die Bildunterschrift ändern, ein neues Foto auswählen
+oder ein Foto als dein Hauptfoto festlegen, welches in der Übersicht und oben in
+deinem Profil angezeigt wird."
     update:
       success: "Dein Foto wurde erfolgreich aktualisiert!"
       error: "Fehler beim Hochladen des Fotos..."
@@ -147,12 +149,12 @@ auswählen oder ein Foto als dein Hauptfoto festlegen, welches in der
       error: "Fehler beim Senden der Nachricht..."
   users:
     form:
-      description_host: "Erzähl deinen zukünftigen Helfern etwas über dich oder deine 
-      Familie."
+      description_host: "Erzähl deinen zukünftigen Helfern etwas über dich oder
+deine Familie."
       description_volunteer: "Erzähl deinem zukünftigen Gastgeber etwas über dich."
       skills_host: "Beschreibe die Aufgaben, die den Helfer erwarten"
-      skills_volunteer: "Was sind deine Fähigkeiten? Was kannst du tun? Warum könnte 
-ein zukünftiger Gastgeber sich für dich interessieren?"
+      skills_volunteer: "Was sind deine Fähigkeiten? Was kannst du tun? Warum
+könnte ein zukünftiger Gastgeber sich für dich interessieren?"
     language_skills:
       title: "Welche Sprachen sprichst du?"
       add_language: "Sprache hinzufügen"
@@ -161,7 +163,8 @@ ein zukünftiger Gastgeber sich für dich interessieren?"
       level: "Fertigkeitsgrad auswählen"
       remove_language: "Sprache entfernen"
     work_types:
-      title_host: "Wähle aus, welchen Kategorien die Arbeit entspricht, die du anbietest"
+      title_host: "Wähle aus, welchen Kategorien die Arbeit entspricht, die du
+anbietest"
       title_volunteer: "Wähle aus, welche Arten der Arbeit du suchst"
     new:
       title: "Registrieren"
@@ -222,15 +225,17 @@ ein zukünftiger Gastgeber sich für dich interessieren?"
       intro: "NiPaNiPa braucht deine Hilfe, um unabhängig überleben zu können.
 Wie kannst du uns helfen?"
       donate_title: "Spenden"
-      donate_desc: "Hilf uns finanziell. Wähle hierzu den Betrag (in
-USD), den du spenden möchtest."
+      donate_desc: "Hilf uns finanziell. Wähle hierzu den Betrag (in USD), den
+du spenden möchtest."
       contribute_title: "Hilf uns"
-      contribute_desc_dev_html: "Wenn du ein Webentwickler bist (oder gerne sein möchtest),
-kannst du uns helfen, indem du %{git_url} an der Entwicklung von NiPaNiPa mitwirkst."
-      contribute_desc_tr: "Wenn NiPaNiPa noch nicht in deine Muttersprache übersetzt wurde
-und du das hier verstehen kannst, kannst du uns beim Übersetzen helfen!"
-      contribute_desc_bug_html: "Außerdem kannst du uns %{issues_url} mögliche Bugs berichten und sagen,
-welche Funktionen dir noch fehlen."
+      contribute_desc_dev_html: "Wenn du ein Webentwickler bist (oder gerne sein
+möchtest), kannst du uns helfen, indem du %{git_url} an der Entwicklung von
+NiPaNiPa mitwirkst."
+      contribute_desc_tr: "Wenn NiPaNiPa noch nicht in deine Muttersprache
+übersetzt wurde und du das hier verstehen kannst, kannst du uns beim Übersetzen
+helfen!"
+      contribute_desc_bug_html: "Außerdem kannst du uns %{issues_url} mögliche
+Bugs berichten und sagen, welche Funktionen dir noch fehlen."
       select_amount: "Betrag wählen"
       input_amount: "Oder wähle einen anderen Betrag, der dir zusagt"
       here: "hier"
@@ -300,15 +305,18 @@ kontaktiert. Um die Nachricht zu lesen, klicke auf den folgenden Link:"
           attributes:
             password:
               blank: "Das Passwortfeld ist leer"
-              confirmation: "Das Passwort und die Bestätigung stimmen nicht überein"
-              too_short: "Das Passwort ist zu kurz. Es muss mindestens 6 Zeichen umfassen"
+              confirmation: "Das Passwort und die Bestätigung stimmen nicht
+überein"
+              too_short: "Das Passwort ist zu kurz. Es muss mindestens 6 Zeichen
+umfassen"
             name:
               blank: "Du musst einen Benutzernamen angeben"
               too_long: "Dieser Benutzername ist zu lang"
             email:
               taken: "Diese E-Mail-Adresse ist bereits vergeben"
               blank: "Du musst eine E-Mail-Adresse angeben"
-              invalid: "Diese E-Mail-Adresse sieht seltsam aus... kontrolliere sie noch mal"
+              invalid: "Diese E-Mail-Adresse sieht seltsam aus... kontrolliere
+sie noch mal"
               not_found: "Diese E-Mail-Adresse gibt es bei NiPaNiPa nicht"
             password_confirmation:
               blank: "Das Feld zur Passwortbestätigung kann nicht leer sein"
