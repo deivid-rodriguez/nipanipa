@@ -4,6 +4,6 @@ de:
       month: '%b'
   time:
     formats:
-      default: ! '%a, %d %b at %H:%M'
+      default: ! '%a, %d %b um %H:%M'
   datetime:
-    timestamp_ago: "%{time} ago"
+    timestamp_ago: "vor %{time}"
