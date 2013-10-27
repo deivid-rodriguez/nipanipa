@@ -1,46 +1,46 @@
 de:
   shared:
-    nomessages: "No messages"
-    nopictures: "There are no pictures yet"
-    nofeedback: "There is no feedback"
+    nomessages: "Keine Nachrichten"
+    nopictures: "Es sind noch keine Photos vorhanden."
+    nofeedback: "Es ist noch kein Feedback vorhanden."
     current_or_last_login:
-      currently_logged_in: "Now online!"
-      last_login: "Last login"
-    not_specified: "Not specified"
-    edit: "Edit"
-    delete: "Delete"
+      currently_logged_in: "Jetzt online!"
+      last_login: "Letzter Login"
+    not_specified: "Nicht angegeben"
+    edit: "Bearbeiten"
+    delete: "Löschen"
     profile_header:
-      unknown: "Unknown"
-      general: "General"
-      conversations: "Messages"
+      unknown: "Unbekannt"
+      general: "Allgemein"
+      conversations: "Nachrichten"
       feedback: "Feedback"
-      pictures: "Pictures"
-      edit: "Edit profile"
-      new_conversation: "New message"
-      new_feedback: "Leave a reference"
-      edit_feedback: "Change your reference"
-      report_user: "Alert about this user"
+      pictures: "Photos"
+      edit: "Profil bearbeiten"
+      new_conversation: "Neue Nachricht"
+      new_feedback: "Referenz hinterlassen"
+      edit_feedback: "Referenz ändern"
+      report_user: "Diesen Benutzer melden"
     badge:
       karma: "Karma"
-      location: "Location"
-      last_login: "Last access"
-      member_since: "Member since"
-      categories: "Categories"
-      languages: "Languages"
+      location: "Ort"
+      last_login: "Letzter Login"
+      member_since: "Mitglied seit"
+      categories: "Kategorien"
+      languages: "Sprachen"
   static_pages:
     terms:
-      title: "Terms and Conditions"
+      title: "Nutzungsbedingungen"
     help:
-      title: "Help"
-      uhost?: "Are you a host?"
-      uvolunteer?: "Are you a volunteer?"
+      title: "Hilfe"
+      uhost?: "Bist du Gastgeber?"
+      uvolunteer?: "Bist du Helfer?"
     about:
-      title: "About Us"
+      title: "Über uns"
       description: "We are a Germany and Spain based association of both web designers
 and web programmers. We are also passionate travelers and cultural exchangers and feel
 something was missing before NiPaNiPa. That's why we did it. Enjoy!"
     contact:
-      title: "Contact"
+      title: "Kontakt"
       description_html: "NiPaNiPa is in beta phase and we need all possible feedback to
 correct errors and make it better. We haven't had the time to make a proper contact
 form but please send an e-mail to %{mail} and let us know what you think,
