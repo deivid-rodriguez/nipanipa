@@ -36,16 +36,16 @@ de:
       uvolunteer?: "Bist du ein Helfer?"
     about:
       title: "Über uns"
-      description: "Wir sind ein in Deutschland und Spanien ansässiger Zusammenschluss von Webdesignern 
-      und Programmierern. Neben unserer Tätigkeit sind wir begeisterte Reisende, die sich für den
-      Austausch zwischen Kulturen einsetzen. Vor der Existenz von NiPaNiPa hatten wir das Gefühl, dass etwas fehlt, 
-      und so haben wir es erschaffen. Viel Spaß!"
+      description: "Wir sind ein in Deutschland und Spanien ansässiger Zusammenschluss von Webdesignern
+und Programmierern. Neben unserer Tätigkeit sind wir begeisterte Reisende, die sich für den
+Austausch zwischen Kulturen einsetzen. Vor der Existenz von NiPaNiPa hatten wir das Gefühl, dass etwas fehlt,
+und so haben wir es erschaffen. Viel Spaß!"
     contact:
       title: "Kontakt"
       description_html: "NiPaNiPa ist noch in der Betaphase. Daher benötigen wir jedes Feedback, das wir 
-      bekommen können, um Fehler zu korrigieren und NiPaNiPa zu verbessern. Bisher hatten wir noch nicht 
-      die Zeit, ein Kontaktformular zu erstellen, also schickt einfach eine Mail an %{mail}, wenn ihr 
-      Anregungen oder Verbesserungsvorschläge habt oder einfach Hallo sagen wollt!"
+bekommen können, um Fehler zu korrigieren und NiPaNiPa zu verbessern. Bisher hatten wir noch nicht 
+die Zeit, ein Kontaktformular zu erstellen, also schickt einfach eine Mail an %{mail}, wenn ihr 
+Anregungen oder Verbesserungsvorschläge habt oder einfach Hallo sagen wollt!"
     home:
       welcome: 'Willkommen bei NiPaNiPa'
       subtitle: 'Verbindet Gastgeber und freiwillige Helfer rund um den Globus'
@@ -55,12 +55,12 @@ de:
       volunteer_desc: "Hilf jemanden und erhalte dafür eine Unterkunft"
       contribute: "Mitwirken"
       contribute_desc: "Unterstütze NiPaNiPa, damit es kostenlos bleiben kann!
-      Hilf uns mit einer Spende, durch die Mitwirkung an der Entwicklung der
-      Seite oder durch die Übersetzung in deine Sprache.
+Hilf uns mit einer Spende, durch die Mitwirkung an der Entwicklung der
+Seite oder durch die Übersetzung in deine Sprache.
       explore: "Entdecken"
       explore_desc: "Entdecke zukünftige Freunde, die dich während deiner 
-      Reisen beherbergen können, oder finde heraus, welche arbeitswilligen
-      Reisenden gerade in deiner Gegend sind!"
+Reisen beherbergen können, oder finde heraus, welche arbeitswilligen
+Reisenden gerade in deiner Gegend sind!"
       signup: "Registrieren"
       signup_desc: "Registriere dich jetzt als Gastgeber oder Helfer und erstelle dein Profil.
 Es dauert nicht länger als fünf Minuten!"
@@ -74,12 +74,12 @@ verdanken, dass die Seite aufrechterhalten werden kann."
       feedback_for_user: "Feedback für %{username}"
       feedback_for_nipa: "Spende für NiPaNiPa"
       donated_already_html: "Danke, dass du NiPaNiPa für die gute Erfahrung 
-      belohnst! Unter %{donations_url} kannst du uns weiter unterstützen."
+belohnst! Unter %{donations_url} kannst du uns weiter unterstützen."
       here: "hier"
     edit:
       title: "Referenz für %{username} bearbeiten"
       subtitle: "Verbessere oder ändere deine Referenz ganz so, wie du willst. 
-      Jede Meinung kann sich ändern!"
+Jede Meinung kann sich ändern!"
     create:
       success: "Du hast erfolgreich eine neue Referenz hinterlassen!"
       error: "Fehler beim Erstellen der neuen Referenz... :("
@@ -99,15 +99,15 @@ verdanken, dass die Seite aufrechterhalten werden kann."
     update:
       success: "Du hast die Referenz erfolgreich bearbeitet!"
       error: "Fehler beim Aktualisieren der Referenz... :( Die Referenz darf
-      nicht länger als 300 Zeichen sein"
+nicht länger als 300 Zeichen sein"
     destroy:
       success: "Deine Referenz wurde entfernt"
   pictures:
     new:
       title: "Ein neues Foto hochladen"
       subtitle: "Foto sind cool. Sie zeigen dein Vertrauen in die anderen
-      Benutzer und zeigen, dass du auch wirklich ein Mensch bist - ganz
-      egal, wie du aussiehst! ;-) "
+Benutzer und zeigen, dass du auch wirklich ein Mensch bist - ganz
+egal, wie du aussiehst! ;-) "
     create:
       success: "Dein Foto wurde erfolgreich hochgeladen!"
       error: "Fehler beim Hochladen des Fotos... :("
@@ -117,8 +117,8 @@ verdanken, dass die Seite aufrechterhalten werden kann."
     edit:
       title: "Foto bearbeiten"
       subtitle: "Du kannst die Bildunterschrift ändern, ein neues Foto
-      auswählen oder ein Foto als dein Hauptfoto festlegen, welches in der
-      Übersicht und oben in deinem Profil angezeigt wird."
+auswählen oder ein Foto als dein Hauptfoto festlegen, welches in der
+Übersicht und oben in deinem Profil angezeigt wird."
     update:
       success: "Dein Foto wurde erfolgreich aktualisiert!"
       error: "Fehler beim Hochladen des Fotos..."
@@ -152,7 +152,7 @@ verdanken, dass die Seite aufrechterhalten werden kann."
       description_volunteer: "Erzähl deinem zukünftigen Gastgeber etwas über dich."
       skills_host: "Beschreibe die Aufgaben, die den Helfer erwarten"
       skills_volunteer: "Was sind deine Fähigkeiten? Was kannst du tun? Warum könnte 
-      ein zukünftiger Gastgeber sich für dich interessieren?"
+ein zukünftiger Gastgeber sich für dich interessieren?"
     language_skills:
       title: "Welche Sprachen sprichst du?"
       add_language: "Sprache hinzufügen"
@@ -219,8 +219,8 @@ verdanken, dass die Seite aufrechterhalten werden kann."
   donations:
     new:
       title: "Zu NiPaNiPa beitragen"
-      intro: "NiPaNiPa braucht deine Hilfe, um unabhängig überleben zu können. 
-      Wie kannst du uns helfen?"
+      intro: "NiPaNiPa braucht deine Hilfe, um unabhängig überleben zu können.
+Wie kannst du uns helfen?"
       donate_title: "Spenden"
       donate_desc: "Hilf uns finanziell. Wähle hierzu den Betrag (in
 USD), den du spenden möchtest."
