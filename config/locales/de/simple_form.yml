@@ -1,40 +1,40 @@
 de:
   simple_form:
-    "yes": 'Yes'
-    "no": 'No'
+    "yes": 'Ja'
+    "no": 'Nein'
     required:
-      text: 'required'
+      text: 'erforderlich'
       mark: '*'
       # You can uncomment the line below if you need to overwrite the whole required html.
       # When using html, text and mark won"t be used.
       # html: '<abbr title="required">*</abbr>'
     error_notification:
-      default_message: "Some errors were found, please take a look:"
+      default_message: "Es wurden Fehler gefunden, bitte sieh nach:"
     labels:
       user:
-        availability: "When are you available for hosting/volunteering?"
-        name: "Username"
-        email: "E-mail"
-        password: "Password"
-        password_confirmation: "Password Confirmation"
-        accomodation: "Describe the type of accomodation you are offering"
+        availability: "Wann bist du als Gastgeber/Helfer verfügbar?"
+        name: "Benutzername"
+        email: "E-Mail"
+        password: "Passwort"
+        password_confirmation: "Passwort bestätigen"
+        accomodation: "Beschreibe, welche Art Unterkunft du anbietest"
       picture:
-        name: "Caption for the picture"
-        image: "File with the picture"
+        name: "Bildunterschrift"
+        image: "Datei des Fotos"
       feedback:
-        score: "Score"
-        content: "What was your experience with %{user} like?"
+        score: "Wertung"
+        content: "Was hast du mit %{user} für Erfahrungen gemacht?"
       donation:
-        amount: "We exist thanks to your contributions. Help us!"
+        amount: "Ohne eure Mitwirkung würde es uns nicht geben. Hilf uns!"
     hints:
       user:
-        password: "Password must be at least 6 characters long"
+        password: "Das Passwort muss mindestens 6 Zeichen lang sein"
       feedback:
-        score: "Your score will increase or decrease %{user}'s karma"
+        score: "Durch deine Wertung wird das Karma von %{user} steigen oder sinken."
       donation:
-        amount: "If you leave it as 0, you'll complete the reference without
-donating anything"
+        amount: "Wenn du den Betrag auf 0 lässt, hinterlässt du eine Referenz, 
+        ohne etwas zu spenden."
     placeholders:
       user:
-        email: "E-mail"
-        password: "Password"
+        email: "E-Mail"
+        password: "Passwort"
