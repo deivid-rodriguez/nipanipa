@@ -45,7 +45,7 @@ ul.conversation-list {
           padding-right: 15px;
         }
         div[id^="delete-"] {
-          background: url('delete.png') no-repeat;
+          background: image-url('delete.png') no-repeat;
           display: block;
           margin: 27px 0;
           width: $deleteCrossSize;
@@ -96,7 +96,7 @@ ul.conversation-list {
     text-align: right;
   }
   .bubble-triangle {
-    background: url('triangle-right.png') no-repeat;
+    background: image-url('triangle-right.png') no-repeat;
     right: -12px;
   }
   .message-date {
@@ -113,7 +113,7 @@ ul.conversation-list {
     text-align: left;
   }
   .bubble-triangle {
-    background: url('triangle-left.png') no-repeat;
+    background: image-url('triangle-left.png') no-repeat;
     left: -12px;
   }
   .message-date {
