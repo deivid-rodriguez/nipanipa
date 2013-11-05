@@ -1,7 +1,8 @@
 <div class="fields">
   <div class="span3 language-select">
-    <%= f.collection_select :language_id, Language.all, :id, :name,
-                            include_blank: t('.language') %>
+    <%= f.collection_select :language_id, Language.all,
+          :id, lambda { |l| t("#{l.name.underscore}").mb_chars.titleize },
+          include_blank: t('.language') %>
   </div>
   <div class="span3 language-select">
     <%= f.select :level, LanguageSkill.level.options,

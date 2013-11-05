@@ -42,7 +42,7 @@ module UsersHelper
   def user_languages user
     return content_tag(:em, t('.unknown')) if user.language_skills.empty?
     user.language_skills.map {
-      |ls| "#{ls.language.name} (#{ls.level.text})" }.join(', ')
+      |ls| "#{t(ls.language.name.underscore)} (#{ls.level.text})" }.join(', ')
   end
 
   def i18n_timeago timestamp
