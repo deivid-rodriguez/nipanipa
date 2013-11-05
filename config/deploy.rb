@@ -45,15 +45,7 @@ namespace :deploy do
     end
   end
 
-  desc 'Link non-source-controlled configuration to the release'
-  task :symlink_config do
-    on roles(:app) do
-      sudo "ln -snf #{release_path}/config/apache.conf " \
-           "/etc/apache2/sites-available/nipanipa"
-    end
-  end
   after :finishing, 'deploy:cleanup'
-  after 'deploy:cleanup', 'deploy:symlink_config'
 
   desc 'Make sure local git is in sync with remote'
   task :check_revision do
