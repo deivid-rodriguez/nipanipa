@@ -1,7 +1,7 @@
 de:
   shared:
     nomessages: "Keine Nachrichten"
-    nopictures: "Es sind noch keine Photos vorhanden."
+    nopictures: "Es sind noch keine Fotos vorhanden."
     nofeedback: "Es ist noch kein Feedback vorhanden."
     current_or_last_login:
       currently_logged_in: "Jetzt online!"
@@ -32,8 +32,8 @@ de:
       title: "Nutzungsbedingungen"
     help:
       title: "Hilfe"
-      uhost?: "Bist du ein Gastgeber?"
-      uvolunteer?: "Bist du ein Helfer?"
+      uhost?: "Bist du Gastgeber?"
+      uvolunteer?: "Bist du Freiwilliger?"
     about:
       title: "Über uns"
       description: "Wir sind ein in Deutschland und Spanien ansässiger
@@ -53,7 +53,7 @@ Verbesserungsvorschläge habt oder einfach Hallo sagen wollt!"
       subtitle: 'Verbindet Gastgeber und freiwillige Helfer rund um den Globus'
       host: "Ich bin Gastgeber"
       host_desc: "Beherberge Reisende und erhalte dafür Hilfe"
-      volunteer: "Ich bin Helfer"
+      volunteer: "Ich bin Freiwilliger"
       volunteer_desc: "Hilf jemanden und erhalte dafür eine Unterkunft"
       contribute: "Mitwirken"
       contribute_desc: "Unterstütze NiPaNiPa, damit es kostenlos bleiben kann!
@@ -64,7 +64,7 @@ Seite oder durch die Übersetzung in deine Sprache."
 Reisen beherbergen können, oder finde heraus, welche arbeitswilligen
 Reisenden gerade in deiner Gegend sind!"
       signup: "Registrieren"
-      signup_desc: "Registriere dich jetzt als Gastgeber oder Helfer und
+      signup_desc: "Registriere dich jetzt als Gastgeber oder Freiwilliger und
 erstelle dein Profil. Es dauert nicht länger als fünf Minuten!"
   feedbacks:
     new:
@@ -107,7 +107,7 @@ nicht länger als 300 Zeichen sein"
   pictures:
     new:
       title: "Ein neues Foto hochladen"
-      subtitle: "Foto sind cool. Sie zeigen dein Vertrauen in die anderen
+      subtitle: "Fotos sind cool. Sie zeigen dein Vertrauen in die anderen
 Benutzer und zeigen, dass du auch wirklich ein Mensch bist - ganz
 egal, wie du aussiehst! ;-) "
     create:
@@ -149,10 +149,10 @@ deinem Profil angezeigt wird."
       error: "Fehler beim Senden der Nachricht..."
   users:
     form:
-      description_host: "Erzähl deinen zukünftigen Helfern etwas über dich oder
+      description_host: "Erzähl deinen zukünftigen freiwilligen Helfern etwas über dich oder
 deine Familie."
       description_volunteer: "Erzähl deinem zukünftigen Gastgeber etwas über dich."
-      skills_host: "Beschreibe die Aufgaben, die den Helfer erwarten"
+      skills_host: "Beschreibe die Aufgaben, die die Freiwilligen erwarten"
       skills_volunteer: "Was sind deine Fähigkeiten? Was kannst du tun? Warum
 könnte ein zukünftiger Gastgeber sich für dich interessieren?"
     language_skills:
@@ -190,7 +190,7 @@ anbietest"
       places: "Orte"
       people: "Leute"
       hosts: "Gastgeber"
-      volunteers: "Helfer"
+      volunteers: "Freiwillige"
       all: "Alle"
     user:
       karma: "Karma"
@@ -291,7 +291,7 @@ kontaktiert. Um die Nachricht zu lesen, klicke auf den folgenden Link:"
     models:
       picture: "Foto"
       host: "Gastgeber"
-      volunteer: "Helfer"
+      volunteer: "Freiwilliger"
     attributes:
       user:
         password_digest: "Passwort"
