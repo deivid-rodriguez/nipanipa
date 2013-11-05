@@ -21,10 +21,19 @@ default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
 namespace :deploy do
-  task :start do ; end
-  task :stop do ; end
-  task :restart, :roles => :app, :except => { :no_release => true } do
-    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+  desc 'Stop Passenger'
+  task :stop, roles: :app do
+    run "touch #{current_path}/tmp/stop.txt"
+  end
+
+  desc 'Start (or un-stop) Passenger'
+  task :start, roles: :app do
+    run "rm -f #{current_path}/tmp/stop.txt"
+  end
+
+  desc 'Restart Passenger'
+  task :restart, roles: :app, except: { no_release: true } do
+    run "touch #{current_path}/tmp/restart.txt"
   end
 
   desc "reload the database with seed data"
