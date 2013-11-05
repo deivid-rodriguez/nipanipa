@@ -1,7 +1,7 @@
 set :application, 'nipanipa'
 
 set :repo_url, 'git@github.com:deivid-rodriguez/nipanipa.git'
-ask :branch, 'master'
+set :branch, 'master'
 
 set :deploy_to,  '/home/deployer/nipanipa'
 set :scm, :git
