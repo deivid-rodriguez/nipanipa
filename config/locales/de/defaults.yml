@@ -6,4 +6,4 @@ de:
     formats:
       default: ! '%a, %d %b um %H:%M'
   datetime:
-    timestamp_ago: "vor %{time}"
+    timestamp_ago: "%{time} her"
