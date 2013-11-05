@@ -2,20 +2,20 @@ de:
   devise:
     mailer:
       reset_password_instructions:
-        greeting: Hello %{name}!
-        info: "Someone has requested a link to change your password. You can do
-this through the link below."
-        change_my_pwd: Change my password
-        ignore: If you didn't request this, please ignore this email.
-        wont_change: "Your password won't change until you access the link above
-and create a new one."
+        greeting: Hallo %{name}!
+        info: "Jemand hat einen Link zur Änderung deines Passworts angefordert. Dies kannst
+         du über den nachfolgenden Link tun."
+        change_my_pwd: Mein Passwort ändern
+        ignore: Wenn du die Änderung nicht selbst angefordert hast, ignoriere bitte diese E-Mail.
+        wont_change: "Dein Passwort wird nicht geändert, solange du nicht 
+        über den obenstehenden Link ein neues erstellst."
     passwords:
       new:
-        forgotten?: Forgot your password?
-        send_instructions: Send me instructions
+        forgotten?: Passwort vergessen?
+        send_instructions: Anweisungen senden
       edit:
-        title: Change your password
-        change_pwd: Change my password!
+        title: Passwort ändern
+        change_pwd: Mein Passwort ändern!
     users:
-      signed_up: Welcome! You have signed up successfully.
-      updated: You updated your account successfully!
+      signed_up: Herzlich willkommen! Du hast dich erfolgreich registriert.
+      updated: Du hast dein Benutzerkonto erfolgreich aktualisiert!
