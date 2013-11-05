@@ -48,3 +48,4 @@ end
 
 # Deployment
 gem 'capistrano', '3.0.1'
+gem 'capistrano-rails', '1.0.0'
