@@ -12,7 +12,7 @@ de:
       default_message: "Es wurden Fehler gefunden, bitte sieh nach:"
     labels:
       user:
-        availability: "Wann bist du als Gastgeber/Helfer verfügbar?"
+        availability: "Wann bist du als Gastgeber/Freiwilliger verfügbar?"
         name: "Benutzername"
         email: "E-Mail"
         password: "Passwort"
