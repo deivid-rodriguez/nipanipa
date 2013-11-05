@@ -1,8 +1,7 @@
 set :application, 'nipanipa'
 
 set :repo_url, 'git@github.com:deivid-rodriguez/nipanipa.git'
-
-ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
+ask :branch, 'master'
 
 set :deploy_to,  '/home/deployer/nipanipa'
 set :scm, :git
