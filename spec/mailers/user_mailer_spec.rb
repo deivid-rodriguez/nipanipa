@@ -5,7 +5,7 @@ describe UserMailer do
     let!(:conv) { create(:conversation) }
     let(:mail) { UserMailer.message_reception(conv.messages.first) }
 
-    it 'sends notification to recpient' do
+    it 'sends notification to recipient' do
       mail.subject.should eq(
         t('user_mailer.message_reception.subject', from: conv.from.name))
       mail.to.should eq([conv.to.email])
