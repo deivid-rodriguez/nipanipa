@@ -15,13 +15,16 @@ describe StaticPagesController do
   end
 
   context 'locale not set as a parameter' do
-    before do
-      request.env['HTTP_ACCEPT_LANGUAGE'] = 'en'
+    it 'is assigned from user preference' do
+      request.env['HTTP_ACCEPT_LANGUAGE'] = 'it'
       get :home
+      expect(I18n.locale).to eq(:it)
     end
 
-    it 'is assigned from user preference' do
-      expect(I18n.locale).to eq(:en)
+    it 'is only assigned if the locale is available in the app' do
+      request.env['HTTP_ACCEPT_LANGUAGE'] = 'ch'
+      get :home
+      expect(I18n.locale).to eq(I18n.default_locale)
     end
   end
 

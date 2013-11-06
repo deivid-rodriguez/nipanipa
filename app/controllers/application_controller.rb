@@ -34,8 +34,8 @@ class ApplicationController < ActionController::Base
     def set_locale
       if params[:locale].present?
         I18n.locale = params[:locale]
-      elsif request.env['HTTP_ACCEPT_LANGUAGE'].present?
-        I18n.locale = request.env['HTTP_ACCEPT_LANGUAGE'][/^[a-z]{2}/]
+      elsif browser_lang && I18n.available_locales.include?(browser_lang)
+        I18n.locale = browser_lang
       else
         I18n.locale = I18n.default_locale
       end
@@ -59,6 +59,12 @@ class ApplicationController < ActionController::Base
               request.fullpath =~ /password/  || \
               request.xhr?) # don't store ajax calls
         session[:user_return_to] = request.fullpath
+      end
+    end
+
+    def browser_lang
+      if request.env['HTTP_ACCEPT_LANGUAGE'].present?
+        request.env['HTTP_ACCEPT_LANGUAGE'][/^[a-z]{2}/].to_sym
       end
     end
 end
