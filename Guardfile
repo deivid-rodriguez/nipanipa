@@ -17,7 +17,7 @@ guard :rspec, keep_failed: true, all_on_start: true,
   watch(%r{^app/controllers/(.+)_controller\.rb$}) { |m|
     ["spec/features/#{m[1]}_spec.rb", "spec/controllers/#{m[1]}_spec.rb"] }
 
-  watch(%r{^app/views/(.+)/}) { |m| ["spec/features/#{m[1]}_spec.rb" ] }
+  watch(%r{^app/views/(.+)/}) { |m| "spec/features/#{m[1]}_spec.rb" }
 
   watch('app/controllers/application_controller.rb') { 'spec/controllers' }
   watch('app/helpers/application_helper.rb')         { 'spec/features'    }
