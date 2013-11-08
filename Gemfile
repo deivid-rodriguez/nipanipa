@@ -32,6 +32,7 @@ group :development, :test do
   gem 'guard', '2.2.3'
   gem 'byebug', github: 'deivid-rodriguez/byebug'
   gem 'factory_girl_rails', '4.3.0'
+  gem 'pry-doc', '0.4.6'
 end
 
 group :test do
