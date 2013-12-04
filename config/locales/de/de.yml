@@ -239,10 +239,11 @@ Bugs berichten und sagen, welche Funktionen dir noch fehlen."
       select_amount: "Betrag wählen"
       input_amount: "Oder wähle einen anderen Betrag, der dir zusagt"
       here: "hier"
-      flattr: "Du kannst uns auch flattrn!"
     create:
       success: "Deine Spende war erfolgreich!"
       error: "Es tut uns leid, bei deiner Spende ist ein Problem aufgetaucht."
+    flattr:
+      label: "Du kannst uns auch flattrn!"
   layouts:
     header:
       language: "Sprache"

@@ -15,16 +15,8 @@
         <%= d.hidden_field :user_id, value: current_user.try(:id) %>
         <%= d.button :submit %>
       <% end %>
-      <div class='flattr'>
-        <div class="flattr-btn">
-          <%= link_to '', 'http://nipanipa.com',
-                          class: 'FlattrButton',
-                          data: { 'flattr-uid' => 'nipanipa',
-                                  'flattr-tags' => 'work-exchange, opensource',
-                                  'flattr-category' => 'text' }  %>
-        </div>
-        <%= t('.flattr') %>
-      </div>
+
+      <%= render 'flattr' %>
     </li>
 
     <li class="contribute-thumbnail">

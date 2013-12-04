@@ -234,10 +234,11 @@ solicitarnos nuevas funcionalidades %{issues_url}."
       select_amount: "Selecciona el importe"
       input_amount: "O elige el importe que tú quieras si no está en la lista"
       here: "aquí"
-      flattr: "O haznos una microdonación a través de flattr"
     create:
       success: "Tu donación fue exitosa!"
       error: "Lo siento, hubo un problema con tu donación."
+    flattr:
+      label: "O haznos una microdonación a través de flattr"
   layouts:
     header:
       language: "Idioma"

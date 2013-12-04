@@ -232,11 +232,12 @@ funzionalità %{issues_url}."
       select_amount: Seleziona la cifra
       input_amount: O scrivi quanto vuoi donare se la cifra non è nella lista
       here: qui
-      flattr: Or fai una microdonazione con flattr
     create:
       success: La donazione ha avuto successo!
       error: "Scusa, la donazione non ha avuto successo... Riprova dopo o segnala
 l'errore."
+    flattr:
+      label: Or fai una microdonazione con flattr
   layouts:
     header:
       language: Lingua

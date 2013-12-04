@@ -232,10 +232,11 @@ would like to be implemented %{issues_url}."
       select_amount: "Select the amount"
       input_amount: "Or choose any amount you're confortable with"
       here: "here"
-      flattr: "You can also flattr us!"
     create:
       success: "Your donation was successful!"
       error: "Sorry, there was some problem with your donation."
+    flattr:
+      label: "You can also flattr us!"
   layouts:
     header:
       language: "Language"
