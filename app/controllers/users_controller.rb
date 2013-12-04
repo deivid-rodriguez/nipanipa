@@ -1,6 +1,12 @@
 class UsersController < Devise::RegistrationsController
   load_and_authorize_resource
 
+  def new
+    super
+    @user.language_skills.build(language: Language.find_by(code: 'en'),
+                                level: :expert)
+  end
+
   def index
     @users = resource_class
     if params[:availability] == 'now'

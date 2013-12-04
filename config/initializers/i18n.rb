@@ -1,5 +1,6 @@
 #encoding: utf-8
 I18n.available_locales = [:de, :en, :es, :it]
+I18n.enforce_available_locales = true
 
 LANGUAGES = [
               ['Deutsch',                  'de'],
