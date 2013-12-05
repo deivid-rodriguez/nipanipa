@@ -3,7 +3,7 @@ require 'active_support/inflector'
 #
 # More info at https://github.com/guard/guard#readme
 #
-guard :rspec, keep_failed: true, all_on_start: true,
+guard :rspec, fail_mode: :keep, all_on_start: true,
               cmd: 'rspec --colour --fail-fast' do
 
   watch(%r{^config/locales/.*\.yml$})             { 'spec/features' }
