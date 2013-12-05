@@ -35,9 +35,9 @@ def mock_paypal_pdt(status, donation_id)
                       'User-Agent'   => 'Ruby'}).
       to_return(status: 200, body: "#{status}", headers: {})
 
-  visit "/donations/#{donation_id}?tx=4YD48288L7608774D&st=Completed&amt=20.0" \
-        "0&cc=USD&cm=&item_number=&sig=jpnQ%2fNXbC0KdUzVDVMxw%2fGr1RxxvWDIqwl" \
-        "NT9W6f0lxGH66BxUIhzRj8vJW8jwh0DVqyE4ZUaxHTmQVry2yxR5bR8ge3kA1tVgo9Qc" \
-        "5%2bU2ErQVmvOJ555ABbqk4pMbBG7qaHNkqxD33JZk%2f3Hl9bnBj46gztBvlnYuxd5j" \
-        "GRP8Q%3d"
+  visit "/en/donations/#{donation_id}?tx=4YD48288L7608774D&st=Completed&amt=2" \
+        '0.00&cc=USD&cm=&item_number=&sig=jpnQ%2fNXbC0KdUzVDVMxw%2fGr1RxxvWDI' \
+        'qwlNT9W6f0lxGH66BxUIhzRj8vJW8jwh0DVqyE4ZUaxHTmQVry2yxR5bR8ge3kA1tVgo' \
+        '9Qc5%2bU2ErQVmvOJ555ABbqk4pMbBG7qaHNkqxD33JZk%2f3Hl9bnBj46gztBvlnYux' \
+        'd5jGRP8Q%3d'
 end
