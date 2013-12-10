@@ -1,5 +1,5 @@
 <div class="row">
-  <%= simple_nested_form_for resource,
+  <%= simple_form_for resource,
        as: resource_name, url: registration_path(resource_name),
        html: { class: 'form-horizontal offset1 span10', multipart: true },
        defaults: { wrapper_html: { class: 'span5' }, placeholder: false } do |f| %>

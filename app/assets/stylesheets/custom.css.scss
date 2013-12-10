@@ -10,6 +10,15 @@ $grayExplore: #e1ddc4;
 $greenHost: #9ab6aa;
 $redVolunteer: #f1c5c2;
 
+@mixin clearfix {
+  &:after {
+    clear: both;
+    content: "";
+    display: block;
+    height: 0;
+  }
+}
+
 @mixin box_sizing {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;

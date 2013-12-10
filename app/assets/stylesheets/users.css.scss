@@ -40,36 +40,35 @@
       width: 20px;
     }
   }
-  #language-selection {
-    padding-top: 10px;
-    width: 600px;
-    .fields {
-      height: auto;
-      .nested-select {
-        height: 30px;
-      }
-      .picture-select {
-        @extend .nested-select;
-        margin: 0px 0px 10px 0px;
-        width: 310px;
-      }
-      .language-select {
-        @extend .nested-select;
-        margin: 0px 20px 10px 0px;
-        width: 220px;
-      }
-      .nested-link {
-        line-height: 30px;
-        margin: 0px 20px 0px 0px;
-      }
-      .picture-link {
-        @extend .nested-link;
-        width: 270px;
-      }
-      .language-link {
-        @extend .nested-link;
-        width: 100px;
-      }
+  padding-top: 10px;
+  width: 600px;
+  .fields {
+    @include clearfix;
+    height: auto;
+    .nested-select {
+      height: 30px;
+    }
+    .picture-select {
+      @extend .nested-select;
+      margin: 0px 0px 10px 0px;
+      width: 310px;
+    }
+    .language-select {
+      @extend .nested-select;
+      margin: 0px 20px 10px 0px;
+      width: 220px;
+    }
+    .nested-link {
+      line-height: 30px;
+      margin: 0px 20px 0px 0px;
+    }
+    .picture-link {
+      @extend .nested-link;
+      width: 270px;
+    }
+    .language-link {
+      @extend .nested-link;
+      width: 100px;
     }
   }
   #language-add {
