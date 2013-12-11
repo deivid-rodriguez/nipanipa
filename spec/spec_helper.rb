@@ -64,7 +64,7 @@ Capybara.asset_host = 'http://nipanipa.local.com'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
-Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 # Forces all threads to share the same connection. capybara drivers start the
 # web server in another thread and transactions are not shared between threads
