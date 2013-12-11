@@ -1,46 +1,46 @@
 en:
   shared:
-    nomessages: "No messages"
-    nopictures: "There are no pictures yet"
-    nofeedback: "There is no feedback"
+    nomessages: No messages
+    nopictures: There are no pictures yet
+    nofeedback: There is no feedback
     current_or_last_login:
-      currently_logged_in: "Now online!"
-      last_login: "Last login"
-    not_specified: "Not specified"
-    edit: "Edit"
-    delete: "Delete"
+      currently_logged_in: Now online!
+      last_login: Last login
+    not_specified: Not specified
+    edit: Edit
+    delete: Delete
     profile_header:
-      unknown: "Unknown"
-      general: "General"
-      conversations: "Messages"
-      feedback: "Feedback"
-      pictures: "Pictures"
-      edit: "Edit profile"
-      new_conversation: "New message"
-      new_feedback: "Leave a reference"
-      edit_feedback: "Change your reference"
-      report_user: "Alert about this user"
+      unknown: Unknown
+      general: General
+      conversations: Messages
+      feedback: Feedback
+      pictures: Pictures
+      edit: Edit profile
+      new_conversation: New message
+      new_feedback: Leave a reference
+      edit_feedback: Change your reference
+      report_user: Alert about this user
     badge:
-      karma: "Karma"
-      location: "Location"
-      last_login: "Last access"
-      member_since: "Member since"
-      categories: "Categories"
-      languages: "Languages"
+      karma: Karma
+      location: Location
+      last_login: Last access
+      member_since: Member since
+      categories: Categories
+      languages: Languages
   static_pages:
     terms:
-      title: "Terms and Conditions"
+      title: Terms and Conditions
     help:
-      title: "Help"
-      uhost?: "Are you a host?"
-      uvolunteer?: "Are you a volunteer?"
+      title: Help
+      uhost?: Are you a host?
+      uvolunteer?: Are you a volunteer?
     about:
-      title: "About Us"
+      title: About Us
       description: "We are a Germany and Spain based association of both web designers
 and web programmers. We are also passionate travelers and cultural exchangers and feel
 something was missing before NiPaNiPa. That's why we did it. Enjoy!"
     contact:
-      title: "Contact"
+      title: Contact
       description_html: "NiPaNiPa is in beta phase and we need all possible feedback to
 correct errors and make it better. We haven't had the time to make a proper contact
 form but please send an e-mail to %{mail} and let us know what you think,
@@ -48,280 +48,280 @@ what can be improved or just say hello!"
     home:
       welcome: 'Welcome to NiPaNiPa'
       subtitle: 'Contacts hosts and volunteers around the world'
-      host: "I'm a host"
-      host_desc: "Find volunteers to help you while they stay at your place"
-      volunteer: "I'm a volunteer"
-      volunteer_desc: "Help someone in exchange for accomodation"
-      contribute: "Contribute"
+      host: I'm a host
+      host_desc: Find volunteers to help you while they stay at your place
+      volunteer: I'm a volunteer
+      volunteer_desc: Help someone in exchange for accomodation
+      contribute: Contribute
       contribute_desc: "Support NiPaNiPa so it keeps being free, whether by
 making a donation or contributing to the site development or helping us
 translating it into your language."
-      explore: "Explore"
+      explore: Explore
       explore_desc: "Take a look at the potential friends who might host you
 durring your holidays, or check which willing workers might be around your
 area."
-      signup: "Sign up"
+      signup: Sign up
       signup_desc: "Sign up now as a host or a volunteer and fill your profile.
 It won't take you more than five minutes."
   feedbacks:
     new:
-      title: "New reference for %{username}"
+      title: New reference for %{username}
       subtitle: "Thanks for leaving your feedback. NiPaNiPa's trust network is
 impossible without your opinions. Plus, your donations are the only way to keep
 our site running."
     form:
-      feedback_for_user: "Feedback for %{username}"
-      feedback_for_nipa: "Donation for NiPaNiPa"
+      feedback_for_user: Feedback for %{username}
+      feedback_for_nipa: Donation for NiPaNiPa
       donated_already_html: "Thanks for rewarding NiPaNiPa in exchange for a
 nice experience. You can keep on contributing %{donations_url}"
-      here: "here"
+      here: here
     edit:
-      title: "Edit reference for %{username}"
+      title: Edit reference for %{username}
       subtitle: "Improve or change your reference any way you want. Opinions are
 not inmutable!"
     create:
-      success: "Has dejado una nueva referencia!"
-      error: "Error al crear la nueva referencia... :("
+      success: Has dejado una nueva referencia!
+      error: Error al crear la nueva referencia... :(
     index:
-      title: "Feedback"
+      title: Feedback
     feedbacks:
-      title: "Feedback"
+      title: Feedback
     received:
-      one: "1 received"
+      one: 1 received
       other: "%{count} received"
     sent:
-      one: "1 sent"
+      one: 1 sent
       other: "%{count} sent"
     feedback:
-      from: "From %{name}"
-      to: "To %{name}"
+      from: From %{name}
+      to: To %{name}
     update:
-      success: "You just edited the reference!"
+      success: You just edited the reference!
       error: "Error updating the reference... :( It should not be longer
 than 300 characters"
     destroy:
-      success: "Your reference has been removed"
+      success: Your reference has been removed
   pictures:
     new:
-      title: "Upload a new picture"
+      title: Upload a new picture
       subtitle: "Pictures are cool, they provide trust for other users and
 show you are a real person, besides how ugly you are... (kidding!)"
     create:
-      success: "Picture successfully uploaded!"
-      error: "Error uploading the picture... :("
+      success: Picture successfully uploaded!
+      error: Error uploading the picture... :(
     index:
-      title: "Pictures"
-      new_picture: "Add a new picture"
+      title: Pictures
+      new_picture: Add a new picture
     edit:
-      title: "Editar foto"
+      title: Editar foto
       subtitle: "You can change the caption, select a new picture or mark the
 picture as your main picture which will appear in listings and at the top of
 your profile"
     update:
-      success: "Picture updated successfully!"
-      error: "Error updating the picture..."
+      success: Picture updated successfully!
+      error: Error updating the picture...
     pictures:
-      delete: "Remove picture"
-      edit: "Edit picture"
+      delete: Remove picture
+      edit: Edit picture
     destroy:
-      success: "Pictures"
-      error: "Error removing the picture..."
+      success: Pictures
+      error: Error removing the picture...
   conversations:
     new:
-      title: "Contact %{username}"
+      title: Contact %{username}
     create:
-      success: "You started a new conversation"
-      error: "There was an error sending the message"
+      success: You started a new conversation
+      error: There was an error sending the message
     destroy:
-      success: "Conversación was removed correctly!"
+      success: Conversación was removed correctly!
     index:
-      title: "My conversations"
+      title: My conversations
     show:
-      reply: "Reply"
-      back_html: "Back &#8617;"
+      reply: Reply
+      back_html: Back &#8617;
     preview:
-      usure?: "Are you sure?"
+      usure?: Are you sure?
     reply:
-      error: "Error sending the message..."
+      error: Error sending the message...
   users:
     form:
       description_host: "Tell your future volunteers something about yourself
 or your family."
-      description_volunteer: "Tell your future host something about yourself"
-      skills_host: "Describe the tasks the volunteer will assume"
+      description_volunteer: Tell your future host something about yourself
+      skills_host: Describe the tasks the volunteer will assume
       skills_volunteer: "What are your skills? What can you do? Why would a
 host be interested in you?"
     language_skills:
-      title: "Which languages can you speak?"
-      add_language: "add language"
+      title: Which languages can you speak?
+      add_language: add language
     language_skill_fields:
-      language: "Select a language"
-      level: "Select your skill"
-      remove_language: "remove language"
+      language: Select a language
+      level: Select your skill
+      remove_language: remove language
     work_types:
-      title_host: "Pick the job categories which apply to your offer"
-      title_volunteer: "Pick the type/s of job you're looking for"
+      title_host: Pick the job categories which apply to your offer
+      title_volunteer: Pick the type/s of job you're looking for
     new:
-      title: "Sign up"
+      title: Sign up
       header: "%{type} registration"
     show:
-      availability: "Availability"
-      profile: "My profile"
-      description: "About me / us"
-      feedback: "Feedback"
-      accomodation: "Accomodation"
-      pictures: "Pictures"
-      references: "Feedback"
-      skills_host: "Skills required / Job description"
-      skills_volunteer: "Skills offered / Job searched"
+      availability: Availability
+      profile: My profile
+      description: About me / us
+      feedback: Feedback
+      accomodation: Accomodation
+      pictures: Pictures
+      references: Feedback
+      skills_host: Skills required / Job description
+      skills_volunteer: Skills offered / Job searched
     edit:
-      title: "Profile update"
-      header: "Update your profile"
+      title: Profile update
+      header: Update your profile
     index:
-      title: "Search"
-      availability: "Availability"
-      whenever: "Whenever"
-      now: "Currently available"
-      places: "Places"
-      people: "People"
-      hosts: "Hosts"
-      volunteers: "Volunteers"
-      all: "All"
+      title: Search
+      availability: Availability
+      whenever: Whenever
+      now: Currently available
+      places: Places
+      people: People
+      hosts: Hosts
+      volunteers: Volunteers
+      all: All
     user:
-      karma: "karma"
-      location: "Location"
-      unknown: "Unknown"
+      karma: karma
+      location: Location
+      unknown: Unknown
   work_types:
-    gardening: "Gardening"
-    babysitting: "Babysitting"
-    cooking: "Cooking"
-    farming: "Farming"
-    housekeeping: "Housekeeping"
-    tourism: "Tourism"
-    language_exchange: "Language exchange"
-    teaching: "Teaching"
-    construction: "Construction"
-    elderly_care: "Elderly Care"
-    animal_care: "Animal Care"
-    humanitarian_aid: "Humanitarian Aid"
-    technical_assistance: "I.T."
-    art_project: "Artistic Project"
-    wwoofing: "Wwoofing"
+    gardening: Gardening
+    babysitting: Babysitting
+    cooking: Cooking
+    farming: Farming
+    housekeeping: Housekeeping
+    tourism: Tourism
+    language_exchange: Language exchange
+    teaching: Teaching
+    construction: Construction
+    elderly_care: Elderly Care
+    animal_care: Animal Care
+    humanitarian_aid: Humanitarian Aid
+    technical_assistance: I.T.
+    art_project: Artistic Project
+    wwoofing: Wwoofing
   sessions:
     new:
-      newuser?: "New user?"
-    forgot_your_pwd?: "Forgot your password?"
-    signin: "Sign in"
-    signout: "Sign out"
-    rememberme: "Remember me"
+      newuser?: New user?
+    forgot_your_pwd?: Forgot your password?
+    signin: Sign in
+    signout: Sign out
+    rememberme: Remember me
   donations:
     new:
-      title: "Contribute to NiPaNiPa"
+      title: Contribute to NiPaNiPa
       intro: "NiPaNiPa needs your help to survive in an independent way. How can
 you help?"
-      donate_title: "Donate"
+      donate_title: Donate
       donate_desc: "Help us economically. To that end, select the amount (in
 USD) that you want to donate."
-      contribute_title: "Help us"
+      contribute_title: Help us
       contribute_desc_dev_html: "If you are a web developer (or you want to be),
 you can help us by contributing to nipanipa development %{git_url}."
       contribute_desc_tr: "If NiPaNiPa is not translated into your mother tongue
 but you can understand this, you can help us translate it!"
       contribute_desc_bug_html: "You can also report bugs or new features you
 would like to be implemented %{issues_url}."
-      select_amount: "Select the amount"
-      input_amount: "Or choose any amount you're confortable with"
-      here: "here"
+      select_amount: Select the amount
+      input_amount: Or choose any amount you're confortable with
+      here: here
     create:
-      success: "Your donation was successful!"
-      error: "Sorry, there was some problem with your donation."
+      success: Your donation was successful!
+      error: Sorry, there was some problem with your donation.
     flattr:
-      label: "You can also flattr us!"
+      label: You can also flattr us!
   layouts:
     header:
-      language: "Language"
-      search: "Search"
-      donate: "Donate"
+      language: Language
+      search: Search
+      donate: Donate
     footer:
-      news: "News"
+      news: News
   will_paginate:
-    previous_label: "Previous page"
-    next_label: "Next page"
+    previous_label: Previous page
+    next_label: Next page
   enumerize:
     language_skill:
       level:
-        just_hello: "Just hello"
-        beginner: "Beginner"
-        intermediate: "Intermediate"
-        expert: "Expert"
-        native: "Native"
+        just_hello: Just hello
+        beginner: Beginner
+        intermediate: Intermediate
+        expert: Expert
+        native: Native
     feedback:
       score:
-        negative: "Negative"
-        neutral: "Neutral"
-        positive: "Positive"
+        negative: Negative
+        neutral: Neutral
+        positive: Positive
   user_mailer:
     message_reception:
-      subject: "You received a new message from %{from}"
-      greeting: "Hi %{name}!"
+      subject: You received a new message from %{from}
+      greeting: Hi %{name}!
       message: "Another user from NiPaNiPa has contacted you through our web
 site. To view the message, click on the following link:"
   helpers:
     submit:
       user:
-        create: "I'm done!"
-        update: "Update user"
+        create: I'm done!
+        update: Update user
       feedback:
-        create: "Leave new reference!"
-        update: "Edit reference"
+        create: Leave new reference!
+        update: Edit reference
       conversation:
-        create: "Start a conversation"
+        create: Start a conversation
       picture:
-        create: "Upload picture"
-        update: "Update picture"
+        create: Upload picture
+        update: Update picture
       donation:
-        create: "Donate now!"
+        create: Donate now!
   activerecord:
     models:
-      picture: "picture"
-      host: "host"
-      volunteer: "volunteer"
+      picture: picture
+      host: host
+      volunteer: volunteer
     attributes:
       user:
-        password_digest: "Password"
+        password_digest: Password
       conversation:
-        subject: "Subject"
+        subject: Subject
       message:
-        body: "Body"
+        body: Body
     errors:
       models:
         user:
           attributes:
             password:
-              blank: "Password is empty"
-              confirmation: "Password and confirmation do not match"
-              too_short: "Password is too short, it must be 6 characters minimum"
+              blank: Password is empty
+              confirmation: Password and confirmation do not match
+              too_short: Password is too short, it must be 6 characters minimum
             name:
-              blank: "You must specify a username"
-              too_long: "That username is too long"
+              blank: You must specify a username
+              too_long: That username is too long
             email:
-              taken: "That email address is already taken"
-              blank: "You must specify an email address"
-              invalid: "That email looks weird... Check the format"
-              not_found: "That email address doesn't exist in NiPaNiPa"
+              taken: That email address is already taken
+              blank: You must specify an email address
+              invalid: That email looks weird... Check the format
+              not_found: That email address doesn't exist in NiPaNiPa
             password_confirmation:
-              blank: "Password confirmation can't be blank"
-              too_short: "Password confirmation is too short"
+              blank: Password confirmation can't be blank
+              too_short: Password confirmation is too short
             description:
-              too_long: "The text is too long. Be brief"
+              too_long: The text is too long. Be brief
         feedback:
           attributes:
             content:
-              blank: "Write something about the user"
-              too_long: "Feedback is too long"
+              blank: Write something about the user
+              too_long: Feedback is too long
         picture:
           attributes:
             image_file_size:
-              in_between: "File can't be bigger than 500Kb... :("
+              in_between: File can't be bigger than 500Kb... :(
       messages:
-        record_invalid: "Invalid record"
+        record_invalid: Invalid record

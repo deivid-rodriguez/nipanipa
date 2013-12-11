@@ -1,35 +1,35 @@
 es:
   simple_form:
-    "yes": 'Sí'
-    "no": 'No'
+    'yes': 'Sí'
+    'no': 'No'
     required:
-      text: 'requerido'
+      text: requerido
       mark: '*'
       # You can uncomment the line below if you need to overwrite the whole required html.
       # When using html, text and mark won"t be used.
       # html: '<abbr title="required">*</abbr>'
     error_notification:
-      default_message: "Por favor, revise los problemas que siguen:"
+      default_message: Por favor, revise los problemas que siguen
     labels:
       user:
-        availability: "En qué meses estás disponible?"
-        name: "Nombre de Usuario"
-        email: "Correo Electrónico"
-        password: "Contraseña"
-        password_confirmation: "Confirmar contraseña"
+        availability: En qué meses estás disponible?
+        name: Nombre de Usuario
+        email: Correo Electrónico
+        password: Contraseña
+        password_confirmation: Confirmar contraseña
         accomodation: "Describe el tipo de alojamiento que ofreces a tus
 voluntarios"
       picture:
-        name: "Título para la foto"
-        image: "Fichero con la foto"
+        name: Título para la foto
+        image: Fichero con la foto
       feedback:
-        score: "Puntuación"
-        content: "Cuéntanos tu experiencia con este usuario"
+        score: Puntuación
+        content: Cuéntanos tu experiencia con este usuario
       donation:
-        amount: "Existimos únicamente gracias vuestras aportaciones. Ayúdanos!"
+        amount: Existimos únicamente gracias vuestras aportaciones. Ayúdanos!
     hints:
       user:
-        password: "La contraseña debe tener al menos 6 caracteres"
+        password: La contraseña debe tener al menos 6 caracteres
       feedback:
         score: "Tu puntuación influye positiva o negativamente en el karma del
 usuario"
@@ -38,5 +38,5 @@ usuario"
 nada"
     placeholders:
       user:
-        email: "Correo Electrónico"
-        password: "Contraseña"
+        email: Correo Electrónico
+        password: Contraseña

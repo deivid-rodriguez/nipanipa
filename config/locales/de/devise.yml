@@ -3,12 +3,13 @@ de:
     mailer:
       reset_password_instructions:
         greeting: Hallo %{name}!
-        info: "Jemand hat einen Link zur Änderung deines Passworts angefordert. Dies kannst
-         du über den nachfolgenden Link tun."
+        info: "Jemand hat einen Link zur Änderung deines Passworts angefordert.
+Dies kannst du über den nachfolgenden Link tun."
         change_my_pwd: Mein Passwort ändern
-        ignore: Wenn du die Änderung nicht selbst angefordert hast, ignoriere bitte diese E-Mail.
-        wont_change: "Dein Passwort wird nicht geändert, solange du nicht 
-        über den obenstehenden Link ein neues erstellst."
+        ignore: "Wenn du die Änderung nicht selbst angefordert hast, ignoriere
+bitte diese E-Mail."
+        wont_change: "Dein Passwort wird nicht geändert, solange du nicht über
+den obenstehenden Link ein neues erstellst."
     passwords:
       new:
         forgotten?: Passwort vergessen?

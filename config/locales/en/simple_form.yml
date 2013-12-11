@@ -1,34 +1,34 @@
 en:
   simple_form:
-    "yes": 'Yes'
-    "no": 'No'
+    'yes': 'Yes'
+    'no': 'No'
     required:
-      text: 'required'
+      text: required
       mark: '*'
       # You can uncomment the line below if you need to overwrite the whole required html.
       # When using html, text and mark won"t be used.
       # html: '<abbr title="required">*</abbr>'
     error_notification:
-      default_message: "Some errors were found, please take a look:"
+      default_message: Some errors were found, please take a look
     labels:
       user:
-        availability: "When are you available for hosting/volunteering?"
-        name: "Username"
-        email: "E-mail"
-        password: "Password"
-        password_confirmation: "Password Confirmation"
-        accomodation: "Describe the type of accomodation you are offering"
+        availability: When are you available for hosting/volunteering?
+        name: Username
+        email: E-mail
+        password: Password
+        password_confirmation: Password Confirmation
+        accomodation: Describe the type of accomodation you are offering
       picture:
-        name: "Caption for the picture"
-        image: "File with the picture"
+        name: Caption for the picture
+        image: File with the picture
       feedback:
-        score: "Score"
-        content: "What was your experience with %{user} like?"
+        score: Score
+        content: What was your experience with %{user} like?
       donation:
-        amount: "We exist thanks to your contributions. Help us!"
+        amount: We exist thanks to your contributions. Help us!
     hints:
       user:
-        password: "Password must be at least 6 characters long"
+        password: Password must be at least 6 characters long
       feedback:
         score: "Your score will increase or decrease %{user}'s karma"
       donation:
@@ -36,5 +36,5 @@ en:
 donating anything"
     placeholders:
       user:
-        email: "E-mail"
-        password: "Password"
+        email: E-mail
+        password: Password
