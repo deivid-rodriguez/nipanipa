@@ -38,7 +38,10 @@ describe 'Profile creation' do
 
     subject { page }
 
-    before { visit new_user_registration_path(type: 'host') }
+    before do
+      create(:language, code: I18n.locale)
+      visit new_user_registration_path(type: 'host')
+    end
 
     it { should have_selector 'h1', text: t('users.new.header', type: t('activerecord.models.host')).titleize }
     it { should have_title full_title(t 'users.new.title') }
@@ -79,7 +82,10 @@ describe 'Profile creation' do
 
     subject { page }
 
-    before { visit new_user_registration_path(type: 'volunteer') }
+    before do
+      create(:language, code: I18n.locale)
+      visit new_user_registration_path(type: 'volunteer')
+    end
 
     it { should have_selector 'h1', text: t('users.new.header', type: t('activerecord.models.volunteer')).titleize }
     it { should have_title full_title(t 'users.new.title') }
