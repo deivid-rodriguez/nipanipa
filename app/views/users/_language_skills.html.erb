@@ -7,6 +7,7 @@
       <%= f.simple_fields_for :language_skills, wrapper: false do |builder| %>
         <%= render 'language_skill_fields', f: builder %>
       <% end %>
+    </div>
     <div class="links" id="language-add">
       <%= link_to_add_association t('.add_language'), f, :language_skills %>
     </div>
