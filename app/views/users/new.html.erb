@@ -4,13 +4,13 @@
 
   <div class="form-title">
     <h1>
-      <%= image_tag "#{@user.type.underscore}.png" %>
+      <%= image_tag "#{resource.type.underscore}.png" %>
       <%= t('.header',
-            type: t("activerecord.models.#{@user.type.underscore}")).titleize %>
+            type: t("activerecord.models.#{resource.type.underscore}")).titleize %>
     </h1>
   </div>
 
   <div class="signup-form span12">
-    <%= render 'form', user: @user %>
+    <%= render 'form' %>
   </div>
 </div>

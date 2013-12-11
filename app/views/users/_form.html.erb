@@ -4,22 +4,22 @@
        html: { class: 'form-horizontal offset1 span10', multipart: true },
        defaults: { wrapper_html: { class: 'span5' }, placeholder: false } do |f| %>
 
-  <%= hidden_field_tag :type, user.type %>
+  <%= hidden_field_tag :type, resource.type %>
 
   <div class="row">
     <%= f.input :name %>
     <%= f.input :email %>
   </div>
 
-  <% if user.new_record? %>
+  <% if resource.new_record? %>
     <div class="row">
-      <%= f.input :password, hint: (user.errors ? false : true) %>
+      <%= f.input :password, hint: (resource.errors ? false : true) %>
       <%= f.input :password_confirmation %>
     </div>
   <% end %>
 
   <div class="row">
-    <%= f.input :description, label: t(".description_#{user.type.underscore}"),
+    <%= f.input :description, label: t(".description_#{resource.type.underscore}"),
                               wrapper_html: { class: 'span10' } %>
   </div>
 
@@ -27,7 +27,7 @@
     <%= f.input :availability, as: :check_boxes,
           item_wrapper_class: :inline, wrapper_html: { class: 'span10' },
           collection: User::AVAILABILITY,
-          checked: user.availability,
+          checked: resource.availability,
           label_method: lambda{ |m| l(Date.strptime(m, '%b'), format: :month).titleize },
           value_method: :to_s %>
   </div>
@@ -37,15 +37,15 @@
   </div>
 
   <div class="row">
-    <%= render 'work_types', f: f, user: user %>
+    <%= render 'work_types', f: f, user: resource %>
   </div>
 
   <div class="row">
-    <%= f.input :skills, label: t(".skills_#{user.type.underscore}"),
+    <%= f.input :skills, label: t(".skills_#{resource.type.underscore}"),
                           wrapper_html: { class: 'span10' } %>
   </div>
 
-  <% if user.type == "Host" %>
+  <% if resource.type == "Host" %>
     <div class="row">
       <%= f.input :accomodation, wrapper_html: { class: 'span10' } %>
     </div>
