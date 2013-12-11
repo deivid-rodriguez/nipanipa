@@ -30,7 +30,7 @@ group :development, :test do
   gem 'rspec-rails', '2.14.0'
   gem 'guard-rspec', '4.2.0'
   gem 'guard', '2.2.4'
-  gem 'byebug', '2.4.0'
+  gem 'byebug', '2.4.1'
   gem 'factory_girl_rails', '4.3.0'
   gem 'pry-doc', '0.4.6'
 end
