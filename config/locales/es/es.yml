@@ -252,11 +252,11 @@ solicitarnos nuevas funcionalidades %{issues_url}."
   enumerize:
     language_skill:
       level:
-        just_hello: "hola y adiós"
-        beginner: "principiante"
-        intermediate: "intermedio"
-        expert: "experto"
-        native: "nativo"
+        just_hello: "Hola y adiós"
+        beginner: "Principiante"
+        intermediate: "Intermedio"
+        expert: "Experto"
+        native: "Nativo"
     feedback:
       score:
         negative: "Negativa"

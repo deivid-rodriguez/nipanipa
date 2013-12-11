@@ -250,11 +250,11 @@ would like to be implemented %{issues_url}."
   enumerize:
     language_skill:
       level:
-        just_hello: "just hello"
-        beginner: "beginner"
-        intermediate: "intermediate"
-        expert: "expert"
-        native: "native"
+        just_hello: "Just hello"
+        beginner: "Beginner"
+        intermediate: "Intermediate"
+        expert: "Expert"
+        native: "Native"
     feedback:
       score:
         negative: "Negative"

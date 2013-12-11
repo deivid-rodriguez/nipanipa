@@ -251,11 +251,11 @@ l'errore."
   enumerize:
     language_skill:
       level:
-        just_hello: ciao e grazie
-        beginner: principiante
-        intermediate: intermedio
-        expert: esperto
-        native: nativo
+        just_hello: Ciao e grazie
+        beginner: Principiante
+        intermediate: Intermedio
+        expert: Esperto
+        native: Nativo
     feedback:
       score:
         negative: Negativa
