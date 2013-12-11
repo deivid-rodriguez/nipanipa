@@ -23,14 +23,14 @@ en:
         image: File with the picture
       feedback:
         score: Score
-        content: What was your experience with %{user} like?
+        content: What was your experience with this user like?
       donation:
         amount: We exist thanks to your contributions. Help us!
     hints:
       user:
         password: Password must be at least 6 characters long
       feedback:
-        score: "Your score will increase or decrease %{user}'s karma"
+        score: "Your score will increase or decrease user's karma"
       donation:
         amount: "If you leave it as 0, you'll complete the reference without
 donating anything"
