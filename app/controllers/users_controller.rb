@@ -2,9 +2,10 @@ class UsersController < Devise::RegistrationsController
   load_and_authorize_resource
 
   def new
-    super
-    @user.language_skills.build(language: Language.find_by(code: 'en'),
-                                level: :expert)
+    build_resource({})
+    resource.language_skills.build(language: Language.find_by(code: I18n.locale),
+                                   level: :expert)
+    respond_with self.resource
   end
 
   def index
