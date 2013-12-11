@@ -52,6 +52,7 @@ end
 gem 'capistrano', '3.0.1'
 gem 'capistrano-rails', '1.1.0'
 gem 'capistrano-bundler', '1.1.1'
+gem 'capistrano-rvm', '0.1.0'
 
 # temporarily to fix an error with --dry-run deploys
 gem 'sshkit', '1.2.0'
