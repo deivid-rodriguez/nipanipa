@@ -3,7 +3,7 @@
 /* users signup */
 .form-wrapper {
   margin-left: 0px;
-  background: $white;
+  background: white;
   .form-title {
     padding: 30px 0px 0px 0px;
     margin: 0;
@@ -133,7 +133,7 @@
           background: darken($grayExplore, 10%);
         }
         a {
-          color: $black;
+          color: black;
           &:hover {
             text-decoration: none;
           }

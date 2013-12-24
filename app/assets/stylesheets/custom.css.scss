@@ -3,8 +3,10 @@
 /* mixins, variables, etc. */
 $grayBackground: #ebebdf;
 $grayMediumLight: #eaeaea;
+$grayLight: #999;
 $grayVeryLight: #ccc;
 $graySuperLight: #f5f5f5;
+$grayDarker: #222;
 $greenLogo: #568a7e;
 $grayExplore: #e1ddc4;
 $greenHost: #9ab6aa;
@@ -166,14 +168,14 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: $white;
+  color: white;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
   line-height: 1;
   &:hover {
-    color: $white;
+    color: white;
     text-decoration: none;
   }
 }
@@ -201,7 +203,7 @@ header {
 /* main content */
 .main {
   text-align: left;
-  background: $white;
+  background: white;
 }
 
 .main-titled {
@@ -275,7 +277,6 @@ footer {
 aside {
   section {
     padding: 10px 0;
-    border-top: 1px solid $grayLighter;
     &:first-child {
       border: 0;
       padding-top: 0;
