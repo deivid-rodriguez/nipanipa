@@ -1,67 +1,63 @@
-<div class="col-md-12 profile-header-<%= user.type.underscore %>">
-  <div class="row profile-header-wrapper">
-    <div class="user-picture col-md-4">
-      <%= avatar_for @user, style: :medium %>
+<div class="row profile-header-<%= user.type.underscore %>">
+  <div class='user-picture col-md-3'>
+    <%= avatar_for @user, style: :medium %>
+  </div>
+  <div class='user-tips col-md-9'>
+    <div class='row'>
+      <div class='title col-md-12'>
+        <h3><strong><%= user.name %></strong></h3>
+      </div>
     </div>
-    <div class="user-tips col-md-8">
-      <div class="row">
-        <div class="col-md-8 title">
-          <h3><strong><%= user.name %></strong></h3>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="col-md-4">
-          <%= render 'shared/badge', name: 'karma', content: user.karma %>
-          <%= render 'shared/badge', name: 'location',
-                                     content: user_location(user) %>
-          <%= render 'shared/badge',
-                     name: 'last_login',
-                     content: i18n_timeago(user.current_sign_in_at) %>
-          <%= render 'shared/badge', name: 'member_since',
-                                     content: i18n_timeago(user.created_at) %>
-        </div>
-        <div class="col-md-4">
-          <%= render 'shared/badge', name: 'categories',
-                                     content: user_categories(user) %>
-          <%= render 'shared/badge', name: 'languages',
-                                     content: user_languages(user) %>
-        </div>
+    <div class='row'>
+      <div class='col-md-6'>
+        <%= render 'shared/badge', name: 'karma', content: user.karma %>
+        <%= render 'shared/badge', name: 'location',
+                                   content: user_location(user) %>
+        <%= render 'shared/badge',
+                   name: 'last_login',
+                   content: i18n_timeago(user.current_sign_in_at) %>
+        <%= render 'shared/badge', name: 'member_since',
+                                   content: i18n_timeago(user.created_at) %>
       </div>
+      <div class='col-md-6'>
+        <%= render 'shared/badge', name: 'categories',
+                                   content: user_categories(user) %>
+        <%= render 'shared/badge', name: 'languages',
+                                   content: user_languages(user) %>
+      </div>
+    </div>
 
-      <div class="row">
-        <div class="profile-tabs">
-          <ul class="nav nav-tabs">
-            <%= tab_builder(user, page_id) %>
-          </ul>
-        </div>
-        <% if user_signed_in? and current_user != user %>
-          <div class="leave-feedback-link">
-            <% unless given_feedback %>
-              <%= link_to new_user_feedback_path(user) do %>
-                <div class="label_info">
-                  <%= image_tag 'feedback.png' %>
-                </div>
-                <div class="content_info">
-                  <%= t('.new_feedback') %>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-          <div class="send-message-link">
-            <%= link_to new_conversation_path(user) do %>
+    <div class='row'>
+      <ul class="nav nav-tabs">
+        <%= tab_builder(user, page_id) %>
+      </ul>
+      <% if user_signed_in? and current_user != user %>
+        <div class="leave-feedback-link">
+          <% unless given_feedback %>
+            <%= link_to new_user_feedback_path(user) do %>
               <div class="label_info">
-                <%= image_tag 'envelope.png' %>
+                <%= image_tag 'feedback.png' %>
               </div>
               <div class="content_info">
-                <%= t('.new_conversation') %>
+                <%= t('.new_feedback') %>
               </div>
             <% end %>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
+        <div class="send-message-link">
+          <%= link_to new_conversation_path(user) do %>
+            <div class="label_info">
+              <%= image_tag 'envelope.png' %>
+            </div>
+            <div class="content_info">
+              <%= t('.new_conversation') %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
 
-      </div>
     </div>
-   </div>
+  </div>
 </div>
 

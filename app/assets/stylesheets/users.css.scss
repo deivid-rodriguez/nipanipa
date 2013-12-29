@@ -79,68 +79,59 @@
 
 /* users profile */
 .profile-header {
-  margin-left: 0px;
-  margin-bottom: 30px;
+  margin: 0px 0px 30px 0px;
   position: relative;
-  border-bottom: 1px solid rgb(221, 221, 221);
-  .profile-header-wrapper {
-    .user-picture {
-      width: 260px;
-      @include box_sizing;
-      padding: 20px;
+  .user-picture {
+    @include box_sizing;
+    padding: 18px;
+  }
+  .nav-tabs {
+    padding-left: 15px;
+  }
+  .user-tips {
+    @include box_sizing;
+    .title {
+      margin-top: 25px;
+      margin-bottom: 20px;
     }
-    .user-tips {
-      width: 655px;
-      .title {
-        margin-top: 25px;
-        margin-bottom: 20px;
+    .quickinfo {
+      overflow: hidden;
+      margin-bottom: 12px;
+      padding-left: 10px;
+      line-height: 24px;
+      font-size: 11px;
+    }
+    .send-message-link {
+      position: absolute;
+      bottom: -1px;
+      right: 180px;
+    }
+    .leave-feedback-link {
+      position: absolute;
+      bottom: -1px;
+      right: 10px;
+    }
+    .send-message-link, .leave-feedback-link {
+      @include box_sizing;
+      border-top: 1px solid $grayVeryLight;
+      border-left: 1px solid $grayVeryLight;
+      padding: 6px 8px;
+      font-size: 12px;
+      line-height: 24px;
+      width: 160px;
+      background: $grayExplore;
+      &:hover {
+        background: darken($grayExplore, 10%);
       }
-      .quickinfo {
-        overflow: hidden;
-        margin-bottom: 12px;
-        padding-left: 10px;
-        line-height: 24px;
-        font-size: 11px;
-      }
-      .profile-tabs {
-        position: absolute;
-        bottom: -1px;
-        left: 305px;
-        .nav {
-          margin-bottom: 0px;
-        }
-      }
-      .send-message-link {
-        position: absolute;
-        bottom: -1px;
-        right: 180px;
-      }
-      .leave-feedback-link {
-        position: absolute;
-        bottom: -1px;
-        right: 10px;
-      }
-      .send-message-link, .leave-feedback-link {
-        @include box_sizing;
-        border-top: 1px solid $grayVeryLight;
-        border-left: 1px solid $grayVeryLight;
-        padding: 6px 8px;
-        font-size: 12px;
-        line-height: 24px;
-        width: 160px;
-        background: $grayExplore;
+      a {
+        color: black;
         &:hover {
-          background: darken($grayExplore, 10%);
-        }
-        a {
-          color: black;
-          &:hover {
-            text-decoration: none;
-          }
+          text-decoration: none;
         }
       }
     }
   }
+  
 }
 
 .profile-header-host {
@@ -167,23 +158,19 @@ div.no-elements {
 
 #profile-content {
   margin: 0px 20px 20px 20px;
-  .col-md-6 {
-    margin: 0px 10px 0px 10px;
-    width: 430px;
-    .box {
-      margin: 0px 0px 20px 0px;
-      border: 1px solid $grayVeryLight;
-      @include border_radius;
-      @include box_sizing;
-      padding: 9px;
-      background: $graySuperLight;
-      @include box_shadow;
-      h3 {
-        margin-bottom: 0.3em;
-        color: #333;
-        border-bottom: 1px solid $grayVeryLight;
-        font-size: 16px;
-      }
+  .box {
+    margin: 0px 0px 20px 0px;
+    border: 1px solid $grayVeryLight;
+    @include border_radius;
+    @include box_sizing;
+    padding: 9px;
+    background: $graySuperLight;
+    @include box_shadow;
+    h3 {
+      margin-bottom: 0.3em;
+      color: #333;
+      border-bottom: 1px solid $grayVeryLight;
+      font-size: 16px;
     }
   }
 }
