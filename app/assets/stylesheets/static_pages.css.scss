@@ -10,12 +10,18 @@
   background-size: cover;
 }
 
-.home-container {
+.nipa-container {
   @extend .container;
   padding-left: 100px;
   padding-right: 100px;
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+.inner-container {
+  @extend .container;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
 a.thmb-lnk {

@@ -5,43 +5,41 @@
 
   <p><%= t '.intro' %></p>
 
-  <ul class="thumbnails">
-    <li class="contribute-thumbnail">
-      <h3><%= t '.donate_title' %></h3>
-      <p><%= t '.donate_desc' %></p>
-      <%= simple_form_for @donation do |d| %>
-        <%= d.input_field :amount, as: :select, collection: 1..20,
-                                                include_blank: false %>
-        <%= d.hidden_field :user_id, value: current_user.try(:id) %>
-        <%= d.button :submit %>
-      <% end %>
+  <div class='contribute-thumbnail'>
+    <h3><%= t '.donate_title' %></h3>
+    <p><%= t '.donate_desc' %></p>
+    <%= simple_form_for @donation do |d| %>
+      <%= d.input_field :amount, as: :select, collection: 1..20,
+                                              include_blank: false %>
+      <%= d.hidden_field :user_id, value: current_user.try(:id) %>
+      <%= d.button :submit %>
+    <% end %>
 
-      <%= render 'flattr' %>
-    </li>
+    <%= render 'flattr' %>
+  </div>
 
-    <li class="contribute-thumbnail">
-      <h3><%= t '.contribute_title' %></h3>
-      <ul>
-        <li>
-          <p>
-            <%= t '.contribute_desc_dev_html',
-                  git_url: link_to(
-                    t('.here'),
-                    'https://github.com/deivid-rodriguez/nipanipa') %>
-          </p>
-        </li>
-        <li>
-          <p><%= t '.contribute_desc_tr' %></p>
-        </li>
-        <li>
-          <p>
-            <%= t '.contribute_desc_bug_html',
-                  issues_url: link_to(
-                    t('.here'),
-                    'https://github.com/deivid-rodriguez/nipanipa/issues') %>
-          </p>
-        </li>
-      </ul>
-    </li>
-  </ul>
+  <div class='contribute-thumbnail'>
+    <h3><%= t '.contribute_title' %></h3>
+    <ul>
+      <li>
+        <p>
+          <%= t '.contribute_desc_dev_html',
+                git_url: link_to(
+                  t('.here'),
+                  'https://github.com/deivid-rodriguez/nipanipa') %>
+        </p>
+      </li>
+      <li>
+        <p><%= t '.contribute_desc_tr' %></p>
+      </li>
+      <li>
+        <p>
+          <%= t '.contribute_desc_bug_html',
+                issues_url: link_to(
+                  t('.here'),
+                  'https://github.com/deivid-rodriguez/nipanipa/issues') %>
+        </p>
+      </li>
+    </ul>
+  </div>
 </div>

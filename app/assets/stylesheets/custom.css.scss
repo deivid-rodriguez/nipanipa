@@ -89,7 +89,8 @@ a {
 
 textarea { resize: vertical; }
 
-.thumbnails {
+.user-thumbnails {
+  list-style-type: none;
   a {
     color: #333;
     text-decoration: none;
@@ -201,6 +202,8 @@ header {
 
 /* main content */
 .main {
+  @extend .container;
+  max-width: 970px;
   text-align: left;
   background: white;
 }

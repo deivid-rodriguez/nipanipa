@@ -214,19 +214,30 @@ table.calendar {
   @include border_radius;
   li.active > a {
     background-color: $grayLight;
+    padding: 3px 15px;
     &:hover {
       background-color: $grayLight;
     }
+  }
+  li.nav-header {
+    padding: 3px 0px;
+    font-size: 11px;
+    font-weight: bold;
+    color: #999999;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+    text-transform: uppercase;
   }
 }
 
 .list-users {
   padding: 20px 0;
   .user-thumbnail {
+    @include box_sizing;
     border: 1px solid #ddd;
     overflow: hidden;
-    @extend .img-thumbnail;
     padding-right: 15px;
+    @extend .img-thumbnail;
+    width: 100%;
     @include border_radius;
     .user-thumbnail-badges {
       float: left;
