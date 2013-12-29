@@ -84,6 +84,9 @@ a {
     li.dropdown.open > .dropdown-toggle {
       background: none;
     }
+    li a:hover {
+      background: none;
+    }
   }
 }
 
