@@ -71,7 +71,7 @@ a {
   color: darken($greenLogo, 10%);
 }
 
-.navbar {
+.nav {
   margin-top: 10px;
   margin-bottom: 10px;
   .navbar-inner {
@@ -79,7 +79,7 @@ a {
     font-size: 14px;
     border: none;
     @include box_shadow(0px);
-    .nav {
+    .navbar-nav {
       padding-top: 47px;
       li.dropdown.open > .dropdown-toggle {
         background: none;
