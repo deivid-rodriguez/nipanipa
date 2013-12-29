@@ -40,4 +40,4 @@ set :ssh_options, { forward_agent: true }
 
 # RVM configuration
 set :rvm_type, :user
-set :rvm_ruby_version, '2.0.0-p353'
+set :rvm_ruby_version, '2.1.0'
