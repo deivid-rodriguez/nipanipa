@@ -32,7 +32,7 @@ group :development, :test do
   gem 'guard', '2.2.5'
   gem 'byebug', '2.5.0'
   gem 'factory_girl_rails', '4.3.0'
-  gem 'pry-doc', '0.4.6'
+  gem 'pry-doc', '0.5.1'
 end
 
 group :test do
@@ -53,6 +53,3 @@ gem 'capistrano', '3.0.1'
 gem 'capistrano-rails', '1.1.0'
 gem 'capistrano-bundler', '1.1.1'
 gem 'capistrano-rvm', '0.1.0'
-
-# temporarily to fix an error with --dry-run deploys
-gem 'sshkit', '1.2.0'
