@@ -3,7 +3,7 @@
 <div class="col-md-12">
   <div class="row main-titled">
 
-    <div class="offset2 col-md-7 title">
+    <div class="col-md-offset-2 col-md-7 title">
       <h3><%= @conversation.subject %></h3>
     </div>
 
@@ -11,7 +11,7 @@
       <%= link_to t('.back_html'), conversations_path %>
     </div>
 
-    <div class="offset2 col-md-8 chat-list">
+    <div class="col-md-offset-2 col-md-8 chat-list">
       <ul id="chat-list">
         <% for message in @conversation.messages %>
         <li>
@@ -21,7 +21,7 @@
       </ul>
     </div>
 
-    <div class="offset2 col-md-8 message-reply">
+    <div class="col-md-offset-2 col-md-8 message-reply">
       <%= form_tag reply_conversation_path(@conversation),
                    method: :put, remote: true do %>
         <%= text_area_tag :body %>
