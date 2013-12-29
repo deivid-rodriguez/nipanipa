@@ -1,29 +1,29 @@
-<ul class="thumbnails">
-  <li class="col-md-12">
-    <%= link_to users_path do %>
-      <div class="explore-thumbnail">
-        <%= image_tag "explore.png", alt: "explore" %>
-        <h2><%= t('static_pages.home.explore') %></h2>
-        <p><%= t('static_pages.home.explore_desc') %></p>
-      </div>
-    <% end %>
-  </li>
-  <li class="col-md-6">
-    <%= link_to new_user_registration_path(type: "host") do %>
-      <div class="host-thumbnail">
-        <%= image_tag "host.png", alt: "signup host" %>
-        <h2><%= t('static_pages.home.host') %></h2>
-        <p><%= t('static_pages.home.host_desc') %></p>
-      </div>
-    <% end %>
-  </li>
-  <li class="col-md-6">
-    <%= link_to new_user_registration_path(type: "volunteer") do %>
-      <div class="volunteer-thumbnail">
-        <%= image_tag "volunteer.png", alt: "signup volunteer" %>
-        <h2><%= t('static_pages.home.volunteer') %></h2>
-        <p><%= t('static_pages.home.volunteer_desc') %></p>
-      </div>
-    <% end %>
-  </li>
-</ul>
+<div class='home-explore'>
+  <%= link_to users_path, class: 'thmb-lnk' do %>
+    <div class='explore-thumbnail'>
+      <%= image_tag "explore.png", alt: "explore" %>
+      <h2><%= t('static_pages.home.explore') %></h2>
+      <p><%= t('static_pages.home.explore_desc') %></p>
+    </div>
+  <% end %>
+</div>
+
+<div class='home-host'>
+  <%= link_to new_user_registration_path(type: "host"), class: 'thmb-lnk' do %>
+    <div class='host-thumbnail'>
+      <%= image_tag "host.png", alt: "signup host" %>
+      <h2><%= t('static_pages.home.host') %></h2>
+      <p><%= t('static_pages.home.host_desc') %></p>
+    </div>
+  <% end %>
+</div>
+
+<div class='home-volunteer'>
+  <%= link_to new_user_registration_path(type: 'volunteer'), class: 'thmb-lnk' do %>
+    <div class='volunteer-thumbnail'>
+      <%= image_tag "volunteer.png", alt: "signup volunteer" %>
+      <h2><%= t('static_pages.home.volunteer') %></h2>
+      <p><%= t('static_pages.home.volunteer_desc') %></p>
+    </div>
+  <% end %>
+</div>

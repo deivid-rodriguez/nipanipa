@@ -10,18 +10,40 @@
   background-size: cover;
 }
 
-.home-thumbnails {
-  @extend .thumbnails;
-  a {
-    color: #333;
-    text-decoration: none;
-  }
-  margin: 0 0 0 -20px;
+.home-container {
+  @extend .container;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+a.thmb-lnk {
+  color: #333;
+  text-decoration: none;
+}
+
+.home-explore {
+  width: 100%;
+}
+
+.home-host {
+  @extend .clearfix;
+  width: 50%;
+  float: left
+}
+
+.home-volunteer {
+  @extend .clearfix;
+  width: 50%;
+  float: right;
 }
 
 .explore-thumbnail {
   @extend .img-thumbnail;
+  width: 100%;
   padding: 20px 290px;
+  border-radius: 0px;
   background: $grayExplore;
   &:hover {
     background: darken($grayExplore, 10%);
@@ -30,7 +52,9 @@
 
 .host-thumbnail {
   @extend .img-thumbnail;
+  width: 100%;
   padding: 20px 50px;
+  border-radius: 0px;
   background: $greenHost;
   &:hover {
     background: darken($greenHost, 10%);
@@ -39,7 +63,9 @@
 
 .volunteer-thumbnail {
   @extend .img-thumbnail;
+  width: 100%;
   padding: 20px 50px;
+  border-radius: 0px;
   background: $redVolunteer;
   &:hover {
     background: darken($redVolunteer, 10%);

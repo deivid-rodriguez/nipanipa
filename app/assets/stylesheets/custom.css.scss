@@ -72,7 +72,8 @@ a {
 }
 
 .navbar {
-  margin-top: 10px;
+  padding-right: 100px;
+  padding-left: 100px;
   margin-bottom: 10px;
   background: none;
   font-size: 14px;
@@ -233,6 +234,7 @@ footer {
     }
   }
   .footer-links ul {
+    padding-left: 0px;
     position: absolute;
     top: $footer_width/2 + $footer_padding - $footer_line_height/2;
     float: left;
