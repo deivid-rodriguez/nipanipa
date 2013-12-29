@@ -20,7 +20,7 @@
 }
 
 .explore-thumbnail {
-  @extend .thumbnail;
+  @extend .img-thumbnail;
   padding: 20px 290px;
   background: $grayExplore;
   &:hover {
@@ -29,7 +29,7 @@
 }
 
 .host-thumbnail {
-  @extend .thumbnail;
+  @extend .img-thumbnail;
   padding: 20px 50px;
   background: $greenHost;
   &:hover {
@@ -38,7 +38,7 @@
 }
 
 .volunteer-thumbnail {
-  @extend .thumbnail;
+  @extend .img-thumbnail;
   padding: 20px 50px;
   background: $redVolunteer;
   &:hover {
@@ -47,7 +47,7 @@
 }
 
 .contribute-thumbnail {
-  @extend .thumbnail;
+  @extend .img-thumbnail;
   background: $grayBackground;
   padding: 30px 30px 15px 30px;
   text-align: left;

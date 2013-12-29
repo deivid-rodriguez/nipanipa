@@ -225,7 +225,7 @@ table.calendar {
   .user-thumbnail {
     border: 1px solid #ddd;
     overflow: hidden;
-    @extend .thumbnail;
+    @extend .img-thumbnail;
     padding-right: 15px;
     @include border_radius;
     .user-thumbnail-badges {

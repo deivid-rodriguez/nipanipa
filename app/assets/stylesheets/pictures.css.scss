@@ -10,7 +10,7 @@
 }
 
 .picture-thumbnail {
-  @extend .thumbnail;
+  @extend .img-thumbnail;
   margin: 0px 20px 20px 20px;
   a {
     display: inline;

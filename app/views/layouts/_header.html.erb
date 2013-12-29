@@ -1,63 +1,65 @@
-<nav class="container">
-  <div class='nav'>
-    <div class="navbar-inner">
-        <%= link_to root_path, class: 'navbar-brand' do %>
-          <%= image_tag "logo.png", alt: "NiPaNiPa" %>
-        <% end %>
-        <ul class='navbar-nav pull-right'>
-          <li><%= link_to t('.donate'), new_donation_path %></li>
-          <li><%= link_to t('.search'), users_path %></li>
-          <li><%= link_to t('static_pages.help.title'), help_path %></li>
-          <% if user_signed_in? %>
-            <li>
-              <%= link_to t('users.show.profile'), current_user %>
-            </li>
-          <% elsif url_for != new_user_registration_path && url_for != root_path %>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=
-                t 'static_pages.home.signup' %><b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li>
-                  <%= link_to t('activerecord.models.host'),
-                              new_user_registration_path(type: "host") %>
-                </li>
-                <li>
-                  <%= link_to t('activerecord.models.volunteer'),
-                              new_user_registration_path(type: "volunteer") %>
-                </li>
-              </ul>
-          <% end %>
-
-          <% if user_signed_in? %>
-            <li>
-              <%= link_to t('sessions.signout'), destroy_user_session_path, method: :delete %>
-            </li>
-          <% elsif url_for != new_user_session_path %>
-            <li class="dropdown">
-              <a class="dropdown-toggle" href="#" data-toggle="dropdown"><%=
-                t  'sessions.signin' %><strong class="caret"></strong></a>
-              <div class="dropdown-menu">
-                <div class="signin-dropdown">
-                  <%= render 'shared/signin' %>
-                </div>
-              </div>
-            </li>
-          <% end %>
-
+<div class='container'>
+  <nav class='navbar'>
+    <div class='navbar-header'>
+      <%= link_to root_path, class: 'navbar-brand' do %>
+        <%= image_tag "logo.png", alt: "NiPaNiPa" %>
+      <% end %>
+    </div>
+    <div class='navbar-collapse collapse navbar-right'>
+      <ul class='nav navbar-nav pull-right'>
+        <li><%= link_to t('.donate'), new_donation_path %></li>
+        <li><%= link_to t('.search'), users_path %></li>
+        <li><%= link_to t('static_pages.help.title'), help_path %></li>
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to t('users.show.profile'), current_user %>
+          </li>
+        <% elsif url_for != new_user_registration_path && url_for != root_path %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=
-              t '.language' %><b class="caret"></b></a>
+              t 'static_pages.home.signup' %><b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <% LANGUAGES.each do |language| %>
-                <li>
-                  <%= link_to_unless_current language[0],
-                                             locale: language[1],
-                                             type: params[:type] %>
-                </li>
-              <% end %>
+              <li>
+                <%= link_to t('activerecord.models.host'),
+                            new_user_registration_path(type: "host") %>
+              </li>
+              <li>
+                <%= link_to t('activerecord.models.volunteer'),
+                            new_user_registration_path(type: "volunteer") %>
+              </li>
             </ul>
+        <% end %>
+
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to t('sessions.signout'), destroy_user_session_path, method: :delete %>
           </li>
-        </ul>
-      </div>
-  </div>
-</nav>
+        <% elsif url_for != new_user_session_path %>
+          <li class="dropdown">
+            <a class="dropdown-toggle" href="#" data-toggle="dropdown"><%=
+              t  'sessions.signin' %><strong class="caret"></strong></a>
+            <div class="dropdown-menu">
+              <div class="signin-dropdown">
+                <%= render 'shared/signin' %>
+              </div>
+            </div>
+          </li>
+        <% end %>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=
+            t '.language' %><b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <% LANGUAGES.each do |language| %>
+              <li>
+                <%= link_to_unless_current language[0],
+                                           locale: language[1],
+                                           type: params[:type] %>
+              </li>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>

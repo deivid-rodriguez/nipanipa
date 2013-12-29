@@ -71,19 +71,17 @@ a {
   color: darken($greenLogo, 10%);
 }
 
-.nav {
+.navbar {
   margin-top: 10px;
   margin-bottom: 10px;
-  .navbar-inner {
-    background: none;
-    font-size: 14px;
-    border: none;
-    @include box_shadow(0px);
-    .navbar-nav {
-      padding-top: 47px;
-      li.dropdown.open > .dropdown-toggle {
-        background: none;
-      }
+  background: none;
+  font-size: 14px;
+  border: none;
+  @include box_shadow(0px);
+  .navbar-nav {
+    padding-top: 47px;
+    li.dropdown.open > .dropdown-toggle {
+      background: none;
     }
   }
 }
@@ -98,7 +96,7 @@ textarea { resize: vertical; }
   margin: 0 0 0 -20px;
 }
 
-.thumbnail {
+.img-thumbnail {
   border: none;
   text-align: center;
   a {

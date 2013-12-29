@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .signin-thumbnail {
-  @extend .thumbnail;
+  @extend .img-thumbnail;
   width: 240px;
   margin: auto;
   margin-top: 20px;
@@ -22,7 +22,7 @@
 }
 
 .signin-dropdown {
-  @extend .thumbnail;
+  @extend .img-thumbnail;
   border: none;
   padding: 10px;
   width: 250px;
