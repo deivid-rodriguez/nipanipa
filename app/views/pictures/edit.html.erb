@@ -1,17 +1,17 @@
 <% provide :title, t('.title') %>
 
-<div class="span12">
+<div class="col-md-12">
   <div class="row main-titled">
 
-    <div class="offset2 span8 title">
+    <div class="offset2 col-md-8 title">
       <h3><%= t('.title') %></h3>
     </div>
 
-    <div class="offset2 span8 subtitle">
+    <div class="offset2 col-md-8 subtitle">
       <em><%= t('.subtitle') %></em>
     </div>
 
-    <div class="offset2 span8 form">
+    <div class="offset2 col-md-8 form">
        <%= render partial: 'form', object: @pictures %>
     </div>
   </div>

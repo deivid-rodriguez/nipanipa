@@ -1,10 +1,10 @@
-<div class="control-group span10">
+<div class="control-group col-md-10">
   <label class="control-label">
     <%= t(".title_#{user.type.underscore}") %>
   </label>
   <div class="controls">
     <% 3.times do |i| %>
-      <div class="span3 checkbox-list">
+      <div class="col-md-3 checkbox-list">
         <%= f.collection_check_boxes :work_type_ids,
                                      WorkType.limit(5).offset(5*i).to_a,
                                      :id, :name do |b| %>

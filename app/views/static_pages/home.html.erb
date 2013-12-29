@@ -1,5 +1,5 @@
 <ul class="thumbnails">
-  <li class="span12">
+  <li class="col-md-12">
     <%= link_to users_path do %>
       <div class="explore-thumbnail">
         <%= image_tag "explore.png", alt: "explore" %>
@@ -8,7 +8,7 @@
       </div>
     <% end %>
   </li>
-  <li class="span6">
+  <li class="col-md-6">
     <%= link_to new_user_registration_path(type: "host") do %>
       <div class="host-thumbnail">
         <%= image_tag "host.png", alt: "signup host" %>
@@ -17,7 +17,7 @@
       </div>
     <% end %>
   </li>
-  <li class="span6">
+  <li class="col-md-6">
     <%= link_to new_user_registration_path(type: "volunteer") do %>
       <div class="volunteer-thumbnail">
         <%= image_tag "volunteer.png", alt: "signup volunteer" %>

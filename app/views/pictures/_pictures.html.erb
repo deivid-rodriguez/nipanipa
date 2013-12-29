@@ -3,7 +3,7 @@
 <% else %>
   <ul class='picture-thumbnails'>
     <% pictures.each do |p| %>
-      <li class='span6'>
+      <li class='col-md-6'>
         <div class='picture-thumbnail'>
           <% if can? :manage, p %>
             <div class='actions'>

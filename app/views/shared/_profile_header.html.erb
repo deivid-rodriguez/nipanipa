@@ -1,17 +1,17 @@
-<div class="span12 profile-header-<%= user.type.underscore %>">
+<div class="col-md-12 profile-header-<%= user.type.underscore %>">
   <div class="row profile-header-wrapper">
-    <div class="user-picture span4">
+    <div class="user-picture col-md-4">
       <%= avatar_for @user, style: :medium %>
     </div>
-    <div class="user-tips span8">
+    <div class="user-tips col-md-8">
       <div class="row">
-        <div class="span8 title">
+        <div class="col-md-8 title">
           <h3><strong><%= user.name %></strong></h3>
         </div>
       </div>
 
       <div class="row">
-        <div class="span4">
+        <div class="col-md-4">
           <%= render 'shared/badge', name: 'karma', content: user.karma %>
           <%= render 'shared/badge', name: 'location',
                                      content: user_location(user) %>
@@ -21,7 +21,7 @@
           <%= render 'shared/badge', name: 'member_since',
                                      content: i18n_timeago(user.created_at) %>
         </div>
-        <div class="span4">
+        <div class="col-md-4">
           <%= render 'shared/badge', name: 'categories',
                                      content: user_categories(user) %>
           <%= render 'shared/badge', name: 'languages',

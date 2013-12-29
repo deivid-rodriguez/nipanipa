@@ -1,8 +1,8 @@
 <div class="row">
   <%= simple_form_for resource,
        as: resource_name, url: registration_path(resource_name),
-       html: { class: 'form-horizontal offset1 span10', multipart: true },
-       defaults: { wrapper_html: { class: 'span5' }, placeholder: false } do |f| %>
+       html: { class: 'form-horizontal offset1 col-md-10', multipart: true },
+       defaults: { wrapper_html: { class: 'col-md-5' }, placeholder: false } do |f| %>
 
   <%= hidden_field_tag :type, resource.type %>
 
@@ -20,12 +20,12 @@
 
   <div class="row">
     <%= f.input :description, label: t(".description_#{resource.type.underscore}"),
-                              wrapper_html: { class: 'span10' } %>
+                              wrapper_html: { class: 'col-md-10' } %>
   </div>
 
   <div class="row">
     <%= f.input :availability, as: :check_boxes,
-          item_wrapper_class: :inline, wrapper_html: { class: 'span10' },
+          item_wrapper_class: :inline, wrapper_html: { class: 'col-md-10' },
           collection: User::AVAILABILITY,
           checked: resource.availability,
           label_method: lambda{ |m| l(Date.strptime(m, '%b'), format: :month).titleize },
@@ -42,12 +42,12 @@
 
   <div class="row">
     <%= f.input :skills, label: t(".skills_#{resource.type.underscore}"),
-                          wrapper_html: { class: 'span10' } %>
+                          wrapper_html: { class: 'col-md-10' } %>
   </div>
 
   <% if resource.type == "Host" %>
     <div class="row">
-      <%= f.input :accomodation, wrapper_html: { class: 'span10' } %>
+      <%= f.input :accomodation, wrapper_html: { class: 'col-md-10' } %>
     </div>
   <% end %>
 

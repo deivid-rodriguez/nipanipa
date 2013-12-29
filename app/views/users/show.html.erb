@@ -4,7 +4,7 @@
                                     given_feedback: @given_feedback %>
 
 <div id="profile-content">
-  <div class="span6">
+  <div class="col-md-6">
     <div class="box">
       <%= render 'edit_link', user: @user %>
       <h3><%= t '.description' %></h3>
@@ -18,7 +18,7 @@
     </div>
   </div>
 
-  <div class="span6">
+  <div class="col-md-6">
     <div class="box">
       <%= render 'edit_link', user: @user %>
       <h3><%= t('.availability') %></h3>
