@@ -208,13 +208,17 @@ table.calendar {
 
 /* users index */
 .sidebar-users {
-  margin: 20px 0px 20px 20px;
-  width: 180px;
+  margin-left: 20px;
+  margin-top: 20px;
+  @include clearfix;
+  @include border_radius ;
   background: $graySuperLight;
   @include border_radius;
+  li > a {
+    padding: 3px 15px;
+  }
   li.active > a {
     background-color: $grayLight;
-    padding: 3px 15px;
     &:hover {
       background-color: $grayLight;
     }
@@ -230,43 +234,72 @@ table.calendar {
 }
 
 .list-users {
-  padding: 20px 0;
-  .user-thumbnail {
-    @include box_sizing;
-    border: 1px solid #ddd;
-    overflow: hidden;
-    padding-right: 15px;
-    @extend .img-thumbnail;
-    width: 100%;
-    @include border_radius;
-    .user-thumbnail-badges {
-      float: left;
-      .karma {
-        padding-top: 10px;
-        span {
-         font-size: 16px;
-        }
+  margin-left: -20px;
+  padding: 20px;
+  .pagination {
+    padding-left: 15px;
+    margin: 0;
+    ul.pagination {
+      padding-left: 0px;
+      li.active > a {
+        border-color: #ddd;
+        background-color: #eee;
+        color: #428bca;
+      }
+      li > a:hover {
+        color: #428bca;
+        background-color: #eee;
+      }
+      li.disabled > a:hover {
+        color: #999;
+        background-color: white;
       }
     }
-    .user-thumbnail-data {
-      margin-left: 180px;
+  }
+  .user-thumbnails {
+    padding-left: 15px;
+    list-style-type: none;
+    a {
+      color: #333;
+      text-decoration: none;
     }
-    .user-thumbnail-login, .user-thumbnail-location {
-      margin: 0 0 4px 0;
-      color: $gray;
-      font-size: 0.9em;
-      font-style: italic;
-    }
-    .user-thumbnail-location {
-      text-align: right;
-    }
-    .user-thumbnail-login {
-      width: 249px;
-      float: left;
-      text-align: left;
-    }
-    .user-thumbnail-shortdesc {
-      text-align: left;
+    .user-thumbnail {
+      @include box_sizing;
+      border: 1px solid #ddd;
+      overflow: hidden;
+      padding-right: 15px;
+      @extend .img-thumbnail;
+      width: 100%;
+      @include border_radius;
+      .user-thumbnail-badges {
+        float: left;
+        .karma {
+          padding-top: 10px;
+          span {
+           font-size: 16px;
+          }
+        }
+      }
+      .user-thumbnail-data {
+        margin-left: 180px;
+      }
+      .user-thumbnail-login, .user-thumbnail-location {
+        margin: 0 0 4px 0;
+        color: $gray;
+        font-size: 0.9em;
+        font-style: italic;
+      }
+      .user-thumbnail-location {
+        text-align: right;
+      }
+      .user-thumbnail-login {
+        width: 249px;
+        float: left;
+        text-align: left;
+      }
+      .user-thumbnail-shortdesc {
+        text-align: left;
+      }
     }
   }
 }
