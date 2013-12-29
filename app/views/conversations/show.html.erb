@@ -25,7 +25,7 @@
       <%= form_tag reply_conversation_path(@conversation),
                    method: :put, remote: true do %>
         <%= text_area_tag :body %>
-        <%= submit_tag t('.reply'), class: "btn btn-small pull-right" %>
+        <%= submit_tag t('.reply'), class: 'btn btn-sm pull-right' %>
       <% end %>
     </div>
 
