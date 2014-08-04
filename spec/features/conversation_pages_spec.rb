@@ -2,7 +2,7 @@
 # Integration tests for Conversation pages
 #
 
-describe 'Create a conversation' do
+RSpec.describe 'Create a conversation' do
   let!(:conversation) { build(:conversation) }
   let(:create_conv)  { t('helpers.submit.conversation.create') }
 
@@ -18,7 +18,7 @@ describe 'Create a conversation' do
     end
 
     it 'shows an error message' do
-      page.should have_flash_message t('conversations.create.error'), 'error'
+      expect(page).to have_flash_message t('conversations.create.error'), 'error'
     end
   end
 
@@ -31,14 +31,14 @@ describe 'Create a conversation' do
     end
 
     it 'shows a success message' do
-      page.should have_flash_message t('conversations.create.success'), 'success'
+      expect(page).to have_flash_message t('conversations.create.success'), 'success'
     end
 
     it { sends_notification_email(conversation.to) }
   end
 end
 
-describe 'Listing user conversations' do
+RSpec.describe 'Listing user conversations' do
   let!(:conversation) { create(:conversation) }
 
   before do
@@ -48,13 +48,13 @@ describe 'Listing user conversations' do
   end
 
   it 'properly lists user conversations' do
-    page.should have_content conversation.subject
-    page.should have_link conversation.to.name
-    page.should_not have_link conversation.from.name
+    expect(page).to have_content conversation.subject
+    expect(page).to have_link conversation.to.name
+    expect(page).not_to have_link conversation.from.name
   end
 end
 
-describe 'Display a conversation', :js do
+RSpec.describe 'Display a conversation', :js do
   let!(:conversation) { create(:conversation) }
 
   before do
@@ -65,13 +65,13 @@ describe 'Display a conversation', :js do
   end
 
   it 'lists all messages in thread' do
-    page.should have_content conversation.messages.first.body
+    expect(page).to have_content conversation.messages.first.body
   end
 
   it 'shows a reply box' do
-    page.should have_title conversation.subject
-    page.should have_selector 'h3', text: conversation.subject
-    page.should have_button t('conversations.show.reply')
+    expect(page).to have_title conversation.subject
+    expect(page).to have_selector 'h3', text: conversation.subject
+    expect(page).to have_button t('conversations.show.reply')
   end
 
   describe 'and reply to it' do
@@ -79,7 +79,7 @@ describe 'Display a conversation', :js do
       before { reply('This is a sample reply') }
 
       it 'shows the message just replied' do
-        page.should have_content 'This is a sample reply'
+        expect(page).to have_content 'This is a sample reply'
       end
 
       it { sends_notification_email(conversation.to) }
@@ -89,14 +89,14 @@ describe 'Display a conversation', :js do
       before { reply('') }
 
       it 'shows an error message and keeps user in the same page' do
-        page.should have_flash_message t('conversations.reply.error'), 'error'
-        page.should have_button t('conversations.show.reply')
+        expect(page).to have_flash_message t('conversations.reply.error'), 'error'
+        expect(page).to have_button t('conversations.show.reply')
       end
     end
   end
 end
 
-describe 'Deleting conversations', :js do
+RSpec.describe 'Deleting conversations', :js do
   let!(:conversation) { create(:conversation) }
 
   before do
@@ -107,7 +107,7 @@ describe 'Deleting conversations', :js do
   end
 
   it 'removes conversation from list' do
-    page.should_not have_selector "li#conversation-preview-#{conversation.id}"
+    expect(page).not_to have_selector "li#conversation-preview-#{conversation.id}"
   end
 
   context 'when the other user goes to message list' do
@@ -118,15 +118,15 @@ describe 'Deleting conversations', :js do
     end
 
     it 'conversation should still be there' do
-      page.should have_selector "li#conversation-preview-#{conversation.id}"
+      expect(page).to have_selector "li#conversation-preview-#{conversation.id}"
     end
 
     context 'and deletes the same conversation' do
       it 'is also removed from database' do
         find_link("delete-link-#{conversation.id}").trigger('click')
-        page.should_not have_selector \
+        expect(page).not_to have_selector \
           "li#conversation-preview-#{conversation.id}"
-        Conversation.count.should eq(0)
+        expect(Conversation.count).to eq(0)
       end
     end
 
@@ -140,7 +140,7 @@ describe 'Deleting conversations', :js do
       end
 
       it 'reappears in the first user\'s message list' do
-        page.should have_selector "li#conversation-preview-#{conversation.id}"
+        expect(page).to have_selector "li#conversation-preview-#{conversation.id}"
       end
     end
   end

@@ -1,11 +1,9 @@
-<% unless flash.empty? %>
-  <div class="container">
-  <% flash.each do |name, msg| %>
-    <% if msg.is_a?(String) %>
-      <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
-        <%= msg %>
-      </div>
-    <% end %>
+<div class="container">
+<% flash.each do |name, msg| %>
+  <% if msg.is_a?(String) %>
+    <div class="alert alert-<%= name == 'notice' ? 'success' : 'error' %>">
+      <%= msg %>
+    </div>
   <% end %>
-  </div>
 <% end %>
+</div>

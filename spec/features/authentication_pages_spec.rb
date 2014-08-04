@@ -2,7 +2,7 @@
 # Integration tests for Authentication pages
 #
 
-describe 'Signin' do
+RSpec.describe 'Signin' do
   let(:signin)  { t 'sessions.signin'    }
   let(:signout) { t 'sessions.signout'   }
   let(:profile) { t 'users.show.profile' }
@@ -15,26 +15,25 @@ describe 'Signin' do
   describe 'page has correct content' do
     before { visit new_user_session_path }
 
-    it { should have_title signin }
+    it { is_expected.to have_title signin }
   end
 
   describe 'dropdown menu has correct content' do
     before { click_link signin }
 
-    it { should have_selector 'input#user_email' }
-    it { should have_selector 'input#user_password' }
+    it { is_expected.to have_selector 'input#user_email' }
+    it { is_expected.to have_selector 'input#user_password' }
   end
-
 
   # XXX: Review.. this fields are currently set in the factory
   describe 'geolocation' do
     before { sign_in user }
 
     it 'correctly sets user location by geolocating the ip' do
-      user.reload.longitude.should_not be_nil
-      user.reload.latitude.should_not be_nil
-      user.reload.state.should_not be_nil
-      user.reload.country.should_not be_nil
+      expect(user.reload.longitude).not_to be_nil
+      expect(user.reload.latitude).not_to be_nil
+      expect(user.reload.state).not_to be_nil
+      expect(user.reload.country).not_to be_nil
     end
   end
 
@@ -44,28 +43,28 @@ describe 'Signin' do
       click_button signin
     end
 
-    it { should have_title signin }
-    it { should have_flash_message t('devise.failure.invalid'), 'error' }
+    it { is_expected.to have_title signin }
+    it { is_expected.to have_flash_message t('devise.failure.invalid'), 'error' }
   end
 
   context 'with valid information' do
     before { sign_in user }
 
-    it { should have_title user.name }
-    it { should have_link profile, href: user_path(user) }
-    it { should_not have_link signin, href: new_user_session_path }
+    it { is_expected.to have_title user.name }
+    it { is_expected.to have_link profile, href: user_path(user) }
+    it { is_expected.not_to have_link signin, href: new_user_session_path }
 
     context 'and then signout' do
       before { click_link signout }
 
-      it { should have_link signin }
-      it { should_not have_link profile, href: user_path(user) }
-      it { should_not have_link signout }
+      it { is_expected.to have_link signin }
+      it { is_expected.not_to have_link profile, href: user_path(user) }
+      it { is_expected.not_to have_link signout }
     end
   end
 end # signin
 
-describe 'Password recovery' do
+RSpec.describe 'Password recovery' do
   let!(:user) { create(:volunteer) }
 
   subject { page }
@@ -77,7 +76,7 @@ describe 'Password recovery' do
   end
 
   shared_examples 'paranoid' do
-    it { should have_flash_message \
+    it { is_expected.to have_flash_message \
                 t('devise.passwords.send_paranoid_instructions'), 'success' }
   end
 

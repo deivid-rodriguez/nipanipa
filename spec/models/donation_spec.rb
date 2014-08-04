@@ -2,8 +2,8 @@
 # Unit tests for Donation model
 #
 
-describe Donation do
+RSpec.describe Donation do
   it "should be valid" do
-    Donation.new.should be_valid
+    expect(Donation.new).to be_valid
   end
 end

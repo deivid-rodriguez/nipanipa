@@ -2,14 +2,14 @@
 # Unit tests for Message model
 #
 
-describe Message do
+RSpec.describe Message do
 
   it "has a valid factory" do
-    create(:conversation).should be_valid
+    expect(create(:conversation)).to be_valid
   end
 
-  it { should belong_to(:conversation) }
+  it { is_expected.to belong_to(:conversation) }
 
-  it { should belong_to(:from).class_name('User') }
-  it { should belong_to(:to).class_name('User') }
+  it { is_expected.to belong_to(:from).class_name('User') }
+  it { is_expected.to belong_to(:to).class_name('User') }
 end

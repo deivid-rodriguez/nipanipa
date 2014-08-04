@@ -1,4 +1,8 @@
-describe "User" do
+#
+# Integration tests for Authentication pages
+#
+
+RSpec.describe 'User' do
 
   describe "abilities" do
     subject { user }
@@ -15,20 +19,20 @@ describe "User" do
        sign_in user
       end
 
-      it { should_not have_ability(:manage, for: feedback_for_me) }
-      it { should have_ability(:manage, for: feedback_by_me) }
+      it { is_expected.not_to have_ability(:manage, for: feedback_for_me) }
+      it { is_expected.to have_ability(:manage, for: feedback_by_me) }
     end
 
     context "when it's an admin user" do
       let!(:user) { create(:host, :admin) }
 
-      it { should have_ability(:manage, for: Feedback.new) }
+      it { is_expected.to have_ability(:manage, for: Feedback.new) }
     end
   end
 
 end
 
-describe "Protected pages" do
+RSpec.describe "Protected pages" do
   let!(:user) { create(:host) }
 
   subject { page }
@@ -36,14 +40,14 @@ describe "Protected pages" do
   shared_examples "all protected pages" do
     it "stores redirects back after log in and then forgets" do
       visit protected_page
-      page.should have_title t('sessions.signin')
+      expect(page).to have_title t('sessions.signin')
       fill_in 'user[email]',    with: user.email
       fill_in 'user[password]', with: user.password
       click_button t('sessions.signin')
-      current_path.should == protected_page
+      expect(current_path).to eq(protected_page)
       click_link t('sessions.signout')
       sign_in user
-      page.should have_title user.name
+      expect(page).to have_title user.name
     end
   end
 
@@ -100,7 +104,7 @@ describe "Protected pages" do
 
     describe "visiting signup page" do
       before { visit new_user_registration_path(type: "host") }
-      specify { current_path.should == user_path(user) }
+      specify { expect(current_path).to eq(user_path(user)) }
     end
   end
 

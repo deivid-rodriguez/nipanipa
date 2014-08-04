@@ -1,5 +1,5 @@
 # Nothing routes to ApplicationController so just choose one controller
-describe StaticPagesController do
+RSpec.describe StaticPagesController do
   before { @old_locale = I18n.locale }
   after { I18n.locale = @old_locale }
 

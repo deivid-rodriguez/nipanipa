@@ -34,7 +34,7 @@ end
 def reply(text)
   fill_in 'body', with: "#{text}"
   click_button t('conversations.show.reply')
-  page.should have_content "#{text}" # assert text appears before going on
+  expect(page).to have_content "#{text}" # assert text appears before going on
 end
 
 RSpec::Matchers.define :become do |count|
@@ -60,7 +60,7 @@ end
 
 RSpec::Matchers.define :have_flash_message do |message, type|
   match do |page|
-    page.should have_selector("div.alert.alert-#{type}", text: message)
+    expect(page).to have_selector("div.alert.alert-#{type}", text: message)
   end
 end
 
@@ -84,7 +84,7 @@ RSpec::Matchers.define :have_ability do |ability_hash, options = {}|
     ability_hash == @ability_result
   end
 
-  failure_message_for_should do |user|
+  failure_message do |user|
     ability_hash,options = expected
     ability_hash         = {ability_hash => true} if ability_hash.is_a? Symbol
     ability_hash         = ability_hash.inject({}){|_, i| _.merge({i=>true}) } if

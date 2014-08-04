@@ -2,7 +2,7 @@
 # Integration tests for Picture pages
 #
 
-describe 'Uploading a new picture' do
+RSpec.describe 'Uploading a new picture' do
   let!(:picture) { build(:picture) }
 
   subject { page }
@@ -21,8 +21,8 @@ describe 'Uploading a new picture' do
       click_button t('helpers.submit.picture.create')
     end
 
-    it { should have_selector 'div.picture-thumbnail', 'test_image.png' }
-    it { should have_flash_message t('pictures.create.success'), 'success' }
+    it { is_expected.to have_selector 'div.picture-thumbnail', 'test_image.png' }
+    it { is_expected.to have_flash_message t('pictures.create.success'), 'success' }
   end
 
   describe 'unsuccessfully' do
@@ -31,12 +31,12 @@ describe 'Uploading a new picture' do
       click_button t('helpers.submit.picture.create')
     end
 
-      it { should_not have_selector 'div.picture-thumbnail', 'test_image.txt' }
-    it { should have_flash_message t('pictures.create.error'), 'error' }
+    it { is_expected.not_to have_selector 'div.picture-thumbnail', 'test_image.txt' }
+    it { is_expected.to have_flash_message t('pictures.create.error'), 'error' }
   end
 end
 
-describe 'Updating a picture' do
+RSpec.describe 'Updating a picture' do
   let!(:picture) { create(:picture) }
 
   subject { page }
@@ -54,8 +54,8 @@ describe 'Updating a picture' do
       click_button t('helpers.submit.picture.update')
     end
 
-    it { should have_selector 'div.picture-thumbnail', 'New name for my pic' }
-    it { should have_flash_message t('pictures.update.success'), 'success' }
+    it { is_expected.to have_selector 'div.picture-thumbnail', 'New name for my pic' }
+    it { is_expected.to have_flash_message t('pictures.update.success'), 'success' }
   end
 
   describe 'unsuccessfully' do
@@ -64,12 +64,12 @@ describe 'Updating a picture' do
       click_button t('helpers.submit.picture.update')
     end
 
-    it { should_not have_selector 'div.picture-thumbnail', picture.name }
-    it { should have_flash_message t('pictures.update.error'), 'error' }
+    it { is_expected.not_to have_selector 'div.picture-thumbnail', picture.name }
+    it { is_expected.to have_flash_message t('pictures.update.error'), 'error' }
   end
 end
 
-describe 'Removing a picture' do
+RSpec.describe 'Removing a picture' do
   let!(:picture) { create(:picture) }
 
   subject { page }
@@ -81,8 +81,6 @@ describe 'Removing a picture' do
     click_link t('pictures.pictures.delete')
   end
 
-  it { should_not have_selector 'div.picture-thumbnail' }
-  it { should have_flash_message t('pictures.destroy.success'), 'success' }
+  it { is_expected.not_to have_selector 'div.picture-thumbnail' }
+  it { is_expected.to have_flash_message t('pictures.destroy.success'), 'success' }
 end
-
-

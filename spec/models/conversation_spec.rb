@@ -2,43 +2,42 @@
 # Unit tests for Conversation model
 #
 
-describe Conversation do
+RSpec.describe Conversation do
   it 'has a valid factory' do
-    create(:conversation).should be_valid
+    expect(create(:conversation)).to be_valid
   end
 
   it 'has a valid soft factory' do
-    build(:conversation).should be_valid
+    expect(build(:conversation)).to be_valid
   end
 
-  it { should validate_presence_of(:subject) }
-  it { should ensure_length_of(:subject).is_at_least(2) }
-  it { should ensure_length_of(:subject).is_at_most(72) }
+  it { is_expected.to validate_presence_of(:subject) }
+  it { is_expected.to ensure_length_of(:subject).is_at_least(2) }
+  it { is_expected.to ensure_length_of(:subject).is_at_most(72) }
 
-  it { should have_many(:messages).dependent(:destroy) }
+  it { is_expected.to have_many(:messages).dependent(:destroy) }
 
-  it { should accept_nested_attributes_for(:messages) }
+  it { is_expected.to accept_nested_attributes_for(:messages) }
 
-  it { should belong_to(:from).class_name('User') }
-  it { should belong_to(:to).class_name('User') }
+  it { is_expected.to belong_to(:from).class_name('User') }
+  it { is_expected.to belong_to(:to).class_name('User') }
 
   describe 'methods' do
     let!(:conversation) { build(:conversation) }
 
     it '#mark_as_deleted' do
       conversation.mark_as_deleted(conversation.from)
-      conversation.deleted_from.should be_true
+      expect(conversation.deleted_from).to be_truthy
 
       conversation.mark_as_deleted(conversation.to)
-      conversation.deleted_to.should be_true
+      expect(conversation.deleted_to).to be_truthy
     end
 
     it '#deleted_by_both' do
-      conversation.deleted_by_both?.should be_false
+      expect(conversation.deleted_by_both?).to be_falsey
       conversation.mark_as_deleted(conversation.from)
       conversation.mark_as_deleted(conversation.to)
-      conversation.deleted_by_both?.should be_true
+      expect(conversation.deleted_by_both?).to be_truthy
     end
   end
-
 end

@@ -1,16 +1,18 @@
-require 'spec_helper'
+#
+# Tests for UserMailer
+#
 
-describe UserMailer do
+RSpec.describe UserMailer do
   describe 'message_reception' do
     let!(:conv) { create(:conversation) }
     let(:mail) { UserMailer.message_reception(conv.messages.first) }
 
     it 'sends notification to recipient' do
-      mail.subject.should eq(
+      expect(mail.subject).to eq(
         t('user_mailer.message_reception.subject', from: conv.from.name))
-      mail.to.should eq([conv.to.email])
-      mail.from.should eq(['notifications@nipanipa.com'])
-      mail.body.encoded.should match(conversation_url(conv))
+      expect(mail.to).to eq([conv.to.email])
+      expect(mail.from).to eq(['notifications@nipanipa.com'])
+      expect(mail.body.encoded).to match(conversation_url(conv))
     end
   end
 end

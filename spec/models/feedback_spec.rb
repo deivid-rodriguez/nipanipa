@@ -2,48 +2,56 @@
 # Unit tests for Feedback model
 #
 
-describe Feedback do
+RSpec.describe Feedback do
   let(:feedback)  { build(:feedback) }
 
   subject { feedback }
 
-  it { should respond_to(:content) }
-  it { should respond_to(:sender_id) }
-  it { should respond_to(:recipient_id) }
-  it { should respond_to(:score) }
-  its(:sender)    { should == feedback.sender }
-  its(:recipient) { should == feedback.recipient }
-  it { should respond_to(:complement) }
+  it { is_expected.to respond_to(:content) }
+  it { is_expected.to respond_to(:sender_id) }
+  it { is_expected.to respond_to(:recipient_id) }
+  it { is_expected.to respond_to(:score) }
 
-  it { should be_valid }
+  describe '#sender' do
+    subject { super().sender }
+    it { is_expected.to eq(feedback.sender) }
+  end
+
+  describe '#recipient' do
+    subject { super().recipient }
+    it { is_expected.to eq(feedback.recipient) }
+  end
+  it { is_expected.to respond_to(:complement) }
+
+  it { is_expected.to be_valid }
 
   describe 'presence validation' do
     context 'when sender is not present' do
       before { feedback.sender = nil }
-      it { should_not be_valid }
+      it { is_expected.not_to be_valid }
     end
 
     context 'when recipient is not present' do
       before { feedback.recipient = nil }
-      it { should_not be_valid }
+      it { is_expected.not_to be_valid }
     end
   end
 
   context 'with blank content' do
     before { feedback.content = ' ' }
-    it { should_not be_valid }
+    it { is_expected.not_to be_valid }
   end
 
   context 'with content that is too long' do
     before { feedback.content = 'a' * 301 }
-    it { should_not be_valid }
+    it { is_expected.not_to be_valid }
   end
 
   describe 'duplicated feedbacks' do
     let!(:other_feedback) do
       create(:feedback, sender: feedback.sender, recipient: feedback.recipient)
     end
-    it { should_not be_valid }
+    it { is_expected.not_to be_valid }
   end
 
   describe '#complement' do
@@ -51,7 +59,7 @@ describe Feedback do
       create(:feedback, sender: feedback.recipient, recipient: feedback.sender)
     end
     before { feedback.save }
-    it { should == other_feedback.complement }
+    it { is_expected.to eq(other_feedback.complement) }
   end
 
   describe '#update_karma' do

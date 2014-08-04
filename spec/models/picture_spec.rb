@@ -1,13 +1,15 @@
-require 'spec_helper'
+#
+# Unit tests for Picture model
+#
 
-describe Picture do
+RSpec.describe Picture do
   let(:picture) { build(:picture) }
 
   subject { picture }
 
-  it { should respond_to(:name) }
-  it { should respond_to(:image) }
-  it { should respond_to(:user_id) }
+  it { is_expected.to respond_to(:name) }
+  it { is_expected.to respond_to(:image) }
+  it { is_expected.to respond_to(:user_id) }
 
-  it { should be_valid }
+  it { is_expected.to be_valid }
 end

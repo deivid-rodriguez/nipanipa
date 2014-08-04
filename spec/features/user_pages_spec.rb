@@ -2,34 +2,34 @@
 # Integration tests for User pages
 #
 
-shared_examples_for 'user profile' do
+RSpec.shared_examples_for 'user profile' do
   it 'has the user name in the title' do
-    page.should have_title user.name
+    expect(page).to have_title user.name
   end
   it 'has the user description' do
-    page.should have_content(user.description)
+    expect(page).to have_content(user.description)
   end
   it 'has all received feedback' do
-    user.received_feedbacks.each { |f| page.should have_content(f.content) }
+    user.received_feedbacks.each { |f| expect(page).to have_content(f.content) }
   end
   it 'has the count of received feedback' do
-    page.should have_content(user.received_feedbacks.count)
+    expect(page).to have_content(user.received_feedbacks.count)
   end
   it 'has all sent feedback' do
-    user.sent_feedbacks.each { |f| page.should have_content(f.content) }
+    user.sent_feedbacks.each { |f| expect(page).to have_content(f.content) }
   end
   it 'has the count of sent feedback' do
-    page.should have_content(user.sent_feedbacks.count)
+    expect(page).to have_content(user.sent_feedbacks.count)
   end
   it 'has all of user worktypes' do
-    user.work_types.each { |wt| page.should have_content(wt.name) }
+    user.work_types.each { |wt| expect(page).to have_content(wt.name) }
   end
   it 'has correct user availability' do
-    page.should have_content("✘ ✔ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘")
+    expect(page).to have_content("✘ ✔ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘")
   end
 end
 
-describe 'Profile creation' do
+RSpec.describe 'Profile creation' do
   let(:work_types) { create_list(:work_type, 5) }
 
   describe 'Host' do
@@ -43,17 +43,17 @@ describe 'Profile creation' do
       visit new_user_registration_path(type: 'host')
     end
 
-    it { should have_selector 'h1', text: t('users.new.header', type: t('activerecord.models.host')).titleize }
-    it { should have_title full_title(t 'users.new.title') }
-    it { should have_link 'NiPaNiPa' }
+    it { is_expected.to have_selector 'h1', text: t('users.new.header', type: t('activerecord.models.host')).titleize }
+    it { is_expected.to have_title full_title(t 'users.new.title') }
+    it { is_expected.to have_link 'NiPaNiPa' }
 
     context 'when submitting invalid information' do
       before do
         expect { click_button create_user_btn }.not_to change(Host, :count)
       end
 
-      it { should have_title t('users.new.title') }
-      it { should have_selector '.error' }
+      it { is_expected.to have_title t('users.new.title') }
+      it { is_expected.to have_selector '.error' }
     end
 
     context 'when submitting valid information' do
@@ -70,9 +70,9 @@ describe 'Profile creation' do
         expect { click_button create_user_btn }.to change(Host, :count).by(1)
       end
 
-      it { should have_title host.name }
-      it { should have_flash_message t('devise.users.signed_up'), 'success' }
-      it { should have_link t('sessions.signout') }
+      it { is_expected.to have_title host.name }
+      it { is_expected.to have_flash_message t('devise.users.signed_up'), 'success' }
+      it { is_expected.to have_link t('sessions.signout') }
     end
   end
 
@@ -87,17 +87,17 @@ describe 'Profile creation' do
       visit new_user_registration_path(type: 'volunteer')
     end
 
-    it { should have_selector 'h1', text: t('users.new.header', type: t('activerecord.models.volunteer')).titleize }
-    it { should have_title full_title(t 'users.new.title') }
-    it { should have_link 'NiPaNiPa' }
+    it { is_expected.to have_selector 'h1', text: t('users.new.header', type: t('activerecord.models.volunteer')).titleize }
+    it { is_expected.to have_title full_title(t 'users.new.title') }
+    it { is_expected.to have_link 'NiPaNiPa' }
 
     context 'when submitting invalid information' do
       before do
         expect { click_button create_user_btn }.not_to change(Volunteer, :count)
       end
 
-      it { should have_title t('users.new.title') }
-      it { should have_selector '.error' }
+      it { is_expected.to have_title t('users.new.title') }
+      it { is_expected.to have_selector '.error' }
     end
 
     context 'when submitting valid information' do
@@ -115,14 +115,14 @@ describe 'Profile creation' do
       end
 
       it_behaves_like('user profile') { let(:user) { volunteer } }
-      it { should have_title volunteer.name }
-      it { should have_flash_message t('devise.users.signed_up'), 'success' }
-      it { should have_link t('sessions.signout') }
+      it { is_expected.to have_title volunteer.name }
+      it { is_expected.to have_flash_message t('devise.users.signed_up'), 'success' }
+      it { is_expected.to have_link t('sessions.signout') }
     end
   end
 end
 
-describe 'User profile index' do
+RSpec.describe 'User profile index' do
   let!(:host_available)          { create(:host, :available_just_now)      }
   let!(:host_not_available)      { create(:host, :not_available)           }
   let!(:volunteer_available)     { create(:volunteer, :available_just_now) }
@@ -132,7 +132,7 @@ describe 'User profile index' do
 
   it 'lists all profiles' do
     User.all.each do |user|
-      page.should have_selector('li', text: user.name)
+      expect(page).to have_selector('li', text: user.name)
     end
   end
 
@@ -141,10 +141,10 @@ describe 'User profile index' do
 
     describe 'filtering' do
       it 'shows correct list' do
-        page.should have_selector('li', text: host_available.name)
-        page.should have_selector('li', text: volunteer_available.name)
-        page.should_not have_selector('li', text: host_not_available.name)
-        page.should_not have_selector('li', text: volunteer_not_available.name)
+        expect(page).to have_selector('li', text: host_available.name)
+        expect(page).to have_selector('li', text: volunteer_available.name)
+        expect(page).not_to have_selector('li', text: host_not_available.name)
+        expect(page).not_to have_selector('li', text: volunteer_not_available.name)
       end
     end
 
@@ -152,10 +152,10 @@ describe 'User profile index' do
       before { click_link t('users.index.whenever') }
 
       it 'shows correct list' do
-        page.should have_selector('li', text: host_available.name)
-        page.should have_selector('li', text: volunteer_available.name)
-        page.should have_selector('li', text: host_not_available.name)
-        page.should have_selector('li', text: volunteer_not_available.name)
+        expect(page).to have_selector('li', text: host_available.name)
+        expect(page).to have_selector('li', text: volunteer_available.name)
+        expect(page).to have_selector('li', text: host_not_available.name)
+        expect(page).to have_selector('li', text: volunteer_not_available.name)
       end
     end
   end
@@ -165,10 +165,10 @@ describe 'User profile index' do
 
     describe 'filtering' do
       it 'shows correct list' do
-        page.should have_selector('li', text: host_available.name)
-        page.should_not have_selector('li', text: volunteer_available.name)
-        page.should have_selector('li', text: host_not_available.name)
-        page.should_not have_selector('li', text: volunteer_not_available.name)
+        expect(page).to have_selector('li', text: host_available.name)
+        expect(page).not_to have_selector('li', text: volunteer_available.name)
+        expect(page).to have_selector('li', text: host_not_available.name)
+        expect(page).not_to have_selector('li', text: volunteer_not_available.name)
       end
     end
 
@@ -176,10 +176,10 @@ describe 'User profile index' do
       before { click_link t('users.index.all') }
 
       it 'shows correct list' do
-        page.should have_selector('li', text: host_available.name)
-        page.should have_selector('li', text: volunteer_available.name)
-        page.should have_selector('li', text: host_not_available.name)
-        page.should have_selector('li', text: volunteer_not_available.name)
+        expect(page).to have_selector('li', text: host_available.name)
+        expect(page).to have_selector('li', text: volunteer_available.name)
+        expect(page).to have_selector('li', text: host_not_available.name)
+        expect(page).to have_selector('li', text: volunteer_not_available.name)
       end
     end
   end
@@ -189,10 +189,10 @@ describe 'User profile index' do
 
     describe 'filtering' do
       it 'shows correct list' do
-        page.should_not have_selector('li', text: host_available.name)
-        page.should have_selector('li', text: volunteer_available.name)
-        page.should_not have_selector('li', text: host_not_available.name)
-        page.should have_selector('li', text: volunteer_not_available.name)
+        expect(page).not_to have_selector('li', text: host_available.name)
+        expect(page).to have_selector('li', text: volunteer_available.name)
+        expect(page).not_to have_selector('li', text: host_not_available.name)
+        expect(page).to have_selector('li', text: volunteer_not_available.name)
       end
     end
 
@@ -200,10 +200,10 @@ describe 'User profile index' do
       before { click_link t('users.index.all') }
 
       it 'shows correct list' do
-        page.should have_selector('li', text: host_available.name)
-        page.should have_selector('li', text: volunteer_available.name)
-        page.should have_selector('li', text: host_not_available.name)
-        page.should have_selector('li', text: volunteer_not_available.name)
+        expect(page).to have_selector('li', text: host_available.name)
+        expect(page).to have_selector('li', text: volunteer_available.name)
+        expect(page).to have_selector('li', text: host_not_available.name)
+        expect(page).to have_selector('li', text: volunteer_not_available.name)
       end
     end
   end
@@ -215,15 +215,15 @@ describe 'User profile index' do
     end
 
     it 'shows correct list' do
-      page.should have_selector('li', text: host_available.name)
-      page.should_not have_selector('li', text: volunteer_available.name)
-      page.should_not have_selector('li', text: host_not_available.name)
-      page.should_not have_selector('li', text: volunteer_not_available.name)
+      expect(page).to have_selector('li', text: host_available.name)
+      expect(page).not_to have_selector('li', text: volunteer_available.name)
+      expect(page).not_to have_selector('li', text: host_not_available.name)
+      expect(page).not_to have_selector('li', text: volunteer_not_available.name)
     end
   end
 end
 
-describe 'User profile editing' do
+RSpec.describe 'User profile editing' do
   let(:host)        { create(:host, email: 'old_email@example.com') }
   let(:update_user) { t('helpers.submit.user.update', model: User)  }
 
@@ -235,7 +235,7 @@ describe 'User profile editing' do
     visit edit_user_registration_path
   end
 
-  it { should have_title t('users.edit.title') }
+  it { is_expected.to have_title t('users.edit.title') }
 
   context 'with invalid information' do
     before do
@@ -243,13 +243,13 @@ describe 'User profile editing' do
       click_button update_user
     end
 
-    it { should have_selector '.error' }
+    it { is_expected.to have_selector '.error' }
   end
 
   context 'with nothing introduced' do
     before { click_button update_user }
 
-    it { should have_flash_message t('devise.users.updated'), 'success' }
+    it { is_expected.to have_flash_message t('devise.users.updated'), 'success' }
   end
 
   context 'with valid information' do
@@ -258,13 +258,13 @@ describe 'User profile editing' do
       click_button update_user
     end
 
-    it { should have_flash_message t('devise.users.updated'), 'success' }
-    it { should have_link t('sessions.signout'), href: destroy_user_session_path }
+    it { is_expected.to have_flash_message t('devise.users.updated'), 'success' }
+    it { is_expected.to have_link t('sessions.signout'), href: destroy_user_session_path }
     it 'updates host correctly' do
-      host.reload.email.should == 'new_email@example.com'
+      expect(host.reload.email).to eq('new_email@example.com')
     end
     it 'redirects back to user profile' do
-      current_path.should == user_path(host)
+      expect(current_path).to eq(user_path(host))
     end
   end
 end

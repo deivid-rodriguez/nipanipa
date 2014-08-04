@@ -41,8 +41,8 @@ Devise.setup do |config|
   # config.request_keys = []
 
   # Configure which authentication keys should be case-insensitive.
-  # These keys will be downcased upon creating or modifying a user and when used
-  # to authenticate or find a user. Default is :email.
+  # These keys will be downcased upon creating or modifying a user and when
+  # used to authenticate or find a user. Default is :email.
   config.case_insensitive_keys = [ :email ]
 
   # Configure which authentication keys should have whitespace stripped.
@@ -91,17 +91,19 @@ Devise.setup do |config|
   # config.clean_up_csrf_token_on_authentication = true
 
   # ==> Configuration for :database_authenticatable
-  # For bcrypt, this is the cost for hashing the password and defaults to 10. If
-  # using other encryptors, it sets how many times you want the password
-  # re-encrypted. Limiting the stretches to just one in testing will increase
-  # the performance of your test suite dramatically. However, it is STRONGLY
-  # RECOMMENDED to not use a value less than 10 in other environments.
+  # For bcrypt, this is the cost for hashing the password and defaults to 10.
+  # If using other encryptors, it sets how many times you want the password
+  # re-encrypted.
+  #
+  # Limiting the stretches to just one in testing will increase the performance
+  # of your test suite dramatically. However, it is STRONGLY RECOMMENDED to not
+  # use a value less than 10 in other environments.
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = "e94a561471ab07970682f9bbe36840d93dbea9566b777b10f896ab7e" \
-  #                 "f03aa920d2e82baaf3f2e622d4344273835d563a0999367c3ecccaef" \
-  #                 "4c3f23224475798d"
+  # config.pepper = "e94a561471ab07970682f9bbe36840d93dbea9566b777b10f896ab7" \
+  #                 "ef03aa920d2e82baaf3f2e622d4344273835d563a0999367c3eccca" \
+  #                 "ef4c3f23224475798d"
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -119,11 +121,11 @@ Devise.setup do |config|
   # before confirming their account.
   # config.confirm_within = 3.days
 
-  # If true, requires any email changes to be confirmed (exactly the same way as
-  # initial account confirmation) to be applied. Requires additional
+  # If true, requires any email changes to be confirmed (exactly the same way
+  # as initial account confirmation) to be applied. Requires additional
   # unconfirmed_email db field (see migrations). Until confirmed new email is
-  # stored in unconfirmed email column, and copied to email column on successful
-  # confirmation.
+  # stored in unconfirmed email column, and copied to email column on
+  # successful confirmation.
   config.reconfirmable = true
 
   # Defines which key will be used when confirming an account
@@ -145,9 +147,8 @@ Devise.setup do |config|
   config.password_length = 6..128
 
   # Email regex used to validate email formats. It simply asserts that one (and
-  # only one) @ exists in the given string. This is mainly to give user feedback
-  # and not to assert the e-mail validity.
-  # config.email_regexp = /\A[^@]+@[^@]+\z/
+  # only one) @ exists in the given string. This is mainly to give user
+  # feedback and not to assert the e-mail validity.
   config.email_regexp = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   # ==> Configuration for :timeoutable
@@ -182,6 +183,9 @@ Devise.setup do |config|
 
   # Time interval to unlock the account if :time is enabled as unlock_strategy.
   # config.unlock_in = 1.hour
+  #
+  # Warn on the last attempt before the account is locked.
+  # config.last_attempt_warning = false
 
   # ==> Configuration for :recoverable
   #
