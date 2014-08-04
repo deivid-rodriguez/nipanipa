@@ -38,8 +38,6 @@ RSpec.describe 'Leaving feedback' do
       click_link new_feedback_lnk
     end
 
-    after { Capybara.use_default_driver }
-
     context 'with incomplete information' do
       before { click_button feedback_btn }
 
@@ -74,7 +72,7 @@ RSpec.describe 'Leaving feedback' do
       it { is_expected.to have_flash_message t('feedbacks.create.success'), 'success' }
     end
 
-    context 'with valid information and donation' do
+    context 'with valid information and donation', :js do
       before do
         choose  'feedback_score_positive'
         fill_in 'feedback[content]', with: feedback.content
@@ -108,8 +106,6 @@ RSpec.describe 'Editing feedbacks' do
     page.find("#feedback-#{feedback.id}").click_link(t('shared.edit'))
   end
 
-  after { Capybara.use_default_driver }
-
   context 'with invalid information' do
     before do
       fill_in 'feedback[content]', with: 'a' * 301
@@ -140,7 +136,7 @@ RSpec.describe 'Editing feedbacks' do
     it { is_expected.to have_flash_message t('feedbacks.update.success'), 'success' }
   end
 
-  context 'with valid information and donation' do
+  context 'with valid information and donation', :js do
     before do
       fill_in 'feedback[donation_attributes][amount]', with: 20
       click_button feedback_btn

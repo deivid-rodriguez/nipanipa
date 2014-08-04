@@ -56,6 +56,10 @@ RSpec::Matchers.define :become do |count|
       false
     end
   end
+
+  def supports_block_expectations?
+    true
+  end
 end
 
 RSpec::Matchers.define :have_flash_message do |message, type|

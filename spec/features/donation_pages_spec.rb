@@ -2,10 +2,10 @@
 # Integration tests for Donation pages
 #
 
-RSpec.describe 'donation' do
+RSpec.describe 'donation', :js do
   subject { page }
 
-  describe 'shows a flattr button', :js do
+  describe 'shows a flattr button' do
     before do
       visit root_path
       click_link t('layouts.header.donate')
@@ -21,8 +21,6 @@ RSpec.describe 'donation' do
       click_button t('helpers.submit.donation.create')
       expect { Donation.count }.to become(1)
     end
-
-    after { Capybara.use_default_driver }
 
     context 'when successful donation' do
       before { mock_paypal_pdt('SUCCESS', Donation.last.id) }
