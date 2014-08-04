@@ -295,7 +295,6 @@ DEPENDENCIES
   factory_girl_rails (= 4.4.1)
   ffaker (= 1.24.0)
   geocoder (= 1.2.3)
-  guard (= 2.6.1)
   guard-rspec (= 4.3.1)
   jquery-rails (= 3.1.1)
   launchy (= 2.4.2)

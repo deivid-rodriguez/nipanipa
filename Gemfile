@@ -29,7 +29,6 @@ gem 'quiet_assets', '1.0.3'
 group :development, :test do
   gem 'rspec-rails', '3.0.2'
   gem 'guard-rspec', '4.3.1'
-  gem 'guard', '2.6.1'
   gem 'byebug', '3.2.0'
   gem 'factory_girl_rails', '4.4.1'
   gem 'pry-doc', '0.6.0'
