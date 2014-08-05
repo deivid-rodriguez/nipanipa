@@ -53,7 +53,7 @@ RSpec.describe 'Profile creation' do
       end
 
       it { is_expected.to have_title t('users.new.title') }
-      it { is_expected.to have_selector '.error' }
+      it { is_expected.to have_selector '.has-error' }
     end
 
     context 'when submitting valid information' do
@@ -97,7 +97,7 @@ RSpec.describe 'Profile creation' do
       end
 
       it { is_expected.to have_title t('users.new.title') }
-      it { is_expected.to have_selector '.error' }
+      it { is_expected.to have_selector '.has-error' }
     end
 
     context 'when submitting valid information' do
@@ -243,7 +243,7 @@ RSpec.describe 'User profile editing' do
       click_button update_user
     end
 
-    it { is_expected.to have_selector '.error' }
+    it { is_expected.to have_selector '.has-error' }
   end
 
   context 'with nothing introduced' do
