@@ -220,8 +220,8 @@ host be interested in you?"
       intro: "NiPaNiPa needs your help to survive in an independent way. How can
 you help?"
       donate_title: Donate
-      donate_desc: "Help us economically. To that end, select the amount (in
-USD) that you want to donate."
+      donate_desc: "Help us economically. To that end, select the amount that
+you want to donate."
       contribute_title: Help us
       contribute_desc_dev_html: "If you are a web developer (or you want to be),
 you can help us by contributing to nipanipa development %{git_url}."

@@ -220,8 +220,8 @@ volontariato che offri"
       intro: "NiPaNiPa ha bisogno del tuo aiuto per sopravvivere in modo
 indipendente e gratuito. Come è che puoi aiutarci?"
       donate_title: Dona
-      donate_desc: "Se puoi e vuoi, fai una donazione. Per farla, metti la cifra
-(in dollari americani) que desideri donare."
+      donate_desc: "Se puoi e vuoi, fai una donazione. Per farla, metti la
+cifra che desideri donare."
       contribute_title: Autaci
       contribute_desc_dev_html: "Se sai programmare, puoi autarci con lo
 sviluppo di NiPaNiPa %{git_url}."

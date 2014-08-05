@@ -223,7 +223,7 @@ oferta"
 independiente y gratuita. ¿Cómo puedes ayudar?"
       donate_title: Dona
       donate_desc: "Si puedes y quieres, haz una donación. Para ello, selecciona
-el importe (en dólares americanos) que deseas donar."
+el importe que deseas donar."
       contribute_title: Ayúdanos
       contribute_desc_dev_html: "Si sabes programar, puedes ayudarnos
 colaborando en el desarrollo nipiano %{git_url}."

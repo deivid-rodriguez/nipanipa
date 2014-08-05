@@ -225,8 +225,8 @@ anbietest"
       intro: "NiPaNiPa braucht deine Hilfe, um unabhängig überleben zu können.
 Wie kannst du uns helfen?"
       donate_title: Spenden
-      donate_desc: "Hilf uns finanziell. Wähle hierzu den Betrag (in USD), den
-du spenden möchtest."
+      donate_desc: "Hilf uns finanziell. Wähle hierzu den Betrag, den du
+spenden möchtest."
       contribute_title: Hilf uns
       contribute_desc_dev_html: "Wenn du ein Webentwickler bist (oder gerne sein
 möchtest), kannst du uns helfen, indem du %{git_url} an der Entwicklung von
