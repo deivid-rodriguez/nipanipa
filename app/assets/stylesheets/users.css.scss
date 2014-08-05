@@ -41,9 +41,8 @@
     }
   }
   padding-top: 10px;
-  width: 600px;
   .fields {
-    @include clearfix;
+    @include clearfix();
     height: auto;
     .nested-select {
       height: 30px;
@@ -131,7 +130,6 @@
       }
     }
   }
-  
 }
 
 .profile-header-host {
@@ -195,10 +193,8 @@ table.calendar {
 
 /* users index */
 .sidebar-users {
-  margin-left: 20px;
-  margin-top: 20px;
-  @include clearfix;
-  @include border_radius ;
+  @include make-md-column(3);
+
   background: $graySuperLight;
   @include border_radius;
   li > a {
@@ -221,8 +217,10 @@ table.calendar {
 }
 
 .list-users {
-  margin-left: -20px;
-  padding: 20px;
+  @include make-md-column(9);
+  h5 {
+    font-weight: bold;
+  }
   .pagination {
     padding-left: 15px;
     margin: 0;

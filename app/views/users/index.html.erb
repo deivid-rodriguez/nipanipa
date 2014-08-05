@@ -1,7 +1,7 @@
 <%= provide :title, t('.title')  %>
 
-<div class='row'>
-  <aside class='col-md-3 sidebar-users'>
+<div class='main-page'>
+  <aside class='sidebar-users'>
     <ul class='nav nav-pills nav-stacked'>
       <li class='nav-header'><%= t '.availability' %></li>
       <li class="<%= 'active' if params[:availability].nil? %>">
@@ -25,7 +25,7 @@
     </ul>
   </aside>
 
-  <div class="col-md-9 list-users">
+  <div class='list-users'>
     <ul class="user-thumbnails">
       <%= render @users %>
     </ul>

@@ -3,8 +3,8 @@
   <%= render 'layouts/head' %>
   <body>
     <%= render 'layouts/header' %>
-    <%= render 'layouts/messages' %>
-    <div class='main'>
+    <div class='main-wrapper'>
+      <%= render 'layouts/messages' %>
       <%= yield %>
     </div>
     <%= render 'layouts/footer' %>

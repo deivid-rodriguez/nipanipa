@@ -33,13 +33,13 @@ a.thmb-lnk {
 }
 
 .home-host {
-  @extend .clearfix;
+  overflow: auto;
   width: 50%;
   float: left
 }
 
 .home-volunteer {
-  @extend .clearfix;
+  overflow: auto;
   width: 50%;
   float: right;
 }

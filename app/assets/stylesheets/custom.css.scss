@@ -12,15 +12,6 @@ $grayExplore: #e1ddc4;
 $greenHost: #9ab6aa;
 $redVolunteer: #f1c5c2;
 
-@mixin clearfix {
-  &:after {
-    clear: both;
-    content: "";
-    display: block;
-    height: 0;
-  }
-}
-
 @mixin box_sizing {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -92,6 +83,10 @@ a {
 
 textarea { resize: vertical; }
 
+.main-page {
+  @include make-row();
+}
+
 .img-thumbnail {
   border: none;
   text-align: center;
@@ -100,24 +95,6 @@ textarea { resize: vertical; }
   }
 }
 
-.clearfix {
-  overflow: auto;
-  width: 100%;
-}
-
-
-/* override bootstrap */
-abbr[title] {
-  cursor: auto;
-  border-bottom: none;
-}
-label {
-  cursor: auto;
-}
-
-.container-fluid {
-  max-width: 980px;
-}
 
 /* typography */
 
@@ -177,32 +154,22 @@ p {
   }
 }
 
-/* overriding bootstrap sass */
-.dropdown-menu {
-  min-width: 50px;
-  li {
-    padding: 5px 10px;
-    a {
-      &:hover {
-        background: none;
-        color: $gray;
-      }
-      padding: 0;
-    }
-  }
-}
-
 header {
   background-color: green;
 }
 
 
 /* main content */
-.main {
-  @extend .container;
-  padding: 0px;
-  max-width: 970px;
-  text-align: left;
+.navbar-wrapper {
+  @include container-fixed;
+  max-width: 980px;
+}
+
+.main-wrapper {
+  @include container-fixed;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  max-width: 980px;
   background: white;
 }
 
