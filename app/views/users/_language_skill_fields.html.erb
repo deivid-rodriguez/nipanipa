@@ -1,4 +1,4 @@
-<div class="nested-fields fields">
+<div class='nested-fields fields'>
   <div class='language-select'>
     <%= f.collection_select :language_id, Language.all,
           :id, lambda { |l| t("#{l.name.underscore}").mb_chars.titleize },
