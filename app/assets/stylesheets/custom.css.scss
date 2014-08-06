@@ -36,6 +36,7 @@ $redVolunteer: #f1c5c2;
   @extend .dropdown-menu;
   margin-top: -6px;
   border-radius: 4px;
+  min-width: 100%;
   &:before {
     position: absolute;
     top: -7px;
@@ -56,6 +57,12 @@ $redVolunteer: #f1c5c2;
     border-bottom: 6px solid #ffffff;
     border-left: 6px solid transparent;
     content: '';
+  }
+  li {
+    padding: 5px 10px;
+    > a {
+      padding: 0;
+    }
   }
 }
 
