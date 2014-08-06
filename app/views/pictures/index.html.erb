@@ -7,7 +7,7 @@
 
 <div class='profile-content'>
   <% if can? :manage, @user %>
-    <p class="new-picture">
+    <p class='new-picture'>
       <%= link_to t('.new_picture'), new_user_picture_path(current_user) %>
     </p>
   <% end %>
