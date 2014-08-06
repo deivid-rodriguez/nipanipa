@@ -1,0 +1,30 @@
+/* Form styles */
+
+form, fieldset, legend, label, input { margin: 0; padding: 0; }
+
+label, input[type=text], input[type=password], input[type=email], textarea,
+select, .checkbox {
+  font-size: 12px;
+}
+
+.field_with_errors {
+  @extend .control-group;
+  @extend .error;
+}
+
+.manual-error {
+  color: rgb(185, 74, 72);
+}
+
+input {
+  background-color: white;
+  border: 1px solid #cccccc;
+  @include box_shadow(1px, rgba(0, 0, 0, .075));
+  @include transition;
+}
+
+textarea { resize: vertical; }
+
+abbr[title] { cursor: auto; border-bottom: none; }
+
+label { cursor: auto; }

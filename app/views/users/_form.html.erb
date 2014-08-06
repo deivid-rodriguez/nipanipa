@@ -1,57 +1,40 @@
-<div class="row">
-  <%= simple_form_for resource,
-       as: resource_name, url: registration_path(resource_name),
-       html: { class: 'form-horizontal col-md-offset-1 col-md-10', multipart: true },
-       defaults: { wrapper_html: { class: 'col-md-5' }, placeholder: false } do |f| %>
+<%= simple_form_for resource,
+      as: resource_name, url: registration_path(resource_name),
+      html: { class: 'form-vertical', multipart: true, role: 'form' },
+      wrapper_mappings: { check_boxes: :vertical_radio_and_checkboxes },
+      defaults: { wrapper_html: { class: 'col-md-12' },
+                  placeholder: false } do |f| %>
 
   <%= hidden_field_tag :type, resource.type %>
 
-  <div class="row">
-    <%= f.input :name %>
-    <%= f.input :email %>
-  </div>
+  <%= f.input :name, wrapper_html: { class: 'col-md-6' } %>
+  <%= f.input :email, wrapper_html: { class: 'col-md-6' } %>
 
   <% if resource.new_record? %>
-    <div class="row">
-      <%= f.input :password, hint: (resource.errors ? false : true) %>
-      <%= f.input :password_confirmation %>
-    </div>
+    <%= f.input :password, hint: (resource.errors ? false : true),
+                           wrapper_html: { class: 'col-md-6' } %>
+    <%= f.input :password_confirmation, wrapper_html: { class: 'col-md-6' } %>
   <% end %>
 
-  <div class="row">
-    <%= f.input :description, label: t(".description_#{resource.type.underscore}"),
-                              wrapper_html: { class: 'col-md-10' } %>
-  </div>
+  <%= f.input :description,
+              label: t(".description_#{resource.type.underscore}") %>
 
-  <div class="row">
-    <%= f.input :availability, as: :check_boxes,
-          item_wrapper_class: :inline, wrapper_html: { class: 'col-md-10' },
-          collection: User::AVAILABILITY,
-          checked: resource.availability,
-          label_method: lambda{ |m| l(Date.strptime(m, '%b'), format: :month).titleize },
-          value_method: :to_s %>
-  </div>
+  <%= f.input :availability, as: :check_boxes,
+        item_wrapper_class: 'calendar',
+        collection: User::AVAILABILITY,
+        checked: resource.availability,
+        label_method: lambda{ |m| l(Date.strptime(m, '%b'), format: :month).titleize },
+        value_method: :to_s %>
 
-  <div class="row">
-    <%= render 'language_skills', f: f %>
-  </div>
+  <%= render 'language_skills', f: f %>
 
-  <div class="row">
-    <%= render 'work_types', f: f, user: resource %>
-  </div>
+  <%= render 'work_types', f: f, user: resource %>
 
-  <div class="row">
-    <%= f.input :skills, label: t(".skills_#{resource.type.underscore}"),
-                          wrapper_html: { class: 'col-md-10' } %>
-  </div>
+  <%= f.input :skills, label: t(".skills_#{resource.type.underscore}") %>
 
   <% if resource.type == "Host" %>
-    <div class="row">
-      <%= f.input :accomodation, wrapper_html: { class: 'col-md-10' } %>
-    </div>
+    <%= f.input :accomodation %>
   <% end %>
 
   <%= f.button :submit, class: "signup-button pull-right" %>
-
 <% end %>
-</div>

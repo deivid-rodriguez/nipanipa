@@ -1,16 +1,15 @@
-<div class="control-group col-md-10">
+<div class='form-group col-md-12'>
   <label class="control-label">
     <%= t(".title_#{user.type.underscore}") %>
   </label>
-  <div class="controls">
+  <div class='work-type-list'>
     <% 3.times do |i| %>
-      <div class="col-md-3 checkbox-list">
+      <div class='checkbox-list'>
         <%= f.collection_check_boxes :work_type_ids,
                                      WorkType.limit(5).offset(5*i).to_a,
-                                     :id, :name do |b| %>
-          <%= content_tag(:label, class: 'checkbox') do %>
-            <%= b.check_box + t("work_types.#{b.text}") %>
-          <% end %>
+                                     :id, :name,
+                                     item_wrapper_class: 'checkbox' do |b| %>
+          <%= b.check_box + t("work_types.#{b.text}") %>
         <% end %>
       </div>
     <% end %>
