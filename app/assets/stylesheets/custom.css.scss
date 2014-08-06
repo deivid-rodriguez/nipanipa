@@ -12,12 +12,6 @@ $grayExplore: #e1ddc4;
 $greenHost: #9ab6aa;
 $redVolunteer: #f1c5c2;
 
-@mixin box_sizing {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
 @mixin linear_gradient {
   background-image: -o-linear-gradient(to_bottom, white, #E6E6E6);
   background-image: -webkit-linear-gradient(to_bottom, white, #E6E6E6);
@@ -236,7 +230,6 @@ footer {
   float: left;
   width: 100%;
   margin-top: 45px;
-  @include box_sizing;
 }
 
 

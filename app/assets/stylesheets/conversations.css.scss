@@ -59,7 +59,6 @@ ul.conversation-list {
 .message {
   margin-bottom: 20px;
   .message-from {
-    @include box_sizing;
     @include border_radius;
     border: 1px solid $grayVeryLight;
   }
@@ -75,7 +74,6 @@ ul.conversation-list {
     border: 1px solid $grayVeryLight;
     padding: 10px;
     @include border_radius;
-    @include box_sizing;
     .message-date {
       margin-bottom: 0;
       font-size: 0.8em;
