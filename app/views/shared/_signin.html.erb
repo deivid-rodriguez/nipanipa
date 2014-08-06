@@ -4,9 +4,9 @@
   <%= f.input :remember_me, as: :boolean,
                             inline_label: t('sessions.rememberme'),
                             label: false %>
-  <%= f.button :submit, t('sessions.signin'), class: "signup-button" %>
+  <%= f.button :submit, t('sessions.signin'), class: 'signup-button' %>
 <% end %>
 
-<div class="forgot-your-pwd">
+<div class='forgot-your-pwd'>
   <%= link_to t('sessions.forgot_your_pwd?'), new_password_path(:user) %>
 </div>
