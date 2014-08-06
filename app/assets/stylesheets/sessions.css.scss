@@ -25,12 +25,19 @@
   @extend .img-thumbnail;
   border: none;
   padding: 10px;
-  width: 250px;
   text-align: left;
+  min-width: 250px;
   a {
     display: block;
   }
+  .form-group {
+    margin-bottom: 10px;
+  }
   .signup-button {
     width: 100%;
+  }
+  font-size: 12px;
+  input {
+    font-size: 12px;
   }
 }
