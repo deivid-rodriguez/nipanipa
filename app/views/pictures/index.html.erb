@@ -1,10 +1,11 @@
 <% provide :title, t('.title') %>
 
-<%= render 'shared/profile_header', user: @user,
-                                    page_id: @page_id,
-                                    given_feedback: @given_feedback %>
+<div class="profile-header-<%= @user.type.underscore %>">
+  <%= render 'shared/profile_header', user: @user, page_id: @page_id,
+                                      given_feedback: @given_feedback %>
+</div>
 
-<div id='profile-content' class='row'>
+<div class='profile-content'>
   <% if can? :manage, @user %>
     <p class="new-picture">
       <%= link_to t('.new_picture'), new_user_picture_path(current_user) %>

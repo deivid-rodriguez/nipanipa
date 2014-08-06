@@ -77,51 +77,61 @@
 
 /* users profile */
 .profile-header {
-  margin: 0px 0px 30px 0px;
+  @include make-row;
   position: relative;
   .user-picture {
+    @include make-md-column(3);
     padding: 18px;
   }
   .nav-tabs {
     padding-left: 15px;
   }
-  .user-tips {
-    .title {
-      margin-top: 25px;
-      margin-bottom: 20px;
+  .user-info {
+    @include make-md-column(9);
+    .user-name {
+      padding: 20px 0;
     }
-    .quickinfo {
-      overflow: hidden;
-      margin-bottom: 12px;
-      padding-left: 10px;
-      line-height: 24px;
-      font-size: 11px;
-    }
-    .send-message-link {
-      position: absolute;
-      bottom: -1px;
-      right: 180px;
-    }
-    .leave-feedback-link {
-      position: absolute;
-      bottom: -1px;
-      right: 10px;
-    }
-    .send-message-link, .leave-feedback-link {
-      border-top: 1px solid $grayVeryLight;
-      border-left: 1px solid $grayVeryLight;
-      padding: 6px 8px;
-      font-size: 12px;
-      line-height: 24px;
-      width: 160px;
-      background: $grayExplore;
-      &:hover {
-        background: darken($grayExplore, 10%);
+    .user-icons {
+      @include make-row;
+      .user-status, .user-knowledge {
+        @include make-md-column(6);
       }
-      a {
-        color: black;
+      .quickinfo {
+        overflow: hidden;
+        margin-bottom: 12px;
+        padding-left: 10px;
+        line-height: 24px;
+        font-size: 11px;
+      }
+    }
+    .user-tabs {
+      @include make-row;
+      .send-message-link {
+        position: absolute;
+        bottom: -1px;
+        right: 180px;
+      }
+      .leave-feedback-link {
+        position: absolute;
+        bottom: -1px;
+        right: 10px;
+      }
+      .send-message-link, .leave-feedback-link {
+        border-top: 1px solid $grayVeryLight;
+        border-left: 1px solid $grayVeryLight;
+        padding: 6px 8px;
+        font-size: 12px;
+        line-height: 24px;
+        width: 160px;
+        background: $grayExplore;
         &:hover {
-          text-decoration: none;
+          background: darken($grayExplore, 10%);
+        }
+        a {
+          color: black;
+          &:hover {
+            text-decoration: none;
+          }
         }
       }
     }
@@ -150,8 +160,9 @@ div.no-elements {
   margin-left: 30px;
 }
 
-#profile-content {
-  margin: 0px 20px 20px 20px;
+.profile-content {
+  @include make-row;
+  padding: 20px 0;
   .box {
     margin: 0px 0px 20px 0px;
     border: 1px solid $grayVeryLight;

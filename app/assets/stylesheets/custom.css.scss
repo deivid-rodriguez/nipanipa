@@ -79,6 +79,7 @@ textarea { resize: vertical; }
 
 .main-page {
   @include make-row();
+  padding: 20px 0;
 }
 
 .img-thumbnail {
@@ -161,8 +162,6 @@ header {
 
 .main-wrapper {
   @include container-fixed;
-  padding-top: 20px;
-  padding-bottom: 20px;
   max-width: 980px;
   background: white;
 }

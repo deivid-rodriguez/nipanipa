@@ -1,9 +1,11 @@
 <% provide :title, @user.name %>
 
-<%= render 'shared/profile_header', user: @user, page_id: @page_id,
-                                    given_feedback: @given_feedback %>
+<div class="profile-header-<%= @user.type.underscore %>">
+  <%= render 'shared/profile_header', user: @user, page_id: @page_id,
+                                      given_feedback: @given_feedback %>
+</div>
 
-<div class='row' id='profile-content'>
+<div class='profile-content'>
   <div class='col-md-6'>
     <div class='box'>
       <%= render 'edit_link', user: @user %>
