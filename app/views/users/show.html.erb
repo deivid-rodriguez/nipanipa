@@ -3,30 +3,30 @@
 <%= render 'shared/profile_header', user: @user, page_id: @page_id,
                                     given_feedback: @given_feedback %>
 
-<div class='row' id="profile-content">
-  <div class="col-md-6">
-    <div class="box">
+<div class='row' id='profile-content'>
+  <div class='col-md-6'>
+    <div class='box'>
       <%= render 'edit_link', user: @user %>
       <h3><%= t '.description' %></h3>
       <p><%= simple_format(@user.description) %></p>
     </div>
 
-    <div class="box">
+    <div class='box'>
       <%= render 'edit_link', user: @user %>
       <h3><%= t ".skills_#{@user.type.underscore}" %></h3>
       <p><%= simple_format(@user.skills) %></p>
     </div>
   </div>
 
-  <div class="col-md-6">
-    <div class="box">
+  <div class='col-md-6'>
+    <div class='box'>
       <%= render 'edit_link', user: @user %>
       <h3><%= t('.availability') %></h3>
       <%= render 'calendar', availability: @user.availability %>
     </div>
 
-    <% if @user.type == "Host" %>
-      <div class="box">
+    <% if @user.type == 'Host' %>
+      <div class='box'>
         <%= render 'edit_link', user: @user %>
         <h3><%= t ".accomodation" %></h3>
         <p><%= simple_format(@user.accomodation) %></p>
