@@ -24,12 +24,24 @@ $redVolunteer: #f1c5c2;
   border-radius: 4px;
 }
 
-@mixin box_shadow($x: 2px) {
-  -moz-box-shadow: $x $x $x $grayVeryLight;
-  -webkit-box-shadow: $x $x $x $grayVeryLight;
-  box-shadow: $x $x $x $grayVeryLight;
+@mixin box_shadow($x: 2px, $color: $grayVeryLight, $inset: true) {
+  @if $inset == true {
+    -moz-box-shadow: inset $x $x $x $color;
+    -webkit-box-shadow: inset $x $x $x $color;
+    box-shadow: inset $x $x $x $color;
+  } @else {
+    -moz-box-shadow: $x $x $x $color;
+    -webkit-box-shadow: $x $x $x $color;
+    box-shadow: $x $x $x $color;
+  }
 }
 
+@mixin transition {
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
+}
 
 /* Dropdown menu's with the small arrow, like in Bootstrap 2 */
 .navbar-nav > li > .header-dropdown-menu {
