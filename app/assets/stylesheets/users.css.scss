@@ -179,6 +179,7 @@ div.no-elements {
   @include make-row;
   padding: 20px 0 0 0;
   .box {
+    word-wrap: break-word;
     margin: 0px 0px 20px 0px;
     border: 1px solid $grayVeryLight;
     @include border_radius;
