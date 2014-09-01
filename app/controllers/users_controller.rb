@@ -63,7 +63,7 @@ class UsersController < Devise::RegistrationsController
       params.require(:user).permit(
         :accomodation, :description, :email, :name, :password,
         :password_confirmation, :skills, availability: [],
-        language_skills_attributes: [:language_id, :level, :_destroy],
+        language_skills_attributes: [:id, :language_id, :level, :_destroy],
         work_type_ids: [])
 
     end
@@ -72,7 +72,7 @@ class UsersController < Devise::RegistrationsController
       params.require(:user).permit(
         :description, :email, :name, :password, :password_confirmation, :skills,
         availability: [],
-        language_skills_attributes: [:language_id, :level, :_destroy],
+        language_skills_attributes: [:id, :language_id, :level, :_destroy],
         work_type_ids: [])
     end
 
