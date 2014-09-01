@@ -9,8 +9,9 @@
   </div>
   <%= simple_form_for(resource, as: resource_name,
                                 url: password_path(resource_name),
-                                html: { method: :post }) do |f| %>
-    <%= f.input_field :email, autofocus: true %>
-    <%= f.button :submit, t('.send_instructions'), class: 'signup-button' %>
+                                html: { method: :post },
+                                wrapper: :vertical_form) do |f| %>
+      <%= f.input :email, autofocus: true, label: false %>
+      <%= f.button :submit, t('.send_instructions'), class: 'signup-button' %>
   <% end %>
 </div>
