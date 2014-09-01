@@ -165,17 +165,19 @@ div.no-elements {
   margin-left: 20px;
   font-size: 16px;
 }
+
 .label_info {
   float: left;
   width: 30px;
 }
+
 .content_info {
   margin-left: 30px;
 }
 
 .profile-content {
   @include make-row;
-  padding: 20px 0;
+  padding: 20px 0 0 0;
   .box {
     margin: 0px 0px 20px 0px;
     border: 1px solid $grayVeryLight;
@@ -188,6 +190,9 @@ div.no-elements {
       color: #333;
       border-bottom: 1px solid $grayVeryLight;
       font-size: 16px;
+    }
+    &:last-child {
+      margin: 0;
     }
   }
 }
