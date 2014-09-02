@@ -18,31 +18,31 @@ RSpec.describe ImageUploader do
   end
 
   context 'the thumb version' do
-    it "should scale down a landscape image to be exactly 40x40" do
+    it 'should scale down a landscape image to be exactly 40x40' do
       expect(@uploader.thumb).to have_dimensions(40, 40)
     end
   end
 
   context 'the small version' do
-    it "should scale down a landscape image to fit within 140x140" do
+    it 'should scale down a landscape image to fit within 140x140' do
       expect(@uploader.small).to be_no_larger_than(140, 140)
     end
   end
 
   context 'the small cropped version' do
-    it "should scale down a landscape image to be exactly 140x140" do
+    it 'should scale down a landscape image to be exactly 140x140' do
       expect(@uploader.small_cropped).to have_dimensions(140, 140)
     end
   end
 
   context 'the medium version' do
-    it "should scale down a landscape image to be exactly 220x220" do
+    it 'should scale down a landscape image to be exactly 220x220' do
       expect(@uploader.medium).to have_dimensions(220, 220)
     end
   end
 
   context 'the large version' do
-    it "should scale down a landscape image to fit within 350x350" do
+    it 'should scale down a landscape image to fit within 350x350' do
       expect(@uploader.large).to be_no_larger_than(350, 350)
     end
   end

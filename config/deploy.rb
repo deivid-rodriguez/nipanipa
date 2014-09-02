@@ -10,8 +10,8 @@ set :format, :pretty
 set :log_level, :debug
 set :pty, true
 
-set :linked_files, %w{config/application.yml}
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets public/uploads}
+set :linked_files, %w(config/application.yml)
+set :linked_dirs, %w(bin log tmp/pids tmp/cache tmp/sockets public/uploads)
 
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 set :keep_releases, 5
@@ -51,8 +51,8 @@ namespace :deploy do
   task :check_revision do
     on roles(:web) do
       unless `git rev-parse HEAD` == `git rev-parse origin/master`
-        puts "ERROR: HEAD is not the same as origin/master"
-        puts "Run `git push` to sync changes."
+        puts 'ERROR: HEAD is not the same as origin/master'
+        puts 'Run `git push` to sync changes.'
         exit
       end
     end

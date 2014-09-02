@@ -79,19 +79,19 @@ RSpec::Matchers.define :have_ability do |ability_hash, options = {}|
     ability         = Ability.new(user)
     target          = options[:for]
     @ability_result = {}
-    ability_hash    = {ability_hash => true} if ability_hash.is_a? Symbol
-    ability_hash    = ability_hash.inject({}){|_, i| _.merge({i=>true}) } if
+    ability_hash    = { ability_hash => true } if ability_hash.is_a? Symbol
+    ability_hash    = ability_hash.reduce({}) { |_, i| _.merge(i => true) } if
       ability_hash.is_a? Array
-    ability_hash.each do |action, true_or_false|
+    ability_hash.each do |action, _true_or_false|
       @ability_result[action] = ability.can?(action, target)
     end
     ability_hash == @ability_result
   end
 
   failure_message do |user|
-    ability_hash,options = expected
-    ability_hash         = {ability_hash => true} if ability_hash.is_a? Symbol
-    ability_hash         = ability_hash.inject({}){|_, i| _.merge({i=>true}) } if
+    ability_hash, options = expected
+    ability_hash         = { ability_hash => true } if ability_hash.is_a? Symbol
+    ability_hash         = ability_hash.reduce({}) { |_, i| _.merge(i => true) } if
       ability_hash.is_a? Array
     target               = options[:for]
     message = "expected User:#{user} to have ability:#{ability_hash} for " \

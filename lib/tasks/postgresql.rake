@@ -11,7 +11,6 @@ namespace :db do
     system "psql -c \"#{sql_command}\" -U postgres"
   end
 
-
   desc 'Kills opened pg connections'
   task kill_pg_connections: :environment do
     db_name = ENV['DB_NAME']

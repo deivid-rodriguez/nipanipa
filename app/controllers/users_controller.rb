@@ -5,7 +5,7 @@ class UsersController < Devise::RegistrationsController
     build_resource({})
     resource.language_skills.build(language: Language.find_by(code: I18n.locale),
                                    level: :expert)
-    respond_with self.resource
+    respond_with resource
   end
 
   def index
@@ -31,58 +31,57 @@ class UsersController < Devise::RegistrationsController
 
   private
 
-    # Override redirect after profile edition
-    def after_update_path_for(resource)
-      resource
-    end
+  # Override redirect after profile edition
+  def after_update_path_for(resource)
+    resource
+  end
 
-    # Override redirect after signup
-    def after_sign_up_path_for(resource)
-      resource
-    end
+  # Override redirect after signup
+  def after_sign_up_path_for(resource)
+    resource
+  end
 
-    # Override devise default of asking password for updates
-    def update_resource(resource, params)
-      resource.update_without_password(params)
-    end
+  # Override devise default of asking password for updates
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
 
-    # Override devise parameter sanitization
-    def sign_up_params
-      user_params
-    end
+  # Override devise parameter sanitization
+  def sign_up_params
+    user_params
+  end
 
-    def account_update_params
-      user_params
-    end
+  def account_update_params
+    user_params
+  end
 
-    def user_params
-      send("#{resource_class.to_s.downcase}_params")
-    end
+  def user_params
+    send("#{resource_class.to_s.downcase}_params")
+  end
 
-    def host_params
-      params.require(:user).permit(
-        :accomodation, :description, :email, :name, :password,
-        :password_confirmation, :skills, availability: [],
-        language_skills_attributes: [:id, :language_id, :level, :_destroy],
-        work_type_ids: [])
+  def host_params
+    params.require(:user).permit(
+      :accomodation, :description, :email, :name, :password,
+      :password_confirmation, :skills, availability: [],
+                                       language_skills_attributes: [:id, :language_id, :level, :_destroy],
+                                       work_type_ids: [])
+  end
 
-    end
+  def volunteer_params
+    params.require(:user).permit(
+      :description, :email, :name, :password, :password_confirmation, :skills,
+      availability: [],
+      language_skills_attributes: [:id, :language_id, :level, :_destroy],
+      work_type_ids: [])
+  end
 
-    def volunteer_params
-      params.require(:user).permit(
-        :description, :email, :name, :password, :password_confirmation, :skills,
-        availability: [],
-        language_skills_attributes: [:id, :language_id, :level, :_destroy],
-        work_type_ids: [])
-    end
+  # Correctly resolve actual class from params
+  def resource_class
+    params[:type].present? ? params[:type].classify.constantize : super
+  end
 
-    # Correctly resolve actual class from params
-    def resource_class
-      params[:type].present? ? params[:type].classify.constantize : super
-    end
-
-    # Use a single devise mapping for both classes
-    def devise_mapping
-      Devise.mappings[:user]
-    end
+  # Use a single devise mapping for both classes
+  def devise_mapping
+    Devise.mappings[:user]
+  end
 end

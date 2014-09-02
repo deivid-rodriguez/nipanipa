@@ -76,8 +76,10 @@ RSpec.describe 'Password recovery' do
   end
 
   shared_examples 'paranoid' do
-    it { is_expected.to have_flash_message \
-                t('devise.passwords.send_paranoid_instructions'), 'success' }
+    it do
+      is_expected.to have_flash_message \
+                t('devise.passwords.send_paranoid_instructions'), 'success'
+    end
   end
 
   context 'with correct email' do
@@ -95,7 +97,7 @@ RSpec.describe 'Password recovery' do
   context 'with wrong email' do
     before do
       within 'div.signin-thumbnail' do
-        fill_in 'user[email]', with: "mywrongemail@example.com"
+        fill_in 'user[email]', with: 'mywrongemail@example.com'
         click_button t('devise.passwords.new.send_instructions')
       end
     end

@@ -11,11 +11,13 @@ guard :rspec, fail_mode: :keep, all_on_start: true,
   watch(%r{^config/environments/development.rb$}) { 'spec'          }
   watch(%r{^config/.*\.rb$})                      { 'spec'          }
 
-  watch(%r{^app/models/(.+)\.rb}) { |m|
-    ["spec/models/#{m[1]}_spec.rb", "spec/features/#{m[1]}_spec.rb"] }
+  watch(%r{^app/models/(.+)\.rb}) do |m|
+    ["spec/models/#{m[1]}_spec.rb", "spec/features/#{m[1]}_spec.rb"]
+  end
 
-  watch(%r{^app/controllers/(.+)_controller\.rb$}) { |m|
-    ["spec/features/#{m[1]}_spec.rb", "spec/controllers/#{m[1]}_spec.rb"] }
+  watch(%r{^app/controllers/(.+)_controller\.rb$}) do |m|
+    ["spec/features/#{m[1]}_spec.rb", "spec/controllers/#{m[1]}_spec.rb"]
+  end
 
   watch(%r{^app/views/(.+)/}) { |m| "spec/features/#{m[1]}_spec.rb" }
 

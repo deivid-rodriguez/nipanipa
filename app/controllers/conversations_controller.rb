@@ -2,10 +2,10 @@ class ConversationsController < ApplicationController
   respond_to :html
   respond_to :js, only: [:reply, :destroy]
 
-  before_filter :authenticate_user!
-  before_filter :load_user, only: [:index]
-  before_filter :load_conversation, only: [:show, :reply, :destroy]
-  before_filter :set_page_id
+  before_action :authenticate_user!
+  before_action :load_user, only: [:index]
+  before_action :load_conversation, only: [:show, :reply, :destroy]
+  before_action :set_page_id
 
   def index
     @conversations = Conversation.non_deleted(current_user)
@@ -22,8 +22,8 @@ class ConversationsController < ApplicationController
 
   def create
     @conversation = Conversation.new(conversation_params.merge(
-        to_id: conversation_params[:messages_attributes]["0"][:to_id],
-      from_id: conversation_params[:messages_attributes]["0"][:from_id]))
+        to_id: conversation_params[:messages_attributes]['0'][:to_id],
+        from_id: conversation_params[:messages_attributes]['0'][:from_id]))
     if @conversation.save
       redirect_to conversations_path, notice: t('conversations.create.success')
     else
@@ -35,9 +35,9 @@ class ConversationsController < ApplicationController
   def reply
     @conversation.messages.build(body:    params[:body],
                                  from_id: current_user.id,
-                                 to_id:   other_user.id )
+                                 to_id:   other_user.id)
     @conversation.reset_deleted_marks
-    if !@conversation.save
+    unless @conversation.save
       flash.now[:error] = t('conversations.reply.error')
     end
     respond_with(@conversation, location: conversation_path(@conversation))
@@ -52,25 +52,25 @@ class ConversationsController < ApplicationController
 
   private
 
-    def conversation_params
-      params.require(:conversation)
-            .permit(:subject, messages_attributes: [:body, :from_id, :to_id])
-    end
+  def conversation_params
+    params.require(:conversation)
+          .permit(:subject, messages_attributes: [:body, :from_id, :to_id])
+  end
 
-    # Some actions need this variable in the view
-    def load_user
-      @user = current_user
-    end
+  # Some actions need this variable in the view
+  def load_user
+    @user = current_user
+  end
 
-    def load_conversation
-      @conversation = Conversation.non_deleted(current_user).find(params[:id])
-    end
+  def load_conversation
+    @conversation = Conversation.non_deleted(current_user).find(params[:id])
+  end
 
-    def other_user
-      current_user == @conversation.to ? @conversation.from : @conversation.to
-    end
+  def other_user
+    current_user == @conversation.to ? @conversation.from : @conversation.to
+  end
 
-    def set_page_id
-      @page_id = :conversations
-    end
+  def set_page_id
+    @page_id = :conversations
+  end
 end

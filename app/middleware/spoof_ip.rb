@@ -1,5 +1,4 @@
 class SpoofIp
-
   def initialize(app, ip)
     @app = app
     @ip  = ip
@@ -8,7 +7,6 @@ class SpoofIp
   def call(env)
     env['HTTP_X_FORWARDED_FOR'] = @ip
     @status, @headers, @response = @app.call(env)
-    [ @status, @headers, @response ]
+    [@status, @headers, @response]
   end
-
 end

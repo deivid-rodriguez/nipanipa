@@ -25,7 +25,7 @@ RSpec.shared_examples_for 'user profile' do
     user.work_types.each { |wt| expect(page).to have_content(wt.name) }
   end
   it 'has correct user availability' do
-    expect(page).to have_content("✘ ✔ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘")
+    expect(page).to have_content('✘ ✔ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘')
   end
 end
 
@@ -59,13 +59,13 @@ RSpec.describe 'Profile creation' do
     context 'when submitting valid information' do
       before do
         within '.signup-form' do
-          fill_in 'user[name]'                 , with: host.name
-          fill_in 'user[email]'                , with: host.email
-          fill_in 'user[password]'             , with: host.password
+          fill_in 'user[name]', with: host.name
+          fill_in 'user[email]', with: host.email
+          fill_in 'user[password]', with: host.password
           fill_in 'user[password_confirmation]', with: host.password
-          fill_in 'user[description]'          , with: host.description
+          fill_in 'user[description]', with: host.description
           host.work_type_ids.each { |id| check "user_work_type_ids_#{id}" }
-          check "user_availability_feb"
+          check 'user_availability_feb'
         end
         expect { click_button create_user_btn }.to change(Host, :count).by(1)
       end
@@ -103,13 +103,13 @@ RSpec.describe 'Profile creation' do
     context 'when submitting valid information' do
       before do
         within '.signup-form' do
-          fill_in 'user[name]'                 , with: volunteer.name
-          fill_in 'user[email]'                , with: volunteer.email
-          fill_in 'user[password]'             , with: volunteer.password
+          fill_in 'user[name]', with: volunteer.name
+          fill_in 'user[email]', with: volunteer.email
+          fill_in 'user[password]', with: volunteer.password
           fill_in 'user[password_confirmation]', with: volunteer.password
-          fill_in 'user[description]'          , with: volunteer.description
+          fill_in 'user[description]', with: volunteer.description
           volunteer.work_type_ids.each { |id| check "user_work_type_ids_#{id}" }
-          check "user_availability_feb"
+          check 'user_availability_feb'
         end
         expect { click_button create_user_btn }.to change(Volunteer, :count).by(1)
       end

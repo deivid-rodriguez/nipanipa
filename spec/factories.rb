@@ -4,7 +4,7 @@ FactoryGirl.define do
     sequence(:name) { |n| "User #{n}" }
     sequence(:email) { |n| "nipanipa.test+user#{n}@gmail.com" }
     password 'foobar'
-    availability { %w[jan feb mar apr may jun jul aug sep oct nov dic] }
+    availability { %w(    jan feb mar apr may jun jul aug sep oct nov dic    ) }
 
     # simulate first login
     last_sign_in_at { Time.now }
@@ -18,7 +18,7 @@ FactoryGirl.define do
     end
 
     trait :available_just_now do
-      availability { [DateTime.now().strftime('%b').downcase] }
+      availability { [DateTime.now.strftime('%b').downcase] }
     end
 
     trait :not_available do
@@ -80,19 +80,19 @@ FactoryGirl.define do
   factory :message do
     association :conversation
     body 'This is a sample body'
-    association :from , factory: :volunteer
+    association :from, factory: :volunteer
     association :to, factory: :host
   end
 
   factory :feedback do
     content 'This is a sample feedback.'
     score :neutral
-    association :sender   , factory: :volunteer
+    association :sender, factory: :volunteer
     association :recipient, factory: :host
   end
 
   factory :work_type do
-    sequence(:name) { |n| "Work Type #{n%15}" }
+    sequence(:name) { |n| "Work Type #{n % 15}" }
   end
 
   factory :sectorization do
@@ -101,8 +101,8 @@ FactoryGirl.define do
   end
 
   factory :language do
-    sequence(:code) { |n| "L#{n%10}" }
-    sequence(:name) { |n| "Language#{n%10}" }
+    sequence(:code) { |n| "L#{n % 10}" }
+    sequence(:name) { |n| "Language#{n % 10}" }
   end
 
   factory :language_skill do
@@ -113,8 +113,10 @@ FactoryGirl.define do
 
   factory :picture do
     name 'My funny picture'
-    image { Rack::Test::UploadedFile.new(
-              File.join(Rails.root, 'spec', 'fixtures', 'test_image.png')) }
+    image do
+      Rack::Test::UploadedFile.new(
+              File.join(Rails.root, 'spec', 'fixtures', 'test_image.png'))
+    end
     association :user, factory: :host
   end
 end

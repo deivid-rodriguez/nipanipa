@@ -41,7 +41,7 @@ Nipanipa::Application.configure do
   config.action_mailer.raise_delivery_errors = false
 
   # Middleware
-  config.middleware.use SpoofIp, ENV["IP"]
+  config.middleware.use SpoofIp, ENV['IP']
 
   # Use Pry as the default console
   config.console = Pry

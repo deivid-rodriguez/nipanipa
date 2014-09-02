@@ -1,5 +1,5 @@
 namespace :db do
-  desc "Fill database with sample data"
+  desc 'Fill database with sample data'
   task populate: :environment do
 
     # Generates a random biased score
@@ -20,10 +20,10 @@ namespace :db do
 
     # Create some users
     @n_users.times do |n|
-      type = ['host', 'volunteer'].sample
+      type = %w(host volunteer).sample
       name  = Faker::Name.name
       email = "nipanipa.test+#{type}#{n}@gmail.com"
-      password  = "111111"
+      password  = '111111'
       description = Faker::Lorem.paragraph(10)
       ip = Faker::Internet.ip_v4_address
       time = Time.now

@@ -1,14 +1,13 @@
 class Feedback < ActiveRecord::Base
-
   extend Enumerize
   enumerize :score, in: { negative: -1, neutral: 0, positive: 1 },
                     default: :neutral
 
-  validates    :sender_id, presence: true, uniqueness: { scope: :recipient_id }
+  validates :sender_id, presence: true, uniqueness: { scope: :recipient_id }
   validates :recipient_id, presence: true
-  validates      :content, presence: true, length: { maximum: 300 }
+  validates :content, presence: true, length: { maximum: 300 }
 
-  belongs_to :sender   , class_name: 'User'
+  belongs_to :sender, class_name: 'User'
   belongs_to :recipient, class_name: 'User'
 
   before_save :update_karma
@@ -16,9 +15,9 @@ class Feedback < ActiveRecord::Base
 
   has_one :donation
   accepts_nested_attributes_for :donation,
-                                reject_if: proc { |attr| attr[:amount] == "0" }
+                                reject_if: proc { |attr| attr[:amount] == '0' }
 
-  scope :sent    , ->(user) { where(sender: user)    }
+  scope :sent, ->(user) { where(sender: user)    }
   scope :received, ->(user) { where(recipient: user) }
 
   def complement
@@ -31,7 +30,7 @@ class Feedback < ActiveRecord::Base
         recipient.karma += score.value
         recipient.save
       end
-    elsif score_changed? and score_was and score.value != score_was
+    elsif score_changed? && score_was && score.value != score_was
       recipient.karma += (score.value - score_was)
       recipient.save
     end

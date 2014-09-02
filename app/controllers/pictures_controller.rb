@@ -1,6 +1,6 @@
 class PicturesController < ApplicationController
-  before_filter :load_user, only: [:index]
-  before_filter :load_picture, only: [:edit, :update, :destroy]
+  before_action :load_user, only: [:index]
+  before_action :load_picture, only: [:edit, :update, :destroy]
 
   def new
     @picture = current_user.pictures.build
@@ -23,7 +23,6 @@ class PicturesController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -45,15 +44,15 @@ class PicturesController < ApplicationController
 
   private
 
-    def picture_params
-      params.require(:picture).permit(:image, :image_cache, :name, :user_id)
-    end
+  def picture_params
+    params.require(:picture).permit(:image, :image_cache, :name, :user_id)
+  end
 
-    def load_user
-      @user = User.find(params[:user_id])
-    end
+  def load_user
+    @user = User.find(params[:user_id])
+  end
 
-    def load_picture
-      @picture = current_user.pictures.find(params[:id])
-    end
+  def load_picture
+    @picture = current_user.pictures.find(params[:id])
+  end
 end

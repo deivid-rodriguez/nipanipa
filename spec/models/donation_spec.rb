@@ -3,7 +3,7 @@
 #
 
 RSpec.describe Donation do
-  it "should be valid" do
+  it 'should be valid' do
     expect(Donation.new).to be_valid
   end
 end

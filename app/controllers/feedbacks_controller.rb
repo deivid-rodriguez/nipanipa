@@ -1,8 +1,8 @@
 class FeedbacksController < ApplicationController
-  before_filter :authenticate_user!, except: [:index]
-  before_filter :load_user, only: [:new, :create, :index, :edit, :update]
-  before_filter :load_feedback, only: [:edit, :update, :destroy]
-  before_filter :set_page_id, only: [:index]
+  before_action :authenticate_user!, except: [:index]
+  before_action :load_user, only: [:new, :create, :index, :edit, :update]
+  before_action :load_feedback, only: [:edit, :update, :destroy]
+  before_action :set_page_id, only: [:index]
 
   def new
     @feedback = current_user.sent_feedbacks.new
@@ -32,9 +32,9 @@ class FeedbacksController < ApplicationController
   end
 
   def edit
-   authorize! :edit, @feedback
-   @feedback.build_donation if !@feedback.donation
-   session[:return_to] = request.referer
+    authorize! :edit, @feedback
+    @feedback.build_donation unless @feedback.donation
+    session[:return_to] = request.referer
   end
 
   def update
@@ -61,19 +61,19 @@ class FeedbacksController < ApplicationController
 
   private
 
-    def feedback_params
-      params.require(:feedback).permit(:content, :score, donation_attributes: [:amount, :user_id])
-    end
+  def feedback_params
+    params.require(:feedback).permit(:content, :score, donation_attributes: [:amount, :user_id])
+  end
 
-    def load_user
-      @user = User.find(params[:user_id])
-    end
+  def load_user
+    @user = User.find(params[:user_id])
+  end
 
-    def load_feedback
-      @feedback = current_user.sent_feedbacks.find(params[:id])
-    end
+  def load_feedback
+    @feedback = current_user.sent_feedbacks.find(params[:id])
+  end
 
-    def set_page_id
-      @page_id = :feedback
-    end
+  def set_page_id
+    @page_id = :feedback
+  end
 end

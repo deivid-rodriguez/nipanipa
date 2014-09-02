@@ -8,11 +8,12 @@ class Conversation < ActiveRecord::Base
   belongs_to :to, class_name: 'User'
 
   scope :non_deleted, ->(user) {
-     where('(from_id = ? AND deleted_from = false) OR ' \
-           '(to_id = ? AND deleted_to = false)', user, user) }
+    where('(from_id = ? AND deleted_from = false) OR ' \
+          '(to_id = ? AND deleted_to = false)', user, user)
+  }
 
   def mark_as_deleted(user)
-    if user == self.from
+    if user == from
       self.deleted_from = true
     else
       self.deleted_to = true
@@ -21,7 +22,7 @@ class Conversation < ActiveRecord::Base
   end
 
   def deleted_by_both?
-    self.deleted_from && self.deleted_to
+    deleted_from && deleted_to
   end
 
   def reset_deleted_marks

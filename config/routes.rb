@@ -1,10 +1,10 @@
 Nipanipa::Application.routes.draw do
 
   # first created -> highest priority.
-  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
+  scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
 
     devise_for :users, controllers: { registrations: 'users' },
-                path_names: { sign_in: 'signin', sign_out: 'signout' }
+                       path_names: { sign_in: 'signin', sign_out: 'signout' }
 
     resources :donations, only: [:new, :create, :show]
 

@@ -8,7 +8,7 @@ class DonationsController < ApplicationController
     if @donation.save
       redirect_to @donation.paypal_url(donation_url(@donation.id))
     else
-      render :action => 'new'
+      render action: 'new'
     end
   end
 
@@ -30,7 +30,7 @@ class DonationsController < ApplicationController
 
   private
 
-    def donation_params
-      params.require(:donation).permit(:amount, :feedback_id, :user_id)
-    end
+  def donation_params
+    params.require(:donation).permit(:amount, :feedback_id, :user_id)
+  end
 end

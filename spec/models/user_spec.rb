@@ -5,11 +5,11 @@
 RSpec.describe User do
   let(:user) { build(:user) }
 
-  it "has a valid factory" do
+  it 'has a valid factory' do
     expect(create(:user)).to be_valid
   end
 
-  it "has a valid soft factory" do
+  it 'has a valid soft factory' do
     expect(build(:user)).to be_valid
   end
 
@@ -30,27 +30,27 @@ RSpec.describe User do
   it { is_expected.to respond_to(:type)                }
 
   it { is_expected.to be_valid }
-  specify { expect(user.role).to eq("non-admin") }
+  specify { expect(user.role).to eq('non-admin') }
 
-  describe "when name is not present" do
-    before { user.name = " " }
+  describe 'when name is not present' do
+    before { user.name = ' ' }
     it { is_expected.not_to be_valid }
   end
 
-  describe "when name is too long" do
-    before { user.name = "a" * 51 }
+  describe 'when name is too long' do
+    before { user.name = 'a' * 51 }
     it { is_expected.not_to be_valid }
   end
 
-  describe "when email is not present" do
-    before { user.email = " " }
+  describe 'when email is not present' do
+    before { user.email = ' ' }
     it { is_expected.not_to be_valid }
   end
 
-  describe "when email format is invalid" do
-    it "should be invalid" do
-      addresses = %w[user@foo,com user_at_foo.org example.user@foo.
-                     foo@bar_baz.com foo@bar+baz.com]
+  describe 'when email format is invalid' do
+    it 'should be invalid' do
+      addresses = %w(      user@foo,com user_at_foo.org example.user@foo.
+                           foo@bar_baz.com foo@bar+baz.com                     )
       addresses.each do |invalid_address|
         user.email = invalid_address
         expect(user).not_to be_valid
@@ -58,9 +58,9 @@ RSpec.describe User do
     end
   end
 
-  describe "when email format is valid" do
-    it "should be valid" do
-      addresses = %w[user@foo.COM A_US-ER@f.b.org frst.lst@foo.jp a+b@baz.cn]
+  describe 'when email format is valid' do
+    it 'should be valid' do
+      addresses = %w(      user@foo.COM A_US-ER@f.b.org frst.lst@foo.jp a+b@baz.cn      )
       addresses.each do |valid_address|
         user.email = valid_address
         expect(user).to be_valid
@@ -68,52 +68,52 @@ RSpec.describe User do
     end
   end
 
-  describe "when email address is already taken" do
+  describe 'when email address is already taken' do
     let!(:user_with_same_email) { user.dup }
-     before do
-       user_with_same_email = user.dup
-       user_with_same_email.save
-     end
+    before do
+      user_with_same_email = user.dup
+      user_with_same_email.save
+    end
 
-     it { is_expected.not_to be_valid }
+    it { is_expected.not_to be_valid }
   end
 
-  describe "when password is not present" do
-    before { user.password = user.password_confirmation = " " }
+  describe 'when password is not present' do
+    before { user.password = user.password_confirmation = ' ' }
     it { is_expected.not_to be_valid }
   end
 
   describe "when password doesn't match confirmation" do
-    before { user.password_confirmation = "mismatch" }
+    before { user.password_confirmation = 'mismatch' }
     it { is_expected.not_to be_valid }
   end
 
   describe "with a password that's too short" do
-    before { user.password = user.password_confirmation = "a" * 5 }
+    before { user.password = user.password_confirmation = 'a' * 5 }
     it { is_expected.to be_invalid }
   end
 
-  describe "email address with mixed case" do
-    let(:mixed_case_email) { "Foo@ExAMPle.CoM" }
+  describe 'email address with mixed case' do
+    let(:mixed_case_email) { 'Foo@ExAMPle.CoM' }
 
-    it "should be saved as all lower-case" do
+    it 'should be saved as all lower-case' do
       user.email = mixed_case_email
       user.save
       expect(user.reload.email).to eq(mixed_case_email.downcase)
     end
   end
 
-  describe "feedbacks associations" do
+  describe 'feedbacks associations' do
     before { user.save }
     let!(:sent_f) { create(:feedback, sender: user) }
     let!(:old_f)  { create(:feedback, recipient: user, created_at: 1.day.ago)  }
     let!(:new_f)  { create(:feedback, recipient: user, created_at: 1.hour.ago) }
 
-    it "should have the right received feedbacks in the right order" do
-      expect(user.received_feedbacks).to eq([ new_f, old_f ])
+    it 'should have the right received feedbacks in the right order' do
+      expect(user.received_feedbacks).to eq([new_f, old_f])
     end
 
-    it "should destroy associated sent feedbacks" do
+    it 'should destroy associated sent feedbacks' do
       sent_feedbacks = user.sent_feedbacks.to_a
       user.destroy
       expect(sent_feedbacks).not_to be_empty
@@ -122,7 +122,7 @@ RSpec.describe User do
       end
     end
 
-    it "should destroy associated received feedbacks" do
+    it 'should destroy associated received feedbacks' do
       received_feedbacks = user.received_feedbacks.to_a
       user.destroy
       expect(received_feedbacks).not_to be_empty
@@ -133,7 +133,7 @@ RSpec.describe User do
 
   end # feedbacks association
 
-  describe "when description too long" do
+  describe 'when description too long' do
     before { user.description = 'a' * 2501 }
     it { is_expected.not_to be_valid }
   end

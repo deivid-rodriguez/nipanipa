@@ -55,12 +55,12 @@ RSpec.describe 'Leaving feedback' do
 
     context 'with valid information and no donation' do
       before do
-        choose  'feedback_score_positive'
+        choose 'feedback_score_positive'
         fill_in 'feedback[content]', with: feedback.content
         click_button feedback_btn
       end
 
-      it "correctly updates db" do
+      it 'correctly updates db' do
         expect(Donation.count).to eq(0)
         expect(Feedback.count).to eq(1)
         expect(feedback.recipient.reload.karma).to eq(1)
@@ -74,7 +74,7 @@ RSpec.describe 'Leaving feedback' do
 
     context 'with valid information and donation', :js do
       before do
-        choose  'feedback_score_positive'
+        choose 'feedback_score_positive'
         fill_in 'feedback[content]', with: feedback.content
         fill_in 'feedback[donation_attributes][amount]', with: 20
         click_button feedback_btn
@@ -121,7 +121,7 @@ RSpec.describe 'Editing feedbacks' do
   context 'with valid information and no donation' do
     before do
       fill_in 'feedback_content', with: 'New really bad opinion'
-      choose  'feedback_score_negative'
+      choose 'feedback_score_negative'
       click_button feedback_btn
     end
 
