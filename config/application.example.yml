@@ -1,16 +1,16 @@
 # Add application configuration variables here, as shown below.
 
 development:
-  DB_NAME: ''
-  DB_USER: ''
-  DB_PASS: ''
-  MAIL_SERVER: ''
-  MAIL_HOST: ''
-  MAIL_USER: ''
-  MAIL_PASS: ''
-  PAYPAL_URL: ''
-  PAYPAL_PDT_AT: ''
-  PAYPAL_ACCOUNT: ''
+  DB_NAME: 'nipanipa_development'
+  DB_USER: 'nipanipa'
+  DB_PASS: 'nipanipa'
+  MAIL_SERVER: 'smtp.gmail.com'
+  MAIL_HOST: 'nipanipa.local.com'
+  MAIL_USER: 'nipanipa.test@gmail.com'
+  MAIL_PASS: 'nipanipa'
+  PAYPAL_URL: 'https://www.sandbox.paypal.com/cgi-bin/webscr?'
+  PAYPAL_PDT_AT: 'ihDkGClTsjbX-7eAsFrzOHwyNlSgcArJDCEWI5dl8fMLE1I5dBrIrCzGdqm'
+  PAYPAL_ACCOUNT: 'nipa_1359995225_biz@gmail.com'
 
 production:
   DB_NAME: ''
@@ -26,11 +26,11 @@ production:
   PAYPAL_ACCOUNT: ''
 
 test:
-  DB_NAME: ''
-  DB_USER: ''
-  DB_PASS: ''
-  MAIL_HOST: ''
-  FAKE_IP: ''
-  PAYPAL_URL: ''
-  PAYPAL_PDT_AT: ''
-  PAYPAL_ACCOUNT: ''
+  DB_NAME: 'nipanipa_test'
+  DB_USER: 'nipanipa'
+  DB_PASS: 'nipanipa'
+  MAIL_HOST: 'example.com'
+  FAKE_IP: '83.39.69.109'
+  PAYPAL_URL: 'https://www.sandbox.paypal.com/cgi-bin/websrc?'
+  PAYPAL_PDT_AT: 'pdtidentitytoken'
+  PAYPAL_ACCOUNT: 'test@example.com'
