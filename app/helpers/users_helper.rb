@@ -18,8 +18,8 @@ module UsersHelper
   end
 
   def feedback_count(feedbacks)
-    received_count = feedbacks.count { |f| !!f[0] }
-    sent_count     = feedbacks.count { |f| !!f[1] }
+    received_count = feedbacks.count { |f| !f[0].nil? }
+    sent_count     = feedbacks.count { |f| !f[1].nil? }
     count_str = "#{t 'feedbacks.feedbacks.title'}"
     if received_count != 0 || sent_count != 0
       received = t('feedbacks.received', count: received_count)
