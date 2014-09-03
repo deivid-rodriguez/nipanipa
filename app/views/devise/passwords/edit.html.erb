@@ -1,18 +1,22 @@
 <% provide :title, t('.title') %>
 
-<div class="col-md-offset-4 col-md-4">
-  <div class="signin-thumbnail">
-    <h5><%= t '.title' %></h5>
-    <%= simple_form_for(resource, as: resource_name,
-                                  url: password_path(resource_name),
-                                  html: { method: :put }) do |f| %>
-      <%= devise_error_messages! %>
-
-      <%= f.hidden_field :reset_password_token %>
-      <%= f.input_field :password, autofocus: true %>
-      <%= f.input_field :password_confirmation %>
-      <%= f.button :submit, t('.change_pwd'), class: "signup-button"  %>
-    <% end %>
+<div class='signin-thumbnail'>
+  <div class='header'>
+    <%= image_tag 'host1_small.png', alt: 'host' %>
+    <%= image_tag 'volunteer1_small.png', alt: 'volunteer' %>
+    <%= image_tag 'explore_small.png', alt: 'explore' %>
+    <h2><%= t '.title' %></h2>
   </div>
+
+  <%= simple_form_for(resource, as: resource_name,
+                                url: password_path(resource_name),
+                                html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
+
+    <%= f.hidden_field :reset_password_token %>
+    <%= f.input :password, autofocus: true, label: false %>
+    <%= f.input :password_confirmation, autofocus: true, label: false %>
+    <%= f.button :submit, t('.change_pwd'), class: 'primary-button' %>
+  <% end %>
 </div>
 
