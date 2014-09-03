@@ -27,17 +27,8 @@ Nipanipa::Application.configure do
   config.assets.logger = false
 
   # ActionMailer Config
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address:              ENV['MAIL_SERVER'],
-    user_name:            ENV['MAIL_USER'],
-    password:             ENV['MAIL_PASS'],
-    domain:               ENV['MAIL_HOST'],
-    port:                 587,
-    authentication:       :plain,
-    enable_starttls_auto: true
-  }
-  config.action_mailer.perform_deliveries = false
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
 
   # Middleware
