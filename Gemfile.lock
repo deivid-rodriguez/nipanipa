@@ -8,8 +8,6 @@ GIT
       json (>= 1.7)
       mime-types (>= 1.16)
 
-GIT
-
 GEM
   remote: https://rubygems.org/
   specs:
