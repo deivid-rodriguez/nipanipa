@@ -109,4 +109,10 @@ ul.conversation-list {
   .message-date {
     text-align: right;
   }
+  form textarea {
+    width: 80%;
+  }
+  form input {
+    line-height: 138px;
+  }
 }

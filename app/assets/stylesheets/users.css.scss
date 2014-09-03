@@ -24,13 +24,6 @@ h1.signup-title {
       margin: 10px 20px 0 0;
     }
   }
-  .signup-button {
-    @include linear_gradient;
-    background-color: whiteSmoke;
-    font-size: 14px;
-    padding: 4px 12px;
-    @include border_radius;
-  }
   .checkbox-list {
     @include make-md-column(4);
     margin: 0;

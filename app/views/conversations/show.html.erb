@@ -20,12 +20,22 @@
       </ul>
     </div>
 
-    <div class='col-md-offset-2 col-md-8 message-reply'>
-      <%= form_tag reply_conversation_path(@conversation),
-                   method: :put, remote: true do %>
-        <%= text_area_tag :body %>
-        <%= submit_tag t('.reply'), class: 'btn btn-sm pull-right' %>
-      <% end %>
+    <div class='col-md-offset-2 col-md-8'>
+      <div class='row message-left'>
+        <div class='col-md-2 message-from'>
+          <%= avatar_for current_user, style: :thumb_message %>
+        </div>
+        <div class='col-md-10 message-content'>
+          <div class='bubble-triangle'>
+          </div>
+
+          <%= form_tag reply_conversation_path(@conversation),
+                       method: :put, remote: true do %>
+            <%= text_area_tag :body %>
+            <%= submit_tag t('.reply'), class: 'btn btn-default primary-button pull-right' %>
+          <% end %>
+        </div>
+      </div>
     </div>
 
   </div>

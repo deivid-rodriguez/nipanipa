@@ -169,6 +169,18 @@ p {
   padding: 25px;
 }
 
+
+/* buttons */
+
+.primary-button {
+  @include linear_gradient;
+  background-color: whiteSmoke;
+  font-size: 14px;
+  padding: 4px 12px;
+  @include border_radius;
+}
+
+
 /* header */
 
 #logo {
