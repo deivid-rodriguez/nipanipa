@@ -42,7 +42,6 @@ end
 group :test do
   gem 'capybara', '2.4.1'
   gem 'poltergeist', '1.5.1'
-  gem 'shoulda', '3.5.0'
   gem 'launchy', '2.4.2'
   gem 'rb-inotify', '0.9.5'
   gem 'libnotify', '0.8.3'
