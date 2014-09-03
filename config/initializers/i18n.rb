@@ -13,19 +13,16 @@ LANGUAGES = [
 # but additionally logs missing translations to a given log.
 module I18n
   class << self
-    def missing_translations_logger
-      @@missing_translations_logger ||=
+    def missing_translations_log
+      @missing_translations_log ||=
          Logger.new(Rails.root.join('log', 'missing_translations.log'))
     end
 
     def missing_translations_log_handler(exception, _locale, _key, _options)
-      if MissingTranslation === exception
-        missing_translations_logger.
-          warn([Time.now, exception.message].join(': '))
-        return exception.message
-      else
-        fail exception
-      end
+      fail exception unless exception.is_a?(MissingTranslation)
+
+      missing_translations_log.warn([Time.now, exception.message].join(': '))
+      exception.message
     end
   end
 end

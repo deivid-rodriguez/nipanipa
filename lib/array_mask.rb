@@ -1,3 +1,6 @@
+#
+# Bit mask functionality
+#
 class ArrayMask
   def initialize(mask)
     @mask = mask
@@ -16,12 +19,4 @@ class ArrayMask
   def power_of_two(array, element)
     2**array.index(element)
   end
-
-  # def as_month_array
-  #   @id.map { |a| Date.strptime(a, '%b') }
-  # end
-
-  # def localized_months
-  #   MONTHS.each_index { |m| Date.new(1,m+1,1).strftime('%b') }
-  # end
 end

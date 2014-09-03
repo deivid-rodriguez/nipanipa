@@ -1,8 +1,11 @@
+#
+# Main class implementing both Host and Volunteer through STI
+#
 class User < ActiveRecord::Base
   devise :database_authenticatable, :rememberable, :validatable, :registerable,
          :trackable, :recoverable
 
-  ROLES = %w(  admin, non-admin  )
+  ROLES = %w(admin, non-admin)
 
   # validations
   validates :description, length: { maximum: 2500 }
@@ -10,7 +13,7 @@ class User < ActiveRecord::Base
 
   # geocoder
   geocoded_by :current_sign_in_ip do |obj, results|
-    if geo = results.first
+    if (geo = results.first)
       obj.state     = geo.state
       obj.country   = geo.country
       obj.longitude = geo.longitude
@@ -31,7 +34,7 @@ class User < ActiveRecord::Base
 
   has_many :pictures, dependent: :destroy
   accepts_nested_attributes_for :pictures,
-                                reject_if: proc { |att| att['image'].blank? && att['image_cache'].blank? }
+                                reject_if: ->(att) { att['image'].blank? && att['image_cache'].blank? }
 
   has_many :sent_feedbacks,
            -> { order(updated_at: :desc).includes(:recipient) },

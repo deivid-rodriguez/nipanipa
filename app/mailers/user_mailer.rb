@@ -1,3 +1,6 @@
+#
+# Responsible for sending mails in the app
+#
 class UserMailer < ActionMailer::Base
   default from: 'notifications@nipanipa.com'
 

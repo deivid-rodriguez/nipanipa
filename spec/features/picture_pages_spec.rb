@@ -1,11 +1,8 @@
 #
 # Integration tests for Picture pages
 #
-
 RSpec.describe 'Uploading a new picture' do
   let!(:picture) { build(:picture) }
-
-  subject { page }
 
   before do
     visit root_path
@@ -17,29 +14,38 @@ RSpec.describe 'Uploading a new picture' do
 
   describe 'successfully' do
     before do
-      attach_file 'picture[image]', 'spec/fixtures/test_image.png'
+      attach_file 'picture[image]', 'spec/fixtures/test_img.png'
       click_button t('helpers.submit.picture.create')
     end
 
-    it { is_expected.to have_selector 'div.picture-thumbnail', 'test_image.png' }
-    it { is_expected.to have_flash_message t('pictures.create.success'), 'success' }
+    it 'displays thumbnail in page' do
+      expect(page).to have_selector 'div.picture-thumbnail', 'test_img.png'
+    end
+
+    it 'shows a success flash message' do
+      expect(page).to \
+        have_flash_message t('pictures.create.success'), 'success'
+    end
   end
 
   describe 'unsuccessfully' do
     before do
-      attach_file 'picture[image]', 'spec/fixtures/test_image.txt'
+      attach_file 'picture[image]', 'spec/fixtures/test_img.txt'
       click_button t('helpers.submit.picture.create')
     end
 
-    it { is_expected.not_to have_selector 'div.picture-thumbnail', 'test_image.txt' }
-    it { is_expected.to have_flash_message t('pictures.create.error'), 'error' }
+    it 'does not display any thumbnail in page' do
+      expect(page).not_to have_selector 'div.picture-thumbnail', 'test_img.txt'
+    end
+
+    it 'show an error flash message' do
+      expect(page).to have_flash_message t('pictures.create.error'), 'error'
+    end
   end
 end
 
 RSpec.describe 'Updating a picture' do
   let!(:picture) { create(:picture) }
-
-  subject { page }
 
   before do
     visit root_path
@@ -50,29 +56,38 @@ RSpec.describe 'Updating a picture' do
 
   describe 'successfully' do
     before do
-      fill_in 'picture[name]', with: 'New name for my pic'
+      fill_in 'picture[name]', with: 'New name for pic'
       click_button t('helpers.submit.picture.update')
     end
 
-    it { is_expected.to have_selector 'div.picture-thumbnail', 'New name for my pic' }
-    it { is_expected.to have_flash_message t('pictures.update.success'), 'success' }
+    it 'displays the new picture in page' do
+      expect(page).to have_selector 'div.picture-thumbnail', 'New name for pic'
+    end
+
+    it 'shows a success flash message' do
+      expect(page).to \
+        have_flash_message t('pictures.update.success'), 'success'
+    end
   end
 
   describe 'unsuccessfully' do
     before do
-      attach_file 'picture[image]', 'spec/fixtures/test_image.txt'
+      attach_file 'picture[image]', 'spec/fixtures/test_img.txt'
       click_button t('helpers.submit.picture.update')
     end
 
-    it { is_expected.not_to have_selector 'div.picture-thumbnail', picture.name }
-    it { is_expected.to have_flash_message t('pictures.update.error'), 'error' }
+    it 'does not show the new picture in page' do
+      expect(page).not_to have_selector 'div.picture-thumbnail', picture.name
+    end
+
+    it 'shows an error flash message' do
+      expect(page).to have_flash_message t('pictures.update.error'), 'error'
+    end
   end
 end
 
 RSpec.describe 'Removing a picture' do
   let!(:picture) { create(:picture) }
-
-  subject { page }
 
   before do
     visit root_path
@@ -81,6 +96,11 @@ RSpec.describe 'Removing a picture' do
     click_link t('pictures.pictures.delete')
   end
 
-  it { is_expected.not_to have_selector 'div.picture-thumbnail' }
-  it { is_expected.to have_flash_message t('pictures.destroy.success'), 'success' }
+  it 'does not display the removed picture' do
+    expect(page).not_to have_selector 'div.picture-thumbnail'
+  end
+
+  it 'shows a success flash message' do
+    expect(page).to have_flash_message t('pictures.destroy.success'), 'success'
+  end
 end

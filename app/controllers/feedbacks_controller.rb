@@ -1,3 +1,6 @@
+#
+# Controller for feedback functionality
+#
 class FeedbacksController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :load_user, only: [:new, :create, :index, :edit, :update]
@@ -16,7 +19,7 @@ class FeedbacksController < ApplicationController
     @feedback.recipient = @user
     authorize! :create, @feedback
     if @feedback.save
-      if donation = @feedback.donation
+      if (donation = @feedback.donation)
         redirect_to donation.paypal_url(donation_url(donation.id))
       else
         redirect_to @user, notice: t('feedbacks.create.success')
@@ -39,8 +42,9 @@ class FeedbacksController < ApplicationController
 
   def update
     authorize! :update, @feedback
+
     if @feedback.update(feedback_params)
-      if donation = @feedback.donation
+      if (donation = @feedback.donation)
         redirect_to donation.paypal_url(donation_url(donation.id))
       else
         redirect_to session[:return_to], notice: t('feedbacks.update.success')
@@ -54,15 +58,16 @@ class FeedbacksController < ApplicationController
   def destroy
     authorize! :destroy, @feedback
     flash.now[:notice] = t('feedbacks.destroy.success')
-    if @feedback.destroy
-      redirect_to :back, notice: t('feedbacks.destroy.success')
-    end
+    return unless @feedback.destroy
+
+    redirect_to :back, notice: t('feedbacks.destroy.success')
   end
 
   private
 
   def feedback_params
-    params.require(:feedback).permit(:content, :score, donation_attributes: [:amount, :user_id])
+    params.require(:feedback)
+          .permit(:content, :score, donation_attributes: [:amount, :user_id])
   end
 
   def load_user

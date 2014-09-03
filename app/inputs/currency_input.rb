@@ -1,3 +1,6 @@
+#
+# Custom input for SimpleForm
+#
 class CurrencyInput < SimpleForm::Inputs::Base
   def input(_wrapper_options)
     input_html_classes.unshift('string')

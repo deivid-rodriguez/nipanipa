@@ -1,3 +1,6 @@
+#
+# A donation to the nipanipa cause
+#
 class Donation < ActiveRecord::Base
   belongs_to :user
   belongs_to :feedback
@@ -15,17 +18,15 @@ class Donation < ActiveRecord::Base
   end
 
   def self.send_pdt_post(tx)
-    post_params = {
-      tx: tx,
-      at: ENV['PAYPAL_PDT_AT'],
-      cmd: '_notify-synch'
-    }
     uri = URI.parse(ENV['PAYPAL_URL'])
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
     request = Net::HTTP::Post.new(uri.request_uri)
+    post_params = { tx: tx, at: ENV['PAYPAL_PDT_AT'], cmd: '_notify-synch' }
     request.set_form_data(post_params)
+
     http.request(request)
   end
 end

@@ -1,3 +1,6 @@
+#
+# Various utilites for user pages
+#
 module UsersHelper
   def avatar_for(user, options = { style: :small_cropped })
     range = karma_to_type(user.karma)
@@ -19,10 +22,9 @@ module UsersHelper
     sent_count     = feedbacks.count { |f| !!f[1] }
     count_str = "#{t 'feedbacks.feedbacks.title'}"
     if received_count != 0 || sent_count != 0
-      count_str += ' (%s, %s)' % [
-        t('feedbacks.received', count: received_count),
-        t('feedbacks.sent', count: sent_count)
-      ]
+      received = t('feedbacks.received', count: received_count)
+      sent = t('feedbacks.sent', count: sent_count)
+      count_str += format(' (%s, %s)', received, sent)
     end
     count_str
   end
@@ -40,8 +42,8 @@ module UsersHelper
 
   def user_languages(user)
     return content_tag(:em, t('.unknown')) if user.language_skills.empty?
-    user.language_skills.map do
-      |ls| "#{t(ls.language.name.underscore)} (#{ls.level.text})"
+    user.language_skills.map do |ls|
+      "#{t(ls.language.name.underscore)} (#{ls.level.text})"
     end.join(', ')
   end
 

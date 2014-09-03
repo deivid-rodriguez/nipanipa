@@ -1,3 +1,6 @@
+#
+# Conversation between 2 users
+#
 class Conversation < ActiveRecord::Base
   validates :subject, presence: true, length: { minimum: 2, maximum: 72 }
 
@@ -7,10 +10,10 @@ class Conversation < ActiveRecord::Base
   belongs_to :from, class_name: 'User'
   belongs_to :to, class_name: 'User'
 
-  scope :non_deleted, ->(user) {
+  scope :non_deleted, ->(user) do
     where('(from_id = ? AND deleted_from = false) OR ' \
           '(to_id = ? AND deleted_to = false)', user, user)
-  }
+  end
 
   def mark_as_deleted(user)
     if user == from

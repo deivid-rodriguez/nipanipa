@@ -11,17 +11,6 @@ RSpec.describe Conversation do
     expect(build(:conversation)).to be_valid
   end
 
-  it { is_expected.to validate_presence_of(:subject) }
-  it { is_expected.to ensure_length_of(:subject).is_at_least(2) }
-  it { is_expected.to ensure_length_of(:subject).is_at_most(72) }
-
-  it { is_expected.to have_many(:messages).dependent(:destroy) }
-
-  it { is_expected.to accept_nested_attributes_for(:messages) }
-
-  it { is_expected.to belong_to(:from).class_name('User') }
-  it { is_expected.to belong_to(:to).class_name('User') }
-
   describe 'methods' do
     let!(:conversation) { build(:conversation) }
 

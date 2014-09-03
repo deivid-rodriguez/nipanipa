@@ -1,3 +1,6 @@
+#
+# A single message between users
+#
 class Message < ActiveRecord::Base
   validates :body, length: { minimum: 2, maximum: 500 }
   belongs_to :conversation

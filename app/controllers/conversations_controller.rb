@@ -1,3 +1,6 @@
+#
+# Controller for user conversations
+#
 class ConversationsController < ApplicationController
   respond_to :html
   respond_to :js, only: [:reply, :destroy]
@@ -37,9 +40,8 @@ class ConversationsController < ApplicationController
                                  from_id: current_user.id,
                                  to_id:   other_user.id)
     @conversation.reset_deleted_marks
-    unless @conversation.save
-      flash.now[:error] = t('conversations.reply.error')
-    end
+
+    @conversation.save || flash.now[:error] = t('conversations.reply.error')
     respond_with(@conversation, location: conversation_path(@conversation))
   end
 

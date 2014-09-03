@@ -1,26 +1,28 @@
+#
+# Main controller for all users (hosts and volunteers)
+#
 class UsersController < Devise::RegistrationsController
   load_and_authorize_resource
 
   def new
     build_resource({})
-    resource.language_skills.build(language: Language.find_by(code: I18n.locale),
-                                   level: :expert)
+    current_language = Language.find_by(code: I18n.locale)
+    resource.language_skills.build(language: current_language, level: :expert)
     respond_with resource
   end
 
   def index
     @users = resource_class
-    if params[:availability] == 'now'
-      @users = @users.currently_available
-    end
+    @users = @users.currently_available if params[:availability] == 'now'
     @users = @users.order('last_sign_in_at DESC').paginate(page: params[:page])
   end
 
   def show
     @page_id = :general
     @user = User.find(params[:id])
-    @given_feedback = user_signed_in? ?
-      Feedback.find_by(sender: current_user, recipient: @user) : nil
+    if user_signed_in?
+      @given_feedback = Feedback.find_by sender: current_user, recipient: @user
+    end
     @feedback_pairs = Feedback.pairs(@user)
   end
 
@@ -59,20 +61,18 @@ class UsersController < Devise::RegistrationsController
     send("#{resource_class.to_s.downcase}_params")
   end
 
+  def user_fields
+    [:description, :email, :name, :password, :password_confirmation, :skills,
+     availability: [], work_type_ids: [],
+     language_skills_attributes: [:id, :language_id, :level, :_destroy]]
+  end
+
   def host_params
-    params.require(:user).permit(
-      :accomodation, :description, :email, :name, :password,
-      :password_confirmation, :skills, availability: [],
-                                       language_skills_attributes: [:id, :language_id, :level, :_destroy],
-                                       work_type_ids: [])
+    params.require(:user).permit(:acommodation, *user_fields)
   end
 
   def volunteer_params
-    params.require(:user).permit(
-      :description, :email, :name, :password, :password_confirmation, :skills,
-      availability: [],
-      language_skills_attributes: [:id, :language_id, :level, :_destroy],
-      work_type_ids: [])
+    params.require(:user).permit(*user_fields)
   end
 
   # Correctly resolve actual class from params

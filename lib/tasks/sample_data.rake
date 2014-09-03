@@ -45,7 +45,6 @@ namespace :db do
     end
 
     # Create some feedbacks
-    users = User.all
     250.times do
       from_to = (1..@n_users).to_a.sample 2
       loop do

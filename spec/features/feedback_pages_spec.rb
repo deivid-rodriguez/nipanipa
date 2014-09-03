@@ -1,30 +1,34 @@
 #
 # Integration tests for Feedback pages
 #
-
 RSpec.describe 'Leaving feedback' do
-  let!(:feedback)        { build(:feedback)                        }
+  let!(:feedback) { build(:feedback) }
   let(:new_feedback_lnk) { t('shared.profile_header.new_feedback') }
-
-  subject { page }
 
   describe '"new feedback" link' do
     before { visit user_path(feedback.recipient) }
 
     context 'when visitor not signed in' do
-      it { is_expected.not_to have_link new_feedback_lnk }
+      it 'does not show link' do
+        expect(page).not_to have_link new_feedback_lnk
+      end
     end
 
     context 'when visitor signed in' do
       before { mock_sign_in feedback.sender }
 
       context 'and looking at own profile' do
-        it { is_expected.not_to have_link new_feedback_lnk }
+        it 'does not show link' do
+          expect(page).not_to have_link new_feedback_lnk
+        end
       end
 
       context 'and looking at other profile' do
         before { visit user_path(feedback.recipient) }
-        it { is_expected.to have_link new_feedback_lnk }
+
+        it 'shows link' do
+          expect(page).to have_link new_feedback_lnk
+        end
       end
     end
   end
@@ -46,7 +50,9 @@ RSpec.describe 'Leaving feedback' do
         expect(Feedback.count).to eq(0)
       end
 
-      it { is_expected.to have_flash_message t('feedbacks.create.error'), 'error' }
+      it 'shows an error flash message' do
+        expect(page).to have_flash_message t('feedbacks.create.error'), 'error'
+      end
 
       it "doesn't update recipient's karma" do
         expect(feedback.recipient.karma).to eq(0)
@@ -66,10 +72,22 @@ RSpec.describe 'Leaving feedback' do
         expect(feedback.recipient.reload.karma).to eq(1)
       end
 
-      it { is_expected.to have_content feedback.content }
-      it { is_expected.to have_link t('shared.edit') }
-      it { is_expected.to have_selector 'h3', text: feedback.recipient.name }
-      it { is_expected.to have_flash_message t('feedbacks.create.success'), 'success' }
+      it 'shows feedback text' do
+        expect(page).to have_content feedback.content
+      end
+
+      it 'shows edit link' do
+        expect(page).to have_link t('shared.edit')
+      end
+
+      it 'shows recipients name' do
+        expect(page).to have_selector 'h3', text: feedback.recipient.name
+      end
+
+      it 'shows a success flash message' do
+        expect(page).to \
+          have_flash_message t('feedbacks.create.success'), 'success'
+      end
     end
 
     context 'with valid information and donation', :js do
@@ -87,10 +105,22 @@ RSpec.describe 'Leaving feedback' do
         expect(feedback.recipient.karma).to eq(0)
       end
 
-      it { is_expected.to have_content feedback.content }
-      it { is_expected.to have_link t('shared.edit') }
-      it { is_expected.to have_selector 'h3', text: feedback.recipient.name }
-      it { is_expected.to have_flash_message t('donations.create.success'), 'success' }
+      it 'shows feedback text' do
+        expect(page).to have_content feedback.content
+      end
+
+      it 'shows edit link' do
+        expect(page).to have_link t('shared.edit')
+      end
+
+      it 'shows recipients name' do
+        expect(page).to have_selector 'h3', text: feedback.recipient.name
+      end
+
+      it 'shows a success flash message' do
+        expect(page).to \
+          have_flash_message t('donations.create.success'), 'success'
+      end
     end
   end
 end
@@ -98,8 +128,6 @@ end
 RSpec.describe 'Editing feedbacks' do
   let!(:feedback)    { create(:feedback, score: :positive) }
   let(:feedback_btn) { t('helpers.submit.feedback.update') }
-
-  subject { page }
 
   before do
     mock_sign_in feedback.sender
@@ -115,7 +143,11 @@ RSpec.describe 'Editing feedbacks' do
     it 'does not get updated with new content' do
       expect(feedback.reload.content).not_to eq('a' * 301)
     end
-    it { is_expected.to have_flash_message t('feedbacks.update.error'), 'error' }
+
+    it 'shows an error flash message' do
+      expect(page).to \
+        have_flash_message t('feedbacks.update.error'), 'error'
+    end
   end
 
   context 'with valid information and no donation' do
@@ -132,8 +164,14 @@ RSpec.describe 'Editing feedbacks' do
       expect(feedback.recipient.reload.karma).to eq(-1)
     end
 
-    it { is_expected.to have_selector 'h3', text: feedback.sender.name }
-    it { is_expected.to have_flash_message t('feedbacks.update.success'), 'success' }
+    it 'shows senders name' do
+      expect(page).to have_selector 'h3', text: feedback.sender.name
+    end
+
+    it 'shows a success flash message' do
+      expect(page).to \
+        have_flash_message t('feedbacks.update.success'), 'success'
+    end
   end
 
   context 'with valid information and donation', :js do
@@ -149,32 +187,48 @@ RSpec.describe 'Editing feedbacks' do
       expect(feedback.recipient.karma).to eq(1)
     end
 
-    it { is_expected.to have_selector 'h3', text: feedback.recipient.name }
-    it { is_expected.to have_flash_message t('donations.create.success'), 'success' }
+    it 'shows recipient name' do
+      expect(page).to have_selector 'h3', text: feedback.recipient.name
+    end
+
+    it 'shows a success flash message' do
+      expect(page).to \
+        have_flash_message t('donations.create.success'), 'success'
+    end
   end
 end
 
 RSpec.describe 'Listing feedbacks' do
   let!(:feedbacks) { create_list(:feedback, 3, recipient: create(:host)) }
 
-  subject { page }
-
   shared_examples 'feedback list' do
-    it { is_expected.to have_selector 'li', text: feedbacks[0].content }
-    it { is_expected.to have_selector 'li', text: feedbacks[1].content }
-    it { is_expected.to have_selector 'li', text: feedbacks[2].content }
+    it 'has first feedback content' do
+      expect(page).to have_selector 'li', text: feedbacks[0].content
+    end
+
+    it 'has second feedback content' do
+      expect(page).to have_selector 'li', text: feedbacks[1].content
+    end
+
+    it 'has third feeback content' do
+      expect(page).to have_selector 'li', text: feedbacks[2].content
+    end
   end
 
   context 'when listing received feedbacks' do
     before { mock_sign_in feedbacks[0].recipient }
 
     context 'in main profile view' do
-      it { is_expected.to have_selector 'h3', text: t('users.show.feedback') }
+      it 'shows feedback box' do
+        expect(page).to have_selector 'h3', text: t('users.show.feedback')
+      end
+
       it_behaves_like 'feedback list'
     end
 
     context 'in feedbacks tab' do
       before { click_link t('users.show.feedback') }
+
       it_behaves_like 'feedback list'
     end
   end
@@ -183,12 +237,16 @@ RSpec.describe 'Listing feedbacks' do
     before { mock_sign_in feedbacks[0].sender }
 
     context 'in main profile view' do
-      it { is_expected.to have_selector 'h3', text: t('users.show.feedback') }
+      it 'shows feedback box' do
+        expect(page).to have_selector 'h3', text: t('users.show.feedback')
+      end
+
       it_behaves_like 'feedback list'
     end
 
     context 'in feedbacks tab' do
       before { click_link t('users.show.feedback') }
+
       it_behaves_like 'feedback list'
     end
   end
@@ -197,8 +255,6 @@ end
 RSpec.describe 'Destroying feedbacks' do
   let!(:feedback)  { create(:feedback, score: :positive) }
   let!(:recipient) { feedback.recipient }
-
-  subject { page }
 
   before do
     mock_sign_in feedback.sender
@@ -210,8 +266,18 @@ RSpec.describe 'Destroying feedbacks' do
       expect(Feedback.count).to eq(0)
       expect(recipient.reload.karma).to eq(0)
     end
-    it { is_expected.to have_selector 'h3', text: feedback.sender.name }
-    it { is_expected.not_to have_css "div#feedback-#{feedback.id}" }
-    it { is_expected.to have_flash_message t('feedbacks.destroy.success'), 'success' }
+
+    it 'shows senders name' do
+      expect(page).to have_selector 'h3', text: feedback.sender.name
+    end
+
+    it 'does not show deleted feedback' do
+      expect(page).not_to have_css "div#feedback-#{feedback.id}"
+    end
+
+    it 'shows a success flash message' do
+      expect(page).to \
+        have_flash_message t('feedbacks.destroy.success'), 'success'
+    end
   end
 end

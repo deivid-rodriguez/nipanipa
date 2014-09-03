@@ -1,3 +1,6 @@
+#
+# Controller for donations functionality
+#
 class DonationsController < ApplicationController
   def new
     @donation = Donation.new

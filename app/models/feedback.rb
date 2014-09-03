@@ -1,3 +1,6 @@
+#
+# Feedback left by users
+#
 class Feedback < ActiveRecord::Base
   extend Enumerize
   enumerize :score, in: { negative: -1, neutral: 0, positive: 1 },
@@ -37,10 +40,10 @@ class Feedback < ActiveRecord::Base
   end
 
   def remove_karma
-    if score.value != 0
-      recipient.karma -= score.value
-      recipient.save
-    end
+    return unless score.value != 0
+
+    recipient.karma -= score.value
+    recipient.save
   end
 
   def self.pairs(user)

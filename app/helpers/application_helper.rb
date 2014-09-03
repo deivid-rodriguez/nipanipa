@@ -1,3 +1,6 @@
+#
+# Miscelaneous helpers for rendering views
+#
 module ApplicationHelper
   # Returns the full title on a per-page basis
   def full_title(page_title)
@@ -31,12 +34,14 @@ module ApplicationHelper
 
     tabs.each do |tab, options|
       content << if page_id == tab
-                   content_tag('li',
-                               content_tag('a', options[:name], href: nil), class: 'active')
-      else
-        content_tag('li',
-                    content_tag('a', options[:name], href: options[:path]))
-      end
+                   content_tag('li', class: 'active') do
+                     content_tag('a', options[:name], href: nil)
+                   end
+                 else
+                   content_tag('li') do
+                     content_tag('a', options[:name], href: options[:path])
+                   end
+                 end
       content += "\n        "
     end
     content.html_safe

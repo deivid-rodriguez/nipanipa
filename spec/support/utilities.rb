@@ -43,10 +43,11 @@ RSpec::Matchers.define :become do |count|
       value = block.call
       if value != count
         Timeout.timeout(Capybara.default_wait_time) do
-          begin
+          loop do
             sleep(0.1)
             value = block.call
-          end until value == count
+            break if value == count
+          end
           true
         end
       else
@@ -76,11 +77,11 @@ end
 #   {create: true, read: false, update: false, destroy: true}, for: Post.new)
 RSpec::Matchers.define :have_ability do |ability_hash, options = {}|
   match do |user|
-    ability         = Ability.new(user)
-    target          = options[:for]
+    ability = Ability.new(user)
+    target = options[:for]
     @ability_result = {}
-    ability_hash    = { ability_hash => true } if ability_hash.is_a? Symbol
-    ability_hash    = ability_hash.reduce({}) { |_, i| _.merge(i => true) } if
+    ability_hash = { ability_hash => true } if ability_hash.is_a? Symbol
+    ability_hash = ability_hash.reduce({}) { |a, e| a.merge(e => true) } if
       ability_hash.is_a? Array
     ability_hash.each do |action, _true_or_false|
       @ability_result[action] = ability.can?(action, target)
@@ -90,12 +91,12 @@ RSpec::Matchers.define :have_ability do |ability_hash, options = {}|
 
   failure_message do |user|
     ability_hash, options = expected
-    ability_hash         = { ability_hash => true } if ability_hash.is_a? Symbol
-    ability_hash         = ability_hash.reduce({}) { |_, i| _.merge(i => true) } if
+    ability_hash = { ability_hash => true } if ability_hash.is_a? Symbol
+    ability_hash = ability_hash.reduce({}) { |a, e| a.merge(e => true) } if
       ability_hash.is_a? Array
-    target               = options[:for]
-    message = "expected User:#{user} to have ability:#{ability_hash} for " \
-              "#{target}, but actual result is #{@ability_result}"
+    target = options[:for]
+    "expected User:#{user} to have ability:#{ability_hash} for #{target}, " \
+    "but actual result is #{@ability_result}"
   end
 
   # clean up output of RSpec Documentation format

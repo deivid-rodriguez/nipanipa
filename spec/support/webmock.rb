@@ -7,9 +7,7 @@ RSpec.configure do |_config|
     next if File.directory? path
     uri = path.dup
     uri.slice!("#{dir}/")
-    if File.basename(uri) == '_directory'
-      uri = File.dirname(uri) + '/'
-    end
+    uri = File.dirname(uri) + '/' if File.basename(uri) == '_directory'
     stubs["http://#{uri}"] = path
   end
 
@@ -25,20 +23,26 @@ RSpec.configure do |_config|
   WebMock.disable_net_connect!(allow_localhost: true)
 end
 
-def mock_paypal_pdt(status, donation_id)
-  WebMock::API.
-    stub_request(:post, ENV['PAYPAL_URL']).
-      with(body: { at: ENV['PAYPAL_PDT_AT'],
-                   cmd: '_notify-synch',
-                   tx: '4YD48288L7608774D' },
-           headers: { 'Accept'       => '*/*',
-                      'Content-Type' => 'application/x-www-form-urlencoded',
-                      'User-Agent'   => 'Ruby' }).
-      to_return(status: 200, body: "#{status}", headers: {})
+def paypal_signature
+  'jpnQ%2fNXbC0KdUzVDVMxw%2fGr1RxxvWDIqwlNT9W6f0lxGH66BxUIhzRj8vJW8jwh0DVqyE' \
+  '4ZUaxHTmQVry2yxR5bR8ge3kA1tVgo9Qc5%2bU2ErQVmvOJ555ABbqk4pMbBG7qaHNkqxD33J' \
+  'Zk%2f3Hl9bnBj46gztBvlnYuxd5jGRP8Q%3d'
+end
 
-  visit "/en/donations/#{donation_id}?tx=4YD48288L7608774D&st=Completed&amt=2" \
-        '0.00&cc=USD&cm=&item_number=&sig=jpnQ%2fNXbC0KdUzVDVMxw%2fGr1RxxvWDI' \
-        'qwlNT9W6f0lxGH66BxUIhzRj8vJW8jwh0DVqyE4ZUaxHTmQVry2yxR5bR8ge3kA1tVgo' \
-        '9Qc5%2bU2ErQVmvOJ555ABbqk4pMbBG7qaHNkqxD33JZk%2f3Hl9bnBj46gztBvlnYux' \
-        'd5jGRP8Q%3d'
+def paypal_tx
+  '4YD48288L7608774D'
+end
+
+def mock_paypal_pdt(status, donation_id)
+  WebMock::API.stub_request(:post, ENV['PAYPAL_URL'])
+    .with(body: { at: ENV['PAYPAL_PDT_AT'],
+                  cmd: '_notify-synch',
+                  tx: paypal_tx },
+          headers: { 'Accept'       => '*/*',
+                     'Content-Type' => 'application/x-www-form-urlencoded',
+                     'User-Agent'   => 'Ruby' })
+    .to_return(status: 200, body: "#{status}", headers: {})
+
+  visit "/en/donations/#{donation_id}?tx=4YD48288L7608774D&st=Completed&amt=" \
+        "20.00&cc=USD&cm=&item_number=&sig=#{paypal_signature}" \
 end

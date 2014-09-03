@@ -1,3 +1,6 @@
+#
+# Associates language levels and users
+#
 class LanguageSkill < ActiveRecord::Base
   extend Enumerize
   enumerize :level,

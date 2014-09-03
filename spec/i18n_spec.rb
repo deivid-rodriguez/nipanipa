@@ -8,9 +8,9 @@ RSpec.describe 'i18n files' do
   locales_to_keys.each do |locale, keys|
     unique_keys.each do |key|
       it "should translate #{key} in locale :#{locale}" do
-        expect(keys.include?(key)).to be_truthy,
-                                      "Expected #{key} to be among the #{locale} locale's translation " \
-                                      "keys, but it wasn't"
+        err = "Expected #{key} to be among the #{locale} locale's " \
+              "translation keys, but it wasn't"
+        expect(keys.include?(key)).to(be_truthy, err)
       end
     end
   end

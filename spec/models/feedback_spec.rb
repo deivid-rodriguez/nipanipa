@@ -65,8 +65,8 @@ RSpec.describe Feedback do
   describe '#update_karma' do
     context 'when new_feedback' do
       it "initializes recipient's karma" do
-        expect { feedback.save }.
-          to change(feedback.recipient, :karma).by(feedback.score.value)
+        expect { feedback.save }.to \
+          change(feedback.recipient, :karma).by(feedback.score.value)
       end
     end
 
@@ -76,8 +76,8 @@ RSpec.describe Feedback do
       before { other_feedback.score = :positive }
 
       it "updates recipient's karma" do
-        expect { other_feedback.save }.
-          to change(other_feedback.recipient, :karma).by(2)
+        expect { other_feedback.save }.to \
+          change(other_feedback.recipient, :karma).by(2)
       end
     end
 
@@ -85,8 +85,8 @@ RSpec.describe Feedback do
       let!(:other_feedback) { create(:feedback, score: :negative) }
 
       it "updates recipient's karma" do
-        expect { other_feedback.destroy }.
-          to change(other_feedback.recipient, :karma).by(1)
+        expect { other_feedback.destroy }.to \
+          change(other_feedback.recipient, :karma).by(1)
       end
     end
   end

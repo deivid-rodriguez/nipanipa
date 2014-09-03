@@ -3,26 +3,31 @@
 #
 
 RSpec.describe 'Signin' do
-  let(:signin)  { t 'sessions.signin'    }
-  let(:signout) { t 'sessions.signout'   }
+  let(:signin) { t 'sessions.signin' }
+  let(:signout) { t 'sessions.signout' }
   let(:profile) { t 'users.show.profile' }
-  let(:user)    { create(:host)          }
-
-  subject { page }
+  let(:user) { create(:host) }
 
   before { visit root_path }
 
   describe 'page has correct content' do
     before { visit new_user_session_path }
 
-    it { is_expected.to have_title signin }
+    it 'has correct title' do
+      expect(page).to have_title signin
+    end
   end
 
   describe 'dropdown menu has correct content' do
     before { click_link signin }
 
-    it { is_expected.to have_selector 'input#user_email' }
-    it { is_expected.to have_selector 'input#user_password' }
+    it 'has user field' do
+      expect(page).to have_selector 'input#user_email'
+    end
+
+    it 'has password field' do
+      expect(page).to have_selector 'input#user_password'
+    end
   end
 
   # XXX: Review.. this fields are currently set in the factory
@@ -43,31 +48,51 @@ RSpec.describe 'Signin' do
       click_button signin
     end
 
-    it { is_expected.to have_title signin }
-    it { is_expected.to have_flash_message t('devise.failure.invalid'), 'error' }
+    it 'goes back to signin page' do
+      expect(page).to have_title signin
+    end
+
+    it 'shows an error flash message' do
+      expect(page).to have_flash_message t('devise.failure.invalid'), 'error'
+    end
   end
 
   context 'with valid information' do
     before { sign_in user }
 
-    it { is_expected.to have_title user.name }
-    it { is_expected.to have_link profile, href: user_path(user) }
-    it { is_expected.not_to have_link signin, href: new_user_session_path }
+    it 'goes to signed in user profile' do
+      expect(page).to have_title user.name
+    end
+
+    it 'has a link to users profile' do
+      expect(page).to have_link profile, href: user_path(user)
+    end
+
+    it 'does not have a link to signin' do
+      expect(page).not_to have_link signin, href: new_user_session_path
+    end
 
     context 'and then signout' do
       before { click_link signout }
 
-      it { is_expected.to have_link signin }
-      it { is_expected.not_to have_link profile, href: user_path(user) }
-      it { is_expected.not_to have_link signout }
+      it 'has a link to signin' do
+        expect(page).to have_link signin
+      end
+
+      it 'has a link to users profile' do
+        expect(page).not_to have_link profile, href: user_path(user)
+      end
+
+      it 'does not have a link to sigout' do
+        expect(page).not_to have_link signout
+      end
     end
   end
 end # signin
 
 RSpec.describe 'Password recovery' do
   let!(:user) { create(:volunteer) }
-
-  subject { page }
+  let!(:paranoid_msg) { t('devise.passwords.send_paranoid_instructions') }
 
   before do
     visit root_path
@@ -76,9 +101,8 @@ RSpec.describe 'Password recovery' do
   end
 
   shared_examples 'paranoid' do
-    it do
-      is_expected.to have_flash_message \
-                t('devise.passwords.send_paranoid_instructions'), 'success'
+    it 'has a success flash message' do
+      expect(page).to have_flash_message paranoid_msg, 'success'
     end
   end
 

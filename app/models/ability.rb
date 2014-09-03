@@ -1,5 +1,19 @@
+#
+# Abilities/Roles, by CanCan
+#
 class Ability
   include CanCan::Ability
+
+  def admin_priviledges
+    can :manage, :all
+  end
+
+  def non_admin_priviledges(user)
+    can :manage, User,     id: user.id
+    can :manage, Picture,  user_id: user.id
+    can :manage, Feedback, sender: user
+    cannot :manage, Feedback, recipient: user
+  end
 
   # Define abilities for the passed in user here.
   def initialize(user)
@@ -11,12 +25,9 @@ class Ability
     can :read, Feedback
 
     if user.role == 'admin'
-      can :manage, :all
+      admin_priviledges
     elsif user.role == 'non-admin'
-      can :manage, User,     id: user.id
-      can :manage, Picture,  user_id: user.id
-      can :manage, Feedback, sender: user
-      cannot :manage, Feedback, recipient: user
+      non_admin_priviledges(user)
     end
 
     # The first argument to `can` is the action you are giving the user

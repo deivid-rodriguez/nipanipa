@@ -4,7 +4,7 @@ FactoryGirl.define do
     sequence(:name) { |n| "User #{n}" }
     sequence(:email) { |n| "nipanipa.test+user#{n}@gmail.com" }
     password 'foobar'
-    availability { %w(    jan feb mar apr may jun jul aug sep oct nov dic    ) }
+    availability { %w(jan feb mar apr may jun jul aug sep oct nov dic) }
 
     # simulate first login
     last_sign_in_at { Time.now }
@@ -51,7 +51,7 @@ FactoryGirl.define do
       sequence(:name) { |n| "Host #{n}" }
       description 'We are a test host. We live in the countryside in the wild'
       skills 'I need strong healthy people for heavy work'
-      accomodation 'Type of accomodation you will be providing your volunteers.'
+      accomodation 'Type of accomodation you will be providing your volunteers'
       hours_per_day 4
       days_per_week 5
       min_stay 1
@@ -70,7 +70,7 @@ FactoryGirl.define do
     association :to, factory: :host
     status 'pending'
     after(:build) do |c|
-      c.messages.build(body: 'This is a sample body', to_id: c.to.id, from_id: c.from.id)
+      c.messages.build(body: 'Sample body', to_id: c.to.id, from_id: c.from.id)
     end
     after(:create) do |c|
       c.messages.each { |m| m.save! }
@@ -79,7 +79,7 @@ FactoryGirl.define do
 
   factory :message do
     association :conversation
-    body 'This is a sample body'
+    body 'Sample body'
     association :from, factory: :volunteer
     association :to, factory: :host
   end
@@ -115,7 +115,7 @@ FactoryGirl.define do
     name 'My funny picture'
     image do
       Rack::Test::UploadedFile.new(
-              File.join(Rails.root, 'spec', 'fixtures', 'test_image.png'))
+              File.join(Rails.root, 'spec', 'fixtures', 'test_img.png'))
     end
     association :user, factory: :host
   end

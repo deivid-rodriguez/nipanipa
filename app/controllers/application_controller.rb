@@ -1,3 +1,6 @@
+#
+# Main controller, every controller overrides this one
+#
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -23,10 +26,10 @@ class ApplicationController < ActionController::Base
   protected
 
   def update_last_sign_in_at
-    if user_signed_in? && !session[:logged_signin]
-      sign_in(current_user, force: true)
-      session[:logged_signin] = true
-    end
+    return unless user_signed_in? && !session[:logged_signin]
+
+    sign_in(current_user, force: true)
+    session[:logged_signin] = true
   end
 
   private
@@ -52,19 +55,19 @@ class ApplicationController < ActionController::Base
 
   # store last url for post-login redirect to whatever the user last visited
   def store_location
-    unless request.fullpath =~ /signin/    || \
-            request.fullpath =~ /signout/   || \
-            request.fullpath == root_path   || \
-            request.fullpath =~ /sign_up/   || \
-            request.fullpath =~ /password/  || \
-            request.xhr? # don't store ajax calls
-      session[:user_return_to] = request.fullpath
-    end
+    return unless store_location?
+
+    session[:user_return_to] = request.fullpath
+  end
+
+  def store_location?
+    request.fullpath !~ /(signin|signout|signup|password)/ && \
+      request.fullpath != root_path && !request.xhr?
   end
 
   def browser_lang
-    if request.env['HTTP_ACCEPT_LANGUAGE'].present?
-      request.env['HTTP_ACCEPT_LANGUAGE'][/^[a-z]{2}/].to_sym
-    end
+    return unless request.env['HTTP_ACCEPT_LANGUAGE'].present?
+
+    request.env['HTTP_ACCEPT_LANGUAGE'][/^[a-z]{2}/].to_sym
   end
 end

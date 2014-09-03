@@ -1,3 +1,6 @@
+#
+# Inject an IP into the app. Used for testing.
+#
 class SpoofIp
   def initialize(app, ip)
     @app = app

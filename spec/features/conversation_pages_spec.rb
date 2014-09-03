@@ -18,7 +18,8 @@ RSpec.describe 'Create a conversation' do
     end
 
     it 'shows an error message' do
-      expect(page).to have_flash_message t('conversations.create.error'), 'error'
+      expect(page).to \
+        have_flash_message t('conversations.create.error'), 'error'
     end
   end
 
@@ -27,11 +28,13 @@ RSpec.describe 'Create a conversation' do
       fill_in 'conversation[subject]', with: conversation.subject
       fill_in 'conversation[messages_attributes][0][body]',
               with: conversation.messages.first.body
+
       expect { click_button create_conv }.to change(Conversation, :count).by(1)
     end
 
     it 'shows a success message' do
-      expect(page).to have_flash_message t('conversations.create.success'), 'success'
+      expect(page).to \
+        have_flash_message t('conversations.create.success'), 'success'
     end
 
     it { sends_notification_email(conversation.to) }
@@ -89,7 +92,9 @@ RSpec.describe 'Display a conversation', :js do
       before { reply('') }
 
       it 'shows an error message and keeps user in the same page' do
-        expect(page).to have_flash_message t('conversations.reply.error'), 'error'
+        expect(page).to \
+          have_flash_message t('conversations.reply.error'), 'error'
+
         expect(page).to have_button t('conversations.show.reply')
       end
     end
@@ -107,7 +112,8 @@ RSpec.describe 'Deleting conversations', :js do
   end
 
   it 'removes conversation from list' do
-    expect(page).not_to have_selector "li#conversation-preview-#{conversation.id}"
+    expect(page).not_to \
+      have_selector "li#conversation-preview-#{conversation.id}"
   end
 
   context 'when the other user goes to message list' do
@@ -118,7 +124,8 @@ RSpec.describe 'Deleting conversations', :js do
     end
 
     it 'conversation should still be there' do
-      expect(page).to have_selector "li#conversation-preview-#{conversation.id}"
+      expect(page).to \
+        have_selector "li#conversation-preview-#{conversation.id}"
     end
 
     context 'and deletes the same conversation' do
@@ -140,7 +147,8 @@ RSpec.describe 'Deleting conversations', :js do
       end
 
       it 'reappears in the first user\'s message list' do
-        expect(page).to have_selector "li#conversation-preview-#{conversation.id}"
+        expect(page).to \
+          have_selector "li#conversation-preview-#{conversation.id}"
       end
     end
   end

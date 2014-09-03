@@ -17,14 +17,18 @@ end
 load_configuration unless ENV['CI'] # We separately set ENV for travis
 
 module Nipanipa
+  #
+  # Our Rails App
+  #
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified
     # here. Application configuration should go into files in
     # config/initializers -- all .rb files in that directory are automatically
     # loaded.
 
-    # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
-    # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
+    # Set Time.zone default to the specified zone and make Active Record
+    # auto-convert to this zone. Run "rake -D time" for a list of tasks for
+    # finding time zone names. Default is UTC.
     # config.time_zone = 'Central Time (US & Canada)'
 
     # Custom libraries autoloaded
@@ -47,7 +51,8 @@ module Nipanipa
     config.i18n.locale = config.i18n.default_locale = :en
 
     # Mailing.
-    config.action_mailer.default_url_options = { host: ENV['MAIL_HOST'], locale: :en }
     config.action_mailer.asset_host = "http://#{ENV['MAIL_HOST']}"
+    config.action_mailer.default_url_options = { host: ENV['MAIL_HOST'],
+                                                 locale: :en }
   end
 end
