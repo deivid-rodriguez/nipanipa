@@ -33,8 +33,13 @@ class User < ActiveRecord::Base
   has_many :languages, through: :language_skills
 
   has_many :pictures, dependent: :destroy
+
+  def blank_img_and_cache(att)
+    att['image'].blank? && att['image_cache'].blank?
+  end
+
   accepts_nested_attributes_for :pictures,
-                                reject_if: ->(att) { att['image'].blank? && att['image_cache'].blank? }
+                                reject_if: ->(att) { blank_img_and_cache(att) }
 
   has_many :sent_feedbacks,
            -> { order(updated_at: :desc).includes(:recipient) },
