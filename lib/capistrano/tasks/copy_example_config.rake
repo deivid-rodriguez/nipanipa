@@ -7,4 +7,3 @@ task :setup_config do
     puts "Now edit #{shared_path}/config/application.yml with correct settings"
   end
 end
-
