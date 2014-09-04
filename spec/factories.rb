@@ -33,18 +33,16 @@ FactoryGirl.define do
           h.work_types << FactoryGirl.build(:work_type)
         end
       end
-      before(:create) do |h|
-        h.work_types.each { |wt| wt.save! }
-      end
+
+      before(:create) { |h| h.work_types.each(&:save!) }
     end
 
     trait :with_language do
       after(:build) do |v|
         v.languages << FactoryGirl.build(:language)
       end
-      before(:create) do |v|
-        v.languages.each { |l| l.save! }
-      end
+
+      before(:create) { |v| v.languages.each(&:save!) }
     end
 
     factory :host, class: 'Host' do
@@ -72,9 +70,8 @@ FactoryGirl.define do
     after(:build) do |c|
       c.messages.build(body: 'Sample body', to_id: c.to.id, from_id: c.from.id)
     end
-    after(:create) do |c|
-      c.messages.each { |m| m.save! }
-    end
+
+    after(:create) { |c| c.messages.each(&:save!) }
   end
 
   factory :message do
