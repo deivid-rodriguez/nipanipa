@@ -47,11 +47,10 @@ group :test do
   gem 'rb-inotify', '0.9.5'
   gem 'libnotify', '0.8.3'
   gem 'webmock', '1.18.0'
+  gem 'safe_yaml', github: 'dtao/safe_yaml'
   gem 'simplecov', '0.9.0', require: false
 end
 
 # Deployment
-gem 'capistrano', '3.2.1'
 gem 'capistrano-rails', '1.1.2'
-gem 'capistrano-bundler', '1.1.3'
 gem 'rvm1-capistrano3', require: false
