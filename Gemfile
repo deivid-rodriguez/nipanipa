@@ -49,6 +49,5 @@ group :test do
   gem 'rb-inotify', '0.9.5'
   gem 'libnotify', '0.8.3'
   gem 'webmock', '1.18.0'
-  gem 'safe_yaml', github: 'dtao/safe_yaml'
   gem 'simplecov', '0.9.0', require: false
 end
