@@ -7,92 +7,100 @@
 #   Mayor.create name: 'Emanuel', city: cities.first
 
 # Create default job sectors
-WorkType.create name: 'gardening'
-WorkType.create name: 'babysitting'
-WorkType.create name: 'cooking'
-WorkType.create name: 'farming'
-WorkType.create name: 'housekeeping'
-WorkType.create name: 'tourism'
-WorkType.create name: 'language_exchange'
-WorkType.create name: 'teaching'
-WorkType.create name: 'construction'
-WorkType.create name: 'elderly_care'
-WorkType.create name: 'animal_care'
-WorkType.create name: 'humanitarian_aid'
-WorkType.create name: 'technical_assistance'
-WorkType.create name: 'art_project'
-WorkType.create name: 'wwoofing'
+WorkType.create[{ name: 'gardening' },
+                { name: 'babysitting' },
+                { name: 'cooking' },
+                { name: 'farming' },
+                { name: 'housekeeping' },
+                { name: 'tourism' },
+                { name: 'language_exchange' },
+                { name: 'teaching' },
+                { name: 'construction' },
+                { name: 'elderly_care' },
+                { name: 'animal_care' },
+                { name: 'humanitarian_aid' },
+                { name: 'technical_assistance' },
+                { name: 'art_project' },
+                { name: 'wwoofing' }]
+
+# Create continents
+Continent.create[{ name: 'Africa', code: 'AF' },
+                 { name: 'Asia', code: 'AS' },
+                 { name: 'Europe', code: 'EU' },
+                 { name: 'North America', code: 'NA' },
+                 { name: 'Oceania', code: 'OC' },
+                 { name: 'South America', code: 'SA' }]
 
 # Create default languages
-Language.create name: 'Afrikaans', code: 'af'
-Language.create name: 'Albanian', code: 'sq'
-Language.create name: 'Arabic', code: 'ar'
-Language.create name: 'Armenian', code: 'hy'
-Language.create name: 'Basque', code: 'eu'
-Language.create name: 'Bengali', code: 'bn'
-Language.create name: 'Bulgarian', code: 'bg'
-Language.create name: 'Catalan', code: 'ca'
-Language.create name: 'Cambodian', code: 'km'
-Language.create name: 'Chinese', code: 'zh'
-Language.create name: 'Croatian', code: 'hr'
-Language.create name: 'Czech', code: 'cs'
-Language.create name: 'Danish', code: 'da'
-Language.create name: 'Dutch', code: 'nl'
-Language.create name: 'English', code: 'en'
-Language.create name: 'Estonian', code: 'et'
-Language.create name: 'Fiji', code: 'fj'
-Language.create name: 'Finnish', code: 'fi'
-Language.create name: 'French', code: 'fr'
-Language.create name: 'Georgian', code: 'ka'
-Language.create name: 'German', code: 'de'
-Language.create name: 'Greek', code: 'el'
-Language.create name: 'Gujarati', code: 'gu'
-Language.create name: 'Hebrew', code: 'he'
-Language.create name: 'Hindi', code: 'hi'
-Language.create name: 'Hungarian', code: 'hu'
-Language.create name: 'Icelandic', code: 'is'
-Language.create name: 'Indonesian', code: 'id'
-Language.create name: 'Irish', code: 'ga'
-Language.create name: 'Italian', code: 'it'
-Language.create name: 'Japanese', code: 'ja'
-Language.create name: 'Javanese', code: 'jw'
-Language.create name: 'Korean', code: 'ko'
-Language.create name: 'Latin', code: 'la'
-Language.create name: 'Latvian', code: 'lv'
-Language.create name: 'Lithuanian', code: 'lt'
-Language.create name: 'Macedonian', code: 'mk'
-Language.create name: 'Malay', code: 'ms'
-Language.create name: 'Malayalam', code: 'ml'
-Language.create name: 'Maltese', code: 'mt'
-Language.create name: 'Maori', code: 'mi'
-Language.create name: 'Marathi', code: 'mr'
-Language.create name: 'Mongolian', code: 'mn'
-Language.create name: 'Nepali', code: 'ne'
-Language.create name: 'Norwegian', code: 'no'
-Language.create name: 'Persian', code: 'fa'
-Language.create name: 'Polish', code: 'pl'
-Language.create name: 'Portuguese', code: 'pt'
-Language.create name: 'Punjabi', code: 'pa'
-Language.create name: 'Quechua', code: 'qu'
-Language.create name: 'Romanian', code: 'ro'
-Language.create name: 'Russian', code: 'ru'
-Language.create name: 'Samoan', code: 'sm'
-Language.create name: 'Serbian', code: 'sr'
-Language.create name: 'Slovak', code: 'sk'
-Language.create name: 'Slovenian', code: 'sl'
-Language.create name: 'Spanish', code: 'es'
-Language.create name: 'Swahili', code: 'sw'
-Language.create name: 'Swedish', code: 'sv'
-Language.create name: 'Tamil', code: 'ta'
-Language.create name: 'Tatar', code: 'tt'
-Language.create name: 'Telugu', code: 'te'
-Language.create name: 'Thai', code: 'th'
-Language.create name: 'Tibetan', code: 'bo'
-Language.create name: 'Tonga', code: 'to'
-Language.create name: 'Turkish', code: 'tr'
-Language.create name: 'Ukrainian', code: 'uk'
-Language.create name: 'Urdu', code: 'ur'
-Language.create name: 'Uzbek', code: 'uz'
-Language.create name: 'Vietnamese', code: 'vi'
-Language.create name: 'Welsh', code: 'cy'
-Language.create name: 'Xhosa', code: 'xh'
+Language.create[{ name: 'Afrikaans', code: 'af' },
+                { name: 'Albanian', code: 'sq' },
+                { name: 'Arabic', code: 'ar' },
+                { name: 'Armenian', code: 'hy' },
+                { name: 'Basque', code: 'eu' },
+                { name: 'Bengali', code: 'bn' },
+                { name: 'Bulgarian', code: 'bg' },
+                { name: 'Catalan', code: 'ca' },
+                { name: 'Cambodian', code: 'km' },
+                { name: 'Chinese', code: 'zh' },
+                { name: 'Croatian', code: 'hr' },
+                { name: 'Czech', code: 'cs' },
+                { name: 'Danish', code: 'da' },
+                { name: 'Dutch', code: 'nl' },
+                { name: 'English', code: 'en' },
+                { name: 'Estonian', code: 'et' },
+                { name: 'Fiji', code: 'fj' },
+                { name: 'Finnish', code: 'fi' },
+                { name: 'French', code: 'fr' },
+                { name: 'Georgian', code: 'ka' },
+                { name: 'German', code: 'de' },
+                { name: 'Greek', code: 'el' },
+                { name: 'Gujarati', code: 'gu' },
+                { name: 'Hebrew', code: 'he' },
+                { name: 'Hindi', code: 'hi' },
+                { name: 'Hungarian', code: 'hu' },
+                { name: 'Icelandic', code: 'is' },
+                { name: 'Indonesian', code: 'id' },
+                { name: 'Irish', code: 'ga' },
+                { name: 'Italian', code: 'it' },
+                { name: 'Japanese', code: 'ja' },
+                { name: 'Javanese', code: 'jw' },
+                { name: 'Korean', code: 'ko' },
+                { name: 'Latin', code: 'la' },
+                { name: 'Latvian', code: 'lv' },
+                { name: 'Lithuanian', code: 'lt' },
+                { name: 'Macedonian', code: 'mk' },
+                { name: 'Malay', code: 'ms' },
+                { name: 'Malayalam', code: 'ml' },
+                { name: 'Maltese', code: 'mt' },
+                { name: 'Maori', code: 'mi' },
+                { name: 'Marathi', code: 'mr' },
+                { name: 'Mongolian', code: 'mn' },
+                { name: 'Nepali', code: 'ne' },
+                { name: 'Norwegian', code: 'no' },
+                { name: 'Persian', code: 'fa' },
+                { name: 'Polish', code: 'pl' },
+                { name: 'Portuguese', code: 'pt' },
+                { name: 'Punjabi', code: 'pa' },
+                { name: 'Quechua', code: 'qu' },
+                { name: 'Romanian', code: 'ro' },
+                { name: 'Russian', code: 'ru' },
+                { name: 'Samoan', code: 'sm' },
+                { name: 'Serbian', code: 'sr' },
+                { name: 'Slovak', code: 'sk' },
+                { name: 'Slovenian', code: 'sl' },
+                { name: 'Spanish', code: 'es' },
+                { name: 'Swahili', code: 'sw' },
+                { name: 'Swedish', code: 'sv' },
+                { name: 'Tamil', code: 'ta' },
+                { name: 'Tatar', code: 'tt' },
+                { name: 'Telugu', code: 'te' },
+                { name: 'Thai', code: 'th' },
+                { name: 'Tibetan', code: 'bo' },
+                { name: 'Tonga', code: 'to' },
+                { name: 'Turkish', code: 'tr' },
+                { name: 'Ukrainian', code: 'uk' },
+                { name: 'Urdu', code: 'ur' },
+                { name: 'Uzbek', code: 'uz' },
+                { name: 'Vietnamese', code: 'vi' },
+                { name: 'Welsh', code: 'cy' },
+                { name: 'Xhosa', code: 'xh' }]
