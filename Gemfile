@@ -39,6 +39,7 @@ group :development do
   gem 'rubocop', '0.25.0', require: false
   gem 'letter_opener', '1.2.0'
   gem 'capistrano-rails', '1.1.2'
+  gem 'capistrano-rvm', '0.1.1'
 end
 
 group :test do
