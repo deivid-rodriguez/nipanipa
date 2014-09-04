@@ -270,7 +270,7 @@ DEPENDENCIES
   bootstrap-will_paginate (= 0.0.10)
   cancan (= 1.6.10)
   capistrano-rails (= 1.1.2)
-  capistrano-rvm
+  capistrano-rvm (= 0.1.1)
   capybara (= 2.4.1)
   carrierwave!
   cocoon (= 1.2.6)
