@@ -234,6 +234,10 @@ table.calendar {
   }
 }
 
+.country_link {
+  display: block;
+}
+
 .list-users {
   @include make-md-column(9);
   h5 {
