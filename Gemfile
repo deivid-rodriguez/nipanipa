@@ -3,6 +3,7 @@ ruby '2.1.2'
 
 gem 'rails', '4.1.6'
 gem 'rails-i18n', '4.0.3'
+gem 'rails_autolink', '1.1.6'
 
 gem 'pg', '0.17.1'
 gem 'bcrypt', '3.1.7'

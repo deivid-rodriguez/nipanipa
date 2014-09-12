@@ -186,6 +186,19 @@ RSpec.describe 'Profile creation' do
   end
 end
 
+RSpec.describe 'User profile context' do
+  let!(:profile) do
+    description = 'This is my personal website: http://mywebsite.example.com'
+    create(:host, description: description)
+  end
+
+  before { visit user_path(profile) }
+
+  it 'correctly handles links in profile description' do
+    expect(page).to have_link('http://mywebsite.example.com')
+  end
+end
+
 RSpec.describe 'User profile index' do
   let!(:host_available) { create(:host, :available_just_now) }
   let!(:host_not_available) { create(:host, :not_available) }

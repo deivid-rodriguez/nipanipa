@@ -10,7 +10,7 @@
     <div class='box'>
       <%= render 'edit_link', user: @user %>
       <h3><%= t '.description' %></h3>
-      <p><%= simple_format(@user.description) %></p>
+      <p><%= simple_format(auto_link(@user.description)) %></p>
     </div>
 
     <div class='box'>
