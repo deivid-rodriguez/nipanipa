@@ -17,24 +17,12 @@ set :linked_dirs, %w(bin log tmp/pids tmp/cache tmp/sockets public/uploads)
 set :keep_releases, 5
 
 namespace :deploy do
-  desc 'Stop Passenger'
-  task :stop do
-    on roles(:app), in: :sequence, wait: 5 do
-      execute :touch, release_path.join('/tmp/stop.txt')
-    end
-  end
-
-  desc 'Start (or un-stop) Passenger'
-  task :start do
-    on roles(:app) do
-      execute :rm, '-f', "#{release_path}/tmp/stop.txt"
-    end
-  end
-
   desc 'Restart Passenger'
-  task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      execute :touch, release_path.join('/tmp/restart.txt')
+  after :restart, :restart_passenger do
+    on roles(:web), in: :groups, limit: 3, wait: 5 do
+      within release_path do
+        execute :touch, 'tmp/restart.txt'
+      end
     end
   end
 
