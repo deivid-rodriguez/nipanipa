@@ -33,9 +33,6 @@ RSpec.configure do |config|
     default_url_options[:locale] = I18n.default_locale
   end
 
-  # Run each example within a transaction
-  config.use_transactional_fixtures = true
-
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
@@ -52,12 +49,3 @@ require 'cancan/matchers'
 require 'capybara/poltergeist'
 Capybara.javascript_driver = :poltergeist
 Capybara.asset_host = 'http://nipanipa.local.com'
-
-# Forces all threads to share the same connection. capybara drivers start the
-# web server in another thread and transactions are not shared between threads
-# by default.
-ActiveRecord::ConnectionAdapters::ConnectionPool.class_eval do
-  def current_connection_id
-    Thread.main.object_id
-  end
-end

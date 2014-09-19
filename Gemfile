@@ -46,6 +46,7 @@ end
 
 group :test do
   gem 'capybara', '2.4.1'
+  gem 'database_cleaner', '1.3.0'
   gem 'poltergeist', '1.5.1'
   gem 'launchy', '2.4.2'
   gem 'rb-inotify', '0.9.5'
