@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130915163445) do
+ActiveRecord::Schema.define(version: 20140922074609) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "continents", force: true do |t|
+    t.string   "code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "continents", ["code"], name: "index_continents_on_code", unique: true, using: :btree
 
   create_table "conversations", force: true do |t|
     t.string   "subject"
@@ -26,6 +34,15 @@ ActiveRecord::Schema.define(version: 20130915163445) do
     t.boolean  "deleted_from", default: false
     t.boolean  "deleted_to",   default: false
   end
+
+  create_table "countries", force: true do |t|
+    t.string   "code"
+    t.integer  "continent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "countries", ["code"], name: "index_countries_on_code", unique: true, using: :btree
 
   create_table "donations", force: true do |t|
     t.integer  "user_id"
@@ -77,6 +94,16 @@ ActiveRecord::Schema.define(version: 20130915163445) do
     t.string  "name"
     t.string  "image"
   end
+
+  create_table "regions", force: true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.integer  "country_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "regions", ["code", "country_id"], name: "index_regions_on_code_and_country_id", unique: true, using: :btree
 
   create_table "sectorizations", force: true do |t|
     t.integer "user_id"

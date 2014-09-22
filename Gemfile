@@ -34,6 +34,7 @@ group :development, :test do
   gem 'pry', '0.10.1'
   gem 'pry-doc', '0.6.0'
   gem 'ffaker', '1.25.0'
+  gem 'progress_bar', '1.0.3', require: false
 end
 
 group :development do
@@ -42,6 +43,7 @@ group :development do
   gem 'letter_opener', '1.2.0'
   gem 'capistrano-rails', '1.1.2'
   gem 'capistrano-rvm', '0.1.1'
+  gem 'rubyzip', '1.1.6', require: false
 end
 
 group :test do
