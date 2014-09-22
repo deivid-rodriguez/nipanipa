@@ -45,7 +45,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '2.4.1'
+  gem 'capybara', '2.4.3'
   gem 'database_cleaner', '1.3.0'
   gem 'poltergeist', '1.5.1'
   gem 'launchy', '2.4.2'
@@ -53,5 +53,5 @@ group :test do
   gem 'libnotify', '0.8.3'
   gem 'webmock', '1.18.0'
   gem 'safe_yaml', github: 'dtao/safe_yaml'
-  gem 'simplecov', '0.9.0', require: false
+  gem 'simplecov', '0.9.1', require: false
 end
