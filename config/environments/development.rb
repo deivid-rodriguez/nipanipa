@@ -1,4 +1,4 @@
-Nipanipa::Application.configure do
+Rails.application.configure do
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
@@ -36,4 +36,8 @@ Nipanipa::Application.configure do
 
   # Use Pry as the default console
   config.console = Pry
+
+  # Your secret key is used for verifying the integrity of signed cookies. If
+  # you change this key, all old signed cookies will become invalid!
+  config.secret_key_base = 'x' * 30
 end

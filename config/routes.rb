@@ -1,4 +1,4 @@
-Nipanipa::Application.routes.draw do
+Rails.application.routes.draw do
 
   # first created -> highest priority.
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do

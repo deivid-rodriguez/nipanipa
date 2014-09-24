@@ -1,4 +1,4 @@
-Nipanipa::Application.configure do
+Rails.application.configure do
   # Settings specified here will take precedence over those in
   # config/application.rb.
 
@@ -89,4 +89,9 @@ Nipanipa::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  # Make sure the secret is at least 30 characters and all random, no regular
+  # words or you'll be exposed to dictionary attacks.  Also make sure it is
+  # kept private if you're sharing your code publicly.
+  config.secret_key_base = ENV['SECRET_TOKEN']
 end
