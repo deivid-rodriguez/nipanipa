@@ -1,4 +1,9 @@
 <footer class='nipa-container'>
+  <script>
+	 $(function () {
+    $(".rslides").responsiveSlides();
+  });
+  </script>
   <nav class="footer-links">
     <ul>
       <li><small>
@@ -25,6 +30,16 @@
       <li>
         <%= link_to 'https://github.com/deivid-rodriguez/nipanipa' do %>
           <%= image_tag 'github.png', alt: 'Github' %>
+        <% end %>
+      </li>
+	  <li>
+        <%= link_to 'https://github.com/deivid-rodriguez/nipanipa' do %>
+          <%= image_tag 'pinterest.png', alt: 'pinterest' %>
+        <% end %>
+      </li>
+	  <li>
+        <%= link_to 'https://github.com/deivid-rodriguez/nipanipa' do %>
+          <%= image_tag 'vimeo.png', alt: 'vimeo' %>
         <% end %>
       </li>
     </ul>

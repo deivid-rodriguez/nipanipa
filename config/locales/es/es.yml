@@ -48,9 +48,9 @@ contacto con nosotros enviando un e-mail a %{mail}. Dinos qué opinas del sitio,
 cosas no funcionan, qué se puede mejorar o simplemente manda un saludo!"
     home:
       welcome: Bienvenido a NiPaNiPa
-      subtitle: Contacta a voluntarios y hosts de todo el mundo
+      subtitle: Contacta a voluntarios y hosts de todo el mundo.
       host: Soy host
-      host_desc: Aloja a alguien a cambio de ayuda
+      host_desc: Aloja a alguien a cambio de ayuda.
       volunteer: Soy voluntario
       volunteer_desc: Ayuda a alguien a cambio de alojamiento.
       contribute: Colabora
