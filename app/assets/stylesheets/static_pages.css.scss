@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .cover {
-  background: image-url('background.jpg') no-repeat center center fixed;
+  background: image-url('fondo.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -30,29 +30,52 @@ a.thmb-lnk {
 
 .home-explore {
   width: 100%;
+  margin-bottom:1%;
 }
 
 .home-host {
   overflow: auto;
-  width: 50%;
-  float: left
+  width: 49.5%;
+  float: left;
+  margin-right:1%;
 }
 
 .home-volunteer {
   overflow: auto;
-  width: 50%;
+  width: 49.5%;
   float: right;
 }
 
-.explore-thumbnail {
-  @extend .img-thumbnail;
+.explore-container {
   width: 100%;
-  padding: 20px 290px;
   border-radius: 0px;
   background: $grayExplore;
   &:hover {
     background: darken($grayExplore, 10%);
   }
+  .explore-thumbnail {
+	 @extend .img-thumbnail;
+	 @extend .explore-container;
+	 height:252px;
+  	 width:50%; 
+	 padding:0px 60px;
+	 h2{
+	 margin-top:100px;
+	 }
+  	}
+  .explore-images {
+  	 width:50%;
+     float:right;
+	 #slider1 {
+		list-style:none;
+		position:relative;
+		left:-20px;
+		top:10px;
+		img {
+			width:100%;
+			}
+		}
+  	}  	
 }
 
 .host-thumbnail {

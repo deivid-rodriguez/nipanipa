@@ -1,9 +1,29 @@
 <div class='home-explore'>
   <%= link_to users_path, class: 'thmb-lnk' do %>
-    <div class='explore-thumbnail'>
-      <%= image_tag "explore.png", alt: "explore" %>
-      <h2><%= t('static_pages.home.explore') %></h2>
-      <p><%= t('static_pages.home.explore_desc') %></p>
+    <div class='explore-container'>
+	    <div class='explore-thumbnail'>
+			<h2><%= t('static_pages.home.explore') %></h2>
+			<p><%= t('static_pages.home.explore_desc') %></p>
+    	 </div>
+    	 <div class='explore-images'>
+			<ul class="rslides" id="slider1">
+				<li>
+					<%= image_tag "fotos01.jpg", alt: "explore_imgs" %>		
+				</li>
+				<li>
+					<%= image_tag "fotos02.jpg", alt: "explore_imgs" %>		
+				</li>
+				<li>
+					<%= image_tag "fotos03.jpg", alt: "explore_imgs" %>		
+				</li>
+				<li>
+					<%= image_tag "fotos04.jpg", alt: "explore_imgs" %>		
+				</li>
+				<li>
+					<%= image_tag "fotos05.jpg", alt: "explore_imgs" %>		
+				</li>
+			</ul>
+    	 </div>
     </div>
   <% end %>
 </div>

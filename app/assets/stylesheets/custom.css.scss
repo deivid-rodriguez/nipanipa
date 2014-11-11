@@ -1,16 +1,16 @@
 @import 'bootstrap';
 
 /* mixins, variables, etc. */
-$grayBackground: #ebebdf;
+$grayBackground: #e8e4d0;
 $grayMediumLight: #eaeaea;
-$grayLight: #999;
+$grayLight: #275a52;
 $grayVeryLight: #ccc;
 $graySuperLight: #f5f5f5;
 $grayDarker: #222;
 $greenLogo: #568a7e;
 $grayExplore: #e1ddc4;
 $greenHost: #9ab6aa;
-$redVolunteer: #f1c5c2;
+$redVolunteer: #efcf9f;
 
 @mixin linear_gradient {
   background-image: -o-linear-gradient(to_bottom, white, #E6E6E6);
@@ -103,14 +103,15 @@ a {
 
 .navbar {
   padding-right: 100px;
-  padding-left: 100px;
+  padding-left: 44px;
   margin-bottom: 0px;
   background: none;
   font-size: 14px;
   border: none;
+  font-weight:bold;
   @include box_shadow(0px);
   .navbar-nav {
-    padding-top: 47px;
+    padding-top: 62px;
     li.dropdown.open > .dropdown-toggle {
       background: none;
     }
@@ -123,6 +124,7 @@ a {
 .main-page {
   @include make-row();
   padding: 20px 0 0 0;
+  background:$graySuperLight;
 }
 
 .img-thumbnail {
@@ -145,7 +147,7 @@ h1 {
 
 h2 {
   letter-spacing: 0px;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   text-align: center;
   font-weight: bold;
 }
@@ -261,6 +263,9 @@ footer {
   }
   .social-links ul {
     float: right;
+	:hover {
+		opacity:0.8;
+		}
   }
   ul {
     margin: 0;

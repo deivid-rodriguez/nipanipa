@@ -16,4 +16,5 @@
 //= require turbolinks
 //= require bootstrap
 //= require cocoon
+//= require responsiveslides.js
 //= require_tree .

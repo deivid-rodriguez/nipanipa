@@ -2,7 +2,11 @@
   <div class='navbar-wrapper'>
     <div class='navbar-header'>
       <%= link_to root_path, class: 'navbar-brand' do %>
-        <%= image_tag 'logo.png', alt: 'NiPaNiPa' %>
+      	<% if params[:action] == 'home' %>
+				<%= image_tag 'logo_home.png', alt: 'NiPaNiPa' %>
+			<% else %>
+				<%= image_tag 'logo.png', alt: 'NiPaNiPa' %>
+			<% end %>
       <% end %>
     </div>
     <div class='navbar-collapse collapse navbar-right'>
