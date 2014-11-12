@@ -26,7 +26,11 @@ RSpec.describe 'donation', :js do
     end
 
     context 'when successful donation' do
-      before { mock_paypal_pdt('SUCCESS', Donation.last.id) }
+      before do
+        mock_paypal_pdt('SUCCESS')
+        visit "/en/donations/1?tx=#{paypal_tx}&st=Completed&amt=20.00&cc=USD" \
+              "&cm=&item_number=&sig=#{paypal_signature}"
+      end
 
       it 'shows a success flash message' do
         expect(page).to \
@@ -35,7 +39,11 @@ RSpec.describe 'donation', :js do
     end
 
     context 'when unsuccessful donation' do
-      before { mock_paypal_pdt('FAIL', Donation.last.id) }
+      before do
+        mock_paypal_pdt('FAIL')
+        visit "/en/donations/1?tx=#{paypal_tx}&st=Completed&amt=20.00&cc=USD" \
+              "&cm=&item_number=&sig=#{paypal_signature}"
+      end
 
       it 'shows an error flash message' do
         expect(page).to have_flash_message t('donations.create.error'), 'error'

@@ -95,8 +95,10 @@ RSpec.describe 'Leaving feedback' do
         choose 'feedback_score_positive'
         fill_in 'feedback[content]', with: feedback.content
         fill_in 'feedback[donation_attributes][amount]', with: 20
+        mock_paypal_pdt('SUCCESS')
         click_button feedback_btn
-        mock_paypal_pdt('SUCCESS', Donation.last.id)
+        visit "/en/donations/1?tx=#{paypal_tx}&st=Completed&amt=20.00&cc=USD" \
+              "&cm=&item_number=&sig=#{paypal_signature}"
       end
 
       it 'correctly updates db' do
@@ -177,8 +179,10 @@ RSpec.describe 'Editing feedbacks' do
   context 'with valid information and donation', :js do
     before do
       fill_in 'feedback[donation_attributes][amount]', with: 20
+      mock_paypal_pdt('SUCCESS')
       click_button feedback_btn
-      mock_paypal_pdt('SUCCESS', Donation.last.id)
+      visit "/en/donations/1?tx=#{paypal_tx}&st=Completed&amt=20.00&cc=USD" \
+            "&cm=&item_number=&sig=#{paypal_signature}"
     end
 
     it 'correctly updates db' do

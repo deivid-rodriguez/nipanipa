@@ -33,7 +33,7 @@ def paypal_tx
   '4YD48288L7608774D'
 end
 
-def mock_paypal_pdt(status, donation_id)
+def mock_paypal_pdt(status)
   WebMock::API.stub_request(:post, ENV['PAYPAL_URL'])
     .with(body: { at: ENV['PAYPAL_PDT_AT'],
                   cmd: '_notify-synch',
@@ -42,7 +42,4 @@ def mock_paypal_pdt(status, donation_id)
                      'Content-Type' => 'application/x-www-form-urlencoded',
                      'User-Agent'   => 'Ruby' })
     .to_return(status: 200, body: "#{status}", headers: {})
-
-  visit "/en/donations/#{donation_id}?tx=4YD48288L7608774D&st=Completed&amt=" \
-        "20.00&cc=USD&cm=&item_number=&sig=#{paypal_signature}" \
 end
