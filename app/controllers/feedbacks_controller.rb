@@ -67,7 +67,7 @@ class FeedbacksController < ApplicationController
 
   def feedback_params
     params.require(:feedback)
-          .permit(:content, :score, donation_attributes: [:amount, :user_id])
+      .permit(:content, :score, donation_attributes: [:amount, :user_id])
   end
 
   def load_user

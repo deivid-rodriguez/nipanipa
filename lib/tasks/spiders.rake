@@ -43,20 +43,14 @@ namespace :scrapers do
   end
 
   def farm_desc(info)
-    data = info.match(/(?:#{MAIL_PREFIX})\s*(\S+)\s+(\S+)\s+(\S+)\s+(\S+)/)
-    if data
-      desc = info.partition(data[1..4].keep_if { |d| d =~ /@|www/ }.last)[2]
-    else
-      cell = info[/^(?:.*?)#{CEL_PREFIX}([0-9 .-]+)/, 1]
-      if cell
-        desc = info.partition(cell)[2]
-      else
-        phone = info[/^(?:.*?)#{TEL_PREFIX}([0-9 .-]+)/, 1]
-        desc = info.partition(phone)[2] if phone
-      end
-    end
-    desc.strip! if desc
-    desc
+    m = info[/(?:#{MAIL_PREFIX})\s*(\S+)\s+(\S+)\s+(\S+)\s+(\S+)/, 1]
+    return info.partition(m[1..4].keep_if { |d| d =~ /@|www/ }.last)[2] if m
+
+    cell = info[/^(?:.*?)#{CEL_PREFIX}([0-9 .-]+)/, 1]
+    return info.partition(cell)[2] if cell
+
+    phone = info[/^(?:.*?)#{TEL_PREFIX}([0-9 .-]+)/, 1]
+    info.partition(phone)[2] if phone
   end
 
   desc 'Scrapes France Wwoofing list'
@@ -72,25 +66,25 @@ namespace :scrapers do
         in_farm_list = false
       end
 
-      in_farm_list = true if line =~ /^1. /
-      if in_farm_list
-        if line =~ /^\d+\. (.*)$/
-          if farm_info
-            farm_string = farm_info.join(' ')
-            name = farm_name(farm_string)
-            phone = farm_phone(farm_string)
-            phone = farm_cell(farm_string) unless phone
-            mails, webs = farm_mails_and_webs(farm_string)
-            desc = farm_desc(farm_string)
-            fout.write "#{region},#{name},#{phone},#{mails},#{webs},#{desc}"
-          end
-          farm_info = [Regexp.last_match[1].chomp]
-        else
-          farm_info << line.chomp
-        end
-      end
-
       previous_line = line
+
+      in_farm_list = true if line =~ /^1. /
+      next unless in_farm_list
+
+      if line =~ /^\d+\. (.*)$/
+        if farm_info
+          farm_string = farm_info.join(' ')
+          name = farm_name(farm_string)
+          phone = farm_phone(farm_string)
+          phone = farm_cell(farm_string) unless phone
+          mails, webs = farm_mails_and_webs(farm_string)
+          desc = farm_desc(farm_string).try(:strip)
+          fout.write "#{region},#{name},#{phone},#{mails},#{webs},#{desc}"
+        end
+        farm_info = [Regexp.last_match[1].chomp]
+      else
+        farm_info << line.chomp
+      end
     end
   end
 end

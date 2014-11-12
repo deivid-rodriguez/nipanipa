@@ -56,7 +56,7 @@ class ConversationsController < ApplicationController
 
   def conversation_params
     params.require(:conversation)
-          .permit(:subject, messages_attributes: [:body, :from_id, :to_id])
+      .permit(:subject, messages_attributes: [:body, :from_id, :to_id])
   end
 
   # Some actions need this variable in the view

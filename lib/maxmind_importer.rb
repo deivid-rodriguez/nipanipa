@@ -1,6 +1,9 @@
 require 'zip'
 require 'progress_bar'
 
+#
+# Imports geographical Database information from MaxMind
+#
 module MaxmindImporter
   extend self
 
@@ -20,34 +23,38 @@ module MaxmindImporter
   end
 
   def extract!
-    Zip::File.open(local_zip_path).
-              glob("*/#{csv_file_name}").
-              first.
-              extract(local_csv_path)
+    Zip::File.open(local_zip_path)
+      .glob("*/#{csv_file_name}")
+      .first
+      .extract(local_csv_path)
   end
 
   def insert!
-    bar = ProgressBar.new(%x{ wc -l #{local_csv_path} }.split[0].to_i)
+    bar = ProgressBar.new(` wc -l #{local_csv_path} `.split[0].to_i)
 
-    CSV.foreach(local_csv_path, headers: :first_row) do |l|
-      next unless l[1].present? && l[3].present? && l[5].present?
-
-      country = Country.find_by_code_and_continent_code(l[3], l[1])
-      next unless country
-
-      country.regions.find_or_create_by!(code: l[5]) { |reg| reg.name = l[6] }
+    CSV.foreach(local_csv_path, headers: :first_row) do |line|
+      insert_one!(line)
 
       bar.increment!
     end
 
-  rescue => e
-    File.delete(local_zip_path)
-    raise e
-  ensure
     File.delete(local_csv_path)
+  ensure
+    File.delete(local_zip_path)
   end
 
   private
+
+  def insert_one!(line)
+    return unless line[1].present? && line[3].present? && line[5].present?
+
+    country = Country.find_by_code_and_continent_code(line[3], line[1])
+    return unless country
+
+    country.regions.find_or_create_by!(code: line[5]) do |region|
+      region.name = line[6]
+    end
+  end
 
   def remote_base_url
     'http://geolite.maxmind.com/download/geoip/database/'

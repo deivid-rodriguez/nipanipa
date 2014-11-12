@@ -1,3 +1,6 @@
+#
+# Represents a first level region in a country.
+#
 class Region < ActiveRecord::Base
   validates :code, presence: true
 

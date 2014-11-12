@@ -18,7 +18,7 @@ RSpec.configure do |_config|
 
   # Stub Paypal Redirection
   WebMock::API.stub_request(:get, /.*sandbox\.paypal\.com.*/)
-              .to_return(status: 200, body: '', headers: {})
+    .to_return(status: 200, body: '', headers: {})
 
   WebMock.disable_net_connect!(allow_localhost: true)
 end
