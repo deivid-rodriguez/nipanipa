@@ -7,7 +7,7 @@ RSpec.describe 'Create a conversation' do
   let(:create_conv)  { t('helpers.submit.conversation.create') }
 
   before do
-    login_as conversation.from
+    mock_sign_in(conversation.from)
     visit user_path(conversation.to)
     click_link t('shared.profile_header.new_conversation')
   end
@@ -45,7 +45,7 @@ RSpec.describe 'Listing user conversations' do
   let!(:conversation) { create(:conversation) }
 
   before do
-    login_as conversation.from
+    mock_sign_in(conversation.from)
     visit user_path(conversation.from)
     click_link t('shared.profile_header.conversations')
   end
@@ -61,8 +61,7 @@ RSpec.describe 'Display a conversation', :js do
   let!(:conversation) { create(:conversation) }
 
   before do
-    visit root_path
-    sign_in(conversation.from)
+    mock_sign_in(conversation.from)
     visit conversations_path
     find_link("show-link-#{conversation.id}").trigger('click')
   end
@@ -105,8 +104,7 @@ RSpec.describe 'Deleting conversations', :js do
   let!(:conversation) { create(:conversation) }
 
   before do
-    visit root_path
-    sign_in(conversation.from)
+    mock_sign_in(conversation.from)
     visit conversations_path
     find_link("delete-link-#{conversation.id}").trigger('click')
   end
@@ -118,8 +116,7 @@ RSpec.describe 'Deleting conversations', :js do
 
   context 'when the other user goes to message list' do
     before do
-      sign_out
-      sign_in(conversation.to)
+      mock_sign_in(conversation.to)
       visit conversations_path
     end
 
@@ -141,8 +138,7 @@ RSpec.describe 'Deleting conversations', :js do
       before do
         find_link("show-link-#{conversation.id}").trigger('click')
         reply('This is a sample reply')
-        sign_out
-        sign_in(conversation.from)
+        mock_sign_in(conversation.from)
         visit conversations_path
       end
 

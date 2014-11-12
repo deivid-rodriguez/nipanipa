@@ -15,7 +15,10 @@ RSpec.describe 'Leaving feedback' do
     end
 
     context 'when visitor signed in' do
-      before { mock_sign_in feedback.sender }
+      before do
+        mock_sign_in(feedback.sender)
+        visit user_path(feedback.sender)
+      end
 
       context 'and looking at own profile' do
         it 'does not show link' do
@@ -37,7 +40,7 @@ RSpec.describe 'Leaving feedback' do
     let(:feedback_btn) { t('helpers.submit.feedback.create') }
 
     before do
-      mock_sign_in feedback.sender
+      mock_sign_in(feedback.sender)
       visit user_path(feedback.recipient)
       click_link new_feedback_lnk
     end
@@ -132,7 +135,8 @@ RSpec.describe 'Editing feedbacks' do
   let(:feedback_btn) { t('helpers.submit.feedback.update') }
 
   before do
-    mock_sign_in feedback.sender
+    mock_sign_in(feedback.sender)
+    visit user_path(feedback.sender)
     page.find("#feedback-#{feedback.id}").click_link(t('shared.edit'))
   end
 
@@ -220,7 +224,10 @@ RSpec.describe 'Listing feedbacks' do
   end
 
   context 'when listing received feedbacks' do
-    before { mock_sign_in feedbacks[0].recipient }
+    before do
+      mock_sign_in(feedbacks[0].recipient)
+      visit user_path(feedbacks[0].recipient)
+    end
 
     context 'in main profile view' do
       it 'shows feedback box' do
@@ -238,7 +245,10 @@ RSpec.describe 'Listing feedbacks' do
   end
 
   context 'when listing sent feedbacks' do
-    before { mock_sign_in feedbacks[0].sender }
+    before do
+      mock_sign_in(feedbacks[0].sender)
+      visit user_path(feedbacks[0].sender)
+    end
 
     context 'in main profile view' do
       it 'shows feedback box' do
@@ -261,7 +271,8 @@ RSpec.describe 'Destroying feedbacks' do
   let!(:recipient) { feedback.recipient }
 
   before do
-    mock_sign_in feedback.sender
+    mock_sign_in(feedback.sender)
+    visit user_path(feedback.sender)
     page.find("#feedback-#{feedback.id}").click_link(t('shared.delete'))
   end
 

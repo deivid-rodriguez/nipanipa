@@ -12,8 +12,7 @@ def sign_in(user)
 end
 
 def mock_sign_in(user)
-  login_as user
-  visit user_path(user)
+  login_as(user, scope: :user, run_callbacks: false)
 end
 
 # TODO: convert to a matcher
