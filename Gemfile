@@ -24,6 +24,8 @@ gem 'uglifier', '2.5.3'
 gem 'turbolinks', '2.5.2'
 gem 'quiet_assets', '1.0.3'
 
+gem 'activeadmin', github: 'activeadmin'
+
 group :development, :test do
   gem 'pry-byebug', '2.0.0'
   gem 'byebug', '3.5.1'
