@@ -48,4 +48,4 @@ end
 require 'cancan/matchers'
 
 Capybara.javascript_driver = :webkit
-Capybara.asset_host = 'http://nipanipa.local.com'
+Capybara.asset_host = 'http://localhost:3000'
