@@ -267,7 +267,7 @@ RSpec.describe 'Listing feedbacks' do
 end
 
 RSpec.describe 'Destroying feedbacks' do
-  let!(:feedback)  { create(:feedback, score: :positive) }
+  let!(:feedback) { create(:feedback, score: :positive) }
   let!(:recipient) { feedback.recipient }
 
   before do
