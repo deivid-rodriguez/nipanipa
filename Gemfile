@@ -47,6 +47,7 @@ group :development do
   gem 'capistrano-rails', '1.1.2'
   gem 'capistrano-rvm', '0.1.2'
   gem 'rubyzip', '1.1.6', require: false
+  gem 'unicorn-rails', '2.2.0'
 end
 
 group :test do
