@@ -15,4 +15,6 @@ class Country < ActiveRecord::Base
 
     countries.first
   end
+
+  has_many :users, through: :regions
 end

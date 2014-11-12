@@ -23,6 +23,8 @@ class User < ActiveRecord::Base
 
   has_many :pictures, dependent: :destroy
 
+  belongs_to :region
+
   def blank_img_and_cache(att)
     att['image'].blank? && att['image_cache'].blank?
   end

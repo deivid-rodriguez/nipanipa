@@ -8,4 +8,6 @@ class Region < ActiveRecord::Base
   validates :country, presence: true
 
   validates :code, uniqueness: { scope: :country_id }
+
+  has_many :users
 end
