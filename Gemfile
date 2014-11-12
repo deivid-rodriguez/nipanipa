@@ -39,6 +39,9 @@ end
 
 group :development do
   gem 'spring-commands-rspec', '1.0.2'
+  gem 'spring', branch: 'guard/listen2'
+  gem 'guard-rspec', '4.3.1', require: false
+  gem 'guard-livereload', '2.4.0', require: false
   gem 'rubocop', '0.27.1', require: false
   gem 'letter_opener', '1.2.0'
   gem 'capistrano-rails', '1.1.2'
