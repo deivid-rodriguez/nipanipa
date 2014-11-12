@@ -252,9 +252,9 @@ Bugs berichten und sagen, welche Funktionen dir noch fehlen."
       donate: Spenden
     footer:
       news: Neuigkeiten
-  will_paginate:
-    previous_label: Vorherige Seite
-    next_label: Nächste Seite
+  pagination:
+    previous: Vorherige Seite
+    next: Nächste Seite
   enumerize:
     language_skill:
       level:

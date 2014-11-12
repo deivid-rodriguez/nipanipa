@@ -245,9 +245,9 @@ would like to be implemented %{issues_url}."
       donate: Donate
     footer:
       news: News
-  will_paginate:
-    previous_label: Previous page
-    next_label: Next page
+  pagination:
+    previous: Previous page
+    next: Next page
   enumerize:
     language_skill:
       level:

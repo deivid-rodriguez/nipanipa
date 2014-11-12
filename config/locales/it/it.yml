@@ -246,9 +246,9 @@ l'errore."
       donate: Aiutaci
     footer:
       news: Novità
-  will_paginate:
-    previous_label: Pagina anteriore
-    next_label: Pagina seguente
+  pagination:
+    previous: Pagina anteriore
+    next: Pagina seguente
   enumerize:
     language_skill:
       level:

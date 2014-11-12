@@ -247,9 +247,9 @@ solicitarnos nuevas funcionalidades %{issues_url}."
       donate: Ayúdanos
     footer:
       news: Noticias
-  will_paginate:
-    previous_label: Página anterior
-    next_label: Página siguiente
+  pagination:
+    previous: Página anterior
+    next: Página siguiente
   enumerize:
     language_skill:
       level:
