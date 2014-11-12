@@ -26,7 +26,7 @@ FactoryGirl.define do
     end
 
     trait :with_work_types do
-      ignore { count 1 }
+      transient { count 1 }
 
       after(:build) do |h, eval|
         eval.count.times do
