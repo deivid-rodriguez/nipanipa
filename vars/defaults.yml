@@ -1,0 +1,7 @@
+db_name: nipanipa_development
+db_user: nipanipa
+db_pass: nipanipa
+
+ruby_version: 2.1.4
+
+pg_version: 9.4

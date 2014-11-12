@@ -1,0 +1,36 @@
+- include: locales.yml tags=locales
+
+- name: Install latest PostgreSQL and Ruby bindings
+  sudo: yes
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - postgresql-{{ pg_version }}
+    - libpq-dev
+    - python-psycopg2
+
+- name: Create PostgreSQL user for application
+  sudo: yes
+  sudo_user: postgres
+  postgresql_user: name={{ db_user }}
+                   password={{ db_pass }}
+                   role_attr_flags=CREATEDB
+
+- name: Configure PostgreSQL with md5 authentication
+  sudo: yes
+  lineinfile: dest=/etc/postgresql/{{ pg_version }}/main/pg_hba.conf
+              regexp='^(local  *all  *all  *)'
+              line='\1md5'
+              backrefs=yes
+  register: pgconf
+
+- name: Reload PostgreSQL configuration to pick up the new one
+  sudo: yes
+  service: name=postgresql state=reloaded
+  when: pgconf.changed
+
+- name: Create the postgresql database for application
+  postgresql_db: login_user={{ db_user }}
+                 login_password={{ db_pass }}
+                 name={{ db_name }}
+                 owner={{ db_user }}
+                 state=present
