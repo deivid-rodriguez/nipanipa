@@ -56,7 +56,7 @@ class User < ActiveRecord::Base
            foreign_key: 'to_id',
            dependent: :destroy
 
-  AVAILABILITY = %w(  jan feb mar apr may jun jul aug sep oct nov dec  )
+  AVAILABILITY = %w(jan feb mar apr may jun jul aug sep oct nov dec)
 
   scope :currently_available,
         -> { where("availability_mask & #{2**(DateTime.now.mon - 1)} > 0") }
