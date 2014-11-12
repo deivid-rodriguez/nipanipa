@@ -11,17 +11,6 @@ class User < ActiveRecord::Base
   validates :description, length: { maximum: 2500 }
   validates :name, presence: true, length: { maximum: 50 }
 
-  # geocoder
-  geocoded_by :current_sign_in_ip do |obj, results|
-    if (geo = results.first)
-      obj.state     = geo.state
-      obj.country   = geo.country
-      obj.longitude = geo.longitude
-      obj.latitude  = geo.latitude
-    end
-  end
-  before_save :geocode, if: :current_sign_in_ip_changed?
-
   # associations
   has_many :donations
 

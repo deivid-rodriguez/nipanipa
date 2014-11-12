@@ -30,18 +30,6 @@ RSpec.describe 'Signin' do
     end
   end
 
-  # XXX: Review.. this fields are currently set in the factory
-  describe 'geolocation' do
-    before { sign_in user }
-
-    it 'correctly sets user location by geolocating the ip' do
-      expect(user.reload.longitude).not_to be_nil
-      expect(user.reload.latitude).not_to be_nil
-      expect(user.reload.state).not_to be_nil
-      expect(user.reload.country).not_to be_nil
-    end
-  end
-
   context 'with invalid information' do
     before do
       click_link signin
