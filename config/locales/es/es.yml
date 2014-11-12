@@ -189,6 +189,7 @@ oferta"
       hosts: Anfitriones
       volunteers: Voluntarios
       all: Todos
+      wherever: Donde sea
     user:
       karma: karma
       location: Lugar

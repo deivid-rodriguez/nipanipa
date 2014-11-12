@@ -192,6 +192,7 @@ anbietest"
       hosts: Gastgeber
       volunteers: Freiwillige
       all: Alle
+      wherever: Egal wo
     user:
       karma: Karma
       location: Ort

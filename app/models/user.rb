@@ -6,14 +6,6 @@ class User < ActiveRecord::Base
          :trackable, :recoverable
 
   ROLES = %w(admin, non-admin)
-  AFRICA = ['Angola','Burkina Faso','Burundi','Benin','Botswana','Democratic Republic of the Congo','Central African Republic','Republic of the Congo','Ivory Coast','Cameroon','Cape Verde','Djibouti','Algeria','Egypt','Western Sahara','Eritrea','Ethiopia','Gabon','Ghana','Gambia','Guinea','Equatorial Guinea','Guinea-Bissau','Kenya','Comoros','Liberia','Lesotho','Libya','Morocco','Madagascar','Mali','Mauritania','Mauritius','Malawi','Mozambique','Namibia','Niger','Nigeria','Réunion','Rwanda','Seychelles','Sudan','Saint Helena','Sierra Leone','Senegal','Somalia','South Sudan','São Tomé and Príncipe','Swaziland','Chad','Togo','Tunisia','Tanzania','Uganda','Mayotte','South Africa','Zambia','Zimbabwe']
-  AMERICA = ['Antigua and Barbuda','Bahamas','Barbados','Belize','Canada','Costa Rica','Cuba','Dominica','Dominican Republic','El Salvador','Grenada','Guatemala','Haiti','Honduras','Jamaica','Mexico','Nicaragua','Panama','Saint Kitts and Nevis','Saint Lucia','Saint Vincent and the Grenadines','Trinidad and Tobago','United States','Argentina','Bolivia','Brazil','Chile','Colombia','Ecuador','Guyana','Paraguay','Peru','Suriname','Uruguay','Venezuela'] 
-  ASIA = ['United Arab Emirates','Afghanistan','Armenia','Azerbaijan','Bangladesh','Bahrain','Brunei','Bhutan','Cocos [Keeling] Islands','China','Christmas Island','Georgia','Hong Kong','Indonesia','Israel','India','British Indian Ocean Territory','Iraq','Iran','Jordan','Japan','Kyrgyzstan','Cambodia','North Korea','South Korea','Kuwait','Kazakhstan','Laos','Lebanon','Sri Lanka','Myanmar [Burma]','Mongolia','Macao','Maldives','Malaysia','Nepal','Oman','Philippines','Pakistan','Palestine','Qatar','Saudi Arabia','Singapore','Syria','Thailand','Tajikistan','Turkmenistan','Turkey','Taiwan','Uzbekistan','Vietnam','Yemen'] 
-  OCEANIA = ['Australia','Fiji','Kiribati','Marshall Islands','Micronesia','Nauru','New Zealand','Palau','Papua New Guinea','Samoa','Solomon Islands','Tonga','Tuvalu','Vanuatu'] 
-  EUROPE = ['Andorra','Albania','Austria','Åland','Bosnia and Herzegovina','Belgium','Bulgaria','Belarus','Switzerland','Cyprus','Czech Republic','Germany','Denmark','Estonia','Spain','Finland','Faroe Islands','France','United Kingdom','Guernsey','Gibraltar','Greece','Croatia','Hungary','Ireland','Isle of Man','Iceland','Italy','Jersey','Liechtenstein','Lithuania','Luxembourg','Latvia','Monaco','Moldova','Montenegro','Macedonia','Malta','Netherlands','Norway','Poland','Portugal','Romania','Serbia','Russia','Sweden','Slovenia','Svalbard and Jan Mayen','Slovakia','San Marino','Ukraine','Vatican City','Kosovo']  
-
-
-
 
   # validations
   validates :description, length: { maximum: 2500 }

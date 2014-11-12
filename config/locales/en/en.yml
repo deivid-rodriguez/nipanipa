@@ -187,6 +187,7 @@ host be interested in you?"
       hosts: Hosts
       volunteers: Volunteers
       all: All
+      wherever: Wherever
     user:
       karma: karma
       location: Location

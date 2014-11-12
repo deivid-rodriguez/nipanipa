@@ -22,103 +22,28 @@
         <%= link_to t('.volunteers'),
                     users_path(params.merge(type: 'volunteer')) %>
       </li>
+
       <li class='nav-header'><%= t '.places' %></li>
-	<div class="panel-group" id="accordion">
-	  <div class="panel panel-default">
-	    <div class="panel-heading">
-		<h4 class="panel-title">
-		  <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-		   <%= t('.africa') %>
-		  </a>
-		</h4>
-	    </div>
-	    <div id="collapseOne" class="panel-collapse collapse">
-		<div class="panel-body">
-		       <li >
-			<% land = User.pluck(:country).uniq.to_a & User::AFRICA %>
-			<% land.each do |country| %>
-				<%= link_to country, users_path(params.merge(place: country)),:class => "country_link"%>
-			<% end %>
-		</li>
-		</div>
-	    </div>
-	  </div>
-	  <div class="panel panel-default">
-	    <div class="panel-heading">
-		<h4 class="panel-title">
-		  <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-		    <%= t('.america') %>
-		  </a>
-		</h4>
-	    </div>
-	    <div id="collapseTwo" class="panel-collapse collapse">
-		<div class="panel-body">
-		       <li >
-			<% land = User.pluck(:country).uniq.to_a & User::AMERICA %>
-			<% land.each do |country| %>
-				<%= link_to country, users_path(params.merge(place: country)),:class => "country_link"%>
-			<% end %>
-		</li>
-		</div>
-	    </div>
-	  </div>
-	  <div class="panel panel-default">
-	    <div class="panel-heading">
-		<h4 class="panel-title">
-		  <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-		   <%= t('.asia')%>
-		  </a>
-		</h4>
-	    </div>
-	    <div id="collapseThree" class="panel-collapse collapse">
-		<div class="panel-body">
-		       <li >
-			<% land = User.pluck(:country).uniq.to_a & User::ASIA %>
-			<% land.each do |country| %>
-				<%= link_to country, users_path(params.merge(place: country)),:class => "country_link"%>
-			<% end %>
-		</li>
-		</div>
-	    </div>
-	  </div>
-	  <div class="panel panel-default">
-	    <div class="panel-heading">
-		<h4 class="panel-title">
-		  <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-		    <%= t('.europe')%>
-		  </a>
-		</h4>
-	    </div>
-	    <div id="collapseFour" class="panel-collapse collapse">
-		<div class="panel-body">
-		       <li >
-			<% land = User.pluck(:country).uniq.to_a & User::EUROPE %>
-			<% land.each do |country| %>
-				<%= link_to country, users_path(params.merge(place: country)),:class => "country_link"%>
-			<% end %>
-		</li>
-		</div>
-	    </div>
-	  </div>
-	  <div class="panel panel-default">
-	    <div class="panel-heading">
-		<h4 class="panel-title">
-		  <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
-		    <%= t('.oceania')%>
-		  </a>
-		</h4>
-	    </div>
-	    <div id="collapseFive" class="panel-collapse collapse">
-		<div class="panel-body">
-		       <li >
-			<% land = User.pluck(:country).uniq %>
-			<% land.each do |country| %>
-				<%= link_to country, users_path(params.merge(place: country)),:class => "country_link"%>
-			<% end %>
-		</li>
-		</div>
-	    </div>
-	  </div>
+      <li class="<%= 'active' if params[:place].nil? %>">
+        <%= link_to t('.wherever'), users_path(params.except(:place)) %>
+      </li>
+      <% Continent.find_each do |continent| %>
+        <% code = continent.code %>
+        <li data-toggle="collapse"
+            data-target="#<%= code.downcase %>"
+            aria-expanded='false'>
+          <%= link_to t("continents.#{code}"), '#' %>
+          <ul id="<%= code.downcase %>" class='collapse'>
+            <% continent.countries.each do |country| %>
+              <li>
+                <%= link_to t("countries.#{code}.#{country.code}"),
+                            users_path(params.merge(place: country.code)),
+                            class: 'country_link' %>
+              </li>
+            <% end %>
+          </ul>
+        </li>
+      <% end %>
     </ul>
   </aside>
 

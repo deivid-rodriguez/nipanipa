@@ -187,6 +187,7 @@ volontariato che offri"
       hosts: Host
       volunteers: Volontari
       all: Tutti
+      wherever: Ovunque
     user:
       karma: karma
       location: Posto
