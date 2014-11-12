@@ -3,7 +3,6 @@
 #
 
 RSpec.describe 'User' do
-
   describe 'abilities' do
     subject { user }
     let(:user) { nil }
@@ -11,25 +10,29 @@ RSpec.describe 'User' do
     context 'when is a regular logged in user' do
       let!(:ability) { Ability.new(user) }
       let!(:user) { create(:volunteer) }
-      let!(:feedback_by_me)  { build(:feedback, sender: user) }
-      let!(:feedback_for_me) { build(:feedback, recipient: user) }
 
       before do
         visit root_path
         sign_in user
       end
 
-      it { is_expected.not_to have_ability(:manage, for: feedback_for_me) }
-      it { is_expected.to have_ability(:manage, for: feedback_by_me) }
-    end
+      describe 'feedback' do
+        let!(:feedback_by_me)  { build(:feedback, sender: user) }
+        let!(:feedback_for_me) { build(:feedback, recipient: user) }
 
-    context "when it's an admin user" do
-      let!(:user) { create(:host, :admin) }
+        it { is_expected.not_to have_ability(:manage, for: feedback_for_me) }
+        it { is_expected.to have_ability(:manage, for: feedback_by_me) }
+      end
 
-      it { is_expected.to have_ability(:manage, for: Feedback.new) }
+      describe 'conversations' do
+        let!(:conv_from_me) { build(:conversation, from: user) }
+        let!(:conv_to_me) { build(:conversation, to: user) }
+
+        it { is_expected.to have_ability(:manage, for: conv_from_me) }
+        it { is_expected.to have_ability(:manage, for: conv_to_me) }
+      end
     end
   end
-
 end
 
 RSpec.describe 'Protected pages' do

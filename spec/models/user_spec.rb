@@ -26,11 +26,9 @@ RSpec.describe User do
   it { is_expected.to respond_to(:name)                }
   it { is_expected.to respond_to(:password)            }
   it { is_expected.to respond_to(:remember_created_at) }
-  it { is_expected.to respond_to(:role)                }
   it { is_expected.to respond_to(:type)                }
 
   it { is_expected.to be_valid }
-  specify { expect(user.role).to eq('non-admin') }
 
   describe 'when name is not present' do
     before { user.name = ' ' }

@@ -13,10 +13,6 @@ FactoryGirl.define do
     current_sign_in_ip ENV['FAKE_IP']
     sign_in_count 1
 
-    trait :admin do
-      role 'admin'
-    end
-
     trait :available_just_now do
       availability { [DateTime.now.strftime('%b').downcase] }
     end

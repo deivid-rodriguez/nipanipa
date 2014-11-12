@@ -40,7 +40,6 @@ namespace :db do
       user.work_type_ids = rand_work_type_ids
       user.skills = Faker::Lorem.paragraph(11)
       user.accomodation = Faker::Lorem.paragraph(8) if user.type == 'Host'
-      user.role = 'admin' if n == 0
       user.save!
     end
 

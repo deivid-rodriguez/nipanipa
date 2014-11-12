@@ -5,8 +5,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :rememberable, :validatable, :registerable,
          :trackable, :recoverable
 
-  ROLES = %w(admin, non-admin)
-
   # validations
   validates :description, length: { maximum: 2500 }
   validates :name, presence: true, length: { maximum: 50 }
