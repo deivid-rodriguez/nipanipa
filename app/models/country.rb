@@ -7,7 +7,7 @@ class Country < ActiveRecord::Base
   belongs_to :continent
   validates :continent, presence: true
 
-  has_many :regions
+  has_many :regions, dependent: :destroy
 
   def self.find_by_code_and_continent_code(c, cc)
     countries = includes(:continent).where(code: c, continents: { code: cc })
