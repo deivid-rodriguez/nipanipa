@@ -9,7 +9,7 @@ This is the sample application for NiPaNiPa
 ## Setup Instructions
 
 [Install ansible](http://docs.ansible.com/intro_installation.html) and then run
-the default playbook to install its dependencies.
+the default playbook to install NiPaNiPa's dependencies.
 
     sudo ansible-playbook -i hosts site.yml
 
