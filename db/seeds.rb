@@ -89,10 +89,12 @@ Language.create [{ name: 'Afrikaans', code: 'af' },
                  { name: 'Welsh', code: 'cy' },
                  { name: 'Xhosa', code: 'xh' }]
 
-Rails.application.load_tasks
+unless Rails.env.test?
+  Rails.application.load_tasks
 
-# Create countries
-Rake::Task['db:geo:countries'].invoke
+  # Create countries
+  Rake::Task['db:geo:countries'].invoke
 
-# Create regions
-Rake::Task['db:geo:regions'].invoke
+  # Create regions
+  Rake::Task['db:geo:regions'].invoke
+end
