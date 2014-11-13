@@ -1,10 +1,11 @@
 FactoryGirl.define do
-
   factory :user do
     sequence(:name) { |n| "User #{n}" }
     sequence(:email) { |n| "nipanipa.test+user#{n}@gmail.com" }
     password 'foobar'
     availability { %w(jan feb mar apr may jun jul aug sep oct nov dic) }
+
+    region
 
     # simulate first login
     last_sign_in_at { Time.now }
@@ -56,60 +57,5 @@ FactoryGirl.define do
       description 'I am a test volunteer. I live in a big city full of noise'
       skills 'I am a fast learner and a laid back person'
     end
-  end
-
-  factory :conversation do
-    subject 'This is a sample subject'
-    association :from, factory: :volunteer
-    association :to, factory: :host
-    status 'pending'
-    after(:build) do |c|
-      c.messages.build(body: 'Sample body', to_id: c.to.id, from_id: c.from.id)
-    end
-
-    after(:create) { |c| c.messages.each(&:save!) }
-  end
-
-  factory :message do
-    association :conversation
-    body 'Sample body'
-    association :from, factory: :volunteer
-    association :to, factory: :host
-  end
-
-  factory :feedback do
-    content 'This is a sample feedback.'
-    score :neutral
-    association :sender, factory: :volunteer
-    association :recipient, factory: :host
-  end
-
-  factory :work_type do
-    sequence(:name) { |n| "Work Type #{n % 15}" }
-  end
-
-  factory :sectorization do
-    association :user, factory: :host
-    association :work_type
-  end
-
-  factory :language do
-    sequence(:code) { |n| "L#{n % 10}" }
-    sequence(:name) { |n| "Language#{n % 10}" }
-  end
-
-  factory :language_skill do
-    association :user, factory: :host
-    association :language
-    level :intermediate
-  end
-
-  factory :picture do
-    name 'My funny picture'
-    image do
-      Rack::Test::UploadedFile.new(
-              File.join(Rails.root, 'spec', 'fixtures', 'test_img.png'))
-    end
-    association :user, factory: :host
   end
 end
