@@ -30,7 +30,6 @@ gem 'rubyzip', '1.1.6', require: false
 gem 'progress_bar', '1.0.3', require: false
 
 group :development, :test do
-  gem 'pry-byebug', '2.0.0' unless ENV['CI']
   gem 'byebug', '3.5.1' unless ENV['CI']
   gem 'rspec-rails', '3.1.0'
   gem 'factory_girl_rails', '4.5.0'
