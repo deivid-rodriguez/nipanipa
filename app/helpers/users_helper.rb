@@ -30,9 +30,8 @@ module UsersHelper
   end
 
   def user_location(user)
-    return t('.unknown') if user.country.blank?
-    return user.country if user.state.blank?
-    "#{user.state}, #{user.country}"
+    return t('.unknown') if user.region.blank?
+    "#{user.region}, #{user.country}"
   end
 
   def user_categories(user)
