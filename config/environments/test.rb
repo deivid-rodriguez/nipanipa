@@ -41,9 +41,6 @@ Rails.application.configure do
     BCrypt::Engine::DEFAULT_COST = BCrypt::Engine::MIN_COST
   end
 
-  # Middleware
-  config.middleware.use SpoofIp, ENV['FAKE_IP']
-
   # Your secret key is used for verifying the integrity of signed cookies. If
   # you change this key, all old signed cookies will become invalid!
   config.secret_key_base = 'x' * 30

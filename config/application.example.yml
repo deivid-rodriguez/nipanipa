@@ -27,7 +27,6 @@ test:
   DB_USER: 'nipanipa'
   DB_PASS: 'nipanipa'
   MAIL_HOST: 'example.com'
-  FAKE_IP: '83.39.69.109'
   PAYPAL_URL: 'https://www.sandbox.paypal.com/cgi-bin/websrc?'
   PAYPAL_PDT_AT: 'pdtidentitytoken'
   PAYPAL_ACCOUNT: 'test@example.com'

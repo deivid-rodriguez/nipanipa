@@ -25,16 +25,13 @@ namespace :db do
       email = "nipanipa.test+#{type}#{n}@gmail.com"
       password  = '111111'
       description = Faker::Lorem.paragraph(10)
-      ip = Faker::Internet.ip_v4_address
       time = Time.now
       user = type.classify.constantize.new name: name,
                                            email: email,
                                            password: password,
                                            password_confirmation: password,
                                            description: description
-      user.last_sign_in_ip = ip
       user.last_sign_in_at = time
-      user.current_sign_in_ip = ip
       user.current_sign_in_at = time
       user.sign_in_count = 1
       user.work_type_ids = rand_work_type_ids
