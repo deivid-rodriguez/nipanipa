@@ -135,4 +135,22 @@ RSpec.describe User do
     before { user.description = 'a' * 2501 }
     it { is_expected.not_to be_valid }
   end
+
+  describe 'scopes' do
+    describe '.from_continent' do
+      let(:user) { create(:user, continent: create(:continent)) }
+
+      it 'filters users by continent' do
+        expect(User.from_continent(user.continent)).to include(user)
+      end
+    end
+
+    describe '.from_country' do
+      let(:user) { create(:user, country: create(:country)) }
+
+      it 'filters users by country' do
+        expect(User.from_country(user.country)).to include(user)
+      end
+    end
+  end
 end

@@ -18,6 +18,8 @@ guard :rspec, cmd: 'bin/rspec', all_on_start: true do
 
   # Capybara features specs
   watch(%r{^app/views/(.+)/.*\.erb$}) { |m| "spec/features/#{m[1]}_spec.rb" }
+
+  watch(%r{^spec/factories/(.+)\.rb$}) { |m| "spec/models/#{m[1]}.rb" }
 end
 
 guard :livereload do

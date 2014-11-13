@@ -1,11 +1,24 @@
 FactoryGirl.define do
   factory :user do
+    transient do
+      continent nil
+      country nil
+    end
+
     sequence(:name) { |n| "User #{n}" }
     sequence(:email) { |n| "nipanipa.test+user#{n}@gmail.com" }
     password 'foobar'
     availability { %w(jan feb mar apr may jun jul aug sep oct nov dic) }
 
-    region
+    region do
+      if continent
+        FactoryGirl.create(:region, continent: continent)
+      elsif country
+        FactoryGirl.create(:region, country: country)
+      else
+        FactoryGirl.create(:region)
+      end
+    end
 
     # simulate first login
     last_sign_in_at { Time.now }
