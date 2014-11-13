@@ -24,13 +24,13 @@ class User < ActiveRecord::Base
   belongs_to :region
 
   delegate :country, to: :region, allow_nil: true
-  scope :from_country, ->(country) do
-    includes(:region).where(regions: { country_id: country.id })
+  scope :from_country, ->(country_id) do
+    includes(:region).where(regions: { country_id: country_id })
   end
 
   delegate :continent, to: :country, allow_nil: true
-  scope :from_continent, ->(continent) do
-    includes(region: :country).where(countries: { continent_id: continent.id })
+  scope :from_continent, ->(continent_id) do
+    includes(region: :country).where(countries: { continent_id: continent_id })
   end
 
   def blank_img_and_cache(att)

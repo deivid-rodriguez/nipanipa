@@ -24,23 +24,14 @@
       </li>
 
       <li class='nav-header'><%= t '.places' %></li>
-      <li class="<%= 'active' if params[:place].nil? %>">
-        <%= link_to t('.wherever'), users_path(params.except(:place)) %>
+      <li class="<%= 'active' unless params[:con_id] %>">
+        <%= link_to t('.wherever'), users_path(params.except(:con_id)) %>
       </li>
-      <% Continent.find_each do |continent| %>
-        <% code = continent.code %>
-        <li data-toggle="collapse"
-            data-target="#<%= code.downcase %>"
-            aria-expanded='false'>
-          <%= link_to t("continents.#{code}"), '#' %>
-          <ul id="<%= code.downcase %>" class='collapse'>
-            <% continent.countries.each do |country| %>
-              <li>
-                <%= link_to t("countries.#{code}.#{country.code}"),
-                            users_path(params.merge(place: country.code)) %>
-              </li>
-            <% end %>
-          </ul>
+      <% Continent.find_each do |con| %>
+        <% con_code = con.code.downcase %>
+        <li class="<%= 'active' if params[:con_id] == con.id.to_s %>">
+          <%= link_to t("continents.#{con_code}"),
+                      users_path(params.merge(con_id: con.id)) %>
         </li>
       <% end %>
     </ul>

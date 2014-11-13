@@ -14,7 +14,8 @@ class UsersController < Devise::RegistrationsController
   def index
     users = resource_class
     users = users.currently_available if params[:availability] == 'now'
-    users = users.where(country: params[:place]) if params[:place] != nil
+    users = users.from_continent(params[:con_id].to_i) if params[:con_id]
+    users = users.from_country(params[:cou_id].to_i) if params[:cou_id]
     @users = users.order('last_sign_in_at DESC').page(params[:page])
   end
 
