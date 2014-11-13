@@ -128,8 +128,7 @@ RSpec.describe User do
         expect(Feedback.find_by(id: received_feedback.id)).to be_nil
       end
     end
-
-  end # feedbacks association
+  end
 
   describe 'when description too long' do
     before { user.description = 'a' * 2501 }
