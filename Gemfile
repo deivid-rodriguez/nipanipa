@@ -43,6 +43,7 @@ group :development do
   gem 'spring', branch: 'guard/listen2'
   gem 'guard-rspec', '4.3.1', require: false
   gem 'guard-livereload', '2.4.0', require: false
+  gem 'guard-rubocop', '1.2.0', require: false
   gem 'letter_opener', '1.2.0'
   gem 'capistrano-rails', '1.1.2'
   gem 'capistrano-rvm', '0.1.2'
