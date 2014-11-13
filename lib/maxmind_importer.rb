@@ -1,4 +1,6 @@
 require 'zip'
+Zip.on_exists_proc = true
+
 require 'progress_bar'
 
 #
