@@ -1,7 +1,9 @@
 ---
 language: ruby
+
 rvm:
 - 2.1
+
 env:
   global:
   - PAYPAL_URL=https://www.sandbox.paypal.com/cgi-bin/webscr?
@@ -27,7 +29,9 @@ env:
       FO6RY9omEOK21JPCwAtN6exMFFaURnmETk4u3hKTBtuiGVLt48nqpNRkpbiT
       nkc57E8i9vlssZgncYDsxE5dVYNVX8e3Z1UBlOz6h2qlyF+DHP5bCe59LhdD
       n/JUv72go5Kp7Hla+sXCbyobGZIguW17n6Wr17jNYge9858ygec=
+
 bundler_args: --without development
+
 script:
 - bundle exec rake db:create_user
 - bundle exec rake db:setup
