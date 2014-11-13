@@ -45,7 +45,7 @@ Rails.application.configure do
   config.middleware.use SpoofIp, ENV['FAKE_IP']
 
   # Use Pry as the default console
-  config.console = Pry
+  config.console = Pry unless ENV['CI']
 
   # Your secret key is used for verifying the integrity of signed cookies. If
   # you change this key, all old signed cookies will become invalid!
