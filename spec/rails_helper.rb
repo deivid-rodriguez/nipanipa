@@ -23,7 +23,16 @@ RSpec.configure do |config|
   config.include Devise::TestHelpers, type: :controller
   config.include Warden::Test::Helpers, type: :feature
 
-  config.before(:suite) { Warden.test_mode! }
+  config.before(:suite) do
+    begin
+      DatabaseCleaner.start
+      FactoryGirl.lint
+    ensure
+      DatabaseCleaner.clean
+    end
+
+    Warden.test_mode!
+  end
 
   config.after(:each) do
     Warden.test_reset!
