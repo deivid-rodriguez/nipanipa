@@ -1,212 +1,212 @@
 it:
   continents:
-    AF: África
-    AS: Asia
-    EU: Europa
-    NA: Nord America
-    OC: Oceanía
-    SA: Sud America
+    af: África
+    as: Asia
+    eu: Europa
+    na: Nord America
+    oc: Oceanía
+    sa: Sud America
   countries:
-    AF:
-      AO: Angola
-      BF: Burkina Faso
-      BI: Burundi
-      BJ: Benin
-      BW: Botswana
-      CD: Repubblica Democratica del Congo
-      CF: Repubblica Centrafricana
-      CG: Repubblica del Congo
-      CI: Costa d'Avorio
-      CM: Camerun
-      CV: Capo Verde
-      DJ: Gibuti
-      DZ: Algeria
-      EG: Egitto
-      ER: Eritrea
-      ET: Etiopia
-      GA: Gabon
-      GH: Ghana
-      GM: Gambia
-      GN: Guinea
-      GQ: Guinea Equatoriale
-      GW: Guinea-Bissau
-      KE: Kenya
-      KM: Comore
-      LR: Liberia
-      LS: Lesotho
-      LY: Libia
-      MA: Marocco
-      MG: Madagascar
-      ML: Mali
-      MR: Mauritania
-      MU: Mauritius
-      MW: Malawi
-      MZ: Mozambico
-      NA: Namibia
-      NE: Niger
-      NG: Nigeria
-      RW: Ruanda
-      SC: Seychelles
-      SD: Sudan
-      SL: Sierra Leone
-      SN: Senegal
-      SO: Somalia
-      SS: Sudan del Sud
-      ST: São Tomé e Príncipe
-      SZ: Swaziland
-      TD: Ciad
-      TG: Togo
-      TN: Tunisia
-      TZ: Tanzania
-      UG: Uganda
-      ZA: Repubblica Sudafricana
-      ZM: Zambia
-      ZW: Zimbabwe
-    AS:
-      AE: Emirati Arabi Uniti
-      AF: Afghanistán
-      AM: Armenia
-      AZ: Azerbaigian
-      BD: Bangladesh
-      BH: Bahrein
-      BN: Brunei
-      BT: Bhutan
-      CN: Cina
-      GE: Georgia
-      ID: Indonesia
-      IL: Israele
-      IN: India
-      IQ: Iraq
-      IR: Iran
-      JO: Giordania
-      JP: Giappone
-      KG: Kirghizistan
-      KH: Cambogia
-      KP: Corea del Nord
-      KR: Corea del Sud
-      KW: Kuwait
-      KZ: Kazakistan
-      LA: Laos
-      LB: Libano
-      LK: Sri Lanka
-      MM: Birmania
-      MN: Mongolia
-      MV: Maldive
-      MY: Malesia
-      NP: Nepal
-      OM: Oman
-      PH: Filippine
-      PK: Pakistan
-      PS: Palestina
-      QA: Qatar
-      SA: Arabia Saudita
-      SG: Singapore
-      SY: Siria
-      TH: Thailandia
-      TJ: Tagikistan
-      TM: Turkmenistan
-      TR: Turchia
-      TW: Taiwan
-      UZ: Uzbekistan
-      VN: Vietnam
-      YE: Yemen
-    EU:
-      AD: Andorra
-      AL: Albania
-      AT: Austria
-      BA: Bosnia ed Erzegovina
-      BE: Belgio
-      BG: Bulgaria
-      BY: Bielorussia
-      CH: Svizzera
-      CY: Cipro
-      CZ: Repubblica Ceca
-      DE: Germania
-      DK: Danimarca
-      EE: Estonia
-      ES: Spagna
-      FI: Finlandia
-      FR: Francia
-      GB: Regno Unito
-      GR: Grecia
-      HR: Croazia
-      HU: Ungheria
-      IE: Irlanda
-      IS: Islanda
-      IT: Italia
-      LI: Liechtenstein
-      LT: Lituania
-      LU: Lussemburgo
-      LV: Lettonia
-      MC: Monaco
-      MD: Moldavia
-      ME: Montenegro
-      MK: Macedonia
-      MT: Malta
-      NL: Paesi Bassi
-      'NO': Norvegia
-      PL: Polonia
-      PT: Portogallo
-      RO: Romania
-      RS: Serbia
-      RU: Russia
-      SE: Svezia
-      SI: Slovenia
-      SK: Slovacchia
-      SM: San Marino
-      UA: Ucraina
-      VA: Città del Vaticano
-      XK: Kosovo
-    NA:
-      AG: Antigua e Barbuda
-      BB: Barbados
-      BS: Bahamas
-      BZ: Belize
-      CA: Canada
-      CR: Costa Rica
-      CU: Cuba
-      DM: Dominica
-      DO: Repubblica Dominicana
-      GD: Grenada
-      GT: Guatemala
-      HN: Honduras
-      HT: Haiti
-      JM: Giamaica
-      KN: Saint Kitts e Nevis
-      LC: Santa Lucia
-      MX: Messico
-      NI: Nicaragua
-      PA: Panamá
-      SV: El Salvador
-      TT: Trinidad e Tobago
-      US: Stati Uniti
-      VC: Saint Vicent e Grenadine
-    OC:
-      AU: Australia
-      FJ: Figi
-      FM: Micronesia
-      KI: Kiribati
-      MH: Isole Marshall
-      NR: Nauru
-      NZ: Nuova Zelanda
-      PG: Papua Nuova Guinea
-      PW: Palau
-      SB: Isole Salomone
-      TL: Timor Est
-      TO: Tonga
-      TV: Tuvalu
-      VU: Vanuatu
-      WS: Samoa
-    SA:
-      AR: Argentina
-      BO: Bolivia
-      BR: Brasile
-      CL: Cile
-      CO: Colombia
-      EC: Ecuador
-      GY: Guyana
-      PE: Perù
-      PY: Paraguay
-      SR: Suriname
-      UY: Uruguay
-      VE: Venezuela
+    af:
+      ao: Angola
+      bf: Burkina Faso
+      bi: Burundi
+      bj: Benin
+      bw: Botswana
+      cd: Repubblica Democratica del Congo
+      cf: Repubblica Centrafricana
+      cg: Repubblica del Congo
+      ci: Costa d'Avorio
+      cm: Camerun
+      cv: Capo Verde
+      dj: Gibuti
+      dz: Algeria
+      eg: Egitto
+      er: Eritrea
+      et: Etiopia
+      ga: Gabon
+      gh: Ghana
+      gm: Gambia
+      gn: Guinea
+      gq: Guinea Equatoriale
+      gw: Guinea-Bissau
+      ke: Kenya
+      km: Comore
+      lr: Liberia
+      ls: Lesotho
+      ly: Libia
+      ma: Marocco
+      mg: Madagascar
+      ml: Mali
+      mr: Mauritania
+      mu: Mauritius
+      mw: Malawi
+      mz: Mozambico
+      na: Namibia
+      ne: Niger
+      ng: Nigeria
+      rw: Ruanda
+      sc: Seychelles
+      sd: Sudan
+      sl: Sierra Leone
+      sn: Senegal
+      so: Somalia
+      ss: Sudan del Sud
+      st: São Tomé e Príncipe
+      sz: Swaziland
+      td: Ciad
+      tg: Togo
+      tn: Tunisia
+      tz: Tanzania
+      ug: Uganda
+      za: Repubblica Sudafricana
+      zm: Zambia
+      zw: Zimbabwe
+    as:
+      ae: Emirati Arabi Uniti
+      af: Afghanistán
+      am: Armenia
+      az: Azerbaigian
+      bd: Bangladesh
+      bh: Bahrein
+      bn: Brunei
+      bt: Bhutan
+      cn: Cina
+      ge: Georgia
+      id: Indonesia
+      il: Israele
+      in: India
+      iq: Iraq
+      ir: Iran
+      jo: Giordania
+      jp: Giappone
+      kg: Kirghizistan
+      kh: Cambogia
+      kp: Corea del Nord
+      kr: Corea del Sud
+      kw: Kuwait
+      kz: Kazakistan
+      la: Laos
+      lb: Libano
+      lk: Sri Lanka
+      mm: Birmania
+      mn: Mongolia
+      mv: Maldive
+      my: Malesia
+      np: Nepal
+      om: Oman
+      ph: Filippine
+      pk: Pakistan
+      ps: Palestina
+      qa: Qatar
+      sa: Arabia Saudita
+      sg: Singapore
+      sy: Siria
+      th: Thailandia
+      tj: Tagikistan
+      tm: Turkmenistan
+      tr: Turchia
+      tw: Taiwan
+      uz: Uzbekistan
+      vn: Vietnam
+      ye: Yemen
+    eu:
+      ad: Andorra
+      al: Albania
+      at: Austria
+      ba: Bosnia ed Erzegovina
+      be: Belgio
+      bg: Bulgaria
+      by: Bielorussia
+      ch: Svizzera
+      cy: Cipro
+      cz: Repubblica Ceca
+      de: Germania
+      dk: Danimarca
+      ee: Estonia
+      es: Spagna
+      fi: Finlandia
+      fr: Francia
+      gb: Regno Unito
+      gr: Grecia
+      hr: Croazia
+      hu: Ungheria
+      ie: Irlanda
+      is: Islanda
+      it: Italia
+      li: Liechtenstein
+      lt: Lituania
+      lu: Lussemburgo
+      lv: Lettonia
+      mc: Monaco
+      md: Moldavia
+      me: Montenegro
+      mk: Macedonia
+      mt: Malta
+      nl: Paesi Bassi
+      'no': Norvegia
+      pl: Polonia
+      pt: Portogallo
+      ro: Romania
+      rs: Serbia
+      ru: Russia
+      se: Svezia
+      si: Slovenia
+      sk: Slovacchia
+      sm: San Marino
+      ua: Ucraina
+      va: Città del Vaticano
+      xk: Kosovo
+    na:
+      ag: Antigua e Barbuda
+      bb: Barbados
+      bs: Bahamas
+      bz: Belize
+      ca: Canada
+      cr: Costa Rica
+      cu: Cuba
+      dm: Dominica
+      do: Repubblica Dominicana
+      gd: Grenada
+      gt: Guatemala
+      hn: Honduras
+      ht: Haiti
+      jm: Giamaica
+      kn: Saint Kitts e Nevis
+      lc: Santa Lucia
+      mx: Messico
+      ni: Nicaragua
+      pa: Panamá
+      sv: El Salvador
+      tt: Trinidad e Tobago
+      us: Stati Uniti
+      vc: Saint Vicent e Grenadine
+    oc:
+      au: Australia
+      fj: Figi
+      fm: Micronesia
+      ki: Kiribati
+      mh: Isole Marshall
+      nr: Nauru
+      nz: Nuova Zelanda
+      pg: Papua Nuova Guinea
+      pw: Palau
+      sb: Isole Salomone
+      tl: Timor Est
+      to: Tonga
+      tv: Tuvalu
+      vu: Vanuatu
+      ws: Samoa
+    sa:
+      ar: Argentina
+      bo: Bolivia
+      br: Brasile
+      cl: Cile
+      co: Colombia
+      ec: Ecuador
+      gy: Guyana
+      pe: Perù
+      py: Paraguay
+      sr: Suriname
+      uy: Uruguay
+      ve: Venezuela

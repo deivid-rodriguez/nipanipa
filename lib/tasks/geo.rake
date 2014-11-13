@@ -5,10 +5,12 @@ namespace :db do
   def load_countries
     data = YAML.load(File.read("#{Rails.root}/config/locales/en/geo.yml"))
     data['en']['continents'].each do |continent_code, _|
-      continent = Continent.find_or_create_by!(code: continent_code)
+      con_iso = continent_code.upcase
+      continent = Continent.find_or_create_by!(code: con_iso)
 
-      data['en']['countries'][continent_code].each do |code, _|
-        Country.find_or_create_by!(code: code, continent_id: continent.id)
+      data['en']['countries'][continent_code].each do |country_code, _|
+        cou_iso = country_code.upcase
+        Country.find_or_create_by!(code: cou_iso, continent_id: continent.id)
       end
     end
   end
