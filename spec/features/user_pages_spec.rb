@@ -2,188 +2,120 @@
 # Integration tests for User pages
 #
 
-RSpec.shared_examples_for 'user profile' do
-  it 'has the user name in the title' do
-    expect(page).to have_title user.name
+RSpec.shared_examples_for 'A user profile creation' do
+  let(:create_btn) { t('helpers.submit.user.create') }
+  let(:role) { klass.name.underscore }
+  let!(:user) do
+    build(role.to_sym, work_types: create_list(:work_type, 5).sample(3))
+  end
+  let(:header) do
+    t('users.new.header', type: t("activerecord.models.#{role}")).titleize
   end
 
-  it 'has the user description' do
-    expect(page).to have_content(user.description)
+  before do
+    create(:language, code: I18n.locale)
+    visit new_user_registration_path(type: role)
   end
 
-  it 'has all received feedback' do
-    user.received_feedbacks.each do |f|
-      expect(page).to have_content(f.content)
+  it 'shows correct header' do
+    expect(page).to have_selector 'h1', text: header
+  end
+
+  it 'shows correct page title' do
+    expect(page).to have_title full_title(t 'users.new.title')
+  end
+
+  it 'shows home link' do
+    expect(page).to have_link 'NiPaNiPa'
+  end
+
+  context 'when submitting invalid information' do
+    before do
+      expect { click_button create_btn }.not_to change(klass, :count)
+    end
+
+    it 'goes back to new user page' do
+      expect(page).to have_title t('users.new.title')
+    end
+
+    it 'shows a field with an error' do
+      expect(page).to have_selector '.has-error'
     end
   end
 
-  it 'has the count of received feedback' do
-    expect(page).to have_content(user.received_feedbacks.count)
-  end
+  context 'when submitting valid information' do
+    before do
+      within '.signup-form' do
+        fill_in 'user[name]', with: user.name
+        fill_in 'user[email]', with: user.email
+        fill_in 'user[password]', with: user.password
+        fill_in 'user[password_confirmation]', with: user.password
+        fill_in 'user[description]', with: user.description
+        user.work_type_ids.each { |id| check "user_work_type_ids_#{id}" }
+        check 'user_availability_feb'
+      end
 
-  it 'has all sent feedback' do
-    user.sent_feedbacks.each { |f| expect(page).to have_content(f.content) }
-  end
+      expect { click_button create_btn }.to change(klass, :count).by(1)
+    end
 
-  it 'has the count of sent feedback' do
-    expect(page).to have_content(user.sent_feedbacks.count)
-  end
+    it 'has the user name in the title' do
+      expect(page).to have_title user.name
+    end
 
-  it 'has all of user worktypes' do
-    user.work_types.each { |wt| expect(page).to have_content(wt.name) }
-  end
+    it 'has the user description' do
+      expect(page).to have_content(user.description)
+    end
 
-  it 'has correct user availability' do
-    expect(page).to have_content('✘ ✔ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘')
+    it 'has all received feedback' do
+      user.received_feedbacks.each do |f|
+        expect(page).to have_content(f.content)
+      end
+    end
+
+    it 'has the count of received feedback' do
+      expect(page).to have_content(user.received_feedbacks.count)
+    end
+
+    it 'has all sent feedback' do
+      user.sent_feedbacks.each { |f| expect(page).to have_content(f.content) }
+    end
+
+    it 'has the count of sent feedback' do
+      expect(page).to have_content(user.sent_feedbacks.count)
+    end
+
+    it 'has all of user worktypes' do
+      user.work_types.each { |wt| expect(page).to have_content(wt.name) }
+    end
+
+    it 'has correct user availability' do
+      expect(page).to have_content('✘ ✔ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘')
+    end
+
+    it 'shows new user profile' do
+      expect(page).to have_title user.name
+    end
+
+    it 'shows a success flash message' do
+      expect(page).to have_flash_message t('devise.users.signed_up'), 'success'
+    end
+
+    it 'shows a logout link' do
+      expect(page).to have_link t('sessions.signout')
+    end
   end
 end
 
-RSpec.describe 'Profile creation' do
-  let(:work_types) { create_list(:work_type, 5) }
+RSpec.describe 'Host profile creation' do
+  let!(:klass) { Host }
 
-  describe 'Host' do
-    let!(:host) { build(:host, work_types: work_types.sample(3)) }
-    let(:create_user_btn) { t('helpers.submit.user.create') }
-    let(:host_header) do
-      host_i18n = t('activerecord.models.host')
-      t('users.new.header', type: host_i18n).titleize
-    end
+  it_behaves_like 'A user profile creation'
+end
 
-    before do
-      create(:language, code: I18n.locale)
-      visit new_user_registration_path(type: 'host')
-    end
+RSpec.describe 'Host profile creation' do
+  let!(:klass) { Volunteer }
 
-    it 'shows correct header' do
-      expect(page).to have_selector 'h1', text: host_header
-    end
-
-    it 'shows correct page title' do
-      expect(page).to have_title full_title(t 'users.new.title')
-    end
-
-    it 'shows home link' do
-      expect(page).to have_link 'NiPaNiPa'
-    end
-
-    context 'when submitting invalid information' do
-      before do
-        expect { click_button create_user_btn }.not_to change(Host, :count)
-      end
-
-      it 'goes back to new user page' do
-        expect(page).to have_title t('users.new.title')
-      end
-
-      it 'shows a field with an error' do
-        expect(page).to have_selector '.has-error'
-      end
-    end
-
-    context 'when submitting valid information' do
-      before do
-        within '.signup-form' do
-          fill_in 'user[name]', with: host.name
-          fill_in 'user[email]', with: host.email
-          fill_in 'user[password]', with: host.password
-          fill_in 'user[password_confirmation]', with: host.password
-          fill_in 'user[description]', with: host.description
-          host.work_type_ids.each { |id| check "user_work_type_ids_#{id}" }
-          check 'user_availability_feb'
-        end
-
-        expect { click_button create_user_btn }.to change(Host, :count).by(1)
-      end
-
-      it 'shows new host profile' do
-        expect(page).to have_title host.name
-      end
-
-      it 'shows a success flash message' do
-        expect(page).to \
-          have_flash_message t('devise.users.signed_up'), 'success'
-      end
-
-      it 'shows a logout link' do
-        expect(page).to have_link t('sessions.signout')
-      end
-    end
-  end
-
-  describe 'Volunteer' do
-    let(:volunteer)       { build(:volunteer) }
-    let(:create_user_btn) { t('helpers.submit.user.create') }
-    let(:volunteer_header) do
-      volunteer_i18n = t('activerecord.models.volunteer')
-      t('users.new.header', type: volunteer_i18n).titleize
-    end
-
-    subject { page }
-
-    before do
-      create(:language, code: I18n.locale)
-      visit new_user_registration_path(type: 'volunteer')
-    end
-
-    it 'shows correct header' do
-      expect(page).to have_selector 'h1', text: volunteer_header
-    end
-
-    it 'shows correct page title' do
-      expect(page).to have_title full_title(t 'users.new.title')
-    end
-
-    it 'shows home link' do
-      expect(page).to have_link 'NiPaNiPa'
-    end
-
-    context 'when submitting invalid information' do
-      before do
-        expect { click_button create_user_btn }.not_to \
-          change(Volunteer, :count)
-      end
-
-      it 'goes back to new user page' do
-        expect(page).to have_title t('users.new.title')
-      end
-
-      it 'shows a field with an error' do
-        expect(page).to have_selector '.has-error'
-      end
-    end
-
-    context 'when submitting valid information' do
-      before do
-        within '.signup-form' do
-          fill_in 'user[name]', with: volunteer.name
-          fill_in 'user[email]', with: volunteer.email
-          fill_in 'user[password]', with: volunteer.password
-          fill_in 'user[password_confirmation]', with: volunteer.password
-          fill_in 'user[description]', with: volunteer.description
-          volunteer.work_type_ids.each { |i| check "user_work_type_ids_#{i}" }
-          check 'user_availability_feb'
-        end
-
-        expect { click_button create_user_btn }.to \
-          change(Volunteer, :count).by(1)
-      end
-
-      it_behaves_like('user profile') { let(:user) { volunteer } }
-
-      it 'shows new volunteer profile' do
-        expect(page).to have_title volunteer.name
-      end
-
-      it 'shows a success flash message' do
-        expect(page).to \
-          have_flash_message t('devise.users.signed_up'), 'success'
-      end
-
-      it 'shows a logout link' do
-        expect(page).to have_link t('sessions.signout')
-      end
-    end
-  end
+  it_behaves_like 'A user profile creation'
 end
 
 RSpec.describe 'User profile context' do
