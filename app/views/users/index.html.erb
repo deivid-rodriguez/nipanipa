@@ -37,8 +37,7 @@
             <% continent.countries.each do |country| %>
               <li>
                 <%= link_to t("countries.#{code}.#{country.code}"),
-                            users_path(params.merge(place: country.code)),
-                            class: 'country_link' %>
+                            users_path(params.merge(place: country.code)) %>
               </li>
             <% end %>
           </ul>
