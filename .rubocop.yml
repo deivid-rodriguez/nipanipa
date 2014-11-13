@@ -9,3 +9,6 @@ AllCops:
 
 Style/ModuleFunction:
   Enabled: false
+
+Style/Lambda:
+  Enabled: false
