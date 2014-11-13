@@ -12,7 +12,7 @@
       </li>
 
       <li class='nav-header'><%= t '.people' %></li>
-      <li class="<%= 'active' if params[:type].nil? %>">
+      <li class="<%= 'active' unless params[:type] %>">
         <%= link_to t('.all'), users_path(params.except(:type)) %>
       </li>
       <li class="<%= 'active' if params[:type] == 'host' %>">
