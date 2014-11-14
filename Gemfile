@@ -21,6 +21,7 @@ gem 'quiet_assets', '1.0.3'
 # Frontend stuff
 gem 'jquery-rails', '3.1.2'
 gem 'turbolinks', '2.5.2'
+gem 'jquery-turbolinks', '2.1.0'
 gem 'coffee-rails', '4.1.0'
 gem 'bootstrap-sass', '3.3.1.0'
 gem 'sass-rails', '4.0.4'

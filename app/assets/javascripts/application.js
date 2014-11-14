@@ -12,9 +12,10 @@
 // details about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap
 //= require cocoon
 //= require responsiveslides.js
 //= require_tree .
+//= require turbolinks
