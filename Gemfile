@@ -12,17 +12,19 @@ gem 'simple_form', '3.1.0.rc2'
 gem 'devise', '3.4.1'
 gem 'devise-i18n', '0.11.2'
 gem 'cancancan', '1.9.2'
-gem 'jquery-rails', '3.1.2'
 gem 'enumerize', '0.8.0'
 gem 'cocoon', '1.2.6'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick', '4.0.0'
+gem 'quiet_assets', '1.0.3'
+
+# Frontend stuff
+gem 'jquery-rails', '3.1.2'
+gem 'turbolinks', '2.5.2'
+gem 'coffee-rails', '4.1.0'
 gem 'bootstrap-sass', '3.3.1.0'
 gem 'sass-rails', '4.0.4'
-gem 'coffee-rails', '4.1.0'
 gem 'uglifier', '2.5.3'
-gem 'turbolinks', '2.5.2'
-gem 'quiet_assets', '1.0.3'
 
 gem 'activeadmin', github: 'activeadmin'
 
