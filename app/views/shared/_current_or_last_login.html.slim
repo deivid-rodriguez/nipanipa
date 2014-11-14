@@ -1,0 +1,9 @@
+/ TODO: This doesn't work because trackable doesn't work as I expected.It could
+/ be fixed (i think) by adding a Warden's before_logout hook
+- if false
+  - if user.current_sign_in_at
+    = t '.currently_logged_in'
+- else
+  - last_sign_in = user.last_sign_in_at
+  = t('.last_login')
+  | : #{t('datetime.timestamp_ago', time: time_ago_in_words(last_sign_in))}

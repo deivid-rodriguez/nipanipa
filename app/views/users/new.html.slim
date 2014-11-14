@@ -1,0 +1,9 @@
+- provide :title, t('.title')
+
+h1.signup-title
+  - role = resource.type.underscore
+  = image_tag "#{role}.png"
+  = t('.header', type: t("activerecord.models.#{role}")).titleize
+
+.signup-form
+  = render 'form'

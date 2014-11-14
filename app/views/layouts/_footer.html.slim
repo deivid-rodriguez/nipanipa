@@ -1,0 +1,35 @@
+footer.nipa-container
+  nav.footer-links
+    ul
+      li
+        small
+          - trastevere_site = 'http://trasteverestudio.com'
+          | (ↄ) 2013 NiPaNiPa by #{link_to 'Trastévere', trastevere_site}
+
+      li= link_to t('static_pages.terms.title')  , terms_path
+
+      li= link_to t('static_pages.about.title')  , about_path
+
+      li= link_to t('static_pages.contact.title'), contact_path
+
+  nav.social-links
+    ul
+      li
+        = link_to 'https://www.facebook.com/pages/Nipa-Nipa/282213028588722' do
+          = image_tag 'facebook.png', alt: 'Facebook'
+
+      li
+        = link_to 'https://twitter.com/nipanipaproject' do
+          = image_tag 'twitter.png', alt: 'Twitter'
+
+      li
+        = link_to 'https://github.com/deivid-rodriguez/nipanipa' do
+          = image_tag 'github.png', alt: 'Github'
+
+      li
+        = link_to '' do
+          = image_tag 'pinterest.png', alt: 'pinterest'
+
+      li
+        = link_to '' do
+          = image_tag 'vimeo.png', alt: 'vimeo'

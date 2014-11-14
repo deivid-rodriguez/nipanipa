@@ -1,0 +1,15 @@
+doctype html
+
+html
+  = render 'layouts/head'
+
+  body
+    .cover
+      = render 'layouts/header'
+
+      = render 'layouts/messages'
+
+      .nipa-container
+        = yield
+
+    = render 'layouts/footer'

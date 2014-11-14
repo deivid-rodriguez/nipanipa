@@ -1,0 +1,10 @@
+.quickinfo id="#{name}info"
+  .label_info
+    = image_tag "#{name}.png"
+
+  .content_info
+    span
+      strong
+        | #{t(".#{name}")}:
+
+    |  #{content}

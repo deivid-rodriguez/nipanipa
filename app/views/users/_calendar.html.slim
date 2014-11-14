@@ -1,0 +1,11 @@
+table.calendar
+  tr
+    - User::AVAILABILITY.each do |m|
+      th= l(Date.strptime(m, '%b'), format: :month)
+  tr
+    - User::AVAILABILITY.each do |m|
+      td
+        - if availability.include?(m)
+          | ✔
+        - else
+          | ✘

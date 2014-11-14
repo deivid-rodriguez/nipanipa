@@ -1,0 +1,13 @@
+- provide :title, t('.title')
+
+div class="profile-header-#{@user.type.underscore}"
+  = render 'shared/profile_header', user: @user,
+                                    page_id: @page_id,
+                                    given_feedback: @given_feedback
+
+.profile-content
+  - if can? :manage, @user
+    p.new-picture
+      = link_to t('.new_picture'), new_user_picture_path(current_user)
+
+  = render 'pictures', pictures: @pictures, user: @user

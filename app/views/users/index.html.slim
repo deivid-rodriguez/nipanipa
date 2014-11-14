@@ -1,0 +1,39 @@
+= provide :title, t('.title')
+
+.main-page
+  aside.sidebar-users
+    ul.nav.nav-pills.nav-stacked
+      li.nav-header= t '.availability'
+      li class=('active' if params[:availability].nil?)
+        = link_to t('.whenever'), users_path(params.except(:availability))
+
+      li class=('active' if params[:availability] == 'now')
+        = link_to t('.now'), users_path(params.merge(availability: 'now'))
+
+      li.nav-header= t '.people'
+
+      li class=('active' unless params[:type])
+        = link_to t('.all'), users_path(params.except(:type))
+
+      li class=('active' if params[:type] == 'host')
+        = link_to t('.hosts'), users_path(params.merge(type: 'host'))
+
+      li class=('active' if params[:type] == 'volunteer')
+        = link_to t('.volunteers'), users_path(params.merge(type: 'volunteer'))
+
+      li.nav-header= t '.places'
+
+      li class=('active' unless params[:con_id])
+        = link_to t('.wherever'), users_path(params.except(:con_id))
+
+      - Continent.find_each do |con|
+        - con_code = con.code.downcase
+        li class=('active' if params[:con_id] == con.id.to_s)
+          = link_to t("continents.#{con_code}"),
+                    users_path(params.merge(con_id: con.id))
+
+  .list-users
+    ul.user-thumbnails
+      = render @users
+
+    = paginate @users

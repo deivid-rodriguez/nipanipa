@@ -1,0 +1,44 @@
+nav.navbar.navbar-default
+  .navbar-wrapper
+    .navbar-header
+      = link_to root_path, class: 'navbar-brand' do
+        - if params[:action] == 'home'
+          = image_tag 'logo_home.png', alt: 'NiPaNiPa'
+        - else
+          = image_tag 'logo.png', alt: 'NiPaNiPa'
+    .navbar-collapse.collapse.navbar-right
+      ul.nav.navbar-nav.pull-right
+        li= link_to t('.donate'), new_donation_path
+        li= link_to t('.search'), users_path
+        li= link_to t('static_pages.help.title'), help_path
+        - if user_signed_in?
+          li = link_to t('users.show.profile'), current_user
+        - elsif !signup_page?(request.path)
+          li.dropdown
+            a.dropdown-toggle data-toggle='dropdown' href='#'
+              = t 'static_pages.home.signup'
+              b.caret
+            ul.header-dropdown-menu
+              li = link_to t('activerecord.models.host'),
+                           new_user_registration_path(type: 'host')
+              li = link_to t('activerecord.models.volunteer'),
+                           new_user_registration_path(type: 'volunteer')
+        - if user_signed_in?
+          li = link_to t('sessions.signout'), destroy_user_session_path,
+                                             method: :delete
+        - elsif !(request.path =~ /signin/)
+          li.dropdown
+            a.dropdown-toggle data-toggle='dropdown' href='#'
+              = t  'sessions.signin'
+              strong.caret
+            .header-dropdown-menu
+              .signin-dropdown = render 'shared/signin'
+        li.dropdown
+          a.dropdown-toggle data-toggle='dropdown' href='#'
+            = t '.language'
+            b.caret
+          ul.header-dropdown-menu
+            - LANGUAGES.each do |language|
+              li
+                = link_to_unless_current language[0], locale: language[1],
+                                                      type: params[:type]

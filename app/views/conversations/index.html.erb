@@ -1,9 +1,0 @@
-<% provide :title, t('.title') %>
-
-<div class="profile-header-<%= @user.type.underscore %>">
-  <%= render 'shared/profile_header', user: current_user, page_id: @page_id %>
-</div>
-
-<div class='profile-content'>
-  <%= render 'conversations', conversations: @conversations %>
-</div>

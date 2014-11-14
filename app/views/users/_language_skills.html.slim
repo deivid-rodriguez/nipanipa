@@ -1,0 +1,9 @@
+.form-group.col-md-12
+  label.control-label
+    = t('.title')
+  .controls
+    #language_skills
+      = f.simple_fields_for :language_skills, wrapper: false do |builder|
+        = render 'language_skill_fields', f: builder
+    #language-add.links
+      = link_to_add_association t('.add_language'), f, :language_skills

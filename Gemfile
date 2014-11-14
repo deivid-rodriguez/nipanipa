@@ -32,6 +32,8 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'rubyzip', '1.1.6', require: false
 gem 'progress_bar', '1.0.3', require: false
 
+gem 'slim-rails', '2.1.5'
+
 group :development, :test do
   gem 'byebug', '3.5.1' unless ENV['CI']
   gem 'rspec-rails', '3.1.0'

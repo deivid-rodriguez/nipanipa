@@ -1,0 +1,28 @@
+doctype html
+
+html
+  head
+    meta content='text/html; charset=utf-8' http-equiv='Content-Type' /
+    css:
+      | body, td {
+        | color: #000000;
+        | font-size: 14px;
+        | font-family: Helvetica, Arial, sans-serif;
+      | }
+
+  body
+    table#background border='0' cellpadding='0' cellspacing='0' width='100%'
+      tr
+        td align='center' valign='top'
+          table#main border='0' cellpadding='0' cellspacing='10' width='650'
+            tr
+              td#header colspan='2'
+                = link_to image_tag('logo.png'), ENV['MAIL_HOST']
+
+            tr.message
+              td valign='top'
+                p= t('.greeting', name: @msg.to.name)
+                p
+                  = t('.message')
+                  = link_to conversation_url(@msg.conversation),
+                            conversation_url(@msg.conversation)

@@ -1,0 +1,38 @@
+- provide :title, @user.name
+
+div class="profile-header-#{@user.type.underscore}"
+  = render 'shared/profile_header', user: @user,
+                                    page_id: @page_id,
+                                    given_feedback: @given_feedback
+
+.profile-content
+  .col-md-6
+    .box
+      = render 'edit_link', user: @user
+      h3= t '.description'
+      p= simple_format(auto_link(@user.description))
+
+    .box
+      = render 'edit_link', user: @user
+      h3= t ".skills_#{@user.type.underscore}"
+      p= simple_format(@user.skills)
+
+  .col-md-6
+    .box
+      = render 'edit_link', user: @user
+      h3= t('.availability')
+      = render 'calendar', availability: @user.availability
+
+    - if @user.type == 'Host'
+      .box
+        = render 'edit_link', user: @user
+        h3= t ".accomodation"
+        p= simple_format(@user.accomodation)
+
+    .box
+      h3= link_to t('.pictures'), user_pictures_path(@user)
+      = render 'pictures', pictures: @user.pictures
+
+    .box
+      h3= link_to feedback_count(@feedback_pairs), user_feedbacks_path(@user)
+      = render partial: 'feedbacks/feedbacks', object: @feedback_pairs

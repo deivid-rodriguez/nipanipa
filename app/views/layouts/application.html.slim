@@ -1,0 +1,9 @@
+doctype html
+html
+  = render 'layouts/head'
+  body
+    = render 'layouts/header'
+    = render 'layouts/messages'
+    .main-wrapper
+      = yield
+    = render 'layouts/footer'

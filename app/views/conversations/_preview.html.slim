@@ -1,0 +1,18 @@
+.row.conversation-preview
+  = link_to other_user(conversation) do
+    .col-md-3.conversation-other
+      = avatar_for other_user(conversation), style: :thumb_message
+      = other_user(conversation).name
+
+  = link_to conversation_path(conversation),
+            id: "show-link-#{conversation.id}" do
+    .col-md-6.conversation-subject = conversation.subject
+
+    .col-md-3.conversation-date = l conversation.updated_at
+
+  = link_to conversation_path(conversation),
+            method: :delete,
+            data: { confirm: t('.usure?') },
+            id: "delete-link-#{conversation.id}",
+            remote: true do
+    div id="delete-#{conversation.id}"

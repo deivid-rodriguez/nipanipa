@@ -1,0 +1,4 @@
+| $('#conversation-preview-#{@conversation.id}').remove();
+- if Conversation.non_deleted(current_user).empty?
+  | $('ul.conversation-list').replaceWith(
+  | '#{j render "shared/empty", message: "nomessages"}')

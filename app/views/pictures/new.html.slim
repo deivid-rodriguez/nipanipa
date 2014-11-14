@@ -1,0 +1,9 @@
+- provide :title, t('.title')
+.col-md-12
+  .row.main-titled
+    .col-md-offset-2.col-md-8.title
+      h3= t('.title')
+    .col-md-offset-2.col-md-8.subtitle
+      em= t('.subtitle')
+    .col-md-offset-2.col-md-8.picture-form
+      = render partial: 'form', object: @pictures

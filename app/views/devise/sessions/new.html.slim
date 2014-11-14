@@ -1,0 +1,10 @@
+- provide :title, t('sessions.signin')
+
+.signin-thumbnail
+  .header
+    = image_tag 'host1_small.png', alt: 'host'
+    = image_tag 'volunteer1_small.png', alt: 'volunteer'
+    = image_tag 'explore_small.png', alt: 'explore'
+    h2= t('sessions.signin')
+
+  = render 'shared/signin'

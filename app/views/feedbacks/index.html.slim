@@ -1,0 +1,9 @@
+- provide :title, t('.title')
+
+div class="profile-header-#{@user.type.underscore}"
+  = render 'shared/profile_header', user: @user, \
+                                    page_id: @page_id, \
+                                    given_feedback: @given_feedback
+
+.profile-content
+  = render partial: 'feedbacks/feedbacks', object: @feedback_pairs

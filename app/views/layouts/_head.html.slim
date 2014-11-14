@@ -1,0 +1,22 @@
+- title = full_title(yield(:title))
+
+head
+  meta content="width=device-width, initial-scale=1.0" name="viewport"
+
+  title= title
+
+  - content = content_for?(:description) ? yield(:description) : title
+  meta content="#{content}" name="description"
+
+  = favicon_link_tag
+
+  = stylesheet_link_tag 'application', media: 'all',
+    'data-turbolinks-track' => true
+
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+
+  = csrf_meta_tags
+
+  = render 'layouts/shim'
+
+  = render 'layouts/analytics'

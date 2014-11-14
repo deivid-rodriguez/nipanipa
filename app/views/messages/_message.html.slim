@@ -1,0 +1,11 @@
+div class="row message-#{from_starter?(message) ? 'left' : 'right'}"
+  .col-md-2.message-from
+    = avatar_for message.from, style: :thumb_message
+
+  .col-md-10.message-content
+    .bubble-triangle
+
+    = simple_format(message.body)
+
+    p.message-date
+      = l message.created_at

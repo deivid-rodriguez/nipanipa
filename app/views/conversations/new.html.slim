@@ -1,0 +1,9 @@
+- provide :title, t('.title', username: @conversation.to.name)
+
+.col-md-12
+  .row.main-titled
+    .col-md-offset-2.col-md-8.title
+      h3= t('.title', username: @conversation.to.name)
+
+    .col-md-offset-2.col-md-8.conversation-form
+      = render 'form', conversation: @conversation

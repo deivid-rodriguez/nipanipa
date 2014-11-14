@@ -1,0 +1,15 @@
+= simple_form_for @donation, wrapper: :inline_form,
+                             html: { class: 'form-inline' } do |d|
+  = d.error_notification
+
+  = d.input :amount, wrapper: :inline_input_group do
+    span.input-group-addon $
+
+    = d.input_field :amount, as: :select,
+                             collection: 1..20,
+                             include_blank: false,
+                             class: 'form-control'
+
+    = d.hidden_field :user_id, value: current_user.try(:id)
+
+  = d.button :submit

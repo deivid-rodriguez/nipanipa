@@ -1,0 +1,11 @@
+= simple_form_for conversation, html: { class: 'form-horizontal' } do |f|
+  = f.error_notification
+
+  = f.input :subject
+
+  = f.fields_for :messages do |m|
+    = m.hidden_field :to_id, value: conversation.to.id
+    = m.hidden_field :from_id, value: current_user.id
+    = m.input :body
+
+  = f.button :submit

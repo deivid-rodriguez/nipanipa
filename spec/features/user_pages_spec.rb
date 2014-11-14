@@ -89,7 +89,7 @@ RSpec.shared_examples_for 'A user profile creation' do
     end
 
     it 'has correct user availability' do
-      expect(page).to have_content('✘ ✔ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘')
+      expect(page).to have_content('✘✔✘✘✘✘✘✘✘✘✘')
     end
 
     it 'shows new user profile' do

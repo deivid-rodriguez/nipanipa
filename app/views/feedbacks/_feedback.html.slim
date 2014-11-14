@@ -1,0 +1,28 @@
+div class="feedback #{type}" id="feedback-#{feedback.id}"
+  div class="thumb-avatar pull-#{type == 'sent' ? 'left' : 'right'}"
+    = link_to avatar_for(feedback.sender, style: :thumb), feedback.sender
+
+  - if feedback.sender == current_user
+    div class="pull-#{type == 'sent' ? 'left' : 'right'}"
+      .profile-edit-link
+        = link_to t('shared.edit'),
+                  edit_user_feedback_path(feedback.recipient, feedback)
+      .profile-delete-link
+        = link_to t('shared.delete'),
+                  user_feedback_path(feedback.recipient, feedback),
+                  method: :delete
+
+  .score-icon
+    = image_tag "#{feedback.score}.png", alt: feedback.score
+
+  .sender
+    - if type == 'sent'
+      strong= t '.to', name: feedback.recipient.name
+    - else
+      strong= t '.from', name: feedback.sender.name
+
+  .time_ago
+    = t 'datetime.timestamp_ago', time: time_ago_in_words(feedback.updated_at)
+
+  .content
+    = feedback.content
