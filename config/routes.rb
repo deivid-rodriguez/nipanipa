@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
   # first created -> highest priority.
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
 
@@ -31,4 +28,6 @@ Rails.application.routes.draw do
     root 'static_pages#home'
   end
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
 end
