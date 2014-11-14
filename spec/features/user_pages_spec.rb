@@ -8,9 +8,6 @@ RSpec.shared_examples_for 'A user profile creation' do
   let!(:user) do
     build(role.to_sym, work_types: create_list(:work_type, 5).sample(3))
   end
-  let(:header) do
-    t('users.new.header', type: t("activerecord.models.#{role}")).titleize
-  end
 
   before do
     create(:language, code: I18n.locale)
@@ -18,6 +15,9 @@ RSpec.shared_examples_for 'A user profile creation' do
   end
 
   it 'shows correct header' do
+    role_i18n = t("activerecord.models.#{role}")
+    header = t('users.new.header', type: role_i18n).titleize
+
     expect(page).to have_selector 'h1', text: header
   end
 
