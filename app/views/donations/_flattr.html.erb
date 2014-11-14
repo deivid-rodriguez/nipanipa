@@ -1,17 +1,6 @@
 <div class='flattr'>
-  <div class='flattr-btn'>
-    <script id='fb5tvs6'>
-      (function(i){
-        var f,s = document.getElementById(i);
-        f=document.createElement('iframe');
-        f.src='//api.flattr.com/button/view/?uid=nipanipa&url='+encodeURIComponent(document.URL);
-        f.title='Flattr';
-        f.height=69;
-        f.width=55;
-        f.style.borderWidth=0;
-        s.parentNode.insertBefore(f,s);
-      })('fb5tvs6');
-    </script>
-  </div>
   <%= t('.label') %>
+  <%= link_to '', 'http://nipanipa.com', class: 'FlattrButton',
+                                         title: 'Flattr',
+                                         'data-flattr-uid' => 'nipanipa' %>
 </div>
