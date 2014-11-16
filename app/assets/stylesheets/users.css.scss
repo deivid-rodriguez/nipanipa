@@ -95,7 +95,7 @@ h1.signup-title {
   .user-info {
     @include make-md-column(9);
     .user-name {
-      padding: 20px 0;
+      padding: 22px 0;
     }
     .user-icons {
       @include make-row;
