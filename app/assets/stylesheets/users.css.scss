@@ -113,18 +113,14 @@ h1.signup-title {
     .user-tabs {
       @include make-row;
       .send-message-link {
-        position: absolute;
-        bottom: -1px;
         right: 180px;
       }
       .leave-feedback-link {
-        position: absolute;
-        bottom: -1px;
         right: 10px;
       }
       .send-message-link, .leave-feedback-link {
-        border-top: 1px solid $grayVeryLight;
-        border-left: 1px solid $grayVeryLight;
+        position: absolute;
+        bottom: 0;
         padding: 6px 8px;
         font-size: 12px;
         line-height: 24px;
