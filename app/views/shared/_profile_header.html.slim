@@ -24,8 +24,8 @@
     ul.nav.nav-tabs
       = tab_builder(user, page_id)
     - if user_signed_in? and current_user != user
-      .leave-feedback-link
-        - unless given_feedback
+      - unless given_feedback
+        .leave-feedback-link
           = link_to new_user_feedback_path(user) do
             .label_info
               = image_tag 'feedback.png'
