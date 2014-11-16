@@ -15,6 +15,9 @@ h1.signup-title {
   textarea {
     height: 150px;
   }
+  form {
+    @include clearfix();
+  }
   .user_availability {
     label {
       display: block;
