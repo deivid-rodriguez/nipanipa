@@ -166,7 +166,7 @@ div.no-elements {
 
 .profile-content {
   @include make-row;
-  padding: 20px 0 0 0;
+  padding: 20px 0;
   .box {
     word-wrap: break-word;
     margin: 0px 0px 20px 0px;
