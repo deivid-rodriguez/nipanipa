@@ -6,7 +6,7 @@ module UsersHelper
     range = karma_to_type(user.karma)
     url = "#{user.type.underscore}#{range}_#{options[:style]}.png"
     alt = "#{user.type} avatar"
-    image_tag url, alt: alt
+    link_to image_tag(url, alt: alt), user
   end
 
   def karma_to_type(karma)
