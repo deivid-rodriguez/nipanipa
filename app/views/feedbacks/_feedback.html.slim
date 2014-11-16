@@ -12,17 +12,17 @@ div class="feedback #{type}" id="feedback-#{feedback.id}"
                   user_feedback_path(feedback.recipient, feedback),
                   method: :delete
 
+  .info
+    .sender
+      - if type == 'sent'
+        strong= t '.to', name: feedback.recipient.name
+      - else
+        strong= t '.from', name: feedback.sender.name
+    .time-ago
+      = t 'datetime.timestamp_ago', time: time_ago_in_words(feedback.updated_at)
+
   .score-icon
     = image_tag "#{feedback.score}.png", alt: feedback.score
-
-  .sender
-    - if type == 'sent'
-      strong= t '.to', name: feedback.recipient.name
-    - else
-      strong= t '.from', name: feedback.sender.name
-
-  .time_ago
-    = t 'datetime.timestamp_ago', time: time_ago_in_words(feedback.updated_at)
 
   .content
     = feedback.content

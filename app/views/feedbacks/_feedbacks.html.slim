@@ -3,13 +3,11 @@
 - else
   ol.feedbacks
     - feedbacks.each do |feedback_pair|
-      li.feedback-pair
+      li
         - if feedback_pair[0]
-          = render partial: 'feedbacks/feedback', \
-            object: feedback_pair[0],             \
-            locals: { type: 'received' }
+          = render partial: 'feedbacks/feedback', object: feedback_pair[0],
+                                                  locals: { type: 'received' }
 
         - if feedback_pair[1]
-          = render partial: 'feedbacks/feedback', \
-            object: feedback_pair[1],             \
-            locals: { type: 'sent' }
+          = render partial: 'feedbacks/feedback', object: feedback_pair[1],
+                                                  locals: { type: 'sent' }
