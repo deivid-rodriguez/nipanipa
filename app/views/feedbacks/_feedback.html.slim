@@ -14,10 +14,12 @@ div class="feedback #{type}" id="feedback-#{feedback.id}"
 
   .info
     .sender
-      - if type == 'sent'
-        strong= t '.to', name: feedback.recipient.name
-      - else
-        strong= t '.from', name: feedback.sender.name
+      strong
+        - if type == 'sent'
+          | #{t('.to')} #{link_to(feedback.recipient.name, feedback.recipient)}
+        - else
+          | #{t('.from')} #{link_to(feedback.sender.name, feedback.sender)}
+
     .time-ago
       = t 'datetime.timestamp_ago', time: time_ago_in_words(feedback.updated_at)
 

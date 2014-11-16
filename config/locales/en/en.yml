@@ -93,8 +93,8 @@ not inmutable!"
       one: 1 sent
       other: "%{count} sent"
     feedback:
-      from: From %{name}
-      to: To %{name}
+      from: From
+      to: To
     update:
       success: You just edited the reference!
       error: "Error updating the reference... :( It should not be longer

@@ -94,8 +94,8 @@ Quando vuoi farne un altra, vai %{donations_url}"
       one: 1 inviata
       other: "%{count} inviate"
     feedback:
-      from: Da %{name}
-      to: Per %{name}
+      from: Da
+      to: Per
     update:
       success: Hai modificato la referenza!
       error: "C'è stato un errore nel modificare la referenza. Non deve essere

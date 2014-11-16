@@ -96,8 +96,8 @@ Jede Meinung kann sich ändern!"
       one: 1 gesendet
       other: "%{count} gesendet"
     feedback:
-      from: Von %{name}
-      to: Für %{name}
+      from: Von
+      to: Für
     update:
       success: Du hast die Referenz erfolgreich bearbeitet!
       error: "Fehler beim Aktualisieren der Referenz... :( Die Referenz darf

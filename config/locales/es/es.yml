@@ -95,8 +95,8 @@ experiencia. Siempre puedes seguir colaborando %{donations_url}"
       one: 1 enviada
       other: "%{count} enviadas"
     feedback:
-      from: De %{name}
-      to: Para %{name}
+      from: De
+      to: Para
     update:
       success: Has actualizado la referencia!
       error: "Error al actualizar la referencia... :( No debe sobrepasar
