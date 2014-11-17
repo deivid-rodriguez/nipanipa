@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.1.5'
 
-gem 'rails', '4.1.7'
+gem 'rails', '4.1.8'
 gem 'rails-i18n', '4.0.3'
 gem 'rails_autolink', '1.1.6'
 
