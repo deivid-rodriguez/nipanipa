@@ -16,6 +16,6 @@
                         edit_user_picture_path(current_user, p), \
                         name: "image-#{p.id}"
 
-          = image_tag p.image.url(:large)
+          = link_to image_tag(p.image.url(:large)), p.image.url
           .caption
             h5= p.name
