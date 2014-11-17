@@ -19,3 +19,5 @@ crees una nueva."
     users:
       signed_up: Enhorabuena, ya estás registrado!
       updated: Tu perfil se ha actualizado correctamente!
+    sessions:
+      signed_out: ''

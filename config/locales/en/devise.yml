@@ -19,3 +19,5 @@ and create a new one."
     users:
       signed_up: Welcome! You have signed up successfully.
       updated: You updated your account successfully!
+    sessions:
+      signed_out: ''
