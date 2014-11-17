@@ -1,4 +1,4 @@
 - flash.each do |name, msg|
   - if msg.is_a?(String)
-    div class="alert alert-#{name == 'notice' ? 'success' : 'error'}"
+    = content_tag :div, class: "alert #{bootstrap_class_for(name)}" do
       = msg

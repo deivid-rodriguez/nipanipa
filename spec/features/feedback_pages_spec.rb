@@ -54,7 +54,8 @@ RSpec.describe 'Leaving feedback' do
       end
 
       it 'shows an error flash message' do
-        expect(page).to have_flash_message t('feedbacks.create.error'), 'error'
+        expect(page).to \
+          have_flash_message t('feedbacks.create.error'), 'danger'
       end
 
       it "doesn't update recipient's karma" do
@@ -151,8 +152,7 @@ RSpec.describe 'Editing feedbacks' do
     end
 
     it 'shows an error flash message' do
-      expect(page).to \
-        have_flash_message t('feedbacks.update.error'), 'error'
+      expect(page).to have_flash_message t('feedbacks.update.error'), 'danger'
     end
   end
 

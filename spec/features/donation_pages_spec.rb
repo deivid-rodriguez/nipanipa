@@ -46,7 +46,8 @@ RSpec.describe 'donation', :js do
       end
 
       it 'shows an error flash message' do
-        expect(page).to have_flash_message t('donations.create.error'), 'error'
+        expect(page).to \
+          have_flash_message t('donations.create.error'), 'danger'
       end
     end
   end

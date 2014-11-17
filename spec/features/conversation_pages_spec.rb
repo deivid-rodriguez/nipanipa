@@ -19,7 +19,7 @@ RSpec.describe 'Create a conversation' do
 
     it 'shows an error message' do
       expect(page).to \
-        have_flash_message t('conversations.create.error'), 'error'
+        have_flash_message t('conversations.create.error'), 'danger'
     end
   end
 
@@ -92,7 +92,7 @@ RSpec.describe 'Display a conversation', :js do
 
       it 'shows an error message and keeps user in the same page' do
         expect(page).to \
-          have_flash_message t('conversations.reply.error'), 'error'
+          have_flash_message t('conversations.reply.error'), 'danger'
 
         expect(page).to have_button t('conversations.show.reply')
       end

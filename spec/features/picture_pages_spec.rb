@@ -39,7 +39,7 @@ RSpec.describe 'Uploading a new picture' do
     end
 
     it 'show an error flash message' do
-      expect(page).to have_flash_message t('pictures.create.error'), 'error'
+      expect(page).to have_flash_message t('pictures.create.error'), 'danger'
     end
   end
 end
@@ -81,7 +81,7 @@ RSpec.describe 'Updating a picture' do
     end
 
     it 'shows an error flash message' do
-      expect(page).to have_flash_message t('pictures.update.error'), 'error'
+      expect(page).to have_flash_message t('pictures.update.error'), 'danger'
     end
   end
 end
