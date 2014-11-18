@@ -20,6 +20,51 @@ SimpleForm.setup do |config|
     b.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
   end
 
+  config.wrappers :full_width, tag: 'div',
+                               class: 'form-group col-md-12',
+                               error_class: 'has-error' do |b|
+    b.use :html5
+    b.optional :placeholder
+    b.optional :maxlength
+    b.optional :pattern
+    b.optional :min_max
+    b.optional :readonly
+    b.use :label, class: 'control-label'
+
+    b.use :input, class: 'form-control'
+    b.use :error, wrap_with: { tag: 'span', class: 'help-block' }
+    b.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
+  end
+
+  config.wrappers :half_width, tag: 'div',
+                               class: 'form-group col-md-6',
+                               error_class: 'has-error' do |b|
+    b.use :html5
+    b.optional :placeholder
+    b.optional :maxlength
+    b.optional :pattern
+    b.optional :min_max
+    b.optional :readonly
+    b.use :label, class: 'control-label'
+
+    b.use :input, class: 'form-control'
+    b.use :error, wrap_with: { tag: 'span', class: 'help-block' }
+    b.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
+  end
+
+  config.wrappers :vertical_radio_and_checkboxes,
+                  tag: 'div',
+                  class: 'form-group col-md-12',
+                  error_class: 'has-error' do |b|
+    b.use :html5
+    b.optional :readonly
+    b.use :label, class: 'control-label'
+    b.use :input
+
+    b.use :error, wrap_with: { tag: 'span', class: 'help-block' }
+    b.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
+  end
+
   config.wrappers :vertical_file_input, tag: 'div',
                                         class: 'form-group',
                                         error_class: 'has-error' do |b|
@@ -44,18 +89,6 @@ SimpleForm.setup do |config|
       ba.use :label_input
     end
 
-    b.use :error, wrap_with: { tag: 'span', class: 'help-block' }
-    b.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
-  end
-
-  config.wrappers :vertical_radio_and_checkboxes,
-                  tag: 'div',
-                  class: 'form-group',
-                  error_class: 'has-error' do |b|
-    b.use :html5
-    b.optional :readonly
-    b.use :label, class: 'control-label'
-    b.use :input
     b.use :error, wrap_with: { tag: 'span', class: 'help-block' }
     b.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
   end

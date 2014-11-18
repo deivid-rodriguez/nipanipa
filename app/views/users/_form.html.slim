@@ -1,26 +1,24 @@
-= simple_form_for \
-    resource,
-    as: resource_name,
-    url: registration_path(resource_name),
-    html: { class: 'form-vertical', multipart: true, role: 'form' },
-    wrapper_mappings: { check_boxes: :vertical_radio_and_checkboxes },
-    defaults: { wrapper_html: { class: 'col-md-12' },
-                placeholder: false } do |f|
+= simple_form_for resource, as: resource_name,
+                            url: registration_path(resource_name),
+                            html: { class: 'form-vertical',
+                                    multipart: true,
+                                    role: 'form' },
+                            defaults: { wrapper: :full_width } do |f|
 
   = hidden_field_tag :type, resource.type
 
-  = f.input :name, wrapper_html: { class: 'col-md-6' }
-
-  = f.input :email, wrapper_html: { class: 'col-md-6' }
+  = f.input :name, wrapper: :half_width
+  = f.input :email, wrapper: :half_width
 
   - if resource.new_record?
     = f.input :password, hint: (resource.errors ? false : true),
-                         wrapper_html: { class: 'col-md-6' }
-    = f.input :password_confirmation, wrapper_html: { class: 'col-md-6' }
+                         wrapper: :half_width
+    = f.input :password_confirmation, wrapper: :half_width
 
   = f.input :description, label: t(".description_#{resource.type.underscore}")
 
   = f.input :availability, as: :check_boxes,
+      wrapper: :vertical_radio_and_checkboxes,
       item_wrapper_class: 'calendar',
       collection: User::AVAILABILITY,
       checked: resource.availability,

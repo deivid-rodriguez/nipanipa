@@ -17,4 +17,8 @@ class Country < ActiveRecord::Base
   end
 
   has_many :users, through: :regions
+
+  def name
+    I18n.t("countries.#{continent.code.downcase}.#{code.downcase}")
+  end
 end
