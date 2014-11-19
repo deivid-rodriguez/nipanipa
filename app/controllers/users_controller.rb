@@ -5,11 +5,11 @@ class UsersController < Devise::RegistrationsController
   load_and_authorize_resource
 
   def new
-    build_resource({})
-    current_language = Language.find_by(code: I18n.locale)
-    resource.language_skills.build(language: current_language, level: :expert)
-    resource.region = Region.first
-    respond_with resource
+    super do |resource|
+      current_language = Language.find_by(code: I18n.locale)
+      resource.language_skills.build(language: current_language, level: :expert)
+      resource.region = Region.first
+    end
   end
 
   def index
