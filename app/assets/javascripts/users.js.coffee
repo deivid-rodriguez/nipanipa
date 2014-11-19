@@ -1,7 +1,7 @@
-#
-# Set smaller line-height for multiline tips
-#
 jQuery ->
+  #
+  # Set smaller line-height for multiline tips
+  #
   cnt = $('#categoriesinfo').height()
   if cnt > 24
     $('#categoriesinfo').css('line-height', '18px')
