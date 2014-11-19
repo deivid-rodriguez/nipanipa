@@ -102,8 +102,6 @@ a {
 }
 
 .navbar {
-  padding-right: 100px;
-  padding-left: 44px;
   margin-bottom: 0px;
   background: none;
   font-size: 14px;
@@ -210,11 +208,13 @@ header {
 .navbar-wrapper, .alert {
   @include container-fixed;
   max-width: 980px;
+  width: 100%;
 }
 
 .main-wrapper {
   @include container-fixed;
   max-width: 980px;
+  width: 100%;
   background: white;
 }
 

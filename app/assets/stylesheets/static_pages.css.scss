@@ -12,8 +12,8 @@
 
 .nipa-container {
   @extend .container;
-  padding-left: 100px;
-  padding-right: 100px;
+  width: 100%;
+  max-width: 980px;
   padding-bottom: 20px;
 }
 
