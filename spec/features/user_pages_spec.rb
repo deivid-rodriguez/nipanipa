@@ -49,6 +49,8 @@ RSpec.shared_examples_for 'A user profile creation' do
         fill_in 'user[password]', with: user.password
         fill_in 'user[password_confirmation]', with: user.password
         fill_in 'user[description]', with: user.description
+        select lang.name, from: 'user_language_skills_attributes_0_language_id'
+        select 'Expert', from: 'user_language_skills_attributes_0_level'
         check "user_work_type_ids_#{work_type.id}"
         check 'user_availability_feb'
       end
@@ -63,6 +65,10 @@ RSpec.shared_examples_for 'A user profile creation' do
     it 'has the user location' do
       expect(page).to have_content(region.name)
       expect(page).to have_content(region.country.name)
+    end
+
+    it 'has the user language' do
+      expect(page).to have_content("#{lang.name} (Expert)")
     end
 
     it 'has the user description' do
