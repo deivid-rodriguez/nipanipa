@@ -81,4 +81,7 @@ RSpec.configure do |config|
 
   # Disable all monkey-patching
   config.expose_dsl_globally = false
+
+  # Abort the run on first failure:
+  config.fail_fast = true
 end
