@@ -24,52 +24,47 @@ a.thmb-lnk {
 
 .home-explore {
   width: 100%;
-  margin-bottom:1%;
+  margin-bottom: 15px;
+  max-height: 252px;
 }
 
 .home-host {
   overflow: auto;
   width: 49.5%;
   float: left;
-  margin-right:1%;
+  max-height: 252px;
 }
 
 .home-volunteer {
   overflow: auto;
   width: 49.5%;
   float: right;
+  max-height: 252px;
 }
 
-.explore-container {
+.explore-thumbnail {
+  @extend .img-thumbnail;
   width: 100%;
+  padding: 15px;
   border-radius: 0px;
   background: $grayExplore;
   &:hover {
     background: darken($grayExplore, 10%);
   }
-
-  .explore-thumbnail {
-     @extend .img-thumbnail;
-     @extend .explore-container;
-     height: 252px;
-     width: 50%;
-     padding: 0px 60px;
-     h2 {
-       margin-top: 100px;
-     }
+  .info {
+    width: 50%;
+    float: left;
+    h2 {
+      margin-top: 100px;
+    }
   }
-
-  .explore-images {
+  .rslides {
     width: 50%;
     float: right;
-    .rslides {
-      list-style: none;
-      position: relative;
-      left: -20px;
-      top: 10px;
-      img {
-        width: 100%;
-      }
+    list-style: none;
+    position: relative;
+    img {
+      width: 100%;
     }
   }
 }
