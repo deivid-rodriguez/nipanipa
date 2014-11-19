@@ -1,15 +1,9 @@
 FactoryGirl.define do
-  sequence(:random_code_2) do |n|
-    code = (n % 26 + 65).chr
-    remainder = n / 26
-
-    code + (remainder % 26 + 65).chr
-  end
-
   factory :region do
     transient { continent nil }
 
-    code { generate(:random_code_2) }
+    code 'M'
+    name 'Madrid'
 
     country do
       if continent
@@ -18,15 +12,23 @@ FactoryGirl.define do
         FactoryGirl.create(:country)
       end
     end
+
+    initialize_with { Region.find_or_create_by(code: code, country: country) }
   end
 
   factory :country do
-    code { generate(:random_code_2) }
+    code 'ES'
 
     continent
+
+    initialize_with do
+      Country.find_or_create_by(code: code, continent: continent)
+    end
   end
 
   factory :continent do
-    code { generate(:random_code_2) }
+    code 'EU'
+
+    initialize_with { Continent.find_or_create_by(code: code) }
   end
 end

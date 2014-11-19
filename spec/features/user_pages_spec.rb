@@ -5,14 +5,12 @@
 RSpec.shared_examples_for 'A user profile creation' do
   let(:create_btn) { t('helpers.submit.user.create') }
   let(:role) { klass.name.underscore }
-  let!(:user) do
-    build(role.to_sym, work_types: create_list(:work_type, 5).sample(3))
-  end
+  let!(:user) { build(role.to_sym) }
+  let!(:region) { create(:region) }
+  let!(:lang) { create(:language) }
+  let!(:work_type) { create(:work_type) }
 
-  before do
-    create(:language, code: I18n.locale)
-    visit new_user_registration_path(type: role)
-  end
+  before { visit new_user_registration_path(type: role) }
 
   it 'shows correct header' do
     role_i18n = t("activerecord.models.#{role}")
@@ -51,7 +49,7 @@ RSpec.shared_examples_for 'A user profile creation' do
         fill_in 'user[password]', with: user.password
         fill_in 'user[password_confirmation]', with: user.password
         fill_in 'user[description]', with: user.description
-        user.work_type_ids.each { |id| check "user_work_type_ids_#{id}" }
+        check "user_work_type_ids_#{work_type.id}"
         check 'user_availability_feb'
       end
 

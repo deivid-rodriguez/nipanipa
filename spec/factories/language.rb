@@ -1,7 +1,11 @@
 FactoryGirl.define do
   factory :language do
-    sequence(:code) { |n| "L#{n % 10}" }
-    sequence(:name) { |n| "Language#{n % 10}" }
+    code 'es'
+    name 'Spanish'
+
+    initialize_with do
+      Language.create_with(name: name).find_or_create_by(code: code)
+    end
   end
 
   factory :language_skill do

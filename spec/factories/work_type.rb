@@ -1,6 +1,8 @@
 FactoryGirl.define do
   factory :work_type do
-    sequence(:name) { |n| "Work Type #{n % 15}" }
+    name 'wwoofing'
+
+    initialize_with { WorkType.find_or_create_by(name: name) }
   end
 
   factory :sectorization do
