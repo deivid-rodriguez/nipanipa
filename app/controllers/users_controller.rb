@@ -6,9 +6,12 @@ class UsersController < Devise::RegistrationsController
 
   def new
     super do |resource|
-      current_language = Language.find_by(code: I18n.locale)
-      resource.language_skills.build(language: current_language, level: :expert)
       resource.region = Region.first
+
+      language = Language.find_by(code: I18n.locale)
+      break unless language
+
+      resource.language_skills.build(language: language, level: :expert)
     end
   end
 

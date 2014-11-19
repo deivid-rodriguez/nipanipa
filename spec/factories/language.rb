@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :language do
-    code 'es'
-    name 'Spanish'
+    code 'en'
+    name 'English'
 
     initialize_with do
       Language.create_with(name: name).find_or_create_by(code: code)
