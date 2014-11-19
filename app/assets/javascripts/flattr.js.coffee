@@ -1,3 +1,6 @@
+#
+# Load Flattr button asyncronously
+#
 jQuery ->
   s = document.createElement('script')
   t = document.getElementsByTagName('script')[0]
