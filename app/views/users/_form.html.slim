@@ -15,6 +15,15 @@
                          wrapper: :half_width
     = f.input :password_confirmation, wrapper: :half_width
 
+  = f.input :country_id, collection: Country.all,
+                         selected: f.object.region.country.id,
+                         include_blank: false,
+                         wrapper: :half_width
+
+  = f.input :region_id, collection: f.object.region.country.regions,
+                        include_blank: false,
+                        wrapper: :half_width
+
   = f.input :description, label: t(".description_#{resource.type.underscore}")
 
   = f.input :availability, as: :check_boxes,

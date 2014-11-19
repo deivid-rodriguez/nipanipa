@@ -65,9 +65,18 @@ class UsersController < Devise::RegistrationsController
   end
 
   def user_fields
-    [:description, :email, :name, :password, :password_confirmation, :region_id,
-     :skills, availability: [], work_type_ids: [],
-     language_skills_attributes: [:id, :language_id, :level, :_destroy]]
+    [
+      :description,
+      :email,
+      :name,
+      :password,
+      :password_confirmation,
+      :region_id,
+      :skills,
+      availability: [],
+      work_type_ids: [],
+      language_skills_attributes: [:id, :language_id, :level, :_destroy]
+    ]
   end
 
   def host_params

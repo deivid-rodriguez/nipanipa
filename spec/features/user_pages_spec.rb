@@ -62,6 +62,11 @@ RSpec.shared_examples_for 'A user profile creation' do
       expect(page).to have_title user.name
     end
 
+    it 'has the user location' do
+      expect(page).to have_content(region.name)
+      expect(page).to have_content(region.country.name)
+    end
+
     it 'has the user description' do
       expect(page).to have_content(user.description)
     end
