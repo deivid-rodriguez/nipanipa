@@ -94,8 +94,9 @@ a.thmb-lnk {
 .contribute-thumbnail {
   @extend .img-thumbnail;
   background: $grayBackground;
-  padding: 30px 30px 15px 30px;
+  padding: 30px;
   text-align: left;
+  min-height: 310px;
   a {
     color: #0088cc;
     display: inline;
