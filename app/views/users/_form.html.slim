@@ -15,12 +15,12 @@
                          wrapper: :half_width
     = f.input :password_confirmation, wrapper: :half_width
 
-  = f.input :country_id, collection: Country.all.sort_by(&:name),
-                         selected: f.object.region.country.id,
-                         include_blank: false,
-                         wrapper: :half_width
+  = f.input :country, collection: Country.all.sort_by(&:name),
+                      selected: f.object.region.country.id,
+                      include_blank: false,
+                      wrapper: :half_width
 
-  = f.input :region_id, collection: Country.includes(:regions).all,
+  = f.input :region_id, collection: Country.includes(:regions),
                         as: :grouped_select, group_method: :regions,
                         include_blank: false,
                         wrapper: :half_width

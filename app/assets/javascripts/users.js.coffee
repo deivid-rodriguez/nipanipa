@@ -16,12 +16,12 @@ jQuery ->
   regions = $('#user_region_id').html()
 
   filter_regions = ->
-    country = $('#user_country_id :selected').text()
+    country = $('#user_country :selected').text()
     escaped_country = country.replace(/([ ,.'[\]])/g, '\\$1')
     options = $(regions).filter("optgroup[label='#{escaped_country}']").html()
     $('#user_region_id').html(options)
 
   filter_regions()
 
-  $('#user_country_id').change ->
+  $('#user_country').change ->
     filter_regions()
