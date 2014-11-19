@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   has_many :sectorizations
   has_many :work_types, through: :sectorizations
 
-  has_many :language_skills
+  has_many :language_skills, inverse_of: :user
   accepts_nested_attributes_for :language_skills
   has_many :languages, through: :language_skills
 
