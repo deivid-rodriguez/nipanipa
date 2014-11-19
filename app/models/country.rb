@@ -16,6 +16,8 @@ class Country < ActiveRecord::Base
     countries.first
   end
 
+  default_scope { includes(:continent) }
+
   has_many :users, through: :regions
 
   def name
