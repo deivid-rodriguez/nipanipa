@@ -262,9 +262,9 @@ footer {
   }
   .social-links ul {
     float: right;
-	:hover {
-		opacity:0.8;
-		}
+    li:hover {
+      opacity: 0.8;
+    }
   }
   ul {
     margin: 0;
