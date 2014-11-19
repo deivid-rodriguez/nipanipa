@@ -10,6 +10,8 @@ class Conversation < ActiveRecord::Base
   belongs_to :from, class_name: 'User'
   belongs_to :to, class_name: 'User'
 
+  default_scope { order(updated_at: :desc) }
+
   def self.non_deleted(user)
     where("(from_id = #{user.id} AND deleted_from = false) OR " \
           "(to_id = #{user.id} AND deleted_to = false)")
