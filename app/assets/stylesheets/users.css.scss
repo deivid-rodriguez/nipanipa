@@ -213,6 +213,7 @@ table.calendar {
   @include make-md-column(3);
   background: $graySuperLight;
   @include border_radius;
+  margin-bottom: 20px;
   li > a {
     padding: 3px 15px;
   }
