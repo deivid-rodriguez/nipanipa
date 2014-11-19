@@ -10,4 +10,8 @@ class Region < ActiveRecord::Base
   validates :code, uniqueness: { scope: :country_id }
 
   has_many :users
+
+  def self.default
+    includes(:country).where(name: 'Madrid', countries: { code: 'ES' }).first
+  end
 end

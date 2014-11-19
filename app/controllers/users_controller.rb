@@ -6,7 +6,7 @@ class UsersController < Devise::RegistrationsController
 
   def new
     super do |resource|
-      resource.region = Region.first
+      resource.region = Region.default
 
       language = Language.find_by(code: I18n.locale)
       break unless language
