@@ -137,7 +137,7 @@ RSpec.describe User do
 
   describe 'scopes' do
     describe '.from_continent' do
-      let(:user) { create(:user, continent: create(:continent)) }
+      let!(:user) { create(:user, continent: create(:continent)) }
 
       it 'filters users by continent' do
         expect(User.from_continent(user.continent)).to include(user)
@@ -145,7 +145,7 @@ RSpec.describe User do
     end
 
     describe '.from_country' do
-      let(:user) { create(:user, country: create(:country)) }
+      let!(:user) { create(:user, country: create(:country)) }
 
       it 'filters users by country' do
         expect(User.from_country(user.country)).to include(user)
