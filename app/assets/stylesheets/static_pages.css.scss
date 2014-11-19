@@ -47,29 +47,31 @@ a.thmb-lnk {
   &:hover {
     background: darken($grayExplore, 10%);
   }
+
   .explore-thumbnail {
-	 @extend .img-thumbnail;
-	 @extend .explore-container;
-	 height:252px;
-  	 width:50%; 
-	 padding:0px 60px;
-	 h2{
-	 margin-top:100px;
-	 }
-  	}
+     @extend .img-thumbnail;
+     @extend .explore-container;
+     height: 252px;
+     width: 50%;
+     padding: 0px 60px;
+     h2 {
+       margin-top: 100px;
+     }
+  }
+
   .explore-images {
-  	 width:50%;
-     float:right;
-	 #slider1 {
-		list-style:none;
-		position:relative;
-		left:-20px;
-		top:10px;
-		img {
-			width:100%;
-			}
-		}
-  	}  	
+    width: 50%;
+    float: right;
+    #slider1 {
+      list-style: none;
+      position: relative;
+      left: -20px;
+      top: 10px;
+      img {
+        width: 100%;
+      }
+    }
+  }
 }
 
 .host-thumbnail {
