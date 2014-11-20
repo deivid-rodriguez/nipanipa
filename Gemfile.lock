@@ -1,12 +1,12 @@
 GIT
   remote: git://github.com/activeadmin/activeadmin.git
-  revision: 3ab53c96afe8feac27a87641555fa0b56ac3c78f
+  revision: 0d7d6014568fe3cdd3e1eefd169285d25c717b94
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0, >= 1.0.2)
       bourbon
       coffee-rails
-      formtastic (~> 3.0)
+      formtastic (~> 3.1)
       formtastic_i18n
       inherited_resources (~> 1.4, != 1.5.0)
       jquery-rails
@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: git://github.com/carrierwaveuploader/carrierwave.git
-  revision: 87bd4fcf2843414451bfb85c4f371940bdfb9521
+  revision: ce4af694905d3b1af631a8c0d0902c19ed726f5b
   specs:
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
@@ -28,7 +28,7 @@ GIT
 
 GIT
   remote: git://github.com/plataformatec/devise.git
-  revision: a76dfd655228e7b540ed3761f9ebc7b96f96418c
+  revision: d3d9fba201e3b23361f68ff44e96a6dbf4492afc
   specs:
     devise (3.4.1)
       bcrypt (~> 3.0)
@@ -215,7 +215,7 @@ GEM
       mini_portile (~> 0.6.0)
     options (2.3.2)
     orm_adapter (0.5.0)
-    parser (2.2.0.pre.7)
+    parser (2.2.0.pre.8)
       ast (>= 1.1, < 3.0)
       slop (~> 3.4, >= 3.4.5)
     pg (0.17.1)
