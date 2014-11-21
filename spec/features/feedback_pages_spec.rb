@@ -5,37 +5,6 @@ RSpec.describe 'Leaving feedback' do
   let!(:feedback) { build(:feedback) }
   let(:new_feedback_lnk) { t('shared.profile_header.new_feedback') }
 
-  describe '"new feedback" link' do
-    before { visit user_path(feedback.recipient) }
-
-    context 'when visitor not signed in' do
-      it 'does not show link' do
-        expect(page).not_to have_link new_feedback_lnk
-      end
-    end
-
-    context 'when visitor signed in' do
-      before do
-        mock_sign_in(feedback.sender)
-        visit user_path(feedback.sender)
-      end
-
-      context 'and looking at own profile' do
-        it 'does not show link' do
-          expect(page).not_to have_link new_feedback_lnk
-        end
-      end
-
-      context 'and looking at other profile' do
-        before { visit user_path(feedback.recipient) }
-
-        it 'shows link' do
-          expect(page).to have_link new_feedback_lnk
-        end
-      end
-    end
-  end
-
   context 'workflow' do
     let(:feedback_btn) { t('helpers.submit.feedback.create') }
 

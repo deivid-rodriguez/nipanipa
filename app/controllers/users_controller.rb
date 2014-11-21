@@ -26,9 +26,7 @@ class UsersController < Devise::RegistrationsController
   def show
     @page_id = :general
     @user = User.find(params[:id])
-    if user_signed_in?
-      @given_feedback = Feedback.find_by sender: current_user, recipient: @user
-    end
+    @given_feedback = Feedback.find_by(sender: current_user, recipient: @user)
     @feedback_pairs = Feedback.pairs(@user)
   end
 

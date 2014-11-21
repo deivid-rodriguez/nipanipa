@@ -23,17 +23,19 @@
   .user-tabs
     ul.nav.nav-tabs
       = tab_builder(user, page_id)
-    - if user_signed_in? and current_user != user
-      - unless given_feedback
+
+      - unless given_feedback || user == current_user
         .leave-feedback-link
           = link_to new_user_feedback_path(user) do
             .label_info
               = image_tag 'feedback.png'
             .content_info
               = t('.new_feedback')
-      .send-message-link
-        = link_to new_conversation_path(user) do
-          .label_info
-            = image_tag 'envelope.png'
-          .content_info
-            = t('.new_conversation')
+
+      - unless user == current_user
+        .send-message-link
+          = link_to new_conversation_path(user) do
+            .label_info
+              = image_tag 'envelope.png'
+            .content_info
+              = t('.new_conversation')
