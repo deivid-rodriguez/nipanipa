@@ -3,99 +3,95 @@
 #
 RSpec.describe 'Leaving feedback' do
   let!(:feedback) { build(:feedback) }
-  let(:new_feedback_lnk) { t('shared.profile_header.new_feedback') }
+  let(:feedback_btn) { t('helpers.submit.feedback.create') }
 
-  context 'workflow' do
-    let(:feedback_btn) { t('helpers.submit.feedback.create') }
+  before do
+    mock_sign_in(feedback.sender)
+    visit user_path(feedback.recipient)
+    click_link t('shared.profile_header.new_feedback')
+  end
 
+  context 'with incomplete information' do
+    before { click_button feedback_btn }
+
+    it "doesn't save a feedback in db" do
+      expect(Donation.count).to eq(0)
+      expect(Feedback.count).to eq(0)
+    end
+
+    it 'shows an error flash message' do
+      expect(page).to \
+        have_flash_message t('feedbacks.create.error'), 'danger'
+    end
+
+    it "doesn't update recipient's karma" do
+      expect(feedback.recipient.karma).to eq(0)
+    end
+  end
+
+  context 'with valid information and no donation' do
     before do
-      mock_sign_in(feedback.sender)
-      visit user_path(feedback.recipient)
-      click_link new_feedback_lnk
+      choose 'feedback_score_positive'
+      fill_in 'feedback[content]', with: feedback.content
+      click_button feedback_btn
     end
 
-    context 'with incomplete information' do
-      before { click_button feedback_btn }
-
-      it "doesn't save a feedback in db" do
-        expect(Donation.count).to eq(0)
-        expect(Feedback.count).to eq(0)
-      end
-
-      it 'shows an error flash message' do
-        expect(page).to \
-          have_flash_message t('feedbacks.create.error'), 'danger'
-      end
-
-      it "doesn't update recipient's karma" do
-        expect(feedback.recipient.karma).to eq(0)
-      end
+    it 'correctly updates db' do
+      expect(Donation.count).to eq(0)
+      expect(Feedback.count).to eq(1)
+      expect(feedback.recipient.reload.karma).to eq(1)
     end
 
-    context 'with valid information and no donation' do
-      before do
-        choose 'feedback_score_positive'
-        fill_in 'feedback[content]', with: feedback.content
-        click_button feedback_btn
-      end
-
-      it 'correctly updates db' do
-        expect(Donation.count).to eq(0)
-        expect(Feedback.count).to eq(1)
-        expect(feedback.recipient.reload.karma).to eq(1)
-      end
-
-      it 'shows feedback text' do
-        expect(page).to have_content feedback.content
-      end
-
-      it 'shows edit link' do
-        expect(page).to have_link t('shared.edit')
-      end
-
-      it 'shows recipients name' do
-        expect(page).to have_selector 'h3', text: feedback.recipient.name
-      end
-
-      it 'shows a success flash message' do
-        expect(page).to \
-          have_flash_message t('feedbacks.create.success'), 'success'
-      end
+    it 'shows feedback text' do
+      expect(page).to have_content feedback.content
     end
 
-    context 'with valid information and donation', :js do
-      before do
-        choose 'feedback_score_positive'
-        fill_in 'feedback[content]', with: feedback.content
-        fill_in 'feedback[donation_attributes][amount]', with: 20
-        mock_paypal_pdt('SUCCESS')
-        click_button feedback_btn
-        visit "/en/donations/1?tx=#{paypal_tx}&st=Completed&amt=20.00&cc=USD" \
-              "&cm=&item_number=&sig=#{paypal_signature}"
-      end
+    it 'shows edit link' do
+      expect(page).to have_link t('shared.edit')
+    end
 
-      it 'correctly updates db' do
-        expect(Donation.count).to eq(1)
-        expect(Feedback.count).to eq(1)
-        expect(feedback.recipient.karma).to eq(0)
-      end
+    it 'shows recipients name' do
+      expect(page).to have_selector 'h3', text: feedback.recipient.name
+    end
 
-      it 'shows feedback text' do
-        expect(page).to have_content feedback.content
-      end
+    it 'shows a success flash message' do
+      expect(page).to \
+        have_flash_message t('feedbacks.create.success'), 'success'
+    end
+  end
 
-      it 'shows edit link' do
-        expect(page).to have_link t('shared.edit')
-      end
+  context 'with valid information and donation', :js do
+    before do
+      choose 'feedback_score_positive'
+      fill_in 'feedback[content]', with: feedback.content
+      fill_in 'feedback[donation_attributes][amount]', with: 20
+      mock_paypal_pdt('SUCCESS')
+      click_button feedback_btn
+      visit "/en/donations/1?tx=#{paypal_tx}&st=Completed&amt=20.00&cc=USD" \
+            "&cm=&item_number=&sig=#{paypal_signature}"
+    end
 
-      it 'shows recipients name' do
-        expect(page).to have_selector 'h3', text: feedback.recipient.name
-      end
+    it 'correctly updates db' do
+      expect(Donation.count).to eq(1)
+      expect(Feedback.count).to eq(1)
+      expect(feedback.recipient.karma).to eq(0)
+    end
 
-      it 'shows a success flash message' do
-        expect(page).to \
-          have_flash_message t('donations.create.success'), 'success'
-      end
+    it 'shows feedback text' do
+      expect(page).to have_content feedback.content
+    end
+
+    it 'shows edit link' do
+      expect(page).to have_link t('shared.edit')
+    end
+
+    it 'shows recipients name' do
+      expect(page).to have_selector 'h3', text: feedback.recipient.name
+    end
+
+    it 'shows a success flash message' do
+      expect(page).to \
+        have_flash_message t('donations.create.success'), 'success'
     end
   end
 end
