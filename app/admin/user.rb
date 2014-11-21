@@ -32,6 +32,11 @@ ActiveAdmin.register User do
   end
 
   form do |f|
+    f.inputs 'Information' do
+      f.input :email,  input_html: { disabled: true }
+      f.input :description, input_html: { disabled: true }
+    end
+
     f.inputs 'Location' do
       f.label 'Country', for: 'user_region'
       f.collection_select :country,
