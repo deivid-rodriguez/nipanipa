@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141112151440) do
+ActiveRecord::Schema.define(version: 20141121211348) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -139,12 +139,6 @@ ActiveRecord::Schema.define(version: 20141112151440) do
     t.integer  "sign_in_count",          default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.string   "state"
-    t.string   "country"
-    t.float    "latitude"
-    t.float    "longitude"
     t.datetime "reset_password_sent_at"
     t.string   "reset_password_token"
     t.integer  "karma",                  default: 0
@@ -155,10 +149,11 @@ ActiveRecord::Schema.define(version: 20141112151440) do
     t.integer  "days_per_week"
     t.integer  "availability_mask"
     t.integer  "region_id"
+    t.string   "last_sign_in_ip"
+    t.string   "current_sign_in_ip"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["latitude", "longitude"], name: "index_users_on_latitude_and_longitude", using: :btree
 
   create_table "work_types", force: true do |t|
     t.string "name"

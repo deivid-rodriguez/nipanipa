@@ -21,8 +21,6 @@ RSpec.describe User do
   it { is_expected.to respond_to(:encrypted_password)  }
   it { is_expected.to respond_to(:languages)           }
   it { is_expected.to respond_to(:last_sign_in_ip)     }
-  it { is_expected.to respond_to(:latitude)            }
-  it { is_expected.to respond_to(:longitude)           }
   it { is_expected.to respond_to(:name)                }
   it { is_expected.to respond_to(:password)            }
   it { is_expected.to respond_to(:remember_created_at) }

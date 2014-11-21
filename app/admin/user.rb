@@ -9,23 +9,6 @@ ActiveAdmin.register User do
     column :email
     column :country
     column :region
-
-    column :old_region do |user|
-      user.state
-    end
-
-    column :old_country do |user|
-      user.read_attribute(:country)
-    end
-
-    column :old_latitude do |user|
-      user.latitude
-    end
-
-    column :old_longitude do |user|
-      user.longitude
-    end
-
     column :karma
 
     actions
