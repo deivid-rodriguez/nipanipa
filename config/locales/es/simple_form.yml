@@ -19,6 +19,8 @@ es:
         password_confirmation: Confirmar contraseña
         accomodation: "Describe el tipo de alojamiento que ofreces a tus
 voluntarios"
+        country: País
+        region: Región
       picture:
         name: Título para la foto
         image: Fichero con la foto

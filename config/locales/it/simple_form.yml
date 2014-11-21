@@ -18,6 +18,8 @@ it:
         password: Password
         password_confirmation: Conferma la password
         accomodation: Descrivi il tipo di alloggio che fornirai ai volontari
+        country: Paese
+        region: Regione
       picture:
         name: Titolo per la foto
         image: File con la foto
