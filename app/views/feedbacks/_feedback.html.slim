@@ -1,6 +1,6 @@
 div class="feedback #{type}" id="feedback-#{feedback.id}"
   div class="thumb-avatar pull-#{type == 'sent' ? 'left' : 'right'}"
-    = link_to avatar_for(feedback.sender, style: :thumb), feedback.sender
+    = avatar_link_for(feedback.sender, style: :thumb)
 
   - if feedback.sender == current_user
     div class="pull-#{type == 'sent' ? 'left' : 'right'}"

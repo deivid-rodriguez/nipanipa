@@ -1,6 +1,6 @@
 div class="row message-#{from_starter?(message) ? 'left' : 'right'}"
   .col-md-2.message-from
-    = avatar_for message.from, style: :thumb_message
+    = avatar_link_for message.from, style: :thumb_message
 
   .col-md-10.message-content
     .bubble-triangle

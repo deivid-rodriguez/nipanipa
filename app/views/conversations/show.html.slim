@@ -16,7 +16,7 @@
     .col-md-offset-2.col-md-8
       .row.message-left
         .col-md-2.message-from
-          = avatar_for current_user, style: :thumb_message
+          = avatar_link_for current_user, style: :thumb_message
         .col-md-10.message-content
           .bubble-triangle
           = form_tag reply_conversation_path(@conversation), method: :put,
