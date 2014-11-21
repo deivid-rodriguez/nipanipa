@@ -14,4 +14,17 @@ ActiveAdmin.register Country do
 
     f.actions
   end
+
+  index do
+    column :name
+    column :code
+
+    [:created_at, :updated_at].each do |col|
+      column col, sortable: col do |country|
+        country.send(col).strftime('%m/%d/%y')
+      end
+    end
+
+    actions
+  end
 end
