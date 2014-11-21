@@ -32,21 +32,23 @@ ActiveAdmin.register User do
   end
 
   form do |f|
-    f.label 'Country', for: 'user_region'
-    f.collection_select :country,
-                        Country.all.sort_by(&:name),
-                        :id,
-                        :name,
-                        include_blank: true
+    f.inputs 'Location' do
+      f.label 'Country', for: 'user_region'
+      f.collection_select :country,
+                          Country.all.sort_by(&:name),
+                          :id,
+                          :name,
+                          include_blank: true
 
-    f.label 'Region', for: 'user_country'
-    f.grouped_collection_select :region_id,
-                                Country.includes(:regions),
-                                :regions,
-                                :name,
-                                :id,
-                                :name,
-                                include_blank: true
+      f.label 'Region', for: 'user_country'
+      f.grouped_collection_select :region_id,
+                                  Country.includes(:regions),
+                                  :regions,
+                                  :name,
+                                  :id,
+                                  :name,
+                                  include_blank: true
+    end
 
     f.actions
   end
