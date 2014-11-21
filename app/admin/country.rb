@@ -1,4 +1,6 @@
 ActiveAdmin.register Country do
+  config.per_page = 200
+
   permit_params :code, regions_attributes: [:id, :code, :name, :_destroy]
 
   form do |f|
