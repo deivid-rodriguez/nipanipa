@@ -5,12 +5,13 @@ ActiveAdmin.register Country do
 
   form do |f|
     f.inputs 'Country Info' do
+      f.input :name, input_html: { disabled: true }
       f.input :code
     end
 
     f.has_many :regions, new_record: true do |rf|
-      rf.input :code
       rf.input :name
+      rf.input :code
       rf.input :_destroy, as: :boolean, label: 'Remove?'
     end
 
