@@ -18,12 +18,12 @@ ActiveAdmin.register User do
       user.read_attribute(:country)
     end
 
-    column :old_longitude do |user|
-      user.longitude
-    end
-
     column :old_latitude do |user|
       user.latitude
+    end
+
+    column :old_longitude do |user|
+      user.longitude
     end
 
     column :karma
