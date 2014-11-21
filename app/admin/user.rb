@@ -10,6 +10,7 @@ ActiveAdmin.register User do
     column :country
     column :region
     column :karma
+    column :sign_in_count
 
     actions
   end
