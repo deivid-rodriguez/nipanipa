@@ -214,8 +214,29 @@ table.calendar {
   background: $graySuperLight;
   @include border_radius;
   margin-bottom: 20px;
-  li > a {
-    padding: 3px 15px;
+  li {
+    @include border_radius;
+    list-style-type: none;
+    > a {
+      text-decoration: none;
+      padding: 3px 15px;
+    }
+    > ul {
+      padding-left: 20px;
+      li.active {
+        background-color: $darkGreen;
+        &:hover {
+          background-color: $darkGreen;
+        }
+        > a {
+          color: white;
+          background-color: transparent;
+        }
+      }
+      li:hover {
+        background-color: #eee;
+      }
+    }
   }
   li.active > a {
     background-color: $darkGreen;
