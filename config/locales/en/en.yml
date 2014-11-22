@@ -179,6 +179,7 @@ host be interested in you?"
       header: Update your profile
     index:
       title: Search
+    filters:
       availability: Availability
       whenever: Whenever
       now: Currently available

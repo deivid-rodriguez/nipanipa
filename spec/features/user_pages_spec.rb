@@ -155,7 +155,7 @@ RSpec.describe 'User profile index' do
   end
 
   describe 'available profiles' do
-    before { click_link t('users.index.now') }
+    before { click_link t('users.filters.now') }
 
     describe 'filtering' do
       it 'shows correct list' do
@@ -167,7 +167,7 @@ RSpec.describe 'User profile index' do
     end
 
     describe 'unfiltering' do
-      before { click_link t('users.index.whenever') }
+      before { click_link t('users.filters.whenever') }
 
       it 'shows correct list' do
         expect(page).to have_selector('li', text: host_available.name)
@@ -179,7 +179,7 @@ RSpec.describe 'User profile index' do
   end
 
   describe 'host profiles' do
-    before { click_link t('users.index.hosts') }
+    before { click_link t('users.filters.hosts') }
 
     describe 'filtering' do
       it 'shows correct list' do
@@ -191,7 +191,7 @@ RSpec.describe 'User profile index' do
     end
 
     describe 'unfiltering' do
-      before { click_link t('users.index.all') }
+      before { click_link t('users.filters.all') }
 
       it 'shows correct list' do
         expect(page).to have_selector('li', text: host_available.name)
@@ -203,7 +203,7 @@ RSpec.describe 'User profile index' do
   end
 
   describe 'volunteer profiles' do
-    before { click_link t('users.index.volunteers') }
+    before { click_link t('users.filters.volunteers') }
 
     describe 'filtering' do
       it 'shows correct list' do
@@ -215,7 +215,7 @@ RSpec.describe 'User profile index' do
     end
 
     describe 'unfiltering' do
-      before { click_link t('users.index.all') }
+      before { click_link t('users.filters.all') }
 
       it 'shows correct list' do
         expect(page).to have_selector('li', text: host_available.name)
@@ -228,8 +228,8 @@ RSpec.describe 'User profile index' do
 
   describe 'mixed filters' do
     before do
-      click_link t('users.index.hosts')
-      click_link t('users.index.now')
+      click_link t('users.filters.hosts')
+      click_link t('users.filters.now')
     end
 
     it 'shows correct list' do

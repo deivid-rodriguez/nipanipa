@@ -184,6 +184,7 @@ anbietest"
       header: Aktualisiere dein Profil
     index:
       title: Suche
+    filters:
       availability: Verfügbarkeit
       whenever: Egal wann
       now: Momentan verfügbar

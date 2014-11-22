@@ -179,6 +179,7 @@ volontariato che offri"
       header: Modifica il tuo profilo
     index:
       title: Cercare
+    filters:
       availability: Disponibilità
       whenever: Indifferente
       now: Disponibile adesso

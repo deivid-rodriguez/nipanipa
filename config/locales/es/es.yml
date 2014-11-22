@@ -181,6 +181,7 @@ oferta"
       header: Actualiza tu perfil
     index:
       title: Buscar
+    filters:
       availability: Disponibilidad
       whenever: Cuando sea
       now: Disponibles ahora
