@@ -218,9 +218,9 @@ table.calendar {
     padding: 3px 15px;
   }
   li.active > a {
-    background-color: $grayLight;
+    background-color: $darkGreen;
     &:hover {
-      background-color: $grayLight;
+      background-color: $darkGreen;
     }
   }
   li.nav-header {
@@ -286,7 +286,7 @@ table.calendar {
       }
       .user-thumbnail-login, .user-thumbnail-location {
         margin: 0 0 4px 0;
-        color: $grayLight;
+        color: $darkGreen;
         font-size: 0.9em;
         font-style: italic;
       }
