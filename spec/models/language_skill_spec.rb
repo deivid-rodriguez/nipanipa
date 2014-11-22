@@ -4,14 +4,6 @@
 RSpec.describe LanguageSkill do
   let(:language_skill) { build(:language_skill) }
 
-  it 'has a valid factory' do
-    expect(create(:language_skill)).to be_valid
-  end
-
-  it 'has a valid soft factory' do
-    expect(language_skill).to be_valid
-  end
-
   it 'has a level' do
     language_skill.level = nil
 

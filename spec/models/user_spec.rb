@@ -5,14 +5,6 @@
 RSpec.describe User do
   let(:user) { build(:user) }
 
-  it 'has a valid factory' do
-    expect(create(:user)).to be_valid
-  end
-
-  it 'has a valid soft factory' do
-    expect(build(:user)).to be_valid
-  end
-
   subject { user }
 
   it { is_expected.to respond_to(:availability)        }
@@ -25,8 +17,6 @@ RSpec.describe User do
   it { is_expected.to respond_to(:password)            }
   it { is_expected.to respond_to(:remember_created_at) }
   it { is_expected.to respond_to(:type)                }
-
-  it { is_expected.to be_valid }
 
   describe 'when name is not present' do
     before { user.name = ' ' }
