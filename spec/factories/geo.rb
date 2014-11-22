@@ -13,7 +13,9 @@ FactoryGirl.define do
       end
     end
 
-    initialize_with { Region.find_or_create_by(code: code, country: country) }
+    initialize_with do
+      Region.find_or_initialize_by(code: code, country: country)
+    end
   end
 
   factory :country do
@@ -22,13 +24,13 @@ FactoryGirl.define do
     continent
 
     initialize_with do
-      Country.find_or_create_by(code: code, continent: continent)
+      Country.find_or_initialize_by(code: code, continent: continent)
     end
   end
 
   factory :continent do
     code 'EU'
 
-    initialize_with { Continent.find_or_create_by(code: code) }
+    initialize_with { Continent.find_or_initialize_by(code: code) }
   end
 end
