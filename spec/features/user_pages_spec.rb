@@ -140,6 +140,9 @@ RSpec.describe 'User profile context' do
   end
 end
 
+#
+# TODO: Add tests for geographical filters
+#
 RSpec.describe 'User profile index' do
   let!(:host_available) { create(:host, :available_just_now) }
   let!(:host_not_available) { create(:host, :not_available) }
