@@ -28,7 +28,7 @@ GIT
 
 GIT
   remote: git://github.com/plataformatec/devise.git
-  revision: d3d9fba201e3b23361f68ff44e96a6dbf4492afc
+  revision: 16005ebcfeda30a994dc54e4b4dbb0dc6d74dc64
   specs:
     devise (3.4.1)
       bcrypt (~> 3.0)
@@ -144,7 +144,7 @@ GEM
     ffaker (1.25.0)
     ffi (1.9.6)
     formatador (0.2.5)
-    formtastic (3.1.0)
+    formtastic (3.1.1)
       actionpack (>= 3.2.13)
     formtastic_i18n (0.1.1)
     guard (2.8.2)
