@@ -1,10 +1,10 @@
 div class="row message-#{from_starter?(message) ? 'left' : 'right'}"
   .col-md-2.message-from
-    = avatar_link_for message.from, style: :thumb_message
+    = link_to message.from do
+      = avatar_for message.from, style: :thumb_message
+      = message.from.name
 
   .col-md-10.message-content
-    .bubble-triangle
-
     = simple_format(message.body)
 
     p.message-date

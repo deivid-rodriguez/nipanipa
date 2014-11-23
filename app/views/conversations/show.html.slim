@@ -18,7 +18,6 @@
         .col-md-2.message-from
           = avatar_link_for current_user, style: :thumb_message
         .col-md-10.message-content
-          .bubble-triangle
           = form_tag reply_conversation_path(@conversation), method: :put,
                                                              remote: true do
             = text_area_tag :body

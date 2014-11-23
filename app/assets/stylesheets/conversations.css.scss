@@ -59,21 +59,22 @@ ul.conversation-list {
 .message {
   margin-bottom: 20px;
   .message-content {
-    background: $grayBackground;
     position: relative;
-    .bubble-triangle {
-      position: absolute;
-      width: 12px;
-      height: 10px;
-      top: 20px;
-    }
-    border: 1px solid $grayVeryLight;
-    padding: 10px;
+    padding: 15px;
     @include border_radius;
-    .message-date {
-      margin-bottom: 0;
-      font-size: 0.8em;
+    background: $grayBackground;
+    &:before {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      top: 20px;
+      border: 6px solid;
     }
+  }
+  .message-date {
+    margin-bottom: 0;
+    font-size: 0.8em;
   }
 }
 
@@ -84,10 +85,10 @@ ul.conversation-list {
   }
   .message-content {
     text-align: right;
-  }
-  .bubble-triangle {
-    background: image-url('triangle-right.png') no-repeat;
-    right: -12px;
+    &:before {
+      right: -11px;
+      border-color: $grayBackground transparent transparent $grayBackground;
+    }
   }
   .message-date {
     text-align: left;
@@ -101,10 +102,10 @@ ul.conversation-list {
   }
   .message-content {
     text-align: left;
-  }
-  .bubble-triangle {
-    background: image-url('triangle-left.png') no-repeat;
-    left: -12px;
+    &:before {
+      left: -11px;
+      border-color: $grayBackground $grayBackground transparent transparent;
+    }
   }
   .message-date {
     text-align: right;
@@ -114,5 +115,12 @@ ul.conversation-list {
   }
   form input {
     line-height: 138px;
+  }
+}
+
+.message-from {
+  text-align: center;
+  > a {
+    text-decoration: none;
   }
 }
