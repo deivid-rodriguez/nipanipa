@@ -137,12 +137,14 @@ your profile"
     index:
       title: My conversations
     show:
-      reply: Reply
       back_html: Back &#8617;
     preview:
       usure?: Are you sure?
     reply:
       error: Error sending the message...
+  messages:
+    message:
+      reply: Reply
   users:
     form:
       description_host: "Tell your future volunteers something about yourself

@@ -73,7 +73,7 @@ RSpec.describe 'Display a conversation', :js do
   it 'shows a reply box' do
     expect(page).to have_title conversation.subject
     expect(page).to have_selector 'h3', text: conversation.subject
-    expect(page).to have_button t('conversations.show.reply')
+    expect(page).to have_button t('messages.message.reply')
   end
 
   describe 'and reply to it' do
@@ -94,7 +94,7 @@ RSpec.describe 'Display a conversation', :js do
         expect(page).to \
           have_flash_message t('conversations.reply.error'), 'danger'
 
-        expect(page).to have_button t('conversations.show.reply')
+        expect(page).to have_button t('messages.message.reply')
       end
     end
   end

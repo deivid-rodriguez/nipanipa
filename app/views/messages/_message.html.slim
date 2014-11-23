@@ -1,11 +1,10 @@
-div class="row message-#{from_starter?(message) ? 'left' : 'right'}"
+- from = message ? message.from : current_user
+
+div class="row message-#{conversation.from == from ? 'left' : 'right'}"
   .col-md-2.message-from
-    = link_to message.from do
-      = avatar_for message.from, style: :thumb_message
-      = message.from.name
+    = link_to from do
+      = avatar_for from, style: :thumb_message
+      = from.name
 
   .col-md-10.message-content
-    = simple_format(message.body)
-
-    p.message-date
-      = l message.created_at
+    = yield

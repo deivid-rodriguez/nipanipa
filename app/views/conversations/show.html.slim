@@ -11,18 +11,7 @@
     .col-md-offset-2.col-md-8.chat-list
       ul#chat-list
         - for message in @conversation.messages
-          li = render message
+          li = render 'messages/sent', message: message
 
     .col-md-offset-2.col-md-8
-      .row.message-left
-        .col-md-2.message-from
-          = link_to current_user do
-            = avatar_for current_user, style: :thumb_message
-            = current_user.name
-
-        .col-md-10.message-content
-          = form_tag reply_conversation_path(@conversation), method: :put,
-                                                             remote: true do
-            = text_area_tag :body
-            = submit_tag t('.reply'),
-                         class: 'btn btn-default primary-button pull-right'
+      = render 'messages/reply_form', conversation: @conversation

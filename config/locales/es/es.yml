@@ -137,12 +137,14 @@ usuarios que eres una persona de verdad, a parte de lo feo que eres (es broma!)"
     index:
       title: Mis mensajes
     show:
-      reply: Responder
       back_html: Volver &#8617;
     preview:
       usure?: ¿Seguro que quieres borrar la conversación?
     reply:
       error: Error en el envío del mensaje...
+  messages:
+    message:
+      reply: Responder
   users:
     form:
       description_host: "Cuéntale a tus futuros voluntarios algo sobre ti o

@@ -76,6 +76,13 @@ ul.conversation-list {
     margin-bottom: 0;
     font-size: 0.8em;
   }
+  form textarea {
+    width: 80%;
+  }
+  form input {
+    width: 15%;
+    line-height: 138px;
+  }
 }
 
 .message-right {
@@ -92,6 +99,9 @@ ul.conversation-list {
   }
   .message-date {
     text-align: left;
+  }
+  form textarea {
+    margin-right: 5%;
   }
 }
 
@@ -111,10 +121,7 @@ ul.conversation-list {
     text-align: right;
   }
   form textarea {
-    width: 80%;
-  }
-  form input {
-    line-height: 138px;
+    margin-left: 5%;
   }
 }
 

@@ -32,7 +32,7 @@ end
 
 def reply(text)
   fill_in 'body', with: "#{text}"
-  click_button t('conversations.show.reply')
+  click_button t('messages.message.reply')
   expect(page).to have_content "#{text}" # assert text appears before going on
 end
 

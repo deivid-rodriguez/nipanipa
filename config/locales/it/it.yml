@@ -135,12 +135,14 @@ pìù lunga de 300 caratteri"
     index:
       title: I miei messaggi
     show:
-      reply: Rispondere
       back_html: Tornare &#8617;
     preview:
       usure?: Sei sicuro che vuoi cancellare la conversazione?
     reply:
       error: Error nello invio del messaggio...
+  messages:
+    message:
+      reply: Rispondere
   users:
     form:
       description_host: "Racconta ai prossimi volontari qualcosa su di te o

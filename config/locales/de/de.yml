@@ -141,12 +141,14 @@ deinem Profil angezeigt wird."
     index:
       title: Meine Unterhaltungen
     show:
-      reply: Antworten
       back_html: Zurück &#8617;
     preview:
       usure?: Bist du dir sicher?
     reply:
       error: Fehler beim Senden der Nachricht...
+  messages:
+    message:
+      reply: Antworten
   users:
     form:
       description_host: "Erzähl deinen zukünftigen freiwilligen Helfern etwas
