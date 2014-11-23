@@ -16,7 +16,10 @@
     .col-md-offset-2.col-md-8
       .row.message-left
         .col-md-2.message-from
-          = avatar_link_for current_user, style: :thumb_message
+          = link_to current_user do
+            = avatar_for current_user, style: :thumb_message
+            = current_user.name
+
         .col-md-10.message-content
           = form_tag reply_conversation_path(@conversation), method: :put,
                                                              remote: true do
