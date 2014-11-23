@@ -1,0 +1,13 @@
+= f.input :country,
+          collection: Country.all.sort_by(&:name),
+          selected: f.object.country.id,
+          input_html: { \
+            data: { 'regions-url' => country_regions_path(':country_id') } },
+          include_blank: false,
+          wrapper: :half_width
+
+= f.input :region_id,
+          collection: f.object.country.regions,
+          selected: f.object.region.id,
+          include_blank: false,
+          wrapper: :half_width

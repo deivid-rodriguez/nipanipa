@@ -5,6 +5,10 @@ Rails.application.routes.draw do
     devise_for :users, controllers: { registrations: 'users' },
                        path_names: { sign_in: 'signin', sign_out: 'signout' }
 
+    resources :countries, only: [] do
+      resources :regions, only: :index
+    end
+
     resources :donations, only: [:new, :create, :show]
 
     resources :users, except: [:new, :create, :edit, :update, :destroy],

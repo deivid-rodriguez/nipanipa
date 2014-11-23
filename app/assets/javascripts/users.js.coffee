@@ -16,15 +16,10 @@ jQuery ->
   #
   # Load proper regions when country select dropdown changes
   #
-  regions = $('#user_region_id').html()
-
-  filter_regions = ->
-    country = $('#user_country :selected').text()
-    escaped_country = country.replace(/([ ,.'[\]])/g, '\\$1')
-    options = $(regions).filter("optgroup[label='#{escaped_country}']").html()
-    $('#user_region_id').html(options)
-
-  filter_regions()
-
   $('#user_country').change ->
-    filter_regions()
+    url = $(this).data('regions-url').replace(':country_id', $(this).val())
+    $('#user_region_id').empty()
+    $.getJSON url, (data) =>
+      $.each data, (index, el) =>
+        [id, name] = [el.id, el.name]
+        $('#user_region_id').append("<option value='#{id}'>#{name}</option>")
