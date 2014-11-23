@@ -49,6 +49,9 @@ ul.conversation-list {
           float: right;
         }
       }
+      img {
+        margin-right: 7px;
+      }
     }
     &:first-child {
       border-top: solid 1px $grayVeryLight;
