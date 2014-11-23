@@ -1,3 +1,6 @@
+#
+# User related js functionality
+#
 jQuery ->
   #
   # Set smaller line-height for multiline tips
