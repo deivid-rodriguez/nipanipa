@@ -2,7 +2,10 @@
 # More info at https://github.com/guard/guard#readme
 #
 group :red_green_refactor, halt_on_fail: true do
-  guard :rspec, cmd: 'bin/rspec', all_on_start: true, failed_mode: :keep do
+  guard :rspec, cmd: 'bin/rspec',
+                all_on_start: true,
+                failed_mode: :keep,
+                all_after_pass: true do
     watch(/^spec\/.+_spec\.rb$/)
     watch(/^lib\/(.+)\.rb$/) { |m| "spec/lib/#{m[1]}_spec.rb" }
     watch('spec/spec_helper.rb')  { 'spec' }
