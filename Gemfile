@@ -47,6 +47,7 @@ group :development do
   gem 'guard-rspec', '4.3.1', require: false
   gem 'guard-livereload', '2.4.0', require: false
   gem 'guard-rubocop', '1.2.0', require: false
+  gem 'guard-scss-lint', github: 'arkbot/guard-scss-lint', require: false
   gem 'letter_opener', '1.2.0'
   gem 'capistrano-rails', '1.1.2'
   gem 'capistrano-rvm', '0.1.2'

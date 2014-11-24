@@ -17,6 +17,14 @@ GIT
       sass-rails
 
 GIT
+  remote: git://github.com/arkbot/guard-scss-lint.git
+  revision: 7e4ef691b869e2d303d94c1d53a92863585b290c
+  specs:
+    guard-scss-lint (0.1.0)
+      guard (~> 2.0)
+      scss-lint
+
+GIT
   remote: git://github.com/carrierwaveuploader/carrierwave.git
   revision: ce4af694905d3b1af631a8c0d0902c19ed726f5b
   specs:
@@ -308,6 +316,9 @@ GEM
     rubyzip (1.1.6)
     safe_yaml (1.0.4)
     sass (3.4.8)
+    scss-lint (0.30.0)
+      rainbow (~> 2.0)
+      sass (~> 3.4.0)
     simple_form (3.1.0.rc2)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
@@ -394,6 +405,7 @@ DEPENDENCIES
   guard-livereload (= 2.4.0)
   guard-rspec (= 4.3.1)
   guard-rubocop (= 1.2.0)
+  guard-scss-lint!
   jquery-rails (= 3.1.2)
   jquery-turbolinks (= 2.1.0)
   kaminari (= 0.16.1)

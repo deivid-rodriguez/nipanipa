@@ -64,7 +64,7 @@ ul.conversation-list {
   .message-content {
     position: relative;
     padding: 15px;
-    @include border_radius;
+    @include border-radius;
     background: $grayBackground;
     &:before {
       content: '';

@@ -1,9 +1,22 @@
-/* Form styles */
+//
+// Form styles
+//
+form,
+fieldset,
+legend,
+label,
+input {
+  margin: 0;
+  padding: 0;
+}
 
-form, fieldset, legend, label, input { margin: 0; padding: 0; }
-
-label, input[type=text], input[type=password], input[type=email], textarea,
-select, .checkbox {
+label,
+input[type=text],
+input[type=password],
+input[type=email],
+textarea,
+select,
+.checkbox {
   font-size: 12px;
 }
 
@@ -17,14 +30,14 @@ select, .checkbox {
 }
 
 input {
-  background-color: white;
-  border: 1px solid #cccccc;
-  @include box_shadow(1px, rgba(0, 0, 0, .075));
+  @include box-shadow(1px, rgba(0, 0, 0, .075));
   @include transition;
+  background-color: white;
+  border: 1px solid #ccc;
 }
 
 textarea { resize: vertical; }
 
-abbr[title] { cursor: auto; border-bottom: none; }
+abbr[title] { border-bottom: 0; cursor: auto; }
 
 label { cursor: auto; }

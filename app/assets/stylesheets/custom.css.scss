@@ -1,7 +1,7 @@
 @import 'bootstrap';
 
 /* mixins, variables, etc. */
-$darkGreen: #275a52;
+$dark-green: #275a52;
 $grayBackground: #e8e4d0;
 $grayMediumLight: #eaeaea;
 $grayVeryLight: #ccc;
@@ -18,13 +18,13 @@ $redVolunteer: #efcf9f;
   background-image: linear-gradient(to_bottom, white, #E6E6E6);
 }
 
-@mixin border_radius {
+@mixin border-radius {
   -moz-boder-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
 
-@mixin box_shadow($x: 2px, $color: $grayVeryLight, $inset: true) {
+@mixin box-shadow($x: 2px, $color: $grayVeryLight, $inset: true) {
   @if $inset == true {
     -moz-box-shadow: inset $x $x $x $color;
     -webkit-box-shadow: inset $x $x $x $color;
@@ -105,9 +105,9 @@ a {
   margin-bottom: 0px;
   background: none;
   font-size: 14px;
-  border: none;
+  border: 0;
   font-weight:bold;
-  @include box_shadow(0px);
+  @include box-shadow(0px);
   .navbar-nav {
     padding-top: 62px;
     li.dropdown.open > .dropdown-toggle {
@@ -126,7 +126,7 @@ a {
 }
 
 .img-thumbnail {
-  border: none;
+  border: 0;
   text-align: center;
   a {
     display: block;
@@ -177,7 +177,7 @@ p {
   background-color: whiteSmoke;
   font-size: 14px;
   padding: 4px 12px;
-  @include border_radius;
+  @include border-radius;
 }
 
 
@@ -239,7 +239,7 @@ $footer_line_height: 12px;
 footer {
   padding-top: $footer_padding;
   padding-bottom: $footer_padding;
-  color: $darkGreen;
+  color: $dark-green;
   position: relative;
   a {
     color: $gray;
@@ -253,11 +253,11 @@ footer {
     top: $footer_width/2 + $footer_padding - $footer_line_height/2;
     float: left;
     li {
-      border-right: 1px solid $darkGreen;
+      border-right: 1px solid $dark-green;
       line-height: $footer_line_height;
     }
     li:last-child {
-      border-right: none;
+      border-right: 0;
     }
   }
   .social-links ul {

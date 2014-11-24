@@ -174,10 +174,10 @@ div.no-elements {
     word-wrap: break-word;
     margin: 0px 0px 20px 0px;
     border: 1px solid $grayVeryLight;
-    @include border_radius;
+    @include border-radius;
     padding: 9px;
     background: $graySuperLight;
-    @include box_shadow;
+    @include box-shadow;
     h3 {
       margin-bottom: 0.3em;
       color: #333;
@@ -192,7 +192,7 @@ div.no-elements {
 
 table.calendar {
   text-align: center;
-  border: none;
+  border: 0;
   border-collapse: collapse;
   tbody {
     tr {
@@ -212,10 +212,10 @@ table.calendar {
 .sidebar-users {
   @include make-md-column(3);
   background: $graySuperLight;
-  @include border_radius;
+  @include border-radius;
   margin-bottom: 20px;
   li {
-    @include border_radius;
+    @include border-radius;
     list-style-type: none;
     > a {
       text-decoration: none;
@@ -224,9 +224,9 @@ table.calendar {
     > ul {
       padding-left: 20px;
       li.active {
-        background-color: $darkGreen;
+        background-color: $dark-green;
         &:hover {
-          background-color: $darkGreen;
+          background-color: $dark-green;
         }
         > a {
           color: white;
@@ -239,9 +239,9 @@ table.calendar {
     }
   }
   li.active > a {
-    background-color: $darkGreen;
+    background-color: $dark-green;
     &:hover {
-      background-color: $darkGreen;
+      background-color: $dark-green;
     }
   }
   li.nav-header {
@@ -274,56 +274,66 @@ table.calendar {
         background-color: #eee;
       }
       li.disabled > a:hover {
-        color: #999;
         background-color: white;
-      }
-    }
-  }
-  .user-thumbnails {
-    padding-left: 15px;
-    list-style-type: none;
-    a {
-      color: #333;
-      text-decoration: none;
-    }
-    .user-thumbnail {
-      border: 1px solid #ddd;
-      overflow: hidden;
-      padding-right: 15px;
-      @extend .img-thumbnail;
-      width: 100%;
-      @include border_radius;
-      .user-thumbnail-badges {
-        float: left;
-        .karma {
-          padding: 6px 0;
-          span {
-            padding-left: 3px;
-          }
-        }
-      }
-      .user-thumbnail-data {
-        margin-left: 180px;
-      }
-      .user-thumbnail-login, .user-thumbnail-location {
-        margin: 0 0 4px 0;
-        color: $darkGreen;
-        font-size: 0.9em;
-        font-style: italic;
-      }
-      .user-thumbnail-location {
-        text-align: right;
-      }
-      .user-thumbnail-login {
-        width: 249px;
-        float: left;
-        text-align: left;
-      }
-      .user-thumbnail-shortdesc {
-        text-align: left;
+        color: #999;
       }
     }
   }
 }
 
+.user-thumbnails {
+  list-style-type: none;
+  padding-left: 15px;
 
+  a {
+    color: #333;
+    text-decoration: none;
+  }
+
+  .user-thumbnail {
+    @extend .img-thumbnail;
+    @include border-radius;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    padding-right: 15px;
+    width: 100%;
+  }
+}
+
+.user-thumbnail-badges {
+  float: left;
+
+  .karma {
+    padding: 6px 0;
+
+    span {
+      padding-left: 3px;
+    }
+  }
+}
+
+.user-thumbnail-data {
+  margin-left: 180px;
+}
+
+.user-thumbnail-login,
+.user-thumbnail-location {
+  color: $dark-green;
+  font-size: .9em;
+  font-style: italic;
+  margin: 0 0 4px;
+}
+
+.user-thumbnail-location {
+  text-align: right;
+}
+
+.user-thumbnail-login {
+  float: left;
+  text-align: left;
+  width: 249px;
+}
+
+.user-thumbnail-shortdesc {
+  text-align: left;
+}

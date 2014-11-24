@@ -28,7 +28,12 @@ group :red_green_refactor, halt_on_fail: true do
 
   guard :rubocop, cli: %w(-D) do
     watch(/.+\.rb$/)
-    watch(/(?:.+\/)?\.rubocop\.yml$/) { |m| File.dirname(m[0]) }
+    watch(/\.rubocop\.yml$/) { |m| File.dirname(m[0]) }
+  end
+
+  guard :scsslint do
+    watch(/.+\.scss$/)
+    watch(/\.scss-lint\.yml$/) { |m| File.dirname(m[0]) }
   end
 end
 
