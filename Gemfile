@@ -39,13 +39,15 @@ group :development, :test do
   gem 'rspec-rails', '3.1.0'
   gem 'factory_girl_rails', '4.5.0'
   gem 'ffaker', '1.25.0'
-  gem 'guard-rubocop', '1.2.0', require: false
-  gem 'guard-scss-lint', github: 'arkbot/guard-scss-lint', require: false
+  gem 'rubocop', '0.27.1'
+  gem 'scss-lint', '0.30.0'
 end
 
 group :development do
   gem 'spring-commands-rspec', '1.0.2'
   gem 'spring', branch: 'guard/listen2'
+  gem 'guard-rubocop', '1.2.0', require: false
+  gem 'guard-scss-lint', github: 'arkbot/guard-scss-lint', require: false
   gem 'guard-rspec', '4.3.1', require: false
   gem 'guard-livereload', '2.4.0', require: false
   gem 'letter_opener', '1.2.0'
