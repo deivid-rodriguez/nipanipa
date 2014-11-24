@@ -15,7 +15,7 @@ gem 'cancancan', '1.9.2'
 gem 'enumerize', '0.8.0'
 gem 'cocoon', '1.2.6'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
-gem 'mini_magick', '4.0.0'
+gem 'mini_magick', '4.0.1'
 gem 'quiet_assets', '1.0.3'
 
 # Frontend stuff
