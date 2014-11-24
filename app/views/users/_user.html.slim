@@ -4,9 +4,9 @@ li
       .user-thumbnail-badges
         = avatar_for user
         .karma
+          = t('.karma').titleize
           span
             strong= user.karma
-          = t('.karma')
 
       .user-thumbnail-data
         h5= user.name
