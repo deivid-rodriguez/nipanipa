@@ -25,13 +25,17 @@ class User < ActiveRecord::Base
 
   delegate :country, to: :region, allow_nil: true
   scope :from_country, ->(country_id) do
-    includes(:region).where(regions: { country_id: country_id })
+    where(regions: { country_id: country_id })
   end
 
   delegate :continent, to: :country, allow_nil: true
   scope :from_continent, ->(continent_id) do
-    includes(region: :country).where(countries: { continent_id: continent_id })
+    where(countries: { continent_id: continent_id })
   end
+
+  scope :by_latest_sign_in, -> { order(last_sign_in_at: :desc) }
+
+  default_scope { includes(region: :country) }
 
   def blank_img_and_cache(att)
     att['image'].blank? && att['image_cache'].blank?
