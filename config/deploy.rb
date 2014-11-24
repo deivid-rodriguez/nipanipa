@@ -17,7 +17,7 @@ set :keep_releases, 5
 
 namespace :deploy do
   desc 'Restart Passenger'
-  after :restart, :restart_passenger do
+  after :deploy, :restart_passenger do
     on roles(:web), in: :groups, limit: 3, wait: 5 do
       within release_path do
         execute :touch, 'tmp/restart.txt'
