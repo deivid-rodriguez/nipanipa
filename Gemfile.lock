@@ -409,7 +409,6 @@ DEPENDENCIES
   rails_autolink (= 1.1.6)
   rb-inotify (= 0.9.5)
   rspec-rails (= 3.1.0)
-  rubocop (= 0.27.1)
   rubyzip (= 1.1.6)
   sass-rails!
   simple_form (= 3.1.0.rc2)
