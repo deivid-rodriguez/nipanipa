@@ -46,16 +46,6 @@ GIT
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
 
-GIT
-  remote: git://github.com/rails/sass-rails.git
-  revision: 404cd9ba2bf2618fe14b1ba2f27c861ba48980f2
-  specs:
-    sass-rails (5.0.0.beta1)
-      railties (>= 4.0.0, < 5.0)
-      sass (~> 3.2, >= 3.2.2)
-      sprockets (~> 2.8, < 3.0)
-      sprockets-rails (>= 2.0, < 4.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -95,8 +85,8 @@ GEM
     bcrypt (3.1.9)
     bootstrap-sass (3.3.1.0)
       sass (~> 3.2)
-    bourbon (4.0.2)
-      sass (~> 3.3)
+    bourbon (3.2.3)
+      sass (~> 3.2)
       thor
     builder (3.2.2)
     byebug (3.5.1)
@@ -315,7 +305,12 @@ GEM
     ruby-progressbar (1.7.0)
     rubyzip (1.1.6)
     safe_yaml (1.0.4)
-    sass (3.4.8)
+    sass (3.2.19)
+    sass-rails (4.0.4)
+      railties (>= 4.0.0, < 5.0)
+      sass (~> 3.2.2)
+      sprockets (~> 2.8, < 2.12)
+      sprockets-rails (~> 2.0)
     scss-lint (0.30.0)
       rainbow (~> 2.0)
       sass (~> 3.4.0)
@@ -339,7 +334,7 @@ GEM
     spring (1.1.3)
     spring-commands-rspec (1.0.2)
       spring (>= 0.9.1)
-    sprockets (2.12.3)
+    sprockets (2.11.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
@@ -422,7 +417,7 @@ DEPENDENCIES
   rb-inotify (= 0.9.5)
   rspec-rails (= 3.1.0)
   rubyzip (= 1.1.6)
-  sass-rails!
+  sass-rails (= 4.0.4)
   simple_form (= 3.1.0.rc2)
   simplecov (= 0.9.1)
   slim-rails (= 2.1.5)
