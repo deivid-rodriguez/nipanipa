@@ -24,7 +24,7 @@ gem 'turbolinks', '2.5.2'
 gem 'jquery-turbolinks', '2.1.0'
 gem 'coffee-rails', '4.1.0'
 gem 'bootstrap-sass', '3.3.1.0'
-gem 'sass-rails', '4.0.4'
+gem 'sass-rails', '4.0.5'
 gem 'uglifier', '2.5.3'
 
 gem 'activeadmin', github: 'activeadmin'

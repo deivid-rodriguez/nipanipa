@@ -9,13 +9,11 @@
  * You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file
  * per style scope.
- *
- *= require_self
  */
-@import 'custom.css.scss';
-@import 'users.css.scss';
-@import 'static_pages.css.scss';
-@import 'sessions.css.scss';
-@import 'conversations.css.scss';
-@import 'pictures.css.scss';
-@import 'feedbacks.css.scss';
+@import 'custom';
+@import 'users';
+@import 'static_pages';
+@import 'sessions.scss';
+@import 'conversations.scss';
+@import 'pictures.scss';
+@import 'feedbacks.scss';
