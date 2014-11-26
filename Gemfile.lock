@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/activeadmin/activeadmin.git
-  revision: a2cd9604c2d949f5193791045385756cee0c6865
+  revision: bd3380e8df3aec665981737f11f98b3582d64a24
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0, >= 1.0.2)
@@ -147,7 +147,7 @@ GEM
     formtastic (3.1.2)
       actionpack (>= 3.2.13)
     formtastic_i18n (0.1.1)
-    guard (2.8.2)
+    guard (2.9.0)
       formatador (>= 0.2.4)
       listen (~> 2.7)
       lumberjack (~> 1.0)
@@ -195,7 +195,7 @@ GEM
       launchy (~> 2.2)
     libnotify (0.8.4)
       ffi (>= 1.0.11)
-    listen (2.8.1)
+    listen (2.8.2)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -303,7 +303,7 @@ GEM
       sass (~> 3.2.2)
       sprockets (~> 2.8, < 3.0)
       sprockets-rails (~> 2.0)
-    simple_form (3.1.0.rc2)
+    simple_form (3.1.0)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
     simplecov (0.9.1)
@@ -407,7 +407,7 @@ DEPENDENCIES
   rubocop (= 0.27.1)
   rubyzip (= 1.1.6)
   sass-rails (= 4.0.5)
-  simple_form (= 3.1.0.rc2)
+  simple_form (= 3.1.0)
   simplecov (= 0.9.1)
   slim-rails (= 2.1.5)
   spring (= 1.2.0)
