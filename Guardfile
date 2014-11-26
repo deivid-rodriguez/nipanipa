@@ -22,6 +22,8 @@ group :red_green_refactor, halt_on_fail: true do
 
     watch(%r{^app/views/(.+)/.*\.slim$}) { |m| "spec/features/#{m[1]}_spec.rb" }
 
+    watch(/^config\/locales.*$/) { 'spec/i18n_spec.rb' }
+
     watch(%r{^spec/factories/(.+)\.rb$}) { |m| "spec/models/#{m[1]}.rb" }
   end
 
