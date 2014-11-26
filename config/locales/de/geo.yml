@@ -1,11 +1,11 @@
 de:
   continents:
-    af: Africa
-    as: Asia
-    eu: Europe
-    na: North America
-    oc: Oceania
-    sa: South America
+    af: Afrika
+    as: Asien
+    eu: Europa
+    na: Nordamerika
+    oc: Australien-Ozeanien
+    sa: Südamerika
   countries:
     af:
       ao: Angola
