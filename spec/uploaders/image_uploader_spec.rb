@@ -4,12 +4,12 @@ RSpec.describe ImageUploader do
   include CarrierWave::Test::Matchers
 
   let!(:user) { build(:user) }
+  let!(:img) { File.open("#{Rails.root}/app/assets/images/host1_small.png") }
 
   before do
     ImageUploader.enable_processing = true
     @uploader = ImageUploader.new(user, :image)
-    @uploader.store!(
-      File.open("#{Rails.root}/app/assets/images/host1_small_cropped.png"))
+    @uploader.store!(img)
   end
 
   after do
@@ -26,12 +26,6 @@ RSpec.describe ImageUploader do
   context 'the small version' do
     it 'should scale down a landscape image to fit within 140x140' do
       expect(@uploader.small).to be_no_larger_than(140, 140)
-    end
-  end
-
-  context 'the small cropped version' do
-    it 'should scale down a landscape image to be exactly 140x140' do
-      expect(@uploader.small_cropped).to have_dimensions(140, 140)
     end
   end
 
