@@ -20,7 +20,6 @@ group :red_green_refactor, halt_on_fail: true do
     watch('app/controllers/application_controller.rb') { 'spec/controllers' }
     watch('spec/rails_helper.rb') { 'spec' }
 
-    # Capybara features specs
     watch(%r{^app/views/(.+)/.*\.slim$}) { |m| "spec/features/#{m[1]}_spec.rb" }
 
     watch(%r{^spec/factories/(.+)\.rb$}) { |m| "spec/models/#{m[1]}.rb" }
