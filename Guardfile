@@ -7,24 +7,22 @@ group :red_green_refactor, halt_on_fail: true do
                 failed_mode: :keep,
                 all_after_pass: true do
     watch(/^spec\/.+_spec\.rb$/)
-    watch(/^lib\/(.+)\.rb$/) { |m| "spec/lib/#{m[1]}_spec.rb" }
-    watch('spec/spec_helper.rb')  { 'spec' }
 
-    # Rails example
-    watch(/^app\/(.+)\.rb$/) { |m| "spec/#{m[1]}_spec.rb" }
-    watch(/^app\/(.*)\.slim$/) { |m| "spec/#{m[1]}#{m[2]}_spec.rb" }
-    watch(%r{^app/controllers/(.+)_(controller)\.rb$}) do |m|
-      "spec/#{m[2]}s/#{m[1]}_#{m[2]}_spec.rb"
-    end
-    watch(%r{^spec/support/(.+)\.rb$}) { 'spec' }
-    watch('app/controllers/application_controller.rb') { 'spec/controllers' }
+    watch('spec/spec_helper.rb') { 'spec' }
     watch('spec/rails_helper.rb') { 'spec' }
+    watch(/^spec\/support.+\.rb$/) { 'spec' }
 
-    watch(%r{^app/views/(.+)/.*\.slim$}) { |m| "spec/features/#{m[1]}_spec.rb" }
+    watch(%r{app/models/(.+)\.rb$}) { |m| "spec/models/#{m[1]}_spec.rb" }
+    watch(%r{spec/factories/(.+)\.rb$}) { |m| "spec/models/#{m[1]}_spec.rb" }
+
+    watch(%r{app/controllers/(.+)_controller\.rb$}) do |m|
+      "spec/features/#{m[1]}_spec.rb"
+    end
+    watch('app/controllers/application_controller.rb') { 'spec/controllers' }
+
+    watch(%r{app/views/(.+)/.*\.slim$}) { |m| "spec/features/#{m[1]}_spec.rb" }
 
     watch(/^config\/locales.*$/) { 'spec/i18n_spec.rb' }
-
-    watch(%r{^spec/factories/(.+)\.rb$}) { |m| "spec/models/#{m[1]}.rb" }
   end
 
   guard :rubocop, cli: %w(-D) do
