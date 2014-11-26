@@ -2,14 +2,14 @@
 # Various utilites for user pages
 #
 module UsersHelper
-  def avatar_for(user, options = { style: :small_cropped })
+  def avatar_for(user, options = { style: :small })
     range = karma_to_type(user.karma)
     url = "#{user.type.underscore}#{range}_#{options[:style]}.png"
     alt = "#{user.type} avatar"
     image_tag(url, alt: alt)
   end
 
-  def avatar_link_for(user, options = { style: :small_cropped })
+  def avatar_link_for(user, options = { style: :small })
     link_to avatar_for(user, options), user
   end
 
