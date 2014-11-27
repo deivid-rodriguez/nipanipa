@@ -1,4 +1,4 @@
-﻿/*! ResponsiveSlides.js v1.32
+/*! ResponsiveSlides.js v1.32
  * http://responsiveslides.com
  * http://viljamis.com
  *
@@ -318,4 +318,5 @@
     });
 
   };
+
 })(jQuery, this, 0);
