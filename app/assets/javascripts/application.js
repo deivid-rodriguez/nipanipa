@@ -17,6 +17,6 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require cocoon
-//= require responsiveslides.js
+//= require responsiveslides
 //= require static_pages
 //= require users
