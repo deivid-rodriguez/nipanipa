@@ -17,6 +17,10 @@ class Country < ActiveRecord::Base
     countries.first
   end
 
+  def self.default
+    find_by(code: 'ES')
+  end
+
   default_scope { includes(:continent) }
 
   scope :with_users, -> { joins(regions: :users).uniq }

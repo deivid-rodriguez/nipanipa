@@ -3,7 +3,7 @@ FactoryGirl.define do
     transient { continent nil }
 
     code 'M'
-    name 'Madrid'
+    name 'Comunidad de Madrid'
 
     country do
       if continent

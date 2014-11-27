@@ -12,6 +12,6 @@ class Region < ActiveRecord::Base
   has_many :users
 
   def self.default
-    includes(:country).where(name: 'Madrid', countries: { code: 'ES' }).first
+    find_by(name: 'Comunidad de Madrid')
   end
 end
