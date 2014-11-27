@@ -13,8 +13,10 @@
 //
 //= require jquery
 //= require analytics
+//= require flattr
 //= require jquery_ujs
 //= require bootstrap
 //= require cocoon
 //= require responsiveslides.js
-//= require_tree .
+//= require static_pages
+//= require users
