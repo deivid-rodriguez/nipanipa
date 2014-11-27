@@ -12,6 +12,7 @@
 // details about supported directives.
 //
 //= require jquery
+//= require analytics
 //= require jquery_ujs
 //= require bootstrap
 //= require cocoon
