@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/activeadmin/activeadmin.git
-  revision: 6f7def4de94c1e8b8a3de8d08cbb41fe8b9a96d6
+  revision: 952273a204def082e0891cc94f1f8c15216605d0
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0, >= 1.0.2)
@@ -194,7 +194,7 @@ GEM
       launchy (~> 2.2)
     libnotify (0.8.4)
       ffi (>= 1.0.11)
-    listen (2.8.2)
+    listen (2.8.3)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
