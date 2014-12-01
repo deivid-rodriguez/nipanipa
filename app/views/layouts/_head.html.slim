@@ -15,4 +15,4 @@ head
 
   = csrf_meta_tags
 
-  = render 'layouts/analytics'
+  = render 'layouts/analytics' if Rails.env.production?
