@@ -12,7 +12,6 @@
 // details about supported directives.
 //
 //= require jquery
-//= require analytics
 //= require flattr
 //= require jquery_ujs
 //= require bootstrap
