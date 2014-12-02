@@ -10,6 +10,8 @@
  * the top of the compiled file, but it's generally better to create a new file
  * per style scope.
  */
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
 @import 'custom';
 @import 'users';
 @import 'static_pages';

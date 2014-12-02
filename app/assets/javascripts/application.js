@@ -14,7 +14,7 @@
 //= require jquery
 //= require flattr
 //= require jquery_ujs
-//= require bootstrap
+//= require bootstrap-sprockets
 //= require cocoon
 //= require responsiveslides
 //= require static_pages
