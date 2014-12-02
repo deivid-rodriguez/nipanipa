@@ -28,7 +28,7 @@ GIT
 
 GIT
   remote: git://github.com/plataformatec/devise.git
-  revision: 6fb466eb1e70c2aaa5d64f4cd464a26acfb671c0
+  revision: a9d90503e903dae8773236b8f413d725b2002f3b
   specs:
     devise (3.4.1)
       bcrypt (~> 3.0)
@@ -149,7 +149,7 @@ GEM
     formtastic (3.1.2)
       actionpack (>= 3.2.13)
     formtastic_i18n (0.1.1)
-    guard (2.10.0)
+    guard (2.10.1)
       formatador (>= 0.2.4)
       listen (~> 2.7)
       lumberjack (~> 1.0)
@@ -255,7 +255,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rainbow (2.0.0)
     raindrops (0.13.0)
-    rake (10.4.0)
+    rake (10.4.1)
     ransack (1.5.1)
       actionpack (>= 3.0)
       activerecord (>= 3.0)
