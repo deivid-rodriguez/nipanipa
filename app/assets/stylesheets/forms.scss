@@ -30,10 +30,10 @@ select,
 }
 
 input {
-  @include box-shadow(1px, rgba(0, 0, 0, .075));
-  @include transition;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, .075);
   background-color: white;
   border: 1px solid #ccc;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
 }
 
 textarea { resize: vertical; }

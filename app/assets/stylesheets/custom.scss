@@ -12,37 +12,6 @@ $grayExplore: #e1ddc4;
 $greenHost: #9ab6aa;
 $redVolunteer: #efcf9f;
 
-@mixin linear_gradient {
-  background-image: -o-linear-gradient(to_bottom, white, #E6E6E6);
-  background-image: -webkit-linear-gradient(to_bottom, white, #E6E6E6);
-  background-image: linear-gradient(to_bottom, white, #E6E6E6);
-}
-
-@mixin border-radius {
-  -moz-boder-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
-}
-
-@mixin box-shadow($x: 2px, $color: $grayVeryLight, $inset: true) {
-  @if $inset == true {
-    -moz-box-shadow: inset $x $x $x $color;
-    -webkit-box-shadow: inset $x $x $x $color;
-    box-shadow: inset $x $x $x $color;
-  } @else {
-    -moz-box-shadow: $x $x $x $color;
-    -webkit-box-shadow: $x $x $x $color;
-    box-shadow: $x $x $x $color;
-  }
-}
-
-@mixin transition {
-  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
-  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
-  -o-transition: border linear 0.2s, box-shadow linear 0.2s;
-  transition: border linear 0.2s, box-shadow linear 0.2s;
-}
-
 /* Dropdown menu's with the small arrow, like in Bootstrap 2 */
 .navbar-nav > li > .header-dropdown-menu {
   @extend .dropdown-menu;
@@ -107,7 +76,6 @@ a {
   font-size: 14px;
   border: 0;
   font-weight:bold;
-  @include box-shadow(0px);
   .navbar-nav {
     padding-top: 62px;
     li.dropdown.open > .dropdown-toggle {
@@ -173,16 +141,15 @@ p {
 /* buttons */
 
 .primary-button {
-  @include linear_gradient;
+  background-image: linear-gradient(to_bottom, white, #E6E6E6);
   background-color: whiteSmoke;
   font-size: 14px;
   padding: 4px 12px;
-  @include border-radius;
+  border-radius: 4px;
 }
 
 
 /* header */
-
 #logo {
   float: left;
   margin-right: 10px;
