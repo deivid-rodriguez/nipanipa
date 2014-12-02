@@ -34,11 +34,10 @@ end
 guard :livereload do
   watch(%r{app/views/.+\.slim$})
   watch(%r{app/helpers/.+\.rb})
-  watch(/^public\/.+\.(css|js|html)$/)
   watch(%r{config/locales/.+\.yml})
 
   # Rails Assets Pipeline
-  watch(%r{(app|vendor)(/assets/\w+/(.+\.(css|js|html|png|jpg))).*}) do |m|
+  watch(%r{(app|vendor)(/assets/\w+/(.+\.(scss|js|html|png))).*}) do |m|
     "/assets/#{m[3]}"
   end
 end
