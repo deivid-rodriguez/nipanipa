@@ -1,9 +1,15 @@
 doctype html
+
 html
   = render 'layouts/head'
+
   body
-    = render 'layouts/header'
-    = render 'layouts/messages'
-    .main-wrapper
-      = yield
+    div class="#{params[:action] == 'home' ? 'home' : 'wrapper'}"
+
+      = render 'layouts/header'
+
+      = render 'layouts/messages'
+
+      main role='main' = yield
+
     = render 'layouts/footer'

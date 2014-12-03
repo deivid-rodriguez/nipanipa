@@ -1,0 +1,50 @@
+//
+// Responsive layout, pushed to bottom footer
+//
+html {
+  overflow-y: scroll;
+  height: 100%;
+}
+
+$footerHeight: 80px;
+
+body {
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 20px;
+  background-color: $grayBackground;
+  width: 100%;
+  min-width: 360px;
+  height: 100%;
+}
+
+.wrapper, .home {
+  min-height: 100%;
+  padding-bottom: $footerHeight;
+}
+
+.home {
+  background: image-url('fondo.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.wrapper, main {
+  max-width: 970px;
+  margin: 0 auto;
+}
+
+.wrapper {
+  > main {
+    background-color: white;
+  }
+}
+
+footer {
+  position: relative;
+  margin: (-$footerHeight) auto 0;
+  height: $footerHeight;
+  clear: both;
+  background-color: $grayBackground;
+  padding: 0 auto;
+}

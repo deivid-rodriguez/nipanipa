@@ -1,11 +1,19 @@
-nav.navbar.navbar-default
-  .navbar-wrapper
+nav.navbar.navbar-default role='navigation'
+  .wrapper
     .navbar-header
       = link_to root_path, class: 'navbar-brand' do
         - if params[:action] == 'home'
           = image_tag 'logo_home.png', alt: 'NiPaNiPa'
         - else
           = image_tag 'logo.png', alt: 'NiPaNiPa'
+
+      button.navbar-toggle.collapsed data={ toggle: 'collapse',
+                                            target: '.navbar-collapse' }
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+
     .navbar-collapse.collapse.navbar-right
       ul.nav.navbar-nav.pull-right
         li= link_to t('.donate'), new_donation_path

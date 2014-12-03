@@ -2,80 +2,85 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.cover {
-  background: image-url('fondo.jpg') no-repeat center center fixed;
-  background-size: cover;
-}
-
-.nipa-container {
-  @extend .container;
-  width: 100%;
-  max-width: 980px;
-  padding-bottom: 20px;
-}
-
 a.thmb-lnk {
   color: #333;
   text-decoration: none;
 }
 
-.home-explore {
-  width: 100%;
-  margin-bottom: 15px;
-  max-height: 252px;
+@media(max-width: 772px) {
+  .home-host,
+  .home-volunteer,
+  .home-explore {
+    min-width: 265px;
+    width: 98%;
+    margin: 0 auto;
+  }
 }
 
-.home-host {
-  overflow: auto;
-  width: 49.5%;
-  float: left;
-  max-height: 252px;
-}
+@media(min-width: 773px) {
+  .home-host,
+  .home-volunteer,
+  .explore-thumbnail > .info,
+  .explore-thumbnail > .rslides {
+    max-width: 500px;
+    width: 49.5%;
+  }
+  .explore-thumbnail > .info {
+    float: left;
+  }
 
-.home-volunteer {
-  overflow: auto;
-  width: 49.5%;
-  float: right;
-  max-height: 252px;
-}
+  .explore-thumbnail > .rslides {
+    float: right;
+  }
 
+  .home-host {
+    float: left;
+  }
+
+  .home-volunteer {
+    float: right;
+  }
+}
 
 $thumbnail-padding: 50px;
-$external-padding: 15px;
 
 .explore-thumbnail {
   @extend .img-thumbnail;
   width: 100%;
-  padding: $external-padding;
   border-radius: 0px;
   background: $grayExplore;
+  padding: 15px;
   &:hover {
     background: darken($grayExplore, 10%);
   }
   .info {
-    width: 50%;
-    padding: 0px $thumbnail-padding - $external-padding;
-    float: left;
+    padding: 15px $thumbnail-padding;
     h2 {
       margin-top: 90px;
     }
   }
   .rslides {
-    width: 50%;
-    float: right;
+    padding: 0;
     list-style: none;
     position: relative;
+    li {
+      width: 100%;
+      margin: 0 auto;
+    }
     img {
       width: 100%;
     }
   }
 }
 
-.host-thumbnail {
+.host-thumbnail, .volunteer-thumbnail {
   @extend .img-thumbnail;
   width: 100%;
-  padding: 20px $thumbnail-padding;
+  padding: 20px;
   border-radius: 0px;
+}
+
+.host-thumbnail {
   background: $greenHost;
   &:hover {
     background: darken($greenHost, 10%);
@@ -83,10 +88,6 @@ $external-padding: 15px;
 }
 
 .volunteer-thumbnail {
-  @extend .img-thumbnail;
-  width: 100%;
-  padding: 20px $thumbnail-padding;
-  border-radius: 0px;
   background: $redVolunteer;
   &:hover {
     background: darken($redVolunteer, 10%);
