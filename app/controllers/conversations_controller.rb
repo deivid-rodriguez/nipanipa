@@ -42,7 +42,7 @@ class ConversationsController < ApplicationController
                                  to_id: other_user.id)
     @conversation.reset_deleted_marks
 
-    @conversation.save || flash.now[:error] = t('conversations.reply.error')
+    flash.now[:error] = t('conversations.reply.error') unless @conversation.save
     respond_with(@conversation, location: conversation_path(@conversation))
   end
 
