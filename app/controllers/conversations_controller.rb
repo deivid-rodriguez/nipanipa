@@ -27,6 +27,7 @@ class ConversationsController < ApplicationController
     @conversation = Conversation.new(conversation_params.merge(
         to_id: conversation_params[:messages_attributes]['0'][:to_id],
         from_id: conversation_params[:messages_attributes]['0'][:from_id]))
+
     if @conversation.save
       redirect_to conversations_path, notice: t('conversations.create.success')
     else
@@ -36,9 +37,9 @@ class ConversationsController < ApplicationController
   end
 
   def reply
-    @conversation.messages.build(body:    params[:body],
+    @conversation.messages.build(body: params[:body],
                                  from_id: current_user.id,
-                                 to_id:   other_user.id)
+                                 to_id: other_user.id)
     @conversation.reset_deleted_marks
 
     @conversation.save || flash.now[:error] = t('conversations.reply.error')
