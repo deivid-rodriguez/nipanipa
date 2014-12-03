@@ -86,7 +86,7 @@ h1.signup-title {
 
 /* users profile */
 .profile-header {
-  @include make-row;
+  @include clearfix();
   position: relative;
   .user-picture {
     @include make-md-column(3);
@@ -168,6 +168,8 @@ div.no-elements {
 }
 
 .profile-content {
+  @include clearfix();
+  position: relative;
   padding: 20px 0;
   .box {
     word-wrap: break-word;
