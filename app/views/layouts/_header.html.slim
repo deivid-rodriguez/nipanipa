@@ -23,7 +23,7 @@ nav.navbar.navbar-default role='navigation'
           li = link_to t('users.show.profile'), current_user
         - elsif !signup_page?(request.path)
           li.dropdown
-            a.dropdown-toggle data-toggle='dropdown' href='#'
+            a.dropdown-toggle data-toggle='dropdown' href='#' role='button' aria-expanded=false
               = t 'static_pages.home.signup'
               b.caret
             ul.header-dropdown-menu
@@ -36,13 +36,13 @@ nav.navbar.navbar-default role='navigation'
                                              method: :delete
         - elsif !(request.path =~ /signin/)
           li.dropdown
-            a.dropdown-toggle data-toggle='dropdown' href='#'
+            a.dropdown-toggle data-toggle='dropdown' href='#' role='button' aria-expanded=false
               = t  'sessions.signin'
               strong.caret
             .header-dropdown-menu
               .signin-dropdown = render 'shared/signin'
         li.dropdown
-          a.dropdown-toggle data-toggle='dropdown' href='#'
+          a.dropdown-toggle data-toggle='dropdown' href='#' role='button' aria-expanded=false
             = t '.language'
             b.caret
           ul.header-dropdown-menu

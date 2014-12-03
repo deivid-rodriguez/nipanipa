@@ -1,12 +1,12 @@
 - title = full_title(yield(:title))
 
 head
-  meta content="width=device-width, initial-scale=1.0" name="viewport"
+  meta content='width=device-width, initial-scale=1' name='viewport'
 
   title= title
 
   - content = content_for?(:description) ? yield(:description) : title
-  meta content="#{content}" name="description"
+  meta content="#{content}" name='description'
 
   = favicon_link_tag
 
