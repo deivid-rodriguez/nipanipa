@@ -4,4 +4,5 @@
 jQuery ->
   $('.bxslider').bxSlider
     pager: false
+    adaptiveHeight: true
     auto: true
