@@ -7,13 +7,16 @@
 .picture-thumbnails {
   margin: 0;
   list-style: none;
+  padding-left: 0px;
 }
 
 .picture-thumbnail {
   @extend .img-thumbnail;
-  margin: 0px 20px 20px 20px;
   a {
     display: inline;
+    img {
+      width: 100%;
+    }
   }
 }
 

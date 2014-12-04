@@ -1,36 +1,20 @@
 .home-explore
   = link_to users_path, class: 'thmb-lnk' do
     .explore-thumbnail
-      .info
-        h2= t('static_pages.home.explore')
-        p= t('static_pages.home.explore_desc')
+      h2= t('static_pages.home.explore')
+      p= t('static_pages.home.explore_desc')
 
-      ul.rslides
-        li
-          = image_tag 'fotos00.jpg', alt: 'explore_imgs0'
-        li
-          = image_tag 'fotos01.jpg', alt: 'explore_imgs1'
-        li
-          = image_tag 'fotos02.jpg', alt: 'explore_imgs2'
-        li
-          = image_tag 'fotos03.jpg', alt: 'explore_imgs3'
-        li
-          = image_tag 'fotos04.jpg', alt: 'explore_imgs4'
-        li
-          = image_tag 'fotos05.jpg', alt: 'explore_imgs5'
-        li
-          = image_tag 'fotos06.jpg', alt: 'explore_imgs6'
-        li
-          = image_tag 'fotos07.jpg', alt: 'explore_imgs7'
+  ul.bxslider
+    - Picture.random(8).each do |picture|
+      li= link_to image_tag(picture.image.url(:large), alt: picture.name), picture.user
 
-.home-host
+.home-signup
   = link_to new_user_registration_path(type: 'host'), class: 'thmb-lnk' do
     .host-thumbnail
       = image_tag 'host.png', alt: 'signup host'
       h2= t('static_pages.home.host')
       p= t('static_pages.home.host_desc')
 
-.home-volunteer
   = link_to new_user_registration_path(type: 'volunteer'), class: 'thmb-lnk' do
     .volunteer-thumbnail
       = image_tag 'volunteer.png', alt: 'signup volunteer'

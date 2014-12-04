@@ -2,4 +2,6 @@
 # Load Home Page slides
 #
 jQuery ->
-  $('.rslides').responsiveSlides()
+  $('.bxslider').bxSlider
+    pager: false
+    adaptiveHeight: true

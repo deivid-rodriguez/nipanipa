@@ -8,95 +8,128 @@ a.thmb-lnk {
 }
 
 @media(max-width: 772px) {
-  .home-host,
-  .home-volunteer,
+  .home-signup,
   .home-explore {
     min-width: 265px;
+    display: block;
+  }
+
+  .host-thumbnail,
+  .volunteer-thumbnail {
+    width: 100%;
+  }
+
+  .explore-thumbnail,
+  .bx-wrapper {
     width: 98%;
-    margin: 0 auto;
   }
 }
 
 @media(min-width: 773px) {
-  .home-host,
-  .home-volunteer,
-  .explore-thumbnail > .info,
-  .explore-thumbnail > .rslides {
+  .explore-thumbnail,
+  .bx-wrapper,
+  .host-thumbnail,
+  .volunteer-thumbnail {
     max-width: 500px;
+  }
+
+  .explore-thumbnail,
+  .host-thumbnail {
+    float: left;
+  }
+
+  .bx-wrapper,
+  .volunteer-thumbnail {
+    float: right;
+  }
+
+  .explore-thumbnail,
+  .bx-wrapper {
+    width: 50%;
+  }
+
+  .host-thumbnail,
+  .volunteer-thumbnail {
     width: 49.5%;
   }
-  .explore-thumbnail > .info {
-    float: left;
-  }
-
-  .explore-thumbnail > .rslides {
-    float: right;
-  }
-
-  .home-host {
-    float: left;
-  }
-
-  .home-volunteer {
-    float: right;
-  }
 }
 
-$thumbnail-padding: 50px;
-
-.explore-thumbnail {
+.host-thumbnail,
+.volunteer-thumbnail,
+.explore-thumbnail,
+.bxlider {
   @extend .img-thumbnail;
-  width: 100%;
-  border-radius: 0px;
-  background: $grayExplore;
-  padding: 15px;
-  &:hover {
-    background: darken($grayExplore, 10%);
-  }
-  .info {
-    padding: 15px $thumbnail-padding;
-    h2 {
-      margin-top: 90px;
-    }
-  }
-  .rslides {
-    padding: 0;
-    list-style: none;
-    position: relative;
-    li {
-      width: 100%;
-      margin: 0 auto;
-    }
-    img {
-      width: 100%;
-    }
-  }
-}
-
-.host-thumbnail, .volunteer-thumbnail {
-  @extend .img-thumbnail;
-  width: 100%;
-  padding: 20px;
   border-radius: 0px;
 }
 
 .host-thumbnail {
-  background: $greenHost;
+  background-color: $greenHost;
   &:hover {
-    background: darken($greenHost, 10%);
+    background-color: darken($greenHost, 10%);
   }
 }
 
 .volunteer-thumbnail {
-  background: $redVolunteer;
+  background-color: $redVolunteer;
   &:hover {
-    background: darken($redVolunteer, 10%);
+    background-color: darken($redVolunteer, 10%);
   }
+}
+
+.host-thumbnail,
+.volunteer-thumbnail {
+  padding: 15px;
+}
+
+.home-signup,
+.home-explore {
+  @extend .img-thumbnail;
+  border-radius: 0px;
+  width: 98%;
+  margin: 0 auto;
+}
+
+.home-explore {
+  background-color: $grayExplore;
+  &:hover {
+    background-color: darken($grayExplore, 10%);
+  }
+}
+
+.home-signup {
+  background: none;
+}
+
+.explore-thumbnail {
+  background: none;
+  padding: 15px 50px;
+  h2 {
+    margin-top: 90px;
+  }
+}
+
+.bx-wrapper {
+  @extend .img-thumbnail;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  margin-bottom: 0 !important;
+  li {
+    width: 100%;
+    margin: 0 auto;
+  }
+  img {
+    width: 100%;
+  }
+}
+
+.bx-wrapper, .bx-viewport {
+  border-width: 0px !important;
 }
 
 .contribute-thumbnail {
   @extend .img-thumbnail;
-  background: $grayBackground;
+  background-color: $grayBackground;
   padding: 30px;
   text-align: left;
   min-height: 310px;
