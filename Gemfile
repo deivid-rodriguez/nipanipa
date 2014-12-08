@@ -23,7 +23,7 @@ gem 'jquery-rails', '3.1.2'
 gem 'coffee-rails', '4.1.0'
 gem 'bootstrap-sass', '3.3.1.0'
 gem 'sass-rails', '4.0.5'
-gem 'autoprefixer-rails', '4.0.1.1'
+gem 'autoprefixer-rails', '4.0.2'
 gem 'uglifier', '2.5.3'
 
 gem 'activeadmin', github: 'activeadmin'
@@ -45,9 +45,9 @@ group :development do
   gem 'spring-commands-rspec', '1.0.2'
   gem 'spring', '1.2.0'
   gem 'guard-rubocop', '1.2.0', require: false
-  gem 'guard-rspec', '4.3.1', require: false
+  gem 'guard-rspec', '4.4.2', require: false
   gem 'guard-livereload', '2.4.0', require: false
-  gem 'letter_opener', '1.2.0'
+  gem 'letter_opener', '1.3.0'
   gem 'capistrano-rails', '1.1.2'
   gem 'capistrano-rvm', '0.1.2'
   gem 'unicorn-rails', '2.2.0'
