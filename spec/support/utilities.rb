@@ -6,7 +6,7 @@ end
 
 def sign_in(user)
   click_link t('sessions.signin')
-  fill_in 'user[email]',    with: user.email
+  fill_in 'user[email]', with: user.email
   fill_in 'user[password]', with: user.password
   click_button t('sessions.signin')
 end

@@ -3,19 +3,18 @@
 #
 
 RSpec.describe 'Static pages' do
-
-  let(:help)    { t 'static_pages.help.title' }
-  let(:about)   { t 'static_pages.about.title' }
+  let(:help) { t 'static_pages.help.title' }
+  let(:about) { t 'static_pages.about.title' }
   let(:contact) { t 'static_pages.contact.title' }
 
   subject { page }
 
   shared_examples_for 'all static pages' do
     it { is_expected.to have_title full_title(page_title) }
-    it { is_expected.to have_link help                    }
-    it { is_expected.to have_link about                   }
-    it { is_expected.to have_link contact                 }
-    it { is_expected.to have_link 'NiPaNiPa'              }
+    it { is_expected.to have_link help }
+    it { is_expected.to have_link about }
+    it { is_expected.to have_link contact }
+    it { is_expected.to have_link 'NiPaNiPa' }
   end
 
   describe 'Home Page' do

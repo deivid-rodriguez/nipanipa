@@ -21,10 +21,10 @@ Rails.application.routes.draw do
       put 'reply', on: :member
     end
 
-    get 'help'       => 'static_pages#help'
-    get 'about'      => 'static_pages#about'
-    get 'contact'    => 'static_pages#contact'
-    get 'terms'      => 'static_pages#terms'
+    get 'help' => 'static_pages#help'
+    get 'about' => 'static_pages#about'
+    get 'contact' => 'static_pages#contact'
+    get 'terms' => 'static_pages#terms'
     get 'robots.txt' => 'static_pages#robots'
 
     root 'static_pages#home'

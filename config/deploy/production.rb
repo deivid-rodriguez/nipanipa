@@ -21,7 +21,7 @@ server 'nipanipa.com', user: 'deployer', roles: %w(web app db), primary: true
 # that net/ssh understand limited list of options.
 # You can see them in [net/ssh documentation](http://net-ssh.github.io/net-ssh/classes/Net/SSH.html#method-c-start)
 # Set it globally
-set :ssh_options,  forward_agent: true
+set :ssh_options, forward_agent: true
 
 # and/or per server
 # server 'example.com',

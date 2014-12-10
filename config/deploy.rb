@@ -3,7 +3,7 @@ set :application, 'nipanipa'
 set :repo_url, 'git@github.com:deivid-rodriguez/nipanipa.git'
 set :branch, 'master'
 
-set :deploy_to,  '/home/deployer/nipanipa'
+set :deploy_to, '/home/deployer/nipanipa'
 set :scm, :git
 
 set :format, :pretty

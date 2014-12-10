@@ -20,7 +20,7 @@ module ApplicationHelper
 
   def tab_builder(user, page_id)
     general_tabs = {
-      general:  { name: t('.general'), path: user_path(user) },
+      general: { name: t('.general'), path: user_path(user) },
       feedback: { name: t('.feedback'), path: user_feedbacks_path(user) },
       pictures: { name: t('.pictures'), path: user_pictures_path(user) } }
     content = ''

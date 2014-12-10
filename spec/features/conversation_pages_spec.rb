@@ -4,7 +4,7 @@
 
 RSpec.describe 'Create a conversation' do
   let!(:conversation) { build(:conversation) }
-  let(:create_conv)  { t('helpers.submit.conversation.create') }
+  let(:create_conv) { t('helpers.submit.conversation.create') }
 
   before do
     mock_sign_in(conversation.from)

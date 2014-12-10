@@ -1,7 +1,6 @@
 namespace :db do
   desc 'Fill database with sample data'
   task populate: :environment do
-
     # Generates a random biased score
     def rand_score
       num = rand(10)
@@ -21,9 +20,9 @@ namespace :db do
     # Create some users
     @n_users.times do |n|
       type = %w(host volunteer).sample
-      name  = Faker::Name.name
+      name = Faker::Name.name
       email = "nipanipa.test+#{type}#{n}@gmail.com"
-      password  = '111111'
+      password = '111111'
       description = Faker::Lorem.paragraph(10)
       time = Time.now
       user = type.classify.constantize.new name: name,
@@ -43,11 +42,13 @@ namespace :db do
     # Create some feedbacks
     250.times do
       from_to = (1..@n_users).to_a.sample 2
+
       loop do
         break if Feedback.where(sender_id: from_to[0],
                                 recipient_id: from_to[1]).empty?
         from_to = (1..@n_users).to_a.sample 2
       end
+
       feedback = Feedback.new content: Faker::Lorem.sentence(5),
                               score: rand_score
       feedback.sender_id = from_to[0]
@@ -61,16 +62,17 @@ namespace :db do
     100.times do
       user = (1..@n_users).to_a.shuffle[0]
       lang = (1..@n_languages).to_a.shuffle[0]
+
       loop do
         break if LanguageSkill.where(language_id: lang, user_id: user).empty?
         user = (1..@n_users).to_a.shuffle[0]
         lang = (1..@n_languages).to_a.shuffle[0]
       end
+
       language_skill =
         LanguageSkill.new language_id: lang, user_id: user,
                           level: LanguageSkill.level.values[rand(5)]
       language_skill.save!
     end
-
   end
 end

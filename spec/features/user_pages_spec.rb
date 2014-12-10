@@ -246,7 +246,7 @@ end
 
 RSpec.describe 'User profile editing' do
   let(:host) { create(:host, email: 'old_email@example.com') }
-  let(:update_user) { t('helpers.submit.user.update', model: User)  }
+  let(:update_user) { t('helpers.submit.user.update', model: User) }
 
   before do
     visit root_path

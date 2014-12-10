@@ -3,7 +3,7 @@
 #
 
 RSpec.describe Feedback do
-  let(:feedback)  { build(:feedback) }
+  let(:feedback) { build(:feedback) }
 
   subject { feedback }
 

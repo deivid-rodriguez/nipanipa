@@ -12,3 +12,6 @@ Style/ModuleFunction:
 
 Style/Lambda:
   Enabled: false
+
+Style/ExtraSpacing:
+  Enabled: true

@@ -7,16 +7,16 @@ RSpec.describe User do
 
   subject { user }
 
-  it { is_expected.to respond_to(:availability)        }
-  it { is_expected.to respond_to(:description)         }
-  it { is_expected.to respond_to(:email)               }
-  it { is_expected.to respond_to(:encrypted_password)  }
-  it { is_expected.to respond_to(:languages)           }
-  it { is_expected.to respond_to(:last_sign_in_ip)     }
-  it { is_expected.to respond_to(:name)                }
-  it { is_expected.to respond_to(:password)            }
+  it { is_expected.to respond_to(:availability) }
+  it { is_expected.to respond_to(:description) }
+  it { is_expected.to respond_to(:email) }
+  it { is_expected.to respond_to(:encrypted_password) }
+  it { is_expected.to respond_to(:languages) }
+  it { is_expected.to respond_to(:last_sign_in_ip) }
+  it { is_expected.to respond_to(:name) }
+  it { is_expected.to respond_to(:password) }
   it { is_expected.to respond_to(:remember_created_at) }
-  it { is_expected.to respond_to(:type)                }
+  it { is_expected.to respond_to(:type) }
 
   describe 'when name is not present' do
     before { user.name = ' ' }

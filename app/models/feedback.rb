@@ -20,7 +20,7 @@ class Feedback < ActiveRecord::Base
   accepts_nested_attributes_for :donation,
                                 reject_if: proc { |attr| attr[:amount] == '0' }
 
-  scope :sent, ->(user) { where(sender: user)    }
+  scope :sent, ->(user) { where(sender: user) }
   scope :received, ->(user) { where(recipient: user) }
 
   def complement
@@ -47,7 +47,7 @@ class Feedback < ActiveRecord::Base
   end
 
   def self.pairs(user)
-    result_list  = []
+    result_list = []
     sent_list = Feedback.sent(user)
     Feedback.received(user).each do |feedback|
       result_list << [feedback, feedback.complement]

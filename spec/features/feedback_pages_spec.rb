@@ -97,7 +97,7 @@ RSpec.describe 'Leaving feedback' do
 end
 
 RSpec.describe 'Editing feedbacks' do
-  let!(:feedback)    { create(:feedback, score: :positive) }
+  let!(:feedback) { create(:feedback, score: :positive) }
   let(:feedback_btn) { t('helpers.submit.feedback.update') }
 
   before do

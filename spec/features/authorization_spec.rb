@@ -17,7 +17,7 @@ RSpec.describe 'User' do
       end
 
       describe 'feedback' do
-        let!(:feedback_by_me)  { build(:feedback, sender: user) }
+        let!(:feedback_by_me) { build(:feedback, sender: user) }
         let!(:feedback_for_me) { build(:feedback, recipient: user) }
 
         it { is_expected.not_to have_ability(:manage, for: feedback_for_me) }
@@ -44,7 +44,7 @@ RSpec.describe 'Protected pages' do
     it 'stores redirects back after log in and then forgets' do
       visit protected_page
       expect(page).to have_title t('sessions.signin')
-      fill_in 'user[email]',    with: user.email
+      fill_in 'user[email]', with: user.email
       fill_in 'user[password]', with: user.password
       click_button t('sessions.signin')
       expect(current_path).to eq(protected_page)
@@ -69,7 +69,7 @@ RSpec.describe 'Protected pages' do
   end
 
   describe 'edit feedback page' do
-    let!(:feedback)  { create(:feedback, sender: user) }
+    let!(:feedback) { create(:feedback, sender: user) }
 
     it_behaves_like 'all protected pages' do
       let(:protected_page) do
@@ -87,7 +87,7 @@ RSpec.describe 'Protected pages' do
   end
 
   describe 'show conversation page' do
-    let!(:conversation)  { create(:conversation, from: user) }
+    let!(:conversation) { create(:conversation, from: user) }
 
     it_behaves_like 'all protected pages' do
       let(:protected_page) { conversation_path(conversation) }
@@ -111,5 +111,4 @@ RSpec.describe 'Protected pages' do
       specify { expect(current_path).to eq(user_path(user)) }
     end
   end
-
 end

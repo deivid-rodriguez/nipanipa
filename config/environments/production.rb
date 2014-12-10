@@ -12,7 +12,7 @@ Rails.application.configure do
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local = false
   config.action_controller.perform_caching = true
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
@@ -66,12 +66,12 @@ Rails.application.configure do
   # ActionMailer Config
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              ENV['MAIL_SERVER'],
-    user_name:            ENV['MAIL_USER'],
-    password:             ENV['MAIL_PASS'],
-    domain:               ENV['MAIL_HOST'],
-    port:                 587,
-    authentication:       :plain,
+    address: ENV['MAIL_SERVER'],
+    user_name: ENV['MAIL_USER'],
+    password: ENV['MAIL_PASS'],
+    domain: ENV['MAIL_HOST'],
+    port: 587,
+    authentication: :plain,
     enable_starttls_auto: true
   }
   config.action_mailer.perform_deliveries = true

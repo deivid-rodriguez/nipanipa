@@ -4,7 +4,7 @@
 class SpoofIp
   def initialize(app, ip)
     @app = app
-    @ip  = ip
+    @ip = ip
   end
 
   def call(env)

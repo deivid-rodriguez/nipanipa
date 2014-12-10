@@ -1,8 +1,8 @@
 namespace :scrapers do
-  TEL_PREFIX  = "(?:Tel\s*(?:(?:&|\/)\s*[Ff]ax)?\s*(?:[:.])?)"
-  FAX_PREFIX  = "(?:Fax\s*(?:[:.])?)"
-  CEL_PREFIX  = "(?:[Cc]ell\s*(?:[:.])?)"
-  WEB_REGEXP  = "www\.\S+\.\S+"
+  TEL_PREFIX = "(?:Tel\s*(?:(?:&|\/)\s*[Ff]ax)?\s*(?:[:.])?)"
+  FAX_PREFIX = "(?:Fax\s*(?:[:.])?)"
+  CEL_PREFIX = "(?:[Cc]ell\s*(?:[:.])?)"
+  WEB_REGEXP = "www\.\S+\.\S+"
   MAIL_PREFIX = "[Ee](?:[- ])?[Mm]ail\s*(?:[:.])?\s*"
   MAIL_REGEXP = '[^@\s]+@\S+'
 

@@ -22,8 +22,8 @@ def mock_paypal_pdt(status)
     .with(body: { at: ENV['PAYPAL_PDT_AT'],
                   cmd: '_notify-synch',
                   tx: paypal_tx },
-          headers: { 'Accept'       => '*/*',
+          headers: { 'Accept' => '*/*',
                      'Content-Type' => 'application/x-www-form-urlencoded',
-                     'User-Agent'   => 'Ruby' })
+                     'User-Agent' => 'Ruby' })
     .to_return(status: 200, body: "#{status}", headers: {})
 end
