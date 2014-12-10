@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/activeadmin/activeadmin.git
-  revision: e4f8dbbbb8046b719e100fddf83319b9e6cb8796
+  revision: fc1874f7d3b4b1b966d6c0f6c3c506a22efe0de7
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0, >= 1.0.2)
@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: git://github.com/carrierwaveuploader/carrierwave.git
-  revision: 88894032319588bb910884fa6b6a67d7b0b0beb1
+  revision: d2d17464478c7a234674c1bcea6d9e83bd55115e
   specs:
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
@@ -88,8 +88,8 @@ GEM
       debugger-linecache (~> 1.2)
       slop (~> 3.6)
     cancancan (1.9.2)
-    capistrano (3.3.3)
-      capistrano-stats (~> 1.0.3)
+    capistrano (3.3.4)
+      capistrano-stats (~> 1.1.0)
       i18n
       rake (>= 10.0.0)
       sshkit (~> 1.3)
@@ -102,7 +102,7 @@ GEM
     capistrano-rvm (0.1.2)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
-    capistrano-stats (1.0.3)
+    capistrano-stats (1.1.0)
     capybara (2.4.4)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -324,7 +324,7 @@ GEM
       slim (~> 2.0)
     slop (3.6.0)
     spring (1.2.0)
-    spring-commands-rspec (1.0.2)
+    spring-commands-rspec (1.0.3)
       spring (>= 0.9.1)
     sprockets (2.12.3)
       hike (~> 1.2)
@@ -412,7 +412,7 @@ DEPENDENCIES
   simplecov (= 0.9.1)
   slim-rails (= 2.1.5)
   spring (= 1.2.0)
-  spring-commands-rspec (= 1.0.2)
+  spring-commands-rspec (= 1.0.3)
   uglifier (= 2.6.0)
   unicorn-rails (= 2.2.0)
   webmock (= 1.20.4)

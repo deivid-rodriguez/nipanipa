@@ -42,7 +42,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'spring-commands-rspec', '1.0.2'
+  gem 'spring-commands-rspec', '1.0.3'
   gem 'spring', '1.2.0'
   gem 'guard-rubocop', '1.2.0', require: false
   gem 'guard-rspec', '4.4.2', require: false
