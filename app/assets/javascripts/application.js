@@ -16,6 +16,4 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require cocoon
-//= require jquery.bxslider
-//= require static_pages
 //= require users

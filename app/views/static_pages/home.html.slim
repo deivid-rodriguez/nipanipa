@@ -4,9 +4,24 @@
       h2= t('static_pages.home.explore')
       p= t('static_pages.home.explore_desc')
 
-  ul.bxslider
-    - Picture.random(8).each do |picture|
-      li= link_to image_tag(picture.image.url(:large), alt: picture.name), picture.user
+  .pictures-thumbnail.carousel.slide data-ride='carousel' data-interval=4000
+    .carousel-inner
+      - Picture.random(8).each_with_index do |picture, i|
+        .item class="#{i == 0 ? 'active' : ''}"
+          = link_to image_tag(picture.image.url(:large), alt: picture.name),
+                    picture.user
+          .carousel-caption
+            h3= picture.name
+
+    = link_to '.pictures-thumbnail', class: 'left carousel-control',
+                                     role: 'button',
+                                     'data-slide' => 'prev' do
+      span.glyphicon.glyphicon-chevron-left
+
+    = link_to '.pictures-thumbnail', class: 'right carousel-control',
+                                     role: 'button',
+                                     'data-slide' => 'next' do
+      span.glyphicon.glyphicon-chevron-right
 
 .home-signup
   = link_to new_user_registration_path(type: 'host'), class: 'thmb-lnk' do

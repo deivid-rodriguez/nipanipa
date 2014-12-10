@@ -20,14 +20,14 @@ a.thmb-lnk {
   }
 
   .explore-thumbnail,
-  .bx-wrapper {
+  .pictures-thumbnail {
     width: 98%;
   }
 }
 
 @media(min-width: 773px) {
   .explore-thumbnail,
-  .bx-wrapper,
+  .pictures-thumbnail,
   .host-thumbnail,
   .volunteer-thumbnail {
     max-width: 500px;
@@ -38,13 +38,13 @@ a.thmb-lnk {
     float: left;
   }
 
-  .bx-wrapper,
+  .pictures-thumbnail,
   .volunteer-thumbnail {
     float: right;
   }
 
   .explore-thumbnail,
-  .bx-wrapper {
+  .pictures-thumbnail {
     width: 50%;
   }
 
@@ -57,7 +57,7 @@ a.thmb-lnk {
 .host-thumbnail,
 .volunteer-thumbnail,
 .explore-thumbnail,
-.bxlider {
+.pictures-thumbnail {
   @extend .img-thumbnail;
   border-radius: 0px;
 }
@@ -108,12 +108,13 @@ a.thmb-lnk {
   }
 }
 
-.bx-wrapper {
+.pictures-thumbnail {
   @extend .img-thumbnail;
   padding: 0;
   list-style: none;
   position: relative;
-  margin-bottom: 0 !important;
+  margin-bottom: 0;
+  border-width: 0px;
   li {
     width: 100%;
     margin: 0 auto;
@@ -121,10 +122,6 @@ a.thmb-lnk {
   img {
     width: 100%;
   }
-}
-
-.bx-wrapper, .bx-viewport {
-  border-width: 0px !important;
 }
 
 .contribute-thumbnail {
