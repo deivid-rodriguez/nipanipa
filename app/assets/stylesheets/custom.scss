@@ -35,6 +35,10 @@
   }
 }
 
+.navbar-header {
+  @include clearfix();
+}
+
 section { overflow: auto; }
 
 a {
@@ -160,50 +164,6 @@ header {
 }
 
 
-/* footer */
-$footer_width: 48px;
-$footer_padding: 15px;
-$footer_line_height: 12px;
-footer {
-  padding-top: $footer_padding;
-  padding-bottom: $footer_padding;
-  color: $dark-green;
-  position: relative;
-  a {
-    color: $gray;
-    &:hover {
-      color: $grayDarker;
-    }
-  }
-  .footer-links ul {
-    padding-left: 0px;
-    position: absolute;
-    top: $footer_width/2 + $footer_padding - $footer_line_height/2;
-    float: left;
-    li {
-      border-right: 1px solid $dark-green;
-      line-height: $footer_line_height;
-    }
-    li:last-child {
-      border-right: 0;
-    }
-  }
-  .social-links ul {
-    float: right;
-    li:hover {
-      opacity: 0.8;
-    }
-  }
-  ul {
-    margin: 0;
-    list-style: none;
-    li {
-      float: left;
-      padding-left: 5px;
-      padding-right: 5px;
-    }
-  }
-}
 
 /* sidebar */
 aside {

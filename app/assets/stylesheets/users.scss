@@ -9,6 +9,7 @@ h1.signup-title {
 }
 
 .signup-form {
+  background: white;
   width: 80%;
   margin: 0 auto;
   padding: 20px 0;
@@ -171,6 +172,7 @@ div.no-elements {
   @include clearfix();
   position: relative;
   padding: 20px 0;
+  background-color: white;
   .box {
     word-wrap: break-word;
     margin: 0px 0px 20px 0px;

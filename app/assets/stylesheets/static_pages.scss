@@ -8,11 +8,6 @@ a.thmb-lnk {
 }
 
 @media(max-width: 772px) {
-  .home-signup,
-  .home-explore {
-    display: block;
-  }
-
   .host-thumbnail,
   .volunteer-thumbnail {
     width: 100%;
@@ -78,14 +73,17 @@ a.thmb-lnk {
 .host-thumbnail,
 .volunteer-thumbnail {
   padding: 15px;
+  margin-bottom: 5px;
 }
 
-.home-signup,
-.home-explore {
+.home-explore,
+.home-signup {
   @extend .img-thumbnail;
   border-radius: 0px;
+  margin-top: 5px;
+  margin-bottom: 0px;
   width: 98%;
-  margin: 0 auto;
+  margin: 0 1%;
 }
 
 .home-explore {
@@ -97,6 +95,7 @@ a.thmb-lnk {
 
 .home-signup {
   background: none;
+  padding: 0;
 }
 
 .explore-thumbnail {
@@ -129,6 +128,7 @@ a.thmb-lnk {
   padding: 30px;
   text-align: left;
   min-height: 310px;
+  width: 100%;
   a {
     color: #0088cc;
     display: inline;

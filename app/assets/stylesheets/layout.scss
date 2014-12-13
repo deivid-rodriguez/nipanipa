@@ -1,15 +1,16 @@
 //
 // Responsive layout, pushed to bottom footer
 //
+* {
+  margin: 0;
+}
+
 html {
   overflow-y: scroll;
   height: 100%;
 }
 
-$footerHeight: 80px;
-
 body {
-  margin: 0;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 12px;
   line-height: 20px;
@@ -19,9 +20,16 @@ body {
   height: 100%;
 }
 
-.wrapper, .home {
-  min-height: 100%;
-  padding-bottom: $footerHeight;
+.wrapper,
+main {
+  width: 98%;
+  max-width: 970px;
+  margin: auto;
+  height: 100%;
+}
+
+.main-wrapper {
+  @include clearfix();
 }
 
 .home {
@@ -29,22 +37,105 @@ body {
   background-size: cover;
 }
 
-.wrapper, main {
-  max-width: 970px;
+.home,
+.main-wrapper {
+  height: auto !important;
   margin: 0 auto;
 }
 
-.wrapper {
-  > main {
-    background-color: white;
+/* footer */
+$footerHeight: 80px;
+
+@media(min-width: 773px) {
+  .home,
+  .main-wrapper {
+    min-height: calc(100% - 80px);
+  }
+
+  footer {
+    height: $footerHeight;
+
+    nav {
+      height: $footerHeight;
+    }
+
+    .social-links {
+      float: right;
+    }
+
+    .footer-links {
+      float: left;
+    }
+
+    ul > li {
+      float: left;
+    }
+  }
+}
+
+@media(max-width: 772px) {
+  .home,
+  .main-wrapper {
+    min-height: calc(100% - 160px);
+  }
+
+  footer {
+    height: $footerHeight * 2;
+
+    nav {
+      height: $footerHeight;
+      width: 100%;
+
+      ul > li {
+        display: inline-block;
+        text-align: center;
+      }
+    }
   }
 }
 
 footer {
-  position: relative;
-  margin: (-$footerHeight) auto 0;
-  height: $footerHeight;
-  clear: both;
+  transform-style: preserve-3d;
+  color: $dark-green;
   background-color: $grayBackground;
-  padding: 0 auto;
+
+  a {
+    color: $gray;
+    &:hover {
+      color: $grayDarker;
+    }
+  }
+
+  .footer-links > ul > li {
+    border-right: 1px solid $dark-green;
+    line-height: 12px;
+
+    &:first-child {
+      padding-left: 0px;
+    }
+
+    &:last-child {
+      border-right: 0;
+      padding-right: 0;
+    }
+  }
+
+  .social-links > ul > li:hover {
+    opacity: 0.8;
+  }
+
+  ul {
+    @include clearfix();
+    @extend %vertical-align;
+
+    padding-left: 0px;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+
+    li {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  }
 }

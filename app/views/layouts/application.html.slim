@@ -4,8 +4,7 @@ html
   = render 'layouts/head'
 
   body
-    div class="#{params[:action] == 'home' ? 'home' : 'wrapper'}"
-
+    div class="#{params[:action] == 'home' ? 'home' : 'main-wrapper'}"
       = render 'layouts/header'
 
       = render 'layouts/messages'

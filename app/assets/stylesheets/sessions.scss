@@ -2,24 +2,33 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.signin-thumbnail {
+.signin-row {
+  @extend .row;
+
+  text-align: center;
+  margin: 0 auto;
+}
+
+.form-thumbnail {
   @extend .img-thumbnail;
-  max-width: 280px;
-  display: blocK;
-  margin: auto;
-  margin-top: 20px;
+  max-width: 400px;
+
+  @media(max-width: 772px) {
+    width: 95%;
+  }
+
+  @media(min-width: 773px) {
+    width: 70%;
+  }
+
+  background-color: white;
+  margin: 25px auto;
   padding: 15px 30px;
   text-align: left;
-  .header {
-    img {
-      display: inline;
-      margin: 0px 5px;
-    }
-    text-align: center;
-  }
-  .forgot-your-pwd {
-    margin-top: 10px;
-  }
+}
+
+.forgot-your-pwd {
+  margin-top: 10px;
 }
 
 .signin-dropdown {

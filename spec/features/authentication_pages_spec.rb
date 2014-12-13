@@ -97,7 +97,7 @@ RSpec.describe 'Password recovery' do
 
   context 'with correct email' do
     before do
-      within 'div.signin-thumbnail' do
+      within 'div.form-thumbnail' do
         fill_in 'user[email]', with: user.email
         click_button t('devise.passwords.new.send_instructions')
       end
@@ -109,7 +109,7 @@ RSpec.describe 'Password recovery' do
 
   context 'with wrong email' do
     before do
-      within 'div.signin-thumbnail' do
+      within 'div.form-thumbnail' do
         fill_in 'user[email]', with: 'mywrongemail@example.com'
         click_button t('devise.passwords.new.send_instructions')
       end
