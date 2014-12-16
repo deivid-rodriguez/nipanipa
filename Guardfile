@@ -3,6 +3,7 @@
 #
 group :red_green_refactor, halt_on_fail: true do
   guard :rspec, cmd: 'bin/rspec',
+                all_on_start: true,
                 failed_mode: :keep,
                 all_after_pass: true do
     watch(/^spec\/.+_spec\.rb$/)
@@ -24,7 +25,7 @@ group :red_green_refactor, halt_on_fail: true do
     watch(/^config\/locales.*$/) { 'spec/i18n_spec.rb' }
   end
 
-  guard :rubocop, cli: %w(-D), all_on_start: false do
+  guard :rubocop, cli: %w(-D), all_on_start: true do
     watch(/.+\.rb$/)
     watch(/(?:.+\/)?\.rubocop\.yml$/) { |m| File.dirname(m[0]) }
   end
