@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/activeadmin/activeadmin.git
-  revision: 95127afc924ddac6e1832d59f55f868c973257a7
+  revision: f51d96dddb5e5be182220037f2d70117b9350303
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0, >= 1.0.2)
@@ -28,7 +28,7 @@ GIT
 
 GIT
   remote: git://github.com/plataformatec/devise.git
-  revision: 6dd444458258c27ad08f56151e74fe9998713818
+  revision: 5badce5e8e51160fd08e818e2fa5b0e4dd4c2a2c
   specs:
     devise (3.4.1)
       bcrypt (~> 3.0)
