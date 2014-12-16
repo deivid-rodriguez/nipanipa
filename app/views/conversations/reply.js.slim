@@ -1,5 +1,5 @@
 | $('div.alert').remove();
-| $('body > .wrapper > nav').after('#{j render "layouts/messages"}');
+| $('body > .main-wrapper > nav').after('#{j render "layouts/messages"}');
 - if @conversation.errors.empty?
   - msg = @conversation.messages.last
   | $('ul#chat-list').append('#{j render("messages/sent", message: msg)}');
