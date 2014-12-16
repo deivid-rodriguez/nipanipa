@@ -1,6 +1,6 @@
-unless Rails.env.production?
-  CarrierWave.configure do |config|
-    config.ignore_integrity_errors = false
+CarrierWave.configure do |config|
+  config.ignore_integrity_errors = true
+  unless Rails.env.production?
     config.ignore_processing_errors = false
     config.ignore_download_errors = false
 
