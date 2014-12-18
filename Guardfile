@@ -2,7 +2,7 @@
 # More info at https://github.com/guard/guard#readme
 #
 group :red_green_refactor, halt_on_fail: true do
-  guard :rspec, cmd: 'bin/rspec',
+  guard :rspec, cmd: 'bundle exec rspec',
                 all_on_start: true,
                 failed_mode: :keep,
                 all_after_pass: true do
