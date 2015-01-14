@@ -5,9 +5,6 @@ es:
     required:
       text: requerido
       mark: '*'
-      # You can uncomment the line below if you need to overwrite the whole required html.
-      # When using html, text and mark won"t be used.
-      # html: '<abbr title="required">*</abbr>'
     error_notification:
       default_message: Por favor, revise los problemas que siguen
     labels:

@@ -5,9 +5,6 @@ de:
     required:
       text: erforderlich
       mark: '*'
-      # You can uncomment the line below if you need to overwrite the whole required html.
-      # When using html, text and mark won"t be used.
-      # html: '<abbr title="required">*</abbr>'
     error_notification:
       default_message: Es wurden Fehler gefunden, bitte sieh nach
     labels:
