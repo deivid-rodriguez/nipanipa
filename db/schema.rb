@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20141121211348) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "admin_users", force: true do |t|
+  create_table "admin_users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20141121211348) do
     t.inet     "last_sign_in_ip"
   end
 
-  create_table "continents", force: true do |t|
+  create_table "continents", force: :cascade do |t|
     t.string   "code"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20141121211348) do
 
   add_index "continents", ["code"], name: "index_continents_on_code", unique: true, using: :btree
 
-  create_table "conversations", force: true do |t|
+  create_table "conversations", force: :cascade do |t|
     t.string   "subject"
     t.integer  "from_id"
     t.integer  "to_id"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20141121211348) do
     t.boolean  "deleted_to",   default: false
   end
 
-  create_table "countries", force: true do |t|
+  create_table "countries", force: :cascade do |t|
     t.string   "code"
     t.integer  "continent_id"
     t.datetime "created_at"
@@ -56,8 +56,9 @@ ActiveRecord::Schema.define(version: 20141121211348) do
   end
 
   add_index "countries", ["code"], name: "index_countries_on_code", unique: true, using: :btree
+  add_index "countries", ["continent_id"], name: "index_countries_on_continent_id", using: :btree
 
-  create_table "donations", force: true do |t|
+  create_table "donations", force: :cascade do |t|
     t.integer  "user_id"
     t.decimal  "amount",      precision: 4, scale: 2
     t.datetime "created_at"
@@ -65,7 +66,7 @@ ActiveRecord::Schema.define(version: 20141121211348) do
     t.integer  "feedback_id"
   end
 
-  create_table "feedbacks", force: true do |t|
+  create_table "feedbacks", force: :cascade do |t|
     t.text     "content"
     t.integer  "sender_id"
     t.integer  "recipient_id"
@@ -78,7 +79,7 @@ ActiveRecord::Schema.define(version: 20141121211348) do
   add_index "feedbacks", ["sender_id", "recipient_id"], name: "index_feedbacks_on_sender_id_and_recipient_id", unique: true, using: :btree
   add_index "feedbacks", ["sender_id", "updated_at"], name: "index_feedbacks_on_sender_id_and_updated_at", using: :btree
 
-  create_table "language_skills", force: true do |t|
+  create_table "language_skills", force: :cascade do |t|
     t.integer "user_id"
     t.integer "language_id"
     t.string  "level"
@@ -88,12 +89,12 @@ ActiveRecord::Schema.define(version: 20141121211348) do
   add_index "language_skills", ["user_id", "language_id"], name: "index_language_skills_on_user_id_and_language_id", unique: true, using: :btree
   add_index "language_skills", ["user_id"], name: "index_language_skills_on_user_id", using: :btree
 
-  create_table "languages", force: true do |t|
+  create_table "languages", force: :cascade do |t|
     t.string "code", limit: 2
     t.string "name"
   end
 
-  create_table "messages", force: true do |t|
+  create_table "messages", force: :cascade do |t|
     t.text     "body"
     t.integer  "from_id"
     t.integer  "to_id"
@@ -102,13 +103,13 @@ ActiveRecord::Schema.define(version: 20141121211348) do
     t.datetime "updated_at"
   end
 
-  create_table "pictures", force: true do |t|
+  create_table "pictures", force: :cascade do |t|
     t.integer "user_id"
     t.string  "name"
     t.string  "image"
   end
 
-  create_table "regions", force: true do |t|
+  create_table "regions", force: :cascade do |t|
     t.string   "code"
     t.string   "name"
     t.integer  "country_id"
@@ -117,8 +118,9 @@ ActiveRecord::Schema.define(version: 20141121211348) do
   end
 
   add_index "regions", ["code", "country_id"], name: "index_regions_on_code_and_country_id", unique: true, using: :btree
+  add_index "regions", ["country_id"], name: "index_regions_on_country_id", using: :btree
 
-  create_table "sectorizations", force: true do |t|
+  create_table "sectorizations", force: :cascade do |t|
     t.integer "user_id"
     t.integer "work_type_id"
   end
@@ -127,7 +129,7 @@ ActiveRecord::Schema.define(version: 20141121211348) do
   add_index "sectorizations", ["user_id"], name: "index_sectorizations_on_user_id", using: :btree
   add_index "sectorizations", ["work_type_id"], name: "index_sectorizations_on_work_type_id", using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email",                  default: "", null: false
     t.datetime "created_at"
@@ -139,6 +141,8 @@ ActiveRecord::Schema.define(version: 20141121211348) do
     t.integer  "sign_in_count",          default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "reset_password_sent_at"
     t.string   "reset_password_token"
     t.integer  "karma",                  default: 0
@@ -149,13 +153,11 @@ ActiveRecord::Schema.define(version: 20141121211348) do
     t.integer  "days_per_week"
     t.integer  "availability_mask"
     t.integer  "region_id"
-    t.string   "last_sign_in_ip"
-    t.string   "current_sign_in_ip"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
-  create_table "work_types", force: true do |t|
+  create_table "work_types", force: :cascade do |t|
     t.string "name"
     t.string "description"
   end

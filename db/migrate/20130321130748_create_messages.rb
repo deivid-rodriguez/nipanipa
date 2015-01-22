@@ -6,7 +6,7 @@ class CreateMessages < ActiveRecord::Migration
       t.integer :to_id
       t.integer :conversation_id
 
-      t.timestamps
+      t.timestamps null: true
     end
   end
 end

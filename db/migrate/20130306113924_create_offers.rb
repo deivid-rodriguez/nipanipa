@@ -11,7 +11,7 @@ class CreateOffers < ActiveRecord::Migration
       t.integer :hours_per_day
       t.integer :days_per_week
 
-      t.timestamps
+      t.timestamps null: true
     end
   end
 end

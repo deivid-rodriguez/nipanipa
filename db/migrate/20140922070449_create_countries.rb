@@ -3,7 +3,7 @@ class CreateCountries < ActiveRecord::Migration
     create_table :continents do |t|
       t.string :code
 
-      t.timestamps
+      t.timestamps null: true
       t.index :code, unique: true
     end
 
@@ -11,7 +11,7 @@ class CreateCountries < ActiveRecord::Migration
       t.string :code
       t.integer :continent_id, index: true
 
-      t.timestamps
+      t.timestamps null: true
       t.index :code, unique: true
     end
 

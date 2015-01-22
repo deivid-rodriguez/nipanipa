@@ -5,12 +5,14 @@ class CreateRegions < ActiveRecord::Migration
       t.string :name
       t.integer :country_id, index: true
 
-      t.timestamps
+      t.timestamps null: true
       t.index [:code, :country_id], unique: true
     end
 
     reversible do |direction|
-      direction.up { Rake::Task['db:geo:regions'].invoke }
+      unless Rails.env.test?
+        direction.up { Rake::Task['db:geo:regions'].invoke }
+      end
     end
   end
 end

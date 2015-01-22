@@ -6,7 +6,7 @@ class CreateConversations < ActiveRecord::Migration
       t.integer :to_id
       t.integer :offer_id
       t.string :status
-      t.timestamps
+      t.timestamps null: true
     end
   end
 

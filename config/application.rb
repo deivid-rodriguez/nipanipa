@@ -54,5 +54,8 @@ module Nipanipa
     config.action_mailer.asset_host = "http://#{ENV['MAIL_HOST']}"
     config.action_mailer.default_url_options = { host: ENV['MAIL_HOST'],
                                                  locale: :en }
+
+    # ActiveRecord
+    config.active_record.raise_in_transactional_callbacks = true
   end
 end

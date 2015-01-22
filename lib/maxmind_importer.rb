@@ -89,7 +89,7 @@ module MaxmindImporter
   end
 
   def csv_file_name
-    'GeoLite2-City-Locations.csv'
+    'GeoLite2-City-Locations-en.csv'
   end
 
   def local_base_path

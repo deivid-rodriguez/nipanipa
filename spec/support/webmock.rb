@@ -4,6 +4,9 @@ RSpec.configure do |_config|
   WebMock::API.stub_request(:get, /.*sandbox\.paypal\.com.*/)
     .to_return(status: 200, body: '', headers: {})
 
+  WebMock::API.stub_request(:get, /.*flattr\..*/)
+    .to_return(status: 200, body: '', headers: {})
+
   WebMock.disable_net_connect!(allow_localhost: true)
 end
 

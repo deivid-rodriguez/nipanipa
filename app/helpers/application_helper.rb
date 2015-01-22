@@ -18,6 +18,10 @@ module ApplicationHelper
     request.path =~ /sign_up/ || current_page?(root_path) || current_page?('/')
   end
 
+  def sym_params
+    params.symbolize_keys
+  end
+
   def tab_builder(user, page_id)
     general_tabs = {
       general: { name: t('.general'), path: user_path(user) },

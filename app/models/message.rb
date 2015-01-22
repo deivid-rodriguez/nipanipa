@@ -13,6 +13,6 @@ class Message < ActiveRecord::Base
   private
 
   def send_message_notification
-    UserMailer.message_reception(self).deliver
+    UserMailer.message_reception(self).deliver_now
   end
 end
