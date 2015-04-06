@@ -30,7 +30,7 @@ namespace :db do
     MaxmindImporter.insert!
   end
 
-  namespace :maxmind do
+  namespace :geo do
     desc 'Load country (and continent) info into db'
     task countries: :environment do
       load_countries
