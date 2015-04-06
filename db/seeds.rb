@@ -92,7 +92,7 @@ Language.create [{ name: 'Afrikaans', code: 'af' },
 Rails.application.load_tasks
 
 # Create countries
-Rake::Task['db:geo:countries'].invoke
+Rake::Task['db:maxmind:countries'].invoke
 
 # Create regions
-Rake::Task['db:geo:regions'].invoke
+Rake::Task['db:maxmind:regions'].invoke
