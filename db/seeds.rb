@@ -89,8 +89,6 @@ Language.create [{ name: 'Afrikaans', code: 'af' },
                  { name: 'Welsh', code: 'cy' },
                  { name: 'Xhosa', code: 'xh' }]
 
-Rails.application.load_tasks
-
 # Create countries
 Rake::Task['db:maxmind:countries'].invoke
 
