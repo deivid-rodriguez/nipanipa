@@ -9,8 +9,10 @@ LANGUAGES = [
   %w(Italiano it)
 ]
 
+#
 # A simple exception handler that behaves like the default exception handler
 # but additionally logs missing translations to a given log.
+#
 module I18n
   class << self
     def missing_translations_log
