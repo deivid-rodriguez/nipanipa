@@ -20,10 +20,10 @@ namespace :db do
     # Create some users
     @n_users.times do |n|
       type = %w(host volunteer).sample
-      name = Faker::Name.name
+      name = FFaker::Name.name
       email = "nipanipa.test+#{type}#{n}@gmail.com"
       password = '111111'
-      description = Faker::Lorem.paragraph(10)
+      description = FFaker::Lorem.paragraph(10)
       time = Time.zone.now
       user = type.classify.constantize.new name: name,
                                            email: email,
@@ -34,8 +34,8 @@ namespace :db do
       user.current_sign_in_at = time
       user.sign_in_count = 1
       user.work_type_ids = rand_work_type_ids
-      user.skills = Faker::Lorem.paragraph(11)
-      user.accomodation = Faker::Lorem.paragraph(8) if user.type == 'Host'
+      user.skills = FFaker::Lorem.paragraph(11)
+      user.accomodation = FFaker::Lorem.paragraph(8) if user.type == 'Host'
       user.save!
     end
 
@@ -49,7 +49,7 @@ namespace :db do
         from_to = (1..@n_users).to_a.sample 2
       end
 
-      feedback = Feedback.new content: Faker::Lorem.sentence(5),
+      feedback = Feedback.new content: FFaker::Lorem.sentence(5),
                               score: rand_score
       feedback.sender_id = from_to[0]
       feedback.recipient_id = from_to[1]
