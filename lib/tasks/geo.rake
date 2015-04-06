@@ -3,6 +3,8 @@
 #
 namespace :db do
   def load_countries
+    puts 'Loading country information from our YAML files...'
+
     data = YAML.load(File.read("#{Rails.root}/config/locales/en/geo.yml"))
     data['en']['continents'].each do |continent_code, _|
       con_iso = continent_code.upcase
