@@ -24,7 +24,7 @@ namespace :db do
       email = "nipanipa.test+#{type}#{n}@gmail.com"
       password = '111111'
       description = Faker::Lorem.paragraph(10)
-      time = Time.now
+      time = Time.zone.now
       user = type.classify.constantize.new name: name,
                                            email: email,
                                            password: password,
@@ -60,13 +60,13 @@ namespace :db do
 
     # Create some language skills
     100.times do
-      user = (1..@n_users).to_a.shuffle[0]
-      lang = (1..@n_languages).to_a.shuffle[0]
+      user = (1..@n_users).to_a.sample
+      lang = (1..@n_languages).to_a.sample
 
       loop do
         break if LanguageSkill.where(language_id: lang, user_id: user).empty?
-        user = (1..@n_users).to_a.shuffle[0]
-        lang = (1..@n_languages).to_a.shuffle[0]
+        user = (1..@n_users).to_a.sample
+        lang = (1..@n_languages).to_a.sample
       end
 
       language_skill =

@@ -21,7 +21,9 @@ module I18n
     def missing_translations_log_handler(exception, _locale, _key, _options)
       fail exception unless exception.is_a?(MissingTranslation)
 
-      missing_translations_log.warn([Time.now, exception.message].join(': '))
+      msg = [Time.zone.now, exception.message].join(': ')
+      missing_translations_log.warn(msg)
+
       exception.message
     end
   end

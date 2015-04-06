@@ -21,12 +21,12 @@ FactoryGirl.define do
     end
 
     # simulate first login
-    last_sign_in_at { Time.now }
-    current_sign_in_at { Time.now }
+    last_sign_in_at { Time.zone.now }
+    current_sign_in_at { Time.zone.now }
     sign_in_count 1
 
     trait :available_just_now do
-      availability { [DateTime.now.strftime('%b').downcase] }
+      availability { [Time.zone.now.strftime('%b').downcase] }
     end
 
     trait :not_available do

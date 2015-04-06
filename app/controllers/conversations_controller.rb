@@ -24,9 +24,7 @@ class ConversationsController < ApplicationController
   end
 
   def create
-    @conversation = Conversation.new(conversation_params.merge(
-        to_id: conversation_params[:messages_attributes]['0'][:to_id],
-        from_id: conversation_params[:messages_attributes]['0'][:from_id]))
+    @conversation = Conversation.new(conversation_full_params)
 
     if @conversation.save
       redirect_to conversations_path, notice: t('conversations.create.success')
@@ -58,6 +56,13 @@ class ConversationsController < ApplicationController
   def conversation_params
     params.require(:conversation)
       .permit(:subject, messages_attributes: [:body, :from_id, :to_id])
+  end
+
+  def conversation_full_params
+    to_id = conversation_params[:messages_attributes]['0'][:to_id]
+    from_id = conversation_params[:messages_attributes]['0'][:from_id]
+
+    conversation_params.merge(to_id: to_id, from_id: from_id)
   end
 
   # Some actions need this variable in the view

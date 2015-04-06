@@ -43,6 +43,10 @@ RSpec.configure do |config|
     default_url_options[:locale] = I18n.default_locale
   end
 
+  config.before(:each, js: true) do
+    page.driver.block_unknown_urls
+  end
+
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!

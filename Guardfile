@@ -6,11 +6,11 @@ group :red_green_refactor, halt_on_fail: true do
                 all_on_start: true,
                 failed_mode: :keep,
                 all_after_pass: true do
-    watch(/^spec\/.+_spec\.rb$/)
+    watch(%r{^spec/.+_spec\.rb$})
 
     watch('spec/spec_helper.rb') { 'spec' }
     watch('spec/rails_helper.rb') { 'spec' }
-    watch(/^spec\/support.+\.rb$/) { 'spec' }
+    watch(%r{^spec/support.+\.rb$}) { 'spec' }
 
     watch(%r{app/models/(.+)\.rb$}) { |m| "spec/models/#{m[1]}_spec.rb" }
     watch(%r{spec/factories/(.+)\.rb$}) { |m| "spec/models/#{m[1]}_spec.rb" }
@@ -22,12 +22,12 @@ group :red_green_refactor, halt_on_fail: true do
 
     watch(%r{app/views/(.+)/.*\.slim$}) { |m| "spec/features/#{m[1]}_spec.rb" }
 
-    watch(/^config\/locales.*$/) { 'spec/i18n_spec.rb' }
+    watch(%r{config/locales.*$}) { 'spec/i18n_spec.rb' }
   end
 
   guard :rubocop, cli: %w(-D), all_on_start: true do
     watch(/.+\.rb$/)
-    watch(/(?:.+\/)?\.rubocop\.yml$/) { |m| File.dirname(m[0]) }
+    watch(%r{(?:.+/)?\.rubocop\.yml$}) { |m| File.dirname(m[0]) }
   end
 end
 
