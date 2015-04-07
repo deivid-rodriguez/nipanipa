@@ -40,4 +40,4 @@ fetch(:default_env).merge!(rails_env: :production)
 
 # RVM configuration
 set :rvm_type, :user
-set :rvm_ruby_version, '2.2.0'
+set :rvm_ruby_version, '2.2.1'

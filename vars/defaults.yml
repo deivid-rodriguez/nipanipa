@@ -1,7 +1,7 @@
 db_user: nipanipa
 db_pass: nipanipa
 
-ruby_version: 2.2.0
+ruby_version: 2.2.1
 
 pg_version: 9.4
 pg_apt_repo: deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main
