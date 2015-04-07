@@ -18,6 +18,5 @@ crei una nuova."
         change_pwd: Cambiare la mia password
     users:
       signed_up: Iscrizione eseguita correttamente!
-      updated: Il tuo account è stato aggiornato!
     sessions:
       signed_out: ''

@@ -273,7 +273,8 @@ RSpec.describe 'User profile editing' do
     before { click_button update_user }
 
     it 'shows a success flash message' do
-      expect(page).to have_flash_message t('devise.users.updated'), 'success'
+      expect(page).to \
+        have_flash_message t('devise.registrations.updated'), 'success'
     end
   end
 
@@ -284,7 +285,8 @@ RSpec.describe 'User profile editing' do
     end
 
     it 'shows a success flash message' do
-      expect(page).to have_flash_message t('devise.users.updated'), 'success'
+      expect(page).to \
+        have_flash_message t('devise.registrations.updated'), 'success'
     end
 
     it 'shows a logout link' do

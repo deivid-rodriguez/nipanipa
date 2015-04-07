@@ -19,6 +19,5 @@ den obenstehenden Link ein neues erstellst."
         change_pwd: Mein Passwort ändern!
     users:
       signed_up: Herzlich willkommen! Du hast dich erfolgreich registriert.
-      updated: Du hast dein Benutzerkonto erfolgreich aktualisiert!
     sessions:
       signed_out: ''
