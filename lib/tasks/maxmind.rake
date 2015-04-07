@@ -18,19 +18,20 @@ namespace :db do
   end
 
   def load_regions
-    return if MaxmindImporter.already_imported?
+    require 'maxmind_importer'
+    importer = Maxmind::Importer.new
 
     puts 'Downloading region information from MaxMind...'
-    MaxmindImporter.download!
+    importer.download!
 
     puts 'Extracting information to disk...'
-    MaxmindImporter.extract!
+    importer.extract!
 
     puts 'Loading regions into database'
-    MaxmindImporter.insert!
+    importer.insert!
   end
 
-  namespace :geo do
+  namespace :maxmind do
     desc 'Load country (and continent) info into db'
     task countries: :environment do
       load_countries

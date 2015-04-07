@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :region do
     transient { continent nil }
 
-    code 'M'
+    code 'MD'
     name 'Comunidad de Madrid'
 
     country do

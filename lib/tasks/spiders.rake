@@ -1,3 +1,6 @@
+#
+# Scraps a single farm from a string with specific format
+#
 class FarmScrapper
   def initialize(line)
     @line = line
@@ -76,6 +79,9 @@ class FarmScrapper
   end
 end
 
+#
+# Scraps farms in a country from a input file
+#
 class CountryScraper
   def initialize(fin, fout)
     @fin = fin

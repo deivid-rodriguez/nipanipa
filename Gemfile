@@ -29,7 +29,7 @@ gem 'uglifier', '2.7.1'
 gem 'activeadmin', github: 'activeadmin'
 
 gem 'rubyzip', '1.1.7', require: false
-gem 'progress_bar', '1.0.3', require: false
+gem 'ruby-progressbar', '1.7.5', require: false
 
 gem 'slim-rails', '3.0.1'
 

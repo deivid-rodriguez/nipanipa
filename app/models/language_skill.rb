@@ -14,5 +14,5 @@ class LanguageSkill < ActiveRecord::Base
   belongs_to :language
   validates :language, presence: true
 
-  validates :user_id, uniqueness: { scope: :user_id }
+  validates :user_id, uniqueness: { scope: :language_id }
 end

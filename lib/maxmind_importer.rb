@@ -1,106 +1,204 @@
 require 'zip'
-Zip.on_exists_proc = true
-
-require 'progress_bar'
+require 'csv'
+require 'ruby-progressbar'
 
 #
 # Imports geographical Database information from MaxMind
 #
-module MaxmindImporter
-  extend self
+module Maxmind
+  #
+  # Extensions for our Country model
+  #
+  module CountryExtensions
+    def find_by_code_and_continent_code(geo)
+      return unless geo.country_code.present? && geo.continent_code.present?
 
-  def already_imported?
-    remote_zip_file_checksum == zip_file_checksum
+      scope = where(code: geo.country_code,
+                    continents: { code: geo.continent_code })
+
+      fail('Inconsistent Database') if scope.size > 1
+
+      scope.first
+    end
   end
 
-  def download!
-    open(local_zip_path, 'wb') do |file|
-      uri = URI.parse(remote_zip_url)
-      Net::HTTP.start(uri.host, uri.port) do |http|
-        http.request_get(uri.path) do |resp|
-          resp.read_body { |segment| file.write(segment) }
-        end
+  Country.extend CountryExtensions
+
+  #
+  # Utitities for our Country instances
+  #
+  module CountryUtils
+    def insert_region!(geo)
+      return unless geo.region_code.present?
+
+      regions.find_or_create_by!(code: geo.region_code) do |region|
+        region.name = geo.region_name
       end
     end
   end
 
-  def extract!
-    Zip::File.open(local_zip_path)
-      .glob("*/#{csv_file_name}")
-      .first
-      .extract(local_csv_path)
-  end
+  Country.include CountryUtils
 
-  def insert!
-    bar = ProgressBar.new(` wc -l #{local_csv_path} `.split[0].to_i)
+  #
+  # Adapts Maxmind's CSV structure to our needs.
+  #
+  class Adapter
+    attr_accessor :data
 
-    CSV.foreach(local_csv_path, headers: :first_row) do |line|
-      insert_one!(line)
-
-      bar.increment!
+    def initialize(data)
+      @data = data
     end
 
-    File.delete(local_csv_path)
-  ensure
-    File.delete(local_zip_path)
-  end
+    def continent_code
+      data[2]
+    end
 
-  private
+    def country_code
+      data[4]
+    end
 
-  def insert_one!(line)
-    return unless line[1].present? && line[3].present? && line[5].present?
+    def region_code
+      data[6]
+    end
 
-    country = Country.find_by_code_and_continent_code(line[3], line[1])
-    return unless country
-
-    country.regions.find_or_create_by!(code: line[5]) do |region|
-      region.name = line[6]
+    def region_name
+      data[7]
     end
   end
 
-  def remote_base_url
-    'http://geolite.maxmind.com/download/geoip/database/'
-  end
+  #
+  # Imports geographical Database information from MaxMind
+  #
+  class Importer
+    #
+    # Downloads zip file from Maxmind
+    #
+    def download!
+      open(local_zip_path, 'wb') do |file|
+        uri = URI.parse(remote_zip_url)
+        Net::HTTP.start(uri.host, uri.port) do |http|
+          http.request_get(uri.path) do |resp|
+            resp.read_body { |segment| file.write(segment) }
+          end
+        end
+      end
 
-  def zip_file_name
-    'GeoLite2-City-CSV.zip'
-  end
+      download_succeeded?
+    end
 
-  def remote_zip_url
-    remote_base_url + zip_file_name
-  end
+    #
+    # Extracts CSV file from downloaded file
+    #
+    def extract!
+      Zip.on_exists_proc = true
 
-  def checksum_file_name
-    zip_file_name + '.md5'
-  end
+      Zip::File.open(local_zip_path)
+        .glob("*/#{csv_file_name}")
+        .first
+        .extract(local_csv_path)
 
-  def remote_checksum_url
-    remote_base_url + checksum_file_name
-  end
+      extract_succeeded?
+    end
 
-  def zip_file_checksum
-    return '' unless File.exist?(local_zip_path)
+    #
+    # Parses CSV file and inserts information in DB
+    #
+    def insert!
+      bar = ProgressBar.create(total: csv_n_lines)
 
-    Digest::MD5.file(local_zip_path).hexdigest
-  end
+      CSV.foreach(local_csv_path, headers: :first_row) do |line|
+        geo_info = Adapter.new(line)
 
-  def remote_zip_file_checksum
-    open(remote_checksum_url).read
-  end
+        insert_one!(geo_info)
 
-  def csv_file_name
-    'GeoLite2-City-Locations-en.csv'
-  end
+        bar.increment
+      end
 
-  def local_base_path
-    'tmp/'
-  end
+      true
+    end
 
-  def local_zip_path
-    local_base_path + zip_file_name
-  end
+    #
+    # Cleans up generated files
+    #
+    def cleanup
+      File.delete(local_zip_path)
+      File.delete(local_csv_path)
+    end
 
-  def local_csv_path
-    local_base_path + csv_file_name
+    #
+    # Imports Maxmind geographical information into our DB
+    #
+    def import!
+      download! && extract! && insert!
+    ensure
+      cleanup
+    end
+
+    private
+
+    def csv_n_lines
+      ` wc -l #{local_csv_path} `.split[0].to_i
+    end
+
+    def download_succeeded?
+      remote_zip_file_checksum == zip_file_checksum
+    end
+
+    def extract_succeeded?
+      !File.zero?(local_csv_path)
+    end
+
+    def insert_one!(data)
+      country = Country.find_by_code_and_continent_code(data)
+      return unless country
+
+      country.insert_region!(data)
+    end
+
+    def remote_base_url
+      'http://geolite.maxmind.com/download/geoip/database/'
+    end
+
+    def zip_file_name
+      'GeoLite2-City-CSV.zip'
+    end
+
+    def remote_zip_url
+      remote_base_url + zip_file_name
+    end
+
+    def checksum_file_name
+      zip_file_name + '.md5'
+    end
+
+    def remote_checksum_url
+      remote_base_url + checksum_file_name
+    end
+
+    def zip_file_checksum
+      return '' unless File.exist?(local_zip_path)
+
+      Digest::MD5.file(local_zip_path).hexdigest
+    end
+
+    def remote_zip_file_checksum
+      open(remote_checksum_url).read
+    end
+
+    def csv_file_name
+      'GeoLite2-City-Locations-en.csv'
+    end
+
+    def local_base_path
+      'tmp/'
+    end
+
+    def local_zip_path
+      local_base_path + zip_file_name
+    end
+
+    def local_csv_path
+      local_base_path + csv_file_name
+    end
   end
 end

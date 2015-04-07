@@ -1,4 +1,6 @@
-# Create default job sectors
+#
+# Default job sectors
+#
 WorkType.create [{ name: 'gardening' },
                  { name: 'babysitting' },
                  { name: 'cooking' },
@@ -15,7 +17,9 @@ WorkType.create [{ name: 'gardening' },
                  { name: 'art_project' },
                  { name: 'wwoofing' }]
 
-# Create default languages
+#
+# Default languages
+#
 Language.create [{ name: 'Afrikaans', code: 'af' },
                  { name: 'Albanian', code: 'sq' },
                  { name: 'Arabic', code: 'ar' },
@@ -89,8 +93,12 @@ Language.create [{ name: 'Afrikaans', code: 'af' },
                  { name: 'Welsh', code: 'cy' },
                  { name: 'Xhosa', code: 'xh' }]
 
-# Create countries
+#
+# Countries
+#
 Rake::Task['db:maxmind:countries'].invoke
 
-# Create regions
+#
+# Regions
+#
 Rake::Task['db:maxmind:regions'].invoke

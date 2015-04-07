@@ -15,8 +15,10 @@ class CreateCountries < ActiveRecord::Migration
       t.index :code, unique: true
     end
 
-    reversible do |direction|
-      direction.up { Rake::Task['db:geo:countries'].invoke }
+    if Rails.env.production?
+      reversible do |direction|
+        direction.up { Rake::Task['db:maxmind:countries'].invoke }
+      end
     end
   end
 end
