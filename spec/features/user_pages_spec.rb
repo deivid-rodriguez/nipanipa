@@ -58,59 +58,14 @@ RSpec.shared_examples_for 'A user profile creation' do
       expect { click_button create_btn }.to change(klass, :count).by(1)
     end
 
-    it 'has the user name in the title' do
-      expect(page).to have_title user.name
-    end
-
-    it 'has the user location' do
-      expect(page).to have_content(region.name)
-      expect(page).to have_content(region.country.name)
-    end
-
-    it 'has the user language' do
-      expect(page).to have_content("#{lang.name} (Expert)")
-    end
-
-    it 'has the user description' do
-      expect(page).to have_content(user.description)
-    end
-
-    it 'has all received feedback' do
-      user.received_feedbacks.each do |f|
-        expect(page).to have_content(f.content)
-      end
-    end
-
-    it 'has the count of received feedback' do
-      expect(page).to have_content(user.received_feedbacks.count)
-    end
-
-    it 'has all sent feedback' do
-      user.sent_feedbacks.each { |f| expect(page).to have_content(f.content) }
-    end
-
-    it 'has the count of sent feedback' do
-      expect(page).to have_content(user.sent_feedbacks.count)
-    end
-
-    it 'has all of user worktypes' do
-      user.work_types.each { |wt| expect(page).to have_content(wt.name) }
-    end
-
-    it 'has correct user availability' do
-      expect(page).to have_content('✘✔✘✘✘✘✘✘✘✘✘')
-    end
-
-    it 'shows new user profile' do
-      expect(page).to have_title user.name
-    end
-
     it 'shows a success flash message' do
-      expect(page).to have_flash_message t('devise.users.signed_up'), 'success'
+      expect(page).to have_flash_message \
+        t('devise.registrations.signed_up_but_unconfirmed'), 'success'
     end
 
-    it 'shows a logout link' do
-      expect(page).to have_link t('sessions.signout')
+    it 'does not login the unconfirmed user' do
+      expect(page).to have_link t('sessions.signin')
+      expect(page).to_not have_link t('sessions.signout')
     end
   end
 end
@@ -127,16 +82,69 @@ RSpec.describe 'Host profile creation' do
   it_behaves_like 'A user profile creation'
 end
 
-RSpec.describe 'User profile context' do
+RSpec.describe 'User profile page' do
   let!(:profile) do
-    description = 'This is my personal website: http://mywebsite.example.com'
-    create(:host, description: description)
+    create(:host,
+           :with_language,
+           description: 'My website: http://mywebsite.example.com',
+           availability: %w(feb))
   end
 
   before { visit user_path(profile) }
 
   it 'correctly handles links in profile description' do
     expect(page).to have_link('http://mywebsite.example.com')
+  end
+
+  it 'has the user name in the title' do
+    expect(page).to have_title profile.name
+  end
+
+  it 'has the user location' do
+    expect(page).to have_content(profile.region.name)
+    expect(page).to have_content(profile.region.country.name)
+  end
+
+  it 'has the user language' do
+    line = "#{Language.first.name} (#{LanguageSkill.first.level.titleize})"
+
+    expect(page).to have_content(line)
+  end
+
+  it 'has the user description' do
+    expect(page).to have_content(profile.description)
+  end
+
+  it 'has all received feedback' do
+    profile.received_feedbacks.each do |f|
+      expect(page).to have_content(f.content)
+    end
+  end
+
+  it 'has the count of received feedback' do
+    expect(page).to have_content(profile.received_feedbacks.count)
+  end
+
+  it 'has all sent feedback' do
+    profile.sent_feedbacks.each { |f| expect(page).to have_content(f.content) }
+  end
+
+  it 'has the count of sent feedback' do
+    expect(page).to have_content(profile.sent_feedbacks.count)
+  end
+
+  it 'has all of user worktypes' do
+    profile.work_types.each { |wt| expect(page).to have_content(wt.name) }
+  end
+
+  it 'has correct user availability' do
+    marks = User::AVAILABILITY.map { |m| profile.available_in?(m) ? '✔' : '✘' }
+
+    expect(page).to have_content(marks.join)
+  end
+
+  it 'shows new user profile' do
+    expect(page).to have_title profile.name
   end
 end
 
@@ -285,8 +293,9 @@ RSpec.describe 'User profile editing' do
     end
 
     it 'shows a success flash message' do
-      expect(page).to \
-        have_flash_message t('devise.registrations.updated'), 'success'
+      msg = t('devise.registrations.update_needs_confirmation')
+
+      expect(page).to have_flash_message msg, 'success'
     end
 
     it 'shows a logout link' do
@@ -294,8 +303,9 @@ RSpec.describe 'User profile editing' do
         have_link t('sessions.signout'), href: destroy_user_session_path
     end
 
-    it 'updates host correctly' do
-      expect(host.reload.email).to eq('new_email@example.com')
+    it 'updates hosts unconfirmed_email correctly' do
+      expect(host.reload.email).to eq('old_email@example.com')
+      expect(host.reload.unconfirmed_email).to eq('new_email@example.com')
     end
 
     it 'redirects back to user profile' do

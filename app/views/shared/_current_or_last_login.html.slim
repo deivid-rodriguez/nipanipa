@@ -4,6 +4,8 @@
   - if user.current_sign_in_at
     = t '.currently_logged_in'
 - else
-  - last_sign_in = user.last_sign_in_at
-  = t('.last_login')
-  | : #{t('datetime.timestamp_ago', time: time_ago_in_words(last_sign_in))}
+  - if user.last_sign_in_at
+    - signed_in_ago = time_ago_in_words(user.last_sign_in_at)
+    = "#{t('.last_login')}: #{t('datetime.timestamp_ago', time: signed_in_ago)}"
+  - else
+    = "#{t('.last_login')}: #{t('.never')}"

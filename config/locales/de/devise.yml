@@ -10,6 +10,9 @@ Dies kannst du über den nachfolgenden Link tun."
 bitte diese E-Mail."
         wont_change: "Dein Passwort wird nicht geändert, solange du nicht über
 den obenstehenden Link ein neues erstellst."
+    confirmations:
+      new:
+        resend: Anleitung zur Bestätigung Ihres Accounts
     passwords:
       new:
         forgotten?: Passwort vergessen?

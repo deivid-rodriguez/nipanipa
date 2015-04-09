@@ -9,6 +9,9 @@ Puoi cambiarla clickando questo link"
         ignore: Se non hai richiesto questo, per favore ignora questa email.
         wont_change: "La tua password non cambierà finche non accedi al link e
 crei una nuova."
+    confirmations:
+      new:
+        resend: Istruzioni per la conferma
     passwords:
       new:
         forgotten?: Reimpostare la password

@@ -61,7 +61,7 @@ class ApplicationController < ActionController::Base
   end
 
   def store_location?
-    request.fullpath !~ /(signin|signout|signup|password)/ && \
+    request.fullpath !~ /(confirmation|signin|signout|signup|password)/ && \
       request.fullpath != root_path && !request.xhr?
   end
 

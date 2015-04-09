@@ -9,6 +9,9 @@ Puedes cambiarla a través del siguiente enlace"
         ignore: Si no solicitaste eso, por favor ignora este correo electrónico.
         wont_change: "Tu contraseña no cambiará hasta que no accedas al enlace y
 crees una nueva."
+    confirmations:
+      new:
+        resend: Instrucciones de confirmación
     passwords:
       new:
         forgotten?: Recuperar contraseña

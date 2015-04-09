@@ -1,0 +1,15 @@
+- provide :title, t('.resend')
+
+.signin-row
+  h2= t('.resend')
+
+  .form-thumbnail
+    = simple_form_for resource, as: resource_name,
+                                url: confirmation_path(resource_name),
+                                html: { method: :post },
+                                wrapper: :vertical_form do |f|
+      = f.full_error :confirmation_token
+
+      = f.input :email, required: true, autofocus: true
+
+      = f.button :submit, t('.resend')

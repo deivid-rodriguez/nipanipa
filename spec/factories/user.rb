@@ -25,12 +25,21 @@ FactoryGirl.define do
     current_sign_in_at { Time.zone.now }
     sign_in_count 1
 
+    # simulate confirmation
+    confirmed_at { Time.zone.now }
+
     trait :available_just_now do
       availability { [Time.zone.now.strftime('%b').downcase] }
     end
 
     trait :not_available do
       availability []
+    end
+
+    trait :with_language do
+      after(:create) do |u|
+        u.language_skills << create(:language_skill, user: u)
+      end
     end
 
     factory :host, class: 'Host' do

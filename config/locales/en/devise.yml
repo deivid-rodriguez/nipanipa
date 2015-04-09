@@ -9,6 +9,9 @@ this through the link below."
         ignore: If you didn't request this, please ignore this email.
         wont_change: "Your password won't change until you access the link above
 and create a new one."
+    confirmations:
+      new:
+        resend: Confirmation instructions
     passwords:
       new:
         forgotten?: Forgot your password?

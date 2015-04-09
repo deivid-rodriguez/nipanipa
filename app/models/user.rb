@@ -2,8 +2,8 @@
 # Main class implementing both Host and Volunteer through STI
 #
 class User < ActiveRecord::Base
-  devise :database_authenticatable, :rememberable, :validatable, :registerable,
-         :trackable, :recoverable
+  devise :confirmable, :database_authenticatable, :recoverable, :registerable,
+         :rememberable, :trackable, :validatable
 
   # validations
   validates :description, length: { maximum: 2500 }
@@ -34,6 +34,8 @@ class User < ActiveRecord::Base
   end
 
   scope :by_latest_sign_in, -> { order(last_sign_in_at: :desc) }
+
+  scope :confirmed, -> { where.not(confirmed_at: nil) }
 
   default_scope { includes(region: :country) }
 
@@ -70,8 +72,8 @@ class User < ActiveRecord::Base
 
   AVAILABILITY = %w(jan feb mar apr may jun jul aug sep oct nov dec)
 
-  scope :currently_available,
-        -> { where("availability_mask & #{2**(Time.zone.now.mon - 1)} > 0") }
+  scope :currently_available, -> { available_in?(Time.zone.now.mon) }
+  scope :available_in?, ->(m) { where("availability_mask & #{2**(m - 1)} > 0") }
 
   def availability=(availability)
     self.availability_mask = ArrayMask.new(AVAILABILITY).mask(availability)
@@ -79,6 +81,10 @@ class User < ActiveRecord::Base
 
   def availability
     ArrayMask.new(AVAILABILITY).unmask(availability_mask)
+  end
+
+  def available_in?(month)
+    availability.include?(month)
   end
 
   # Fake class name in subclasses so URLs get properly generated

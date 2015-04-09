@@ -1,14 +1,3 @@
-# encoding: utf-8
-I18n.available_locales = [:de, :en, :es, :it]
-I18n.enforce_available_locales = true
-
-LANGUAGES = [
-  %w(Deutsch de),
-  %w(English en),
-  ['Espa&ntilde;ol'.html_safe, 'es'],
-  %w(Italiano it)
-]
-
 #
 # A simple exception handler that behaves like the default exception handler
 # but additionally logs missing translations to a given log.
