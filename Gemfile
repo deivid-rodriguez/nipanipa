@@ -23,7 +23,7 @@ gem 'jquery-rails', '4.0.3'
 gem 'coffee-rails', '4.1.0'
 gem 'bootstrap-sass', '3.3.4.1'
 gem 'sass-rails', '5.0.3'
-gem 'autoprefixer-rails', '5.1.8'
+gem 'autoprefixer-rails', '5.1.8.1'
 gem 'uglifier', '2.7.1'
 
 gem 'activeadmin', github: 'activeadmin'
