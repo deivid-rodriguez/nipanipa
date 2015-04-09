@@ -31,13 +31,19 @@ module Nipanipa
     # finding time zone names. Default is UTC.
     # config.time_zone = 'Central Time (US & Canada)'
 
+    #
     # Custom libraries autoloaded
+    #
     config.autoload_paths += %W(#{config.root}/lib)
 
+    #
     # Silence assets log
+    #
     config.assets.logger = false
 
-    # Generators automatically generate factories instead of fixtures.
+    #
+    # Generators automatically generate factories instead of fixtures
+    #
     config.generators do |g|
       g.test_framework :rspec, fixture: false,
                                view_specs: false,
@@ -46,18 +52,24 @@ module Nipanipa
       g.helper false
     end
 
-    # All translations from config/locales/*.rb,yml are auto loaded.
+    #
+    # I18n configuration
+    #
     config.i18n.load_path += Dir["#{Rails.root}/config/locales/**/*.yml"]
     config.i18n.locale = config.i18n.default_locale = :en
     config.i18n.available_locales = %i(en es it de)
     config.i18n.enforce_available_locales = true
 
-    # Mailing.
+    #
+    # Mailing
+    #
     config.action_mailer.asset_host = "http://#{ENV['MAIL_HOST']}"
     config.action_mailer.default_url_options = { host: ENV['MAIL_HOST'],
                                                  locale: :en }
 
+    #
     # ActiveRecord
+    #
     config.active_record.raise_in_transactional_callbacks = true
   end
 end

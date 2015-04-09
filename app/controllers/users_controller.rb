@@ -88,7 +88,9 @@ class UsersController < Devise::RegistrationsController
     params.require(:user).permit(*user_fields)
   end
 
+  #
   # Correctly resolve actual class from params
+  #
   def resource_class
     params[:type].present? ? params[:type].classify.constantize : super
   end
