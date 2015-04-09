@@ -3,12 +3,12 @@ es:
     mailer:
       reset_password_instructions:
         greeting: Hola %{name}!
-        info: "Alguien ha solicitado un enlace para cambiar tu contraseña.
-Puedes cambiarla a través del siguiente enlace"
+        info: 'Alguien ha solicitado un cambio de contraseña. Puedes hacerlo a
+través del siguiente enlace.'
         change_my_pwd: Cambiar mi contraseña
-        ignore: Si no solicitaste eso, por favor ignora este correo electrónico.
-        wont_change: "Tu contraseña no cambiará hasta que no accedas al enlace y
-crees una nueva."
+        ignore: Si no solicitaste esto, por favor ignora este email.
+        wont_change: 'Tu contraseña no cambiará hasta que no accedas al enlace y
+crees una nueva.'
     confirmations:
       new:
         resend: Instrucciones de confirmación
