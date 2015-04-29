@@ -1,11 +1,8 @@
-= simple_form_for conversation, html: { class: 'form-horizontal' } do |f|
-  = f.error_notification
+= render layout: 'message', locals: { message: message } do
+  = simple_form_for message,
+      url: conversation_path(message.recipient.id),
+      method: :put,
+      remote: true do |f|
 
-  = f.input :subject
-
-  = f.fields_for :messages do |m|
-    = m.hidden_field :to_id, value: conversation.to.id
-    = m.hidden_field :from_id, value: current_user.id
-    = m.input :body
-
-  = f.button :submit
+    = f.input_field :body
+    = f.button :submit, class: 'btn btn-default primary-button pull-right'

@@ -1,79 +1,38 @@
-#
-# Integration tests for Conversation pages
-#
-
-RSpec.describe 'Create a conversation' do
-  let!(:conversation) { build(:conversation) }
-  let(:create_conv) { t('helpers.submit.conversation.create') }
-
-  before do
-    mock_sign_in(conversation.from)
-    visit user_path(conversation.to)
-    click_link t('shared.profile_header.new_conversation')
-  end
-
-  context 'with incorrect content' do
-    before do
-      expect { click_button create_conv }.not_to change(Conversation, :count)
-    end
-
-    it 'shows an error message' do
-      expect(page).to \
-        have_flash_message t('conversations.create.error'), 'danger'
-    end
-  end
-
-  context 'with correct content' do
-    before do
-      fill_in 'conversation[subject]', with: conversation.subject
-      fill_in 'conversation[messages_attributes][0][body]',
-              with: conversation.messages.first.body
-
-      expect { click_button create_conv }.to change(Conversation, :count).by(1)
-    end
-
-    it 'shows a success message' do
-      expect(page).to \
-        have_flash_message t('conversations.create.success'), 'success'
-    end
-
-    it { sends_notification_email(conversation.to) }
-  end
-end
-
 RSpec.describe 'Listing user conversations' do
-  let!(:conversation) { create(:conversation) }
+  let!(:message) { create(:message) }
 
   before do
-    mock_sign_in(conversation.from)
-    visit user_path(conversation.from)
-    click_link t('shared.profile_header.conversations')
+    mock_sign_in(message.sender)
+    visit user_path(message.sender)
+    click_link t('shared.profile_header.messages')
   end
 
   it 'properly lists user conversations' do
-    expect(page).to have_content conversation.subject
-    expect(page).to have_link conversation.to.name
-    expect(page).not_to have_link conversation.from.name
+    expect(page).to have_content message.body
+    expect(page).to have_link message.recipient.name
+    expect(page).not_to have_link message.sender.name
   end
 end
 
 RSpec.describe 'Display a conversation', :js do
-  let!(:conversation) { create(:conversation) }
+  let!(:message) { create(:message) }
 
   before do
-    mock_sign_in(conversation.from)
+    mock_sign_in(message.sender)
     visit conversations_path
-    find_link("show-link-#{conversation.id}").trigger('click')
+    find_link("show-link-#{message.recipient.id}").trigger('click')
   end
 
-  it 'lists all messages in thread' do
-    expect(page).to have_content conversation.messages.first.body
+  it 'lists all messages between the users' do
+    expect(page).to have_content(message.body)
   end
 
-  it 'shows a reply box' do
-    expect(page).to have_title conversation.subject
-    expect(page).to have_selector 'h3', text: conversation.subject
-    expect(page).to have_button t('messages.message.reply')
+  it 'changes page title to include the contact' do
+    expect(page).to have_title("Messages with #{message.recipient.name}")
+  end
+
+  it 'shows a new message box' do
+    expect(page).to have_button t('helpers.submit.message.create')
   end
 
   describe 'and reply to it' do
@@ -84,7 +43,10 @@ RSpec.describe 'Display a conversation', :js do
         expect(page).to have_content 'This is a sample reply'
       end
 
-      it { sends_notification_email(conversation.to) }
+      it 'sends_notification email' do
+        expect(sent_emails.size).to eq(1)
+        expect(last_email.to).to include(message.recipient.email)
+      end
     end
 
     context 'unsuccessfully' do
@@ -92,59 +54,46 @@ RSpec.describe 'Display a conversation', :js do
 
       it 'shows an error message and keeps user in the same page' do
         expect(page).to \
-          have_flash_message t('conversations.reply.error'), 'danger'
+          have_flash_message t('conversations.update.error'), 'danger'
 
-        expect(page).to have_button t('messages.message.reply')
+        expect(page).to have_button t('helpers.submit.message.create')
       end
     end
   end
 end
 
-RSpec.describe 'Deleting conversations', :js do
-  let!(:conversation) { create(:conversation) }
+RSpec.describe 'Delete a conversation', :js do
+  let!(:message) { create(:message) }
+  let(:recipient) { message.recipient }
+  let(:sender) { message.sender }
 
   before do
-    mock_sign_in(conversation.from)
+    mock_sign_in(sender)
     visit conversations_path
-    find_link("delete-link-#{conversation.id}").trigger('click')
+    find_link("delete-link-#{recipient.id}").trigger('click')
   end
 
   it 'removes conversation from list' do
-    expect(page).not_to \
-      have_selector "li#conversation-preview-#{conversation.id}"
+    expect(page).not_to have_selector "li#conversation-preview-#{recipient.id}"
   end
 
   context 'when the other user goes to message list' do
     before do
-      mock_sign_in(conversation.to)
+      click_link t('sessions.signout')
+      sign_in(recipient)
       visit conversations_path
     end
 
     it 'conversation should still be there' do
-      expect(page).to \
-        have_selector "li#conversation-preview-#{conversation.id}"
+      expect(page).to have_selector "li#conversation-preview-#{sender.id}"
     end
 
     context 'and deletes the same conversation' do
       it 'is also removed from database' do
-        find_link("delete-link-#{conversation.id}").trigger('click')
-        expect(page).not_to have_selector \
-          "li#conversation-preview-#{conversation.id}"
-        expect(Conversation.count).to eq(0)
-      end
-    end
+        find_link("delete-link-#{sender.id}").trigger('click')
 
-    context 'and replies to the same conversation' do
-      before do
-        find_link("show-link-#{conversation.id}").trigger('click')
-        reply('This is a sample reply')
-        mock_sign_in(conversation.from)
-        visit conversations_path
-      end
-
-      it 'reappears in the first user\'s message list' do
-        expect(page).to \
-          have_selector "li#conversation-preview-#{conversation.id}"
+        expect(page).not_to have_selector "li#conversation-preview-#{sender.id}"
+        expect(Message.count).to eq(0)
       end
     end
   end

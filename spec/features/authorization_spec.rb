@@ -24,12 +24,15 @@ RSpec.describe 'User' do
         it { is_expected.to have_ability(:manage, for: feedback_by_me) }
       end
 
-      describe 'conversations' do
-        let!(:conv_from_me) { build(:conversation, from: user) }
-        let!(:conv_to_me) { build(:conversation, to: user) }
+      describe 'messages' do
+        let!(:message_from_me) { build(:message, sender: user) }
+        let!(:message_to_me) { build(:message, recipient: user) }
 
-        it { is_expected.to have_ability(:manage, for: conv_from_me) }
-        it { is_expected.to have_ability(:manage, for: conv_to_me) }
+        it { is_expected.to have_ability(:create, for: message_from_me) }
+        it { is_expected.to have_ability(:read, for: message_from_me) }
+
+        it { is_expected.not_to have_ability(:create, for: message_to_me) }
+        it { is_expected.to have_ability(:read, for: message_to_me) }
       end
     end
   end
@@ -78,19 +81,11 @@ RSpec.describe 'Protected pages' do
     end
   end
 
-  describe 'new conversation page' do
-    let!(:other_user) { create(:volunteer) }
-
-    it_behaves_like 'all protected pages' do
-      let(:protected_page) { new_conversation_path(other_user) }
-    end
-  end
-
   describe 'show conversation page' do
-    let!(:conversation) { create(:conversation, from: user) }
+    before { create(:message, sender: user) }
 
     it_behaves_like 'all protected pages' do
-      let(:protected_page) { conversation_path(conversation) }
+      let(:protected_page) { conversation_path(id: user.id) }
     end
   end
 

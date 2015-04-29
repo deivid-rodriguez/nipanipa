@@ -15,11 +15,7 @@ Rails.application.routes.draw do
       resources :feedbacks
     end
 
-    get 'conversations/new/:to' => 'conversations#new', as: :new_conversation
-    resources :conversations, except: [:new, :edit, :update],
-                              constraints: { id: /\d+/ } do
-      put 'reply', on: :member
-    end
+    resources :conversations, except: %i(new create)
 
     get 'help' => 'static_pages#help'
     get 'about' => 'static_pages#about'

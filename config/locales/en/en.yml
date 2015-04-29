@@ -13,11 +13,11 @@ en:
     profile_header:
       unknown: Unknown
       general: General
-      conversations: Messages
+      messages: Messages
       feedback: Feedback
       pictures: Pictures
       edit: Edit profile
-      new_conversation: New message
+      new_message: New message
       new_feedback: Leave a reference
       edit_feedback: Change your reference
       report_user: Alert about this user
@@ -128,24 +128,15 @@ your profile"
       success: Pictures
       error: Error removing the picture...
   conversations:
-    new:
-      title: Contact %{username}
-    create:
-      success: You started a new conversation
+    index:
+      title: My messages
+      usure?: Are you sure?
+    update:
+      success: You sent a new message
       error: There was an error sending the message
     destroy:
-      success: Conversación was removed correctly!
-    index:
-      title: My conversations
-    show:
-      back_html: Back &#8617;
-    preview:
-      usure?: Are you sure?
-    reply:
-      error: Error sending the message...
-  messages:
-    message:
-      reply: Reply
+      success: Conversation was removed correctly!
+      error: You don't have any messages with that user
   users:
     form:
       description_host: "Tell your future volunteers something about yourself
@@ -279,8 +270,8 @@ site. To view the message, click on the following link:"
       feedback:
         create: Leave new reference!
         update: Edit reference
-      conversation:
-        create: Start a conversation
+      message:
+        create: Send
       picture:
         create: Upload picture
         update: Update picture
@@ -294,7 +285,7 @@ site. To view the message, click on the following link:"
     attributes:
       user:
         password_digest: Password
-      conversation:
+      message:
         subject: Subject
       message:
         body: Body

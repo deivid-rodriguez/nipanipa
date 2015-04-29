@@ -31,8 +31,8 @@ def sign_out
 end
 
 def reply(text)
-  fill_in 'body', with: "#{text}"
-  click_button t('messages.message.reply')
+  fill_in 'message_body', with: "#{text}"
+  click_button t('helpers.submit.message.create')
   expect(page).to have_content "#{text}" # assert text appears before going on
 end
 

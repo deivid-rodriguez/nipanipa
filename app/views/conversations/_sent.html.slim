@@ -1,0 +1,6 @@
+li
+  = render layout: 'message', locals: { message: message } do
+    = simple_format(message.body)
+
+    p.message-date
+      = l message.created_at

@@ -7,7 +7,7 @@ class UserMailer < ActionMailer::Base
   def message_reception(message)
     @msg = message
 
-    mail to: @msg.to.email, subject: t('user_mailer.message_reception.subject',
-                                       from: @msg.from.name)
+    subject = t('user_mailer.message_reception.subject', from: @msg.sender.name)
+    mail to: @msg.recipient.email, subject: subject
   end
 end

@@ -34,7 +34,7 @@
 
       - unless user == current_user
         .send-message-link
-          = link_to new_conversation_path(user) do
+          = link_to conversation_path(id: user.id) do
             .label_info
               = image_tag 'envelope.png'
             .content_info

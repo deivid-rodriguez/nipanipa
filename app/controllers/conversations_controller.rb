@@ -1,84 +1,69 @@
 #
-# Controller for user conversations
+# Controller for conversations between users
+#
+# TODO: Get rid of `respond_with` or explicitly include the 'responders' gem.
 #
 class ConversationsController < ApplicationController
   respond_to :html
-  respond_to :js, only: [:reply, :destroy]
+  respond_to :js, only: %i(update destroy)
 
   before_action :authenticate_user!
-  before_action :load_user, only: [:index]
-  before_action :load_conversation, only: [:show, :reply, :destroy]
   before_action :set_page_id
-
-  def index
-    @conversations = Conversation.non_deleted(current_user)
-  end
+  before_action :load_user
+  before_action :load_conversation, only: %i(show destroy)
 
   def show
-    @message = Message.new
+    @message = Message.new(default_message_params)
   end
 
-  def new
-    @conversation = Conversation.new(to_id: params[:to])
-    @conversation.messages.build
+  def index
+    @conversations = Message.involving(current_user)
   end
 
-  def create
-    @conversation = Conversation.new(conversation_full_params)
+  def update
+    @message = Message.new(message_params)
 
-    if @conversation.save
-      redirect_to conversations_path, notice: t('conversations.create.success')
+    if @message.save
+      @message.notify_recipient
+      flash[:notice] = t('conversations.update.success')
     else
-      flash.now[:error] = t('conversations.create.error')
-      render 'new'
+      flash[:error] = t('conversations.update.error')
     end
-  end
 
-  def reply
-    @conversation.messages.build(body: params[:body],
-                                 from_id: current_user.id,
-                                 to_id: other_user.id)
-    @conversation.reset_deleted_marks
-
-    flash.now[:error] = t('conversations.reply.error') unless @conversation.save
-    respond_with(@conversation, location: conversation_path(@conversation))
+    respond_with(@message, location: conversation_path(@message.recipient))
   end
 
   def destroy
-    @conversation.mark_as_deleted(current_user)
-    @conversation.destroy if @conversation.deleted_by_both?
-    flash.now[:notice] = t('conversations.destroy.success')
+    if @conversation.present?
+      @conversation.delete_by(current_user.id)
+
+      flash.now[:notice] = t('conversations.destroy.success')
+    else
+      flash.now[:error] = t('conversations.destroy.error')
+    end
+
     respond_with(@conversation, location: conversations_path)
   end
 
   private
 
-  def conversation_params
-    params.require(:conversation)
-      .permit(:subject, messages_attributes: [:body, :from_id, :to_id])
+  def load_conversation
+    @conversation = current_user.messages_with(params[:id])
   end
 
-  def conversation_full_params
-    to_id = conversation_params[:messages_attributes]['0'][:to_id]
-    from_id = conversation_params[:messages_attributes]['0'][:from_id]
-
-    conversation_params.merge(to_id: to_id, from_id: from_id)
+  def message_params
+    params.require(:message).permit(:body).merge(default_message_params)
   end
 
-  # Some actions need this variable in the view
+  def default_message_params
+    { sender_id: current_user.id, recipient_id: params[:id] }
+  end
+
   def load_user
     @user = current_user
   end
 
-  def load_conversation
-    @conversation = Conversation.non_deleted(current_user).find(params[:id])
-  end
-
-  def other_user
-    current_user == @conversation.to ? @conversation.from : @conversation.to
-  end
-
   def set_page_id
-    @page_id = :conversations
+    @page_id = :messages
   end
 end

@@ -1,17 +1,11 @@
-- provide :title, @conversation.subject
+- provide :title, "Messages with #{@message.recipient.name}"
 
 .col-md-12
   .row.main-titled
-    .col-md-offset-2.col-md-7.title
-      h3= @conversation.subject
-
-    .col-md-1.back
-      = link_to t('.back_html'), conversations_path
-
-    .col-md-offset-2.col-md-8.chat-list
+    .col-md-offset-1.col-md-10.chat-list
       ul#chat-list
-        - for message in @conversation.messages
-          li = render 'messages/sent', message: message
+        - @conversation.each do |message|
+          = render 'sent', message: message
 
-    .col-md-offset-2.col-md-8
-      = render 'messages/reply_form', conversation: @conversation
+    .col-md-offset-1.col-md-10
+      = render 'form', message: @message

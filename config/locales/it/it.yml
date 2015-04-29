@@ -13,11 +13,11 @@ it:
     profile_header:
       unknown: Sconosciuto
       general: Vista principale
-      conversations: Conversazioni
+      messages: Conversazioni
       feedback: Referenze
       pictures: Foto
       edit: Modificare profilo
-      new_conversation: Inviare un messaggio
+      new_message: Inviare un messaggio
       new_feedback: Lasciare referenza
       edit_feedback: Modificare referenza
       report_user: Segnalare questo utente
@@ -126,24 +126,15 @@ pìù lunga de 300 caratteri"
       success: Foto cancellata correttamente"
       error: Errore al cancellare la foto
   conversations:
-    new:
-      title: Contatta %{username}
-    create:
-      success: Hai iniziato una conversazione! :)
+    index:
+      title: I miei messaggi
+      usure?: Sei sicuro che vuoi cancellare la conversazione?
+    update:
+      success: Messaggio inviato
       error: C'è stato un errore nell'invio del messagio
     destroy:
       success: La conversazione è stata cancellata correttamente
-    index:
-      title: I miei messaggi
-    show:
-      back_html: Tornare &#8617;
-    preview:
-      usure?: Sei sicuro che vuoi cancellare la conversazione?
-    reply:
-      error: Error nello invio del messaggio...
-  messages:
-    message:
-      reply: Rispondere
+      error: Non hai nessun messagio con quel'utente
   users:
     form:
       description_host: "Racconta ai prossimi volontari qualcosa su di te o
@@ -280,8 +271,8 @@ vedere il messagio, clicca qui:"
       feedback:
         create: Lasciare referenza
         update: Modificare referenza
-      conversation:
-        create: Comincia una conversazione
+      message:
+        create: Inviare
       picture:
         create: Caricare foto
         update: Modificare foto
@@ -295,7 +286,7 @@ vedere il messagio, clicca qui:"
     attributes:
       user:
         password_digest: password
-      conversation:
+      message:
         subject: Soggetto
       message:
         body: corpo

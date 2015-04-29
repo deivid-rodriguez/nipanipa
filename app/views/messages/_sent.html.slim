@@ -1,7 +1,0 @@
-= render layout: 'messages/message',
-         locals:  { conversation: @conversation, message: message } do
-  = simple_format(message.body)
-
-  p.message-date
-    = l message.created_at
-

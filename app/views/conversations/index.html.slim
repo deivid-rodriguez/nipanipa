@@ -1,9 +1,37 @@
 - provide :title, t('.title')
 
-div class="profile-header-#{@user.type.underscore}"
-  = render 'shared/profile_header', user: @user,
-                                    page_id: @page_id,
-                                    given_feedback: @given_feedback
+div class="profile-header-#{current_user.type.underscore}"
+  = render 'shared/profile_header',
+      user: current_user,
+      page_id: @page_id,
+      given_feedback: @given_feedback
 
 .profile-content
-  = render 'conversations', conversations: @conversations
+  - if @conversations.empty?
+    = render 'shared/empty', message: 'nomessages'
+
+  - else
+    ul.conversation-list.col-md-12
+      - @conversations.each do |last_message|
+        - other_user = last_message.penpal(current_user)
+
+        li id="conversation-preview-#{other_user.id}"
+          .row.conversation-preview
+
+            = link_to other_user do
+              .col-md-3.conversation-other
+                = avatar_for other_user, style: :thumb_message
+                = other_user.name
+
+            = link_to conversation_path(other_user),
+                id: "show-link-#{other_user.id}" do
+              .col-md-6.conversation-subject = last_message.body.truncate(74)
+
+              .col-md-3.conversation-date = l last_message.created_at
+
+            = link_to conversation_path(other_user),
+                method: :delete,
+                data: { confirm: t('.usure?') },
+                id: "delete-link-#{other_user.id}",
+                remote: true do
+              div id="delete-#{other_user.id}"

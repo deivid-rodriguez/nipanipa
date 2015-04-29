@@ -13,11 +13,11 @@ es:
     profile_header:
       unknown: Desconocido
       general: Vista general
-      conversations: Mensajes
+      messages: Mensajes
       feedback: Referencias
       pictures: Fotos
       edit: Editar perfil
-      new_conversation: Enviar mensaje
+      new_message: Enviar mensaje
       new_feedback: Dejar referencia
       edit_feedback: Editar referencia
       report_user: Alertar sobre usuario
@@ -128,24 +128,15 @@ usuarios que eres una persona de verdad, a parte de lo feo que eres (es broma!)"
       success: Foto borrada correctamente
       error: Error al borrar la foto
   conversations:
-    new:
-      title: Contacta a %{username}
-    create:
-      success: Has iniciado una nueva conversación!
+    index:
+      title: Mis mensajes
+      usure?: ¿Seguro que quieres borrar la conversación?
+    update:
+      success: Mensaje enviado
       error: Hubo un error en el envío del mensaje
     destroy:
       success: La conversación fue borrada correctamente
-    index:
-      title: Mis mensajes
-    show:
-      back_html: Volver &#8617;
-    preview:
-      usure?: ¿Seguro que quieres borrar la conversación?
-    reply:
-      error: Error en el envío del mensaje...
-  messages:
-    message:
-      reply: Responder
+      error: No tienes mensajes con ese usuario
   users:
     form:
       description_host: "Cuéntale a tus futuros voluntarios algo sobre ti o
@@ -281,8 +272,8 @@ web. Para ver el mensaje, haz click en el siguiente enlace:"
       feedback:
         create: Dejar nueva referencia
         update: Editar la referencia
-      conversation:
-        create: Comenzar una conversación
+      message:
+        create: Enviar
       picture:
         create: Subir foto
         update: Actualizar foto
@@ -296,7 +287,7 @@ web. Para ver el mensaje, haz click en el siguiente enlace:"
     attributes:
       user:
         password_digest: Contraseña
-      conversation:
+      message:
         subject: Asunto
       message:
         body: Contenido

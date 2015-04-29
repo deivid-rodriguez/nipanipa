@@ -13,11 +13,11 @@ de:
     profile_header:
       unknown: Unbekannt
       general: Allgemein
-      conversations: Nachrichten
+      messages: Nachrichten
       feedback: Feedback
       pictures: Fotos
       edit: Profil bearbeiten
-      new_conversation: Neue Nachricht
+      new_message: Neue Nachricht
       new_feedback: Referenz hinterlassen
       edit_feedback: Referenz ändern
       report_user: Diesen Benutzer melden
@@ -132,24 +132,15 @@ deinem Profil angezeigt wird."
       success: Fotos
       error: Fehler beim Entfernen des Fotos...
   conversations:
-    new:
-      title: "%{username} kontaktieren"
-    create:
+    index:
+      title: Meine Unterhaltungen
+      usure?: Bist du dir sicher?
+    update:
       success: Du hast eine neue Unterhaltung begonnen
       error: Beim Senden der Nachricht ist ein Fehler aufgetreten
     destroy:
       success: Die Unterhaltung wurde erfolgreich gelöscht!
-    index:
-      title: Meine Unterhaltungen
-    show:
-      back_html: Zurück &#8617;
-    preview:
-      usure?: Bist du dir sicher?
-    reply:
-      error: Fehler beim Senden der Nachricht...
-  messages:
-    message:
-      reply: Antworten
+      error: You don't have any messages with that user
   users:
     form:
       description_host: "Erzähl deinen zukünftigen freiwilligen Helfern etwas
@@ -286,8 +277,8 @@ kontaktiert. Um die Nachricht zu lesen, klicke auf den folgenden Link:"
       feedback:
         create: Eine neue Referenz hinterlassen!
         update: EReferenz bearbeiten
-      conversation:
-        create: Eine Unterhaltung beginnen
+      message:
+        create: Send
       picture:
         create: Foto hochladen
         update: Foto aktualisieren
@@ -301,7 +292,7 @@ kontaktiert. Um die Nachricht zu lesen, klicke auf den folgenden Link:"
     attributes:
       user:
         password_digest: Passwort
-      conversation:
+      message:
         subject: Betreff
       message:
         body: Nachrichtentext

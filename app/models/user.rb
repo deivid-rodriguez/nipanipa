@@ -58,17 +58,9 @@ class User < ActiveRecord::Base
            foreign_key: 'recipient_id',
            dependent: :destroy
 
-  has_many :sent_conversations,
-           -> { order(updated_at: :desc).includes(:to) },
-           class_name: 'Conversation',
-           foreign_key: 'from_id',
-           dependent: :destroy
-
-  has_many :received_conversations,
-           -> { order(updated_at: :desc).includes(:from) },
-           class_name: 'Conversation',
-           foreign_key: 'to_id',
-           dependent: :destroy
+  def messages_with(uid)
+    Message.between(id, uid).non_deleted_by(id)
+  end
 
   AVAILABILITY = %w(jan feb mar apr may jun jul aug sep oct nov dec)
 

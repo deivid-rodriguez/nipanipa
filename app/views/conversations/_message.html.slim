@@ -1,0 +1,9 @@
+li
+  div class="row message-#{message.sender == current_user ? 'left' : 'right'}"
+    .col-md-2.message-from
+      = link_to message.sender do
+        = avatar_for message.sender, style: :thumb_message
+        = message.sender.name
+
+    .col-md-10.message-content
+      = yield

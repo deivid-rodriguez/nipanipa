@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141211115415) do
+ActiveRecord::Schema.define(version: 20150426005940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,17 +36,6 @@ ActiveRecord::Schema.define(version: 20141211115415) do
   end
 
   add_index "continents", ["code"], name: "index_continents_on_code", unique: true, using: :btree
-
-  create_table "conversations", force: :cascade do |t|
-    t.string   "subject"
-    t.integer  "from_id"
-    t.integer  "to_id"
-    t.string   "status"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "deleted_from", default: false
-    t.boolean  "deleted_to",   default: false
-  end
 
   create_table "countries", force: :cascade do |t|
     t.string   "code"
@@ -96,11 +85,12 @@ ActiveRecord::Schema.define(version: 20141211115415) do
 
   create_table "messages", force: :cascade do |t|
     t.text     "body"
-    t.integer  "from_id"
-    t.integer  "to_id"
-    t.integer  "conversation_id"
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "deleted_by_sender_at"
+    t.datetime "deleted_by_recipient_at"
   end
 
   create_table "pictures", force: :cascade do |t|
