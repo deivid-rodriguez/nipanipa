@@ -6,7 +6,7 @@ en:
     current_or_last_login:
       currently_logged_in: Now online!
       last_login: Last login
-      never: never
+      never: Never
     not_specified: Not specified
     edit: Edit
     delete: Delete
