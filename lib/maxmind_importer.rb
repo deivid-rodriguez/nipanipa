@@ -71,9 +71,19 @@ module Maxmind
   #
   class Importer
     #
+    # Accepts an option to indicate whether the importer should cleanup
+    # temporary files after import or not
+    #
+    def initialize(cleanup = false)
+      @cleanup = cleanup
+    end
+
+    #
     # Downloads zip file from Maxmind
     #
     def download!
+      return if remote_zip_file_unchanged?
+
       open(local_zip_path, 'wb') do |file|
         uri = URI.parse(remote_zip_url)
         Net::HTTP.start(uri.host, uri.port) do |http|
@@ -131,7 +141,7 @@ module Maxmind
     def import!
       download! && extract! && insert!
     ensure
-      cleanup
+      cleanup if @cleanup
     end
 
     private
@@ -143,6 +153,7 @@ module Maxmind
     def download_succeeded?
       remote_zip_file_checksum == zip_file_checksum
     end
+    alias_method :remote_zip_file_unchanged?, :download_succeeded?
 
     def extract_succeeded?
       !File.zero?(local_csv_path)
