@@ -7,16 +7,17 @@ footer
             - trastevere_site = 'http://trasteverestudio.com'
             | (c) 2014 NiPaNiPa by #{link_to 'Trastévere', trastevere_site}
 
-        li= link_to t('static_pages.terms.title')  , terms_path
+        li= link_to t('static_pages.terms.title'), terms_path
 
-        li= link_to t('static_pages.about.title')  , about_path
+        li= link_to t('static_pages.about.title'), about_path
 
         li= link_to t('static_pages.contact.title'), contact_path
 
     nav.social-links
       ul
         li
-          = link_to 'https://www.facebook.com/pages/Nipa-Nipa/282213028588722' do
+          - fb_url = 'https://www.facebook.com/pages/Nipa-Nipa/282213028588722'
+          - link_to fb_url do
             = image_tag 'facebook.png', alt: 'Facebook'
 
         li

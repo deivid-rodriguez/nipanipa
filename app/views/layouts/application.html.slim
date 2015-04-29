@@ -7,8 +7,9 @@ html
     div class="#{params[:action] == 'home' ? 'home' : 'main-wrapper'}"
       = render 'layouts/header'
 
-      = render 'layouts/messages'
+      main role='main'
+        = render 'layouts/messages'
 
-      main role='main' = yield
+        = yield
 
     = render 'layouts/footer'

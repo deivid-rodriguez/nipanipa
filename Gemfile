@@ -39,6 +39,7 @@ group :development, :test do
   gem 'factory_girl_rails', '4.5.0'
   gem 'ffaker', '2.0.0'
   gem 'rubocop', '0.30.1'
+  gem 'slim_lint', github: 'sds/slim-lint'
 end
 
 group :development do

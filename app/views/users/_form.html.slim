@@ -1,9 +1,8 @@
-= simple_form_for resource, as: resource_name,
-                            url: registration_path(resource_name),
-                            html: { class: 'form-vertical',
-                                    multipart: true,
-                                    role: 'form' },
-                            defaults: { wrapper: :full_width } do |f|
+= simple_form_for resource,
+    as: resource_name,
+    url: registration_path(resource_name),
+    html: { class: 'form-vertical', multipart: true, role: 'form' },
+    defaults: { wrapper: :full_width } do |f|
 
   = hidden_field_tag :type, resource.type
 
@@ -11,20 +10,20 @@
   = f.input :email, wrapper: :half_width
 
   - if resource.new_record?
-    = f.input :password, hint: (resource.errors ? false : true),
-                         wrapper: :half_width
+    = f.input :password, hint: resource.errors.empty?, wrapper: :half_width
     = f.input :password_confirmation, wrapper: :half_width
 
   = render 'location', f: f
 
   = f.input :description, label: t(".description_#{resource.type.underscore}")
 
-  = f.input :availability, as: :check_boxes,
+  = f.input :availability,
+      as: :check_boxes,
       wrapper: :vertical_radio_and_checkboxes,
       item_wrapper_class: 'calendar',
       collection: User::AVAILABILITY,
       checked: resource.availability,
-      label_method: lambda { |m| l(Date.strptime(m, '%b'), format: :month).titleize },
+      label_method: ->(m) { localized_month(m) },
       value_method: :to_s
 
   = render 'language_skills', f: f

@@ -45,6 +45,15 @@ GIT
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
 
+GIT
+  remote: git://github.com/sds/slim-lint.git
+  revision: fdcc52f78e655485cf2cd541c62fe8bcde8a1b39
+  specs:
+    slim_lint (0.3.0)
+      rubocop (>= 0.25.0)
+      slim (~> 3.0)
+      sysexits (~> 1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -439,6 +448,7 @@ DEPENDENCIES
   simple_form (= 3.1.0)
   simplecov (= 0.10.0)
   slim-rails (= 3.0.1)
+  slim_lint!
   spring (= 1.3.5)
   uglifier (= 2.7.1)
   unicorn-rails (= 2.2.0)

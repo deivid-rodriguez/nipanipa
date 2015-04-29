@@ -19,6 +19,7 @@ li
           = user_location user
 
         .user-thumbnail-shortdesc
-          = truncate user.description, length: 400,
-                                       separator: ' ',
-                                       omission: '...'
+          = truncate user.description,
+              length: 400,
+              separator: ' ',
+              omission: '...'

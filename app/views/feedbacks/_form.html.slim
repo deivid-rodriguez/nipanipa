@@ -8,9 +8,9 @@
 
   fieldset
     legend= t('.feedback_for_nipa')
-    - if @feedback.donation and @feedback.donation.amount
-      = t('.donated_already_html',
-        donations_url: link_to(t('.here'), new_donation_path))
+    - if @feedback.donation && @feedback.donation.amount
+      - donation_link = link_to(t('.here'), new_donation_path)
+      = t('.donated_already_html', donations_url: donation_link)
     - else
       = f.simple_fields_for :donation do |d|
         = d.input :amount, as: :currency

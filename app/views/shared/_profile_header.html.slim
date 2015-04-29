@@ -10,14 +10,20 @@
     .user-status
       = render 'shared/badge', name: 'karma', content: user.karma
       = render 'shared/badge', name: 'location', content: user_location(user)
-      = render 'shared/badge', name: 'last_login',
-                               content: i18n_timeago(user.current_sign_in_at)
-      = render 'shared/badge', name: 'member_since',
-                               content: i18n_timeago(user.created_at)
+
+      = render 'shared/badge',
+          name: 'last_login',
+          content: i18n_timeago(user.current_sign_in_at)
+
+      = render 'shared/badge',
+          name: 'member_since',
+          content: i18n_timeago(user.created_at)
 
     .user-knowledge
-      = render 'shared/badge', name: 'categories',
-                               content: user_categories(user)
+      = render 'shared/badge',
+          name: 'categories',
+          content: user_categories(user)
+
       = render 'shared/badge', name: 'languages', content: user_languages(user)
 
   .user-tabs

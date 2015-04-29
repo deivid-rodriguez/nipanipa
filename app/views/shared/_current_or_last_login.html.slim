@@ -1,11 +1,8 @@
-/ TODO: This doesn't work because trackable doesn't work as I expected.It could
+/ TODO: Make the 'currently logged in' feature work. devise's
+/ `current_sign_in_at` (trackable) does not seem to work as I expected. It could
 / be fixed (i think) by adding a Warden's before_logout hook
-- if false
-  - if user.current_sign_in_at
-    = t '.currently_logged_in'
+- if user.last_sign_in_at
+  - signed_in_ago = time_ago_in_words(user.last_sign_in_at)
+  = "#{t('.last_login')}: #{t('datetime.timestamp_ago', time: signed_in_ago)}"
 - else
-  - if user.last_sign_in_at
-    - signed_in_ago = time_ago_in_words(user.last_sign_in_at)
-    = "#{t('.last_login')}: #{t('datetime.timestamp_ago', time: signed_in_ago)}"
-  - else
-    = "#{t('.last_login')}: #{t('.never')}"
+  = "#{t('.last_login')}: #{t('.never')}"

@@ -4,13 +4,13 @@ h1= t '.title'
 - src = 'https://github.com/deivid-rodriguez/nipanipa'
 p= t('.description_html', giturl: link_to(t('.description_link'), src))
 
-= form_tag "https://www.sandbox.paypal.com/cgi-bin/webscr" do
+= form_tag 'https://www.sandbox.paypal.com/cgi-bin/webscr' do
   = hidden_field_tag :business, 'nipa_1359995225_biz@gmail.com'
   = hidden_field_tag :cmd, '_donations'
   = hidden_field_tag :item_name, 'Friends of NiPaNiPa'
   = hidden_field_tag :return, donate_url
   = label_tag :amount, t('.select_amount')
-  = select_tag :amount, options_for_select([ 5, 10, 20 ], 10)
+  = select_tag :amount, options_for_select([5, 10, 20], 10)
   = label_tag :amount, t('.input_amount')
   = text_field_tag :amount
   = submit_tag t('.submit'), class: 'btn btn-default'

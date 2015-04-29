@@ -1,11 +1,13 @@
 ul.nav.nav-pills.nav-stacked
   li.nav-header= t '.availability'
+
   li class=('active' if params[:availability].nil?)
     = link_to t('.whenever'), users_path(sym_params.except(:availability))
   li class=('active' if params[:availability] == 'now')
     = link_to t('.now'), users_path(sym_params.merge(availability: 'now'))
 
   li.nav-header= t '.people'
+
   li class=('active' unless params[:type])
     = link_to t('.all'), users_path(sym_params.except(:type))
   li class=('active' if params[:type] == 'host')
@@ -14,6 +16,7 @@ ul.nav.nav-pills.nav-stacked
     = link_to t('.volunteers'), users_path(sym_params.merge(type: 'volunteer'))
 
   li.nav-header= t '.places'
+
   li class=('active' unless params[:con_id] || params[:cou_id])
     = link_to t('.wherever'), users_path(sym_params.except(:con_id, :cou_id))
   - Continent.find_each do |con|
