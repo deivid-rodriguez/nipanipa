@@ -15,17 +15,15 @@ def mock_sign_in(user)
   login_as(user, scope: :user, run_callbacks: false)
 end
 
+def sent_emails
+  ActionMailer::Base.deliveries
+end
+
+def last_email
+  sent_emails.last
+end
+
 # TODO: convert to a matcher
-def sends_notification_email(recipient)
-  last_email = ActionMailer::Base.deliveries.last
-  expect(last_email.to).to include(recipient.email) if last_email
-end
-
-def doesnt_send_notification_email(recipient)
-  last_email = ActionMailer::Base.deliveries.last
-  expect(last_email.to).not_to include(recipient.email) if last_email
-end
-
 def sign_out
   click_link t('sessions.signout')
 end

@@ -104,7 +104,11 @@ RSpec.describe 'Password recovery' do
     end
 
     it_behaves_like 'paranoid'
-    it { sends_notification_email(user) }
+
+    it 'sends_notification email' do
+      expect(sent_emails.size).to eq(1)
+      expect(last_email.to).to include(user.email)
+    end
   end
 
   context 'with wrong email' do
@@ -116,6 +120,9 @@ RSpec.describe 'Password recovery' do
     end
 
     it_behaves_like 'paranoid'
-    it { doesnt_send_notification_email(user) }
+
+    it 'does not send notification email' do
+      expect(sent_emails).to be_empty
+    end
   end
 end
