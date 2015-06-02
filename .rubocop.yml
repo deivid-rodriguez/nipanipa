@@ -7,6 +7,10 @@ AllCops:
     - 'db/migrate/*.rb'
   RunRailsCops: true
 
+  DisplayCopNames: true
+
+  DisplayStyleGuide: true
+
 Style/ModuleFunction:
   Enabled: false
 
