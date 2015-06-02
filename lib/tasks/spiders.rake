@@ -86,7 +86,10 @@ class CountryScraper
   def initialize(fin, fout)
     @fin = fin
     @fout = File.new(fout)
-    @previous_line, @in_farm_list, @farm_info, @region = nil, false, nil, nil
+    @previous_line = nul
+    @in_farm_list = false
+    @farm_info = nil
+    @region = nil
   end
 
   def scrap!

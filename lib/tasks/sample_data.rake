@@ -14,7 +14,8 @@ namespace :db do
   #
   def create_users(n)
     n.times do |i|
-      type, now = %w(host volunteer).sample, Time.zone.now
+      type = %w(host volunteer).sample
+      now = Time.zone.now
 
       type.classify.constantize.create! \
         name: FFaker::Name.name,
