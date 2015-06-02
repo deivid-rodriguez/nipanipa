@@ -22,8 +22,8 @@ module ApplicationHelper
     params.symbolize_keys
   end
 
-  def localized_month(m)
-    l(Date.strptime(m, '%b'), format: :month).titleize
+  def i18n_timeago(timestamp)
+    t 'shared.timestamp_ago', time: time_ago_in_words(timestamp)
   end
 
   def tab_builder(user, page_id)

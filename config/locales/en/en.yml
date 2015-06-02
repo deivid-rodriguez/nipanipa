@@ -3,6 +3,7 @@ en:
     nomessages: No messages
     nopictures: There are no pictures yet
     nofeedback: There is no feedback
+    timestamp_ago: "%{time} ago"
     current_or_last_login:
       currently_logged_in: Now online!
       last_login: Last login

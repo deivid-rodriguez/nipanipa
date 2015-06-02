@@ -3,6 +3,7 @@ es:
     nomessages: No hay mensajes
     nopictures: No hay ninguna foto
     nofeedback: No hay ninguna referencia
+    timestamp_ago: hace %{time}
     current_or_last_login:
       currently_logged_in: ¡Está ahora online!
       last_login: Último acceso

@@ -8,7 +8,7 @@ FactoryGirl.define do
     sequence(:name) { |n| "User #{n}" }
     sequence(:email) { |n| "nipanipa.test+user#{n}@gmail.com" }
     password 'foobar'
-    availability { %w(jan feb mar apr may jun jul aug sep oct nov dic) }
+    availability { (1..12).to_a }
 
     region do
       if continent
@@ -29,7 +29,7 @@ FactoryGirl.define do
     confirmed_at { Time.zone.now }
 
     trait :available_just_now do
-      availability { [Time.zone.now.strftime('%b').downcase] }
+      availability { [Time.zone.now.mon] }
     end
 
     trait :not_available do

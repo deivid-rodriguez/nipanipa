@@ -4,7 +4,7 @@
       h2= t('static_pages.home.explore')
       p= t('static_pages.home.explore_desc')
 
-  .pictures-thumbnail.carousel.slide data-ride='carousel' data-interval=4000
+  .pictures-thumbnail.carousel.slide data-ride='carousel' data-interval='4000'
     .carousel-inner
       - Picture.random(8).each_with_index do |picture, i|
         .item class="#{i == 0 ? 'active' : ''}"

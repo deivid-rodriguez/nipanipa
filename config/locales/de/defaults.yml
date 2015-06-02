@@ -1,9 +1,0 @@
-de:
-  date:
-    formats:
-      month: '%b'
-  time:
-    formats:
-      default: ! '%a, %d %b um %H:%M'
-  datetime:
-    timestamp_ago: "%{time} her"

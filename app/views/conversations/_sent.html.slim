@@ -3,4 +3,4 @@ li
     = simple_format(message.body)
 
     p.message-date
-      = l message.created_at
+      = l(message.created_at, format: :short)

@@ -52,7 +52,7 @@ RSpec.shared_examples_for 'A user profile creation' do
         select lang.name, from: 'user_language_skills_attributes_0_language_id'
         select 'Expert', from: 'user_language_skills_attributes_0_level'
         check "user_work_type_ids_#{work_type.id}"
-        check 'user_availability_feb'
+        check 'user_availability_2'
       end
 
       expect { click_button create_btn }.to change(klass, :count).by(1)
@@ -138,7 +138,7 @@ RSpec.describe 'User profile page' do
   end
 
   it 'has correct user availability' do
-    marks = User::AVAILABILITY.map { |m| profile.available_in?(m) ? '✔' : '✘' }
+    marks = (1..12).map { |m| profile.available_in?(m) ? '✔' : '✘' }
 
     expect(page).to have_content(marks.join)
   end

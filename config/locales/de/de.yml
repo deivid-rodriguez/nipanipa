@@ -3,6 +3,7 @@ de:
     nomessages: Keine Nachrichten
     nopictures: Es sind noch keine Fotos vorhanden.
     nofeedback: Es ist noch kein Feedback vorhanden.
+    timestamp_ago: "%{time} her"
     current_or_last_login:
       currently_logged_in: Jetzt online!
       last_login: Letzter Login

@@ -1,6 +1,0 @@
-it:
-  date:
-    formats:
-      month: '%b'
-  datetime:
-    timestamp_ago: "%{time} fa"

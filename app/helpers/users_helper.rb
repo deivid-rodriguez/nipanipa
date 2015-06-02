@@ -49,8 +49,4 @@ module UsersHelper
       "#{t(ls.language.name.underscore)} (#{ls.level.text})"
     end.join(', ')
   end
-
-  def i18n_timeago(timestamp)
-    t 'datetime.timestamp_ago', time: time_ago_in_words(timestamp)
-  end
 end

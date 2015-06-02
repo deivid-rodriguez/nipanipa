@@ -1,11 +1,11 @@
 table.calendar
   tr
-    - User::AVAILABILITY.each do |m|
-      th= l(Date.strptime(m, '%b'), format: :month)
+    - 12.times do |i|
+      th= t('date.abbr_month_names')[i + 1]
   tr
-    - User::AVAILABILITY.each do |m|
+    - 12.times do |i|
       td
-        - if availability.include?(m)
+        - if user.available_in?(i + 1)
           | ✔
         - else
           | ✘

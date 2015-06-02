@@ -6,7 +6,7 @@
     - 3.times do |i|
       .checkbox-list
         = f.collection_check_boxes :work_type_ids,
-                                   WorkType.limit(5).offset(5*i).to_a,
+                                   WorkType.limit(5).offset(5 * i).to_a,
                                    :id,
                                    :name,
                                    item_wrapper_class: 'checkbox' do |b|

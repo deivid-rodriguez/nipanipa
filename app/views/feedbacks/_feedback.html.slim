@@ -21,7 +21,7 @@ div class="feedback #{type}" id="feedback-#{feedback.id}"
           | #{t('.from')} #{link_to(feedback.sender.name, feedback.sender)}
 
     .time-ago
-      = t 'datetime.timestamp_ago', time: time_ago_in_words(feedback.updated_at)
+      = i18n_timeago(feedback.updated_at)
 
   .score-icon
     = image_tag "#{feedback.score}.png", alt: feedback.score

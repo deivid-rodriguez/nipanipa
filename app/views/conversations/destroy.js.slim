@@ -1,4 +1,5 @@
 | $('#conversation-preview-#{params[:id]}').remove();
 - no_messages_div = j render('shared/empty', message: 'nomessages')
 
-| if ($('ul.conversation-list li').length == 0) { $('ul.conversation-list').replaceWith('#{no_messages_div}') }
+| if ($('ul.conversation-list li').length == 0)
+|   { $('ul.conversation-list').replaceWith('#{no_messages_div}') }

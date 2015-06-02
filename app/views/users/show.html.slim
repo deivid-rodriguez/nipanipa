@@ -22,7 +22,7 @@ div class="profile-header-#{@user.type.underscore}"
     .box
       = render 'edit_link', user: @user
       h3= t('.availability')
-      = render 'calendar', availability: @user.availability
+      = render 'calendar', user: @user
 
     - if @user.type == 'Host'
       .box

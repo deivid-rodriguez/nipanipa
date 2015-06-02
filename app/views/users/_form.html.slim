@@ -21,9 +21,9 @@
       as: :check_boxes,
       wrapper: :vertical_radio_and_checkboxes,
       item_wrapper_class: 'calendar',
-      collection: User::AVAILABILITY,
+      collection: (1..12).to_a,
       checked: resource.availability,
-      label_method: ->(m) { localized_month(m) },
+      label_method: ->(m) { t('date.abbr_month_names')[m] },
       value_method: :to_s
 
   = render 'language_skills', f: f

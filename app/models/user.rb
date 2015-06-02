@@ -62,17 +62,15 @@ class User < ActiveRecord::Base
     Message.between(id, uid).non_deleted_by(id)
   end
 
-  AVAILABILITY = %w(jan feb mar apr may jun jul aug sep oct nov dec)
-
   scope :currently_available, -> { available_in?(Time.zone.now.mon) }
   scope :available_in?, ->(m) { where("availability_mask & #{2**(m - 1)} > 0") }
 
   def availability=(availability)
-    self.availability_mask = ArrayMask.new(AVAILABILITY).mask(availability)
+    self.availability_mask = ArrayMask.new((1..12).to_a).mask(availability)
   end
 
   def availability
-    ArrayMask.new(AVAILABILITY).unmask(availability_mask)
+    ArrayMask.new((1..12).to_a).unmask(availability_mask)
   end
 
   def available_in?(month)
