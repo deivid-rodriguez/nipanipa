@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/activeadmin/activeadmin.git
-  revision: 4baf474177fb6c4e2638d103dfb28c576b3084df
+  revision: 0ffc65a28847f46af1b707d43562eef1051b7960
   specs:
     activeadmin (1.0.0.pre1)
       arbre (~> 1.0, >= 1.0.2)
@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: git://github.com/carrierwaveuploader/carrierwave.git
-  revision: 36dd774ae94c8878671f5f0084a9ac1a6d022300
+  revision: a1b96d05d021f0ab53c8a2ef460bc96664e52b79
   specs:
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
@@ -28,31 +28,10 @@ GIT
 
 GIT
   remote: git://github.com/deivid-rodriguez/byebug.git
-  revision: 7565dccea58810558621a23c157175b6e4f92036
+  revision: 764a28063b23be457177bb5655b7cb5bc60ed4a2
   specs:
-    byebug (4.0.5)
+    byebug (5.0.0)
       columnize (= 0.9.0)
-
-GIT
-  remote: git://github.com/plataformatec/devise.git
-  revision: a29fee164449561f177b2f3f404c41d03741095d
-  specs:
-    devise (3.4.1)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 3.2.6, < 5)
-      responders
-      thread_safe (~> 0.1)
-      warden (~> 1.2.3)
-
-GIT
-  remote: git://github.com/sds/slim-lint.git
-  revision: fdcc52f78e655485cf2cd541c62fe8bcde8a1b39
-  specs:
-    slim_lint (0.3.0)
-      rubocop (>= 0.25.0)
-      slim (~> 3.0)
-      sysexits (~> 1.1)
 
 GEM
   remote: https://rubygems.org/
@@ -99,14 +78,14 @@ GEM
     ast (2.0.0)
     astrolabe (1.3.0)
       parser (>= 2.2.0.pre.3, < 3.0)
-    autoprefixer-rails (5.1.11)
+    autoprefixer-rails (5.2.0)
       execjs
       json
     bcrypt (3.1.10)
     bootstrap-sass (3.3.4.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
-    bourbon (4.2.2)
+    bourbon (4.2.3)
       sass (~> 3.4)
       thor
     builder (3.2.2)
@@ -150,6 +129,13 @@ GEM
       safe_yaml (~> 1.0.0)
     database_cleaner (1.4.1)
     devise-i18n (0.12.0)
+    devise (3.5.1)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      responders
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
     diff-lcs (1.2.5)
     docile (1.1.5)
     em-websocket (0.5.1)
@@ -170,7 +156,7 @@ GEM
     formatador (0.2.5)
     formtastic (3.1.3)
       actionpack (>= 3.2.13)
-    formtastic_i18n (0.3.0)
+    formtastic_i18n (0.4.1)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
     guard (2.12.5)
@@ -187,7 +173,7 @@ GEM
       em-websocket (~> 0.5)
       guard (~> 2.8)
       multi_json (~> 1.8)
-    guard-rspec (4.5.0)
+    guard-rspec (4.5.1)
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
@@ -209,16 +195,16 @@ GEM
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
-    jquery-ui-rails (5.0.3)
+    jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
-    json (1.8.2)
+    json (1.8.3)
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     kgio (2.9.3)
     launchy (2.4.3)
       addressable (~> 2.3)
-    letter_opener (1.3.0)
+    letter_opener (1.4.1)
       launchy (~> 2.2)
     libnotify (0.9.1)
       ffi (>= 1.0.11)
@@ -226,16 +212,16 @@ GEM
       celluloid (~> 0.16.0)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
-    loofah (2.0.1)
+    loofah (2.0.2)
       nokogiri (>= 1.5.9)
     lumberjack (1.0.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
-    mime-types (2.5)
-    mini_magick (4.2.3)
+    mime-types (2.6.1)
+    mini_magick (4.2.7)
     mini_portile (0.6.2)
-    minitest (5.6.1)
+    minitest (5.7.0)
     multi_json (1.11.0)
     nenv (0.2.0)
     net-scp (1.2.1)
@@ -247,19 +233,19 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     orm_adapter (0.5.0)
-    parser (2.2.2.2)
+    parser (2.2.2.5)
       ast (>= 1.1, < 3.0)
-    pg (0.18.1)
+    pg (0.18.2)
     polyamorous (1.2.0)
       activerecord (>= 3.0)
-    powerpack (0.1.0)
+    powerpack (0.1.1)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
-    rack (1.6.0)
+    rack (1.6.1)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.1)
@@ -300,7 +286,7 @@ GEM
       activesupport (>= 3.0)
       i18n
       polyamorous (~> 1.2)
-    rb-fsevent (0.9.4)
+    rb-fsevent (0.9.5)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     responders (2.1.0)
@@ -317,7 +303,7 @@ GEM
     rspec-mocks (3.2.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.2.0)
-    rspec-rails (3.2.1)
+    rspec-rails (3.2.2)
       actionpack (>= 3.0, < 4.3)
       activesupport (>= 3.0, < 4.3)
       railties (>= 3.0, < 4.3)
@@ -326,7 +312,7 @@ GEM
       rspec-mocks (~> 3.2.0)
       rspec-support (~> 3.2.0)
     rspec-support (3.2.2)
-    rubocop (0.30.1)
+    rubocop (0.31.0)
       astrolabe (~> 1.3)
       parser (>= 2.2.2.1, < 3.0)
       powerpack (~> 0.1)
@@ -335,7 +321,7 @@ GEM
     ruby-progressbar (1.7.5)
     rubyzip (1.1.7)
     safe_yaml (1.0.4)
-    sass (3.4.13)
+    sass (3.4.14)
     sass-rails (5.0.3)
       railties (>= 4.0.0, < 5.0)
       sass (~> 3.1)
@@ -353,7 +339,7 @@ GEM
       json (~> 1.8)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
-    slim (3.0.3)
+    slim (3.0.4)
       temple (~> 0.7.3)
       tilt (>= 1.3.3, < 2.1)
     slim-rails (3.0.1)
@@ -362,11 +348,15 @@ GEM
       activesupport (>= 3.1, < 5.0)
       railties (>= 3.1, < 5.0)
       slim (~> 3.0)
+    slim_lint (0.5.0)
+      rubocop (>= 0.25.0)
+      slim (~> 3.0)
+      sysexits (~> 1.1)
     slop (3.6.0)
-    spring (1.3.5)
-    sprockets (3.0.3)
+    spring (1.3.6)
+    sprockets (3.2.0)
       rack (~> 1.0)
-    sprockets-rails (2.2.4)
+    sprockets-rails (2.3.1)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
@@ -406,7 +396,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
-  autoprefixer-rails (= 5.1.11)
+  autoprefixer-rails (= 5.2.0)
   bcrypt (= 3.1.10)
   bootstrap-sass (= 3.3.4.1)
   byebug!
@@ -419,28 +409,28 @@ DEPENDENCIES
   cocoon (= 1.2.6)
   coffee-rails (= 4.1.0)
   database_cleaner (= 1.4.1)
-  devise!
+  devise (= 3.5.1)
   devise-i18n (= 0.12.0)
   enumerize (= 0.11.0)
   factory_girl_rails (= 4.5.0)
   ffaker (= 2.0.0)
   guard-livereload (= 2.4.0)
-  guard-rspec (= 4.5.0)
+  guard-rspec (= 4.5.1)
   guard-rubocop (= 1.2.0)
   jquery-rails (= 4.0.3)
   kaminari (= 0.16.3)
   launchy (= 2.4.3)
-  letter_opener (= 1.3.0)
+  letter_opener (= 1.4.1)
   libnotify (= 0.9.1)
-  mini_magick (= 4.2.3)
-  pg (= 0.18.1)
+  mini_magick (= 4.2.7)
+  pg (= 0.18.2)
   quiet_assets (= 1.1.0)
   rails (= 4.2.1)
   rails-i18n (= 4.0.4)
   rails_autolink (= 1.1.6)
   rb-inotify (= 0.9.5)
-  rspec-rails (= 3.2.1)
-  rubocop (= 0.30.1)
+  rspec-rails (= 3.2.2)
+  rubocop (= 0.31.0)
   ruby-progressbar (= 1.7.5)
   rubyzip (= 1.1.7)
   sass-rails (= 5.0.3)
@@ -448,8 +438,11 @@ DEPENDENCIES
   simple_form (= 3.1.0)
   simplecov (= 0.10.0)
   slim-rails (= 3.0.1)
-  slim_lint!
-  spring (= 1.3.5)
+  slim_lint (= 0.5.0)
+  spring (= 1.3.6)
   uglifier (= 2.7.1)
   unicorn-rails (= 2.2.0)
   webmock (= 1.21.0)
+
+BUNDLED WITH
+   1.10.2

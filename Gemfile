@@ -5,17 +5,17 @@ gem 'rails', '4.2.1'
 gem 'rails-i18n', '4.0.4'
 gem 'rails_autolink', '1.1.6'
 
-gem 'pg', '0.18.1'
+gem 'pg', '0.18.2'
 gem 'bcrypt', '3.1.10'
 gem 'kaminari', '0.16.3'
 gem 'simple_form', '3.1.0'
-gem 'devise', github: 'plataformatec/devise'
+gem 'devise', '3.5.1'
 gem 'devise-i18n', '0.12.0'
 gem 'cancancan', '1.10.1'
 gem 'enumerize', '0.11.0'
 gem 'cocoon', '1.2.6'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
-gem 'mini_magick', '4.2.3'
+gem 'mini_magick', '4.2.7'
 gem 'quiet_assets', '1.1.0'
 
 # Frontend stuff
@@ -23,7 +23,7 @@ gem 'jquery-rails', '4.0.3'
 gem 'coffee-rails', '4.1.0'
 gem 'bootstrap-sass', '3.3.4.1'
 gem 'sass-rails', '5.0.3'
-gem 'autoprefixer-rails', '5.1.11'
+gem 'autoprefixer-rails', '5.2.0'
 gem 'uglifier', '2.7.1'
 
 gem 'activeadmin', github: 'activeadmin'
@@ -35,19 +35,19 @@ gem 'slim-rails', '3.0.1'
 
 group :development, :test do
   gem 'byebug', github: 'deivid-rodriguez/byebug', require: false
-  gem 'rspec-rails', '3.2.1'
+  gem 'rspec-rails', '3.2.2'
   gem 'factory_girl_rails', '4.5.0'
   gem 'ffaker', '2.0.0'
-  gem 'rubocop', '0.30.1'
-  gem 'slim_lint', github: 'sds/slim-lint'
+  gem 'rubocop', '0.31.0'
+  gem 'slim_lint', '0.5.0'
 end
 
 group :development do
-  gem 'spring', '1.3.5'
+  gem 'spring', '1.3.6'
   gem 'guard-rubocop', '1.2.0', require: false
-  gem 'guard-rspec', '4.5.0', require: false
+  gem 'guard-rspec', '4.5.1', require: false
   gem 'guard-livereload', '2.4.0', require: false
-  gem 'letter_opener', '1.3.0'
+  gem 'letter_opener', '1.4.1'
   gem 'capistrano-rails', '1.1.3'
   gem 'capistrano-rvm', '0.1.2'
   gem 'unicorn-rails', '2.2.0'
