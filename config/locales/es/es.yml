@@ -289,8 +289,6 @@ web. Para ver el mensaje, haz click en el siguiente enlace:"
       user:
         password_digest: Contraseña
       message:
-        subject: Asunto
-      message:
         body: Contenido
     errors:
       models:
