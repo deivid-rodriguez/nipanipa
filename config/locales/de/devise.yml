@@ -1,6 +1,23 @@
 de:
   devise:
+    confirmations:
+      new:
+        resend: Anleitung zur Bestätigung Ihres Accounts
+      confirmed: Vielen Dank für Ihre Registrierung. Sie sind jetzt angemeldet.
+      send_paranoid_instructions: "Falls Ihre E-Mail-Adresse in unserer
+Datenbank existiert, erhalten Sie in wenigen Minuten eine E-Mail mit der Sie
+Ihre Registrierung bestätigen können."
+    failure:
+      already_authenticated: Sie sind bereits angemeldet.
+      invalid: Ungültige Anmeldedaten.
+      not_found_in_database: Ungültige Anmeldedaten.
+      unauthenticated: "Sie müssen sich anmelden oder registrieren, bevor Sie
+fortfahren können."
+      unconfirmed: "Sie müssen Ihren Account bestätigen, bevor Sie fortfahren
+können."
     mailer:
+      confirmation_instructions:
+        subject: Anleitung zur Bestätigung Ihres Accounts
       reset_password_instructions:
         greeting: Hallo %{name}!
         info: "Jemand hat einen Link zur Änderung deines Passworts angefordert.
@@ -8,11 +25,9 @@ Dies kannst du über den nachfolgenden Link tun."
         change_my_pwd: Mein Passwort ändern
         ignore: "Wenn du die Änderung nicht selbst angefordert hast, ignoriere
 bitte diese E-Mail."
+        subject: Anleitung für das Zurücksetzen Ihres Passworts
         wont_change: "Dein Passwort wird nicht geändert, solange du nicht über
 den obenstehenden Link ein neues erstellst."
-    confirmations:
-      new:
-        resend: Anleitung zur Bestätigung Ihres Accounts
     passwords:
       new:
         forgotten?: Passwort vergessen?
@@ -20,7 +35,35 @@ den obenstehenden Link ein neues erstellst."
       edit:
         title: Passwort ändern
         change_pwd: Mein Passwort ändern!
-    users:
-      signed_up: Herzlich willkommen! Du hast dich erfolgreich registriert.
+      no_token: "Sie können sich nicht auf dieser Seite anmelden, wenn Sie nicht
+von einer Passwort-Zurücksetzen-E-Mail kommen. Wenn Sie von solch einer E-Mail
+kommen, überprüfen Sie bitte, ob Sie die gesamte URL verwendeten."
+      send_paranoid_instructions: "Falls Ihre E-Mail-Adresse in unserer
+Datenbank existiert, erhalten Sie in wenigen Minuten eine E-Mail mit der
+Anleitung, wie Sie Ihr Passwort zurücksetzen können."
+      updated: Ihr Passwort wurde geändert. Sie sind jetzt angemeldet.
     sessions:
-      signed_out: ''
+      already_signed_out: Erfolgreich abgemeldet.
+      signed_in: Erfolgreich angemeldet.
+      signed_out: Erfolgreich abgemeldet.
+    users:
+      destroyed: Ihr Account wurde gelöscht.
+      signed_up: Sie haben sich erfolgreich registriert.
+      signed_up_but_unconfirmed: "Sie erhalten in wenigen Minuten eine E-Mail
+mit einem Link für die Bestätigung der Registrierung. Klicken Sie auf den Link
+um Ihren Account zu aktivieren."
+      update_needs_confirmation: "Ihre Daten wurden aktualisiert, aber Sie
+müssen Ihre neue E-Mail-Adresse bestätigen. Sie erhalten in wenigen Minuten eine
+E-Mail, mir der Sie die Änderung Ihrer E-Mail-Adresse abschließen können."
+      updated: Ihre Daten wurden aktualisiert.
+  errors:
+    messages:
+      already_confirmed: "wurde bereits bestätigt, bitte versuchen Sie, sich
+anzumelden"
+      confirmation_period_expired: "musste innerhalb von %{period} bestätigt
+werden, bitte neu anfordern."
+      expired: ist abgelaufen, bitte neu anfordern
+      not_found: nicht gefunden
+      not_saved:
+        one: "Konnte %{resource} nicht speichern: ein Fehler."
+        other: "Konnte %{resource} nicht speichern: %{count} Fehler."
