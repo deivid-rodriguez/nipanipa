@@ -1,0 +1,323 @@
+fr:
+  shared:
+    nomessages: Il n'y a pas de messages
+    nopictures: Il n'y a pas de photo
+    nofeedback: Il n'y a pas de référence
+    timestamp_ago: il y a %{time}
+    current_or_last_login:
+      currently_logged_in: ¡Vous êtes en ligne!
+      last_login: Dernier accès
+      never: Jamais
+    not_specified: Non spécifié
+    edit: Éditer
+    delete: Efasser
+    profile_header:
+      unknown: Inconnu
+      general: Vue général
+      messages: Messages
+      feedback: Références
+      pictures: Photos
+      edit: Éditer profil
+      new_message: Envoyer message
+      new_feedback: Laisser référence
+      edit_feedback: Editer référence
+      report_user: Alerter sur l'utilisateur
+    badge:
+      karma: Karma
+      location: Lieu
+      last_login: Dernier accés
+      member_since: Membre dès
+      categories: Catégories
+      languages: Langues
+  static_pages:
+    terms:
+      title: Termes et conditions
+    help:
+      title: Aide
+      uhost?: Est tu host?
+      uvolunteer?: Est-tu volontaire?
+    about:
+      title: Qui sommes nous?
+      description: "Nous sommes une association avec son siège en Espagne de
+designeurs et programateurs de Web. Nous sommes aussi de voyageurs passionnés et
+nous avions un sentiment de que nous manquez quelque chose avant de avoir
+NiPaNiPa. Ce pour ça qu'on la creé . Jouir d'elle!"
+    contact:
+      title: Contact
+      description_html: "NiPaNiPa se trouve en phase de preuves. Ce maintenant
+que nous avons besoin de vos opinions. Nous n'avons pas pu, encore, créer un
+formulaire de contact correct, mais en attendant tu peux nous contacter envoyant
+un e-mail a %{mail}"
+    home:
+      welcome: Bienvenues a NiPaNipa
+      subtitle: Contacte a volontaires et hosts du monde antier
+      host: Je suis host
+      host_desc: Logement pour aide
+      volunteer: Soy voluntario Je suis volontaire
+      volunteer_desc: Aide pour logement
+      contribute: Collabore
+      contribute_desc: "Appuis à NiPaNiPa pour qu'elle continue à être gratuite,
+bien en nous faisant un don, bien collaborer à son développement où aidant à la
+traduire a votre langue"
+      explore: Explorer
+      explore_desc: "Jette un coup d'oeil aux posibles hôtes qui vont te loger
+pendant tes vacances, vois si tu peux trouver futurs volontaires a la zone qui
+puisent t'aider"
+      signup: Inscris-toi
+      signup_desc: "Régistre-toi a NiPaNiPa autant si tu est hôte que si tu est
+volontaire. Pour t'enregistrer et completer ton profil il en faut pas plus de 5
+minutes. Raconte-nous c'est qui ce pase après!"
+  feedbacks:
+    new:
+      title: Une réference pour m'employer
+      subtitle: "Merci pour laisser ta réferènce. La confiance réciproque entre
+host et volontaires est imposible sans vos apportations. NiPaNiPa est
+economiquement non-viable si vous n'évalouez pas vos experiences et vous n'en
+contribuez pas un peu."
+    form:
+      feedback_for_user: Référence pour %{username}
+      feedback_for_nipa: Donation pour NiPaNiPa
+      donated_already_html: "Merci pour récompenser a NiPaNiPa pour cette
+expérience. Tu peux toujours continuer a collaborer %{donations_url}"
+      here: ici
+    edit:
+      title: Éditer référence pour %{username}
+      subtitle: Corrige ou améliore ta référence comme tu veux.
+    create:
+      success: Tu as laissé une nouvelle référence!
+      error: Nouvelle référence erronée
+    index:
+      title: Références
+    feedbacks:
+      title: Réferences
+    received:
+      one: 1 reçu
+      other: "%{count} reçu"
+    sent:
+      one: 1 envoyée
+      other: "%{count} envoyées"
+    feedback:
+      from: De
+      to: Pour
+    update:
+      success: Tu a mis à jour ta référence!
+      error: "Erreur de mise à jour de votre réference (elle en peux pas dépaser
+300 caracteres)"
+    destroy:
+      success: Ta référence a eté supprimé
+  pictures:
+    new:
+      title: Ajoutez une photo
+      subtitle: "Les photos sont sympa, donnent confiance et prouvent aux autres
+que vous êtes vraiment quelqu'un"
+    create:
+      success: Montée de photo réusite
+      error: Montée de photo erronée
+    index:
+      title: Images
+      new_picture: Ajouter une photo
+    edit:
+      title: Editer photo
+      subtitle: Tu peux changer le nom de la photo ou sélectionner une autre
+    update:
+      success: Photo mise à jour correctement
+      error: Erreur en mise à jour de votre photo
+    pictures:
+      delete: Effacer photo
+      edit: Editer photo
+    destroy:
+      success: Photo effacée correctement
+      error: Photo effacée par erreur
+  conversations:
+    index:
+      title: Mes messages
+      usure?: Etes-vous sur de vouloir supprimer cette conversation?
+    update:
+      success: Ce message a été envoyé
+      error: Erreur d'envoi du message
+    destroy:
+      success: Conversation effacée correctement
+      error: Vous n'a pas des messages avec cet utilisateur
+  users:
+    form:
+      description_host: "Raconte a tes futures volontaires quelque chose sur toi
+ou sur ta famille"
+      description_volunteer: Raconte a ton futur anfitrion quelque chose sur toi
+      skills_host: Décrire comment sera le travail du volontaire a votre maison
+      skills_volunteer: "Que sais tu faire? Quelles sont les compétances qui tu
+as à offrir a votre anfitrion"
+    language_skills:
+      title: Racontez nous quelles langues connais-tu
+      add_language: Ajoute une langue
+    language_skill_fields:
+      language: Choisir une langue
+      level: Choisir un niveau
+      remove_language: Éliminer une langue
+    work_types:
+      title_host: Choisi le/s type de travail où ce place ton offre
+      title_volunteer: Choisi le type de travail que tu cherche
+    new:
+      title: Enregistrement
+      header: Enregistrement du %{type}
+    show:
+      availability: Disponibilité
+      profile: Mon profi
+      description: Sur moi
+      feedback: Réferénces
+      accomodation: Loyer
+      pictures: Images
+      references: Références
+      skills_host: Compétances requises / description du travail
+      skills_volunteer: Compétances / types de travaille qu'oncherche
+    edit:
+      title: Mis à jour de profil
+      header: Mis à jour de votre profil
+    index:
+      title: Chercher
+    filters:
+      availability: Disponibilité
+      whenever: N'importe quand
+      now: Disponible dès maintenant
+      places: Lieu
+      people: Gens
+      hosts: Anfitriones
+      volunteers: Volontaires
+      all: Tous
+      wherever: Où que ce soit
+    user:
+      karma: karma
+      location: Lieu
+      unknown: Inconnu
+  work_types:
+    gardening: Jardinage
+    babysitting: Garde d'enfants
+    cooking: Cuisinier / cuisinière
+    farming: Fêrme
+    housekeeping: Tâches ménagères
+    tourism: Turisme
+    language_exchange: Échanges de langes
+    teaching: Enseignement
+    construction: Construction
+    elderly_care: Troisième âge
+    animal_care: Attention d'animaux
+    humanitarian_aid: Aide humanitaire
+    technical_assistance: Ordinateurs
+    art_project: Projet artistique
+    wwoofing: Wwoofing
+  sessions:
+    new:
+      newuser?: Nouveau utilisateur
+    forgot_your_pwd?: As-tu oublié ton mot de passe?
+    signin: Acceder
+    signout: Sortie
+    rememberme: Rappelle-moi
+  donations:
+    new:
+      title: Contribue a NiPaNiPa
+      intro: "NIPaNiPa a besoin de ton aide pour continuer à exister d'une
+manière indépendante et gratuite"
+      donate_title: Donne
+      donate_desc: "Si tu veux, tu peux nous faire un don. Pour celà
+sélectionner le montant à donner"
+      contribute_title: Aide-nous
+      contribute_desc_dev_html: "Si tu sais programmer tu peux nous aider en
+collaborant au développement de NiPaNiPa %{git_url}"
+      contribute_desc_tr: "Si NiPa n'est pas dans ta langue maternelle, mais tu
+nous comprends, tu peux nous traduire"
+      contribute_desc_bug_html: "Vous pouvez assi nous dire les défauts ou nous
+démander des nouvelles competences"
+      select_amount: Sélectioner le montant
+      input_amount: Ou elige le montant que tu veux, s'il n'y est pas à la liste
+      here: ici
+    create:
+      success: Ton don a été reussit
+      error: Il y a eu un problème avec ton don
+    flattr:
+      label: Ou vous pouvez nous faire de micro-contributions par flattr
+  layouts:
+    header:
+      language: Langue
+      search: Chercher
+      donate: Aide-nous
+    footer:
+      news: Nouvelles
+  pagination:
+    previous: Page précédente
+    next: Page suivante
+  enumerize:
+    language_skill:
+      level:
+        just_hello: Bonjour et au revoir
+        beginner: Débutant
+        intermediate: Intermédiaire
+        expert: Expert
+        native: Natif
+    feedback:
+      score:
+        negative: Negative
+        neutral: Neutre
+        positive: Positive
+  user_mailer:
+    message_reception:
+      subject: Tu a reçu un nouveau message de %{from}
+      greeting: Bonjour %{name}!
+      message: "Un autre utilisateur de NiPaNiPa vous a contacté par nôtre
+Web. Pour voire le message cliquer sur lien suivant"
+  helpers:
+    submit:
+      user:
+        create: TODO
+        update: Mis a jour utilisateur
+      feedback:
+        create: Laisser nouvelle référence
+        update: Éditer la référence
+      message:
+        create: Commencer une conversation
+      picture:
+        create: Monter photo
+        update: Mettre à jour photo
+      donation:
+        create: Donne maintenant!
+  activerecord:
+    models:
+      picture: Photo
+      host: Host
+      volunteer: Volontaire
+    attributes:
+      user:
+        password_digest: Mot de passe
+      message:
+        body: Contenu
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank: Le mot de passe est vide
+              confirmation: Il ne coincide pas avec la confirmation
+              too_short: Le mot de passe doit avoir au moins 6 caracteres
+            name:
+              blank: Je besoin d'un nom de utilisateur
+              too_long: Le nom d'utilisateur est trop long
+            email:
+              taken: Ce courrier existe à NiPaNiPa
+              blank: Je bessoin d'une adresse de e-mail
+              invalid: "Tu a introduit un courrier électronique avec un format
+bizarre"
+              not_found: Ce courrier électronique n'existe pas
+            password_confirmation:
+              blank: La confirmation du mot de pas est vide
+              too_short: La confirmation du mot de pas est trop courte
+            description:
+              too_long: Le texte est trop long
+        feedback:
+          attributes:
+            content:
+              blank: Ecrit quelle chose à pres de l'utilisateur
+              too_long: La référence est trop longue
+        picture:
+          attributes:
+            image_file_size:
+              in_between: Le fichier en peut pas peser plus de 500kb
+      messages:
+        record_invalid: TODO

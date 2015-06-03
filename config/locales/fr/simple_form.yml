@@ -1,0 +1,40 @@
+fr:
+  simple_form:
+    'yes': Oui
+    'no': Non
+    required:
+      text: TODO
+      mark: '*'
+    error_notification:
+      default_message: TODO
+    labels:
+      user:
+        availability: Quels mois êtes-vous disponible?
+        name: Nom d'utilisateur
+        email: Courrier electronique
+        password: Mot de passe
+        password_confirmation: Confirmer mot de passe
+        accomodation: Décris-nous le type de logement que tu offres
+        country: Pays
+        region: Région
+      picture:
+        name: Tittre pour la photo
+        image: Fichier avec la photo
+      feedback:
+        score: Ponctuation
+        content: Raconte-nous ton expérience avec cet utilisateur
+      donation:
+        amount: On existe grâce à l'apport de vos données. Aidez-nous!
+    hints:
+      user:
+        password: La mot de passe doit comporter au moins 6 caracteres
+      feedback:
+        score: "Ta ponctuation influe en possitif où en negatif sur le karma de
+l'utilisateur"
+      donation:
+        amount: "Si tu laisse le champ à 0, tu auras completé la référence sans
+donner"
+    placeholders:
+      user:
+        email: Courrier Électronique
+        password: Mot de passe

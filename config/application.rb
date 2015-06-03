@@ -57,7 +57,7 @@ module Nipanipa
     #
     config.i18n.load_path += Dir["#{Rails.root}/config/locales/**/*.yml"]
     config.i18n.locale = config.i18n.default_locale = :en
-    config.i18n.available_locales = %i(en es it de)
+    config.i18n.available_locales = %i(en es fr it de)
     config.i18n.enforce_available_locales = true
 
     #
