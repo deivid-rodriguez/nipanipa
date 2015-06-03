@@ -80,7 +80,7 @@ RSpec.describe 'Delete a conversation', :js do
   context 'when the other user goes to message list' do
     before do
       click_link t('sessions.signout')
-      sign_in(recipient)
+      sign_in(recipient) # TODO: mock_sign_in is not working here... :(
       visit conversations_path
     end
 
