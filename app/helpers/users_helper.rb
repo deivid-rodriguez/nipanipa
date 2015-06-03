@@ -46,7 +46,7 @@ module UsersHelper
   def user_languages(user)
     return content_tag(:em, t('.unknown')) if user.language_skills.empty?
     user.language_skills.map do |ls|
-      "#{t(ls.language.name.underscore)} (#{ls.level.text})"
+      "#{t(ls.language.code)} (#{ls.level.text})"
     end.join(', ')
   end
 end

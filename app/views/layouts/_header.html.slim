@@ -55,6 +55,6 @@ nav.navbar.navbar-default role='navigation'
           ul.header-dropdown-menu
             - Language.where(code: I18n.available_locales).find_each do |lang|
               li
-                = link_to_unless_current lang.name,
+                = link_to_unless_current t(lang.code),
                     locale: lang.code,
                     type: params[:type]
