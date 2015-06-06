@@ -37,7 +37,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.2'
   gem 'factory_girl_rails', '~> 4.5'
   gem 'ffaker', '~> 2.0'
-  gem 'rubocop', '0.31.0'
+  gem 'rubocop', '0.32.0'
   gem 'slim_lint', '0.5.0'
 end
 

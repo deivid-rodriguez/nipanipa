@@ -40,7 +40,7 @@ module I18nHelpers
       case v
       when Hash then get_flat_keys(v, new_path)
       when String then new_path.join('.')
-      else fail "wtf? #{ v }"
+      else fail "wtf? #{v}"
       end
     end.flatten
   end

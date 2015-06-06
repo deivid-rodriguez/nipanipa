@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/activeadmin/activeadmin.git
-  revision: 0ffc65a28847f46af1b707d43562eef1051b7960
+  revision: b21ff811fee672206d4a143dbc1e814395d586de
   specs:
     activeadmin (1.0.0.pre1)
       arbre (~> 1.0, >= 1.0.2)
@@ -109,7 +109,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    capybara-webkit (1.5.1)
+    capybara-webkit (1.5.2)
       capybara (>= 2.3.0, < 2.5.0)
       json
     celluloid (0.16.0)
@@ -172,7 +172,7 @@ GEM
       em-websocket (~> 0.5)
       guard (~> 2.8)
       multi_json (~> 1.8)
-    guard-rspec (4.5.1)
+    guard-rspec (4.5.2)
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
@@ -302,7 +302,7 @@ GEM
     rspec-mocks (3.2.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.2.0)
-    rspec-rails (3.2.2)
+    rspec-rails (3.2.3)
       actionpack (>= 3.0, < 4.3)
       activesupport (>= 3.0, < 4.3)
       railties (>= 3.0, < 4.3)
@@ -311,9 +311,9 @@ GEM
       rspec-mocks (~> 3.2.0)
       rspec-support (~> 3.2.0)
     rspec-support (3.2.2)
-    rubocop (0.31.0)
+    rubocop (0.32.0)
       astrolabe (~> 1.3)
-      parser (>= 2.2.2.1, < 3.0)
+      parser (>= 2.2.2.5, < 3.0)
       powerpack (~> 0.1)
       rainbow (>= 1.99.1, < 3.0)
       ruby-progressbar (~> 1.4)
@@ -338,7 +338,7 @@ GEM
       json (~> 1.8)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
-    slim (3.0.4)
+    slim (3.0.6)
       temple (~> 0.7.3)
       tilt (>= 1.3.3, < 2.1)
     slim-rails (3.0.1)
@@ -428,7 +428,7 @@ DEPENDENCIES
   rails_autolink (~> 1.1)
   rb-inotify (= 0.9.5)
   rspec-rails (~> 3.2)
-  rubocop (= 0.31.0)
+  rubocop (= 0.32.0)
   ruby-progressbar (~> 1.7)
   rubyzip (~> 1.1)
   sass-rails (~> 5.0)
@@ -443,4 +443,4 @@ DEPENDENCIES
   webmock (~> 1.21)
 
 BUNDLED WITH
-   1.10.2
+   1.10.3

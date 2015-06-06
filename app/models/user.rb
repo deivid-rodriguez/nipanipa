@@ -77,14 +77,9 @@ class User < ActiveRecord::Base
     availability.include?(month)
   end
 
-  # Fake class name in subclasses so URLs get properly generated
-  def self.inherited(child)
-    child.instance_eval do
-      def model_name
-        User.model_name
-      end
-    end
-    super
+  # Use a single route for all subclasess
+  def self.model_name
+    ActiveModel::Naming.instance_method(:model_name).bind(User).call
   end
 
   # Use a single partial path for all subclasses
