@@ -32,6 +32,7 @@ Rails.application.configure do
 
   # Middleware
   config.middleware.use SpoofIp, ENV['IP']
+  config.middleware.use Rack::LiveReload
 
   # Your secret key is used for verifying the integrity of signed cookies. If
   # you change this key, all old signed cookies will become invalid!

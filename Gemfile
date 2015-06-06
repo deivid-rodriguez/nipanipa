@@ -46,6 +46,7 @@ group :development do
   gem 'guard-rubocop', '~> 1.2', require: false
   gem 'guard-rspec', '~> 4.5', require: false
   gem 'guard-livereload', '~> 2.4', require: false
+  gem 'rack-livereload', '0.3.15'
   gem 'letter_opener', '~> 1.4'
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-rvm', '0.1.2'
