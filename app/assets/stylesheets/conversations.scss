@@ -22,36 +22,34 @@ textarea#message_body {
 }
 
 ul.conversation-list {
-  margin: 0 0 20px 0;
-  width: 900px;
+  padding: 0 30px;
+  width: 100%;
   list-style: none;
   list-style-type: none;
   li {
     line-height: 70px;
     border-bottom: solid 1px $grayVeryLight;
-    div.conversation-preview {
-      padding: 10px 0px;
-      $deleteCrossSize: 15px;
-      a {
-        text-decoration: none;
-        color: $gray;
-        .conversation-date {
-          width: 180px;
-          text-align: right;
-          padding-right: 15px;
-        }
-        div[id^="delete-"] {
-          background: image-url('delete.png') no-repeat;
-          display: block;
-          margin: 27px 0;
-          width: $deleteCrossSize;
-          height: $deleteCrossSize;
-          float: right;
-        }
+    padding: 10px 0px;
+    $deleteCrossSize: 15px;
+    a {
+      text-decoration: none;
+      color: $gray;
+      .conversation-date {
+        width: 180px;
+        text-align: right;
+        padding-right: 15px;
       }
-      img {
-        margin-right: 7px;
+      div[id^="delete-"] {
+        background: image-url('delete.png') no-repeat;
+        display: block;
+        margin: 27px 0;
+        width: $deleteCrossSize;
+        height: $deleteCrossSize;
+        float: right;
       }
+    }
+    img {
+      margin-right: 7px;
     }
     &:first-child {
       border-top: solid 1px $grayVeryLight;
