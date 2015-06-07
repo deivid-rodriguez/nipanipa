@@ -9,10 +9,9 @@ Rails.application.routes.draw do
 
     resources :donations, only: [:new, :create, :show]
 
-    resources :users, except: [:new, :create, :edit, :update, :destroy],
-                      constraints: { id: /\d+/ } do
+    resources :users, only: [:index, :show], constraints: { id: /\d+/ } do
       resources :pictures
-      resources :feedbacks
+      resources :feedbacks, except: :show
     end
 
     resources :conversations, except: %i(new create)
