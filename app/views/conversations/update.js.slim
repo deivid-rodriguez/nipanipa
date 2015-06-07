@@ -1,5 +1,5 @@
 | $('div.alert').remove();
-| $('body > .main-wrapper > nav').after("#{j render 'layouts/messages'}");
+| $('body main').prepend("#{j render 'layouts/messages'}");
 - if @message.errors.empty?
   | $('ul.chat-list').append("#{j render('sent', message: @message)}");
   | $('textarea.message-body').val('');
