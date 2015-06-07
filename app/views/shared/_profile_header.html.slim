@@ -30,15 +30,10 @@
     ul.nav.nav-tabs
       = tab_builder(user, page_id)
 
-      - unless given_feedback || user == current_user
+      - unless current_user.nil? || user == current_user
         .leave-feedback-link
-          = link_to new_user_feedback_path(user) do
-            .icon-info
-              = image_tag 'feedback.png'
-            .content-info
-              = t('.new_feedback')
+          = leave_reference_link_for(current_user, user)
 
-      - unless user == current_user
         .send-message-link
           = link_to conversation_path(id: user.id) do
             .icon-info
