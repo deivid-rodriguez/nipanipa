@@ -5,15 +5,17 @@
 }
 
 .picture-thumbnails {
-  margin: 0;
   list-style: none;
-  padding-left: 0px;
+  margin: 0;
+  padding-left:0;
 }
 
 .picture-thumbnail {
-  @extend .img-thumbnail;
+  @extend %img-thumbnail;
+
   a {
     display: inline;
+
     img {
       width: 100%;
     }

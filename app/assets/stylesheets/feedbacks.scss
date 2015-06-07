@@ -2,58 +2,69 @@
 
 .feedback-form {
   textarea {
-    width: 400px;
     height: 150px;
+    width: 400px;
   }
+
   #feedback_donation_attributes_amount {
     width: 40px;
   }
 }
 
 .feedbacks {
-  margin: 0 auto;
   list-style: none;
-  padding: 5px;
+  margin: 0 auto;
   max-width: 600px;
+  padding: 5px;
+
   li {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid $grayVeryLight;
+    border: 1px solid $gray-very-light;
     border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+
     .feedback {
-      position: relative;
       padding: 10px;
+      position: relative;
+
       &:nth-child(2) {
-        border-top: 1px solid $grayVeryLight;
+        border-top: 1px solid $gray-very-light;
         padding-top: 20px;
       }
+
       .time-ago {
-        color: gray;
-        font-size: 0.8em;
+        color: $gray-light;
+        font-size: .8em;
       }
     }
+
     .received {
       .score-icon {
-        margin-left: 15px;
         float: left;
+        margin-left: 15px;
       }
+
       .info {
         float: left;
         text-align: left;
       }
+
       .thumb-avatar {
         margin-left: 10px;
       }
     }
+
     .sent {
       .score-icon {
-        margin-right: 15px;
         float: right;
+        margin-right: 15px;
       }
+
       .info {
         float: right;
         text-align: right;
       }
+
       .thumb-avatar {
         margin-right: 10px;
       }
@@ -62,10 +73,10 @@
 }
 
 .content {
-  display: block;
   clear: both;
+  display: block;
 }
 
 .timestamp {
-  color: $dark-green;
+  color: $green-dark;
 }

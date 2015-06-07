@@ -1,6 +1,6 @@
 // Place all the styles related to the Conversations controller
 
-textarea#message_body {
+#message-body {
   height: 150px;
 }
 
@@ -11,116 +11,138 @@ textarea#message_body {
 }
 
 .back {
-  text-align: right;
   line-height: 24px;
+  text-align: right;
 }
 
 #chat-list {
+  list-style-type: none;
   margin: 0;
   padding: 0;
-  list-style-type: none;
 }
 
-ul.conversation-list {
-  padding: 0 30px;
-  width: 100%;
+.conversation-list {
   list-style: none;
   list-style-type: none;
+  padding: 0 30px;
+  width: 100%;
+
   li {
+    border-bottom: solid 1px $gray-very-light;
     line-height: 70px;
-    border-bottom: solid 1px $grayVeryLight;
-    padding: 10px 0px;
+    padding: 10px0;
     $deleteCrossSize: 15px;
+
     a {
       text-decoration: none;
       color: $gray;
+
       .conversation-date {
-        width: 180px;
-        text-align: right;
         padding-right: 15px;
+        text-align: right;
+        width: 180px;
       }
-      div[id^="delete-"] {
+
+      [id^="delete-"] {
         background: image-url('delete.png') no-repeat;
         display: block;
+        float: right;
+        height: $deleteCrossSize;
         margin: 27px 0;
         width: $deleteCrossSize;
-        height: $deleteCrossSize;
-        float: right;
       }
     }
+
     img {
       margin-right: 7px;
     }
+
     &:first-child {
-      border-top: solid 1px $grayVeryLight;
+      border-top: solid 1px $gray-very-light;
     }
   }
 }
 
-.message {
+.message,
+%message {
   margin-bottom: 20px;
+
   .message-content {
-    position: relative;
-    padding: 15px;
+    background: $gray-background;
     border-radius: 4px;
-    background: $grayBackground;
+    padding: 15px;
+    position: relative;
+
     &:before {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 0;
-      top: 20px;
       border: 6px solid;
+      content: '';
+      height: 0;
+      position: absolute;
+      top: 20px;
+      width: 0;
     }
   }
+
   .message-date {
+    font-size: .8em;
     margin-bottom: 0;
-    font-size: 0.8em;
   }
+
   form textarea {
     width: 80%;
   }
+
   form input {
-    width: 18%;
     line-height: 138px;
+    width: 18%;
   }
 }
 
 .message-right {
-  @extend .message;
+  @extend %message;
+
   .message-from {
     float: right;
   }
+
   .message-content {
     text-align: right;
+
     &:before {
+      border-color: $gray-background transparent transparent $gray-background;
       right: -11px;
-      border-color: $grayBackground transparent transparent $grayBackground;
     }
   }
+
   .message-date {
     text-align: left;
   }
+
   form textarea {
     margin-right: 2%;
   }
 }
 
 .message-left {
-  @extend .message;
+  @extend %message;
+
   .message-from {
     float: left;
   }
+
   .message-content {
     text-align: left;
+
     &:before {
+      border-color: $gray-background $gray-background transparent transparent;
       left: -11px;
-      border-color: $grayBackground $grayBackground transparent transparent;
     }
   }
+
   .message-date {
     text-align: right;
   }
+
   form textarea {
     margin-left: 2%;
   }
@@ -128,6 +150,7 @@ ul.conversation-list {
 
 .message-from {
   text-align: center;
+
   > a {
     text-decoration: none;
   }

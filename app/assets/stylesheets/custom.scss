@@ -1,34 +1,34 @@
-//
-// Dropdown menu's with the small arrow, like in Bootstrap 2
-//
-.navbar-nav > li > .header-dropdown-menu {
-  @extend .dropdown-menu;
-  margin-top: -6px;
+.with-small-arrow {
   border-radius: 4px;
+  margin-top: -6px;
   min-width: 100%;
+
   &:before {
-    position: absolute;
-    top: -7px;
-    right: 9px;
-    display: inline-block;
-    border-right: 7px solid transparent;
-    border-bottom: 7px solid #ccc;
-    border-left: 7px solid transparent;
+    border-bottom: 7px solid $gray-very-light;
     border-bottom-color: rgba(0, 0, 0, 0.2);
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
     content: '';
-  }
-  &:after {
-    position: absolute;
-    top: -6px;
-    right: 10px;
     display: inline-block;
-    border-right: 6px solid transparent;
-    border-bottom: 6px solid #ffffff;
-    border-left: 6px solid transparent;
-    content: '';
+    position: absolute;
+    right: 9px;
+    top: -7px;
   }
+
+  &:after {
+    border-bottom: 6px solid $white;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    content: '';
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    top: -6px;
+  }
+
   li {
     padding: 5px 10px;
+
     > a {
       padding: 0;
     }
@@ -42,21 +42,23 @@
 section { overflow: auto; }
 
 a {
-  color: darken($greenLogo, 10%);
+  color: darken($green-logo, 10%);
 }
 
 .navbar {
-  margin-bottom: 0px;
   background: none;
-  font-size: 14px;
   border: 0;
+  font-size: 14px;
   font-weight: bold;
+  margin-bottom:0;
+
   .navbar-nav {
     padding-top: 62px;
     > li {
       > a {
-        color: black;
+        color: $black;
       }
+
       &.dropdown.open > .dropdown-toggle {
         background: none;
       }
@@ -66,44 +68,46 @@ a {
 
 .main-page {
   @include clearfix();
+  background: $gray-super-light;
   padding: 20px 0 0 0;
-  background: $graySuperLight;
 }
 
-// Overrides bootstrap's builtin class
-.img-thumbnail {
+.img-thumbnail,
+%img-thumbnail {
+  background-color: $white;
   border: 0;
+  display: inline-block;
   margin-bottom: 15px;
   text-align: center;
+
   a {
     display: block;
   }
 }
 
 
-/* typography */
-
+// typography
 h1 {
+  font-weight: bold;
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
-  font-weight: bold;
 }
 
 h2 {
-  letter-spacing: 0px;
+  font-weight: bold;
+  letter-spacing:0;
   margin-bottom: 10px;
   text-align: center;
-  font-weight: bold;
 }
 
 h3 {
-  margin: 0px;
+  margin:0;
   text-align: left;
 }
 
 h4 {
-  margin: 0px;
+  margin:0;
   text-align: left;
 }
 
@@ -116,76 +120,78 @@ p {
   padding: 25px;
 }
 
-
-/* buttons */
-
+// buttons
 .primary-button {
-  background-image: linear-gradient(to_bottom, white, #E6E6E6);
   background-color: whiteSmoke;
+  background-image: linear-gradient(to_bottom, $white, $gray-very-light);
+  border-radius: 4px;
   font-size: 14px;
   padding: 4px 12px;
-  border-radius: 4px;
 }
 
-
-/* header */
+// header
 #logo {
+  color: $white;
   float: left;
-  margin-right: 10px;
   font-size: 1.7em;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
   font-weight: bold;
+  letter-spacing: -1px;
   line-height: 1;
+  margin-right: 10px;
+  padding-top: 9px;
+  text-transform: uppercase;
+
   &:hover {
-    color: white;
+    color: $white;
     text-decoration: none;
   }
 }
 
 header {
-  background-color: green;
+  background-color: $green;
 }
 
 
-/* main content */
+// main content
 .main-titled {
-  margin-top: 40px;
   margin-bottom: 20px;
+  margin-top: 40px;
+
   .title {
     margin-bottom: 20px;
   }
+
   .subtitle {
     font-size: 14px;
     margin-bottom: 25px;
   }
 }
 
-
-
-/* sidebar */
+// sidebar
 aside {
   section {
     padding: 10px 0;
+
     &:first-child {
       border: 0;
       padding-top: 0;
     }
+
     span {
       display: block;
-      margin-bottom: 3px;
       line-height: 1;
+      margin-bottom: 3px;
     }
+
     h1 {
       font-size: 1.4em;
-      text-align: left;
       letter-spacing: -1px;
       margin-bottom: 3px;
-      margin-top: 0px;
+      margin-top:0;
+      text-align: left;
     }
   }
+
   textarea {
     height: 100px;
     margin-bottom: 5px;

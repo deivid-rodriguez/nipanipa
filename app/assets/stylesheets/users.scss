@@ -1,140 +1,179 @@
 // Place all the styles related to the Users controller here.
 
-h1.signup-title {
+.signup-title {
   padding: 30px 0;
   margin: 0;
+
   img {
-    margin: 0px 15px;
+    margin: 0 15px;
   }
 }
 
 .signup-form {
-  background: white;
-  width: 80%;
+  background: $white;
   margin: 0 auto;
   padding: 20px 0;
+  width: 80%;
+
   textarea {
     height: 150px;
   }
+
   form {
     @include clearfix();
   }
-  .user_availability {
+
+  .user-availability {
     label {
       display: block;
     }
+
     .calendar {
       float: left;
       margin: 10px 20px 0 0;
     }
   }
+
   .checkbox-list {
     @include make-md-column(4);
     margin: 0;
+
     &:last-of-type {
-      margin: 0px;
+      margin: 0;
     }
+
     > .checkbox {
-      width: 100%;
       display: block;
+      width: 100%;
     }
   }
-  .user_availability {
+
+  .user-availability {
     .checkbox.inline + .checkbox.inline {
       margin-left: 10px;
       width: 20px;
     }
   }
+
   padding-top: 10px;
+
   .fields {
     @include clearfix();
     height: auto;
+
     > div {
       @include make-sm-column(4);
     }
-    .nested-select {
+
+    .nested-select,
+    %nested-select {
       height: 30px;
     }
+
     .picture-select {
-      @extend .nested-select;
-      margin: 0px 0px 10px 0px;
+      @extend %nested-select;
+      margin: 0 0 10px 0;
       width: 310px;
     }
+
     .language-select {
-      @extend .nested-select;
-      padding: 0px 20px 10px 0px;
+      @extend %nested-select;
+      padding: 0 20px 10px 0;
+
       > select {
         width: 100%;
       }
     }
-    .nested-link {
+
+    .nested-link,
+    %nested-link {
       line-height: 30px;
     }
+
     .picture-link {
-      @extend .nested-link;
+      @extend %nested-link;
       width: 270px;
     }
+
     .language-link {
-      @extend .nested-link;
+      @extend %nested-link;
     }
   }
-  #language-add {
+
+  .add-language-button {
     padding-top: 10px;
-    width: 100%;
     float: left;
+    width: 100%;
   }
 }
 
-/* users profile */
-.profile-header {
+// users profile
+.profile-header,
+%profile-header {
   @include clearfix();
   position: relative;
+
   .user-picture {
     @include make-md-column(3);
     padding: 18px;
   }
+
   .nav-tabs {
     padding-left: 15px;
   }
+
   .user-info {
     @include make-md-column(9);
+
     .user-name {
       padding: 22px 0;
     }
+
     .user-icons {
       @include make-row;
-      .user-status, .user-knowledge {
+
+      .user-status,
+      .user-knowledge {
         @include make-md-column(6);
       }
+
       .quickinfo {
-        overflow: hidden;
-        margin-bottom: 12px;
-        padding-left: 10px;
-        line-height: 24px;
         font-size: 11px;
+        line-height: 24px;
+        margin-bottom: 12px;
+        overflow: hidden;
+        padding-left: 10px;
       }
     }
+
     .user-tabs {
       @include make-row;
+
       .send-message-link {
         right: 10px;
       }
+
       .leave-feedback-link {
         right: 180px;
       }
-      .send-message-link, .leave-feedback-link {
-        position: absolute;
+
+      .send-message-link,
+      .leave-feedback-link {
+        background-color: $gray-explore;
         bottom: 0;
-        padding: 6px 8px;
         font-size: 12px;
         line-height: 24px;
+        padding: 6px 8px;
+        position: absolute;
         width: 160px;
-        background-color: $grayExplore;
+
         &:hover {
-          background-color: darken($grayExplore, 10%);
+          background-color: darken($gray-explore, 10%);
         }
+
         a {
-          color: black;
+          color: $black;
+
           &:hover {
             text-decoration: none;
           }
@@ -145,64 +184,69 @@ h1.signup-title {
 }
 
 .profile-header-host {
-  @extend .profile-header;
-  background-color: lighten($greenHost, 20%);
+  @extend %profile-header;
+  background-color: lighten($green-host, 20%);
 }
 
 .profile-header-volunteer {
-  @extend .profile-header;
-  background-color: lighten($redVolunteer, 7%);
+  @extend %profile-header;
+  background-color: lighten($red-volunteer, 7%);
 }
 
-div.no-elements {
-  margin-left: 20px;
+.no-elements {
   font-size: 16px;
+  margin-left: 20px;
 }
 
-.label_info {
+.icon-info {
   float: left;
   width: 30px;
 }
 
-.content_info {
+.content-info {
   margin-left: 30px;
 }
 
 .profile-content {
   @include clearfix();
-  position: relative;
+  background-color: $white;
   padding: 20px 0;
-  background-color: white;
+  position: relative;
+
   .box {
-    word-wrap: break-word;
-    margin: 0px 0px 20px 0px;
-    border: 1px solid $grayVeryLight;
+    background-color: $gray-super-light;
+    border: 1px solid $gray-very-light;
     border-radius: 4px;
+    box-shadow: 2px 2px 2px $gray-very-light;
+    margin: 0 0 20px;
     padding: 9px;
-    background-color: $graySuperLight;
-    box-shadow: 2px 2px 2px $grayVeryLight;
+    word-wrap: break-word;
+
     h3 {
-      margin-bottom: 0.3em;
-      color: #333;
-      border-bottom: 1px solid $grayVeryLight;
+      border-bottom: 1px solid $gray-very-light;
+      color: $gray-very-dark;
       font-size: 16px;
+      margin-bottom: .3em;
     }
+
     &:last-child {
       margin: 0;
     }
   }
 }
 
-table.calendar {
-  text-align: center;
+.calendar {
   border: 0;
   border-collapse: collapse;
+  text-align: center;
+
   tbody {
     tr {
       th {
-        padding: 0;
         font-weight: normal;
+        padding: 0;
       }
+
       td {
         padding: 0;
         width: 34px;
@@ -212,48 +256,68 @@ table.calendar {
 }
 
 
-/* users index */
+// users index
+
+@mixin active-pill {
+  .active {
+    background-color: $green-dark;
+
+    &:hover {
+      background-color: $green-dark;
+    }
+
+    > a {
+      background-color: transparent;
+      color: $white;
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+}
+
 .sidebar-users {
   @include make-md-column(3);
-  background-color: $graySuperLight;
+  background-color: $gray-super-light;
   border-radius: 4px;
   margin-bottom: 20px;
+
   li {
     border-radius: 4px;
     list-style-type: none;
+
     > a {
-      text-decoration: none;
       padding: 3px 15px;
+      text-decoration: none;
+      display: block;
+
+      &:hover {
+        background-color: $gray-very-light;
+      }
     }
+
     > ul {
+      @include active-pill;
       padding-left: 20px;
-      li.active {
-        background-color: $dark-green;
-        &:hover {
-          background-color: $dark-green;
-        }
-        > a {
-          color: white;
-          background-color: transparent;
-        }
-      }
-      li:hover {
-        background-color: #eee;
+
+      a:hover {
+        background-color: $gray-very-light;
+        border-radius: 4px;
       }
     }
   }
-  li.active > a {
-    background-color: $dark-green;
-    &:hover {
-      background-color: $dark-green;
-    }
+
+  .nav-pills {
+    @include active-pill;
   }
-  li.nav-header {
-    padding: 3px 0px;
+
+  .nav-header {
+    color: $green-dark;
     font-size: 11px;
     font-weight: bold;
-    color: #275a52;
-    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+    padding: 3px0;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
     text-transform: uppercase;
   }
 }
@@ -263,26 +327,6 @@ table.calendar {
   h5 {
     font-weight: bold;
   }
-  .pagination {
-    padding-left: 15px;
-    margin: 0 0 10px 0;
-    ul.pagination {
-      padding-left: 0px;
-      li.active > a {
-        border-color: #ddd;
-        background-color: #eee;
-        color: #428bca;
-      }
-      li > a:hover {
-        color: #428bca;
-        background-color: #eee;
-      }
-      li.disabled > a:hover {
-        background-color: white;
-        color: #999;
-      }
-    }
-  }
 }
 
 .user-thumbnails {
@@ -291,17 +335,17 @@ table.calendar {
   padding-left: 15px;
 
   a {
+    color: $gray-very-dark;
     display: block;
-    color: #333;
     text-decoration: none;
   }
 
   .user-thumbnail {
-    @extend .img-thumbnail;
+    @extend %img-thumbnail;
+    border: 1px solid $gray-very-light;
     border-radius: 4px;
-    border: 1px solid #ddd;
-    padding-right: 15px;
     margin-bottom: 5px;
+    padding-right: 15px;
     width: 100%;
   }
 }
@@ -338,7 +382,7 @@ table.calendar {
 
 .user-thumbnail-login,
 .user-thumbnail-location {
-  color: $dark-green;
+  color: $green-dark;
   font-size: .9em;
   font-style: italic;
   margin: 0 0 4px;

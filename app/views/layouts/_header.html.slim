@@ -31,7 +31,7 @@ nav.navbar.navbar-default role='navigation'
             a.dropdown-toggle data-toggle='dropdown' href='#' role='button'
               = t 'static_pages.home.signup'
               b.caret
-            ul.header-dropdown-menu
+            ul.dropdown-menu.with-small-arrow
               li = link_to t('activerecord.models.host'),
                            new_user_registration_path(type: 'host')
               li = link_to t('activerecord.models.volunteer'),
@@ -46,13 +46,13 @@ nav.navbar.navbar-default role='navigation'
             a.dropdown-toggle data-toggle='dropdown' href='#' role='button'
               = t('sessions.signin')
               strong.caret
-            .header-dropdown-menu
+            .dropdown-menu.with-small-arrow
               .signin-dropdown = render 'shared/signin'
         li.dropdown
           a.dropdown-toggle data-toggle='dropdown' href='#' role='button'
             = t '.language'
             b.caret
-          ul.header-dropdown-menu
+          ul.dropdown-menu.with-small-arrow
             - Language.where(code: I18n.available_locales).find_each do |lang|
               li
                 = link_to_unless_current t(lang.code),

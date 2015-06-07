@@ -11,18 +11,10 @@ input {
 }
 
 label,
-input[type=text],
-input[type=password],
-input[type=email],
 textarea,
 select,
 .checkbox {
   font-size: 12px;
-}
-
-.field_with_errors {
-  @extend .control-group;
-  @extend .error;
 }
 
 .manual-error {
@@ -30,14 +22,12 @@ select,
 }
 
 input {
+  background-color: $white;
+  border: 1px solid $gray-very-light;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, .075);
-  background-color: white;
-  border: 1px solid #ccc;
-  transition: border linear 0.2s, box-shadow linear 0.2s;
+  transition: border linear .2s, box-shadow linear .2s;
 }
 
 textarea { resize: vertical; }
-
-abbr[title] { border-bottom: 0; cursor: auto; }
 
 label { cursor: auto; }

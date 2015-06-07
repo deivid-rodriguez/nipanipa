@@ -5,5 +5,5 @@
     #language_skills
       = f.simple_fields_for :language_skills, wrapper: false do |builder|
         = render 'language_skill_fields', f: builder
-    #language-add.links
+    #language-add.links.add-language-button
       = link_to_add_association t('.add_language'), f, :language_skills

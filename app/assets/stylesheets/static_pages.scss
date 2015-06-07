@@ -2,8 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-a.thmb-lnk {
-  color: #333;
+.thmb-lnk {
+  color: $gray-very-dark;
   text-decoration: none;
 }
 
@@ -52,44 +52,47 @@ a.thmb-lnk {
 .volunteer-thumbnail,
 .explore-thumbnail,
 .pictures-thumbnail {
-  @extend .img-thumbnail;
-  border-radius: 0px;
+  @extend %img-thumbnail;
+  border-radius:0;
 }
 
 .host-thumbnail {
-  background-color: $greenHost;
+  background-color: $green-host;
+
   &:hover {
-    background-color: darken($greenHost, 10%);
+    background-color: darken($green-host, 10%);
   }
 }
 
 .volunteer-thumbnail {
-  background-color: $redVolunteer;
+  background-color: $red-volunteer;
+
   &:hover {
-    background-color: darken($redVolunteer, 10%);
+    background-color: darken($red-volunteer, 10%);
   }
 }
 
 .host-thumbnail,
 .volunteer-thumbnail {
-  padding: 15px;
   margin-bottom: 5px;
+  padding: 15px;
 }
 
 .home-explore,
 .home-signup {
-  @extend .img-thumbnail;
-  border-radius: 0px;
+  @extend %img-thumbnail;
+  border-radius:0;
   margin-top: 5px;
-  margin-bottom: 0px;
-  width: 98%;
-  margin: 0 1%;
+  margin-bottom:0;
+  width: 100%;
+  margin: 0;
 }
 
 .home-explore {
-  background-color: $grayExplore;
+  background-color: $gray-explore;
+
   &:hover {
-    background-color: darken($grayExplore, 10%);
+    background-color: darken($gray-explore, 10%);
   }
 }
 
@@ -101,63 +104,73 @@ a.thmb-lnk {
 .explore-thumbnail {
   background: none;
   padding: 15px 50px;
+
   h2 {
     margin-top: 90px;
   }
 }
 
 .pictures-thumbnail {
-  @extend .img-thumbnail;
-  padding: 0;
+  @extend %img-thumbnail;
+  border-width:0;
   list-style: none;
-  position: relative;
   margin-bottom: 0;
-  border-width: 0px;
+  padding: 0;
+  position: relative;
+
   li {
     width: 100%;
     margin: 0 auto;
   }
+
   img {
     width: 100%;
   }
 }
 
 .contribute-thumbnail {
-  @extend .img-thumbnail;
-  background-color: $grayBackground;
+  @extend %img-thumbnail;
+  background-color: $gray-background;
   padding: 30px;
-  text-align: left;
   min-height: 310px;
+  text-align: left;
   width: 100%;
+
   a {
-    color: #0088cc;
+    color: $cyan-dark;
     display: inline;
   }
+
   h3 {
     margin-bottom: 15px;
     text-align: center;
   }
-  #donation_amount {
+
+  .donation-amount {
     width: 60px;
   }
+
   .flattr {
-    line-height: 62px;
     font-size: 13px;
-  }
-  .FlattrButton {
-    float: right;
+    line-height: 62px;
+    > iframe {
+      float: right;
+    }
   }
 }
 
 .static-page {
+  padding: 50px;
+
   h5 {
     margin-top: 15px;
   }
+
   h4 {
     margin-top: 20px;
   }
+
   ol {
-  list-style-type: lower-alpha;
+    list-style-type: lower-alpha;
   }
-  padding: 50px;
 }

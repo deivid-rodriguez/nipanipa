@@ -39,6 +39,7 @@ group :development, :test do
   gem 'ffaker', '~> 2.0'
   gem 'rubocop', '0.32.0', require: false
   gem 'slim_lint', '0.5.0', require: false
+  gem 'scss_lint', '0.39.0', require: false
 end
 
 group :development do

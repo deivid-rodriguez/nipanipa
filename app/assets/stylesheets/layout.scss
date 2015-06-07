@@ -6,26 +6,30 @@
 }
 
 html {
-  overflow-y: scroll;
   height: 100%;
+  overflow-y: scroll;
 }
 
 body {
+  background-color: $gray-background;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 12px;
-  line-height: 20px;
-  background-color: $grayBackground;
-  width: 100%;
-  min-width: 330px;
   height: 100%;
+  line-height: 20px;
+  min-width: 330px;
+  width: 100%;
 }
 
 .wrapper,
 main {
-  width: 98%;
-  max-width: 970px;
   margin: auto;
   height: 100%;
+  max-width: 970px;
+  width: 100%;
+}
+
+.main-wrapper main {
+  background-color: $white;
 }
 
 .main-wrapper {
@@ -43,7 +47,7 @@ main {
   margin: 0 auto;
 }
 
-/* footer */
+// footer
 $footerHeight: 80px;
 
 @media(min-width: 773px) {
@@ -95,23 +99,24 @@ $footerHeight: 80px;
 }
 
 footer {
+  background-color: $gray-background;
+  color: $green-dark;
   transform-style: preserve-3d;
-  color: $dark-green;
-  background-color: $grayBackground;
 
   a {
     color: $gray;
+
     &:hover {
-      color: $grayDarker;
+      color: $gray-very-dark;
     }
   }
 
   .footer-links > ul > li {
-    border-right: 1px solid $dark-green;
+    border-right: 1px solid $green-dark;
     line-height: 12px;
 
     &:first-child {
-      padding-left: 0px;
+      padding-left:0;
     }
 
     &:last-child {
@@ -121,16 +126,16 @@ footer {
   }
 
   .social-links > ul > li:hover {
-    opacity: 0.8;
+    opacity: .8;
   }
 
   ul {
     @include clearfix();
     @extend %vertical-align;
 
-    padding-left: 0px;
-    margin: 0;
     list-style: none;
+    margin: 0;
+    padding-left:0;
     text-align: center;
 
     li {

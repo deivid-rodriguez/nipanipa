@@ -20,6 +20,7 @@
   = f.input :availability,
       as: :check_boxes,
       wrapper: :vertical_radio_and_checkboxes,
+      wrapper_html: { class: 'user-availability' },
       item_wrapper_class: 'calendar',
       collection: (1..12).to_a,
       checked: resource.availability,

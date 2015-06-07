@@ -10,7 +10,7 @@
         as: :select,
         collection: 1..20,
         include_blank: false,
-        class: 'form-control'
+        class: 'form-control donation-amount'
 
     = d.hidden_field :user_id, value: current_user.try(:id)
 

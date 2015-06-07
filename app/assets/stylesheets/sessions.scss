@@ -2,16 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.signin-row {
-  @extend .row;
-
-  text-align: center;
+.devise-page {
   margin: 0 auto;
+  text-align: center;
 }
 
 .form-thumbnail {
-  @extend .img-thumbnail;
+  @extend %img-thumbnail;
+  background-color: $white;
+  margin: 25px auto;
   max-width: 400px;
+  padding: 15px 30px;
+  text-align: left;
 
   @media(max-width: 772px) {
     width: 95%;
@@ -20,11 +22,6 @@
   @media(min-width: 773px) {
     width: 70%;
   }
-
-  background-color: white;
-  margin: 25px auto;
-  padding: 15px 30px;
-  text-align: left;
 }
 
 .forgot-your-pwd {
@@ -32,21 +29,25 @@
 }
 
 .signin-dropdown {
-  @extend .img-thumbnail;
+  @extend %img-thumbnail;
   border: 0;
+  font-size: 12px;
+  min-width: 250px;
   padding: 10px;
   text-align: left;
-  min-width: 250px;
+
   a {
     display: block;
   }
+
   .form-group {
     margin-bottom: 10px;
   }
+
   .signin-button {
     width: 100%;
   }
-  font-size: 12px;
+
   input {
     font-size: 12px;
   }

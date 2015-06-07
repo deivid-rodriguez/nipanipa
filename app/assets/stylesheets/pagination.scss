@@ -1,0 +1,24 @@
+.pagination {
+  margin: 0 0 10px 0;
+  padding-left: 15px;
+
+  .pagination {
+    padding-left:0;
+
+    li > a:hover {
+      background-color: $gray-very-light;
+      color: $cyan;
+    }
+
+    .active > a {
+      background-color: $gray-very-light;
+      border-color: $gray-very-light;
+      color: $cyan;
+    }
+
+    .disabled > a:hover {
+      background-color: $white;
+      color: $gray-dark;
+    }
+  }
+}
