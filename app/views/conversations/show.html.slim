@@ -2,10 +2,10 @@
 
 .col-md-12
   .row.main-titled
-    .col-md-offset-1.col-md-10.chat-list
-      ul#chat-list
+    .col-md-12
+      ul.chat-list
         - @conversation.each do |message|
           = render 'sent', message: message
 
-    .col-md-offset-1.col-md-10
+    .col-md-12
       = render 'form', message: @message

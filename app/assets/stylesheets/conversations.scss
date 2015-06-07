@@ -1,21 +1,11 @@
 // Place all the styles related to the Conversations controller
 
-#message-body {
-  height: 150px;
-}
-
-.conversation-form {
-  textarea {
-    height: 150px;
-  }
-}
-
 .back {
   line-height: 24px;
   text-align: right;
 }
 
-#chat-list {
+.chat-list {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -63,23 +53,35 @@
   }
 }
 
+$arrow-size: 15px;
+$message-height: 120px;
+
 .message,
 %message {
   margin-bottom: 20px;
 
-  .message-content {
-    background: $gray-background;
-    border-radius: 4px;
-    padding: 15px;
-    position: relative;
+  .message-from img {
+    display: block;
+    margin: 0 auto;
+  }
 
-    &:before {
-      border: 6px solid;
-      content: '';
-      height: 0;
+  .message-content {
+    position: relative;
+    padding: 15px;
+    margin: 1em 0 3em;
+    color: $black;
+    border-radius: 10px;
+    background: $gray-very-light;
+
+    // creates triangle
+    &:after {
+      content: "";
+      display: block; // reduce the damage in FF3.0
       position: absolute;
-      top: 20px;
+      top: 15px;
       width: 0;
+      border-style: solid;
+      border-color: $gray-very-light transparent;
     }
   }
 
@@ -89,12 +91,17 @@
   }
 
   form textarea {
-    width: 80%;
+    border-radius: 4px;
+    border: 0;
+    padding: 8px;
+    width: 75%;
+    height: $message-height;
   }
 
   form input {
-    line-height: 138px;
-    width: 18%;
+    padding: 0px;
+    width: 22%;
+    line-height: $message-height;
   }
 }
 
@@ -108,9 +115,9 @@
   .message-content {
     text-align: right;
 
-    &:before {
-      border-color: $gray-background transparent transparent $gray-background;
-      right: -11px;
+    &:after {
+      right: -$arrow-size;
+      border-width: $arrow-size $arrow-size 0 0;
     }
   }
 
@@ -133,9 +140,9 @@
   .message-content {
     text-align: left;
 
-    &:before {
-      border-color: $gray-background $gray-background transparent transparent;
-      left: -11px;
+    &:after {
+      left: -$arrow-size;
+      border-width: $arrow-size 0 0 $arrow-size;
     }
   }
 
