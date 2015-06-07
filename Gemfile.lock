@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/activeadmin/activeadmin.git
-  revision: b21ff811fee672206d4a143dbc1e814395d586de
+  revision: 0b4b22871fd332c94daec3c5138c0cf9a5b95451
   specs:
     activeadmin (1.0.0.pre1)
       arbre (~> 1.0, >= 1.0.2)
@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: git://github.com/carrierwaveuploader/carrierwave.git
-  revision: a1b96d05d021f0ab53c8a2ef460bc96664e52b79
+  revision: de2a9550dadf5d71563e933d583ba8c3ad6bb101
   specs:
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
@@ -369,7 +369,7 @@ GEM
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
     sysexits (1.2.0)
-    temple (0.7.5)
+    temple (0.7.6)
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
