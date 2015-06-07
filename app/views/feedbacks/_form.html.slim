@@ -1,13 +1,13 @@
-= simple_form_for [@user, @feedback], html: { class: 'form-horizontal' } do |f|
+= simple_form_for [@user, @feedback],
+                  html: { class: 'feedback-form form-horizontal' } do |f|
   = f.error_notification
 
-  fieldset
-    legend= t('.feedback_for_user', username: @user.name)
-    = f.input :score, as: :radio_buttons, item_wrapper_class: 'inline'
+  = field_set_tag t('.feedback_for_user', username: @user.name) do
+    = f.input :score, as: :radio_buttons,
+                      wrapper: :vertical_radio_and_checkboxes
     = f.input :content
 
-  fieldset
-    legend= t('.feedback_for_nipa')
+  = field_set_tag t('.feedback_for_nipa') do
     - if @feedback.donation && @feedback.donation.amount
       - donation_link = link_to(t('.here'), new_donation_path)
       = t('.donated_already_html', donations_url: donation_link)
