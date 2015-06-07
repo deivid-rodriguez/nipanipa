@@ -1,8 +1,8 @@
 // Place all the styles related to the Users controller here.
 
 .signup-title {
-  padding: 30px 0;
   margin: 0;
+  padding: 30px 0;
 
   img {
     margin: 0 15px;
@@ -12,7 +12,7 @@
 .signup-form {
   background: $white;
   margin: 0 auto;
-  padding: 20px 0;
+  padding: 10 0 20px;
   width: 80%;
 
   textarea {
@@ -32,6 +32,11 @@
       float: left;
       margin: 10px 20px 0 0;
     }
+
+    .checkbox.inline + .checkbox.inline {
+      margin-left: 10px;
+      width: 20px;
+    }
   }
 
   .checkbox-list {
@@ -48,15 +53,6 @@
     }
   }
 
-  .user-availability {
-    .checkbox.inline + .checkbox.inline {
-      margin-left: 10px;
-      width: 20px;
-    }
-  }
-
-  padding-top: 10px;
-
   .fields {
     @include clearfix();
     height: auto;
@@ -72,7 +68,7 @@
 
     .picture-select {
       @extend %nested-select;
-      margin: 0 0 10px 0;
+      margin: 0 0 10px;
       width: 310px;
     }
 
@@ -101,8 +97,8 @@
   }
 
   .add-language-button {
-    padding-top: 10px;
     float: left;
+    padding-top: 10px;
     width: 100%;
   }
 }
@@ -288,9 +284,9 @@
     list-style-type: none;
 
     > a {
+      display: block;
       padding: 3px 15px;
       text-decoration: none;
-      display: block;
 
       &:hover {
         background-color: $gray-very-light;

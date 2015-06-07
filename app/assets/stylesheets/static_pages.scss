@@ -53,7 +53,7 @@
 .explore-thumbnail,
 .pictures-thumbnail {
   @extend %img-thumbnail;
-  border-radius:0;
+  border-radius: 0;
 }
 
 .host-thumbnail {
@@ -81,11 +81,9 @@
 .home-explore,
 .home-signup {
   @extend %img-thumbnail;
-  border-radius:0;
-  margin-top: 5px;
-  margin-bottom:0;
+  border-radius: 0;
+  margin: 15px 0 0;
   width: 100%;
-  margin: 0;
 }
 
 .home-explore {
@@ -112,15 +110,15 @@
 
 .pictures-thumbnail {
   @extend %img-thumbnail;
-  border-width:0;
+  border-width: 0;
   list-style: none;
   margin-bottom: 0;
   padding: 0;
   position: relative;
 
   li {
-    width: 100%;
     margin: 0 auto;
+    width: 100%;
   }
 
   img {
@@ -131,8 +129,8 @@
 .contribute-thumbnail {
   @extend %img-thumbnail;
   background-color: $gray-background;
-  padding: 30px;
   min-height: 310px;
+  padding: 30px;
   text-align: left;
   width: 100%;
 
@@ -146,13 +144,10 @@
     text-align: center;
   }
 
-  .donation-amount {
-    width: 60px;
-  }
-
   .flattr {
     font-size: 13px;
     line-height: 62px;
+
     > iframe {
       float: right;
     }

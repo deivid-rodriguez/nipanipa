@@ -21,11 +21,11 @@
     border-bottom: solid 1px $gray-very-light;
     line-height: 70px;
     padding: 10px0;
-    $deleteCrossSize: 15px;
+    $delete-cross-size: 15px;
 
     a {
-      text-decoration: none;
       color: $gray;
+      text-decoration: none;
 
       .conversation-date {
         padding-right: 15px;
@@ -37,9 +37,9 @@
         background: image-url('delete.png') no-repeat;
         display: block;
         float: right;
-        height: $deleteCrossSize;
+        height: $delete-cross-size;
         margin: 27px 0;
-        width: $deleteCrossSize;
+        width: $delete-cross-size;
       }
     }
 
@@ -66,22 +66,22 @@ $message-height: 120px;
   }
 
   .message-content {
-    position: relative;
-    padding: 15px;
-    margin: 1em 0 3em;
-    color: $black;
-    border-radius: 10px;
     background: $gray-very-light;
+    border-radius: 10px;
+    color: $black;
+    margin: 1em 0 3em;
+    padding: 15px;
+    position: relative;
 
     // creates triangle
     &:after {
-      content: "";
+      border-color: $gray-very-light transparent;
+      border-style: solid;
+      content: '';
       display: block; // reduce the damage in FF3.0
       position: absolute;
       top: 15px;
       width: 0;
-      border-style: solid;
-      border-color: $gray-very-light transparent;
     }
   }
 
@@ -91,17 +91,17 @@ $message-height: 120px;
   }
 
   form textarea {
-    border-radius: 4px;
     border: 0;
+    border-radius: 4px;
+    height: $message-height;
     padding: 8px;
     width: 75%;
-    height: $message-height;
   }
 
   form input {
-    padding: 0px;
-    width: 22%;
     line-height: $message-height;
+    padding: 0;
+    width: 22%;
   }
 }
 
@@ -116,8 +116,8 @@ $message-height: 120px;
     text-align: right;
 
     &:after {
-      right: -$arrow-size;
       border-width: $arrow-size $arrow-size 0 0;
+      right: -$arrow-size;
     }
   }
 
@@ -141,8 +141,8 @@ $message-height: 120px;
     text-align: left;
 
     &:after {
-      left: -$arrow-size;
       border-width: $arrow-size 0 0 $arrow-size;
+      left: -$arrow-size;
     }
   }
 

@@ -5,7 +5,7 @@
 
   &:before {
     border-bottom: 7px solid $gray-very-light;
-    border-bottom-color: rgba(0, 0, 0, 0.2);
+    border-bottom-color: rgba(0, 0, 0, .2);
     border-left: 7px solid transparent;
     border-right: 7px solid transparent;
     content: '';
@@ -39,6 +39,10 @@
   @include clearfix();
 }
 
+.input-group .donation-amount {
+  width: 60px;
+}
+
 section { overflow: auto; }
 
 a {
@@ -50,10 +54,11 @@ a {
   border: 0;
   font-size: 14px;
   font-weight: bold;
-  margin-bottom:0;
+  margin-bottom: 0;
 
   .navbar-nav {
     padding-top: 62px;
+
     > li {
       > a {
         color: $black;
@@ -69,7 +74,7 @@ a {
 .main-page {
   @include clearfix();
   background: $gray-super-light;
-  padding: 20px 0 0 0;
+  padding: 30px 0;
 }
 
 .img-thumbnail,
@@ -96,18 +101,18 @@ h1 {
 
 h2 {
   font-weight: bold;
-  letter-spacing:0;
+  letter-spacing: 0;
   margin-bottom: 10px;
   text-align: center;
 }
 
 h3 {
-  margin:0;
+  margin: 0;
   text-align: left;
 }
 
 h4 {
-  margin:0;
+  margin: 0;
   text-align: left;
 }
 
@@ -129,24 +134,6 @@ p {
   padding: 4px 12px;
 }
 
-// header
-#logo {
-  color: $white;
-  float: left;
-  font-size: 1.7em;
-  font-weight: bold;
-  letter-spacing: -1px;
-  line-height: 1;
-  margin-right: 10px;
-  padding-top: 9px;
-  text-transform: uppercase;
-
-  &:hover {
-    color: $white;
-    text-decoration: none;
-  }
-}
-
 header {
   background-color: $green;
 }
@@ -156,14 +143,20 @@ header {
 .main-titled {
   margin-bottom: 20px;
   margin-top: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
 
   .title {
     margin-bottom: 20px;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .subtitle {
     font-size: 14px;
     margin-bottom: 25px;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
@@ -187,7 +180,7 @@ aside {
       font-size: 1.4em;
       letter-spacing: -1px;
       margin-bottom: 3px;
-      margin-top:0;
+      margin-top: 0;
       text-align: left;
     }
   }
@@ -200,6 +193,6 @@ aside {
 
 // Customize bootstrap flash messages
 .alert {
+  margin-bottom: 0;
   margin-top: 20px;
-  margin-bottom: 0px;
 }

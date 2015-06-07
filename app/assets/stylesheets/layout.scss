@@ -22,18 +22,18 @@ body {
 
 .wrapper,
 main {
-  margin: auto;
   height: 100%;
+  margin: auto;
   max-width: 970px;
   width: 100%;
 }
 
-.main-wrapper main {
-  background-color: $white;
-}
-
 .main-wrapper {
   @include clearfix();
+
+  main {
+    background-color: $white;
+  }
 }
 
 .home {
@@ -43,12 +43,12 @@ main {
 
 .home,
 .main-wrapper {
-  height: auto !important;
+  height: auto;
   margin: 0 auto;
 }
 
 // footer
-$footerHeight: 80px;
+$footer-height: 80px;
 
 @media(min-width: 773px) {
   .home,
@@ -57,10 +57,10 @@ $footerHeight: 80px;
   }
 
   footer {
-    height: $footerHeight;
+    height: $footer-height;
 
     nav {
-      height: $footerHeight;
+      height: $footer-height;
     }
 
     .social-links {
@@ -84,10 +84,10 @@ $footerHeight: 80px;
   }
 
   footer {
-    height: $footerHeight * 2;
+    height: $footer-height * 2;
 
     nav {
-      height: $footerHeight;
+      height: $footer-height;
       width: 100%;
 
       ul > li {
@@ -116,7 +116,7 @@ footer {
     line-height: 12px;
 
     &:first-child {
-      padding-left:0;
+      padding-left: 0;
     }
 
     &:last-child {
@@ -130,12 +130,12 @@ footer {
   }
 
   ul {
-    @include clearfix();
     @extend %vertical-align;
+    @include clearfix();
 
     list-style: none;
     margin: 0;
-    padding-left:0;
+    padding-left: 0;
     text-align: center;
 
     li {
