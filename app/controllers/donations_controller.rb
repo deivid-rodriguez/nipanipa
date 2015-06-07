@@ -23,7 +23,7 @@ class DonationsController < ApplicationController
     else
       flash[:alert] = t('donations.create.error')
     end
-    redirect_to @donation.user || root_path
+    redirect_to session[:return_to] || @donation.user || root_path
   end
 
   # We don't activate IPN for now

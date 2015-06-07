@@ -11,6 +11,7 @@ class FeedbacksController < ApplicationController
     @feedback = current_user.sent_feedbacks.new
     @feedback.recipient = @user
     @feedback.build_donation
+    session[:return_to] = request.referer
     authorize! :new, @feedback
   end
 
@@ -22,7 +23,7 @@ class FeedbacksController < ApplicationController
       if (donation = @feedback.donation)
         redirect_to donation.paypal_url(donation_url(donation.id))
       else
-        redirect_to @user, notice: t('feedbacks.create.success')
+        redirect_to session[:return_to], notice: t('feedbacks.create.success')
       end
     else
       flash.now[:error] = t('feedbacks.create.error')

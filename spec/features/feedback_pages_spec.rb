@@ -50,7 +50,7 @@ RSpec.describe 'Leaving feedback' do
       expect(page).to have_link t('shared.edit')
     end
 
-    it 'shows recipients name' do
+    it 'goes back to previous page' do
       expect(page).to have_selector 'h3', text: feedback.recipient.name
     end
 
@@ -85,7 +85,7 @@ RSpec.describe 'Leaving feedback' do
       expect(page).to have_link t('shared.edit')
     end
 
-    it 'shows recipients name' do
+    it 'returns to previous page' do
       expect(page).to have_selector 'h3', text: feedback.recipient.name
     end
 
@@ -135,7 +135,7 @@ RSpec.describe 'Editing feedbacks' do
       expect(feedback.recipient.reload.karma).to eq(-1)
     end
 
-    it 'shows senders name' do
+    it 'goes back to previous page' do
       expect(page).to have_selector 'h3', text: feedback.sender.name
     end
 
@@ -160,8 +160,8 @@ RSpec.describe 'Editing feedbacks' do
       expect(feedback.recipient.karma).to eq(1)
     end
 
-    it 'shows recipient name' do
-      expect(page).to have_selector 'h3', text: feedback.recipient.name
+    it 'goes back to previous page' do
+      expect(page).to have_selector 'h3', text: feedback.sender.name
     end
 
     it 'shows a success flash message' do
