@@ -20,7 +20,7 @@ en:
       edit: Edit profile
       new_message: New message
       new_feedback: Leave a reference
-      edit_feedback: Change your reference
+      edit_feedback: Change reference
       report_user: Alert about this user
     badge:
       karma: Karma
