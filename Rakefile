@@ -12,5 +12,7 @@ if %w(development test).include?(Rails.env)
   require 'scss_lint/rake_task'
   SCSSLint::RakeTask.new { |t| t.files = ['app/assets'] }
 
-  task default: [:spec, :rubocop, :slim_lint, :scss_lint]
+  task(:overcommit) { system('overcommit --run') }
+
+  task default: [:spec, :overcommit]
 end
