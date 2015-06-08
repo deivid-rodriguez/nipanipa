@@ -14,13 +14,13 @@ div class="profile-header-#{current_user.type.underscore}"
 
         li.row id="conversation-preview-#{other_user.id}"
           = link_to other_user do
-            .col-md-3.conversation-other
+            .col-md-4.conversation-other
               = avatar_for other_user, style: :thumb_message
               = other_user.name
 
           = link_to conversation_path(other_user),
               id: "show-link-#{other_user.id}" do
-            .col-md-6.conversation-subject
+            .col-md-5.conversation-subject
               = last_message.body.truncate(68)
 
             .col-md-3.conversation-date

@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   # validations
   validates :description, length: { maximum: 2500 }
-  validates :name, presence: true, length: { maximum: 50 }
+  validates :name, presence: true, length: { maximum: 38 }
 
   # associations
   has_many :donations
