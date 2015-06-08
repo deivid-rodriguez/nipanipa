@@ -5,6 +5,10 @@
 .thmb-lnk {
   color: $gray-very-dark;
   text-decoration: none;
+
+  &:hover {
+    color: $gray-very-dark;
+  }
 }
 
 @media(max-width: 772px) {
