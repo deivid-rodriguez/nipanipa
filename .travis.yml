@@ -35,6 +35,11 @@ before_install:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
 
+before_script:
+  - git config --local user.email 'travis@travis.ci'
+  - git config --local user.name 'Travis CI'
+
 script:
   - bundle exec rake db:create_user db:create
   - bundle exec rspec
+  - bundle exec overcommit --run
