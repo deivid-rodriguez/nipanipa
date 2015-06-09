@@ -3,10 +3,10 @@ fr:
     'yes': Oui
     'no': Non
     required:
-      text: TODO
+      text: demandé
       mark: '*'
     error_notification:
-      default_message: TODO
+      default_message: S'il vous plaît examiner les questions suivantes
     labels:
       user:
         availability: Quels mois êtes-vous disponible?
@@ -14,7 +14,7 @@ fr:
         email: Courrier electronique
         password: Mot de passe
         password_confirmation: Confirmer mot de passe
-        accomodation: Décris-nous le type de logement que tu offres
+        accomodation: Décris-nous le type de logement que vous offrez
         country: Pays
         region: Région
       picture:
@@ -22,18 +22,18 @@ fr:
         image: Fichier avec la photo
       feedback:
         score: Ponctuation
-        content: Raconte-nous ton expérience avec cet utilisateur
+        content: Raconte-nous vôtre expérience avec cet utilisateur
       donation:
         amount: On existe grâce à l'apport de vos données. Aidez-nous!
     hints:
       user:
         password: La mot de passe doit comporter au moins 6 caracteres
       feedback:
-        score: "Ta ponctuation influe en possitif où en negatif sur le karma de
-l'utilisateur"
+        score: "Vôtre ponctuation influe en possitif où en negatif sur le karma
+de l'utilisateur"
       donation:
-        amount: "Si tu laisse le champ à 0, tu auras completé la référence sans
-donner"
+        amount: "Si vous laissez le champ à 0, tu auras completé la référence
+sans donner"
     placeholders:
       user:
         email: Courrier Électronique

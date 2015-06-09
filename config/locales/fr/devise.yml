@@ -2,7 +2,7 @@ fr:
   devise:
     confirmations:
       new:
-        resend: TODO
+        resend: Renvoyer
       confirmed: Votre compte a été confirmé avec succès.
       send_paranoid_instructions: "Si votre courriel existe sur notre base de
 données, vous recevrez sous quelques minutes un message avec des instructions
