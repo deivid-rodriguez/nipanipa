@@ -25,7 +25,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'autoprefixer-rails', '~> 5.2'
 gem 'uglifier', '~> 2.7'
 
-gem 'activeadmin', github: 'activeadmin'
+gem 'activeadmin', '1.0.0.pre1'
 
 gem 'rubyzip', '~> 1.1', require: false
 gem 'ruby-progressbar', '~> 1.7', require: false
