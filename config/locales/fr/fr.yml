@@ -38,9 +38,9 @@ fr:
       uvolunteer?: Etes-vous volontaire?
     about:
       title: Qui sommes nous?
-      description: "Nous sommes une association avec son siège en Espagne de
-designeurs et programateurs de Web. Nous sommes aussi de voyageurs passionnés et
-nous avions un sentiment de que quelque chose nous manquez avant d'avoir
+      description: "Nous sommes une association de designeurs et programateurs
+de Web avec siège en Espagne et en Allemagne. Nous sommes aussi de voyageurs
+passionnés et nous avions le sentiment de que quelque chose nous manquait avant
 NiPaNiPa. Ce pour ça qu'on l'a creé . Jouir d'elle!"
     contact:
       title: Contact
@@ -51,36 +51,36 @@ envoyant un e-mail a %{mail}. Dites-nous ce que vous pensez du site, ce qui ne
 fonctionne pas, ce qui peut être amélioré ou simplement envoyez-nous une
 salutation."
     home:
-      welcome: Bienvenue a NiPaNipa
-      subtitle: Contacte a volontaires et hosts du monde antier
+      welcome: Bienvenue à NiPaNipa
+      subtitle: Contactez de volontaires et de hosts du monde entier
       host: Je suis host
       host_desc: Logez quelqu'un en échange d'aide
       volunteer: Je suis volontaire
-      volunteer_desc: Aidez quelq'un en échange de logement
+      volunteer_desc: Aidez quelqu'un en échange de hébergement
       contribute: Collaborez
-      contribute_desc: "Appuyez à NiPaNiPa pour qu'elle continue à être
+      contribute_desc: "Appuyez NiPaNiPa pour qu'elle continue à être
 gratuite. Vous pouvez faire un don, où bien collaborer à son développement où
-nous aider à la traduire a votre langue"
+nous aider à la traduire à votre langue"
       explore: Explorez
       explore_desc: "Jettez un coup d'oeil aux posibles hôtes qui vont pouvoir
-vous loger pendant vos vacances, voiyez si vous pouvez trouver futurs
-volontaires à la zone, qui puisent vous aider"
+vous loger pendant vos vacances, ou regardez si il y a des futurs volontaires
+dans votre quartier, qui puisent vous aider"
       signup: Inscrivez-vous
       signup_desc: "Inscrivez-vous sur NiPaNiPa, autant si vous êtest hôte comme
 si vous êtes volontaire. Vous inscrire et completer votre profil vous coûtera
-moins de 5 minutes. Après ça, raconte-nous ce qui se passe!"
+moins de 5 minutes. Après ça, racontez-nous ce qui se passe!"
   feedbacks:
     new:
       title: Une réference pour %{username}
-      subtitle: "Merci pour laisser votre réferènce. La confiance réciproque
-entre host et volontaires est imposible sans vos apportations. NiPaNiPa est
+      subtitle: "Merci de laisser votre réferènce. La confiance réciproque
+entre host et volontaires serait imposible sans vos contributions. NiPaNiPa est
 economiquement non-viable si vous n'évalouez pas vos experiences et vous ne
 contribuez pas un peu."
     form:
       feedback_for_user: Référence pour %{username}
       feedback_for_nipa: Donation pour NiPaNiPa
-      donated_already_html: "Merci pour avoir récompensé a NiPaNiPa pour cette
-expérience. Vous peuvez toujours continuer a collaborer %{donations_url}"
+      donated_already_html: "Merci d'avoir récompensé NiPaNiPa pour cette
+expérience. Vous pouvez toujours continuer a collaborer %{donations_url}"
       here: ici
     edit:
       title: Éditer référence pour %{username}
@@ -91,7 +91,7 @@ expérience. Vous peuvez toujours continuer a collaborer %{donations_url}"
     index:
       title: Références
     feedbacks:
-      title: Réferences
+      title: Références
     received:
       one: 1 reçu
       other: "%{count} reçu"
@@ -102,7 +102,7 @@ expérience. Vous peuvez toujours continuer a collaborer %{donations_url}"
       from: De
       to: Pour
     update:
-      success: Vous avez mise à jour votre référence!
+      success: Vous avez mis à jour votre référence!
       error: "Erreur de mise à jour de votre réference (elle en peux pas dépaser
 300 caracteres)"
     destroy:
@@ -110,7 +110,7 @@ expérience. Vous peuvez toujours continuer a collaborer %{donations_url}"
   pictures:
     new:
       title: Ajoutez une photo
-      subtitle: "Les photos sont sympa, donnent confiance et prouvent aux autres
+      subtitle: "Les photos sont sympas, sont rassurantes et prouvent aux autres
 que vous êtes vraiment quelqu'un"
     create:
       success: Montée de photo réusite
@@ -142,16 +142,15 @@ que vous êtes vraiment quelqu'un"
       error: Vous n'avez pas des messages avec cet utilisateur
   users:
     form:
-      description_host: "Raconte a vos futures volontaires quelque chose sur
+      description_host: "Racontez à vos futures volontaires quelque chose sur
 vous ou sur votre famille"
-      description_volunteer: "Raconte a vôtre futur anfitrion quelque chose sur
-vous"
+      description_volunteer: Racontez à vôtre futur hôte quelque chose sur vous
       skills_host: Décrire comment sera le travail du volontaire chez vous
       skills_volunteer: "Que est-ce que vous savez faire? Quelles sont les
-compétances qui vous pouvez offrir à votre anfitrion"
+compétences que vous pouvez offrir à votre hôte?"
     language_skills:
       title: Dites-nous aussi quelles langues vous connaissez
-      add_language: Ajoute une langue
+      add_language: Ajoutez une langue
     language_skill_fields:
       language: Choisissez une langue
       level: Choisissez un niveau
@@ -164,7 +163,7 @@ compétances qui vous pouvez offrir à votre anfitrion"
       header: Enregistrement du %{type}
     show:
       availability: Disponibilité
-      profile: Mon profi
+      profile: Mon profil
       description: Sur moi
       feedback: Réferénces
       accomodation: Logis
@@ -183,10 +182,10 @@ compétances qui vous pouvez offrir à votre anfitrion"
       now: Disponible dès maintenant
       places: Lieu
       people: Gens
-      hosts: Anfitrions
+      hosts: Hôte
       volunteers: Volontaires
       all: Tous
-      wherever: Où que ce soit
+      wherever: N'importe où
     user:
       karma: karma
       location: Lieu
@@ -285,7 +284,7 @@ nôtre web. Pour voire le message cliquer sur lien suivant"
   activerecord:
     models:
       picture: Photo
-      host: Anfitrion
+      host: Hôte
       volunteer: Volontaire
     attributes:
       user:
