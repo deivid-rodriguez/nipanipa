@@ -7,7 +7,6 @@ RSpec.describe 'donation', :js do
 
   describe 'shows a flattr button' do
     before do
-      page.driver.allow_url('*flattr*')
       visit root_path
       click_link t('layouts.header.donate')
     end

@@ -10,14 +10,14 @@ GIT
 
 GIT
   remote: git://github.com/deivid-rodriguez/byebug.git
-  revision: 764a28063b23be457177bb5655b7cb5bc60ed4a2
+  revision: a526146dfd09fec8c3db915f38960ae7540252d8
   specs:
     byebug (5.0.0)
       columnize (= 0.9.0)
 
 GIT
   remote: git://github.com/sds/slim-lint.git
-  revision: f7475916ebef25efd668d2e8ed1e755e37ef50a8
+  revision: 60f8f485d8a601964e1a2a0648d418e85f59af92
   specs:
     slim_lint (0.5.0)
       rubocop (>= 0.25.0)
@@ -27,25 +27,25 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    actionmailer (4.2.2)
-      actionpack (= 4.2.2)
-      actionview (= 4.2.2)
-      activejob (= 4.2.2)
+    actionmailer (4.2.3)
+      actionpack (= 4.2.3)
+      actionview (= 4.2.3)
+      activejob (= 4.2.3)
       mail (~> 2.5, >= 2.5.4)
       rails-dom-testing (~> 1.0, >= 1.0.5)
-    actionpack (4.2.2)
-      actionview (= 4.2.2)
-      activesupport (= 4.2.2)
+    actionpack (4.2.3)
+      actionview (= 4.2.3)
+      activesupport (= 4.2.3)
       rack (~> 1.6)
       rack-test (~> 0.6.2)
       rails-dom-testing (~> 1.0, >= 1.0.5)
-      rails-html-sanitizer (~> 1.0, >= 1.0.1)
-    actionview (4.2.2)
-      activesupport (= 4.2.2)
+      rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    actionview (4.2.3)
+      activesupport (= 4.2.3)
       builder (~> 3.1)
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
-      rails-html-sanitizer (~> 1.0, >= 1.0.1)
+      rails-html-sanitizer (~> 1.0, >= 1.0.2)
     activeadmin (1.0.0.pre1)
       arbre (~> 1.0, >= 1.0.2)
       bourbon
@@ -59,17 +59,17 @@ GEM
       rails (>= 3.2, < 5.0)
       ransack (~> 1.3)
       sass-rails
-    activejob (4.2.2)
-      activesupport (= 4.2.2)
+    activejob (4.2.3)
+      activesupport (= 4.2.3)
       globalid (>= 0.3.0)
-    activemodel (4.2.2)
-      activesupport (= 4.2.2)
+    activemodel (4.2.3)
+      activesupport (= 4.2.3)
       builder (~> 3.1)
-    activerecord (4.2.2)
-      activemodel (= 4.2.2)
-      activesupport (= 4.2.2)
+    activerecord (4.2.3)
+      activemodel (= 4.2.3)
+      activesupport (= 4.2.3)
       arel (~> 6.0)
-    activesupport (4.2.2)
+    activesupport (4.2.3)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
@@ -87,14 +87,14 @@ GEM
       json
     backports (3.6.4)
     bcrypt (3.1.10)
-    bootstrap-sass (3.3.5)
+    bootstrap-sass (3.3.5.1)
       autoprefixer-rails (>= 5.0.0.1)
-      sass (>= 3.2.19)
+      sass (>= 3.3.0)
     bourbon (4.2.3)
       sass (~> 3.4)
       thor
     builder (3.2.2)
-    cancancan (1.11.0)
+    cancancan (1.12.0)
     capistrano (3.4.0)
       i18n
       rake (>= 10.0.0)
@@ -114,11 +114,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    capybara-webkit (1.5.2)
+    capybara-webkit (1.6.0)
       capybara (>= 2.3.0, < 2.5.0)
       json
-    celluloid (0.16.0)
-      timers (~> 4.0.0)
     childprocess (0.5.6)
       ffi (~> 1.0, >= 1.0.11)
     cocoon (1.2.6)
@@ -164,7 +162,7 @@ GEM
     faraday_middleware (0.9.1)
       faraday (>= 0.7.4, < 0.10)
     ffaker (2.0.0)
-    ffi (1.9.8)
+    ffi (1.9.9)
     formatador (0.2.5)
     formtastic (3.1.3)
       actionpack (>= 3.2.13)
@@ -178,9 +176,9 @@ GEM
       net-http-pipeline
     globalid (0.3.5)
       activesupport (>= 4.1.0)
-    guard (2.12.6)
+    guard (2.12.7)
       formatador (>= 0.2.4)
-      listen (~> 2.7)
+      listen (>= 2.7, <= 4.0)
       lumberjack (~> 1.0)
       nenv (~> 0.1)
       notiffany (~> 0.0)
@@ -192,7 +190,7 @@ GEM
       em-websocket (~> 0.5)
       guard (~> 2.8)
       multi_json (~> 1.8)
-    guard-rspec (4.5.2)
+    guard-rspec (4.6.0)
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
@@ -203,7 +201,6 @@ GEM
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
     highline (1.7.2)
-    hitimes (1.2.2)
     http_parser.rb (0.6.0)
     i18n (0.7.0)
     inherited_resources (1.6.0)
@@ -229,8 +226,7 @@ GEM
       launchy (~> 2.2)
     libnotify (0.9.1)
       ffi (>= 1.0.11)
-    listen (2.10.1)
-      celluloid (~> 0.16.0)
+    listen (3.0.0)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
     loofah (2.0.2)
@@ -280,16 +276,16 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
-    rails (4.2.2)
-      actionmailer (= 4.2.2)
-      actionpack (= 4.2.2)
-      actionview (= 4.2.2)
-      activejob (= 4.2.2)
-      activemodel (= 4.2.2)
-      activerecord (= 4.2.2)
-      activesupport (= 4.2.2)
+    rails (4.2.3)
+      actionmailer (= 4.2.3)
+      actionpack (= 4.2.3)
+      actionview (= 4.2.3)
+      activejob (= 4.2.3)
+      activemodel (= 4.2.3)
+      activerecord (= 4.2.3)
+      activesupport (= 4.2.3)
       bundler (>= 1.3.0, < 2.0)
-      railties (= 4.2.2)
+      railties (= 4.2.3)
       sprockets-rails
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
@@ -304,13 +300,13 @@ GEM
       railties (~> 4.0)
     rails_autolink (1.1.6)
       rails (> 3.1)
-    railties (4.2.2)
-      actionpack (= 4.2.2)
-      activesupport (= 4.2.2)
+    railties (4.2.3)
+      actionpack (= 4.2.3)
+      activesupport (= 4.2.3)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rainbow (2.0.0)
-    raindrops (0.13.0)
+    raindrops (0.14.0)
     rake (10.4.2)
     ransack (1.6.6)
       actionpack (>= 3.0)
@@ -400,8 +396,6 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
-    timers (4.0.1)
-      hitimes
     travis (1.7.7)
       addressable (~> 2.3)
       backports
@@ -493,4 +487,4 @@ DEPENDENCIES
   webmock (~> 1.21)
 
 BUNDLED WITH
-   1.10.4
+   1.10.5
