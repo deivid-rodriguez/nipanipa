@@ -9,9 +9,8 @@ end
 require 'spec_helper'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
-require 'capybara/rails'
-require 'capybara/rspec'
 
+require 'support/capybara'
 require 'support/database_cleaner'
 require 'support/i18n'
 require 'support/utilities'
@@ -60,6 +59,3 @@ RSpec.configure do |config|
 end
 
 require 'cancan/matchers'
-
-Capybara.javascript_driver = :webkit
-Capybara.asset_host = 'http://localhost:3000'
