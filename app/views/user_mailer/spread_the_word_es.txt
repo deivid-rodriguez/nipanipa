@@ -9,7 +9,7 @@ En cualquier caso, desde hace un tiempo estamos trabajando en un nuevo sitio
 web al que hemos llamado nipanipa.com. Nipa Nipa nace con la idea de:
 * Mantener el espíritu de WWOOFing, promoviendo un estilo de vida en armonía
 con todo aquello que te rodea.
-* Tener un alcance más general que WWOOFing. Queremos que las oportunidades de
+* Tener un alcance más general que WWOOFing. Queremos que las oportunidades no
 se limiten a las granjas orgánicas si no a cualquier intercambio (honesto) de
 trabajo por alojamiento y manutención, ya que creemos que este intercambio
 puede ser positivo también en otros contextos. En este sentido, Nipa Nipa sería
@@ -27,6 +27,6 @@ conozcas y le pueda interesar.
 
 El sitio es este: http://nipanipa.com
 
-Salud amigo@s y muchas gracias!
+Salud amig@s y muchas gracias!
 
 El equipo de Nipa Nipa.
