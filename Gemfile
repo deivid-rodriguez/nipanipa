@@ -38,8 +38,8 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.5'
   gem 'ffaker', '~> 2.0'
   gem 'overcommit', '0.26.0', require: false
-  gem 'rubocop', '0.32.0', require: false
-  gem 'slim_lint', '0.5.0', github: 'sds/slim-lint', require: false
+  gem 'rubocop', '0.32.1', require: false
+  gem 'slim_lint', '0.6.0', require: false
   gem 'scss_lint', '0.39.0', require: false
   gem 'travis', '~> 1.7', require: false
 end
