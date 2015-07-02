@@ -15,5 +15,9 @@
   sudo: yes
   apt: name=nodejs state=present
 
+- name: Make sure image manipulation dependencies are installed
+  sudo: yes
+  apt: name=imagemagick state=present
+
 - name: Install bundler
   gem: name=bundler state=present
