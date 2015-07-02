@@ -1,3 +1,5 @@
+---
+
 - name: Export locale environment variables
   sudo: yes
   shell: 'export LANGUAGE="en_US.UTF-8"'

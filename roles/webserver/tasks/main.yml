@@ -1,3 +1,5 @@
+---
+
 - name: Install Ruby
   sudo: yes
   apt: name=ruby state=present
