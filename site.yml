@@ -1,6 +1,10 @@
 ---
 - hosts: localhost
 
+  sudo: yes
   roles:
   - database
+
+- hosts: localhost
+  roles:
   - webserver
