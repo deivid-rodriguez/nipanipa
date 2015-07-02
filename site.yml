@@ -1,6 +1,5 @@
 ---
 - hosts: localhost
-  connection: local
 
   roles:
   - database
