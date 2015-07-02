@@ -6,7 +6,10 @@
 
 - name: Make sure capybara-webkit dependencies are satisfied
   sudo: yes
-  apt: name=libqt4-dev state=present
+  apt: name={{item}} state=present
+  with_items:
+    - qt5-default
+    - libqt5webkit5-dev
 
 - name: Make sure there's a javascript runtime environment
   sudo: yes
