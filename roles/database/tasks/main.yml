@@ -1,7 +1,7 @@
 ---
 
-- name: Update apt cache
-  apt: update_cache=yes
+- name: Update package cache
+  apt: update_cache=yes upgrade=full
   sudo: yes
 
 - name: Install latest PostgreSQL and Ruby bindings
