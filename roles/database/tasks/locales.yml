@@ -1,7 +1,0 @@
----
-
-- name: Export locale environment variables
-  sudo: yes
-  shell: 'export LANGUAGE="en_US.UTF-8"'
-  shell: "echo \"LANGUAGE='en_US.UTF-8'\" >> /etc/default/locale"
-  shell: "echo \"LC_ALL='en_US.UTF-8'\" >> /etc/default/locale"

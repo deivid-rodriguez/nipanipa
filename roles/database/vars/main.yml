@@ -4,4 +4,3 @@ db_user: nipanipa
 db_pass: nipanipa
 
 pg_version: 9.4
-pg_apt_repo: deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main

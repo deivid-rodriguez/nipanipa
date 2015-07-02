@@ -1,17 +1,5 @@
 ---
 
-- include: locales.yml tags=locales
-
-- name: Add PostgreSQL repository
-  apt_repository: repo='{{pg_apt_repo}}' state=present
-  sudo: yes
-
-- name: Add PostgreSQL repository key
-  apt_key: url=https://www.postgresql.org/media/keys/ACCC4CF8.asc
-           state=present
-           validate_certs=no
-  sudo: yes
-
 - name: Update apt cache
   apt: update_cache=yes
   sudo: yes
