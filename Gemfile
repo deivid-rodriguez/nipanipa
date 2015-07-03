@@ -40,7 +40,7 @@ group :development, :test do
   gem 'overcommit', '0.26.0', require: false
   gem 'rubocop', '0.32.1', require: false
   gem 'slim_lint', '0.6.0', require: false
-  gem 'scss_lint', '0.39.0', require: false
+  gem 'scss_lint', '0.40.1', require: false
   gem 'travis', '~> 1.7', require: false
 end
 
@@ -49,7 +49,7 @@ group :development do
   gem 'guard-rubocop', '~> 1.2', require: false
   gem 'guard-rspec', '~> 4.5', require: false
   gem 'guard-livereload', '~> 2.4', require: false
-  gem 'rack-livereload', '0.3.15'
+  gem 'rack-livereload', '0.3.16'
   gem 'letter_opener', '~> 1.4'
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-rvm', '0.1.2'
