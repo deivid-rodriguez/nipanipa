@@ -21,8 +21,8 @@ html
 
             tr.message
               td valign='top'
+                - url = conversation_url(@msg.sender)
+
                 p= t('.greeting', name: @msg.recipient.name)
-                p
-                  = t('.message')
-                  - url = conversation_url(@msg.sender)
-                  = link_to url, url
+                p= t('.message')
+                p= link_to url, url
