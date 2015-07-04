@@ -11,10 +11,10 @@ fr:
       user:
         availability: Quels mois êtes-vous disponible?
         name: Nom d'utilisateur
-        email: Courrier electronique
+        email: Courrier électronique
         password: Mot de passe
         password_confirmation: Confirmer mot de passe
-        accomodation: Décris-nous le type de logement que vous offrez
+        accomodation: Décrivez-nous le type de logement que vous offrez
         country: Pays
         region: Région
       picture:
@@ -22,7 +22,7 @@ fr:
         image: Fichier avec la photo
       feedback:
         score: Ponctuation
-        content: Raconte-nous vôtre expérience avec cet utilisateur
+        content: Racontez-nous vôtre expérience avec cet utilisateur
       donation:
         amount: On existe grâce à l'apport de vos données. Aidez-nous!
     hints:
@@ -32,7 +32,7 @@ fr:
         score: "Vôtre ponctuation influe en possitif où en negatif sur le karma
 de l'utilisateur"
       donation:
-        amount: "Si vous laissez le champ à 0, tu auras completé la référence
+        amount: "Si vous laissez le champ à 0, vous aurez completé la référence
 sans donner"
     placeholders:
       user:
