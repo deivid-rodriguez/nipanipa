@@ -10,7 +10,7 @@ RSpec.shared_examples_for 'A user profile creation' do
   let!(:lang) { create(:language) }
   let!(:work_type) { create(:work_type) }
 
-  before { visit new_user_registration_path(type: role) }
+  before { visit send(:"#{role}_registration_path") }
 
   it 'shows correct header' do
     role_i18n = t("activerecord.models.#{role}")

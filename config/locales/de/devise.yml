@@ -46,16 +46,17 @@ Anleitung, wie Sie Ihr Passwort zurücksetzen können."
       already_signed_out: Erfolgreich abgemeldet.
       signed_in: Erfolgreich angemeldet.
       signed_out: Erfolgreich abgemeldet.
-    users:
+    registrations:
       destroyed: Ihr Account wurde gelöscht.
-      signed_up: Sie haben sich erfolgreich registriert.
-      signed_up_but_unconfirmed: "Sie erhalten in wenigen Minuten eine E-Mail
+      user:
+        signed_up: Sie haben sich erfolgreich registriert.
+        signed_up_but_unconfirmed: "Sie erhalten in wenigen Minuten eine E-Mail
 mit einem Link für die Bestätigung der Registrierung. Klicken Sie auf den Link
 um Ihren Account zu aktivieren."
-      update_needs_confirmation: "Ihre Daten wurden aktualisiert, aber Sie
+        updated: Ihre Daten wurden aktualisiert.
+        update_needs_confirmation: "Ihre Daten wurden aktualisiert, aber Sie
 müssen Ihre neue E-Mail-Adresse bestätigen. Sie erhalten in wenigen Minuten eine
 E-Mail, mir der Sie die Änderung Ihrer E-Mail-Adresse abschließen können."
-      updated: Ihre Daten wurden aktualisiert.
   errors:
     messages:
       already_confirmed: "wurde bereits bestätigt, bitte versuchen Sie, sich

@@ -102,7 +102,8 @@ RSpec.describe 'Protected pages' do
     end
 
     describe 'visiting signup page' do
-      before { visit new_user_registration_path(type: 'host') }
+      before { visit host_registration_path }
+
       specify { expect(current_path).to eq(user_path(user)) }
     end
   end

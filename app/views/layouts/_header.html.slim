@@ -32,10 +32,10 @@ nav.navbar.navbar-default role='navigation'
               = t 'static_pages.home.signup'
               b.caret
             ul.dropdown-menu.with-small-arrow
-              li = link_to t('activerecord.models.host'),
-                           new_user_registration_path(type: 'host')
-              li = link_to t('activerecord.models.volunteer'),
-                           new_user_registration_path(type: 'volunteer')
+              li= link_to t('activerecord.models.host'),
+                    host_registration_path
+              li= link_to t('activerecord.models.volunteer'),
+                    volunteer_registration_path
         - if user_signed_in?
           li
             = link_to t('sessions.signout'),

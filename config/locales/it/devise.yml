@@ -43,17 +43,18 @@ password"
       already_signed_out: Sei uscito correttamente.
       signed_in: Accesso effettuato con successo.
       signed_out: Sei uscito correttamente.
-    users:
+    registrations:
       destroyed: "Arrivederci! L'account è stato cancellato. Speriamo di
 rivederci presto."
-      signed_up: "Iscrizione eseguita correttamente. Se abilitata, una conferma
-è stata inviata al tuo indirizzo email."
-      signed_up_but_unconfirmed: "Ti è stato inviato un messaggio con un link di
-conferma. Ti invitiamo a visitare il link per attivare il tuo account."
-      update_needs_confirmation: "Il tuo account è stato aggiornato, ma dobbiamo
-verificare la tua email. Ti invitiamo a consultare la tua email e cliccare sul
-link di conferma."
-      updated: Il tuo account è stato aggiornato.
+      user:
+        signed_up: "Iscrizione eseguita correttamente. Se abilitata, una
+conferma è stata inviata al tuo indirizzo email."
+        signed_up_but_unconfirmed: "Ti è stato inviato un messaggio con un link
+di conferma. Ti invitiamo a visitare il link per attivare il tuo account."
+        updated: Il tuo account è stato aggiornato.
+        update_needs_confirmation: "Il tuo account è stato aggiornato, ma
+dobbiamo verificare la tua email. Ti invitiamo a consultare la tua email e
+cliccare sul link di conferma."
   errors:
     messages:
       already_confirmed: "è stato già confermato"

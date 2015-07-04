@@ -45,16 +45,17 @@ bandeja de entrada."
       already_signed_out: Sesión finalizada.
       signed_in: Sesión iniciada.
       signed_out: Sesión finalizada.
-    users:
+    registrations:
       destroyed: Fue grato tenerte con nosotros. Tu cuenta fue cancelada.
-      signed_up: Enhorabuena, ya estás registrado!
-      signed_up_but_unconfirmed: "Se ha enviado un mensaje con un enlace de
+      user:
+        signed_up: Enhorabuena, ya estás registrado!
+        signed_up_but_unconfirmed: "Se ha enviado un mensaje con un enlace de
 confirmación a tu correo electrónico. Abre el enlace para activar tu cuenta."
-      update_needs_confirmation: "Has actualizado tu cuenta correctamente, pero
-es necesario confirmar tu nuevo correo electrónico. Por favor, comprueba tu
+        updated: Tu cuenta se ha actualizado.
+        update_needs_confirmation: "Has actualizado tu cuenta correctamente,
+pero es necesario confirmar tu nuevo correo electrónico. Por favor, comprueba tu
 correo y sigue el enlace de confirmación para finalizar la comprobación del
 nuevo correo eletrónico."
-      updated: Tu cuenta se ha actualizada.
   errors:
     messages:
       already_confirmed: ya ha sido confirmada, por favor intenta iniciar sesión

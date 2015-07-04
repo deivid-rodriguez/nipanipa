@@ -24,13 +24,13 @@
       span.glyphicon.glyphicon-chevron-right
 
 .home-signup
-  = link_to new_user_registration_path(type: 'host'), class: 'thmb-lnk' do
+  = link_to host_registration_path, class: 'thmb-lnk' do
     .host-thumbnail
       = image_tag 'host.png', alt: 'signup host'
       h2= t('static_pages.home.host')
       p= t('static_pages.home.host_desc')
 
-  = link_to new_user_registration_path(type: 'volunteer'), class: 'thmb-lnk' do
+  = link_to volunteer_registration_path, class: 'thmb-lnk' do
     .volunteer-thumbnail
       = image_tag 'volunteer.png', alt: 'signup volunteer'
       h2= t('static_pages.home.volunteer')
