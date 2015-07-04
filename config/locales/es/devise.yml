@@ -48,14 +48,9 @@ bandeja de entrada."
     registrations:
       destroyed: Fue grato tenerte con nosotros. Tu cuenta fue cancelada.
       user:
-        signed_up: Enhorabuena, ya estás registrado!
         signed_up_but_unconfirmed: "Se ha enviado un mensaje con un enlace de
 confirmación a tu correo electrónico. Abre el enlace para activar tu cuenta."
         updated: Tu cuenta se ha actualizado.
-        update_needs_confirmation: "Has actualizado tu cuenta correctamente,
-pero es necesario confirmar tu nuevo correo electrónico. Por favor, comprueba tu
-correo y sigue el enlace de confirmación para finalizar la comprobación del
-nuevo correo eletrónico."
   errors:
     messages:
       already_confirmed: ya ha sido confirmada, por favor intenta iniciar sesión

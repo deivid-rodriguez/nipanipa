@@ -287,8 +287,6 @@ site. To view the message, click on the following link:"
       user:
         password_digest: Password
       message:
-        subject: Subject
-      message:
         body: Body
     errors:
       models:

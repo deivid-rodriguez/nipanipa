@@ -294,8 +294,6 @@ kontaktiert. Um die Nachricht zu lesen, klicke auf den folgenden Link:"
       user:
         password_digest: Passwort
       message:
-        subject: Betreff
-      message:
         body: Nachrichtentext
     errors:
       models:

@@ -288,8 +288,6 @@ vedere il messagio, clicca qui:"
       user:
         password_digest: password
       message:
-        subject: Soggetto
-      message:
         body: corpo
     errors:
       models:
