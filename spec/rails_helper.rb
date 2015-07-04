@@ -2,9 +2,7 @@ ENV['RAILS_ENV'] ||= 'test'
 
 # Start code coverage
 require 'simplecov'
-SimpleCov.start 'rails' do
-  add_filter '/vendor/ruby/'
-end
+SimpleCov.start 'rails'
 
 require 'spec_helper'
 require File.expand_path('../../config/environment', __FILE__)
