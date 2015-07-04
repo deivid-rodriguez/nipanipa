@@ -26,35 +26,31 @@ module ApplicationHelper
     t 'shared.timestamp_ago', time: time_ago_in_words(timestamp)
   end
 
-  def tab_builder(user, page_id)
-    general_tabs = {
+  def tab_builder(user)
+    tabs = {
       general: { name: t('.general'), path: user_path(user) },
       feedback: { name: t('.feedback'), path: user_feedbacks_path(user) },
-      pictures: { name: t('.pictures'), path: user_pictures_path(user) } }
-    content = ''
+      pictures: { name: t('.pictures'), path: user_pictures_path(user) }
+    }
 
     if user_signed_in? && current_user == user
-      user_tabs = {
-        messages: { name: t('.messages'), path: conversations_path },
-        edit: { name: t('.edit'), path: edit_user_registration_path } }
-      tabs = general_tabs.merge(user_tabs)
-    else
-      tabs = general_tabs
+      tabs[:messages] = { name: t('.messages'), path: conversations_path }
     end
 
-    tabs.each do |tab, options|
-      content << if page_id == tab
-                   content_tag('li', class: 'active') do
-                     content_tag('a', options[:name], href: nil)
-                   end
-                 else
-                   content_tag('li') do
-                     content_tag('a', options[:name], href: options[:path])
-                   end
-                 end
-      content += "\n        "
-    end
-    content.html_safe
+    tabs
+  end
+
+  def link_builder(user)
+    return [{ name: t('.edit_account'),
+              dest: edit_user_registration_path,
+              class: 'pencil' }] if current_user && user == current_user
+
+    [{ name: t('.new_feedback'),
+       dest: feedback_destination(current_user, user),
+       class: 'envelope' },
+     { name: t('.new_message'),
+       dest: conversation_path(user),
+       class: 'ok' }]
   end
 
   #

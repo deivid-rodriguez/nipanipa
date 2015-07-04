@@ -119,17 +119,16 @@
 
   .user-picture {
     @include make-md-column(3);
-    padding: 18px;
-  }
 
-  .nav-tabs {
-    padding-left: 15px;
+    padding: 18px;
   }
 
   .user-info {
     @include make-md-column(9);
 
     .user-name {
+      @include make-row;
+
       padding: 22px 0;
     }
 
@@ -153,35 +152,45 @@
     .user-tabs {
       @include make-row;
 
-      .send-message-link {
-        right: 10px;
+      > div {
+        padding: 0;
       }
 
-      .leave-feedback-link {
-        right: 180px;
+      //
+      // Override bootstrap to mimic link behavior in active tabs (without links)
+      // TODO: Research if there's something like this built-in in bootstrap
+      .nav-tabs > li > a,
+      .nav-tabs > .active {
+        border: 1px solid transparent;
+        line-height: 1.5;
+        margin-right: 0;
       }
 
-      .send-message-link,
-      .leave-feedback-link {
-        background-color: $gray-explore;
-        bottom: 0;
-        font-size: 12px;
-        line-height: 24px;
-        padding: 6px 8px;
-        position: absolute;
-        width: 160px;
+      .nav > li > a,
+      .nav > .active {
+        display: block;
+        padding: 10px 15px;
+        position: relative;
+      }
 
-        &:hover {
-          background-color: darken($gray-explore, 10%);
+      .profile-tabs {
+        @include make-md-column(7);
+        padding: 0;
+      }
+
+      .action-tabs {
+        @include make-md-column(5);
+        padding: 0;
+
+        .nav-tabs > li > a,
+        .nav-tabs > .active {
+          border-radius: 0;
         }
+      }
 
-        a {
-          color: $black;
-
-          &:hover {
-            text-decoration: none;
-          }
-        }
+      .action-tab {
+        @include make-md-column(6);
+        padding: 0;
       }
     }
   }
@@ -204,7 +213,8 @@
 
 .icon-info {
   float: left;
-  width: 30px;
+  font-size: 16px;
+  width: 24px;
 }
 
 .content-info {

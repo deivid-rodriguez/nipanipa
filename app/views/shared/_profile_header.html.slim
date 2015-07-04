@@ -27,16 +27,16 @@
       = render 'shared/badge', name: 'languages', content: user_languages(user)
 
   .user-tabs
-    ul.nav.nav-tabs
-      = tab_builder(user, page_id)
+    .profile-tabs
+      ul.nav.nav-tabs
+        - tab_builder(user).each do |tab, options|
+          li class="#{page_id == tab ? 'active' : ''}"
+            = link_to_unless_current(options[:name], options[:path])
 
-      - unless current_user.nil? || user == current_user
-        .leave-feedback-link
-          = leave_reference_link_for(current_user, user)
-
-        .send-message-link
-          = link_to conversation_path(id: user.id) do
-            .icon-info
-              = image_tag 'envelope.png'
-            .content-info
-              = t('.new_conversation')
+    .action-tabs
+      ul.nav.nav-tabs
+        - link_builder(user).each do |link|
+          li.action-tab
+            = link_to(link[:dest]) do
+              .icon-info.glyphicon class="glyphicon-#{link[:class]}"
+              .content-info= link[:name]
