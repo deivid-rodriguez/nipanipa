@@ -5,11 +5,9 @@ class User < ActiveRecord::Base
   devise :confirmable, :database_authenticatable, :recoverable, :registerable,
          :rememberable, :trackable, :validatable
 
-  # validations
   validates :description, length: { maximum: 2500 }
   validates :name, presence: true, length: { maximum: 38 }
 
-  # associations
   has_many :donations
 
   has_many :sectorizations

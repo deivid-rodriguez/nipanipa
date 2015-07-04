@@ -1,7 +1,6 @@
 #
 # Unit tests for User model
 #
-
 RSpec.describe User do
   let(:user) { build(:user) }
 

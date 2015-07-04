@@ -1,7 +1,6 @@
 #
 # Integration tests for User pages
 #
-
 RSpec.shared_examples_for 'A user profile creation' do
   let(:create_btn) { t('helpers.submit.user.create') }
   let(:role) { klass.name.underscore }

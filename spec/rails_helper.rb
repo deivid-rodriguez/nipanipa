@@ -1,6 +1,5 @@
 ENV['RAILS_ENV'] ||= 'test'
 
-# Start code coverage
 require 'simplecov'
 SimpleCov.start 'rails'
 
