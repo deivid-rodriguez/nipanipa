@@ -16,7 +16,7 @@ RSpec.shared_examples_for 'A user profile creation' do
     role_i18n = t("activerecord.models.#{role}")
     header = t('users.new.header', type: role_i18n).titleize
 
-    expect(page).to have_selector 'h1', text: header
+    expect(page).to have_selector 'h3', text: header
   end
 
   it 'shows correct page title' do

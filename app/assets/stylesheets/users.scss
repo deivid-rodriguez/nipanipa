@@ -1,19 +1,16 @@
 // Place all the styles related to the Users controller here.
 
 .signup-title {
-  margin: 0;
   padding: 30px 0;
 
-  img {
-    margin: 0 15px;
+  h3 {
+    text-align: center;
   }
 }
 
 .signup-form {
-  background: $white;
   margin: 0 auto;
   padding: 10 0 20px;
-  width: 80%;
 
   textarea {
     height: 150px;
@@ -21,6 +18,17 @@
 
   form {
     @include clearfix();
+
+    .form-row {
+      @include make-row();
+
+      margin-bottom: 15px;
+    }
+
+    .form-group,
+    .help-block {
+      margin-bottom: 0;
+    }
   }
 
   .user-availability {

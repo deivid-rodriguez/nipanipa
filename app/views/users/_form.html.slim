@@ -6,35 +6,44 @@
 
   = hidden_field_tag :type, resource.type
 
-  = f.input :name, wrapper: :half_width
-  = f.input :email, wrapper: :half_width
+  .form-row
+    = f.input :name, wrapper: :half_width
+    = f.input :email, wrapper: :half_width
 
   - if resource.new_record?
-    = f.input :password, hint: resource.errors.empty?, wrapper: :half_width
-    = f.input :password_confirmation, wrapper: :half_width
+    .form-row
+      = f.input :password, hint: resource.errors.empty?, wrapper: :half_width
+      = f.input :password_confirmation, wrapper: :half_width
 
-  = render 'location', f: f
+  .form-row
+    = render 'location', f: f
 
-  = f.input :description, label: t(".description_#{resource.type.underscore}")
+  .form-row
+    = f.input :description, label: t(".description_#{resource.type.underscore}")
 
-  = f.input :availability,
-      as: :check_boxes,
-      wrapper: :vertical_radio_and_checkboxes,
-      wrapper_html: { class: 'user-availability' },
-      item_wrapper_class: 'calendar',
-      collection: (1..12).to_a,
-      checked: resource.availability,
-      label_method: ->(m) { t('date.abbr_month_names')[m] },
-      value_method: :to_s
+  .form-row
+    = f.input :availability,
+        as: :check_boxes,
+        wrapper: :vertical_radio_and_checkboxes,
+        wrapper_html: { class: 'user-availability' },
+        item_wrapper_class: 'calendar',
+        collection: (1..12).to_a,
+        checked: resource.availability,
+        label_method: ->(m) { t('date.abbr_month_names')[m] },
+        value_method: :to_s
 
-  = render 'language_skills', f: f
+  .form-row
+    = render 'language_skills', f: f
 
-  = render 'work_types', f: f, user: resource
+  .form-row
+    = render 'work_types', f: f, user: resource
 
-  = f.input :skills, label: t(".skills_#{resource.type.underscore}")
+  .form-row
+    = f.input :skills, label: t(".skills_#{resource.type.underscore}")
 
-  - if resource.type == 'Host'
-    = f.input :accomodation
+  .form-row
+    - if resource.type == 'Host'
+      = f.input :accomodation
 
   .form-group.col-md-12
     = f.button :submit, class: 'primary-buttom pull-right'
