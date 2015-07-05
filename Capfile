@@ -5,9 +5,7 @@ require 'capistrano/setup'
 require 'capistrano/deploy'
 
 # Rails tasks
-require 'capistrano/bundler'
-require 'capistrano/rails/assets'
-require 'capistrano/rails/migrations'
+require 'capistrano/rails'
 
 # Rvm tasks
 require 'capistrano/rvm'
