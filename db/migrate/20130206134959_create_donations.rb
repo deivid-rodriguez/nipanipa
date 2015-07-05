@@ -3,7 +3,7 @@ class CreateDonations < ActiveRecord::Migration
     create_table :donations do |t|
       t.integer :user_id
       t.decimal :amount
-      t.timestamps
+      t.timestamps null: false
     end
   end
 

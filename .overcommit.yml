@@ -34,9 +34,6 @@ PreCommit:
   LocalPathsInGemfile:
     enabled: true
 
-  RailsSchemaUpToDate:
-    enabled: true
-
   RuboCop:
     enabled: true
     flags: ['--display-cop-names', '--force-exclusion']

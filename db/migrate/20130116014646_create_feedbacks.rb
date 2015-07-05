@@ -6,8 +6,9 @@ class CreateFeedbacks < ActiveRecord::Migration
       t.integer :recipient_id
       t.integer :score
 
-      t.timestamps null: true
+      t.timestamps null: false
     end
+
     add_index :feedbacks, [:sender_id, :updated_at]
     add_index :feedbacks, [:recipient_id, :updated_at]
     add_index :feedbacks, [:sender_id, :recipient_id], unique: true

@@ -17,12 +17,12 @@ ActiveRecord::Schema.define(version: 20150426005940) do
   enable_extension "plpgsql"
 
   create_table "admin_users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                      default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20150426005940) do
   end
 
   create_table "continents", force: :cascade do |t|
-    t.string   "code"
+    t.string   "code",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20150426005940) do
   add_index "continents", ["code"], name: "index_continents_on_code", unique: true, using: :btree
 
   create_table "countries", force: :cascade do |t|
-    t.string   "code"
+    t.string   "code",         limit: 255
     t.integer  "continent_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -50,8 +50,8 @@ ActiveRecord::Schema.define(version: 20150426005940) do
   create_table "donations", force: :cascade do |t|
     t.integer  "user_id"
     t.decimal  "amount",      precision: 4, scale: 2
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.integer  "feedback_id"
   end
 
@@ -60,8 +60,8 @@ ActiveRecord::Schema.define(version: 20150426005940) do
     t.integer  "sender_id"
     t.integer  "recipient_id"
     t.integer  "score"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_index "feedbacks", ["recipient_id", "updated_at"], name: "index_feedbacks_on_recipient_id_and_updated_at", using: :btree
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 20150426005940) do
   create_table "language_skills", force: :cascade do |t|
     t.integer "user_id"
     t.integer "language_id"
-    t.string  "level"
+    t.string  "level",       limit: 255
   end
 
   add_index "language_skills", ["language_id"], name: "index_language_skills_on_language_id", using: :btree
@@ -80,28 +80,28 @@ ActiveRecord::Schema.define(version: 20150426005940) do
 
   create_table "languages", force: :cascade do |t|
     t.string "code", limit: 2
-    t.string "name"
+    t.string "name", limit: 255
   end
 
   create_table "messages", force: :cascade do |t|
     t.text     "body"
     t.integer  "sender_id"
     t.integer  "recipient_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.datetime "deleted_by_sender_at"
     t.datetime "deleted_by_recipient_at"
   end
 
   create_table "pictures", force: :cascade do |t|
     t.integer "user_id"
-    t.string  "name"
-    t.string  "image"
+    t.string  "name",    limit: 255
+    t.string  "image",   limit: 255
   end
 
   create_table "regions", force: :cascade do |t|
-    t.string   "code"
-    t.string   "name"
+    t.string   "code",       limit: 255
+    t.string   "name",       limit: 255
     t.integer  "country_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -120,22 +120,22 @@ ActiveRecord::Schema.define(version: 20150426005940) do
   add_index "sectorizations", ["work_type_id"], name: "index_sectorizations_on_work_type_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email",                  default: "", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "name",                   limit: 255
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
     t.text     "description"
-    t.string   "type"
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "type",                   limit: 255
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0
+    t.integer  "sign_in_count",                      default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
     t.datetime "reset_password_sent_at"
-    t.string   "reset_password_token"
-    t.integer  "karma",                  default: 0
+    t.string   "reset_password_token",   limit: 255
+    t.integer  "karma",                              default: 0
     t.text     "accomodation"
     t.text     "skills"
     t.integer  "min_stay"
@@ -152,8 +152,8 @@ ActiveRecord::Schema.define(version: 20150426005940) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
   create_table "work_types", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
+    t.string "name",        limit: 255
+    t.string "description", limit: 255
   end
 
 end

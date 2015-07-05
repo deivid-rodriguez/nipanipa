@@ -1,7 +1,10 @@
 class AddDeviseColumnsToUsers < ActiveRecord::Migration
   def up
-    change_column :users, :email,              :string, null: false, default: ''
-    add_column :users, :encrypted_password, :string, null: false, default: ''
+    change_column_default :users, :email, ''
+    change_column_null :users, :email, false
+    add_column :users, :encrypted_password, :string, limit: 255,
+                                                     null: false,
+                                                     default: ''
     add_column :users, :remember_created_at, :datetime
     remove_index :users, :remember_token
     remove_column :users, :password_digest
@@ -14,6 +17,7 @@ class AddDeviseColumnsToUsers < ActiveRecord::Migration
     add_index :users, :remember_token
     remove_column :users, :remember_created_at
     remove_column :users, :encrypted_password
-    change_column :users, :email, :string
+    change_column_null :users, :email, true
+    change_column_default :users, :email, nil
   end
 end
