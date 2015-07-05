@@ -1,5 +1,4 @@
 ActiveAdmin.register User do
-  config.filters = false
   actions :all, except: [:new, :destroy]
 
   permit_params :region_id, :locale
@@ -14,6 +13,9 @@ ActiveAdmin.register User do
 
     actions
   end
+
+  filter :email
+  filter :name
 
   form do |f|
     f.inputs 'Information' do
