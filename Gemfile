@@ -52,7 +52,6 @@ group :development do
   gem 'rack-livereload', '0.3.16'
   gem 'letter_opener', '~> 1.4'
   gem 'capistrano-rails', '~> 1.1'
-  gem 'capistrano-rvm', '0.1.2'
   gem 'unicorn-rails', '~> 2.2'
 end
 
