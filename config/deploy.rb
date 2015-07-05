@@ -11,7 +11,7 @@ set :log_level, :debug
 set :pty, true
 
 set :linked_files, %w(config/application.yml)
-set :linked_dirs, %w(bin log tmp/pids tmp/cache tmp/sockets public/uploads)
+set :linked_dirs, %w(log tmp/pids tmp/cache tmp/sockets public/uploads)
 
 set :keep_releases, 5
 
