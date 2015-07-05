@@ -18,6 +18,7 @@ it:
       feedback: Referenze
       pictures: Foto
       edit: Modificare profilo
+      delete: Cancellare profilo
       new_message: Inviare un messaggio
       new_feedback: Lasciare referenza
       edit_feedback: Modificare referenza
@@ -137,6 +138,11 @@ pìù lunga de 300 caratteri"
       success: La conversazione è stata cancellata correttamente
       error: Non hai nessun messagio con quel'utente
   users:
+    delete:
+      title: Cancellare il mio profilo
+      subtitle: "Sei sicur@ che vuoi cancellare il tuo profilo. Tieni presente
+che tutte le tue informazioni, foto, referenze e messaggi privati veranno
+cancellate e non potrai recuperarle"
     form:
       description_host: "Racconta ai prossimi volontari qualcosa su di te o
 sulla tua famiglia"

@@ -18,6 +18,7 @@ es:
       feedback: Referencias
       pictures: Fotos
       edit: Editar perfil
+      delete: Borrar cuenta
       new_message: Enviar mensaje
       new_feedback: Dejar referencia
       edit_feedback: Editar referencia
@@ -139,6 +140,11 @@ usuarios que eres una persona de verdad, a parte de lo feo que eres (es broma!)"
       success: La conversación fue borrada correctamente
       error: No tienes mensajes con ese usuario
   users:
+    delete:
+      title: Borrar mi cuenta
+      subtitle: "¿Estás seguro de que quieres borrar tu cuenta? Ten en cuenta
+que toda tu información, fotos, referencias y mensajes serán completamente
+borrados de NipaNipa y no podrás recuperarlos"
     form:
       description_host: "Cuéntale a tus futuros voluntarios algo sobre ti o
 sobre tu familia"

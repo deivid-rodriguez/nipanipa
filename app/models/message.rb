@@ -36,6 +36,14 @@ class Message < ActiveRecord::Base
     end
   end
 
+  def self.sent_or_received_by(uid)
+    where("sender_id = #{uid} OR recipient_id = #{uid}")
+  end
+
+  def self.involving_ids(uid)
+    select('max(id)').sent_or_received_by(uid).group(penpal_sql(uid))
+  end
+
   def penpal(user)
     sender == user ? recipient : sender
   end
@@ -54,12 +62,6 @@ class Message < ActiveRecord::Base
                                ELSE deleted_by_#{col}_at
                                END
       SQL
-    end
-
-    def involving_ids(uid)
-      select('max(id)')
-        .where("sender_id = #{uid} OR recipient_id = #{uid}")
-        .group(penpal_sql(uid))
     end
 
     def penpal_sql(uid)

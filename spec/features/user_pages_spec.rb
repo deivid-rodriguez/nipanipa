@@ -312,3 +312,55 @@ RSpec.describe 'User profile editing' do
     end
   end
 end
+
+RSpec.describe 'User profile deletion' do
+  let(:volunteer) { create(:volunteer) }
+  let(:host) { create(:host, :with_pictures) }
+
+  def create_sample_messages
+    create(:message, sender: host, recipient: volunteer)
+    create(:message, sender: volunteer, recipient: host)
+  end
+
+  def create_sample_feedback
+    create(:feedback, sender: host, recipient: volunteer)
+    create(:feedback, sender: volunteer, recipient: host)
+  end
+
+  before do
+    create_sample_messages
+    create_sample_feedback
+
+    visit root_path
+    sign_in host
+    click_link t('shared.profile_header.delete')
+  end
+
+  it 'shows confirmation page' do
+    expect(page).to have_title t('users.delete.title')
+  end
+
+  context 'when confirmed' do
+    before { click_button t('users.delete.title') }
+
+    it 'deletes the user account' do
+      expect(User.count).to eq(1)
+    end
+
+    it 'deletes all user pictures' do
+      expect(Picture.count).to eq(0)
+    end
+
+    it 'deletes all user messages' do
+      expect(Message.count).to eq(0)
+    end
+
+    it 'deletes all user feedback' do
+      expect(Feedback.count).to eq(0)
+    end
+
+    it 'redirects back to user list' do
+      expect(current_path).to eq(users_path)
+    end
+  end
+end

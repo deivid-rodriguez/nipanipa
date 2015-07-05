@@ -42,6 +42,12 @@ FactoryGirl.define do
       end
     end
 
+    trait :with_pictures do
+      after(:create) do |u|
+        u.pictures << create(:picture, user: u)
+      end
+    end
+
     factory :host, class: 'Host' do
       sequence(:name) { |n| "Host #{n}" }
       description 'We are a test host. We live in the countryside in the wild'

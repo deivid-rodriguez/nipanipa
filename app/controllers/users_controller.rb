@@ -34,6 +34,9 @@ class UsersController < Devise::RegistrationsController
     @page_id = :edit
   end
 
+  def delete
+  end
+
   private
 
   # Override redirect after profile edition
@@ -44,6 +47,11 @@ class UsersController < Devise::RegistrationsController
   # Override redirect after signup
   def after_sign_up_path_for(resource)
     resource
+  end
+
+  # Override redirect after signout
+  def after_sign_out_path_for(_resource)
+    users_path
   end
 
   # Override devise default of asking password for updates

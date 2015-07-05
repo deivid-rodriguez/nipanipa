@@ -18,6 +18,7 @@ fr:
       feedback: Références
       pictures: Photos
       edit: Éditer profil
+      delete: Effacer profil
       new_message: Envoyer message
       new_feedback: Laisser référence
       edit_feedback: Editer référence
@@ -141,6 +142,11 @@ que vous êtes vraiment quelqu'un"
       success: Conversation effacée correctement
       error: Vous n'avez pas des messages avec cet utilisateur
   users:
+    delete:
+      title: Effacer profil
+      subtitle: "Êtes-vous surs de vouloir supprimer votre compte? Toute votre
+information, photos, références et messages seront complétement effacés du site
+NipaNipa et vous ne pourrez plus les récupérer"
     form:
       description_host: "Racontez à vos futures volontaires quelque chose sur
 vous ou sur votre famille"

@@ -1,0 +1,13 @@
+- provide :title, t('.title')
+
+.main-page.main-titled
+  .col-md-offset-2.col-md-8.title
+    h3= t('.title')
+
+  .col-md-offset-2.col-md-8.subtitle
+    em= t('.subtitle')
+
+  .col-md-offset-2.col-md-8.delete-account-form
+    = simple_form_for current_user, url: :delete_account, method: :delete do |f|
+
+      = f.button :submit, t('.title'), class: 'primary-buttom btn-danger'

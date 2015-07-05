@@ -18,6 +18,7 @@ en:
       feedback: Feedback
       pictures: Pictures
       edit: Edit profile
+      delete: Delete account
       new_message: New message
       new_feedback: Leave a reference
       edit_feedback: Change reference
@@ -139,6 +140,11 @@ your profile"
       success: Conversation was removed correctly!
       error: You don't have any messages with that user
   users:
+    delete:
+      title: Delete my account
+      subtitle: "Are you sure you want to delete your profile? Notice that all
+your informations, pictures, references and messages will be completely removed
+from NipaNipa and you won't be able to recover them"
     form:
       description_host: "Tell your future volunteers something about yourself
 or your family."

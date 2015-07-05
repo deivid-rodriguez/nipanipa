@@ -18,6 +18,7 @@ de:
       feedback: Feedback
       pictures: Fotos
       edit: Profil bearbeiten
+      delete: TODO
       new_message: Neue Nachricht
       new_feedback: Referenz hinterlassen
       edit_feedback: Referenz ändern
@@ -143,6 +144,9 @@ deinem Profil angezeigt wird."
       success: Die Unterhaltung wurde erfolgreich gelöscht!
       error: You don't have any messages with that user
   users:
+    delete:
+      title: TODO
+      subtitle: TODO
     form:
       description_host: "Erzähl deinen zukünftigen freiwilligen Helfern etwas
 über dich oder deine Familie"

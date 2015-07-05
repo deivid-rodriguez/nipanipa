@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   validates :description, length: { maximum: 2500 }
   validates :name, presence: true, length: { maximum: 38 }
 
+  before_destroy -> { Message.sent_or_received_by(id).destroy_all }
+
   has_many :donations
 
   has_many :sectorizations
