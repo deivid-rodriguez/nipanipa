@@ -54,7 +54,7 @@
 }
 
 $arrow-size: 15px;
-$message-height: 120px;
+$message-height: 103px;
 
 .message,
 %message {
@@ -88,18 +88,38 @@ $message-height: 120px;
     margin-bottom: 0;
   }
 
-  form textarea {
-    border: 0;
-    border-radius: 4px;
-    height: $message-height;
-    padding: 8px;
-    width: 75%;
-  }
+  form {
+    textarea,
+    input,
+    img {
+      border: 0;
+      border-radius: 4px;
+      height: 100%;
+      width: 100%;
+    }
 
-  form input {
-    line-height: $message-height;
-    padding: 0;
-    width: 22%;
+    .message-content {
+      float: left;
+      height: $message-height;
+      margin: 0;
+      padding: 0;
+      width: 75%;
+
+      > textarea {
+        margin: 0;
+        padding: 8px;
+      }
+    }
+
+    .message-action {
+      float: right;
+      height: $message-height;
+      width: 22%;
+
+      > img {
+        display: none;
+      }
+    }
   }
 }
 

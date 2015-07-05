@@ -1,5 +1,7 @@
 | $('div.alert').remove();
 | $('body main').prepend("#{j render 'layouts/messages'}");
+| $('.message-action').find('input').show();
+| $('.message-action').find('img').hide();
 - if @message.errors.empty?
   | $('ul.chat-list').append("#{j render('sent', message: @message)}");
   | $('textarea.message-body').val('');

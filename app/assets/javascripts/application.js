@@ -17,3 +17,4 @@
 //= require bootstrap-sprockets
 //= require cocoon
 //= require users
+//= require messages
