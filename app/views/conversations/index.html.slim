@@ -21,7 +21,7 @@ div class="profile-header-#{current_user.type.underscore}"
           = link_to conversation_path(other_user),
               id: "show-link-#{other_user.id}" do
             .col-md-5.conversation-subject
-              = last_message.body.truncate(63)
+              = last_message.body.truncate(61)
 
             .col-md-3.conversation-date
               = l(last_message.created_at, format: :short)
