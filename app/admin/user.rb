@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  actions :all, except: [:new, :destroy]
+  actions :all, except: :new
 
   permit_params :region_id, :locale
 
