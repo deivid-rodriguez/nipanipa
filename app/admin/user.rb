@@ -4,7 +4,7 @@ ActiveAdmin.register User do
   permit_params :region_id, :locale
 
   index do
-    column :name
+    column(:name) { |user| link_to user.name, user_path(user) }
     column :email
     column :country
     column :region
