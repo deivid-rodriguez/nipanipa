@@ -6,6 +6,3 @@ require 'capistrano/deploy'
 
 # Rails tasks
 require 'capistrano/rails'
-
-# Rvm tasks
-require 'capistrano/rvm'

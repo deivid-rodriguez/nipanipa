@@ -37,7 +37,3 @@ set :ssh_options, forward_agent: true
 # setting per server overrides global ssh_options
 
 fetch(:default_env).merge!(rails_env: :production)
-
-# RVM configuration
-set :rvm_type, :user
-set :rvm_ruby_version, '2.2.2'
