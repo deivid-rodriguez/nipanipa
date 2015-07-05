@@ -18,7 +18,7 @@ de:
       feedback: Feedback
       pictures: Fotos
       edit: Profil bearbeiten
-      delete: TODO
+      delete: Account löschen
       new_message: Neue Nachricht
       new_feedback: Referenz hinterlassen
       edit_feedback: Referenz ändern
@@ -145,8 +145,10 @@ deinem Profil angezeigt wird."
       error: You don't have any messages with that user
   users:
     delete:
-      title: TODO
-      subtitle: TODO
+      title: Account löschen
+      subtitle: "Bist du dir sicher, dass du dein Profil löschen möchtest? In
+diesem Fall werden all deine Informationen, Fotos, Feedback und Nachrichten
+vollständig von NipaNipa gelöscht und können nicht wiederhergestellt werden."
     form:
       description_host: "Erzähl deinen zukünftigen freiwilligen Helfern etwas
 über dich oder deine Familie"
