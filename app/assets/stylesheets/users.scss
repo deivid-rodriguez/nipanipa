@@ -169,13 +169,17 @@
       .nav > li > a,
       .nav > .active {
         display: block;
-        padding: 10px 15px;
         position: relative;
       }
 
       .profile-tabs {
         @include make-md-column(7);
         padding: 0;
+
+        .nav-tabs > li > a,
+        .nav-tabs > .active {
+          padding: 10px 15px;
+        }
       }
 
       .action-tabs {
@@ -185,6 +189,7 @@
         .nav-tabs > li > a,
         .nav-tabs > .active {
           border-radius: 0;
+          padding: 10px 0;
         }
       }
 
@@ -218,7 +223,7 @@
 }
 
 .content-info {
-  margin-left: 30px;
+  margin-left: 27px;
 }
 
 .profile-content {

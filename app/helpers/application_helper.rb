@@ -48,12 +48,12 @@ module ApplicationHelper
               dest: confirm_delete_account_path,
               class: 'trash' }] if current_user && user == current_user
 
-    [{ name: t('.new_feedback'),
-       dest: feedback_destination(current_user, user),
-       class: 'envelope' },
-     { name: t('.new_message'),
+    [{ name: t('.new_message'),
        dest: conversation_path(user),
-       class: 'ok' }]
+       class: 'ok' },
+     { name: t('.new_feedback'),
+       dest: feedback_destination(current_user, user),
+       class: 'envelope' }]
   end
 
   #
