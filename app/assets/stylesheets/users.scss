@@ -173,7 +173,6 @@
       }
 
       .profile-tabs {
-        @include make-md-column(7);
         padding: 0;
 
         .nav-tabs > li > a,
@@ -183,7 +182,6 @@
       }
 
       .action-tabs {
-        @include make-md-column(5);
         padding: 0;
 
         .nav-tabs > li > a,
@@ -194,8 +192,7 @@
       }
 
       .action-tab {
-        @include make-md-column(6);
-        padding: 0;
+        padding: 0 10px;
       }
     }
   }
@@ -351,7 +348,7 @@
 .user-thumbnails {
   @include clearfix();
   list-style-type: none;
-  padding-left: 15px;
+  padding: 0;
 
   a {
     color: $gray-very-dark;
@@ -369,7 +366,7 @@
   }
 }
 
-@media(max-width: 500px) {
+@media(max-width: 969px) {
   .user-thumbnail-badges {
     width: 100%;
   }
@@ -377,15 +374,33 @@
   .user-thumbnail-data {
     margin: 10px;
   }
+
+  .user-thumbnail-login {
+    text-align: center;
+  }
+
+  .user-thumbnail-location {
+    text-align: center;
+  }
 }
 
-@media(min-width: 501px) {
+@media(min-width: 970px) {
   .user-thumbnail-badges {
     float: left;
   }
 
   .user-thumbnail-data {
     margin-left: 180px;
+  }
+
+  .user-thumbnail-login {
+    padding-left: 0;
+    text-align: left;
+  }
+
+  .user-thumbnail-location {
+    padding-right: 0;
+    text-align: right;
   }
 }
 
@@ -405,16 +420,6 @@
   font-size: .9em;
   font-style: italic;
   margin: 0 0 4px;
-}
-
-.user-thumbnail-location {
-  text-align: right;
-}
-
-.user-thumbnail-login {
-  float: left;
-  text-align: left;
-  width: 249px;
 }
 
 .user-thumbnail-shortdesc {

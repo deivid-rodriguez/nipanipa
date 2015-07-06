@@ -27,16 +27,16 @@
       = render 'shared/badge', name: 'languages', content: user_languages(user)
 
   .user-tabs
-    .profile-tabs
+    .profile-tabs.col-md-7.col-sm-12.col-xs-12
       ul.nav.nav-tabs
         - tab_builder(user).each do |tab, options|
           li class="#{page_id == tab ? 'active' : ''}"
             = link_to_unless_current(options[:name], options[:path])
 
-    .action-tabs
+    .action-tabs.col-md-5.col-sm-12.col-xs-12
       ul.nav.nav-tabs
         - link_builder(user).each do |link|
-          li.action-tab
+          li.action-tab.col-md-6.col-sm-6
             = link_to(link[:dest]) do
               .icon-info.glyphicon class="glyphicon-#{link[:class]}"
               .content-info= link[:name]
