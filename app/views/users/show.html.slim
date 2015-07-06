@@ -6,24 +6,20 @@ div class="profile-header-#{@user.type.underscore}"
 .profile-content
   .col-md-6
     .box
-      = render 'edit_link', user: @user
       h3= t '.description'
       p= simple_format(auto_link(@user.description))
 
     .box
-      = render 'edit_link', user: @user
       h3= t ".skills_#{@user.type.underscore}"
       p= simple_format(@user.skills)
 
   .col-md-6
     .box
-      = render 'edit_link', user: @user
       h3= t('.availability')
       = render 'calendar', user: @user
 
     - if @user.type == 'Host'
       .box
-        = render 'edit_link', user: @user
         h3= t '.accomodation'
         p= simple_format(@user.accomodation)
 
