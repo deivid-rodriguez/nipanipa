@@ -340,6 +340,7 @@
 
 .list-users {
   @include make-md-column(9);
+
   h5 {
     font-weight: bold;
   }
