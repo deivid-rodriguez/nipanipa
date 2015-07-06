@@ -281,7 +281,7 @@ nôtre web. Pour voire le message cliquer sur lien suivant"
         create: Laisser nouvelle référence
         update: Éditer la référence
       message:
-        create: Commencer une conversation
+        create: Envoyer
       picture:
         create: Monter photo
         update: Mettre à jour photo
