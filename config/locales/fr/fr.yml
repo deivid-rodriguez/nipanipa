@@ -94,10 +94,10 @@ expérience. Vous pouvez toujours continuer a collaborer %{donations_url}"
     feedbacks:
       title: Références
     received:
-      one: 1 reçu
+      one: "%{count} reçu"
       other: "%{count} reçu"
     sent:
-      one: 1 envoyée
+      one: "%{count} envoyée"
       other: "%{count} envoyées"
     feedback:
       from: De
