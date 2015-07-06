@@ -50,10 +50,10 @@ module ApplicationHelper
 
     [{ name: t('.new_message'),
        dest: conversation_path(user),
-       class: 'ok' },
+       class: 'envelope' },
      { name: t('.new_feedback'),
        dest: feedback_destination(current_user, user),
-       class: 'envelope' }]
+       class: 'ok' }]
   end
 
   #
