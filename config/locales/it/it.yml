@@ -1,4 +1,11 @@
 it:
+  views:
+    pagination:
+      first: '&laquo; Prima'
+      last: Ultima &raquo;
+      previous: '&lsaquo; Precedente'
+      next: Successiva &rsaquo;
+      truncate: '&hellip;'
   shared:
     nomessages: Non ci sono messaggi
     nopictures: Non c'è nessuna foto

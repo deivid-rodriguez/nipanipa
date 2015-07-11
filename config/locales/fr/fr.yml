@@ -1,4 +1,11 @@
 fr:
+  views:
+    pagination:
+      first: '&laquo; Première'
+      last: Dernière &raquo;
+      previous: '&lsaquo; Précédente'
+      next: Suivante &rsaquo;
+      truncate: '&hellip;'
   shared:
     nomessages: Il n'y a pas de messages
     nopictures: Il n'y a pas de photos
