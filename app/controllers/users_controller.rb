@@ -39,27 +39,31 @@ class UsersController < Devise::RegistrationsController
 
   private
 
-  # Override redirect after profile edition
+  #
+  # Override devise redirections
+  #
   def after_update_path_for(resource)
     resource
   end
 
-  # Override redirect after signup
   def after_inactive_sign_up_path_for(_resource)
     new_user_session_path
   end
 
-  # Override redirect after signout
   def after_sign_out_path_for(_resource)
     users_path
   end
 
+  #
   # Override devise default of asking password for updates
+  #
   def update_resource(resource, params)
     resource.update_without_password(params)
   end
 
+  #
   # Override devise parameter sanitization
+  #
   def sign_up_params
     user_params
   end
@@ -102,7 +106,9 @@ class UsersController < Devise::RegistrationsController
     params[:type].present? ? params[:type].classify.constantize : super
   end
 
+  #
   # Use a single devise mapping for both classes
+  #
   def devise_mapping
     Devise.mappings[:user]
   end
