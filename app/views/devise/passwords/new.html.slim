@@ -4,8 +4,7 @@
   h2= t('.forgotten?')
 
   .form-thumbnail
-    = simple_form_for resource, as: resource_name,
-                                url: password_path(resource_name),
+    = simple_form_for resource, url: user_password_path,
                                 html: { method: :post },
                                 wrapper: :vertical_form do |f|
 

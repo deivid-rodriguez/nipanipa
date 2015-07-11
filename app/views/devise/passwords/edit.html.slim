@@ -7,8 +7,7 @@
     = image_tag 'explore_small.png', alt: 'explore'
     h2= t '.title'
 
-  = simple_form_for resource, as: resource_name,
-                              url: password_path(resource_name),
+  = simple_form_for resource, url: user_password_path,
                               html: { method: :put } do |f|
     = devise_error_messages!
 

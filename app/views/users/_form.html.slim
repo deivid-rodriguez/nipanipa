@@ -1,8 +1,7 @@
-= simple_form_for resource,
-    as: resource_name,
-    url: url,
-    html: { class: 'form-vertical', multipart: true, role: 'form' },
-    defaults: { wrapper: :full_width } do |f|
+= simple_form_for resource, url: url, html: { class: 'form-vertical',
+                                              multipart: true,
+                                              role: 'form' },
+                                      defaults: { wrapper: :full_width } do |f|
 
   = hidden_field_tag :type, resource.type
 

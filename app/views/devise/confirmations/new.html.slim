@@ -4,8 +4,7 @@
   h2= t('.resend')
 
   .form-thumbnail
-    = simple_form_for resource, as: resource_name,
-                                url: confirmation_path(resource_name),
+    = simple_form_for resource, url: user_confirmation_path,
                                 html: { method: :post },
                                 wrapper: :vertical_form do |f|
       = f.full_error :confirmation_token
