@@ -36,7 +36,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.2'
   gem 'factory_girl_rails', '~> 4.5'
   gem 'ffaker', '~> 2.0'
-  gem 'overcommit', '0.26.0', require: false
+  gem 'overcommit', '0.27.0', require: false
   gem 'rubocop', '0.32.1', require: false
   gem 'slim_lint', '0.6.0', require: false
   gem 'scss_lint', '0.40.1', require: false
