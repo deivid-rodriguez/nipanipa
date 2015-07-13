@@ -27,18 +27,18 @@ class ApplicationController < ActionController::Base
   private
 
   def set_locale
-    if params[:locale].present?
-      I18n.locale = params[:locale]
-    elsif browser_lang && I18n.available_locales.include?(browser_lang)
-      I18n.locale = browser_lang
-    else
-      I18n.locale = I18n.default_locale
-    end
+    I18n.locale = params[:locale].presence || browser_lng || I18n.default_locale
 
     ActionMailer::Base.default_url_options[:locale] = I18n.locale
-    # current_user.locale
-    # request.subdomain
-    # request.remote_ip
+  end
+
+  def browser_lng
+    return unless request.env['HTTP_ACCEPT_LANGUAGE'].present?
+
+    lang = request.env['HTTP_ACCEPT_LANGUAGE'][/^[a-z]{2}/].to_sym
+    return unless I18n.available_locales.include?(lang)
+
+    lang
   end
 
   def after_sign_in_path_for(resource)
@@ -55,11 +55,5 @@ class ApplicationController < ActionController::Base
   def store_location?
     request.fullpath !~ /(confirmation|signin|signout|join|password)/ && \
       request.fullpath != root_path && !request.xhr?
-  end
-
-  def browser_lang
-    return unless request.env['HTTP_ACCEPT_LANGUAGE'].present?
-
-    request.env['HTTP_ACCEPT_LANGUAGE'][/^[a-z]{2}/].to_sym
   end
 end
