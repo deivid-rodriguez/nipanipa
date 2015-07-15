@@ -17,7 +17,7 @@ class UsersController < Devise::RegistrationsController
 
   def index
     users = resource_class.confirmed
-    users = users.currently_available if params[:availability] == 'now'
+    users = users.currently_available unless params[:availability] == 'any'
     users = users.from_continent(params[:con_id].to_i) if params[:con_id]
     users = users.from_country(params[:cou_id].to_i) if params[:cou_id]
     @users = users.by_latest_sign_in.page(params[:page])

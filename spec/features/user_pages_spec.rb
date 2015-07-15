@@ -161,25 +161,25 @@ RSpec.describe 'User profile index' do
 
   before { visit users_path }
 
-  it 'lists all profiles' do
-    User.all.each do |user|
-      expect(page).to have_selector('li', text: user.name)
+  shared_examples_for 'a list of available profiles' do
+    it 'lists only available profiles by default' do
+      expect(page).to have_selector('li', text: host_available.name)
+      expect(page).to have_selector('li', text: vol_available.name)
+      expect(page).not_to have_selector('li', text: host_not_available.name)
+      expect(page).not_to have_selector('li', text: vol_not_available.name)
     end
   end
 
-  describe 'available profiles' do
-    before { click_link t('users.filters.now') }
+  it_behaves_like 'a list of available profiles'
 
-    describe 'filtering' do
-      it 'shows correct list' do
-        expect(page).to have_selector('li', text: host_available.name)
-        expect(page).to have_selector('li', text: vol_available.name)
-        expect(page).not_to have_selector('li', text: host_not_available.name)
-        expect(page).not_to have_selector('li', text: vol_not_available.name)
-      end
+  describe 'availability filters' do
+    describe 'now' do
+      before { click_link t('users.filters.now') }
+
+      it_behaves_like 'a list of available profiles'
     end
 
-    describe 'unfiltering' do
+    describe 'whenever' do
       before { click_link t('users.filters.whenever') }
 
       it 'shows correct list' do
@@ -192,13 +192,13 @@ RSpec.describe 'User profile index' do
   end
 
   describe 'host profiles' do
-    before { click_link t('users.filters.hosts') }
-
     describe 'filtering' do
-      it 'shows correct list' do
+      before { click_link t('users.filters.hosts') }
+
+      it 'lists only available hosts' do
         expect(page).to have_selector('li', text: host_available.name)
         expect(page).not_to have_selector('li', text: vol_available.name)
-        expect(page).to have_selector('li', text: host_not_available.name)
+        expect(page).not_to have_selector('li', text: host_not_available.name)
         expect(page).not_to have_selector('li', text: vol_not_available.name)
       end
     end
@@ -206,49 +206,39 @@ RSpec.describe 'User profile index' do
     describe 'unfiltering' do
       before { click_link t('users.filters.all') }
 
-      it 'shows correct list' do
-        expect(page).to have_selector('li', text: host_available.name)
-        expect(page).to have_selector('li', text: vol_available.name)
-        expect(page).to have_selector('li', text: host_not_available.name)
-        expect(page).to have_selector('li', text: vol_not_available.name)
-      end
+      it_behaves_like 'a list of available profiles'
     end
   end
 
   describe 'volunteer profiles' do
-    before { click_link t('users.filters.volunteers') }
-
     describe 'filtering' do
+      before { click_link t('users.filters.volunteers') }
+
       it 'shows correct list' do
         expect(page).not_to have_selector('li', text: host_available.name)
         expect(page).to have_selector('li', text: vol_available.name)
         expect(page).not_to have_selector('li', text: host_not_available.name)
-        expect(page).to have_selector('li', text: vol_not_available.name)
+        expect(page).not_to have_selector('li', text: vol_not_available.name)
       end
     end
 
     describe 'unfiltering' do
       before { click_link t('users.filters.all') }
 
-      it 'shows correct list' do
-        expect(page).to have_selector('li', text: host_available.name)
-        expect(page).to have_selector('li', text: vol_available.name)
-        expect(page).to have_selector('li', text: host_not_available.name)
-        expect(page).to have_selector('li', text: vol_not_available.name)
-      end
+      it_behaves_like 'a list of available profiles'
     end
   end
 
   describe 'mixed filters' do
     before do
       click_link t('users.filters.hosts')
-      click_link t('users.filters.now')
+      click_link t('users.filters.whenever')
     end
 
     it 'shows correct list' do
       expect(page).to have_selector('li', text: host_available.name)
       expect(page).not_to have_selector('li', text: vol_available.name)
-      expect(page).not_to have_selector('li', text: host_not_available.name)
+      expect(page).to have_selector('li', text: host_not_available.name)
       expect(page).not_to have_selector('li', text: vol_not_available.name)
     end
   end
