@@ -29,7 +29,8 @@ namespace :db do
       confirmed_at: now,
       work_types: WorkType.limit(rand(3)).order('RANDOM()'),
       skills: FFaker::Lorem.paragraph(11),
-      accomodation: type == 'host' ? FFaker::Lorem.paragraph(8) : nil
+      accomodation: type == 'host' ? FFaker::Lorem.paragraph(8) : nil,
+      availability: (1..12).to_a.sample(rand(12) + 1)
   end
 
   #
