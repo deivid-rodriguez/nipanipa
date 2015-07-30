@@ -37,7 +37,6 @@ PreCommit:
 
   RuboCop:
     enabled: true
-    flags: ['--display-cop-names', '--force-exclusion']
 
   ScssLint:
     enabled: true
