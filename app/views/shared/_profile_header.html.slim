@@ -31,7 +31,10 @@
       ul.nav.nav-tabs
         - tab_builder(user).each do |tab, options|
           li class="#{page_id == tab ? 'active' : ''}"
-            = link_to_unless_current(options[:name], options[:path])
+            - if options[:path] == url_for(locale: I18n.locale)
+              = options[:name]
+            - else
+              = link_to(options[:name], options[:path])
 
     .action-tabs.col-md-5.col-sm-12.col-xs-12
       ul.nav.nav-tabs
