@@ -159,10 +159,8 @@ RSpec.describe 'User profile index' do
   let!(:vol_available) { create(:volunteer, :available_just_now) }
   let!(:vol_not_available) { create(:volunteer, :not_available) }
 
-  before { visit users_path }
-
   shared_examples_for 'a list of available profiles' do
-    it 'lists only available profiles by default' do
+    it 'lists only available profiles' do
       expect(page).to have_selector('li', text: host_available.name)
       expect(page).to have_selector('li', text: vol_available.name)
       expect(page).not_to have_selector('li', text: host_not_available.name)
@@ -170,67 +168,91 @@ RSpec.describe 'User profile index' do
     end
   end
 
-  it_behaves_like 'a list of available profiles'
+  shared_examples_for 'a list of available hosts' do
+    it 'lists only available hosts' do
+      expect(page).to have_selector('li', text: host_available.name)
+      expect(page).not_to have_selector('li', text: vol_available.name)
+      expect(page).not_to have_selector('li', text: host_not_available.name)
+      expect(page).not_to have_selector('li', text: vol_not_available.name)
+    end
+  end
 
-  describe 'availability filters' do
-    describe 'now' do
-      before { click_link t('users.filters.now') }
+  shared_examples_for 'a list of available volunteers' do
+    it 'lists only available volunteers' do
+      expect(page).not_to have_selector('li', text: host_available.name)
+      expect(page).to have_selector('li', text: vol_available.name)
+      expect(page).not_to have_selector('li', text: host_not_available.name)
+      expect(page).not_to have_selector('li', text: vol_not_available.name)
+    end
+  end
 
-      it_behaves_like 'a list of available profiles'
+  def apply_filter(name)
+    visit users_path
+    click_link t("users.filters.#{name}")
+  end
+
+  describe 'anonymous defaults' do
+    before { visit users_path }
+
+    it_behaves_like 'a list of available profiles'
+  end
+
+  describe 'volunteer defaults' do
+    before do
+      mock_sign_in vol_available
+      visit users_path
     end
 
-    describe 'whenever' do
-      before { click_link t('users.filters.whenever') }
+    it_behaves_like 'a list of available hosts'
+  end
 
-      it 'shows correct list' do
-        expect(page).to have_selector('li', text: host_available.name)
-        expect(page).to have_selector('li', text: vol_available.name)
-        expect(page).to have_selector('li', text: host_not_available.name)
-        expect(page).to have_selector('li', text: vol_not_available.name)
-      end
+  describe 'host defaults' do
+    before do
+      mock_sign_in host_available
+      visit users_path
+    end
+
+    it_behaves_like 'a list of available volunteers'
+  end
+
+  describe 'available now' do
+    before { apply_filter('now') }
+
+    it_behaves_like 'a list of available profiles'
+  end
+
+  describe 'available whenever' do
+    before { apply_filter('whenever') }
+
+    it 'shows correct list' do
+      expect(page).to have_selector('li', text: host_available.name)
+      expect(page).to have_selector('li', text: vol_available.name)
+      expect(page).to have_selector('li', text: host_not_available.name)
+      expect(page).to have_selector('li', text: vol_not_available.name)
     end
   end
 
   describe 'host profiles' do
-    describe 'filtering' do
-      before { click_link t('users.filters.hosts') }
+    before { apply_filter('hosts') }
 
-      it 'lists only available hosts' do
-        expect(page).to have_selector('li', text: host_available.name)
-        expect(page).not_to have_selector('li', text: vol_available.name)
-        expect(page).not_to have_selector('li', text: host_not_available.name)
-        expect(page).not_to have_selector('li', text: vol_not_available.name)
-      end
-    end
+    it_behaves_like 'a list of available hosts'
+  end
 
-    describe 'unfiltering' do
-      before { click_link t('users.filters.all') }
+  describe 'all profiles' do
+    before { apply_filter('all') }
 
-      it_behaves_like 'a list of available profiles'
-    end
+    it_behaves_like 'a list of available profiles'
   end
 
   describe 'volunteer profiles' do
-    describe 'filtering' do
-      before { click_link t('users.filters.volunteers') }
+    before { apply_filter('volunteers') }
 
-      it 'shows correct list' do
-        expect(page).not_to have_selector('li', text: host_available.name)
-        expect(page).to have_selector('li', text: vol_available.name)
-        expect(page).not_to have_selector('li', text: host_not_available.name)
-        expect(page).not_to have_selector('li', text: vol_not_available.name)
-      end
-    end
-
-    describe 'unfiltering' do
-      before { click_link t('users.filters.all') }
-
-      it_behaves_like 'a list of available profiles'
-    end
+    it_behaves_like 'a list of available volunteers'
   end
 
   describe 'mixed filters' do
     before do
+      visit users_path
       click_link t('users.filters.hosts')
       click_link t('users.filters.whenever')
     end

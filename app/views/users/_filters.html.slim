@@ -8,11 +8,11 @@ ul.nav.nav-pills.nav-stacked
 
   li.nav-header= t '.people'
 
-  li class=('active' unless params[:type])
+  li class=('active' if filter_class == User)
     = link_to t('.all'), users_path(sym_params.except(:type))
-  li class=('active' if params[:type] == 'host')
+  li class=('active' if filter_class == Host)
     = link_to t('.hosts'), users_path(sym_params.merge(type: 'host'))
-  li class=('active' if params[:type] == 'volunteer')
+  li class=('active' if filter_class == Volunteer)
     = link_to t('.volunteers'), users_path(sym_params.merge(type: 'volunteer'))
 
   li.nav-header= t '.places'

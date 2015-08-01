@@ -16,7 +16,7 @@ class UsersController < Devise::RegistrationsController
   end
 
   def index
-    users = resource_class.confirmed
+    users = filter_class.confirmed
     users = users.currently_available unless params[:availability] == 'any'
     users = users.from_continent(params[:con_id].to_i) if params[:con_id]
     users = users.from_country(params[:cou_id].to_i) if params[:cou_id]
@@ -103,8 +103,17 @@ class UsersController < Devise::RegistrationsController
   # Correctly resolve actual class from params
   #
   def resource_class
-    params[:type].present? ? params[:type].classify.constantize : super
+    params[:type].classify.constantize
   end
+
+  def filter_class
+    return resource_class if params[:type].present?
+    return User unless current_user
+
+    current_user.is_a?(Host) ? Volunteer : Host
+  end
+
+  helper_method :filter_class
 
   #
   # Use a single devise mapping for both classes
