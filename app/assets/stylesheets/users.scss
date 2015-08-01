@@ -333,9 +333,13 @@
     color: $green-dark;
     font-size: 11px;
     font-weight: bold;
-    padding: 3px0;
+    padding-top: 13px;
     text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
     text-transform: uppercase;
+
+    &:first-child {
+      padding-top: 0;
+    }
   }
 }
 
