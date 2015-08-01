@@ -295,11 +295,9 @@
 .sidebar-users {
   @include make-md-column(3);
   background-color: $gray-super-light;
-  border-radius: 4px;
   margin-bottom: 20px;
 
   li {
-    border-radius: 4px;
     list-style-type: none;
 
     > a {
