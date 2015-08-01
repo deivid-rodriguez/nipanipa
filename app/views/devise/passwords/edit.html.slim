@@ -1,20 +1,17 @@
 - provide :title, t('.title')
 
-.form-thumbnail
-  .header
-    = image_tag 'host1_small.png', alt: 'host'
-    = image_tag 'volunteer1_small.png', alt: 'volunteer'
-    = image_tag 'explore_small.png', alt: 'explore'
-    h2= t '.title'
+.devise-page.row
+  h2= t '.title'
 
-  = simple_form_for resource, url: user_password_path,
-                              html: { method: :put } do |f|
-    = devise_error_messages!
+  .form-thumbnail
+    = simple_form_for resource, url: user_password_path,
+                                html: { method: :put },
+                                wrapper: :vertical_form do |f|
+      = devise_error_messages!
 
-    = f.hidden_field :reset_password_token
+      = f.hidden_field :reset_password_token
 
-    = f.input :password, autofocus: true, label: false
+      = f.input :password, autofocus: true, label: false
+      = f.input :password_confirmation, autofocus: true, label: false
 
-    = f.input :password_confirmation, autofocus: true, label: false
-
-    = f.button :submit, t('.change_pwd'), class: 'primary-button'
+      = f.button :submit, t('.change_pwd'), class: 'primary-button'
