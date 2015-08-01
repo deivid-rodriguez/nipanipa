@@ -276,19 +276,18 @@
 
 @mixin active-pill {
   .active {
-    background-color: $green-dark;
-
-    &:hover {
-      background-color: $green-dark;
-    }
-
     > a {
-      background-color: transparent;
+      background-color: $green-dark;
+      border-radius: 4px;
       color: $white;
 
       &:hover {
-        background-color: transparent;
+        background-color: $green-dark;
       }
+    }
+
+    > ul > li {
+      background-color: $gray-super-light;
     }
   }
 }
@@ -315,7 +314,11 @@
 
     > ul {
       @include active-pill;
-      padding-left: 20px;
+      padding-left: 0;
+
+      > li {
+        padding-left: 20px;
+      }
 
       a:hover {
         background-color: $gray-very-light;
