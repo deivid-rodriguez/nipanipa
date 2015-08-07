@@ -29,7 +29,7 @@ class Feedback < ActiveRecord::Base
 
   def update_karma
     if new_record?
-      if score.value != 0
+      unless score == :neutral
         recipient.karma += score.value
         recipient.save
       end
@@ -40,7 +40,7 @@ class Feedback < ActiveRecord::Base
   end
 
   def remove_karma
-    return unless score.value != 0
+    return if score == :neutral
 
     recipient.karma -= score.value
     recipient.save
