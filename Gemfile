@@ -10,7 +10,7 @@ gem 'kaminari', '0.16.3'
 gem 'simple_form', '~> 3.1'
 gem 'devise', '~> 3.5'
 gem 'cancancan', '~> 1.10'
-gem 'enumerize', '0.11.0'
+gem 'enumerize', '1.0.0'
 gem 'cocoon', '~> 1.2'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick', '~> 4.2'
@@ -37,10 +37,10 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.5'
   gem 'ffaker', '~> 2.0'
   gem 'overcommit', '0.27.0', require: false
-  gem 'rubocop', '0.32.1', require: false
+  gem 'rubocop', '0.33.0', require: false
   gem 'slim_lint', '0.6.0', require: false
   gem 'scss_lint', '0.40.1', require: false
-  gem 'travis', '~> 1.7', require: false
+  gem 'travis', github: 'travis-ci/travis.rb', ref: '67ceb99d04', require: false
 end
 
 group :development do

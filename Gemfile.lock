@@ -10,9 +10,25 @@ GIT
 
 GIT
   remote: git://github.com/deivid-rodriguez/byebug.git
-  revision: 5df7f802d90f331abd20f97c4eff526c1897e9ae
+  revision: deb12638f4a6aed6282bb882dafec300510dfae5
   specs:
     byebug (5.0.0)
+
+GIT
+  remote: git://github.com/travis-ci/travis.rb.git
+  revision: 67ceb99d045be341090c971ecb54fa7aa3e1cf1b
+  ref: 67ceb99d04
+  specs:
+    travis (1.8.0)
+      addressable (~> 2.3)
+      backports
+      faraday (~> 0.9)
+      faraday_middleware (~> 0.9, >= 0.9.1)
+      gh (~> 0.13)
+      highline (~> 1.6)
+      launchy (~> 2.1)
+      pusher-client (~> 0.4)
+      typhoeus (~> 0.6, >= 0.6.8)
 
 GEM
   remote: https://rubygems.org/
@@ -68,14 +84,14 @@ GEM
     addressable (2.3.8)
     arbre (1.0.3)
       activesupport (>= 3.0.0)
-    arel (6.0.2)
-    ast (2.0.0)
+    arel (6.0.3)
+    ast (2.1.0)
     astrolabe (1.3.1)
       parser (~> 2.2)
     autoprefixer-rails (5.2.1.1)
       execjs
       json
-    backports (3.6.5)
+    backports (3.6.6)
     bcrypt (3.1.10)
     bootstrap-sass (3.3.5.1)
       autoprefixer-rails (>= 5.0.0.1)
@@ -131,12 +147,12 @@ GEM
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
-    enumerize (0.11.0)
+    enumerize (1.0.0)
       activesupport (>= 3.2)
     erubis (2.7.0)
     ethon (0.7.4)
       ffi (>= 1.3.0)
-    eventmachine (1.0.7)
+    eventmachine (1.0.8)
     execjs (2.5.2)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
@@ -160,7 +176,7 @@ GEM
       multi_json (~> 1.0)
       net-http-persistent (>= 2.7)
       net-http-pipeline
-    globalid (0.3.5)
+    globalid (0.3.6)
       activesupport (>= 4.1.0)
     guard (2.13.0)
       formatador (>= 0.2.4)
@@ -176,7 +192,7 @@ GEM
       em-websocket (~> 0.5)
       guard (~> 2.8)
       multi_json (~> 1.8)
-    guard-rspec (4.6.3)
+    guard-rspec (4.6.4)
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
@@ -186,7 +202,7 @@ GEM
     has_scope (0.6.0)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
-    highline (1.7.2)
+    highline (1.7.3)
     http_parser.rb (0.6.0)
     i18n (0.7.0)
     inherited_resources (1.6.0)
@@ -194,7 +210,7 @@ GEM
       has_scope (~> 0.6.0.rc)
       railties (>= 3.2, < 5)
       responders
-    iniparse (1.4.0)
+    iniparse (1.4.1)
     jquery-rails (4.0.4)
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
@@ -222,9 +238,9 @@ GEM
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
     mime-types (2.6.1)
-    mini_magick (4.2.7)
+    mini_magick (4.2.9)
     mini_portile (0.6.2)
-    minitest (5.7.0)
+    minitest (5.8.0)
     multi_json (1.11.2)
     multipart-post (2.0.0)
     nenv (0.2.0)
@@ -248,9 +264,9 @@ GEM
     polyamorous (1.2.0)
       activerecord (>= 3.0)
     powerpack (0.1.1)
-    pry (0.9.12.6)
-      coderay (~> 1.0)
-      method_source (~> 0.8)
+    pry (0.10.1)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
       slop (~> 3.4)
     pusher-client (0.6.2)
       json
@@ -326,7 +342,7 @@ GEM
       rspec-mocks (~> 3.3.0)
       rspec-support (~> 3.3.0)
     rspec-support (3.3.0)
-    rubocop (0.32.1)
+    rubocop (0.33.0)
       astrolabe (~> 1.3)
       parser (>= 2.2.2.5, < 3.0)
       powerpack (~> 0.1)
@@ -386,17 +402,6 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
-    travis (1.8.0)
-      addressable (~> 2.3)
-      backports
-      faraday (~> 0.9)
-      faraday_middleware (~> 0.9, >= 0.9.1)
-      gh (~> 0.13)
-      highline (~> 1.6)
-      launchy (~> 2.1)
-      pry (~> 0.9, < 0.10)
-      pusher-client (~> 0.4)
-      typhoeus (~> 0.6, >= 0.6.8)
     typhoeus (0.7.2)
       ethon (>= 0.7.4)
     tzinfo (1.2.2)
@@ -438,7 +443,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1)
   database_cleaner (~> 1.4)
   devise (~> 3.5)
-  enumerize (= 0.11.0)
+  enumerize (= 1.0.0)
   factory_girl_rails (~> 4.5)
   ffaker (~> 2.0)
   guard-livereload (~> 2.4)
@@ -459,7 +464,7 @@ DEPENDENCIES
   rails_autolink (~> 1.1)
   rb-inotify (= 0.9.5)
   rspec-rails (~> 3.2)
-  rubocop (= 0.32.1)
+  rubocop (= 0.33.0)
   ruby-progressbar (~> 1.7)
   rubyzip (~> 1.1)
   sass-rails (~> 5.0)
@@ -470,7 +475,7 @@ DEPENDENCIES
   slim-rails (~> 3.0)
   slim_lint (= 0.6.0)
   spring (~> 1.3)
-  travis (~> 1.7)
+  travis!
   uglifier (~> 2.7)
   unicorn-rails (~> 2.2)
   webmock (~> 1.21)
