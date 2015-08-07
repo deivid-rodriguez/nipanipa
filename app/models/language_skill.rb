@@ -3,8 +3,7 @@
 #
 class LanguageSkill < ActiveRecord::Base
   extend Enumerize
-  enumerize :level,
-            in: [:just_hello, :beginner, :intermediate, :expert, :native]
+  enumerize :level, in: %i(just_hello beginner intermediate expert native)
 
   validates :level, presence: true
 
