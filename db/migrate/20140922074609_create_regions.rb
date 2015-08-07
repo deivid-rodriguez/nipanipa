@@ -9,8 +9,10 @@ class CreateRegions < ActiveRecord::Migration
       t.index [:code, :country_id], unique: true
     end
 
-    reversible do |direction|
-      direction.up { Rake::Task['db:maxmind:regions'].invoke }
+    unless Rails.env.test?
+      reversible do |direction|
+        direction.up { Rake::Task['db:maxmind:regions'].invoke }
+      end
     end
   end
 end
