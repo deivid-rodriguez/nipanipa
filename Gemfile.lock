@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/carrierwaveuploader/carrierwave.git
-  revision: 37cf31d34fa411db20e99cc654195020b06202c3
+  revision: c60ee75291de332fa341308d837f4cb0c15d44ca
   specs:
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
@@ -10,9 +10,9 @@ GIT
 
 GIT
   remote: git://github.com/deivid-rodriguez/byebug.git
-  revision: 49fed16bf34dd3429be68d08cc624dad72f7ecc9
+  revision: 5da3825374d0d7f4113f1c658736f3960d914c81
   specs:
-    byebug (5.0.0)
+    byebug (6.0.0)
 
 GIT
   remote: git://github.com/travis-ci/travis.rb.git
@@ -231,7 +231,7 @@ GEM
     listen (3.0.3)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
-    loofah (2.0.2)
+    loofah (2.0.3)
       nokogiri (>= 1.5.9)
     lumberjack (1.0.9)
     mail (2.6.3)
