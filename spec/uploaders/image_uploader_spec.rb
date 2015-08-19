@@ -25,7 +25,7 @@ RSpec.describe ImageUploader do
 
   context 'the small version' do
     it 'should scale down a landscape image to be exactly 146x103' do
-      expect(@uploader.small).to have_dimensions(146, 103)
+      expect(@uploader.small).to have_dimensions(145, 103)
     end
   end
 
