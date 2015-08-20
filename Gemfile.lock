@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/carrierwaveuploader/carrierwave.git
-  revision: c60ee75291de332fa341308d837f4cb0c15d44ca
+  revision: 7802f70fa581d1a7ca5728b5e5a75e8bd2720d9f
   specs:
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
@@ -10,9 +10,9 @@ GIT
 
 GIT
   remote: git://github.com/deivid-rodriguez/byebug.git
-  revision: 5da3825374d0d7f4113f1c658736f3960d914c81
+  revision: 2105ea3044bea8dcb88471607759c91db7767ad7
   specs:
-    byebug (6.0.0)
+    byebug (6.0.2)
 
 GIT
   remote: git://github.com/travis-ci/travis.rb.git
@@ -310,7 +310,7 @@ GEM
     rainbow (2.0.0)
     raindrops (0.15.0)
     rake (10.4.2)
-    ransack (1.6.6)
+    ransack (1.7.0)
       actionpack (>= 3.0)
       activerecord (>= 3.0)
       activesupport (>= 3.0)
@@ -387,7 +387,7 @@ GEM
       sysexits (~> 1.1)
     slop (3.6.0)
     spring (1.3.6)
-    sprockets (3.3.1)
+    sprockets (3.3.2)
       rack (~> 1.0)
     sprockets-rails (2.3.2)
       actionpack (>= 3.0)
