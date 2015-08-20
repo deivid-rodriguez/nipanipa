@@ -25,9 +25,9 @@ class ConversationsController < ApplicationController
 
     if @message.save
       @message.notify_recipient
-      flash[:notice] = t('conversations.update.success')
+      flash.now[:notice] = t('conversations.update.success')
     else
-      flash[:error] = t('conversations.update.error')
+      flash.now[:error] = t('conversations.update.error')
     end
 
     respond_with(@message, location: conversation_path(@message.recipient))
