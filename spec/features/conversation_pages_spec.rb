@@ -47,6 +47,10 @@ RSpec.describe 'Display a conversation', :js do
         expect(sent_emails.size).to eq(1)
         expect(last_email.to).to include(message.recipient.email)
       end
+
+      it 'shows a success message' do
+        have_flash_message t('conversations.update.ok'), 'success'
+      end
     end
 
     context 'unsuccessfully' do
