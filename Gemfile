@@ -36,10 +36,10 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.2'
   gem 'factory_girl_rails', '~> 4.5'
   gem 'ffaker', '~> 2.0'
-  gem 'overcommit', '0.27.0', require: false
+  gem 'overcommit', '0.28.0', require: false
   gem 'rubocop', '0.33.0', require: false
-  gem 'slim_lint', '0.6.0', require: false
-  gem 'scss_lint', '0.40.1', require: false
+  gem 'slim_lint', '0.6.1', require: false
+  gem 'scss_lint', '0.41.0', require: false
   gem 'travis', github: 'travis-ci/travis.rb', ref: '67ceb99d04', require: false
 end
 
