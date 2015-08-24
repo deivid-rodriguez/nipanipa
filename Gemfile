@@ -34,7 +34,7 @@ gem 'slim-rails', '~> 3.0'
 group :development, :test do
   gem 'byebug', '~> 6.0', require: false
   gem 'rspec-rails', '~> 3.2'
-  gem 'factory_girl_rails', '~> 4.5'
+  gem 'factory_girl_rails', '~> 4.5', require: false
   gem 'ffaker', '~> 2.0'
   gem 'overcommit', '0.28.0', require: false
   gem 'rubocop', '0.33.0', require: false

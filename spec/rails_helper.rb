@@ -47,7 +47,7 @@ RSpec.configure do |config|
   # Use the core set of syntax methods (build, build_stubbed, create,
   # attributes_for, and their *_list counterparts) without having to call them
   # on FactoryGirl directly
-  require 'factory_girl'
+  require 'factory_girl_rails'
   config.include FactoryGirl::Syntax::Methods
 end
 
