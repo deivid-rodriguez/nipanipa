@@ -32,7 +32,7 @@ gem 'ruby-progressbar', '~> 1.7', require: false
 gem 'slim-rails', '~> 3.0'
 
 group :development, :test do
-  gem 'byebug', github: 'deivid-rodriguez/byebug', require: false
+  gem 'byebug', '~> 6.0', require: false
   gem 'rspec-rails', '~> 3.2'
   gem 'factory_girl_rails', '~> 4.5'
   gem 'ffaker', '~> 2.0'
