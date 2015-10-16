@@ -1,3 +1,5 @@
+require 'ffaker'
+
 namespace :db do
   #
   # Generates a random biased score
