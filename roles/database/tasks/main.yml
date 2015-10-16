@@ -1,5 +1,15 @@
 ---
 
+- name: Import PgSQL apt key
+  apt_key: url=https://www.postgresql.org/media/keys/ACCC4CF8.asc
+           id=ACCC4CF8
+           state=present
+
+- name: Add PgSQL apt repo
+  apt_repository: >
+    repo='deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main'
+    state=present
+
 - name: Update package cache
   apt: update_cache=yes upgrade=full
 
