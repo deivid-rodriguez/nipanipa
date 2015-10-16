@@ -8,6 +8,7 @@
   sudo: yes
   apt: name={{item}} state=present
   with_items:
+    - g++
     - qt5-default
     - libqt5webkit5-dev
 
