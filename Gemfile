@@ -4,7 +4,7 @@ gem 'rails', '~> 4.2'
 gem 'rails-i18n', '~> 4.0'
 gem 'rails_autolink', '~> 1.1'
 
-gem 'pg', '0.18.2'
+gem 'pg', '0.18.3'
 gem 'bcrypt', '~> 3.1'
 gem 'kaminari', '0.16.3'
 gem 'simple_form', '~> 3.1'
@@ -21,10 +21,10 @@ gem 'jquery-rails', '~> 4.0'
 gem 'coffee-rails', '~> 4.1'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'sass-rails', '~> 5.0'
-gem 'autoprefixer-rails', '~> 5.2'
+gem 'autoprefixer-rails', '~> 6.0'
 gem 'uglifier', '~> 2.7'
 
-gem 'activeadmin', '1.0.0.pre1'
+gem 'activeadmin', '1.0.0.pre2'
 
 gem 'rubyzip', '~> 1.1', require: false
 gem 'ruby-progressbar', '~> 1.7', require: false
@@ -36,9 +36,9 @@ group :tools do
   gem 'factory_girl_rails', '~> 4.5'
   gem 'ffaker', '~> 2.0'
   gem 'overcommit', '0.28.0'
-  gem 'rubocop', '0.33.0'
+  gem 'rubocop', '0.34.2'
   gem 'slim_lint', '0.6.1'
-  gem 'scss_lint', '0.41.0'
+  gem 'scss_lint', '0.42.2'
   gem 'travis', github: 'travis-ci/travis.rb', ref: '67ceb99d04'
   gem 'simplecov', '0.10.0'
   gem 'guard-rubocop', '~> 1.2'
