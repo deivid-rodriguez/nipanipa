@@ -115,7 +115,7 @@ than 300 characters"
     new:
       title: Upload a new picture
       subtitle: "Pictures are cool, they provide trust for other users and
-show you are a real person, besides how ugly you are... (kidding!)"
+show you are a real person."
     create:
       success: Picture successfully uploaded!
       error: Error uploading the picture... :(

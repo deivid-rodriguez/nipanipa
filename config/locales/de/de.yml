@@ -118,8 +118,7 @@ nicht länger als 300 Zeichen sein"
     new:
       title: Ein neues Foto hochladen
       subtitle: "Fotos sind cool. Sie zeigen dein Vertrauen in die anderen
-Benutzer und zeigen, dass du auch wirklich ein Mensch bist - ganz
-egal, wie du aussiehst! ;-) "
+Benutzer und zeigen, dass du auch wirklich ein Mensch bist."
     create:
       success: Dein Foto wurde erfolgreich hochgeladen!
       error: Fehler beim Hochladen des Fotos... :(

@@ -117,7 +117,7 @@ los 300 caracteres"
     new:
       title: Agrega una foto
       subtitle: "Las fotos molan, dan confianza y demuestran a los otros
-usuarios que eres una persona de verdad, a parte de lo feo que eres (es broma!)"
+usuarios que eres una persona de verdad."
     create:
       success: Foto subida con éxito!
       error: Error al subir la foto... :(
