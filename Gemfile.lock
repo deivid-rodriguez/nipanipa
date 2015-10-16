@@ -1,6 +1,7 @@
 GIT
   remote: git://github.com/carrierwaveuploader/carrierwave.git
   revision: 49fdad1ec6ca9bb0883b6e193ea64e036e7b48a0
+  ref: 49fdad
   specs:
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
