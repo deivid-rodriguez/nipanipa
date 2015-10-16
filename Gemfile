@@ -64,5 +64,5 @@ group :test do
   gem 'rb-inotify', '0.9.5'
   gem 'libnotify', '0.9.1'
   gem 'webmock', '~> 1.21'
-  gem 'shoulda-matchers', '~> 2.8'
+  gem 'shoulda-matchers', '~> 3.0'
 end

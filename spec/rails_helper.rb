@@ -10,6 +10,7 @@ require 'rspec/rails'
 require 'support/capybara'
 require 'support/database_cleaner'
 require 'support/i18n'
+require 'support/shoulda'
 require 'support/utilities'
 require 'support/webmock'
 
