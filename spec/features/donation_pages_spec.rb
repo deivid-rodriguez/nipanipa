@@ -1,7 +1,6 @@
 #
 # Integration tests for Donation pages
 #
-
 RSpec.describe 'donation', :js do
   subject { page }
 

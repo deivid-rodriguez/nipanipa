@@ -1,7 +1,6 @@
 #
 # Integration tests for Authentication pages
 #
-
 RSpec.describe 'Signin' do
   let(:signin) { t 'sessions.signin' }
   let(:signout) { t 'sessions.signout' }
@@ -77,7 +76,7 @@ RSpec.describe 'Signin' do
       end
     end
   end
-end # signin
+end
 
 RSpec.describe 'Password recovery' do
   let!(:user) { create(:volunteer) }

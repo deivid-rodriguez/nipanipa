@@ -1,7 +1,6 @@
 #
 # Unit tests for Sectorization model
 #
-
 RSpec.describe Sectorization do
   let(:user) { create(:user) }
   let(:work_type) do
@@ -16,6 +15,7 @@ RSpec.describe Sectorization do
 
   describe 'when work_type_id is not present' do
     before { sectorization.work_type_id = '' }
+
     it { should_not be_valid }
   end
 end

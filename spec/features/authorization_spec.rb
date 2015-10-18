@@ -1,7 +1,6 @@
 #
 # Integration tests for Authentication pages
 #
-
 RSpec.describe 'User' do
   describe 'abilities' do
     subject { user }

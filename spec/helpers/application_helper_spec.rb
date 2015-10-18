@@ -1,7 +1,6 @@
 #
 # Unit tests for ApplicationHelper
 #
-
 RSpec.describe ApplicationHelper do
   describe 'full_title' do
     it 'should include the page title' do

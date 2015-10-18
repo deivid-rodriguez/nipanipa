@@ -1,7 +1,6 @@
 #
 # Unit tests for Feedback model
 #
-
 RSpec.describe Feedback do
   let(:feedback) { build(:feedback) }
 
@@ -14,13 +13,16 @@ RSpec.describe Feedback do
 
   describe '#sender' do
     subject { super().sender }
+
     it { is_expected.to eq(feedback.sender) }
   end
 
   describe '#recipient' do
     subject { super().recipient }
+
     it { is_expected.to eq(feedback.recipient) }
   end
+
   it { is_expected.to respond_to(:complement) }
 
   it { is_expected.to be_valid }
@@ -28,22 +30,26 @@ RSpec.describe Feedback do
   describe 'presence validation' do
     context 'when sender is not present' do
       before { feedback.sender = nil }
+
       it { is_expected.not_to be_valid }
     end
 
     context 'when recipient is not present' do
       before { feedback.recipient = nil }
+
       it { is_expected.not_to be_valid }
     end
   end
 
   context 'with blank content' do
     before { feedback.content = ' ' }
+
     it { is_expected.not_to be_valid }
   end
 
   context 'with content that is too long' do
     before { feedback.content = 'a' * 301 }
+
     it { is_expected.not_to be_valid }
   end
 
@@ -51,6 +57,7 @@ RSpec.describe Feedback do
     let!(:other_feedback) do
       create(:feedback, sender: feedback.sender, recipient: feedback.recipient)
     end
+
     it { is_expected.not_to be_valid }
   end
 
@@ -58,7 +65,9 @@ RSpec.describe Feedback do
     let!(:other_feedback) do
       create(:feedback, sender: feedback.recipient, recipient: feedback.sender)
     end
+
     before { feedback.save }
+
     it { is_expected.to eq(other_feedback.complement) }
   end
 

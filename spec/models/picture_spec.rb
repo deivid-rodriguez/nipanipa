@@ -1,7 +1,6 @@
 #
 # Unit tests for Picture model
 #
-
 RSpec.describe Picture do
   let(:picture) { build(:picture) }
 
