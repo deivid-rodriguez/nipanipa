@@ -66,7 +66,7 @@ RSpec.shared_examples_for 'A user profile creation' do
       expect(page).to_not have_link t('sessions.signout')
     end
 
-    it 'redirects the confirmed user to the sign in page' do
+    it 'redirects the unconfirmed user to the sign in page' do
       expect(current_path).to eq(new_user_session_path)
     end
   end
