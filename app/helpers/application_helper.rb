@@ -23,7 +23,9 @@ module ApplicationHelper
   end
 
   def i18n_timeago(timestamp)
-    t 'shared.timestamp_ago', time: time_ago_in_words(timestamp)
+    return t('shared.never') unless timestamp
+
+    t('shared.timestamp_ago', time: time_ago_in_words(timestamp))
   end
 
   def tab_builder(user)

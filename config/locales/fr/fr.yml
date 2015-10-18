@@ -14,7 +14,7 @@ fr:
     current_or_last_login:
       currently_logged_in: ¡Vous êtes en ligne!
       last_login: Dernier accès
-      never: Jamais
+    never: Jamais
     not_specified: Non spécifié
     edit: Éditer
     delete: Efaçer
