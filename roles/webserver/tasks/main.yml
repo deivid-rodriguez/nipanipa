@@ -1,11 +1,9 @@
 ---
 
 - name: Install Ruby
-  sudo: yes
   apt: name=ruby state=present
 
 - name: Make sure capybara-webkit dependencies are satisfied
-  sudo: yes
   apt: name={{item}} state=present
   with_items:
     - g++
@@ -13,11 +11,9 @@
     - libqt5webkit5-dev
 
 - name: Make sure there's a javascript runtime environment
-  sudo: yes
   apt: name=nodejs state=present
 
 - name: Make sure image manipulation dependencies are installed
-  sudo: yes
   apt: name=imagemagick state=present
 
 - name: Install bundler
