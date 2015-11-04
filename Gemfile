@@ -32,7 +32,7 @@ gem 'ruby-progressbar', '~> 1.7', require: false
 gem 'slim-rails', '~> 3.0'
 
 group :tools do
-  gem 'byebug', '~> 6.0'
+  gem 'byebug', '~> 7.0'
   gem 'factory_girl_rails', '~> 4.5'
   gem 'ffaker', '~> 2.0'
   gem 'overcommit', '0.28.0'
