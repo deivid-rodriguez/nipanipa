@@ -10,9 +10,6 @@
     repo='deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main'
     state=present
 
-- name: Update package cache
-  apt: update_cache=yes upgrade=full
-
 - name: Install latest PostgreSQL and Ruby bindings
   apt: pkg={{item}} state=latest
   with_items:
