@@ -8,11 +8,5 @@ class CreateRegions < ActiveRecord::Migration
       t.timestamps null: true
       t.index [:code, :country_id], unique: true
     end
-
-    unless Rails.env.test?
-      reversible do |direction|
-        direction.up { Rake::Task['db:maxmind:regions'].invoke }
-      end
-    end
   end
 end
