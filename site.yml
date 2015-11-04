@@ -2,7 +2,6 @@
 
 - hosts: localhost
   become: true
-  become_method: sudo
   roles:
   - database
   - webserver
