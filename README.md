@@ -11,7 +11,7 @@ This is the sample application for NiPaNiPa
 [Install ansible](http://docs.ansible.com/intro_installation.html) and then run
 the default playbook to install NiPaNiPa's dependencies.
 
-    sudo ansible-playbook -i hosts site.yml
+    ansible-playbook -i hosts site.yml --ask-become-pass
 
 You will need to use some flavour of Linux with the `apt-get` package manager
 for this to work.

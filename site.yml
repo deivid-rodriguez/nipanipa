@@ -5,7 +5,4 @@
   become_method: sudo
   roles:
   - database
-
-- hosts: localhost
-  roles:
   - webserver

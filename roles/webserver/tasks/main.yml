@@ -15,6 +15,3 @@
 
 - name: Make sure image manipulation dependencies are installed
   apt: name=imagemagick state=present
-
-- name: Install bundler
-  gem: name=bundler state=present
