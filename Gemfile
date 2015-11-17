@@ -4,7 +4,7 @@ gem 'rails', '~> 4.2'
 gem 'rails-i18n', '~> 4.0'
 gem 'rails_autolink', '~> 1.1'
 
-gem 'pg', '0.18.3'
+gem 'pg', '0.18.4'
 gem 'bcrypt', '~> 3.1'
 gem 'kaminari', '0.16.3'
 gem 'simple_form', '~> 3.1'
@@ -32,7 +32,7 @@ gem 'ruby-progressbar', '~> 1.7', require: false
 gem 'slim-rails', '~> 3.0'
 
 group :tools do
-  gem 'byebug', '~> 7.0'
+  gem 'byebug', '~> 8.0'
   gem 'factory_girl_rails', '~> 4.5'
   gem 'ffaker', '~> 2.0'
   gem 'overcommit', '0.28.0'
