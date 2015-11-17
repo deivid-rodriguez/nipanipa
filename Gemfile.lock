@@ -442,7 +442,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1)
   database_cleaner (~> 1.4)
   devise (~> 3.5)
-  enumerize (= 1.0.0)
+  enumerize (~> 1.0)
   factory_girl_rails (~> 4.5)
   ffaker (~> 2.0)
   guard-livereload (~> 2.4)
