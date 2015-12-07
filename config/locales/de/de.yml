@@ -197,9 +197,9 @@ anbietest"
       now: Momentan verfügbar
       places: Orte
       people: Leute
-      hosts: Gastgeber
-      volunteers: Freiwillige
-      all: Alle
+      host: Gastgeber
+      user: Alle
+      volunteer: Freiwillige
       wherever: Egal wo
     user:
       karma: Karma

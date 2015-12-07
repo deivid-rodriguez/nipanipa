@@ -233,19 +233,19 @@ RSpec.describe 'User profile index' do
   end
 
   describe 'host profiles' do
-    before { apply_filter('hosts') }
+    before { apply_filter('host') }
 
     it_behaves_like 'a list of available hosts'
   end
 
   describe 'all profiles' do
-    before { apply_filter('all') }
+    before { apply_filter('user') }
 
     it_behaves_like 'a list of available profiles'
   end
 
   describe 'volunteer profiles' do
-    before { apply_filter('volunteers') }
+    before { apply_filter('volunteer') }
 
     it_behaves_like 'a list of available volunteers'
   end
@@ -253,7 +253,7 @@ RSpec.describe 'User profile index' do
   describe 'mixed filters' do
     before do
       visit users_path
-      click_link t('users.filters.hosts')
+      click_link t('users.filters.host')
       click_link t('users.filters.whenever')
     end
 

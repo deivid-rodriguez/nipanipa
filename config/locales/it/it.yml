@@ -193,9 +193,9 @@ volontariato che offri"
       now: Disponibile adesso
       places: Luoghi
       people: Gente
-      hosts: Host
-      volunteers: Volontari
-      all: Tutti
+      host: Host
+      user: Tutti
+      volunteer: Volontari
       wherever: Ovunque
     user:
       karma: karma

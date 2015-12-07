@@ -195,9 +195,9 @@ compétences que vous pouvez offrir à votre hôte?"
       now: Disponible dès maintenant
       places: Lieu
       people: Gens
-      hosts: Hôte
-      volunteers: Volontaires
-      all: Tous
+      host: Hôte
+      user: Tous
+      volunteer: Volontaires
       wherever: N'importe où
     user:
       karma: karma

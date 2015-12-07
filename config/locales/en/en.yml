@@ -193,9 +193,9 @@ host be interested in you?"
       now: Currently available
       places: Places
       people: People
-      hosts: Hosts
-      volunteers: Volunteers
-      all: All
+      host: Hosts
+      user: All
+      volunteer: Volunteers
       wherever: Wherever
     user:
       karma: karma

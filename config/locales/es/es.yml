@@ -195,9 +195,9 @@ oferta"
       now: Disponibles ahora
       places: Lugares
       people: Gente
-      hosts: Anfitriones
-      volunteers: Voluntarios
-      all: Todos
+      host: Anfitriones
+      user: Todos
+      volunteer: Voluntarios
       wherever: Donde sea
     user:
       karma: karma
