@@ -40,7 +40,7 @@ group :tools do
   gem 'slim_lint', '0.6.1'
   gem 'scss_lint', '0.43.2'
   gem 'travis', github: 'travis-ci/travis.rb', ref: '67ceb99d04'
-  gem 'simplecov', '0.10.0'
+  gem 'simplecov', '0.11.1'
   gem 'guard-rubocop', '~> 1.2'
   gem 'guard-rspec', '~> 4.5'
   gem 'guard-livereload', '~> 2.4'
