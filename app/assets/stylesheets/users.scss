@@ -281,7 +281,8 @@
       border-radius: 4px;
       color: $white;
 
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: $green-dark;
       }
     }

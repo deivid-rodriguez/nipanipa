@@ -1,28 +1,31 @@
 ul.nav.nav-pills.nav-stacked
   li.nav-header= t '.availability'
 
-  li class=('active' if params[:availability].nil?)
-    = link_to t('.now'), users_path(sym_params.except(:availability))
-  li class=('active' if params[:availability] == 'any')
-    = link_to t('.whenever'), users_path(sym_params.merge(availability: 'any'))
+  li.availability[id='now' class=('active' if params[:availability].nil?)]
+    = link_to t('.now'),
+              users_path(sym_params.except(:availability)),
+              remote: true
+
+  li.availability[id='whenever'
+                  class=('active' if params[:availability] == 'any')]
+    = link_to t('.whenever'),
+              users_path(sym_params.merge(availability: 'any')),
+              remote: true
 
   li.nav-header= t '.people'
 
   - %w(user host volunteer).each do |type|
-    li class=('active' if filter_class.name.downcase == type)
-      = link_to t(".#{type}"), users_path(sym_params.merge(type: type))
+    li.type[id=type class=('active' if filter_class.name.downcase == type)]
+      = link_to t(".#{type}"),
+                users_path(sym_params.merge(type: type)),
+                remote: true
 
   li.nav-header= t '.places'
 
-  li class=('active' unless params[:con_id] || params[:cou_id])
-    = link_to t('.wherever'), users_path(sym_params.except(:con_id, :cou_id))
+  li.continent class=('active' unless params[:con_id] || params[:cou_id])
+    = link_to t('.wherever'),
+              users_path(sym_params.except(:con_id, :cou_id)),
+              remote: true
+
   - Continent.find_each do |con|
-    - con_code = con.code.downcase
-    li.continent class=('active' if params[:con_id] == con.id.to_s)
-      = link_to t("continents.#{con_code}"),
-                users_path(sym_params.except(:cou_id).merge(con_id: con.id))
-      ul
-        - con.countries.with_users.sort_by(&:name).each do |cou|
-          li class=('active' if params[:cou_id] == cou.id.to_s)
-            - to = users_path(sym_params.except(:con_id).merge(cou_id: cou.id))
-            = link_to t("countries.#{con_code}.#{cou.code.downcase}"), to
+    = render 'continents/show', con: con

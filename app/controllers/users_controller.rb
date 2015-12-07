@@ -21,6 +21,11 @@ class UsersController < Devise::RegistrationsController
     users = users.from_continent(params[:con_id].to_i) if params[:con_id]
     users = users.from_country(params[:cou_id].to_i) if params[:cou_id]
     @users = users.by_latest_sign_in.page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show

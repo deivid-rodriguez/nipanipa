@@ -1,0 +1,24 @@
+| $('.user-thumbnails').html("#{j render(@users)}");
+| $('.pagination').html("#{j paginate(@users)}");
+
+| $('.availability, .type, .continent').removeClass('active');
+| $('.continent > ul > .country').removeClass('active');
+
+- if params[:availability] == 'now'
+  | $('#now').addClass('active');
+- else
+  | $('#whenever').addClass('active');
+
+| $("##{filter_class.name.downcase}").addClass('active');
+
+- if params[:con_id]
+  | $("#continent-#{params[:con_id]}").addClass('active');
+
+  | $('.continent > ul').hide();
+  | $("#continent-#{params[:con_id]} > ul").show();
+
+- elsif params[:cou_id]
+  | $("#country-#{params[:cou_id]}").addClass('active');
+
+- else
+  | $('.continent:first').addClass('active');
