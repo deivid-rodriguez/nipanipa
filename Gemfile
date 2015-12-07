@@ -38,7 +38,7 @@ group :tools do
   gem 'overcommit', '0.28.0'
   gem 'rubocop', '0.34.2'
   gem 'slim_lint', '0.6.1'
-  gem 'scss_lint', '0.42.2'
+  gem 'scss_lint', '0.43.2'
   gem 'travis', github: 'travis-ci/travis.rb', ref: '67ceb99d04'
   gem 'simplecov', '0.10.0'
   gem 'guard-rubocop', '~> 1.2'

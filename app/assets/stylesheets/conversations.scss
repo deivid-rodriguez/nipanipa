@@ -72,7 +72,7 @@ $message-height: 103px;
     position: relative;
 
     // creates triangle
-    &:after {
+    ::after {
       border-color: $gray-very-light transparent;
       border-style: solid;
       content: '';
@@ -133,7 +133,7 @@ $message-height: 103px;
   .message-content {
     text-align: right;
 
-    &:after {
+    ::after {
       border-width: $arrow-size $arrow-size 0 0;
       right: -$arrow-size;
     }
@@ -158,7 +158,7 @@ $message-height: 103px;
   .message-content {
     text-align: left;
 
-    &:after {
+    ::after {
       border-width: $arrow-size 0 0 $arrow-size;
       left: -$arrow-size;
     }
