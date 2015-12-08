@@ -16,11 +16,7 @@ class UsersController < Devise::RegistrationsController
   end
 
   def index
-    users = filter_class.confirmed
-    users = users.currently_available unless params[:availability] == 'any'
-    users = users.from_continent(params[:con_id].to_i) if params[:con_id]
-    users = users.from_country(params[:cou_id].to_i) if params[:cou_id]
-    @users = users.by_latest_sign_in.page(params[:page])
+    @users = apply_filters.by_latest_sign_in.page(params[:page])
 
     respond_to do |format|
       format.html
@@ -43,6 +39,14 @@ class UsersController < Devise::RegistrationsController
   end
 
   private
+
+  def apply_filters
+    users = filter_class.confirmed
+    users = users.currently_available if params[:availability].nil?
+    users = users.from_continent(params[:con_id].to_i) if params[:con_id]
+    users = users.from_country(params[:cou_id].to_i) if params[:cou_id]
+    users
+  end
 
   #
   # Override devise redirections
@@ -81,19 +85,20 @@ class UsersController < Devise::RegistrationsController
     send("#{resource_class.to_s.downcase}_params")
   end
 
-  def user_fields
+  def proper_fields
+    %i(description email name password password_confirmation region_id skills)
+  end
+
+  def nested_fields
     [
-      :description,
-      :email,
-      :name,
-      :password,
-      :password_confirmation,
-      :region_id,
-      :skills,
       availability: [],
       work_type_ids: [],
       language_skills_attributes: [:id, :language_id, :level, :_destroy]
     ]
+  end
+
+  def user_fields
+    proper_fields + nested_fields
   end
 
   def host_params

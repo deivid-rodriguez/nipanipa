@@ -6,6 +6,7 @@
     = f.input :score, as: :radio_buttons,
                       wrapper: :vertical_radio_and_checkboxes
     = f.input :content
+    = f.hidden_field :recipient_id, value: @user.id
 
   = field_set_tag t('.feedback_for_nipa') do
     - if @feedback.donation && @feedback.donation.amount

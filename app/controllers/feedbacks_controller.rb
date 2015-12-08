@@ -9,7 +9,7 @@ class FeedbacksController < ApplicationController
 
   def new
     @feedback = current_user.sent_feedbacks.new
-    @feedback.recipient = @user
+
     @feedback.build_donation
     session[:return_to] = request.referer
     authorize! :new, @feedback
@@ -17,14 +17,10 @@ class FeedbacksController < ApplicationController
 
   def create
     @feedback = current_user.sent_feedbacks.new(feedback_params)
-    @feedback.recipient = @user
     authorize! :create, @feedback
+
     if @feedback.save
-      if (donation = @feedback.donation)
-        redirect_to donation.paypal_url(donation_url(donation.id))
-      else
-        redirect_to session[:return_to], notice: t('feedbacks.create.success')
-      end
+      donate_or_redirect(@feedback.donation, :create)
     else
       flash.now[:error] = t('feedbacks.create.error')
       render 'new'
@@ -45,11 +41,7 @@ class FeedbacksController < ApplicationController
     authorize! :update, @feedback
 
     if @feedback.update(feedback_params)
-      if (donation = @feedback.donation)
-        redirect_to donation.paypal_url(donation_url(donation.id))
-      else
-        redirect_to session[:return_to], notice: t('feedbacks.update.success')
-      end
+      donate_or_redirect(@feedback.donation, :update)
     else
       flash.now[:error] = t('feedbacks.update.error')
       render 'edit'
@@ -66,9 +58,19 @@ class FeedbacksController < ApplicationController
 
   private
 
+  def donate_or_redirect(donation, action)
+    if donation
+      redirect_to donation.paypal_url(donation_url(donation.id))
+    else
+      redirect_to session[:return_to], notice: t("feedbacks.#{action}.success")
+    end
+  end
+
   def feedback_params
-    params.require(:feedback)
-      .permit(:content, :score, donation_attributes: [:amount, :user_id])
+    params.require(:feedback).permit(:content,
+                                     :score,
+                                     :recipient_id,
+                                     donation_attributes: [:amount, :user_id])
   end
 
   def load_user

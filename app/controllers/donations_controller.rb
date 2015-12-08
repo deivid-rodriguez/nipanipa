@@ -17,13 +17,9 @@ class DonationsController < ApplicationController
 
   def show
     @donation = Donation.find(params[:id])
-    response = Donation.send_pdt_post(params[:tx])
-    if response.body.lines.first.chomp == 'SUCCESS'
-      flash[:notice] = t('donations.create.success')
-    else
-      flash[:alert] = t('donations.create.error')
-    end
-    redirect_to session[:return_to] || @donation.user || root_path
+    resp = Donation.send_pdt_post(params[:tx])
+
+    redirect_to return_path, flash_message(resp)
   end
 
   # We don't activate IPN for now
@@ -32,6 +28,18 @@ class DonationsController < ApplicationController
   # end
 
   private
+
+  def flash_message(resp)
+    if resp.body.lines.first.chomp == 'SUCCESS'
+      { notice: t('donations.create.success') }
+    else
+      { alert: t('donations.create.error') }
+    end
+  end
+
+  def return_path
+    session[:return_to] || @donation.user || root_path
+  end
 
   def donation_params
     params.require(:donation).permit(:amount, :feedback_id, :user_id)

@@ -43,12 +43,7 @@ module ApplicationHelper
   end
 
   def link_builder(user)
-    return [{ name: t('.edit'),
-              dest: edit_user_registration_path,
-              class: 'pencil' },
-            { name: t('.delete'),
-              dest: confirm_delete_account_path,
-              class: 'trash' }] if current_user && user == current_user
+    return owner_links if current_user && user == current_user
 
     [{ name: t('.new_message'),
        dest: conversation_path(user),
@@ -56,6 +51,15 @@ module ApplicationHelper
      { name: t('.new_feedback'),
        dest: feedback_destination(current_user, user),
        class: 'ok' }]
+  end
+
+  def owner_links
+    [{ name: t('.edit'),
+       dest: edit_user_registration_path,
+       class: 'pencil' },
+     { name: t('.delete'),
+       dest: confirm_delete_account_path,
+       class: 'trash' }]
   end
 
   #

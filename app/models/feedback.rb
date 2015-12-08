@@ -28,15 +28,15 @@ class Feedback < ActiveRecord::Base
   end
 
   def update_karma
-    if new_record?
-      unless score == :neutral
-        recipient.karma += score.value
-        recipient.save
-      end
-    elsif score_changed? && score_was && score.value != score_was
-      recipient.karma += (score.value - score_was)
-      recipient.save
-    end
+    recipient.karma += if new_record?
+                         score.value
+                       elsif score_changed? && score_was
+                         score.value - score_was
+                       else
+                         0
+                       end
+
+    recipient.save
   end
 
   def remove_karma

@@ -3,16 +3,14 @@
 #
 namespace :db do
   def load_countries
-    puts 'Loading country information from our YAML files...'
+    data = YAML.load(File.read("#{Rails.root}/config/locales/en/geo.yml"))['en']
 
-    data = YAML.load(File.read("#{Rails.root}/config/locales/en/geo.yml"))
-    data['en']['continents'].each do |continent_code, _|
-      con_iso = continent_code.upcase
-      continent = Continent.find_or_create_by!(code: con_iso)
+    traverse(data['continents']) do |con_code|
+      continent = Continent.find_or_create_by!(code: con_code.upcase)
 
-      data['en']['countries'][continent_code].each do |country_code, _|
-        cou_iso = country_code.upcase
-        Country.find_or_create_by!(code: cou_iso, continent_id: continent.id)
+      traverse(data['countries'][con_code]) do |cou_code|
+        Country.find_or_create_by!(code: cou_code.upcase,
+                                   continent_id: continent.id)
       end
     end
   end
@@ -21,24 +19,32 @@ namespace :db do
     require 'maxmind_importer'
     importer = Maxmind::Importer.new
 
-    puts 'Downloading region information from MaxMind...'
+    puts 'Downloading regions...'
     importer.download!
 
     puts 'Extracting information to disk...'
     importer.extract!
 
-    puts 'Loading regions into database'
+    puts 'Loading regions into database...'
     importer.insert!
+  end
+
+  private
+
+  def traverse(hash)
+    hash.each { |code, _| yield(code) }
   end
 
   namespace :maxmind do
     desc 'Load country (and continent) info into db'
     task countries: :environment do
+      puts 'Loading country information from our YAML files...'
       load_countries
     end
 
     desc 'Load regions into db'
     task regions: :environment do
+      puts 'Loading region information from Maxmind...'
       load_regions
     end
   end
