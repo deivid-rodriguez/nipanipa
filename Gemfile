@@ -57,7 +57,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '~> 2.4'
+  gem 'capybara', github: 'jnicklas/capybara', ref: '89ddd5b6e36a2f01055d475dfb'
   gem 'database_cleaner', '~> 1.4'
   gem 'capybara-webkit', '~> 1.5'
   gem 'launchy', '~> 2.4'
