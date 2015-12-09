@@ -14,6 +14,7 @@ class Donation < ActiveRecord::Base
       return: return_url,
       invoice: id
     }
+
     ENV['PAYPAL_URL'] + values.to_query
   end
 
