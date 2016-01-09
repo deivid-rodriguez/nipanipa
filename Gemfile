@@ -39,7 +39,7 @@ group :tools do
   gem 'rubocop', '0.34.2'
   gem 'slim_lint', '0.6.1'
   gem 'scss_lint', '0.43.2'
-  gem 'travis', github: 'travis-ci/travis.rb'
+  gem 'travis', '~> 1.8'
   gem 'simplecov', '0.11.1'
   gem 'guard-rubocop', '~> 1.2'
   gem 'guard-rspec', '~> 4.5'

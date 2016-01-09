@@ -19,21 +19,6 @@ GIT
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
 
-GIT
-  remote: git://github.com/travis-ci/travis.rb.git
-  revision: 67ceb99d045be341090c971ecb54fa7aa3e1cf1b
-  specs:
-    travis (1.8.0)
-      addressable (~> 2.3)
-      backports
-      faraday (~> 0.9)
-      faraday_middleware (~> 0.9, >= 0.9.1)
-      gh (~> 0.13)
-      highline (~> 1.6)
-      launchy (~> 2.1)
-      pusher-client (~> 0.4)
-      typhoeus (~> 0.6, >= 0.6.8)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -403,6 +388,15 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.1)
+    travis (1.8.1)
+      backports
+      faraday (~> 0.9)
+      faraday_middleware (~> 0.9, >= 0.9.1)
+      gh (~> 0.13)
+      highline (~> 1.6)
+      launchy (~> 2.1)
+      pusher-client (~> 0.4)
+      typhoeus (~> 0.6, >= 0.6.8)
     typhoeus (0.8.0)
       ethon (>= 0.8.0)
     tzinfo (1.2.2)
@@ -477,7 +471,7 @@ DEPENDENCIES
   slim-rails (~> 3.0)
   slim_lint (= 0.6.1)
   spring (~> 1.3)
-  travis!
+  travis (~> 1.8)
   uglifier (~> 2.7)
   unicorn-rails (~> 2.2)
   webmock (~> 1.21)
