@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
     where(countries: { continent_id: continent_id })
   end
 
-  scope :by_latest_sign_in, -> { order(last_sign_in_at: :desc) }
+  scope :by_latest_sign_in, -> { order('last_sign_in_at DESC NULLS LAST') }
 
   scope :confirmed, -> { where.not(confirmed_at: nil) }
 

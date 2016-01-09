@@ -123,6 +123,17 @@ RSpec.describe User do
   end
 
   describe 'scopes' do
+    describe '.by_latest_sign_in' do
+      let(:never_signed_in) { create(:user, last_sign_in_at: nil) }
+      let(:just_signed_in) { create(:user, last_sign_in_at: 2.seconds.ago) }
+      let(:signed_in_a_while_ago) { create(:user, last_sign_in_at: 1.year.ago) }
+
+      it 'sorts by sign in time' do
+        expect(User.by_latest_sign_in).to \
+          eq([just_signed_in, signed_in_a_while_ago, never_signed_in])
+      end
+    end
+
     describe '.from_continent' do
       let!(:user) { create(:user, continent: create(:continent)) }
 
