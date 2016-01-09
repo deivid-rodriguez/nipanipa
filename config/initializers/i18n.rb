@@ -6,7 +6,7 @@ module I18n
   class << self
     def missing_translations_log
       @missing_translations_log ||=
-         Logger.new(Rails.root.join('log', 'missing_translations.log'))
+        Logger.new(Rails.root.join('log', 'missing_translations.log'))
     end
 
     def missing_translations_log_handler(exception, _locale, _key, _options)

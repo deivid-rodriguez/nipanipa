@@ -71,7 +71,7 @@ module ApplicationHelper
     alert: 'alert-danger',
     notice: 'alert-success',
     info: 'alert-info'
-  }
+  }.freeze
 
   def bootstrap_class_for(flash_type)
     BOOTSTRAP_FLASH_MSG.fetch(flash_type.to_sym, flash_type.to_s)

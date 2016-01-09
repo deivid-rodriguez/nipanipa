@@ -2,10 +2,10 @@ require 'webmock'
 
 RSpec.configure do |_config|
   WebMock::API.stub_request(:get, /.*sandbox\.paypal\.com.*/)
-    .to_return(status: 200, body: '', headers: {})
+              .to_return(status: 200, body: '', headers: {})
 
   WebMock::API.stub_request(:get, /.*flattr\..*/)
-    .to_return(status: 200, body: '', headers: {})
+              .to_return(status: 200, body: '', headers: {})
 
   WebMock.disable_net_connect!(allow_localhost: true)
 end
@@ -21,12 +21,13 @@ def paypal_tx
 end
 
 def mock_paypal_pdt(status)
-  WebMock::API.stub_request(:post, ENV['PAYPAL_URL'])
+  WebMock::API
+    .stub_request(:post, ENV['PAYPAL_URL'])
     .with(body: { at: ENV['PAYPAL_PDT_AT'],
                   cmd: '_notify-synch',
                   tx: paypal_tx },
           headers: { 'Accept' => '*/*',
                      'Content-Type' => 'application/x-www-form-urlencoded',
                      'User-Agent' => 'Ruby' })
-    .to_return(status: 200, body: "#{status}", headers: {})
+    .to_return(status: 200, body: status.to_s, headers: {})
 end

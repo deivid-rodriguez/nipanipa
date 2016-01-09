@@ -36,7 +36,7 @@ group :tools do
   gem 'factory_girl_rails', '~> 4.5'
   gem 'ffaker', '~> 2.0'
   gem 'overcommit', '0.30.0'
-  gem 'rubocop', '0.34.2'
+  gem 'rubocop', github: 'bbatsov/rubocop'
   gem 'slim_lint', '0.6.1'
   gem 'scss_lint', '0.43.2'
   gem 'travis', '~> 1.8'

@@ -36,4 +36,4 @@ set :ssh_options, forward_agent: true
 #   }
 # setting per server overrides global ssh_options
 
-fetch(:default_env).merge!(rails_env: :production)
+fetch(:default_env)[:rails_env] = :production

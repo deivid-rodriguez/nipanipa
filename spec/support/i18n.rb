@@ -4,7 +4,7 @@ require 'yaml'
 # Utilities for testing InternationalizatioN support
 #
 module I18nHelpers
-  PLURALIZATION_KEYS = %w(zero one two few many other)
+  PLURALIZATION_KEYS = %w(zero one two few many other).freeze
 
   def load_locales
     base_i18n_files.each do |file|

@@ -15,7 +15,7 @@ ul.nav.nav-pills.nav-stacked
   li.nav-header= t '.people'
 
   - %w(user host volunteer).each do |type|
-    li.type[id=type class=('active' if filter_class.name.downcase == type)]
+    li.type[id=type class=('active' if filter_class.name.casecmp(type))]
       = link_to t(".#{type}"),
                 users_path(sym_params.merge(type: type)),
                 remote: true

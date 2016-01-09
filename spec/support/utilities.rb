@@ -29,9 +29,9 @@ def sign_out
 end
 
 def reply(text)
-  fill_in 'message_body', with: "#{text}"
+  fill_in 'message_body', with: text.to_s
   click_button t('helpers.submit.message.create')
-  expect(page).to have_content "#{text}" # assert text appears before going on
+  expect(page).to have_content text.to_s # assert text appears before going on
 end
 
 RSpec::Matchers.define :become do |count|

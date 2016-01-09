@@ -103,9 +103,9 @@ module Maxmind
       Zip.on_exists_proc = true
 
       Zip::File.open(local_zip_path)
-        .glob("*/#{csv_file_name}")
-        .first
-        .extract(local_csv_path)
+               .glob("*/#{csv_file_name}")
+               .first
+               .extract(local_csv_path)
 
       extract_succeeded?
     end
@@ -153,7 +153,7 @@ module Maxmind
     def download_succeeded?
       remote_zip_file_checksum == zip_file_checksum
     end
-    alias_method :remote_zip_file_unchanged?, :download_succeeded?
+    alias remote_zip_file_unchanged? download_succeeded?
 
     def extract_succeeded?
       !File.zero?(local_csv_path)

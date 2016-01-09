@@ -5,11 +5,12 @@ AllCops:
     - db/schema.rb
     - db/migrate/*.rb
 
-  RunRailsCops: true
-
   DisplayCopNames: true
 
   DisplayStyleGuide: true
+
+Rails:
+  Enabled: true
 
 Style/ModuleFunction:
   Enabled: false
