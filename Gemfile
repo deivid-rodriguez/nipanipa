@@ -55,7 +55,7 @@ end
 group :test do
   gem 'capybara', github: 'jnicklas/capybara'
   gem 'database_cleaner', '~> 1.4'
-  gem 'capybara-webkit', '~> 1.5'
+  gem 'poltergeist', '~> 1.8'
   gem 'launchy', '~> 2.4'
   gem 'rb-inotify', '0.9.5'
   gem 'libnotify', '0.9.1'

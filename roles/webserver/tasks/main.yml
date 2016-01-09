@@ -1,11 +1,7 @@
 ---
 
-- name: Make sure capybara-webkit dependencies are satisfied
-  apt: name={{item}} state=present
-  with_items:
-    - g++
-    - qt5-default
-    - libqt5webkit5-dev
+- name: Make sure phantomjs is installed
+  apt: name=phantomjs state=present
 
 - name: Make sure there's a javascript runtime environment
   apt: name=nodejs state=present

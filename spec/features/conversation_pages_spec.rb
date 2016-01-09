@@ -20,7 +20,9 @@ RSpec.describe 'Display a conversation', :js do
   before do
     mock_sign_in(message.sender)
     visit conversations_path
-    find_link("show-link-#{message.recipient.id}").trigger('click')
+
+    click_link("show-link-#{message.recipient.id}")
+    expect(page).to have_selector('#message_body')
   end
 
   it 'lists all messages between the users' do
