@@ -12,7 +12,7 @@ gem 'devise', '~> 3.5'
 gem 'cancancan', '~> 1.10'
 gem 'enumerize', '~> 1.0'
 gem 'cocoon', '~> 1.2'
-gem 'carrierwave', github: 'carrierwaveuploader/carrierwave', ref: '49fdad'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick', '~> 4.2'
 gem 'quiet_assets', '~> 1.1'
 
@@ -39,7 +39,7 @@ group :tools do
   gem 'rubocop', '0.34.2'
   gem 'slim_lint', '0.6.1'
   gem 'scss_lint', '0.43.2'
-  gem 'travis', github: 'travis-ci/travis.rb', ref: '67ceb99d04'
+  gem 'travis', github: 'travis-ci/travis.rb'
   gem 'simplecov', '0.11.1'
   gem 'guard-rubocop', '~> 1.2'
   gem 'guard-rspec', '~> 4.5'
@@ -57,7 +57,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', github: 'jnicklas/capybara', ref: '89ddd5b6e36a2f01055d475dfb'
+  gem 'capybara', github: 'jnicklas/capybara'
   gem 'database_cleaner', '~> 1.4'
   gem 'capybara-webkit', '~> 1.5'
   gem 'launchy', '~> 2.4'

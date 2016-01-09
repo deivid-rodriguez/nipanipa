@@ -1,7 +1,6 @@
 GIT
   remote: git://github.com/carrierwaveuploader/carrierwave.git
   revision: 49fdad1ec6ca9bb0883b6e193ea64e036e7b48a0
-  ref: 49fdad
   specs:
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
@@ -12,7 +11,6 @@ GIT
 GIT
   remote: git://github.com/jnicklas/capybara.git
   revision: 89ddd5b6e36a2f01055d475dfbee020fcbb15e44
-  ref: 89ddd5b6e36a2f01055d475dfb
   specs:
     capybara (2.6.0.dev)
       mime-types (>= 1.16)
@@ -24,7 +22,6 @@ GIT
 GIT
   remote: git://github.com/travis-ci/travis.rb.git
   revision: 67ceb99d045be341090c971ecb54fa7aa3e1cf1b
-  ref: 67ceb99d04
   specs:
     travis (1.8.0)
       addressable (~> 2.3)
