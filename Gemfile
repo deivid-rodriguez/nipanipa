@@ -41,16 +41,12 @@ group :tools do
   gem 'scss_lint', '0.43.2'
   gem 'travis', '~> 1.8'
   gem 'simplecov', '0.11.1'
-  gem 'guard-rubocop', '~> 1.2'
-  gem 'guard-rspec', '~> 4.5'
-  gem 'guard-livereload', '~> 2.4'
 end
 
 gem 'rspec-rails', '~> 3.2', groups: %i(development test)
 
 group :development do
   gem 'spring', '~> 1.3'
-  gem 'rack-livereload', '0.3.16'
   gem 'letter_opener', '~> 1.4'
   gem 'capistrano-rails', '~> 1.1'
   gem 'unicorn-rails', '~> 2.2'
