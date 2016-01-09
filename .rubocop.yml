@@ -24,3 +24,6 @@ Style/Lambda:
 
 Style/ExtraSpacing:
   Enabled: true
+
+Performance/CaseCmp:
+  Enabled: false
