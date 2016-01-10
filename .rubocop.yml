@@ -9,6 +9,8 @@ AllCops:
 
   DisplayStyleGuide: true
 
+  TargetRubyVersion: 2.0
+
 Rails:
   Enabled: true
 
