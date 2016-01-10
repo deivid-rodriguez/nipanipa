@@ -17,11 +17,6 @@ class UsersController < Devise::RegistrationsController
 
   def index
     @users = apply_filters.by_latest_sign_in.page(params[:page])
-
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def show
