@@ -1,4 +1,4 @@
-require 'webmock'
+require 'webmock/rspec'
 
 RSpec.configure do |_config|
   WebMock::API.stub_request(:get, /.*sandbox\.paypal\.com.*/)
