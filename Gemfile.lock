@@ -75,7 +75,7 @@ GEM
       activesupport (>= 3.0.0)
     arel (6.0.3)
     ast (2.2.0)
-    autoprefixer-rails (6.2.3)
+    autoprefixer-rails (6.3.1)
       execjs
       json
     backports (3.6.7)
