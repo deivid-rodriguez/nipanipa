@@ -168,7 +168,7 @@ end
 RSpec.describe 'Listing feedbacks' do
   let!(:feedbacks) { create_list(:feedback, 3, recipient: create(:host)) }
 
-  shared_examples 'feedback list' do
+  shared_examples_for 'feedback list' do
     it 'has first feedback content' do
       expect(page).to have_selector 'li', text: feedbacks[0].content
     end

@@ -88,7 +88,7 @@ RSpec.describe 'Password recovery' do
     click_link t('sessions.forgot_your_pwd?')
   end
 
-  shared_examples 'paranoid' do
+  shared_examples_for 'paranoid' do
     it 'has a success flash message' do
       expect(page).to have_flash_message paranoid_msg, 'success'
     end
