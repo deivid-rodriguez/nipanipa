@@ -15,19 +15,26 @@ class Donation < ActiveRecord::Base
       invoice: id
     }
 
-    ENV['PAYPAL_URL'] + values.to_query
+    uri = self.class.base_uri
+    uri.query = values.to_query
+    uri.to_s
   end
 
   def self.send_pdt_post(tx)
-    uri = URI.parse(ENV['PAYPAL_URL'])
-    http = Net::HTTP.new(uri.host, uri.port)
+    http = Net::HTTP.new(base_uri.host, base_uri.port)
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
-    request = Net::HTTP::Post.new(uri.request_uri)
+    request = Net::HTTP::Post.new(base_uri.request_uri)
     post_params = { tx: tx, at: ENV['PAYPAL_PDT_AT'], cmd: '_notify-synch' }
     request.set_form_data(post_params)
 
     http.request(request)
+  end
+
+  def self.base_uri
+    URI::HTTP.build(host: ENV['PAYPAL_HOST'],
+                    port: ENV['PAYPAL_PORT'],
+                    path: '/cgi-bin/websrc')
   end
 end

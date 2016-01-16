@@ -5,7 +5,8 @@ development:
   DB_USER: nipanipa
   DB_PASS: nipanipa
   MAIL_HOST: localhost:3000
-  PAYPAL_URL: 'https://www.sandbox.paypal.com/cgi-bin/webscr?'
+  PAYPAL_HOST: www.sandbox.paypal.com
+  PAYPAL_PORT: 443
   PAYPAL_PDT_AT: ihDkGClTsjbX-7eAsFrzOHwyNlSgcArJDCEWI5dl8fMLE1I5dBrIrCzGdqm
   PAYPAL_ACCOUNT: nipa_1359995225_biz@gmail.com
 
@@ -27,6 +28,7 @@ test:
   DB_USER: nipanipa
   DB_PASS: nipanipa
   MAIL_HOST: example.com
-  PAYPAL_URL: 'https://www.sandbox.paypal.com/cgi-bin/websrc?'
+  PAYPAL_HOST: localhost
+  PAYPAL_PORT: 5678
   PAYPAL_PDT_AT: pdtidentitytoken
   PAYPAL_ACCOUNT: test@example.com

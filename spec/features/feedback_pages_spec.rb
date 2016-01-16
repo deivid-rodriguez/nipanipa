@@ -1,7 +1,7 @@
 #
 # Integration tests for Feedback pages
 #
-RSpec.describe 'Leaving feedback' do
+RSpec.describe 'Leaving feedback', :with_fake_paypal do
   let!(:feedback) { build(:feedback) }
   let(:feedback_btn) { t('helpers.submit.feedback.create') }
 
@@ -60,15 +60,12 @@ RSpec.describe 'Leaving feedback' do
     end
   end
 
-  context 'with valid information and donation', :js do
+  context 'with valid information and donation' do
     before do
       choose 'feedback_score_positive'
       fill_in 'feedback[content]', with: feedback.content
       select '20', from: 'feedback[donation_attributes][amount]'
-      mock_paypal_pdt('SUCCESS')
       click_button feedback_btn
-      visit "/en/donations/1?tx=#{paypal_tx}&st=Completed&amt=20.00&cc=USD" \
-            "&cm=&item_number=&sig=#{paypal_signature}"
     end
 
     it 'correctly updates db' do
@@ -145,13 +142,10 @@ RSpec.describe 'Editing feedbacks' do
     end
   end
 
-  context 'with valid information and donation', :js do
+  context 'with valid information and donation', :with_fake_paypal do
     before do
       select '20', from: 'feedback[donation_attributes][amount]'
-      mock_paypal_pdt('SUCCESS')
       click_button feedback_btn
-      visit "/en/donations/1?tx=#{paypal_tx}&st=Completed&amt=20.00&cc=USD" \
-            "&cm=&item_number=&sig=#{paypal_signature}"
     end
 
     it 'correctly updates db' do

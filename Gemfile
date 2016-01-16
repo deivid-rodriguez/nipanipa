@@ -41,6 +41,7 @@ group :tools do
   gem 'scss_lint', '0.43.2'
   gem 'travis', '~> 1.8'
   gem 'simplecov', '0.11.1'
+  gem 'sinatra', '~> 1.4'
 end
 
 gem 'rspec-rails', '~> 3.2', groups: %i(development test)

@@ -1,10 +1,10 @@
 #
 # Integration tests for Donation pages
 #
-RSpec.describe 'donation', :js do
+RSpec.describe 'donation' do
   subject { page }
 
-  describe 'shows a flattr button' do
+  describe 'shows a flattr button', :js do
     before do
       visit root_path
       click_link t('layouts.header.donate')
@@ -15,39 +15,20 @@ RSpec.describe 'donation', :js do
     end
   end
 
-  describe 'allows users to contribute to our cause' do
+  describe 'leaving a donation', :with_fake_paypal do
     before do
       visit new_donation_path
       select '20', from: 'donation[amount]'
       click_button t('helpers.submit.donation.create')
+    end
 
+    it 'saves the donation in database' do
       expect { Donation.count }.to become(1)
     end
 
-    context 'when successful donation' do
-      before do
-        mock_paypal_pdt('SUCCESS')
-        visit "/en/donations/1?tx=#{paypal_tx}&st=Completed&amt=20.00&cc=USD" \
-              "&cm=&item_number=&sig=#{paypal_signature}"
-      end
-
-      it 'shows a success flash message' do
-        expect(page).to \
-          have_flash_message t('donations.create.success'), 'success'
-      end
-    end
-
-    context 'when unsuccessful donation' do
-      before do
-        mock_paypal_pdt('FAIL')
-        visit "/en/donations/1?tx=#{paypal_tx}&st=Completed&amt=20.00&cc=USD" \
-              "&cm=&item_number=&sig=#{paypal_signature}"
-      end
-
-      it 'shows an error flash message' do
-        expect(page).to \
-          have_flash_message t('donations.create.error'), 'danger'
-      end
+    it 'shows a success flash message' do
+      expect(page).to \
+        have_flash_message t('donations.create.success'), 'success'
     end
   end
 end
