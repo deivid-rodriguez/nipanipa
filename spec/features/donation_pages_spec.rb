@@ -2,8 +2,6 @@
 # Integration tests for Donation pages
 #
 RSpec.describe 'donation' do
-  subject { page }
-
   describe 'shows a flattr button', :js do
     before do
       visit root_path

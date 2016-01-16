@@ -40,8 +40,6 @@ end
 RSpec.describe 'Protected pages' do
   let!(:user) { create(:host) }
 
-  subject { page }
-
   shared_examples 'all protected pages' do
     it 'stores redirects back after log in and then forgets' do
       visit protected_page
