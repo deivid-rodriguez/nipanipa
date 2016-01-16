@@ -23,7 +23,6 @@ class Donation < ActiveRecord::Base
   def self.send_pdt_post(tx)
     http = Net::HTTP.new(base_uri.host, base_uri.port)
     http.use_ssl = true
-    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
     request = Net::HTTP::Post.new(base_uri.request_uri)
     post_params = { tx: tx, at: ENV['PAYPAL_PDT_AT'], cmd: '_notify-synch' }
