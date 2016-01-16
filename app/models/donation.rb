@@ -6,17 +6,8 @@ class Donation < ActiveRecord::Base
   belongs_to :feedback
 
   def paypal_url(return_url)
-    values = {
-      business: ENV['PAYPAL_ACCOUNT'],
-      cmd: '_donations',
-      item_name: 'Friends of NiPaNiPa',
-      amount: amount,
-      return: return_url,
-      invoice: id
-    }
-
     uri = self.class.base_uri
-    uri.query = values.to_query
+    uri.query = query(return_url)
     uri.to_s
   end
 
@@ -29,6 +20,19 @@ class Donation < ActiveRecord::Base
     request.set_form_data(post_params)
 
     http.request(request)
+  end
+
+  def query(return_url)
+    values = {
+      business: ENV['PAYPAL_ACCOUNT'],
+      cmd: '_donations',
+      item_name: 'Friends of NiPaNiPa',
+      amount: amount,
+      return: return_url,
+      invoice: id
+    }
+
+    values.to_query
   end
 
   def self.base_uri

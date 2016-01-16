@@ -38,9 +38,17 @@ class UsersController < Devise::RegistrationsController
   def apply_filters
     users = filter_class.confirmed
     users = users.currently_available if params[:availability].nil?
-    users = users.from_continent(params[:con_id].to_i) if params[:con_id]
-    users = users.from_country(params[:cou_id].to_i) if params[:cou_id]
+    users = users.from_continent(continent_id.to_i) if continent_id
+    users = users.from_country(country_id.to_i) if country_id
     users
+  end
+
+  def country_id
+    params[:cou_id]
+  end
+
+  def continent_id
+    params[:con_id]
   end
 
   #
