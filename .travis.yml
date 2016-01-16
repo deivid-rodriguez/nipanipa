@@ -9,7 +9,8 @@ rvm:
 
 env:
   global:
-  - PAYPAL_URL=https://www.sandbox.paypal.com/cgi-bin/webscr?
+  - PAYPAL_HOST: localhost
+  - PAYPAL_PORT: 5678
   - MAIL_HOST=example.com
   - secure: |-
       AmR6J1S8LHM/0eq79r9grp83BQc6bJHFfA73LQBtu/qwr5t4r89i8XCD5FYj
