@@ -54,7 +54,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', github: 'jnicklas/capybara'
+  gem 'capybara', '~> 2.6'
   gem 'database_cleaner', '~> 1.4'
   gem 'poltergeist', '~> 1.8'
   gem 'launchy', '~> 2.4'
