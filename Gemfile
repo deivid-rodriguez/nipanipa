@@ -37,7 +37,7 @@ group :tools do
   gem 'ffaker', '~> 2.0'
   gem 'overcommit', '0.30.0'
   gem 'rubocop', '0.36.0'
-  gem 'slim_lint', '0.6.1'
+  gem 'slim_lint', github: 'sds/slim-lint'
   gem 'scss_lint', '0.43.2'
   gem 'travis', '~> 1.8'
   gem 'simplecov', '0.11.1'
