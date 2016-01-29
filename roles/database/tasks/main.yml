@@ -26,7 +26,7 @@
 - name: Configure PostgreSQL with md5 authentication
   lineinfile: dest=/etc/postgresql/{{pg_version}}/main/pg_hba.conf
               regexp='^(local  *all  *all  *)'
-              line='\1md5'
+              line='\1trust'
               backrefs=yes
   register: pgconf
 
