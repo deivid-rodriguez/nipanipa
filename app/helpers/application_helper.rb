@@ -28,18 +28,25 @@ module ApplicationHelper
     t('shared.timestamp_ago', time: time_ago_in_words(timestamp))
   end
 
-  def tab_builder(user)
-    tabs = {
-      general: { name: t('.general'), path: user_path(user) },
-      feedback: { name: t('.feedback'), path: user_feedbacks_path(user) },
-      pictures: { name: t('.pictures'), path: user_pictures_path(user) }
-    }
+  def active_if_same_canonical(path)
+    return '' unless path == url_for(locale: I18n.locale)
 
-    if user_signed_in? && current_user == user
-      tabs[:messages] = { name: t('.messages'), path: conversations_path }
-    end
+    'active'
+  end
 
-    tabs
+  def owner_tabs(user)
+    [
+      { name: t('.general'), path: user_path(user) },
+      { name: t('.feedback'), path: user_feedbacks_path(user) },
+      { name: t('.pictures'), path: user_pictures_path(user) }
+    ]
+  end
+
+  def tabs_for(user)
+    tabs = owner_tabs(user)
+    return tabs unless user_signed_in? && current_user == user
+
+    tabs + [{ name: t('.messages'), path: conversations_path }]
   end
 
   def link_builder(user)

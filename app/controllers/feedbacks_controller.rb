@@ -5,7 +5,6 @@ class FeedbacksController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :load_user, only: [:new, :create, :index, :edit, :update]
   before_action :load_feedback, only: [:edit, :update, :destroy]
-  before_action :set_page_id, only: [:index]
 
   def new
     @feedback = current_user.sent_feedbacks.new
@@ -79,9 +78,5 @@ class FeedbacksController < ApplicationController
 
   def load_feedback
     @feedback = current_user.sent_feedbacks.find(params[:id])
-  end
-
-  def set_page_id
-    @page_id = :feedback
   end
 end

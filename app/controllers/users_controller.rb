@@ -20,14 +20,12 @@ class UsersController < Devise::RegistrationsController
   end
 
   def show
-    @page_id = :general
     @user = User.find(params[:id])
     @feedback_pairs = Feedback.pairs(@user)
   end
 
   def edit
     @user = current_user
-    @page_id = :edit
   end
 
   def delete

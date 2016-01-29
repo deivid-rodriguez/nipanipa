@@ -152,47 +152,12 @@
     .user-tabs {
       @include make-row;
 
-      > div {
-        padding: 0;
-      }
-
-      //
-      // Override bootstrap to mimic link behavior in active tabs (without links)
-      // TODO: Research if there's something like this built-in in bootstrap
-      .nav-tabs > li > a,
-      .nav-tabs > .active {
-        border: 1px solid transparent;
-        line-height: 1.5;
-        margin-right: 0;
-      }
-
-      .nav > li > a,
-      .nav > .active {
-        display: block;
-        position: relative;
-      }
-
-      .profile-tabs {
-        padding: 0;
-
-        .nav-tabs > li > a,
-        .nav-tabs > .active {
-          padding: 10px 15px;
-        }
-      }
-
       .action-tabs {
         padding: 0;
 
-        .nav-tabs > li > a,
-        .nav-tabs > .active {
-          border-radius: 0;
-          padding: 10px 0;
+        .action-tab {
+          padding: 0;
         }
-      }
-
-      .action-tab {
-        padding: 0 10px;
       }
     }
   }

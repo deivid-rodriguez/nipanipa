@@ -29,12 +29,9 @@
   .user-tabs
     .profile-tabs.col-md-7.col-sm-12.col-xs-12
       ul.nav.nav-tabs
-        - tab_builder(user).each do |tab, options|
-          li class="#{page_id == tab ? 'active' : ''}"
-            - if options[:path] == url_for(locale: I18n.locale)
-              = options[:name]
-            - else
-              = link_to(options[:name], options[:path])
+        - tabs_for(user).each do |options|
+          li class=active_if_same_canonical(options[:path])
+            = link_to(options[:name], options[:path])
 
     .action-tabs.col-md-5.col-sm-12.col-xs-12
       ul.nav.nav-tabs

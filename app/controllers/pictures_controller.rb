@@ -21,7 +21,6 @@ class PicturesController < ApplicationController
   end
 
   def index
-    @page_id = :pictures
     @pictures = @user.pictures
   end
 

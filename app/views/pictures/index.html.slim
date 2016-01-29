@@ -1,7 +1,7 @@
 - provide :title, t('.title')
 
 div class="profile-header-#{@user.type.underscore}"
-  = render 'shared/profile_header', user: @user, page_id: @page_id
+  = render 'shared/profile_header', user: @user
 
 .profile-content
   - if can? :manage, @user
