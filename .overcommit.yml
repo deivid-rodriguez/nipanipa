@@ -33,7 +33,20 @@ PreCommit:
   HardTabs:
     enabled: true
 
+
+  ImageOptim:
+    enabled: true
+
   LocalPathsInGemfile:
+    enabled: true
+
+  MergeConflicts:
+    enabled: true
+
+  Mdl:
+    enabled: true
+
+  RailsSchemaUpToDate:
     enabled: true
 
   RuboCop:
@@ -55,3 +68,7 @@ PreCommit:
   YamlSyntax:
     enabled: true
     required_files: true
+
+PrePush:
+  RSpec:
+    enabled: true
