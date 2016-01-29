@@ -11,17 +11,8 @@ development:
   PAYPAL_ACCOUNT: nipa_1359995225_biz@gmail.com
 
 production:
-  DB_NAME: ''
-  DB_USER: ''
-  DB_PASS: ''
-  MAIL_SERVER: ''
-  MAIL_HOST: ''
-  MAIL_USER: ''
-  MAIL_PASS: ''
-  SECRET_TOKEN: ''
-  PAYPAL_URL: ''
-  PAYPAL_PDT_AT: ''
-  PAYPAL_ACCOUNT: ''
+  DB_NAME: nipanipa_production
+  DB_USER: nipanipa
 
 test:
   DB_NAME: nipanipa_test
