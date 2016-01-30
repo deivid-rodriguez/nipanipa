@@ -114,16 +114,20 @@ class UsersController < Devise::RegistrationsController
   # Correctly resolve actual class from params
   #
   def resource_class
-    params[:type].classify.constantize
+    return unless params[:type]
+
+    [Volunteer, Host].find { |klass| klass.name == params[:type].classify }
   end
 
-  def filter_class
-    return resource_class if params[:type].present?
+  def resource_class_from_current_user
     return User unless current_user
 
     current_user.is_a?(Host) ? Volunteer : Host
   end
 
+  def filter_class
+    resource_class || resource_class_from_current_user
+  end
   helper_method :filter_class
 
   #

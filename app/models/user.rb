@@ -63,7 +63,7 @@ class User < ActiveRecord::Base
   end
 
   scope :currently_available, -> { available_in?(Time.zone.now.mon) }
-  scope :available_in?, ->(m) { where("availability_mask & #{2**(m - 1)} > 0") }
+  scope :available_in?, ->(m) { where('availability_mask & ? > 0', 2**(m - 1)) }
 
   def availability=(availability)
     self.availability_mask = ArrayMask.new((1..12).to_a).mask(availability)

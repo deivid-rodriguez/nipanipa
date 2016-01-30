@@ -32,6 +32,7 @@ gem 'ruby-progressbar', '~> 1.7', require: false
 gem 'slim-rails', '~> 3.0'
 
 group :tools do
+  gem 'brakeman', '~> 3.1'
   gem 'byebug', '~> 8.0'
   gem 'factory_girl_rails', '~> 4.5'
   gem 'image_optim', '0.22.0'

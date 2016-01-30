@@ -22,6 +22,9 @@ CommitMsg:
 # editor is displayed.
 #
 PreCommit:
+  Brakeman:
+    enabled: true
+
   BundleCheck:
     enabled: true
 

@@ -8,8 +8,12 @@ class Message < ActiveRecord::Base
   belongs_to :recipient, class_name: 'User'
 
   scope :between, lambda { |uid1, uid2|
-    where("(sender_id = #{uid1} AND recipient_id = #{uid2}) OR " \
-          "(sender_id = #{uid2} AND recipient_id = #{uid1})")
+    condition = <<-SQL.squish
+      (sender_id = ? AND recipient_id = ?) OR
+      (sender_id = ? AND recipient_id = ?)
+    SQL
+
+    where(condition, uid1, uid2, uid2, uid1)
   }
 
   scope :involving, lambda { |user|
@@ -19,15 +23,17 @@ class Message < ActiveRecord::Base
   }
 
   scope :non_deleted_by, lambda { |uid|
-    where("(sender_id = #{uid} AND deleted_by_sender_at IS NULL) OR " \
-          "(recipient_id = #{uid} AND deleted_by_recipient_at IS NULL)")
+    condition = <<-SQL.squish
+      (sender_id = ? AND deleted_by_sender_at IS NULL) OR
+      (recipient_id = ? AND deleted_by_recipient_at IS NULL)
+    SQL
+
+    where(condition, uid, uid)
   }
 
   def self.delete_by(uid)
-    update_all <<-SQL
-      #{delete_for_user_sql('sender', uid)},
-      #{delete_for_user_sql('recipient', uid)}
-    SQL
+    where(sender_id: uid).update_all(deleted_by_sender_at: Time.zone.now)
+    where(recipient_id: uid).update_all(deleted_by_recipient_at: Time.zone.now)
 
     unscoped do
       delete_all <<-SQL
@@ -37,7 +43,7 @@ class Message < ActiveRecord::Base
   end
 
   def self.sent_or_received_by(uid)
-    where("sender_id = #{uid} OR recipient_id = #{uid}")
+    where('sender_id = ? OR recipient_id = ?', uid, uid)
   end
 
   def self.involving_ids(uid)
@@ -54,15 +60,6 @@ class Message < ActiveRecord::Base
 
   class << self
     private
-
-    def delete_for_user_sql(col, uid)
-      <<-SQL
-        deleted_by_#{col}_at = CASE #{col}_id
-                               WHEN #{uid} THEN LOCALTIMESTAMP
-                               ELSE deleted_by_#{col}_at
-                               END
-      SQL
-    end
 
     def penpal_sql(uid)
       "CASE WHEN sender_id = #{uid} THEN recipient_id ELSE sender_id END"
