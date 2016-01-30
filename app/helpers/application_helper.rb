@@ -49,7 +49,7 @@ module ApplicationHelper
     tabs + [{ name: t('.messages'), path: conversations_path }]
   end
 
-  def link_builder(user)
+  def actions_for(user)
     return owner_links if current_user && user == current_user
 
     [{ name: t('.new_message'),

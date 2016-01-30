@@ -149,14 +149,24 @@
       }
     }
 
-    .user-tabs {
-      @include make-row;
+    .action-group {
+      margin-bottom: 0;
+      padding-left: 0;
 
-      .action-tabs {
-        padding: 0;
+      @media(min-width: 970px) {
+        width: 100%;
 
-        .action-tab {
-          padding: 0;
+        > li {
+          font-size: 1em;
+          width: 50%;
+        }
+      }
+
+      @media(max-width: 969px) {
+        float: right;
+
+        .content-info {
+          display: none;
         }
       }
     }
@@ -184,6 +194,7 @@
   width: 24px;
 }
 
+%content-info,
 .content-info {
   margin-left: 27px;
 }
