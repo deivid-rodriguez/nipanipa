@@ -166,26 +166,18 @@ RSpec.describe 'Editing feedbacks' do
 end
 
 RSpec.describe 'Listing feedbacks' do
-  let!(:feedbacks) { create_list(:feedback, 3, recipient: create(:host)) }
+  let!(:feedback) { create(:feedback, recipient: create(:host)) }
 
   shared_examples_for 'feedback list' do
-    it 'has first feedback content' do
-      expect(page).to have_selector 'li', text: feedbacks[0].content
-    end
-
-    it 'has second feedback content' do
-      expect(page).to have_selector 'li', text: feedbacks[1].content
-    end
-
-    it 'has third feeback content' do
-      expect(page).to have_selector 'li', text: feedbacks[2].content
+    it 'displays feedback content' do
+      expect(page).to have_selector 'li', text: feedback.content
     end
   end
 
   context 'when listing received feedbacks' do
     before do
-      mock_sign_in(feedbacks[0].recipient)
-      visit user_path(feedbacks[0].recipient)
+      mock_sign_in(feedback.recipient)
+      visit user_path(feedback.recipient)
     end
 
     context 'in main profile view' do
@@ -205,8 +197,8 @@ RSpec.describe 'Listing feedbacks' do
 
   context 'when listing sent feedbacks' do
     before do
-      mock_sign_in(feedbacks[0].sender)
-      visit user_path(feedbacks[0].sender)
+      mock_sign_in(feedback.sender)
+      visit user_path(feedback.sender)
     end
 
     context 'in main profile view' do
