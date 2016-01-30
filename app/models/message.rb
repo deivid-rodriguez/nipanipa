@@ -35,11 +35,10 @@ class Message < ActiveRecord::Base
     where(sender_id: uid).update_all(deleted_by_sender_at: Time.zone.now)
     where(recipient_id: uid).update_all(deleted_by_recipient_at: Time.zone.now)
 
-    unscoped do
-      delete_all <<-SQL
-        deleted_by_sender_at IS NOT NULL AND deleted_by_recipient_at IS NOT NULL
-      SQL
-    end
+    unscoped
+      .where
+      .not(deleted_by_sender_at: nil, deleted_by_recipient_at: nil)
+      .delete_all
   end
 
   def self.sent_or_received_by(uid)
