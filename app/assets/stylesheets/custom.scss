@@ -51,7 +51,7 @@ a {
 .navbar {
   background: none;
   border: 0;
-  font-size: 14px;
+  font-size: 1.2em;
   font-weight: bold;
   margin-bottom: 0;
 
@@ -116,7 +116,6 @@ h4 {
 }
 
 p {
-  font-size: 1.1em;
   line-height: 1.7em;
 }
 
@@ -129,7 +128,7 @@ p {
   background-color: whiteSmoke;
   background-image: linear-gradient(to_bottom, $white, $gray-very-light);
   border-radius: 4px;
-  font-size: 14px;
+  font-size: .9em;
   padding: 4px 12px;
 }
 
@@ -150,7 +149,7 @@ header {
   }
 
   .subtitle {
-    font-size: 14px;
+    font-size: .9em;
     margin-bottom: 25px;
     padding-right: 0;
   }

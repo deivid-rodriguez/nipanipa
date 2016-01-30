@@ -35,7 +35,7 @@
 .signin-dropdown {
   @extend %img-thumbnail;
   border: 0;
-  font-size: 12px;
+  font-size: .75em;
   min-width: 250px;
   padding: 10px;
   text-align: left;
@@ -53,6 +53,6 @@
   }
 
   input {
-    font-size: 12px;
+    font-size: .75em;
   }
 }

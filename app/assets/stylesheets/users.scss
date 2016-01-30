@@ -141,7 +141,7 @@
       }
 
       .quickinfo {
-        font-size: 11px;
+        font-size: .9em;
         line-height: 24px;
         margin-bottom: 12px;
         overflow: hidden;
@@ -174,13 +174,13 @@
 }
 
 .no-elements {
-  font-size: 16px;
+  font-size: 1em;
   margin-left: 20px;
 }
 
 .icon-info {
   float: left;
-  font-size: 16px;
+  font-size: 1em;
   width: 24px;
 }
 
@@ -206,7 +206,7 @@
     h3 {
       border-bottom: 1px solid $gray-very-light;
       color: $gray-very-dark;
-      font-size: 16px;
+      font-size: 1.3em;
       margin-bottom: .3em;
     }
 
@@ -297,7 +297,7 @@
 
   .nav-header {
     color: $green-dark;
-    font-size: 11px;
+    font-size: .7em;
     font-weight: bold;
     padding-top: 13px;
     text-transform: uppercase;
