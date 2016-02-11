@@ -41,7 +41,7 @@ namespace :deploy do
     on roles(:web) do
       unless `git rev-parse HEAD` == `git rev-parse origin/master`
         errmsg = 'HEAD not the same as origin/master. Run `git push` to sync.'
-        fail(errmsg)
+        raise(errmsg)
       end
     end
   end

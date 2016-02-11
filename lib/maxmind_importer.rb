@@ -16,7 +16,7 @@ module Maxmind
       scope = where(code: geo.country_code,
                     continents: { code: geo.continent_code })
 
-      fail('Inconsistent Database') if scope.size > 1
+      raise('Inconsistent Database') if scope.size > 1
 
       scope.first
     end
