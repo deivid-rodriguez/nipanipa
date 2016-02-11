@@ -43,7 +43,7 @@ group :tools do
   gem 'slim_lint', '0.7.0'
   gem 'scss_lint', '0.44.0'
   gem 'travis', '~> 1.8'
-  gem 'simplecov', '0.11.1'
+  gem 'simplecov', '0.11.2'
   gem 'sinatra', '~> 1.4'
 end
 
