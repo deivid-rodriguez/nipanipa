@@ -36,7 +36,6 @@ PreCommit:
   HardTabs:
     enabled: true
 
-
   ImageOptim:
     enabled: true
 
