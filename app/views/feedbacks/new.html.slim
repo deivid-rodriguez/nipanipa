@@ -1,8 +1,8 @@
 - provide :title, t('.title', username: @user.name)
 
-.main-page.main-titled
-  .col-md-offset-2.col-md-8.subtitle
-    em= t('.subtitle')
+.main-padded
+  header
+    h1= t('.title', username: @user.name)
+    h2= t('.subtitle')
 
-  .col-md-offset-2.col-md-8.feedback-form
-    = render 'form', user: @user, feedback: @feedback
+  = render 'form', user: @user, feedback: @feedback

@@ -1,13 +1,11 @@
 - provide :title, "Messages with #{@message.recipient.name}"
 
-.main-page.main-titled
-  .col-md-offset-2.col-md-8.title
-    h3= "Messages with #{@message.recipient.name}"
+.main-padded
+  header
+    h1= "Messages with #{@message.recipient.name}"
 
-  .col-md-offset-2.col-md-8
-    ul.no-bullets#chat-list
-      - @conversation.each do |message|
-        = render 'sent', message: message
+  ul.no-bullets#chat-list
+    - @conversation.each do |message|
+      = render 'sent', message: message
 
-  .col-md-offset-2.col-md-8
-    = render 'form', message: @message
+    li= render 'form', message: @message

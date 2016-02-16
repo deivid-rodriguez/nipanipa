@@ -1,7 +1,8 @@
 - provide :title, t('.forgotten?')
 
-.devise-page.row
-  h2= t('.forgotten?')
+.main-padded
+  header
+    h1= t('.forgotten?')
 
   .form-thumbnail
     = simple_form_for resource, url: user_password_path,

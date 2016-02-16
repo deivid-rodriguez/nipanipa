@@ -34,7 +34,7 @@ RSpec.describe 'Static pages' do
 
     it_behaves_like 'all static pages'
 
-    it { is_expected.to have_selector 'h2', text: help }
+    it { is_expected.to have_selector 'h1', text: help }
   end
 
   describe 'About Page' do
@@ -44,7 +44,7 @@ RSpec.describe 'Static pages' do
 
     it_behaves_like 'all static pages'
 
-    it { is_expected.to have_selector 'h2', text: about }
+    it { is_expected.to have_selector 'h1', text: about }
   end
 
   describe 'Contact Page' do
@@ -54,7 +54,7 @@ RSpec.describe 'Static pages' do
 
     it_behaves_like 'all static pages'
 
-    it { is_expected.to have_selector 'h2', text: contact }
+    it { is_expected.to have_selector 'h1', text: contact }
   end
 
   describe 'robots.txt file' do

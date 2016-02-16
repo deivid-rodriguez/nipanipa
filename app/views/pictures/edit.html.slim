@@ -1,11 +1,8 @@
 - provide :title, t('.title')
 
-.main-page.main-titled
-  .col-md-offset-2.col-md-8.title
-    h3= t('.title')
+.main-padded
+  header
+    h1= t('.title')
+    h2= t('.subtitle')
 
-  .col-md-offset-2.col-md-8.subtitle
-    em= t('.subtitle')
-
-  .col-md-offset-2.col-md-8.form
-    = render partial: 'form', object: @pictures
+  = render partial: 'form', object: @pictures

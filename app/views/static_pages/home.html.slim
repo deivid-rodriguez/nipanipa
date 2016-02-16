@@ -1,7 +1,7 @@
 .home-explore
   = link_to users_path, class: 'thmb-lnk' do
     .explore-thumbnail
-      h2= t('static_pages.home.explore')
+      h1= t('static_pages.home.explore')
 
       p= t('static_pages.home.explore_desc')
 
@@ -28,13 +28,13 @@
   = link_to host_registration_path, class: 'thmb-lnk' do
     .host-thumbnail
       = image_tag 'host.png', alt: 'signup host'
-      h2= t('static_pages.home.host')
+      h1= t('static_pages.home.host')
 
       p= t('static_pages.home.host_desc')
 
   = link_to volunteer_registration_path, class: 'thmb-lnk' do
     .volunteer-thumbnail
       = image_tag 'volunteer.png', alt: 'signup volunteer'
-      h2= t('static_pages.home.volunteer')
+      h1= t('static_pages.home.volunteer')
 
       p= t('static_pages.home.volunteer_desc')

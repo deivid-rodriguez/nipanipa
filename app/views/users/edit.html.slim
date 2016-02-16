@@ -1,8 +1,7 @@
 - provide :title, t('.title')
 
-.main-page.main-titled
-  .col-md-12.signup-title
-    h3= t('.header')
+.main-padded
+  header
+    h1= t('.header')
 
-  .col-md-12.signup-form
-    = render 'form', url: update_user_registration_path
+  = render 'form', url: update_user_registration_path

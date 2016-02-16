@@ -15,7 +15,7 @@ RSpec.shared_examples_for 'A user profile creation' do
     role_i18n = t("activerecord.models.#{role}")
     header = t('users.new.header', type: role_i18n).titleize
 
-    expect(page).to have_selector 'h3', text: header
+    expect(page).to have_selector 'h1', text: header
   end
 
   it 'shows correct page title' do
@@ -42,7 +42,7 @@ RSpec.shared_examples_for 'A user profile creation' do
 
   context 'when submitting valid information' do
     before do
-      within '.signup-form' do
+      within '.user-form' do
         fill_in 'user[name]', with: user.name
         fill_in 'user[email]', with: user.email
         fill_in 'user[password]', with: user.password
