@@ -6,11 +6,11 @@ div class="profile-header-#{@user.type.underscore}"
 .profile-content
   .col-md-6
     .box
-      h3= t '.description'
+      h3= t('.description')
       p= simple_format(auto_link(@user.description))
 
     .box
-      h3= t ".skills_#{@user.type.underscore}"
+      h3= t(".skills_#{@user.type.underscore}")
       p= simple_format(@user.skills)
 
   .col-md-6
@@ -20,7 +20,7 @@ div class="profile-header-#{@user.type.underscore}"
 
     - if @user.type == 'Host'
       .box
-        h3= t '.accomodation'
+        h3= t('.accomodation')
         p= simple_format(@user.accomodation)
 
     .box

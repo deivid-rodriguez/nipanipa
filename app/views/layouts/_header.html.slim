@@ -29,7 +29,7 @@ nav.navbar role='navigation'
         - elsif !signup_page?(request.path)
           li.dropdown
             a.dropdown-toggle data-toggle='dropdown' href='#' role='button'
-              = t 'static_pages.home.signup'
+              = t('static_pages.home.signup')
               b.caret
             ul.dropdown-menu.with-small-arrow
               li= link_to t('activerecord.models.host'),
@@ -50,7 +50,7 @@ nav.navbar role='navigation'
               .signin-dropdown = render 'shared/signin'
         li.dropdown
           a.dropdown-toggle data-toggle='dropdown' href='#' role='button'
-            = t '.language'
+            = t('.language')
             b.caret
           ul.dropdown-menu.with-small-arrow
             - Language.where(code: I18n.available_locales).find_each do |lang|

@@ -2,9 +2,9 @@
 # Integration tests for Static pages
 #
 RSpec.describe 'Static pages' do
-  let(:help) { t 'static_pages.help.title' }
-  let(:about) { t 'static_pages.about.title' }
-  let(:contact) { t 'static_pages.contact.title' }
+  let(:help) { t('static_pages.help.title') }
+  let(:about) { t('static_pages.about.title') }
+  let(:contact) { t('static_pages.contact.title') }
 
   subject { page }
 

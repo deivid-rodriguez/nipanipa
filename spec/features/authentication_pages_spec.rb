@@ -2,9 +2,9 @@
 # Integration tests for Authentication pages
 #
 RSpec.describe 'Signin' do
-  let(:signin) { t 'sessions.signin' }
-  let(:signout) { t 'sessions.signout' }
-  let(:profile) { t 'users.show.profile' }
+  let(:signin) { t('sessions.signin') }
+  let(:signout) { t('sessions.signout') }
+  let(:profile) { t('users.show.profile') }
   let(:user) { create(:host) }
 
   before { visit root_path }
