@@ -43,20 +43,14 @@
     @include make-sm-column(4);
   }
 
-  %nested-select {
-    height: 30px;
-  }
-
   .picture-select {
-    @extend %nested-select;
-
+    height: 30px;
     margin: 0 0 10px;
     width: 310px;
   }
 
   .language-select {
-    @extend %nested-select;
-
+    height: 30px;
     padding: 0 20px 10px 0;
 
     > select {
@@ -64,18 +58,13 @@
     }
   }
 
-  %nested-link {
-    line-height: 30px;
-  }
-
   .picture-link {
-    @extend %nested-link;
-
+    line-height: 30px;
     width: 270px;
   }
 
   .language-link {
-    @extend %nested-link;
+    line-height: 30px;
   }
 }
 
@@ -85,78 +74,73 @@
   width: 100%;
 }
 
-// users profile
-%profile-header {
-  @include clearfix();
+.user-picture {
+  @include make-md-column(3);
 
-  position: relative;
+  padding: 18px;
+}
 
-  .user-picture {
-    @include make-md-column(3);
+.user-info {
+  @include make-md-column(9);
 
-    padding: 18px;
+  .user-name {
+    @include make-row;
+
+    padding: 22px 0;
   }
 
-  .user-info {
-    @include make-md-column(9);
+  .user-icons {
+    @include make-row;
 
-    .user-name {
-      @include make-row;
-
-      padding: 22px 0;
+    .user-status,
+    .user-knowledge {
+      @include make-md-column(6);
     }
 
-    .user-icons {
-      @include make-row;
+    .quickinfo {
+      font-size: .9em;
+      line-height: 24px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      padding-left: 10px;
+    }
+  }
 
-      .user-status,
-      .user-knowledge {
-        @include make-md-column(6);
-      }
+  .action-group {
+    margin-bottom: 0;
+    padding-left: 0;
 
-      .quickinfo {
-        font-size: .9em;
-        line-height: 24px;
-        margin-bottom: 12px;
-        overflow: hidden;
-        padding-left: 10px;
+    @media(min-width: 970px) {
+      width: 100%;
+
+      > li {
+        font-size: 1em;
+        width: 50%;
       }
     }
 
-    .action-group {
-      margin-bottom: 0;
-      padding-left: 0;
+    @media(max-width: 969px) {
+      float: right;
 
-      @media(min-width: 970px) {
-        width: 100%;
-
-        > li {
-          font-size: 1em;
-          width: 50%;
-        }
-      }
-
-      @media(max-width: 969px) {
-        float: right;
-
-        .content-info {
-          display: none;
-        }
+      .content-info {
+        display: none;
       }
     }
   }
 }
 
 .profile-header-host {
-  @extend %profile-header;
+  @include clearfix();
 
   background-color: lighten($green-host, 20%);
+  position: relative;
 }
 
 .profile-header-volunteer {
-  @extend %profile-header;
+  @include clearfix();
 
   background-color: lighten($red-volunteer, 7%);
+  position: relative;
 }
 
 .no-elements {
@@ -170,7 +154,6 @@
   width: 24px;
 }
 
-%content-info,
 .content-info {
   margin-left: 27px;
 }
@@ -209,17 +192,15 @@
   border-collapse: collapse;
   text-align: center;
 
-  tbody {
-    tr {
-      th {
-        font-weight: normal;
-        padding: 0;
-      }
+  tr {
+    th {
+      font-weight: normal;
+      padding: 0;
+    }
 
-      td {
-        padding: 0;
-        width: 34px;
-      }
+    td {
+      padding: 0;
+      width: 38px;
     }
   }
 }
