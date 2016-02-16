@@ -8,11 +8,11 @@ div class="profile-header-#{current_user.type.underscore}"
     = render 'shared/empty', message: 'nomessages'
 
   - else
-    ul.conversation-list.col-md-12
+    ul.col-md-12.no-bullets
       - @conversations.each do |last_message|
         - other_user = last_message.penpal(current_user)
 
-        li.row id="conversation-preview-#{other_user.id}"
+        li.row.conversation id="conversation-preview-#{other_user.id}"
           = link_to other_user do
             .col-md-4.conversation-other
               = avatar_for other_user, style: :thumb_message

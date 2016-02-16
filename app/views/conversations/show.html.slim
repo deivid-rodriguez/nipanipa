@@ -5,7 +5,7 @@
     h3= "Messages with #{@message.recipient.name}"
 
   .col-md-offset-2.col-md-8
-    ul.chat-list
+    ul.no-bullets#chat-list
       - @conversation.each do |message|
         = render 'sent', message: message
 

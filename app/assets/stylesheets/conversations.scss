@@ -5,53 +5,40 @@
   text-align: right;
 }
 
-.chat-list {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
+.conversation {
+  border-bottom: solid 1px $gray-very-light;
+  line-height: 70px;
+  padding: 10px;
+  $delete-cross-size: 15px;
 
-.conversation-list {
-  list-style: none;
-  list-style-type: none;
-  padding: 0 30px;
-  width: 100%;
+  a {
+    color: $gray;
+    display: block;
+    height: 100%;
+    text-decoration: none;
 
-  li {
-    border-bottom: solid 1px $gray-very-light;
-    line-height: 70px;
-    padding: 10px;
-    $delete-cross-size: 15px;
+    .conversation-date {
+      padding-right: 15px;
+      text-align: right;
+      width: 180px;
+    }
 
-    a {
-      color: $gray;
+    [id^="delete-"] {
+      background: image-url('delete.png') no-repeat;
       display: block;
-      height: 100%;
-      text-decoration: none;
-
-      .conversation-date {
-        padding-right: 15px;
-        text-align: right;
-        width: 180px;
-      }
-
-      [id^="delete-"] {
-        background: image-url('delete.png') no-repeat;
-        display: block;
-        float: right;
-        height: $delete-cross-size;
-        margin: 27px 0;
-        width: $delete-cross-size;
-      }
+      float: right;
+      height: $delete-cross-size;
+      margin: 27px 0;
+      width: $delete-cross-size;
     }
+  }
 
-    img {
-      margin-right: 7px;
-    }
+  img {
+    margin-right: 7px;
+  }
 
-    &:first-child {
-      border-top: solid 1px $gray-very-light;
-    }
+  &:first-child {
+    border-top: solid 1px $gray-very-light;
   }
 }
 
