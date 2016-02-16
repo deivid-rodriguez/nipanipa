@@ -226,6 +226,16 @@
   }
 }
 
+.continent > ul {
+  @include active-pill;
+
+  padding-left: 0;
+
+  > li {
+    padding-left: 20px;
+  }
+}
+
 .sidebar-users {
   @include make-md-column(3);
 
@@ -239,25 +249,11 @@
       display: block;
       padding: 3px 15px;
       text-decoration: none;
-
-      &:hover {
-        background-color: $gray-very-light;
-      }
     }
 
-    > ul {
-      @include active-pill;
-
-      padding-left: 0;
-
-      > li {
-        padding-left: 20px;
-      }
-
-      a:hover {
-        background-color: $gray-very-light;
-        border-radius: 4px;
-      }
+    a:hover {
+      background-color: $gray-very-light;
+      border-radius: 4px;
     }
   }
 
