@@ -7,7 +7,7 @@
 
   .calendar {
     float: left;
-    margin: 10px 16px 0 0;
+    margin: 5px 16px 0 0;
   }
 
   .checkbox.inline + .checkbox.inline {
@@ -20,6 +20,7 @@
   @include make-md-column(4);
 
   margin: 0;
+  padding-left: 0;
 
   &:last-of-type {
     margin: 0;
@@ -27,6 +28,8 @@
 
   > .checkbox {
     display: block;
+    margin-bottom: 5px;
+    margin-top: 0;
     width: 100%;
   }
 }
