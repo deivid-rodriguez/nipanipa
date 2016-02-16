@@ -51,6 +51,26 @@ main {
 // footer
 $footer-height: 80px;
 
+@mixin footer-lg {
+  height: $footer-height;
+
+  nav {
+    height: $footer-height;
+  }
+
+  .social-links {
+    float: right;
+  }
+
+  .footer-links {
+    float: left;
+  }
+
+  ul > li {
+    float: left;
+  }
+}
+
 @media(min-width: 773px) {
   .home,
   .main-wrapper {
@@ -58,22 +78,20 @@ $footer-height: 80px;
   }
 
   footer {
+    @include footer-lg;
+  }
+}
+
+@mixin footer-sm {
+  height: $footer-height * 2;
+
+  nav {
     height: $footer-height;
-
-    nav {
-      height: $footer-height;
-    }
-
-    .social-links {
-      float: right;
-    }
-
-    .footer-links {
-      float: left;
-    }
+    width: 100%;
 
     ul > li {
-      float: left;
+      display: inline-block;
+      text-align: center;
     }
   }
 }
@@ -85,17 +103,7 @@ $footer-height: 80px;
   }
 
   footer {
-    height: $footer-height * 2;
-
-    nav {
-      height: $footer-height;
-      width: 100%;
-
-      ul > li {
-        display: inline-block;
-        text-align: center;
-      }
-    }
+    @include footer-sm;
   }
 }
 
@@ -112,24 +120,6 @@ footer {
     }
   }
 
-  .footer-links > ul > li {
-    border-right: 1px solid $green-dark;
-    line-height: 12px;
-
-    &:first-child {
-      padding-left: 0;
-    }
-
-    &:last-child {
-      border-right: 0;
-      padding-right: 0;
-    }
-  }
-
-  .social-links > ul > li:hover {
-    opacity: .8;
-  }
-
   ul {
     @extend %vertical-align;
     @include clearfix();
@@ -144,4 +134,22 @@ footer {
       padding-right: 5px;
     }
   }
+}
+
+.footer-links > ul > li {
+  border-right: 1px solid $green-dark;
+  line-height: 12px;
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &:last-child {
+    border-right: 0;
+    padding-right: 0;
+  }
+}
+
+.social-links > ul > li:hover {
+  opacity: .8;
 }
