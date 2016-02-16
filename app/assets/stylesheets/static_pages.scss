@@ -52,6 +52,18 @@
   }
 }
 
+%img-thumbnail {
+  background-color: $white;
+  border: 0;
+  display: inline-block;
+  margin-bottom: 15px;
+  text-align: center;
+
+  a {
+    display: block;
+  }
+}
+
 .host-thumbnail,
 .volunteer-thumbnail,
 .explore-thumbnail,
