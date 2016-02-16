@@ -54,18 +54,23 @@ a {
   font-size: 1.2em;
   font-weight: bold;
   margin-bottom: 0;
+}
 
-  .navbar-nav {
-    padding-top: 62px;
+.navbar-nav {
+  padding-top: 62px;
 
-    > li {
-      > a {
-        color: $black;
-      }
+  > li {
+    > a {
+      color: $black;
+    }
 
-      &.dropdown.open > .dropdown-toggle {
-        background: none;
-      }
+    &.dropdown.open > .dropdown-toggle {
+      background: none;
+    }
+
+    > a:focus,
+    > a:hover {
+      background-color: transparent;
     }
   }
 }
