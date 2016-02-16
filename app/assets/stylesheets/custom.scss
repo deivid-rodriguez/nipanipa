@@ -64,14 +64,14 @@ a {
       color: $black;
     }
 
-    &.dropdown.open > .dropdown-toggle {
-      background: none;
-    }
-
     > a:focus,
     > a:hover {
       background-color: transparent;
     }
+  }
+
+  .dropdown.open > .dropdown-toggle {
+    background: none;
   }
 }
 
