@@ -69,7 +69,6 @@
       @include make-sm-column(4);
     }
 
-    .nested-select,
     %nested-select {
       height: 30px;
     }
@@ -89,7 +88,6 @@
       }
     }
 
-    .nested-link,
     %nested-link {
       line-height: 30px;
     }
@@ -112,7 +110,6 @@
 }
 
 // users profile
-.profile-header,
 %profile-header {
   @include clearfix();
   position: relative;
