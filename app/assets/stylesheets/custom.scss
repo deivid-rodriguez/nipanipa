@@ -34,10 +34,6 @@
   }
 }
 
-.navbar-header {
-  @include clearfix();
-}
-
 .input-group .donation-amount {
   width: 60px;
 }
@@ -46,6 +42,10 @@ section { overflow: auto; }
 
 a {
   color: darken($green-logo, 10%);
+}
+
+.navbar-header {
+  @include clearfix();
 }
 
 .navbar {
