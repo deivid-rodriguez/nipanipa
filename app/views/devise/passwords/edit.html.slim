@@ -12,7 +12,7 @@
 
       = f.hidden_field :reset_password_token
 
-      = f.input :password, autofocus: true, label: false
-      = f.input :password_confirmation, autofocus: true, label: false
+      = f.input :password, autofocus: true
+      = f.input :password_confirmation, autofocus: true
 
       = f.button :submit, t('.change_pwd'), class: 'primary-button'
