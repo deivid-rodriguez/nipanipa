@@ -7,26 +7,32 @@ div class="profile-header-#{@user.type.underscore}"
   .col-md-6
     .box
       h3= t('.description')
+
       p= simple_format(auto_link(@user.description))
 
     .box
       h3= t(".skills_#{@user.type.underscore}")
+
       p= simple_format(@user.skills)
 
   .col-md-6
     .box
       h3= t('.availability')
+
       = render 'calendar', user: @user
 
     - if @user.type == 'Host'
       .box
         h3= t('.accomodation')
+
         p= simple_format(@user.accomodation)
 
     .box
       h3= link_to t('.pictures'), user_pictures_path(@user)
+
       = render 'pictures', pictures: @user.pictures
 
     .box
       h3= link_to feedback_count(@feedback_pairs), user_feedbacks_path(@user)
+
       = render partial: 'feedbacks/feedbacks', object: @feedback_pairs

@@ -2,6 +2,7 @@
   = link_to users_path, class: 'thmb-lnk' do
     .explore-thumbnail
       h2= t('static_pages.home.explore')
+
       p= t('static_pages.home.explore_desc')
 
   .pictures-thumbnail.carousel.slide data-ride='carousel' data-interval='4000'
@@ -28,10 +29,12 @@
     .host-thumbnail
       = image_tag 'host.png', alt: 'signup host'
       h2= t('static_pages.home.host')
+
       p= t('static_pages.home.host_desc')
 
   = link_to volunteer_registration_path, class: 'thmb-lnk' do
     .volunteer-thumbnail
       = image_tag 'volunteer.png', alt: 'signup volunteer'
       h2= t('static_pages.home.volunteer')
+
       p= t('static_pages.home.volunteer_desc')
