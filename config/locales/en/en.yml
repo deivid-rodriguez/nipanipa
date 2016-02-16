@@ -140,6 +140,8 @@ your profile"
     index:
       title: My messages
       usure?: Are you sure?
+    show:
+      title: Messages with %{user}
     update:
       success: You sent a new message
       error: There was an error sending the message

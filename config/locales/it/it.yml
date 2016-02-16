@@ -138,6 +138,8 @@ pìù lunga de 300 caratteri"
     index:
       title: I miei messaggi
       usure?: Sei sicuro che vuoi cancellare la conversazione?
+    show:
+      title: Messaggi con %{user}
     update:
       success: Messaggio inviato
       error: C'è stato un errore nell'invio del messagio

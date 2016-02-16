@@ -1,8 +1,8 @@
-- provide :title, "Messages with #{@message.recipient.name}"
+- provide :title, t('.title', user: @message.recipient.name)
 
 .main-padded
   header
-    h1= "Messages with #{@message.recipient.name}"
+    h1= t('.title', user: @message.recipient.name)
 
   ul.no-bullets#chat-list
     - @conversation.each do |message|

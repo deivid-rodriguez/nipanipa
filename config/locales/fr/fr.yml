@@ -142,6 +142,8 @@ que vous êtes vraiment quelqu'un"
     index:
       title: Mes messages
       usure?: Etes-vous sur de vouloir supprimer cette conversation?
+    show:
+      title: Messages avec %{user}
     update:
       success: Ce message a été envoyé
       error: Erreur d'envoi du message

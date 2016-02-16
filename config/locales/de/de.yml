@@ -143,6 +143,8 @@ deinem Profil angezeigt wird."
     index:
       title: Meine Unterhaltungen
       usure?: Bist du dir sicher?
+    show:
+      title: Nachrichten mit %{user}
     update:
       success: Du hast eine neue Unterhaltung begonnen
       error: Beim Senden der Nachricht ist ein Fehler aufgetreten

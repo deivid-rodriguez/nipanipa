@@ -140,6 +140,8 @@ usuarios que eres una persona de verdad."
     index:
       title: Mis mensajes
       usure?: ¿Seguro que quieres borrar la conversación?
+    show:
+      title: Mensajes con %{user}
     update:
       success: Mensaje enviado
       error: Hubo un error en el envío del mensaje
