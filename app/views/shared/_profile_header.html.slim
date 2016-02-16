@@ -26,7 +26,7 @@
 
       = render 'shared/badge', name: 'languages', content: user_languages(user)
 
-  .row
+  .no-gutter-row
     .col-md-6.col-sm-9.col-xs-9
       ul.nav.nav-tabs
         - tabs_for(user).each do |options|
