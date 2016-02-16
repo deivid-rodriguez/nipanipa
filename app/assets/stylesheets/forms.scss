@@ -1,0 +1,14 @@
+.form-row {
+  @include make-row;
+
+  margin-bottom: 30px;
+
+  .form-group,
+  .help-block {
+    margin-bottom: 0;
+  }
+
+  textarea {
+    height: 150px;
+  }
+}

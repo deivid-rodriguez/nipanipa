@@ -1,24 +1,5 @@
 // Place all the styles related to the Users controller here.
 
-.user-form {
-  @include clearfix();
-
-  .form-row {
-    @include make-row;
-
-    margin-bottom: 15px;
-  }
-
-  .form-group,
-  .help-block {
-    margin-bottom: 0;
-  }
-
-  textarea {
-    height: 150px;
-  }
-}
-
 .user-availability {
   label {
     display: block;

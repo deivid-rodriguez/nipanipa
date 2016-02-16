@@ -175,7 +175,7 @@ SimpleForm.setup do |config|
   end
 
   config.wrappers :inline_input_group, tag: 'div',
-                                       class: 'form-group',
+                                       class: 'form-group col-md-12',
                                        error_class: 'has-error' do |b|
     b.use :html5
     b.use :placeholder

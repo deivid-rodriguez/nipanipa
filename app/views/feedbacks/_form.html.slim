@@ -1,28 +1,28 @@
-= simple_form_for [@user, @feedback],
-                  html: { class: 'feedback-form form-horizontal' } do |f|
+= simple_form_for [@user, @feedback], html: { class: 'form-horizontal' } do |f|
   = f.error_notification
 
-  = field_set_tag t('.feedback_for_user', username: @user.name) do
-    = f.input :score, as: :radio_buttons,
-                      wrapper: :vertical_radio_and_checkboxes
-    = f.input :content
-    = f.hidden_field :recipient_id, value: @user.id
+  = f.input :score, as: :radio_buttons,
+                    wrapper: :vertical_radio_and_checkboxes
 
-  = field_set_tag t('.feedback_for_nipa') do
-    - if @feedback.donation && @feedback.donation.amount
-      - donation_link = link_to(t('.here'), new_donation_path)
-      = t('.donated_already_html', donations_url: donation_link)
-    - else
-      = f.simple_fields_for :donation do |d|
-        = d.input :amount, wrapper: :inline_input_group do
-          span.input-group-addon $
+  = f.input :content, wrapper: :full_width
+  = f.hidden_field :recipient_id, value: @user.id
 
-          = d.input_field :amount,
-              as: :select,
-              collection: 0..20,
-              include_blank: false,
-              class: 'form-control donation-amount'
+  - if @feedback.donation && @feedback.donation.amount
+    = t('.donated_already_html',
+        donations_url: link_to(t('.here'), new_donation_path))
+  - else
+    = f.simple_fields_for :donation do |d|
+      = d.label :amount
+      = d.input :amount, wrapper: :inline_input_group do
+        span.input-group-addon $
 
-          = d.hidden_field :user_id, value: current_user.id
+        = d.input_field :amount,
+            as: :select,
+            collection: 0..20,
+            include_blank: false,
+            class: 'form-control donation-amount'
 
-  = f.button :submit
+        = d.hidden_field :user_id, value: current_user.id
+
+  .form-group.col-md-12
+    = f.button :submit
