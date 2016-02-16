@@ -17,88 +17,88 @@
   textarea {
     height: 150px;
   }
+}
 
-  .user-availability {
-    label {
-      display: block;
-    }
-
-    .calendar {
-      float: left;
-      margin: 10px 16px 0 0;
-    }
-
-    .checkbox.inline + .checkbox.inline {
-      margin-left: 10px;
-      width: 20px;
-    }
+.user-availability {
+  label {
+    display: block;
   }
 
-  .checkbox-list {
-    @include make-md-column(4);
+  .calendar {
+    float: left;
+    margin: 10px 16px 0 0;
+  }
 
+  .checkbox.inline + .checkbox.inline {
+    margin-left: 10px;
+    width: 20px;
+  }
+}
+
+.checkbox-list {
+  @include make-md-column(4);
+
+  margin: 0;
+
+  &:last-of-type {
     margin: 0;
+  }
 
-    &:last-of-type {
-      margin: 0;
-    }
+  > .checkbox {
+    display: block;
+    width: 100%;
+  }
+}
 
-    > .checkbox {
-      display: block;
+.fields {
+  @include clearfix();
+
+  height: auto;
+
+  > div {
+    @include make-sm-column(4);
+  }
+
+  %nested-select {
+    height: 30px;
+  }
+
+  .picture-select {
+    @extend %nested-select;
+
+    margin: 0 0 10px;
+    width: 310px;
+  }
+
+  .language-select {
+    @extend %nested-select;
+
+    padding: 0 20px 10px 0;
+
+    > select {
       width: 100%;
     }
   }
 
-  .fields {
-    @include clearfix();
-
-    height: auto;
-
-    > div {
-      @include make-sm-column(4);
-    }
-
-    %nested-select {
-      height: 30px;
-    }
-
-    .picture-select {
-      @extend %nested-select;
-
-      margin: 0 0 10px;
-      width: 310px;
-    }
-
-    .language-select {
-      @extend %nested-select;
-
-      padding: 0 20px 10px 0;
-
-      > select {
-        width: 100%;
-      }
-    }
-
-    %nested-link {
-      line-height: 30px;
-    }
-
-    .picture-link {
-      @extend %nested-link;
-
-      width: 270px;
-    }
-
-    .language-link {
-      @extend %nested-link;
-    }
+  %nested-link {
+    line-height: 30px;
   }
 
-  .add-language-button {
-    float: left;
-    padding-top: 10px;
-    width: 100%;
+  .picture-link {
+    @extend %nested-link;
+
+    width: 270px;
   }
+
+  .language-link {
+    @extend %nested-link;
+  }
+}
+
+.add-language-button {
+  float: left;
+  padding-top: 10px;
+  width: 100%;
 }
 
 // users profile
