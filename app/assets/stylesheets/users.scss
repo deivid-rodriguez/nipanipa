@@ -49,6 +49,7 @@
 
   .checkbox-list {
     @include make-md-column(4);
+
     margin: 0;
 
     &:last-of-type {
@@ -63,6 +64,7 @@
 
   .fields {
     @include clearfix();
+
     height: auto;
 
     > div {
@@ -75,12 +77,14 @@
 
     .picture-select {
       @extend %nested-select;
+
       margin: 0 0 10px;
       width: 310px;
     }
 
     .language-select {
       @extend %nested-select;
+
       padding: 0 20px 10px 0;
 
       > select {
@@ -94,6 +98,7 @@
 
     .picture-link {
       @extend %nested-link;
+
       width: 270px;
     }
 
@@ -112,6 +117,7 @@
 // users profile
 %profile-header {
   @include clearfix();
+
   position: relative;
 
   .user-picture {
@@ -172,11 +178,13 @@
 
 .profile-header-host {
   @extend %profile-header;
+
   background-color: lighten($green-host, 20%);
 }
 
 .profile-header-volunteer {
   @extend %profile-header;
+
   background-color: lighten($red-volunteer, 7%);
 }
 
@@ -198,6 +206,7 @@
 
 .profile-content {
   @include clearfix();
+
   background-color: $white;
   padding: 20px 0;
   position: relative;
@@ -268,6 +277,7 @@
 
 .sidebar-users {
   @include make-md-column(3);
+
   background-color: $gray-super-light;
   margin-bottom: 20px;
 
@@ -286,6 +296,7 @@
 
     > ul {
       @include active-pill;
+
       padding-left: 0;
 
       > li {
@@ -326,6 +337,7 @@
 
 .user-thumbnails {
   @include clearfix();
+
   list-style-type: none;
   padding: 0;
 
@@ -337,6 +349,7 @@
 
   .user-thumbnail {
     @extend %img-thumbnail;
+
     border: 1px solid $gray-very-light;
     border-radius: 4px;
     margin-bottom: 5px;

@@ -13,6 +13,7 @@
 
 .form-thumbnail {
   @extend %img-thumbnail;
+
   background-color: $white;
   margin: 25px auto;
   max-width: 400px;
@@ -34,6 +35,7 @@
 
 .signin-dropdown {
   @extend %img-thumbnail;
+
   border: 0;
   font-size: .85em;
   min-width: 250px;

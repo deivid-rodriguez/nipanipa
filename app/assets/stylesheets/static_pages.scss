@@ -57,6 +57,7 @@
 .explore-thumbnail,
 .pictures-thumbnail {
   @extend %img-thumbnail;
+
   border-radius: 0;
 }
 
@@ -85,6 +86,7 @@
 .home-explore,
 .home-signup {
   @extend %img-thumbnail;
+
   border-radius: 0;
   margin: 15px 0 0;
   width: 100%;
@@ -114,6 +116,7 @@
 
 .pictures-thumbnail {
   @extend %img-thumbnail;
+
   border-width: 0;
   list-style: none;
   margin-bottom: 0;
@@ -132,6 +135,7 @@
 
 .contribute-thumbnail {
   @extend %img-thumbnail;
+
   background-color: $gray-background;
   min-height: 310px;
   padding: 30px;
