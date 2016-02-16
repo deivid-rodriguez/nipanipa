@@ -86,27 +86,27 @@ $message-height: 103px;
       width: 100%;
     }
 
+    textarea {
+      margin: 0;
+      padding: 8px;
+    }
+
+    img {
+      display: none;
+    }
+
     .message-content {
       float: left;
       height: $message-height;
       margin: 0;
       padding: 0;
       width: 75%;
-
-      > textarea {
-        margin: 0;
-        padding: 8px;
-      }
     }
 
     .message-action {
       float: right;
       height: $message-height;
       width: 22%;
-
-      > img {
-        display: none;
-      }
     }
   }
 }
