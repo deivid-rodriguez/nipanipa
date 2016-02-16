@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # A language to communicate with people
 #

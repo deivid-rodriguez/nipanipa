@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'zip'
 require 'csv'
 require 'ruby-progressbar'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Integration tests for Static pages
 #

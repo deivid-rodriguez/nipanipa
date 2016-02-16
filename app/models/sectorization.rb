@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Associates job categories and users
 #

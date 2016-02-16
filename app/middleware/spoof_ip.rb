@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Inject an IP into the app. Used for testing.
 #

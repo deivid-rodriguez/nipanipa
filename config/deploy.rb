@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 set :application, 'nipanipa'
 
 set :repo_url, 'git@github.com:deivid-rodriguez/nipanipa.git'

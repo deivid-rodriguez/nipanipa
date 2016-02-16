@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Miscelaneous helpers for rendering views
 #

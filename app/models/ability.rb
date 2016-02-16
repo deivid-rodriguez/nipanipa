@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Abilities/Roles through CanCanCan
 #

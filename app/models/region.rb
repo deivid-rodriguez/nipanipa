@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Represents a first level region in a country.
 #

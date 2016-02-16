@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Nothing routes to ApplicationController so just choose one controller
 #

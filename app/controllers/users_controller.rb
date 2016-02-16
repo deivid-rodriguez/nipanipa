@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Main controller for all users (hosts and volunteers)
 #

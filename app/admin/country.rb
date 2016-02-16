@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register Country do
   config.per_page = 200
 

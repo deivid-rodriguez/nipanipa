@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Various utilites for user pages
 #

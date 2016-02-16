@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Main controller, every controller overrides this one
 #

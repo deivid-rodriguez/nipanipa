@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Image Uploader required by CarrierWave
 #

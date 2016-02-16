@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Responsible for sending mails in the app
 #

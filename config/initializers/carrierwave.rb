@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 CarrierWave.configure do |config|
   config.ignore_integrity_errors = true
   unless Rails.env.production?

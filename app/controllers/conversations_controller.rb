@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Controller for conversations between users
 #

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 notifier = ActiveSupport::Notifications
 
 notifier.subscribe(/!factory_girl/) do |name, start, finish, id, payload|

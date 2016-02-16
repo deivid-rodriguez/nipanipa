@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Main class implementing both Host and Volunteer through STI
 #

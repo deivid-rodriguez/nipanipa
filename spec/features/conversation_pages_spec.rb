@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe 'Listing user conversations' do
   let!(:message) { create(:message) }
 

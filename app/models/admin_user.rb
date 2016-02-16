@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # An admin, with permissions to access the admin console
 #

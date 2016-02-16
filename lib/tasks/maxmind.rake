@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Tasks for loading geographical data into our database
 #

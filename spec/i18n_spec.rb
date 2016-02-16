@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'support/i18n'
 
 RSpec.describe 'i18n files' do
