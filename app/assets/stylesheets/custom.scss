@@ -42,6 +42,11 @@ section { overflow: auto; }
 
 a {
   color: darken($green-logo, 10%);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .navbar-header {

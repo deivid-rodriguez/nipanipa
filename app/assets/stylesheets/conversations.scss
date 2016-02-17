@@ -15,7 +15,6 @@
     color: $gray;
     display: block;
     height: 100%;
-    text-decoration: none;
 
     .conversation-date {
       padding-right: 15px;
@@ -163,8 +162,4 @@ $message-height: 103px;
 
 .message-from {
   text-align: center;
-
-  > a {
-    text-decoration: none;
-  }
 }
