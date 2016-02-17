@@ -20,7 +20,7 @@ it:
     delete: Cancellare
     profile_header:
       unknown: Sconosciuto
-      general: Vista principale
+      general: Profilo
       messages: Conversazioni
       feedback: Referenze
       pictures: Foto
