@@ -18,6 +18,8 @@ for this to work.
 ## Running the test suite
 
 The default `rake` task includes a full test suite and static code analysis
-with RuboCop. Just run and hope you broke nothing.
+with RuboCop and other linters. Just run
 
-    bundle exec rake
+```
+bin/rake
+```
