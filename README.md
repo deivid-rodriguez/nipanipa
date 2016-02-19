@@ -12,10 +12,6 @@ This is the sample application for NiPaNiPa
 * A _Javascript_ runtime. `sudo aptitude install nodejs`.
 * _Imagemagick_. `sudo aptitude install imagemagick`.
 
-## Testing requirements
-
-* _Phantomjs_. `sudo aptitude install phantomjs`.
-
 ## System setup
 
 Run

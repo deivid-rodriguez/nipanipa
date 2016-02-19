@@ -62,6 +62,9 @@ group :test do
   gem 'capybara', '~> 2.6'
   gem 'database_cleaner', '~> 1.4'
   gem 'poltergeist', '~> 1.8'
+  gem 'phantomjs', '~> 2.1', require: 'phantomjs/poltergeist',
+                             github: 'deivid-rodriguez/phantomjs-gem',
+                             branch: 'give_it_some_love'
   gem 'launchy', '~> 2.4'
   gem 'webmock', '~> 1.21'
   gem 'shoulda-matchers', '~> 3.0'
