@@ -333,7 +333,7 @@ GEM
     scss_lint (0.45.0)
       rake (>= 0.9, < 11)
       sass (~> 3.4.15)
-    sexp_processor (4.6.1)
+    sexp_processor (4.7.0)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
     simple_form (3.2.1)
