@@ -1,2 +1,0 @@
-# Launch Pry with access to the entire Rails stack.
-rails = File.join Dir.getwd, 'config', 'environment.rb'
