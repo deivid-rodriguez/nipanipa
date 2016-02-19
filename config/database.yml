@@ -2,6 +2,7 @@ connection: &connection
   adapter: postgresql
   encoding: unicode
   host: localhost
+  port: 5433
   database: <%= ENV['DB_NAME'] %>
   pool: 5
   timeout: 5000
