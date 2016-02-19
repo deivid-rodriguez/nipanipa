@@ -8,7 +8,7 @@ This is the sample application for NiPaNiPa
 ## System Requirements
 
 * _Ruby_ MRI 2.3.
-* _Postgresql_ 9.4. `sudo aptitude install postgresql-9.4 libpq-dev`
+* _Postgresql_ 9.5. `sudo aptitude install postgresql-9.5 libpq-dev`
 * A _Javascript_ runtime. `sudo aptitude install nodejs`.
 * _Imagemagick_. `sudo aptitude install imagemagick`.
 
