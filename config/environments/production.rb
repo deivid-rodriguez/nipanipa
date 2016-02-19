@@ -52,9 +52,9 @@ Rails.application.configure do
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
 
-  # Use a different logger for distributed setups.
-  require 'syslog/logger'
-  config.logger = Syslog::Logger.new
+  # Custom logger
+  config.logger =
+    Logger.new(Rails.root.join('log', "#{Rails.env}.log"), 10, 100.megabytes)
 
   # Use a different cache store in production
   # config.cache_store = :mem_cache_store
