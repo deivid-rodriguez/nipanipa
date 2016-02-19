@@ -3,20 +3,24 @@ connection: &connection
   encoding: unicode
   host: localhost
   database: <%= ENV['DB_NAME'] %>
-  username: <%= ENV['DB_USER'] %>
-  password: <%= ENV['DB_PASS'] %>
   pool: 5
   timeout: 5000
   template: template0
 
 development:
+  username: postgres
+  password:
   <<: *connection
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
+  username: postgres
+  password:
   <<: *connection
 
 production:
+  username: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASS'] %>
   <<: *connection
