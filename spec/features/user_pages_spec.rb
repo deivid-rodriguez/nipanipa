@@ -302,7 +302,7 @@ RSpec.describe 'User profile editing' do
     end
   end
 
-  context 'with valid information' do
+  describe 'changing user email' do
     before do
       fill_in 'user[email]', with: 'new_email@example.com'
       click_button update_user
