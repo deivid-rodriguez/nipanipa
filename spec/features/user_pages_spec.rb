@@ -3,87 +3,153 @@
 #
 # Integration tests for User pages
 #
-RSpec.shared_examples_for 'A user profile creation' do
-  let(:create_btn) { t('helpers.submit.user.create') }
+RSpec.shared_examples_for 'a nipanipa user' do
   let(:role) { klass.name.underscore }
   let!(:user) { build(role.to_sym) }
-  let!(:region) { create(:region) }
-  let!(:lang) { create(:language) }
-  let!(:work_type) { create(:work_type) }
 
-  before { visit send(:"#{role}_registration_path") }
+  describe 'Profile Creation' do
+    let(:create_btn) { t('helpers.submit.user.create') }
+    let!(:region) { create(:region) }
+    let!(:l) { create(:language) }
+    let!(:work_type) { create(:work_type) }
 
-  it 'shows correct header' do
-    role_i18n = t("activerecord.models.#{role}")
-    header = t('users.new.header', type: role_i18n).titleize
+    before { visit send(:"#{role}_registration_path") }
 
-    expect(page).to have_selector 'h1', text: header
-  end
+    it 'shows correct header' do
+      role_i18n = t("activerecord.models.#{role}")
+      header = t('users.new.header', type: role_i18n).titleize
 
-  it 'shows correct page title' do
-    expect(page).to have_title full_title(t('users.new.title'))
-  end
-
-  it 'shows home link' do
-    expect(page).to have_link 'NiPaNiPa'
-  end
-
-  context 'when submitting invalid information' do
-    before do
-      expect { click_button create_btn }.not_to change(klass, :count)
+      expect(page).to have_selector 'h1', text: header
     end
 
-    it 'goes back to new user page' do
-      expect(page).to have_title t('users.new.title')
+    it 'shows correct page title' do
+      expect(page).to have_title full_title(t('users.new.title'))
     end
 
-    it 'shows a field with an error' do
-      expect(page).to have_selector '.has-error'
+    it 'shows home link' do
+      expect(page).to have_link 'NiPaNiPa'
     end
-  end
 
-  context 'when submitting valid information' do
-    before do
-      within '.user-form' do
-        fill_in 'user[name]', with: user.name
-        fill_in 'user[email]', with: user.email
-        fill_in 'user[password]', with: user.password
-        fill_in 'user[password_confirmation]', with: user.password
-        fill_in 'user[description]', with: user.description
-        select lang.name, from: 'user_language_skills_attributes_0_language_id'
-        select 'Expert', from: 'user_language_skills_attributes_0_level'
-        check "user_work_type_ids_#{work_type.id}"
-        check 'user_availability_2'
+    context 'when submitting invalid information' do
+      before do
+        expect { click_button create_btn }.not_to change(klass, :count)
       end
 
-      expect { click_button create_btn }.to change(klass, :count).by(1)
+      it 'goes back to new user page' do
+        expect(page).to have_title t('users.new.title')
+      end
+
+      it 'shows a field with an error' do
+        expect(page).to have_selector '.has-error'
+      end
     end
 
-    it 'shows a success flash message' do
-      expect(page).to have_flash_message \
-        t('devise.registrations.signed_up_but_unconfirmed'), 'success'
+    context 'when submitting valid information' do
+      before do
+        within '.user-form' do
+          fill_in 'user[name]', with: user.name
+          fill_in 'user[email]', with: user.email
+          fill_in 'user[password]', with: user.password
+          fill_in 'user[password_confirmation]', with: user.password
+          fill_in 'user[description]', with: user.description
+          select l.name, from: 'user_language_skills_attributes_0_language_id'
+          select 'Expert', from: 'user_language_skills_attributes_0_level'
+          check "user_work_type_ids_#{work_type.id}"
+          check 'user_availability_2'
+        end
+
+        expect { click_button create_btn }.to change(klass, :count).by(1)
+      end
+
+      it 'shows a success flash message' do
+        expect(page).to have_flash_message \
+          t('devise.registrations.signed_up_but_unconfirmed'), 'success'
+      end
+
+      it 'does not login the unconfirmed user' do
+        expect(page).to_not have_link t('sessions.signout')
+      end
+
+      it 'redirects the unconfirmed user to the sign in page' do
+        expect(current_path).to eq(new_user_session_path)
+      end
+    end
+  end
+
+  describe 'Profile edition' do
+    let(:update_user) { t('helpers.submit.user.update', model: User) }
+
+    before do
+      user.save
+      visit root_path
+      sign_in user
+      visit edit_user_registration_path
     end
 
-    it 'does not login the unconfirmed user' do
-      expect(page).to_not have_link t('sessions.signout')
+    it 'shows edit page' do
+      expect(page).to have_title t('users.edit.title')
     end
 
-    it 'redirects the unconfirmed user to the sign in page' do
-      expect(current_path).to eq(new_user_session_path)
+    context 'with invalid information' do
+      before do
+        fill_in 'user[email]', with: 'invalid@example'
+        click_button update_user
+      end
+
+      it 'shows an error field' do
+        expect(page).to have_selector '.has-error'
+      end
+    end
+
+    context 'with nothing introduced' do
+      before { click_button update_user }
+
+      it 'shows a success flash message' do
+        expect(page).to \
+          have_flash_message t('devise.registrations.updated'), 'success'
+      end
+    end
+
+    describe 'changing user email' do
+      before do
+        user.update_column(:email, 'old_email@example.com')
+        fill_in 'user[email]', with: 'new_email@example.com'
+        click_button update_user
+      end
+
+      it 'shows a success flash message' do
+        msg = t('devise.registrations.update_needs_confirmation')
+
+        expect(page).to have_flash_message msg, 'success'
+      end
+
+      it 'shows a logout link' do
+        expect(page).to \
+          have_link t('sessions.signout'), href: destroy_user_session_path
+      end
+
+      it 'updates hosts unconfirmed_email correctly' do
+        expect(user.reload.email).to eq('old_email@example.com')
+        expect(user.reload.unconfirmed_email).to eq('new_email@example.com')
+      end
+
+      it 'redirects back to user profile' do
+        expect(current_path).to eq(user_path(user))
+      end
     end
   end
 end
 
-RSpec.describe 'Host profile creation' do
+RSpec.describe 'Hosts' do
   let!(:klass) { Host }
 
-  it_behaves_like 'A user profile creation'
+  it_behaves_like 'a nipanipa user'
 end
 
-RSpec.describe 'Volunteer profile creation' do
+RSpec.describe 'Volunteers' do
   let!(:klass) { Volunteer }
 
-  it_behaves_like 'A user profile creation'
+  it_behaves_like 'a nipanipa user'
 end
 
 RSpec.describe 'User profile page' do
@@ -264,68 +330,6 @@ RSpec.describe 'User profile index' do
       expect(page).not_to have_selector('li', text: vol_available.name)
       expect(page).to have_selector('li', text: host_not_available.name)
       expect(page).not_to have_selector('li', text: vol_not_available.name)
-    end
-  end
-end
-
-RSpec.describe 'User profile editing' do
-  let(:host) { create(:host, email: 'old_email@example.com') }
-  let(:update_user) { t('helpers.submit.user.update', model: User) }
-
-  before do
-    visit root_path
-    sign_in host
-    visit edit_user_registration_path
-  end
-
-  it 'shows edit page' do
-    expect(page).to have_title t('users.edit.title')
-  end
-
-  context 'with invalid information' do
-    before do
-      fill_in 'user[email]', with: 'invalid@example'
-      click_button update_user
-    end
-
-    it 'shows an error field' do
-      expect(page).to have_selector '.has-error'
-    end
-  end
-
-  context 'with nothing introduced' do
-    before { click_button update_user }
-
-    it 'shows a success flash message' do
-      expect(page).to \
-        have_flash_message t('devise.registrations.updated'), 'success'
-    end
-  end
-
-  describe 'changing user email' do
-    before do
-      fill_in 'user[email]', with: 'new_email@example.com'
-      click_button update_user
-    end
-
-    it 'shows a success flash message' do
-      msg = t('devise.registrations.update_needs_confirmation')
-
-      expect(page).to have_flash_message msg, 'success'
-    end
-
-    it 'shows a logout link' do
-      expect(page).to \
-        have_link t('sessions.signout'), href: destroy_user_session_path
-    end
-
-    it 'updates hosts unconfirmed_email correctly' do
-      expect(host.reload.email).to eq('old_email@example.com')
-      expect(host.reload.unconfirmed_email).to eq('new_email@example.com')
-    end
-
-    it 'redirects back to user profile' do
-      expect(current_path).to eq(user_path(host))
     end
   end
 end
