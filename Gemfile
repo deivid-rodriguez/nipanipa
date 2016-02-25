@@ -38,7 +38,7 @@ group :tools do
   gem 'byebug', '~> 8.0'
   gem 'factory_girl_rails', '~> 4.5'
   gem 'image_optim', '0.22.1'
-  gem 'image_optim_pack', '0.2.1.20160119'
+  gem 'image_optim_pack', '0.2.1.20160221'
   gem 'mdl', '0.2.1'
   gem 'overcommit', '0.32.0'
   gem 'rubocop', '0.37.2'
