@@ -71,9 +71,8 @@ GEM
       activesupport (>= 3.0.0)
     arel (6.0.3)
     ast (2.2.0)
-    autoprefixer-rails (6.3.3)
+    autoprefixer-rails (6.3.3.1)
       execjs
-      json
     backports (3.6.8)
     bcrypt (3.1.10)
     bootstrap-sass (3.3.6)
@@ -412,7 +411,7 @@ GEM
       unicorn
     warden (1.2.6)
       rack (>= 1.0)
-    webmock (1.23.0)
+    webmock (1.24.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
