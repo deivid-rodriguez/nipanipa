@@ -22,3 +22,6 @@ public/uploads
 
 # Bundle config is machine specific
 .bundle
+
+# Db dumps
+db/snapshot.dump
