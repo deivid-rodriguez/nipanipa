@@ -8,7 +8,7 @@ div class="profile-header-#{@user.type.underscore}"
     .box
       h3= t('.description')
 
-      p= simple_format(auto_link(@user.description))
+      p= simple_format(Rinku.auto_link(@user.description))
 
     .box
       h3= t(".skills_#{@user.type.underscore}")

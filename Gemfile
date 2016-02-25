@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 4.2'
 gem 'rails-i18n', '~> 4.0'
-gem 'rails_autolink', '~> 1.1'
+gem 'rinku', '~> 1.7'
 
 gem 'pg', '0.18.4'
 gem 'bcrypt', '~> 3.1'
