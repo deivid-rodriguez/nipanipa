@@ -86,10 +86,6 @@ RSpec.shared_examples_for 'a nipanipa user' do
       visit edit_user_registration_path
     end
 
-    it 'shows edit page' do
-      expect(page).to have_title t('users.edit.title')
-    end
-
     context 'with invalid information' do
       before do
         fill_in 'user[email]', with: 'invalid@example'
