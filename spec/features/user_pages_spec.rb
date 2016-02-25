@@ -80,7 +80,7 @@ RSpec.describe 'Host profile creation' do
   it_behaves_like 'A user profile creation'
 end
 
-RSpec.describe 'Host profile creation' do
+RSpec.describe 'Volunteer profile creation' do
   let!(:klass) { Volunteer }
 
   it_behaves_like 'A user profile creation'
