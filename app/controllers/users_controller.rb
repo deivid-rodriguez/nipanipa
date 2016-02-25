@@ -89,7 +89,14 @@ class UsersController < Devise::RegistrationsController
   end
 
   def proper_fields
-    %i(description email name password password_confirmation region_id skills)
+    %i(description
+       email
+       name
+       password
+       password_confirmation
+       region_id
+       skills
+       accomodation)
   end
 
   def nested_fields

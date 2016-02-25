@@ -1,17 +1,47 @@
 # frozen_string_literal: true
 
+RSpec.shared_examples_for 'updating a text attribute' do |attr|
+  before do
+    fill_in "user[#{attr}]", with: "#{attr}_foo"
+    click_button update_user
+  end
+
+  it 'shows a success flash message' do
+    expect(page).to \
+      have_flash_message t('devise.registrations.updated'), 'success'
+  end
+
+  it 'redirects back to user profile' do
+    expect(current_path).to eq(user_path(user))
+  end
+
+  it 'shows the new attribute' do
+    expect(page).to have_content("#{attr}_foo")
+  end
+end
+
+RSpec.shared_context 'profile edition' do
+  let(:update_user) { t('helpers.submit.user.update', model: User) }
+
+  before do
+    user.save
+    visit root_path
+    sign_in user
+    visit edit_user_registration_path
+  end
+end
+
 #
 # Integration tests for User pages
 #
 RSpec.shared_examples_for 'a nipanipa user' do
-  let(:role) { klass.name.underscore }
-  let!(:user) { build(role.to_sym) }
-
   describe 'Profile Creation' do
     let(:create_btn) { t('helpers.submit.user.create') }
     let!(:region) { create(:region) }
     let!(:l) { create(:language) }
     let!(:work_type) { create(:work_type) }
+    let(:klass) { user.class }
+    let(:role) { klass.name.underscore }
 
     before { visit send(:"#{role}_registration_path") }
 
@@ -77,14 +107,7 @@ RSpec.shared_examples_for 'a nipanipa user' do
   end
 
   describe 'Profile edition' do
-    let(:update_user) { t('helpers.submit.user.update', model: User) }
-
-    before do
-      user.save
-      visit root_path
-      sign_in user
-      visit edit_user_registration_path
-    end
+    include_context 'profile edition'
 
     context 'with invalid information' do
       before do
@@ -104,6 +127,14 @@ RSpec.shared_examples_for 'a nipanipa user' do
         expect(page).to \
           have_flash_message t('devise.registrations.updated'), 'success'
       end
+    end
+
+    context 'with valid name' do
+      include_examples 'updating a text attribute', 'name'
+    end
+
+    context 'with valid skills' do
+      include_examples 'updating a text attribute', 'skills'
     end
 
     describe 'changing user email' do
@@ -137,13 +168,21 @@ RSpec.shared_examples_for 'a nipanipa user' do
 end
 
 RSpec.describe 'Hosts' do
-  let!(:klass) { Host }
+  let!(:user) { build(:host) }
 
   it_behaves_like 'a nipanipa user'
+
+  describe 'specific fields' do
+    include_context 'profile edition'
+
+    context 'with valid accomodation' do
+      include_examples 'updating a text attribute', 'accomodation'
+    end
+  end
 end
 
 RSpec.describe 'Volunteers' do
-  let!(:klass) { Volunteer }
+  let!(:user) { build(:volunteer) }
 
   it_behaves_like 'a nipanipa user'
 end
