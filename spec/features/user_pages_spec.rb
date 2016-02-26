@@ -352,21 +352,6 @@ RSpec.describe 'User profile index' do
 
     it_behaves_like 'a list of available volunteers'
   end
-
-  describe 'mixed filters' do
-    before do
-      visit users_path
-      click_link t('users.filters.host')
-      click_link t('users.filters.whenever')
-    end
-
-    it 'shows correct list' do
-      expect(page).to have_selector('li', text: host_available.name)
-      expect(page).not_to have_selector('li', text: vol_available.name)
-      expect(page).to have_selector('li', text: host_not_available.name)
-      expect(page).not_to have_selector('li', text: vol_not_available.name)
-    end
-  end
 end
 
 RSpec.describe 'User profile deletion' do
