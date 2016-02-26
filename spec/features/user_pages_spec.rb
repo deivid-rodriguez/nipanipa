@@ -289,6 +289,16 @@ RSpec.describe 'User profile index' do
     end
   end
 
+  def visit_index_as_host
+    mock_sign_in host_available
+    visit users_path
+  end
+
+  def visit_index_as_volunteer
+    mock_sign_in vol_available
+    visit users_path
+  end
+
   def apply_filter(name)
     visit users_path
     click_link t("users.filters.#{name}")
@@ -301,19 +311,13 @@ RSpec.describe 'User profile index' do
   end
 
   describe 'volunteer defaults' do
-    before do
-      mock_sign_in vol_available
-      visit users_path
-    end
+    before { visit_index_as_volunteer }
 
     it_behaves_like 'a list of available hosts'
   end
 
   describe 'host defaults' do
-    before do
-      mock_sign_in host_available
-      visit users_path
-    end
+    before { visit_index_as_host }
 
     it_behaves_like 'a list of available volunteers'
   end
@@ -341,16 +345,36 @@ RSpec.describe 'User profile index' do
     it_behaves_like 'a list of available hosts'
   end
 
-  describe 'all profiles' do
-    before { apply_filter('user') }
-
-    it_behaves_like 'a list of available profiles'
-  end
-
   describe 'volunteer profiles' do
     before { apply_filter('volunteer') }
 
     it_behaves_like 'a list of available volunteers'
+  end
+
+  describe 'all profiles' do
+    context 'when signed in as host' do
+      before do
+        visit_index_as_host
+        click_link t('users.filters.user')
+      end
+
+      it_behaves_like 'a list of available profiles'
+    end
+
+    context 'when signed in as volunteer' do
+      before do
+        visit_index_as_volunteer
+        click_link t('users.filters.user')
+      end
+
+      it_behaves_like 'a list of available profiles'
+    end
+
+    context 'when anonymous' do
+      before { apply_filter('user') }
+
+      it_behaves_like 'a list of available profiles'
+    end
   end
 end
 

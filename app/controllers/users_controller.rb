@@ -125,7 +125,9 @@ class UsersController < Devise::RegistrationsController
   def resource_class
     return unless params[:type]
 
-    [Volunteer, Host].find { |klass| klass.name == params[:type].classify }
+    [Volunteer, Host, User].find do |klass|
+      klass.name == params[:type].classify
+    end
   end
 
   def resource_class_from_current_user
