@@ -28,7 +28,7 @@ main {
   width: 100%;
 }
 
-.main-wrapper {
+.inner {
   @include clearfix();
 
   main {
@@ -43,7 +43,7 @@ main {
 }
 
 .home,
-.main-wrapper {
+.inner {
   height: auto;
   margin: 0 auto;
 }
@@ -73,7 +73,7 @@ $footer-height: 80px;
 
 @media(min-width: 773px) {
   .home,
-  .main-wrapper {
+  .inner {
     min-height: calc(100% - 80px);
   }
 
@@ -98,7 +98,7 @@ $footer-height: 80px;
 
 @media(max-width: 772px) {
   .home,
-  .main-wrapper {
+  .inner {
     min-height: calc(100% - 160px);
   }
 
