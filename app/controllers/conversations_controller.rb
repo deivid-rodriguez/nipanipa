@@ -10,7 +10,6 @@ class ConversationsController < ApplicationController
   respond_to :js, only: %i(update destroy)
 
   before_action :authenticate_user!
-  before_action :set_page_id
   before_action :load_user
   before_action :load_conversation, only: %i(show destroy)
 
@@ -63,9 +62,5 @@ class ConversationsController < ApplicationController
 
   def load_user
     @user = current_user
-  end
-
-  def set_page_id
-    @page_id = :messages
   end
 end
