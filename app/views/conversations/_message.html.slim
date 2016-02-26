@@ -1,4 +1,4 @@
-.no-gutter-row class="message-#{side(message)}"
+div class="no-gutter-row message-#{message.side(current_user)}"
   .col-md-2.message-from
     = link_to message.sender do
       = avatar_for message.sender, style: :thumb_message

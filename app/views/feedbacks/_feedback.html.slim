@@ -1,9 +1,9 @@
-div class="feedback #{type}" id="feedback-#{feedback.id}"
-  div class="thumb-avatar pull-#{type == 'sent' ? 'left' : 'right'}"
+div class="feedback #{feedback.side}" id="feedback-#{feedback.id}"
+  div class="thumb-avatar pull-#{feedback.side}"
     = avatar_link_for(feedback.sender, style: :thumb)
 
   - if feedback.sender == current_user
-    div class="pull-#{type == 'sent' ? 'left' : 'right'}"
+    div class="pull-#{feedback.side}"
       .profile-edit-link
         = link_to t('shared.edit'),
                   edit_user_feedback_path(feedback.recipient, feedback)
@@ -15,10 +15,7 @@ div class="feedback #{type}" id="feedback-#{feedback.id}"
   .info
     .sender
       strong
-        - if type == 'sent'
-          | #{t('.to')} #{link_to(feedback.recipient.name, feedback.recipient)}
-        - else
-          | #{t('.from')} #{link_to(feedback.sender.name, feedback.sender)}
+        = feedback.link_to_me
 
     .time-ago
       = i18n_timeago(feedback.updated_at)

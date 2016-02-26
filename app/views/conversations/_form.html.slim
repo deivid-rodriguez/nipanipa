@@ -1,4 +1,5 @@
-= render layout: 'message', locals: { message: message } do
+= render layout: 'message',
+         locals: { message: MessagePresenter.new(message, self) } do
   = simple_form_for message,
       url: conversation_path(message.recipient.id),
       method: :put,
