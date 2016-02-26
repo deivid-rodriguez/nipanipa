@@ -4,7 +4,7 @@ html
   = render 'layouts/head'
 
   body
-    div class="#{params[:action] == 'home' ? 'home' : 'inner'}"
+    div class=(params[:action] == 'home' ? 'home' : 'inner')
       = render 'layouts/header'
 
       main role='main'

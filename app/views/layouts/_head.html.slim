@@ -6,7 +6,7 @@ head
   title= title
 
   - content = content_for?(:description) ? yield(:description) : title
-  meta content="#{content}" name='description'
+  meta content=content name='description'
 
   = favicon_link_tag
 
