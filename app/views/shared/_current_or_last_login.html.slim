@@ -1,4 +1,4 @@
 / TODO: Make the 'currently logged in' feature work. devise's
 / `current_sign_in_at` (trackable) does not seem to work as I expected. It could
 / be fixed (i think) by adding a Warden's before_logout hook
-= "#{t('.last_login')}: #{i18n_timeago(user.last_sign_in_at)}"
+| #{t('.last_login')}: #{i18n_timeago(user.last_sign_in_at)}
