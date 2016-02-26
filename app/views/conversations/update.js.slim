@@ -4,5 +4,5 @@
 | $('.message-action').find('img').hide();
 
 - if @message.errors.empty?
-  | $('ul#chat-list').append("#{j render('sent', message: @message)}");
+  | $("#{j render('sent', message: @message)}").insertBefore('.reply-box');
   | $('textarea.message-body').val('');

@@ -4,8 +4,8 @@
   header
     h1= t('.title', user: @message.recipient.name)
 
-  ul.no-bullets#chat-list
+  ul.no-bullets
     - @conversation.each do |message|
       = render 'sent', message: message
 
-    li= render 'form', message: @message
+    li.reply-box= render 'form', message: @message
