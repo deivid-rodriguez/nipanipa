@@ -1,34 +1,31 @@
 - provide :title, @user.name
 
-div class="profile-header-#{@user.type.underscore}"
-  = render 'shared/profile_header', user: @user
-
-.profile-content
+= render layout: 'shared/profile', locals: { user: @user } do
   .col-md-6
     .box
-      h3= t('.description')
+      h3= t('users.show.description')
 
       p= simple_format(Rinku.auto_link(@user.description))
 
     .box
-      h3= t(".skills_#{@user.type.underscore}")
+      h3= t("users.show.skills_#{@user.type.underscore}")
 
       p= simple_format(@user.skills)
 
   .col-md-6
     .box
-      h3= t('.availability')
+      h3= t('users.show.availability')
 
       = render 'calendar', user: @user
 
     - if @user.type == 'Host'
       .box
-        h3= t('.accomodation')
+        h3= t('users.show.accomodation')
 
         p= simple_format(@user.accomodation)
 
     .box
-      h3= link_to t('.pictures'), user_pictures_path(@user)
+      h3= link_to t('users.show.pictures'), user_pictures_path(@user)
 
       = render 'pictures', pictures: @user.pictures
 

@@ -1,9 +1,6 @@
 - provide :title, t('.title')
 
-div class="profile-header-#{current_user.type.underscore}"
-  = render 'shared/profile_header', user: current_user
-
-.profile-content
+= render layout: 'shared/profile', locals: { user: current_user } do
   - if @conversations.empty?
     = render 'shared/empty', message: 'nomessages'
 
@@ -28,7 +25,7 @@ div class="profile-header-#{current_user.type.underscore}"
 
           = link_to conversation_path(other_user),
               method: :delete,
-              data: { confirm: t('.usure?') },
+              data: { confirm: t('conversations.index.usure?') },
               id: "delete-link-#{other_user.id}",
               remote: true do
             div id="delete-#{other_user.id}"
