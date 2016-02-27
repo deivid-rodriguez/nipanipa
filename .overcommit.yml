@@ -28,6 +28,9 @@ PreCommit:
   BundleCheck:
     enabled: true
 
+  CoffeeLint:
+    enabled: true
+
   ExecutePermissions:
     enabled: true
     exclude:

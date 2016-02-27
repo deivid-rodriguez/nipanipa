@@ -19,7 +19,7 @@ jQuery ->
   $('#user_country').change ->
     url = $(this).data('regions-url').replace(':country_id', $(this).val())
     $('#user_region_id').empty()
-    $.getJSON url, (data) =>
-      $.each data, (index, el) =>
+    $.getJSON url, (data) ->
+      $.each data, (index, el) ->
         [id, name] = [el.id, el.name]
         $('#user_region_id').append("<option value='#{id}'>#{name}</option>")
