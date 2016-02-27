@@ -40,15 +40,6 @@
 
 section { overflow: auto; }
 
-a {
-  color: $link-color;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: none;
-  }
-}
-
 .navbar {
   background: none;
   border: 0;
@@ -59,21 +50,6 @@ a {
 
 .navbar-nav {
   padding-top: 62px;
-
-  > li {
-    > a {
-      color: $black;
-    }
-
-    > a:focus,
-    > a:hover {
-      background-color: transparent;
-    }
-  }
-
-  .dropdown.open > .dropdown-toggle {
-    background: none;
-  }
 }
 
 %main {

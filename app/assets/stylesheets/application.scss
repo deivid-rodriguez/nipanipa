@@ -10,9 +10,10 @@
 // the top of the compiled file, but it's generally better to create a new file
 // per style scope.
 //
-@import 'bootstrap-sprockets';
-@import 'bootstrap';
 @import 'vars';
+@import 'bootstrap-sprockets';
+@import 'bootstrap_theme';
+@import 'bootstrap';
 @import 'lists';
 @import 'placeholders';
 @import 'forms';
