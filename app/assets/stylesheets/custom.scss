@@ -41,7 +41,7 @@
 section { overflow: auto; }
 
 a {
-  color: darken($green-logo, 10%);
+  color: darken($link-color, 10%);
   text-decoration: none;
 
   &:hover {
