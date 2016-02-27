@@ -13,45 +13,38 @@ nav.navbar.navbar-default role='navigation'
 
     .navbar-collapse.collapse.navbar-right
       ul.nav.navbar-nav.pull-right
-        li
-          = link_to t('.donate'), new_donation_path
-        li
-          = link_to t('.search'), users_path
-        li
-          = link_to t('static_pages.help.title'), help_path
+        li= link_to t('.donate'), new_donation_path
+        li= link_to t('.search'), users_path
+        li= link_to t('static_pages.help.title'), help_path
 
         - if user_signed_in?
-          li
-            = link_to t('users.show.profile'), current_user
+          li= link_to t('users.show.profile'), current_user
         - elsif !signup_page?(request.path)
           li.dropdown
             a.dropdown-toggle data-toggle='dropdown' href='#' role='button'
               = t('static_pages.home.signup')
               b.caret
             ul.dropdown-menu.with-small-arrow
-              li= link_to t('activerecord.models.host'),
-                    host_registration_path
+              li= link_to t('activerecord.models.host'), host_registration_path
               li= link_to t('activerecord.models.volunteer'),
                     volunteer_registration_path
         - if user_signed_in?
-          li
-            = link_to t('sessions.signout'),
-                destroy_user_session_path,
-                method: :delete
+          li= link_to t('sessions.signout'),
+                      destroy_user_session_path,
+                      method: :delete
         - elsif !(request.path =~ /signin/)
           li.dropdown
             a.dropdown-toggle data-toggle='dropdown' href='#' role='button'
               = t('sessions.signin')
               strong.caret
             .dropdown-menu.with-small-arrow
-              .signin-dropdown = render 'shared/signin'
+              .signin-dropdown= render 'shared/signin'
         li.dropdown
           a.dropdown-toggle data-toggle='dropdown' href='#' role='button'
             = t('.language')
             b.caret
           ul.dropdown-menu.with-small-arrow
             - Language.where(code: I18n.available_locales).find_each do |lang|
-              li
-                = link_to_unless_current t(lang.code),
-                    locale: lang.code,
-                    type: params[:type]
+              li= link_to_unless_current t(lang.code),
+                                         locale: lang.code,
+                                         type: params[:type]
