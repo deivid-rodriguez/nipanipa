@@ -5,6 +5,13 @@
 #
 module ApplicationHelper
   #
+  # Returns brand logo image to be used
+  #
+  def logo_pic
+    params[:action] == 'home' ? 'logo_home.png' : 'logo.png'
+  end
+
+  #
   # Returns the full title on a per-page basis
   #
   def full_title(page_title)
