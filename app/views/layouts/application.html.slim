@@ -5,11 +5,11 @@ html
 
   body
     div class=(params[:action] == 'home' ? 'home' : 'inner')
-      = render 'layouts/header'
-
-      main role='main'
+      .wrapper
+        = render 'layouts/header'
         = render 'layouts/messages'
 
+      main role='main'
         = yield
 
     = render 'layouts/footer'

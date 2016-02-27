@@ -48,6 +48,10 @@ section { overflow: auto; }
   margin-bottom: 0;
 }
 
+.navbar-brand {
+  height: 100%;
+}
+
 .navbar-nav {
   padding-top: 62px;
 }
@@ -144,12 +148,4 @@ aside {
       text-align: left;
     }
   }
-}
-
-// Customize bootstrap flash messages
-.alert {
-  border: 0;
-  border-radius: 0;
-  margin-bottom: 0;
-  margin-top: 20px;
 }

@@ -105,7 +105,6 @@
   @extend %img-thumbnail;
 
   border-radius: 0;
-  margin: 15px 0 0;
   width: 100%;
 }
 
@@ -119,6 +118,7 @@
 
 .home-signup {
   background: none;
+  margin: 0;
   padding: 0;
 }
 
