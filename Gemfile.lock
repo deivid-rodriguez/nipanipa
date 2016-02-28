@@ -8,13 +8,6 @@ GIT
       json (>= 1.7)
       mime-types (>= 1.16)
 
-GIT
-  remote: git://github.com/deivid-rodriguez/phantomjs-gem.git
-  revision: f4d24683a951e010a924564554986f79da047725
-  branch: give_it_some_love
-  specs:
-    phantomjs (2.1.1.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -236,6 +229,7 @@ GEM
     parser (2.3.0.6)
       ast (~> 2.2)
     pg (0.18.4)
+    phantomjs (2.1.1.0)
     poltergeist (1.9.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
@@ -448,7 +442,7 @@ DEPENDENCIES
   mini_magick (~> 4.2)
   overcommit (= 0.32.0)
   pg (= 0.18.4)
-  phantomjs (~> 2.1)!
+  phantomjs (~> 2.1)
   poltergeist (~> 1.8)
   quiet_assets (~> 1.1)
   rails (~> 4.2)
