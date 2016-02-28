@@ -81,7 +81,7 @@ $message-height: 103px;
     img {
       border: 0;
       border-radius: 4px;
-      height: 100%;
+      min-height: $message-height;
       width: 100%;
     }
 
@@ -96,7 +96,6 @@ $message-height: 103px;
 
     .message-content {
       float: left;
-      height: $message-height;
       margin: 0;
       padding: 0;
       width: 75%;

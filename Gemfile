@@ -26,6 +26,10 @@ gem "sass-rails", "~> 5.0"
 gem "autoprefixer-rails", "~> 6.0"
 gem "uglifier", "~> 2.7"
 
+source "https://rails-assets.org" do
+  gem "rails-assets-autosize", "~> 3.0"
+end
+
 gem "activeadmin", "1.0.0.pre2"
 
 gem "rubyzip", "~> 1.1", require: false
