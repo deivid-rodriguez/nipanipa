@@ -9,5 +9,5 @@
                                    WorkType.limit(5).offset(5 * i).to_a,
                                    :id,
                                    :name,
-                                   item_wrapper_class: 'checkbox' do |b|
+                                   item_wrapper_class: "checkbox" do |b|
           = b.check_box + t("work_types.#{b.text}")

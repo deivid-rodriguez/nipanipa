@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'yaml'
+require "yaml"
 
 #
 # Utilities for testing InternationalizatioN support
@@ -21,8 +21,8 @@ module I18nHelpers
   end
 
   def base_i18n_files
-    Dir['config/locales/**/*.yml'].delete_if do |f|
-      File.basename(f, '.*') == 'defaults'
+    Dir["config/locales/**/*.yml"].delete_if do |f|
+      File.basename(f, ".*") == "defaults"
     end
   end
 
@@ -41,7 +41,7 @@ module I18nHelpers
       v = "Pretend it's a leaf." if v.is_a?(Hash) && looks_like_plural?(v)
       case v
       when Hash then get_flat_keys(v, new_path)
-      when String then new_path.join('.')
+      when String then new_path.join(".")
       else raise "wtf? #{v}"
       end
     end.flatten

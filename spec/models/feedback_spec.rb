@@ -29,33 +29,33 @@ RSpec.describe Feedback do
 
   it { is_expected.to be_valid }
 
-  describe 'presence validation' do
-    context 'when sender is not present' do
+  describe "presence validation" do
+    context "when sender is not present" do
       before { feedback.sender = nil }
 
       it { is_expected.not_to be_valid }
     end
 
-    context 'when recipient is not present' do
+    context "when recipient is not present" do
       before { feedback.recipient = nil }
 
       it { is_expected.not_to be_valid }
     end
   end
 
-  context 'with blank content' do
-    before { feedback.content = ' ' }
+  context "with blank content" do
+    before { feedback.content = " " }
 
     it { is_expected.not_to be_valid }
   end
 
-  context 'with content that is too long' do
-    before { feedback.content = 'a' * 301 }
+  context "with content that is too long" do
+    before { feedback.content = "a" * 301 }
 
     it { is_expected.not_to be_valid }
   end
 
-  describe 'duplicated feedbacks' do
+  describe "duplicated feedbacks" do
     let!(:other_feedback) do
       create(:feedback, sender: feedback.sender, recipient: feedback.recipient)
     end
@@ -74,14 +74,14 @@ RSpec.describe Feedback do
   end
 
   describe '#update_karma' do
-    context 'when new_feedback' do
+    context "when new_feedback" do
       it "initializes recipient's karma" do
         expect { feedback.save }.to \
           change(feedback.recipient, :karma).by(feedback.score.value)
       end
     end
 
-    context 'when updated feedback' do
+    context "when updated feedback" do
       let!(:other_feedback) { create(:feedback, score: :negative) }
 
       before { other_feedback.score = :positive }
@@ -92,7 +92,7 @@ RSpec.describe Feedback do
       end
     end
 
-    context 'when destroyed feedback' do
+    context "when destroyed feedback" do
       let!(:other_feedback) { create(:feedback, score: :negative) }
 
       it "updates recipient's karma" do

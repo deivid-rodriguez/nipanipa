@@ -5,10 +5,10 @@
 #
 class FeedbackSentPresenter < FeedbackPresenter
   def side
-    'left'
+    "left"
   end
 
   def link_to_me
-    labeled_link('to', recipient)
+    labeled_link("to", recipient)
   end
 end

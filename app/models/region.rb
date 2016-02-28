@@ -14,6 +14,6 @@ class Region < ActiveRecord::Base
   has_many :users
 
   def self.default
-    find_by(code: 'MD')
+    find_by(code: "MD")
   end
 end

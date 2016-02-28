@@ -6,8 +6,8 @@
 class Message < ActiveRecord::Base
   validates :body, presence: true, length: { minimum: 2, maximum: 500 }
 
-  belongs_to :sender, class_name: 'User'
-  belongs_to :recipient, class_name: 'User'
+  belongs_to :sender, class_name: "User"
+  belongs_to :recipient, class_name: "User"
 
   scope :between, lambda { |uid1, uid2|
     condition = <<-SQL.squish
@@ -44,11 +44,11 @@ class Message < ActiveRecord::Base
   end
 
   def self.sent_or_received_by(uid)
-    where('sender_id = ? OR recipient_id = ?', uid, uid)
+    where("sender_id = ? OR recipient_id = ?", uid, uid)
   end
 
   def self.involving_ids(uid)
-    select('max(id)').sent_or_received_by(uid).group(penpal_sql(uid))
+    select("max(id)").sent_or_received_by(uid).group(penpal_sql(uid))
   end
 
   def penpal(user)

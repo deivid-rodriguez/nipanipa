@@ -1,8 +1,8 @@
-- provide :title, t('.title')
+- provide :title, t(".title")
 
 .main-padded
   header
-    h1= t('.title')
+    h1= t(".title")
 
   .form-thumbnail
     = simple_form_for resource, url: user_password_path,
@@ -15,4 +15,4 @@
       = f.input :password, autofocus: true
       = f.input :password_confirmation, autofocus: true
 
-      = f.button :submit, t('.change_pwd'), class: 'primary-button'
+      = f.button :submit, t(".change_pwd"), class: "primary-button"

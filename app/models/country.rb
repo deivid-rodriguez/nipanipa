@@ -13,7 +13,7 @@ class Country < ActiveRecord::Base
   accepts_nested_attributes_for :regions, allow_destroy: true
 
   def self.default
-    find_by(code: 'ES')
+    find_by(code: "ES")
   end
 
   default_scope { includes(:continent) }

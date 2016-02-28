@@ -12,15 +12,15 @@ class Feedback < ActiveRecord::Base
   validates :recipient_id, presence: true
   validates :content, presence: true, length: { maximum: 300 }
 
-  belongs_to :sender, class_name: 'User'
-  belongs_to :recipient, class_name: 'User'
+  belongs_to :sender, class_name: "User"
+  belongs_to :recipient, class_name: "User"
 
   before_save :update_karma
   before_destroy :remove_karma
 
   has_one :donation
   accepts_nested_attributes_for :donation,
-                                reject_if: proc { |attr| attr[:amount] == '0' }
+                                reject_if: proc { |attr| attr[:amount] == "0" }
 
   scope :sent, ->(user) { where(sender: user) }
   scope :received, ->(user) { where(recipient: user) }

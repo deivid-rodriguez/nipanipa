@@ -35,14 +35,14 @@ class User < ActiveRecord::Base
     where(countries: { continent_id: continent_id })
   end
 
-  scope :by_latest_sign_in, -> { order('last_sign_in_at DESC NULLS LAST') }
+  scope :by_latest_sign_in, -> { order("last_sign_in_at DESC NULLS LAST") }
 
   scope :confirmed, -> { where.not(confirmed_at: nil) }
 
   default_scope { includes(region: :country) }
 
   def blank_img_and_cache(att)
-    att['image'].blank? && att['image_cache'].blank?
+    att["image"].blank? && att["image_cache"].blank?
   end
 
   accepts_nested_attributes_for :pictures,
@@ -50,14 +50,14 @@ class User < ActiveRecord::Base
 
   has_many :sent_feedbacks,
            -> { order(updated_at: :desc).includes(:recipient) },
-           class_name: 'Feedback',
-           foreign_key: 'sender_id',
+           class_name: "Feedback",
+           foreign_key: "sender_id",
            dependent: :destroy
 
   has_many :received_feedbacks,
            -> { order(updated_at: :desc).includes(:sender) },
-           class_name: 'Feedback',
-           foreign_key: 'recipient_id',
+           class_name: "Feedback",
+           foreign_key: "recipient_id",
            dependent: :destroy
 
   def messages_with(uid)
@@ -65,7 +65,7 @@ class User < ActiveRecord::Base
   end
 
   scope :currently_available, -> { available_in?(Time.zone.now.mon) }
-  scope :available_in?, ->(m) { where('availability_mask & ? > 0', 2**(m - 1)) }
+  scope :available_in?, ->(m) { where("availability_mask & ? > 0", 2**(m - 1)) }
 
   def availability=(availability)
     self.availability_mask = ArrayMask.new((1..12).to_a).mask(availability)
@@ -86,6 +86,6 @@ class User < ActiveRecord::Base
 
   # Use a single partial path for all subclasses
   def to_partial_path
-    'users/user'
+    "users/user"
   end
 end

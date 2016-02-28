@@ -13,11 +13,11 @@ class FeedbackPresenter < SimpleDelegator
   end
 
   def side
-    raise NotImplementedError, 'Subclass responsability'
+    raise NotImplementedError, "Subclass responsability"
   end
 
   def link_me
-    raise NotImplementedError, 'Subclass responsability'
+    raise NotImplementedError, "Subclass responsability"
   end
 
   private

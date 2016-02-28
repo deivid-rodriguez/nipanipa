@@ -33,11 +33,11 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
 
   # Middleware
-  config.middleware.use SpoofIp, ENV['IP']
+  config.middleware.use SpoofIp, ENV["IP"]
 
   # Your secret key is used for verifying the integrity of signed cookies. If
   # you change this key, all old signed cookies will become invalid!
-  config.secret_key_base = 'x' * 30
+  config.secret_key_base = "x" * 30
 
   # Raises error for missing translations
   config.action_view.raise_on_missing_translations = true

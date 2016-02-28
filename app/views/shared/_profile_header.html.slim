@@ -8,23 +8,23 @@
 
   .user-icons
     .user-status
-      = render 'shared/badge', name: 'karma', content: user.karma
-      = render 'shared/badge', name: 'location', content: user_location(user)
+      = render "shared/badge", name: "karma", content: user.karma
+      = render "shared/badge", name: "location", content: user_location(user)
 
-      = render 'shared/badge',
-          name: 'last_login',
+      = render "shared/badge",
+          name: "last_login",
           content: i18n_timeago(user.current_sign_in_at)
 
-      = render 'shared/badge',
-          name: 'member_since',
+      = render "shared/badge",
+          name: "member_since",
           content: i18n_timeago(user.created_at)
 
     .user-knowledge
-      = render 'shared/badge',
-          name: 'categories',
+      = render "shared/badge",
+          name: "categories",
           content: user_categories(user)
 
-      = render 'shared/badge', name: 'languages', content: user_languages(user)
+      = render "shared/badge", name: "languages", content: user_languages(user)
 
   .no-gutter-row
     .col-md-6.col-sm-9.col-xs-9
@@ -34,7 +34,7 @@
             = link_to(options[:name], options[:path])
 
     .col-md-6.col-sm-3.col-xs-3
-      ul.action-group.btn-group role='group'
+      ul.action-group.btn-group role="group"
         - actions_for(user).each do |link|
           li.btn.btn-default
             = link_to(link[:dest]) do

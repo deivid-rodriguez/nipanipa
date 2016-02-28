@@ -1,8 +1,8 @@
-- provide :title, t('.title')
+- provide :title, t(".title")
 
-= render layout: 'shared/profile', locals: { user: current_user } do
+= render layout: "shared/profile", locals: { user: current_user } do
   - if @conversations.empty?
-    = render 'shared/empty', message: 'nomessages'
+    = render "shared/empty", message: "nomessages"
 
   - else
     ul.col-md-12.no-bullets
@@ -25,7 +25,7 @@
 
           = link_to conversation_path(other_user),
               method: :delete,
-              data: { confirm: t('conversations.index.usure?') },
+              data: { confirm: t("conversations.index.usure?") },
               id: "delete-link-#{other_user.id}",
               remote: true do
             div id="delete-#{other_user.id}"

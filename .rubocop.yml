@@ -25,5 +25,8 @@ Style/Lambda:
 Style/ExtraSpacing:
   Enabled: true
 
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
 Performance/Casecmp:
   Enabled: false

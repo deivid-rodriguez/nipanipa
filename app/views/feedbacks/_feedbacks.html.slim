@@ -1,13 +1,13 @@
 - if feedbacks.empty?
-  = render 'shared/empty', message: 'nofeedback'
+  = render "shared/empty", message: "nofeedback"
 - else
   ol.feedbacks
     - feedbacks.each do |feedback_pair|
       li
         - if feedback_pair[0]
-          = render partial: 'feedbacks/feedback',
+          = render partial: "feedbacks/feedback",
                    object: FeedbackReceivedPresenter.new(feedback_pair[0], self)
 
         - if feedback_pair[1]
-          = render partial: 'feedbacks/feedback',
+          = render partial: "feedbacks/feedback",
                    object: FeedbackSentPresenter.new(feedback_pair[1], self)

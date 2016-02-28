@@ -26,9 +26,9 @@ class ConversationsController < ApplicationController
 
     if @message.save
       @message.notify_recipient
-      flash.now[:notice] = t('conversations.update.success')
+      flash.now[:notice] = t("conversations.update.success")
     else
-      flash.now[:error] = t('conversations.update.error')
+      flash.now[:error] = t("conversations.update.error")
     end
 
     respond_with(@message, location: conversation_path(@message.recipient))
@@ -38,9 +38,9 @@ class ConversationsController < ApplicationController
     if @conversation.present?
       @conversation.delete_by(current_user.id)
 
-      flash.now[:notice] = t('conversations.destroy.success')
+      flash.now[:notice] = t("conversations.destroy.success")
     else
-      flash.now[:error] = t('conversations.destroy.error')
+      flash.now[:error] = t("conversations.destroy.error")
     end
 
     respond_with(@conversation, location: conversations_path)

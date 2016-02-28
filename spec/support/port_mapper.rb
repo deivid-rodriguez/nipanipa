@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'rack'
+require "rack"
 
 #
 # Redirects all request to the default capybara app, unless the port is

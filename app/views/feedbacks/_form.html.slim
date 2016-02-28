@@ -1,4 +1,4 @@
-= simple_form_for [@user, @feedback], html: { class: 'form-horizontal' } do |f|
+= simple_form_for [@user, @feedback], html: { class: "form-horizontal" } do |f|
   = f.error_notification
 
   = f.input :score, as: :radio_buttons,
@@ -8,8 +8,8 @@
   = f.hidden_field :recipient_id, value: @user.id
 
   - if @feedback.donation && @feedback.donation.amount
-    = t('.donated_already_html',
-        donations_url: link_to(t('.here'), new_donation_path))
+    = t(".donated_already_html",
+        donations_url: link_to(t(".here"), new_donation_path))
   - else
     = f.simple_fields_for :donation do |d|
       = d.label :amount
@@ -20,7 +20,7 @@
             as: :select,
             collection: 0..20,
             include_blank: false,
-            class: 'form-control donation-amount'
+            class: "form-control donation-amount"
 
         = d.hidden_field :user_id, value: current_user.id
 

@@ -13,6 +13,6 @@ class MessagePresenter < SimpleDelegator
   end
 
   def side(user)
-    sender == user ? 'left' : 'right'
+    sender == user ? "left" : "right"
   end
 end

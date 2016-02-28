@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :work_type do
-    name 'wwoofing'
+    name "wwoofing"
 
     initialize_with { WorkType.find_or_create_by(name: name) }
   end

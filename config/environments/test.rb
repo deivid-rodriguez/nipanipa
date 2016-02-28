@@ -17,7 +17,7 @@ Rails.application.configure do
 
   # Configure static asset server for tests with Cache-Control for performance.
   config.serve_static_files = true
-  config.static_cache_control = 'public, max-age=3600'
+  config.static_cache_control = "public, max-age=3600"
 
   # Show full error reports and disable caching.
   config.consider_all_requests_local = true
@@ -37,12 +37,12 @@ Rails.application.configure do
   config.active_support.deprecation = :stderr
 
   # Speed up tests by lowering BCrypt's cost function.
-  require 'bcrypt'
+  require "bcrypt"
   silence_warnings do
     BCrypt::Engine::DEFAULT_COST = BCrypt::Engine::MIN_COST
   end
 
   # Your secret key is used for verifying the integrity of signed cookies. If
   # you change this key, all old signed cookies will become invalid!
-  config.secret_key_base = 'x' * 30
+  config.secret_key_base = "x" * 30
 end

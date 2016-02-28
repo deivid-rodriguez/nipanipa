@@ -1,6 +1,6 @@
-= simple_form_for resource, url: url, html: { class: 'form-vertical user-form',
+= simple_form_for resource, url: url, html: { class: "form-vertical user-form",
                                               multipart: true,
-                                              role: 'form' },
+                                              role: "form" },
                                       defaults: { wrapper: :full_width } do |f|
 
   = hidden_field_tag :type, resource.type
@@ -15,7 +15,7 @@
       = f.input :password_confirmation, wrapper: :half_width
 
   .form-row
-    = render 'location', f: f
+    = render "location", f: f
 
   .form-row
     = f.input :description, label: t(".description_#{resource.type.underscore}")
@@ -24,25 +24,25 @@
     = f.input :availability,
         as: :check_boxes,
         wrapper: :vertical_radio_and_checkboxes,
-        wrapper_html: { class: 'user-availability' },
-        item_wrapper_class: 'calendar',
+        wrapper_html: { class: "user-availability" },
+        item_wrapper_class: "calendar",
         collection: (1..12).to_a,
         checked: resource.availability,
-        label_method: ->(m) { t('date.abbr_month_names')[m] },
+        label_method: ->(m) { t("date.abbr_month_names")[m] },
         value_method: :to_s
 
   .form-row
-    = render 'language_skills', f: f
+    = render "language_skills", f: f
 
   .form-row
-    = render 'work_types', f: f, user: resource
+    = render "work_types", f: f, user: resource
 
   .form-row
     = f.input :skills, label: t(".skills_#{resource.type.underscore}")
 
   .form-row
-    - if resource.type == 'Host'
+    - if resource.type == "Host"
       = f.input :accomodation
 
   .form-group
-    = f.button :submit, class: 'primary-buttom pull-right'
+    = f.button :submit, class: "primary-buttom pull-right"

@@ -1,7 +1,7 @@
-- provide :title, t('.title')
+- provide :title, t(".title")
 
 .main-padded
   header
-    h1= t('.header', type: resource.type.underscore).titleize
+    h1= t(".header", type: resource.type.underscore).titleize
 
-  = render 'form', url: user_registration_path
+  = render "form", url: user_registration_path

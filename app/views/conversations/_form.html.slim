@@ -1,4 +1,4 @@
-= render layout: 'message',
+= render layout: "message",
          locals: { message: MessagePresenter.new(message, self) } do
   = simple_form_for message,
       url: conversation_path(message.recipient.id),
@@ -6,8 +6,8 @@
       remote: true do |f|
 
     .message-content
-      = f.input_field :body, class: 'message-body'
+      = f.input_field :body, class: "message-body"
 
     .message-action
-      = f.button :submit, class: 'btn btn-default primary-button pull-right'
-      = image_tag('loading.gif', id: 'loading')
+      = f.button :submit, class: "btn btn-default primary-button pull-right"
+      = image_tag("loading.gif", id: "loading")

@@ -1,8 +1,8 @@
-- provide :title, t('.resend')
+- provide :title, t(".resend")
 
 .main-padded
   header
-    h1= t('.resend')
+    h1= t(".resend")
 
   .form-thumbnail
     = simple_form_for resource, url: user_confirmation_path,
@@ -12,4 +12,4 @@
 
       = f.input :email, required: true, autofocus: true
 
-      = f.button :submit, t('.resend')
+      = f.button :submit, t(".resend")

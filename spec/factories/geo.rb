@@ -4,8 +4,8 @@ FactoryGirl.define do
   factory :region do
     transient { continent nil }
 
-    code 'MD'
-    name 'Comunidad de Madrid'
+    code "MD"
+    name "Comunidad de Madrid"
 
     country do
       if continent
@@ -21,7 +21,7 @@ FactoryGirl.define do
   end
 
   factory :country do
-    code 'ES'
+    code "ES"
 
     continent
 
@@ -31,7 +31,7 @@ FactoryGirl.define do
   end
 
   factory :continent do
-    code 'EU'
+    code "EU"
 
     initialize_with { Continent.find_or_initialize_by(code: code) }
   end

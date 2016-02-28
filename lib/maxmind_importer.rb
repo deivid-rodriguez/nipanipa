@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'zip'
-require 'csv'
-require 'ruby-progressbar'
+require "zip"
+require "csv"
+require "ruby-progressbar"
 
 #
 # Imports geographical Database information from MaxMind
@@ -18,7 +18,7 @@ module Maxmind
       scope = where(code: geo.country_code,
                     continents: { code: geo.continent_code })
 
-      raise('Inconsistent Database') if scope.size > 1
+      raise("Inconsistent Database") if scope.size > 1
 
       scope.first
     end
@@ -86,7 +86,7 @@ module Maxmind
     def download!
       return if remote_zip_file_unchanged?
 
-      open(local_zip_path, 'wb') do |file|
+      open(local_zip_path, "wb") do |file|
         uri = URI.parse(remote_zip_url)
         Net::HTTP.start(uri.host, uri.port) do |http|
           http.request_get(uri.path) do |resp|
@@ -169,11 +169,11 @@ module Maxmind
     end
 
     def remote_base_url
-      'http://geolite.maxmind.com/download/geoip/database/'
+      "http://geolite.maxmind.com/download/geoip/database/"
     end
 
     def zip_file_name
-      'GeoLite2-City-CSV.zip'
+      "GeoLite2-City-CSV.zip"
     end
 
     def remote_zip_url
@@ -181,7 +181,7 @@ module Maxmind
     end
 
     def checksum_file_name
-      zip_file_name + '.md5'
+      zip_file_name + ".md5"
     end
 
     def remote_checksum_url
@@ -189,7 +189,7 @@ module Maxmind
     end
 
     def zip_file_checksum
-      return '' unless File.exist?(local_zip_path)
+      return "" unless File.exist?(local_zip_path)
 
       Digest::MD5.file(local_zip_path).hexdigest
     end
@@ -199,11 +199,11 @@ module Maxmind
     end
 
     def csv_file_name
-      'GeoLite2-City-Locations-en.csv'
+      "GeoLite2-City-Locations-en.csv"
     end
 
     def local_base_path
-      'tmp/'
+      "tmp/"
     end
 
     def local_zip_path

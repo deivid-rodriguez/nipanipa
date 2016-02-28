@@ -4,10 +4,10 @@
   .language-select
     = f.collection_select :language_id, Language.all, :id, \
         lambda { |l| t(l.code).mb_chars }, \
-        include_blank: t('.language')
+        include_blank: t(".language")
 
   .language-select
-    = f.select :level, LanguageSkill.level.options, include_blank: t('.level')
+    = f.select :level, LanguageSkill.level.options, include_blank: t(".level")
 
   .language-link
-    = link_to_remove_association t('.remove_language'), f
+    = link_to_remove_association t(".remove_language"), f

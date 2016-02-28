@@ -15,10 +15,10 @@ class PicturesController < ApplicationController
     @picture = current_user.pictures.build(picture_params)
     if @picture.save
       redirect_to user_pictures_path(current_user),
-                  notice: t('pictures.create.success')
+                  notice: t("pictures.create.success")
     else
-      flash.now[:error] = t('pictures.create.error')
-      render 'new'
+      flash.now[:error] = t("pictures.create.error")
+      render "new"
     end
   end
 
@@ -32,10 +32,10 @@ class PicturesController < ApplicationController
   def update
     if @picture.update(picture_params)
       redirect_to user_pictures_path(current_user),
-                  notice: t('pictures.update.success')
+                  notice: t("pictures.update.success")
     else
-      flash.now[:error] = t('pictures.update.error')
-      render 'edit'
+      flash.now[:error] = t("pictures.update.error")
+      render "edit"
     end
   end
 
@@ -43,7 +43,7 @@ class PicturesController < ApplicationController
     return unless @picture.destroy
 
     redirect_to user_pictures_path(current_user),
-                notice: t('pictures.destroy.success')
+                notice: t("pictures.destroy.success")
   end
 
   private

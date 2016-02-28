@@ -6,7 +6,7 @@ ActiveAdmin.register Country do
   permit_params :code, regions_attributes: [:id, :code, :name, :_destroy]
 
   form do |f|
-    f.inputs 'Country Info' do
+    f.inputs "Country Info" do
       f.input :name, input_html: { disabled: true }
       f.input :code
     end
@@ -14,7 +14,7 @@ ActiveAdmin.register Country do
     f.has_many :regions, new_record: true do |rf|
       rf.input :name
       rf.input :code
-      rf.input :_destroy, as: :boolean, label: 'Remove?'
+      rf.input :_destroy, as: :boolean, label: "Remove?"
     end
 
     f.actions
@@ -26,7 +26,7 @@ ActiveAdmin.register Country do
 
     [:created_at, :updated_at].each do |col|
       column col, sortable: col do |country|
-        country.send(col).strftime('%m/%d/%y')
+        country.send(col).strftime("%m/%d/%y")
       end
     end
 

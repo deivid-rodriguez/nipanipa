@@ -1,13 +1,13 @@
-- flash_div = j render('layouts/messages')
+- flash_div = j render("layouts/messages")
 
-| $('div.alert').remove();
-| $('body main').prepend('#{flash_div}');
+| $("div.alert").remove();
+| $("body main").prepend("#{flash_div}");
 
-| $('.message-action').find('input').show();
-| $('.message-action').find('img').hide();
+| $(".message-action").find("input").show();
+| $(".message-action").find("img").hide();
 
 - if @message.errors.empty?
-  - message_div = j render('sent', message: @message)
+  - message_div = j render("sent", message: @message)
 
-  | $('#{message_div}').insertBefore('.reply-box');
-  | $('textarea.message-body').val('');
+  | $("#{message_div}").insertBefore(".reply-box");
+  | $("textarea.message-body").val("");

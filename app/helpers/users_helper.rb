@@ -26,29 +26,29 @@ module UsersHelper
   def feedback_count(feedbacks)
     received_count = feedbacks.count { |f| f[0] }
     sent_count = feedbacks.count { |f| f[1] }
-    count_str = (t 'feedbacks.feedbacks.title').to_s
+    count_str = (t "feedbacks.feedbacks.title").to_s
     if received_count != 0 || sent_count != 0
-      received = t('feedbacks.received', count: received_count)
-      sent = t('feedbacks.sent', count: sent_count)
-      count_str += format(' (%s, %s)', received, sent)
+      received = t("feedbacks.received", count: received_count)
+      sent = t("feedbacks.sent", count: sent_count)
+      count_str += format(" (%s, %s)", received, sent)
     end
     count_str
   end
 
   def user_location(user)
-    return t('.unknown') if user.region.blank?
+    return t(".unknown") if user.region.blank?
     "#{user.region.name}, #{user.region.country.name}"
   end
 
   def user_categories(user)
-    return content_tag(:em, t('.unknown')) if user.work_types.empty?
-    user.work_types.map { |wt| t("work_types.#{wt.name}") }.join(', ')
+    return content_tag(:em, t(".unknown")) if user.work_types.empty?
+    user.work_types.map { |wt| t("work_types.#{wt.name}") }.join(", ")
   end
 
   def user_languages(user)
-    return content_tag(:em, t('.unknown')) if user.language_skills.empty?
+    return content_tag(:em, t(".unknown")) if user.language_skills.empty?
     user.language_skills.map do |ls|
       "#{t(ls.language.code)} (#{ls.level.text})"
-    end.join(', ')
+    end.join(", ")
   end
 end

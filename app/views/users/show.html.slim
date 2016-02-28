@@ -1,9 +1,9 @@
 - provide :title, @user.name
 
-= render layout: 'shared/profile', locals: { user: @user } do
+= render layout: "shared/profile", locals: { user: @user } do
   .col-md-6
     .box
-      h3= t('users.show.description')
+      h3= t("users.show.description")
 
       p= simple_format(Rinku.auto_link(@user.description))
 
@@ -14,22 +14,22 @@
 
   .col-md-6
     .box
-      h3= t('users.show.availability')
+      h3= t("users.show.availability")
 
-      = render 'calendar', user: @user
+      = render "calendar", user: @user
 
-    - if @user.type == 'Host'
+    - if @user.type == "Host"
       .box
-        h3= t('users.show.accomodation')
+        h3= t("users.show.accomodation")
 
         p= simple_format(@user.accomodation)
 
     .box
-      h3= link_to t('users.show.pictures'), user_pictures_path(@user)
+      h3= link_to t("users.show.pictures"), user_pictures_path(@user)
 
-      = render 'pictures', pictures: @user.pictures
+      = render "pictures", pictures: @user.pictures
 
     .box
       h3= link_to feedback_count(@feedback_pairs), user_feedbacks_path(@user)
 
-      = render partial: 'feedbacks/feedbacks', object: @feedback_pairs
+      = render partial: "feedbacks/feedbacks", object: @feedback_pairs

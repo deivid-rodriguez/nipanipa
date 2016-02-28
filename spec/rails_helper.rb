@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
-ENV['RAILS_ENV'] ||= 'test'
+ENV["RAILS_ENV"] ||= "test"
 
-require 'simplecov'
-SimpleCov.start 'rails'
+require "simplecov"
+SimpleCov.start "rails"
 
-require 'spec_helper'
-require File.expand_path('../../config/environment', __FILE__)
-require 'rspec/rails'
+require "spec_helper"
+require File.expand_path("../../config/environment", __FILE__)
+require "rspec/rails"
 
-require 'support/capybara'
-require 'support/database_cleaner'
-require 'support/i18n'
-require 'support/shoulda'
-require 'support/utilities'
-require 'support/webmock'
+require "support/capybara"
+require "support/database_cleaner"
+require "support/i18n"
+require "support/shoulda"
+require "support/utilities"
+require "support/webmock"
 
 # Checks for pending migrations before tests are run.
 ActiveRecord::Migration.maintain_test_schema!
@@ -50,8 +50,8 @@ RSpec.configure do |config|
   # Use the core set of syntax methods (build, build_stubbed, create,
   # attributes_for, and their *_list counterparts) without having to call them
   # on FactoryGirl directly
-  require 'factory_girl_rails'
+  require "factory_girl_rails"
   config.include FactoryGirl::Syntax::Methods
 end
 
-require 'cancan/matchers'
+require "cancan/matchers"

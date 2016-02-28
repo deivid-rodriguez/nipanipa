@@ -1,6 +1,6 @@
 = simple_form_for @donation,
     wrapper: :inline_form,
-    html: { class: 'form-inline' } do |d|
+    html: { class: "form-inline" } do |d|
   = d.error_notification
 
   .form-row
@@ -11,7 +11,7 @@
           as: :select,
           collection: 1..20,
           include_blank: false,
-          class: 'form-control donation-amount'
+          class: "form-control donation-amount"
 
       = d.hidden_field :user_id, value: current_user.try(:id)
 

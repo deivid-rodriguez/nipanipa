@@ -37,7 +37,7 @@ Rails.application.configure do
   config.assets.digest = true
 
   # Version of your assets, change this if you want to expire all your assets.
-  config.assets.version = '1.0'
+  config.assets.version = "1.0"
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
@@ -54,7 +54,7 @@ Rails.application.configure do
 
   # Custom logger
   config.logger =
-    Logger.new(Rails.root.join('log', "#{Rails.env}.log"), 10, 100.megabytes)
+    Logger.new(Rails.root.join("log", "#{Rails.env}.log"), 10, 100.megabytes)
 
   # Use a different cache store in production
   # config.cache_store = :mem_cache_store
@@ -69,10 +69,10 @@ Rails.application.configure do
   # ActionMailer Config
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: ENV['MAIL_SERVER'],
-    user_name: ENV['MAIL_USER'],
-    password: ENV['MAIL_PASS'],
-    domain: ENV['MAIL_HOST'],
+    address: ENV["MAIL_SERVER"],
+    user_name: ENV["MAIL_USER"],
+    password: ENV["MAIL_PASS"],
+    domain: ENV["MAIL_HOST"],
     port: 587,
     authentication: :plain,
     enable_starttls_auto: true
@@ -96,5 +96,5 @@ Rails.application.configure do
   # Make sure the secret is at least 30 characters and all random, no regular
   # words or you'll be exposed to dictionary attacks.  Also make sure it is
   # kept private if you're sharing your code publicly.
-  config.secret_key_base = ENV['SECRET_TOKEN']
+  config.secret_key_base = ENV["SECRET_TOKEN"]
 end

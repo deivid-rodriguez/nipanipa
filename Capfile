@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 # Load DSL and Setup Up Stages
-require 'capistrano/setup'
+require "capistrano/setup"
 
 # Include default deployment tasks
-require 'capistrano/deploy'
+require "capistrano/deploy"
 
 # Rails tasks
-require 'capistrano/rails'
+require "capistrano/rails"

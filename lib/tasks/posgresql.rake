@@ -4,7 +4,7 @@
 # Tasks for taking & restoring db snapshots
 #
 namespace :db do
-  desc 'Dumps the database to a file.'
+  desc "Dumps the database to a file."
   task dump: :environment do
     cmd = <<~SHELL
       PGPASSWORD=#{config[:password]} \
@@ -25,7 +25,7 @@ namespace :db do
     raise unless system(cmd)
   end
 
-  desc 'Restores database from a file.'
+  desc "Restores database from a file."
   task restore: [:environment, :drop, :create] do
     cmd = <<~SHELL
       PGPASSWORD=#{config[:password]} \

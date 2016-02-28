@@ -1,15 +1,15 @@
 doctype html
 
 html
-  = render 'layouts/head'
+  = render "layouts/head"
 
   body
-    div class=(params[:action] == 'home' ? 'home' : 'inner')
+    div class=(params[:action] == "home" ? "home" : "inner")
       .wrapper
-        = render 'layouts/header'
-        = render 'layouts/messages'
+        = render "layouts/header"
+        = render "layouts/messages"
 
-      main role='main'
+      main role="main"
         = yield
 
-    = render 'layouts/footer'
+    = render "layouts/footer"

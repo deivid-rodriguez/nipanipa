@@ -1,5 +1,5 @@
 - if pictures.empty?
-  = render 'shared/empty', message: 'nopictures'
+  = render "shared/empty", message: "nopictures"
 
 - else
   ul.picture-thumbnails
@@ -8,10 +8,10 @@
         .picture-thumbnail
           - if can? :manage, p
             .actions
-              - delete_lnk = link_to t('.delete'),
+              - delete_lnk = link_to t(".delete"),
                                      user_picture_path(current_user, p),
                                      method: :delete
-              - edit_lnk = link_to t('.edit'),
+              - edit_lnk = link_to t(".edit"),
                                    edit_user_picture_path(current_user, p),
                                    name: "image-#{p.id}"
 

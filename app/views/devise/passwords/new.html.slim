@@ -1,8 +1,8 @@
-- provide :title, t('.forgotten?')
+- provide :title, t(".forgotten?")
 
 .main-padded
   header
-    h1= t('.forgotten?')
+    h1= t(".forgotten?")
 
   .form-thumbnail
     = simple_form_for resource, url: user_password_path,
@@ -13,4 +13,4 @@
 
       = f.input :email, autofocus: true
 
-      = f.button :submit, t('.send_instructions'), class: 'primary-button'
+      = f.button :submit, t(".send_instructions"), class: "primary-button"

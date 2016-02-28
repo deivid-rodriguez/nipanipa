@@ -5,10 +5,10 @@ div class="feedback #{feedback.side}" id="feedback-#{feedback.id}"
   - if feedback.sender == current_user
     div class="pull-#{feedback.side}"
       .profile-edit-link
-        = link_to t('shared.edit'),
+        = link_to t("shared.edit"),
                   edit_user_feedback_path(feedback.recipient, feedback)
       .profile-delete-link
-        = link_to t('shared.delete'),
+        = link_to t("shared.delete"),
                   user_feedback_path(feedback.recipient, feedback),
                   method: :delete
 

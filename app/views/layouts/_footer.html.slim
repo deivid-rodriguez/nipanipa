@@ -4,34 +4,34 @@ footer
       ul
         li
           small
-            - trastevere_site = 'http://trasteverestudio.com'
-            | (c) 2014 NiPaNiPa by #{link_to 'Trastévere', trastevere_site}
+            - trastevere_site = "http://trasteverestudio.com"
+            | (c) 2014 NiPaNiPa by #{link_to "Trastévere", trastevere_site}
 
-        li= link_to t('static_pages.terms.title'), terms_path
+        li= link_to t("static_pages.terms.title"), terms_path
 
-        li= link_to t('static_pages.about.title'), about_path
+        li= link_to t("static_pages.about.title"), about_path
 
-        li= link_to t('static_pages.contact.title'), contact_path
+        li= link_to t("static_pages.contact.title"), contact_path
 
     nav.social-links
       ul
         li
-          - fb_url = 'https://www.facebook.com/pages/Nipa-Nipa/282213028588722'
+          - fb_url = "https://www.facebook.com/pages/Nipa-Nipa/282213028588722"
           - link_to fb_url do
-            = image_tag 'facebook.png', alt: 'Facebook'
+            = image_tag "facebook.png", alt: "Facebook"
 
         li
-          = link_to 'https://twitter.com/nipanipaproject' do
-            = image_tag 'twitter.png', alt: 'Twitter'
+          = link_to "https://twitter.com/nipanipaproject" do
+            = image_tag "twitter.png", alt: "Twitter"
 
         li
-          = link_to 'https://github.com/deivid-rodriguez/nipanipa' do
-            = image_tag 'github.png', alt: 'Github'
+          = link_to "https://github.com/deivid-rodriguez/nipanipa" do
+            = image_tag "github.png", alt: "Github"
 
         li
-          = link_to 'http://www.pinterest.com/trasteverestu/nipa-nipa' do
-            = image_tag 'pinterest.png', alt: 'pinterest'
+          = link_to "http://www.pinterest.com/trasteverestu/nipa-nipa" do
+            = image_tag "pinterest.png", alt: "pinterest"
 
         li
-          = link_to 'http://vimeo.com/nipanipa' do
-            = image_tag 'vimeo.png', alt: 'vimeo'
+          = link_to "http://vimeo.com/nipanipa" do
+            = image_tag "vimeo.png", alt: "vimeo"

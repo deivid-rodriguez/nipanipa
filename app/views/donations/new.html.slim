@@ -1,38 +1,38 @@
-- provide :title, t('.title')
+- provide :title, t(".title")
 
 .main-padded
   header
-    h1= t('.title')
+    h1= t(".title")
 
   .row
     .col-md-12
-      p= t('.intro')
+      p= t(".intro")
 
   .row
     .col-md-6
       .contribute-thumbnail
-        h3= t('.donate_title')
+        h3= t(".donate_title")
 
-        p= t('.donate_desc')
-        = render 'form'
-        = render 'flattr'
+        p= t(".donate_desc")
+        = render "form"
+        = render "flattr"
 
     .col-md-6
       .contribute-thumbnail
-        h3= t('.contribute_title')
+        h3= t(".contribute_title")
 
         ul
           li
             p
-              - src = 'https://github.com/deivid-rodriguez/nipanipa'
-              = t('.contribute_desc_dev_html',
-                  git_url: link_to(t('.here'), src))
+              - src = "https://github.com/deivid-rodriguez/nipanipa"
+              = t(".contribute_desc_dev_html",
+                  git_url: link_to(t(".here"), src))
 
           li
-            p= t('.contribute_desc_tr')
+            p= t(".contribute_desc_tr")
 
           li
             p
-              - issues = 'https://github.com/deivid-rodriguez/nipanipa/issues'
-              = t('.contribute_desc_bug_html',
-                   issues_url: link_to(t('.here'), issues))
+              - issues = "https://github.com/deivid-rodriguez/nipanipa/issues"
+              = t(".contribute_desc_bug_html",
+                   issues_url: link_to(t(".here"), issues))

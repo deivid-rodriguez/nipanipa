@@ -18,7 +18,7 @@ class Donation < ActiveRecord::Base
     http.use_ssl = true
 
     request = Net::HTTP::Post.new(base_uri.request_uri)
-    post_params = { tx: tx, at: ENV['PAYPAL_PDT_AT'], cmd: '_notify-synch' }
+    post_params = { tx: tx, at: ENV["PAYPAL_PDT_AT"], cmd: "_notify-synch" }
     request.set_form_data(post_params)
 
     http.request(request)
@@ -26,9 +26,9 @@ class Donation < ActiveRecord::Base
 
   def query(return_url)
     values = {
-      business: ENV['PAYPAL_ACCOUNT'],
-      cmd: '_donations',
-      item_name: 'Friends of NiPaNiPa',
+      business: ENV["PAYPAL_ACCOUNT"],
+      cmd: "_donations",
+      item_name: "Friends of NiPaNiPa",
       amount: amount,
       return: return_url,
       invoice: id
@@ -38,8 +38,8 @@ class Donation < ActiveRecord::Base
   end
 
   def self.base_uri
-    URI::HTTP.build(host: ENV['PAYPAL_HOST'],
-                    port: ENV['PAYPAL_PORT'],
-                    path: '/cgi-bin/websrc')
+    URI::HTTP.build(host: ENV["PAYPAL_HOST"],
+                    port: ENV["PAYPAL_PORT"],
+                    path: "/cgi-bin/websrc")
   end
 end

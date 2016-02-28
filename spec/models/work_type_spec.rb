@@ -4,7 +4,7 @@
 # Unit tests for WorkType model
 #
 RSpec.describe WorkType do
-  let!(:work_type) { build(:work_type, name: 'gardening') }
+  let!(:work_type) { build(:work_type, name: "gardening") }
 
   subject { work_type }
 

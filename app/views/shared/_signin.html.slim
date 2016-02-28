@@ -6,9 +6,9 @@
 
   = f.input :password, hint: false
 
-  = f.input :remember_me, as: :boolean, inline_label: t('sessions.rememberme')
+  = f.input :remember_me, as: :boolean, inline_label: t("sessions.rememberme")
 
-  = f.button :submit, t('sessions.signin'), class: 'signin-button'
+  = f.button :submit, t("sessions.signin"), class: "signin-button"
 
 .forgot-your-pwd
-  = link_to t('sessions.forgot_your_pwd?'), new_password_path(:user)
+  = link_to t("sessions.forgot_your_pwd?"), new_password_path(:user)

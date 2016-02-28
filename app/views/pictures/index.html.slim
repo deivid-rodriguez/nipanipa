@@ -1,9 +1,9 @@
-- provide :title, t('.title')
+- provide :title, t(".title")
 
-= render layout: 'shared/profile', locals: { user: @user } do
+= render layout: "shared/profile", locals: { user: @user } do
   - if can? :manage, @user
     p.new-picture
-      = link_to t('pictures.index.new_picture'),
+      = link_to t("pictures.index.new_picture"),
                 new_user_picture_path(current_user)
 
-  = render 'pictures', pictures: @pictures, user: @user
+  = render "pictures", pictures: @pictures, user: @user

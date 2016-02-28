@@ -1,11 +1,11 @@
-- provide :title, t('.title', user: @message.recipient.name)
+- provide :title, t(".title", user: @message.recipient.name)
 
 .main-padded
   header
-    h1= t('.title', user: @message.recipient.name)
+    h1= t(".title", user: @message.recipient.name)
 
   ul.no-bullets
     - @conversation.each do |message|
-      = render 'sent', message: message
+      = render "sent", message: message
 
-    li.reply-box= render 'form', message: @message
+    li.reply-box= render "form", message: @message

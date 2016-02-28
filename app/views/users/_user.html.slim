@@ -4,7 +4,7 @@ li
       .user-thumbnail-badges
         = avatar_for user
         .karma
-          = t('.karma').titleize
+          = t(".karma").titleize
           span
             strong= user.karma
 
@@ -12,14 +12,14 @@ li
         h5= user.name
 
         .user-thumbnail-login.col-md-6.col-sm-12
-          = render 'shared/current_or_last_login', user: user
+          = render "shared/current_or_last_login", user: user
 
         .user-thumbnail-location.col-md-6.col-sm-12
-          = t('.location') + ': '
+          = t(".location") + ": "
           = user_location user
 
         .user-thumbnail-shortdesc
           = truncate user.description,
               length: 400,
-              separator: ' ',
-              omission: '...'
+              separator: " ",
+              omission: "..."

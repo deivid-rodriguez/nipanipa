@@ -23,8 +23,8 @@ class FeedbacksController < ApplicationController
     if @feedback.save
       donate_or_redirect(@feedback.donation, :create)
     else
-      flash.now[:error] = t('feedbacks.create.error')
-      render 'new'
+      flash.now[:error] = t("feedbacks.create.error")
+      render "new"
     end
   end
 
@@ -44,17 +44,17 @@ class FeedbacksController < ApplicationController
     if @feedback.update(feedback_params)
       donate_or_redirect(@feedback.donation, :update)
     else
-      flash.now[:error] = t('feedbacks.update.error')
-      render 'edit'
+      flash.now[:error] = t("feedbacks.update.error")
+      render "edit"
     end
   end
 
   def destroy
     authorize! :destroy, @feedback
-    flash.now[:notice] = t('feedbacks.destroy.success')
+    flash.now[:notice] = t("feedbacks.destroy.success")
     return unless @feedback.destroy
 
-    redirect_to :back, notice: t('feedbacks.destroy.success')
+    redirect_to :back, notice: t("feedbacks.destroy.success")
   end
 
   private

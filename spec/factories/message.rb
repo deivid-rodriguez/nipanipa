@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :message do
-    body 'Sample body'
+    body "Sample body"
     association :sender, factory: :volunteer
     association :recipient, factory: :host
 

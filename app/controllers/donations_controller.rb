@@ -13,7 +13,7 @@ class DonationsController < ApplicationController
     if @donation.save
       redirect_to @donation.paypal_url(donation_url(@donation.id))
     else
-      render action: 'new'
+      render action: "new"
     end
   end
 
@@ -32,10 +32,10 @@ class DonationsController < ApplicationController
   private
 
   def flash_message(resp)
-    if resp.body.lines.first.chomp == 'SUCCESS'
-      { notice: t('donations.create.success') }
+    if resp.body.lines.first.chomp == "SUCCESS"
+      { notice: t("donations.create.success") }
     else
-      { alert: t('donations.create.error') }
+      { alert: t("donations.create.error") }
     end
   end
 

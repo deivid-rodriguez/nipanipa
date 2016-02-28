@@ -1,8 +1,8 @@
-- provide :title, t('.title', username: @user.name)
+- provide :title, t(".title", username: @user.name)
 
 .main-padded
   header
-    h1= t('.title', username: @user.name)
-    h2= t('.subtitle')
+    h1= t(".title", username: @user.name)
+    h2= t(".subtitle")
 
-  = render 'form', user: @user, feedback: @feedback
+  = render "form", user: @user, feedback: @feedback

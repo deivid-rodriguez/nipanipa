@@ -1,7 +1,7 @@
 = simple_form_for [current_user, @picture],
-    html: { class: 'new-picture form-horizontal', multipart: true } do |f|
+    html: { class: "new-picture form-horizontal", multipart: true } do |f|
 
   = f.input :name
   = f.input :image
 
-  = f.button :submit, model: t('activerecord.models.picture')
+  = f.button :submit, model: t("activerecord.models.picture")

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'support/i18n'
+require "support/i18n"
 
-RSpec.describe 'i18n files' do
+RSpec.describe "i18n files" do
   extend I18nHelpers
 
   load_locales

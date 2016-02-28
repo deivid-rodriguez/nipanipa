@@ -16,7 +16,7 @@ set :stage, :production
 # This can be used to drop a more detailed server definition into
 # the server list. The second argument something that quacks like
 # a hash can be used to set extended properties on the server.
-server 'nipanipa.com', user: 'deployer', roles: %w(web app db), primary: true
+server "nipanipa.com", user: "deployer", roles: %w(web app db), primary: true
 
 # You can set custom ssh options.
 # It's possible to pass any option but you need to keep in mind
