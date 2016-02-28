@@ -4,7 +4,7 @@
 # A single message between users
 #
 class Message < ActiveRecord::Base
-  validates :body, presence: true, length: { minimum: 2, maximum: 500 }
+  validates :body, presence: true, length: { minimum: 1, maximum: 500 }
 
   belongs_to :sender, class_name: "User"
   belongs_to :recipient, class_name: "User"

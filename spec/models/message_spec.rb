@@ -11,7 +11,7 @@ RSpec.describe Message do
   end
 
   it "has a body between 2 and 500 characters" do
-    expect(message).to validate_length_of(:body).is_at_least(2).is_at_most(500)
+    expect(message).to validate_length_of(:body).is_at_least(1).is_at_most(500)
   end
 
   it "belongs to a sender" do

@@ -40,30 +40,28 @@ RSpec.describe "Display a conversation" do
   end
 
   describe "and reply to it", :js do
-    context "successfully" do
+    context "with a non-empty message" do
       before { reply("This is a sample reply") }
 
       it "shows the message just replied" do
-        expect(page).to have_content "This is a sample reply"
+        expect(page).to \
+          have_selector(".message-content p", text: "This is a sample reply")
       end
 
       it "sends_notification email" do
         expect(sent_emails.size).to eq(1)
         expect(last_email.to).to include(message.recipient.email)
       end
-
-      it "shows a success message" do
-        have_flash_message t("conversations.update.ok"), "success"
-      end
     end
 
-    context "unsuccessfully" do
+    context "with an empty message" do
       before { reply("") }
 
-      it "shows an error message and keeps user in the same page" do
-        expect(page).to \
-          have_flash_message t("conversations.update.error"), "danger"
+      it "doesn't add an empty balloon" do
+        expect(page).to have_selector(".message-content p", count: 1)
+      end
 
+      it "keeps user in the same page" do
         expect(page).to have_button t("helpers.submit.message.create")
       end
     end

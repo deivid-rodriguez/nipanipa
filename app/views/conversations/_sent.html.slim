@@ -3,4 +3,4 @@ li
            locals: { message: MessagePresenter.new(message, self) } do
     = simple_format(Rinku.auto_link(message.body))
 
-    p.message-date= l(message.created_at, format: :short)
+    .message-date= l(message.created_at, format: :short)
