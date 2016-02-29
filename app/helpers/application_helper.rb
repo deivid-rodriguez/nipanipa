@@ -45,9 +45,9 @@ module ApplicationHelper
 
   def owner_tabs(user)
     [
-      { name: t(".general"), path: user_path(user) },
-      { name: t(".feedback"), path: user_feedbacks_path(user) },
-      { name: t(".pictures"), path: user_pictures_path(user) }
+      { name: tab_name("general"), path: user_path(user) },
+      { name: tab_name("feedback"), path: user_feedbacks_path(user) },
+      { name: tab_name("pictures"), path: user_pictures_path(user) }
     ]
   end
 
@@ -55,28 +55,34 @@ module ApplicationHelper
     tabs = owner_tabs(user)
     return tabs unless user_signed_in? && current_user == user
 
-    tabs + [{ name: t(".messages"), path: conversations_path }]
+    tabs + [{ name: tab_name("messages"), path: conversations_path }]
   end
 
   def actions_for(user)
     return owner_links if current_user && user == current_user
 
-    [{ name: t(".new_message"),
+    [{ name: tab_name("new_message"),
        dest: conversation_path(user),
        class: "envelope" },
-     { name: t(".new_feedback"),
+     { name: tab_name("new_feedback"),
        dest: feedback_destination(current_user, user),
        class: "ok" }]
   end
 
   def owner_links
-    [{ name: t(".edit"),
+    [{ name: link_name("edit"),
        dest: edit_user_registration_path,
        class: "pencil" },
-     { name: t(".delete"),
+     { name: link_name("delete"),
        dest: confirm_delete_account_path,
        class: "trash" }]
   end
+
+  def tab_name(key)
+    t("shared.profile_header.#{key}")
+  end
+
+  alias link_name tab_name
 
   #
   # Bootstrap 3 <-> Rails 4 flash messages compatibility
