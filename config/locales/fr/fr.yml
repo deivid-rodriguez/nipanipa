@@ -172,7 +172,8 @@ compétences que vous pouvez offrir à votre hôte?"
       title_volunteer: Choisissez le type de travail que vous cherchez
     new:
       title: Enregistrement
-      header: Enregistrement du %{type}
+      header_host: Enregistrement du hôte
+      header_volunteer: Enregistrement du volontaire
     show:
       availability: Disponibilité
       profile: Mon profil

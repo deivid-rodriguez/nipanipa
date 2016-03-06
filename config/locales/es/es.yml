@@ -172,7 +172,8 @@ oferta"
       title_volunteer: Selecciona el/los tipos de trabajo que estás buscando
     new:
       title: Regístrate
-      header: Registro de %{type}
+      header_host: Registro de anfitrión
+      header_volunteer: Registro de voluntario
     show:
       availability: Disponibilidad
       profile: Mi perfil

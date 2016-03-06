@@ -46,10 +46,7 @@ RSpec.shared_examples_for "a nipanipa user" do
     before { visit send(:"#{role}_registration_path") }
 
     it "shows correct header" do
-      role_i18n = t("activerecord.models.#{role}")
-      header = t("users.new.header", type: role_i18n).titleize
-
-      expect(page).to have_selector "h1", text: header
+      expect(page).to have_selector "h1", text: t("users.new.header_#{role}")
     end
 
     it "shows correct page title" do

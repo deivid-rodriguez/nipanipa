@@ -170,7 +170,8 @@ host be interested in you?"
       title_volunteer: Pick the type/s of job you're looking for
     new:
       title: Sign up
-      header: "%{type} registration"
+      header_host: Host registration
+      header_volunteer: Volunteer registration
     show:
       availability: Availability
       profile: My profile

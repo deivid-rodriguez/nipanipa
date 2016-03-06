@@ -170,7 +170,8 @@ volontariato che offri"
       title_volunteer: Seleziona il/i tipo/i di lavoro che stai cercando
     new:
       title: Iscriviti
-      header: Iscrizione di %{type}
+      header_host: Iscrizione di host
+      header_volunteer: Iscrizione di volontario
     show:
       availability: Disponibilità
       profile: Il mio profilo

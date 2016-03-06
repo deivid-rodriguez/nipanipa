@@ -174,7 +174,8 @@ anbietest"
       title_volunteer: Wähle aus, welche Arten der Arbeit du suchst
     new:
       title: Registrieren
-      header: "%{type} Registrierung"
+      header_host: Gastgeber Registrierung
+      header_volunteer: Freinwillige Registrierung
     show:
       availability: Verfügbarkeit
       profile: Mein Profil

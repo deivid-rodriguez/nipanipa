@@ -2,6 +2,6 @@
 
 .main-padded
   header
-    h1= t(".header", type: resource.type.underscore).titleize
+    h1= t(".header_#{resource.type.underscore}")
 
   = render "form", url: user_registration_path
