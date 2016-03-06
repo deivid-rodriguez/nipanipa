@@ -70,9 +70,6 @@ Seite oder durch die Übersetzung in deine Sprache."
       explore_desc: "Entdecke zukünftige Freunde, die dich während deiner
 Reisen beherbergen können, oder finde heraus, welche arbeitswilligen
 Reisenden gerade in deiner Gegend sind!"
-      signup: Registrieren
-      signup_desc: "Registriere dich jetzt als Gastgeber oder Freiwilliger und
-erstelle dein Profil. Es dauert nicht länger als fünf Minuten!"
   feedbacks:
     new:
       title: Neue Referenz für %{username}
@@ -256,6 +253,7 @@ Bugs berichten und sagen, welche Funktionen dir noch fehlen."
       label: Du kannst uns auch flattrn!
   layouts:
     header:
+      signup: Registrieren
       language: Sprache
       search: Suchen
       donate: Spenden

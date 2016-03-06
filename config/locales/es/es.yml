@@ -68,10 +68,6 @@ traducirlo a tu idioma."
       explore_desc: "Echa un vistazo a los posibles anfitriones que te alojarán
 durante tus vacaciones, o mira a ver qué futuros voluntarios se encuentran por
 tu zona y tienen ganas de ayudarte."
-      signup: Apúntate
-      signup_desc: "Apúntate a NiPaNiPa, ya seas anfitrión o voluntario.
-Registrarte y completar tu perfil no te llevará ni 5 minutos. Después...
-cuéntanos lo que pasa después!"
   feedbacks:
     new:
       title: Referencia para %{username}
@@ -252,6 +248,7 @@ solicitarnos nuevas funcionalidades %{issues_url}."
       label: O haznos una microdonación a través de flattr
   layouts:
     header:
+      signup: Apúntate
       language: Idioma
       search: Buscar
       donate: Ayúdanos

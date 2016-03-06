@@ -68,9 +68,6 @@ lingua."
       explore_desc: "Dai un'occhiata ai possibili host che ti alloggeranno nel
 tuo viaggio oppure cerca volontari che sono vicino a te e sono pronti per
 aiutarti nel tuo progetto."
-      signup: Iscriviti!
-      signup_desc: "Iscriviti a NiPaNiPa, sia come host sia come volontario.
-Non ci vogliono neanche 5 minuti!"
   feedbacks:
     new:
       title: Referenza per %{username}
@@ -251,6 +248,7 @@ l'errore."
       label: Or fai una microdonazione con flattr
   layouts:
     header:
+      signup: Iscriviti!
       language: Lingua
       search: Cercare
       donate: Aiutaci

@@ -21,7 +21,7 @@ nav.navbar.navbar-default role="navigation"
       - elsif !signup_page?(request.path)
         li.dropdown
           a.dropdown-toggle data-toggle="dropdown" href="#" role="button"
-            = t("static_pages.home.signup")
+            = t(".signup")
             b.caret
           ul.dropdown-menu.with-small-arrow
             li= link_to t("activerecord.models.host"), host_registration_path

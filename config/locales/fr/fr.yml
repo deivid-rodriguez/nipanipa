@@ -70,10 +70,6 @@ nous aider à la traduire à votre langue"
       explore_desc: "Jettez un coup d'oeil aux posibles hôtes qui vont pouvoir
 vous loger pendant vos vacances, ou regardez si il y a des futurs volontaires
 dans votre quartier, qui puisent vous aider"
-      signup: Inscrivez-vous
-      signup_desc: "Inscrivez-vous sur NiPaNiPa, autant si vous êtest hôte comme
-si vous êtes volontaire. Vous inscrire et completer votre profil vous coûtera
-moins de 5 minutes. Après ça, racontez-nous ce qui se passe!"
   feedbacks:
     new:
       title: Une réference pour %{username}
@@ -253,6 +249,7 @@ sur la liste"
       label: Vous pouvez aussi nous faire une micro-contribution par flattr
   layouts:
     header:
+      signup: Inscrivez-vous
       language: Langue
       search: Chercher
       donate: Aidez-nous

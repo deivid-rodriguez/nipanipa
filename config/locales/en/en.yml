@@ -67,9 +67,6 @@ translating it into your language."
       explore_desc: "Take a look at the potential friends who might host you
 during your holidays, or check which willing workers might be around your
 area."
-      signup: Sign up
-      signup_desc: "Sign up now as a host or a volunteer and fill your profile.
-It won't take you more than five minutes."
   feedbacks:
     new:
       title: New reference for %{username}
@@ -250,6 +247,7 @@ would like to be implemented %{issues_url}."
       label: You can also flattr us!
   layouts:
     header:
+      signup: Sign up
       language: Language
       search: Search
       donate: Donate
