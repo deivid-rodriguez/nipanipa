@@ -89,8 +89,6 @@ Quando vuoi farne un altra, vai %{donations_url}"
       error: C'è stato un errore nel creare la nuova referenza... :(
     index:
       title: Referenze
-    feedbacks:
-      title: Referenze
     received:
       one: 1 ricevuta
       other: "%{count} ricevute"

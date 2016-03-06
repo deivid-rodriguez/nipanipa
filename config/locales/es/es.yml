@@ -89,8 +89,6 @@ experiencia. Siempre puedes seguir colaborando %{donations_url}"
       error: Error al crear la nueva referencia... :(
     index:
       title: Referencias
-    feedbacks:
-      title: Referencias
     received:
       one: 1 recibida
       other: "%{count} recibidas"

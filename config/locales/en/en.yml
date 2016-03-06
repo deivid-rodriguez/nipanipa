@@ -88,8 +88,6 @@ not inmutable!"
       error: Error al crear la nueva referencia... :(
     index:
       title: Feedback
-    feedbacks:
-      title: Feedback
     received:
       one: 1 received
       other: "%{count} received"
