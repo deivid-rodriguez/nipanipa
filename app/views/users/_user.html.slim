@@ -15,8 +15,7 @@ li
           = render "shared/current_or_last_login", user: user
 
         .user-thumbnail-location.col-md-6.col-sm-12
-          = t(".location") + ": "
-          = user_location user
+          | #{t(".location")}: #{user_location(user)}
 
         .user-thumbnail-shortdesc
           = truncate user.description,
