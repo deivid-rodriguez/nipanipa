@@ -51,13 +51,3 @@ bandeja de entrada."
         signed_up_but_unconfirmed: "Se ha enviado un mensaje con un enlace de
 confirmación a tu correo electrónico. Abre el enlace para activar tu cuenta."
         updated: Tu cuenta se ha actualizado.
-  errors:
-    messages:
-      already_confirmed: ya ha sido confirmada, por favor intenta iniciar sesión
-      confirmation_period_expired: "necesita confirmarse dentro de %{period},
-por favor solicita una nueva"
-      expired: ha expirado, por favor solicita una nueva
-      not_found: no se ha encontrado
-      not_saved:
-        one: "Ocurrió un error al tratar de guardar %{resource}:"
-        other: "Ocurrieron %{count} errores al tratar de guardar %{resource}:"

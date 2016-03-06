@@ -25,8 +25,6 @@ de:
       delete: Account löschen
       new_message: Neue Nachricht
       new_feedback: Referenz hinterlassen
-      edit_feedback: Referenz ändern
-      report_user: Diesen Benutzer melden
     badge:
       karma: Karma
       location: Ort
@@ -39,8 +37,6 @@ de:
       title: Nutzungsbedingungen
     help:
       title: Hilfe
-      uhost?: Bist du Gastgeber?
-      uvolunteer?: Bist du Freiwilliger?
     about:
       title: Über uns
       description: "Wir sind ein in Deutschland und Spanien ansässiger
@@ -56,8 +52,6 @@ zu verbessern. Bisher hatten wir noch nicht die Zeit, ein Kontaktformular zu
 erstellen, also schickt einfach eine Mail an %{mail}, wenn ihr Anregungen oder
 Verbesserungsvorschläge habt oder einfach Hallo sagen wollt!"
     home:
-      welcome: 'Willkommen bei NiPaNiPa'
-      subtitle: 'Verbindet Gastgeber und freiwillige Helfer rund um den Globus'
       host: Ich bin Gastgeber
       host_desc: Beherberge Reisende und erhalte dafür Hilfe
       volunteer: Ich bin Freiwilliger
@@ -77,8 +71,6 @@ Reisenden gerade in deiner Gegend sind!"
 und wäre ohne eure Rückmeldung nicht möglich. Einzig und allein euren Spenden
 ist es zu verdanken, dass die Seite aufrechterhalten werden kann."
     form:
-      feedback_for_user: Feedback für %{username}
-      feedback_for_nipa: Spende für NiPaNiPa
       donated_already_html: "Danke, dass du NiPaNiPa für die gute Erfahrung
 belohnst! Unter %{donations_url} kannst du uns weiter unterstützen."
       here: hier
@@ -130,16 +122,12 @@ deinem Profil angezeigt wird."
       edit: Foto bearbeiten
     destroy:
       success: Fotos
-      error: Fehler beim Entfernen des Fotos...
   conversations:
     index:
       title: Meine Unterhaltungen
       usure?: Bist du dir sicher?
     show:
       title: Nachrichten mit %{user}
-    update:
-      success: Du hast eine neue Unterhaltung begonnen
-      error: Beim Senden der Nachricht ist ein Fehler aufgetreten
     destroy:
       success: Die Unterhaltung wurde erfolgreich gelöscht!
       error: You don't have any messages with that user
@@ -178,7 +166,6 @@ anbietest"
       feedback: Feedback
       accomodation: Unterkunft
       pictures: Fotos
-      references: Feedback
       skills_host: Gesuchte Fähigkeiten / Beschreibung der Arbeit
       skills_volunteer: Angebotene Fähigkeiten / Gesuchte Arbeit
     edit:
@@ -217,8 +204,6 @@ anbietest"
     art_project: Kunstprojekte
     wwoofing: Wwoofing
   sessions:
-    new:
-      newuser?: Neuer Benutzer?
     forgot_your_pwd?: Passwort vergessen?
     signin: Login
     signout: Logout
@@ -240,8 +225,6 @@ NiPaNiPa mitwirkst."
 helfen!"
       contribute_desc_bug_html: "Außerdem kannst du uns %{issues_url} mögliche
 Bugs berichten und sagen, welche Funktionen dir noch fehlen."
-      select_amount: Betrag wählen
-      input_amount: Oder wähle einen anderen Betrag, der dir zusagt
       here: hier
     create:
       success: Deine Spende war erfolgreich!
@@ -254,11 +237,6 @@ Bugs berichten und sagen, welche Funktionen dir noch fehlen."
       language: Sprache
       search: Suchen
       donate: Spenden
-    footer:
-      news: Neuigkeiten
-  pagination:
-    previous: Vorherige Seite
-    next: Nächste Seite
   enumerize:
     language_skill:
       level:
@@ -338,3 +316,9 @@ sie noch mal"
               in_between: Die Datei darf nicht größer sein als 500 Kb... :(
       messages:
         record_invalid: Ungültiges Verzeichnis
+        already_confirmed: "wurde bereits bestätigt, bitte versuchen Sie, sich
+anzumelden"
+        confirmation_period_expired: "musste innerhalb von %{period} bestätigt
+werden, bitte neu anfordern."
+        expired: ist abgelaufen, bitte neu anfordern
+        not_found: nicht gefunden

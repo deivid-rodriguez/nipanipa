@@ -53,14 +53,3 @@ Anleitung, wie Sie Ihr Passwort zurücksetzen können."
 mit einem Link für die Bestätigung der Registrierung. Klicken Sie auf den Link
 um Ihren Account zu aktivieren."
         updated: Ihre Daten wurden aktualisiert.
-  errors:
-    messages:
-      already_confirmed: "wurde bereits bestätigt, bitte versuchen Sie, sich
-anzumelden"
-      confirmation_period_expired: "musste innerhalb von %{period} bestätigt
-werden, bitte neu anfordern."
-      expired: ist abgelaufen, bitte neu anfordern
-      not_found: nicht gefunden
-      not_saved:
-        one: "Konnte %{resource} nicht speichern: ein Fehler."
-        other: "Konnte %{resource} nicht speichern: %{count} Fehler."

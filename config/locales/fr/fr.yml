@@ -25,8 +25,6 @@ fr:
       delete: Effacer profil
       new_message: Envoyer message
       new_feedback: Laisser référence
-      edit_feedback: Editer référence
-      report_user: Alerter sur l'utilisateur
     badge:
       karma: Karma
       location: Lieu
@@ -39,8 +37,6 @@ fr:
       title: Termes et conditions
     help:
       title: Aide
-      uhost?: Etes-vous host?
-      uvolunteer?: Etes-vous volontaire?
     about:
       title: Qui sommes nous?
       description: "Nous sommes une association de designeurs et programateurs
@@ -56,8 +52,6 @@ envoyant un e-mail a %{mail}. Dites-nous ce que vous pensez du site, ce qui ne
 fonctionne pas, ce qui peut être amélioré ou simplement envoyez-nous une
 salutation."
     home:
-      welcome: Bienvenue à NiPaNipa
-      subtitle: Contactez de volontaires et de hosts du monde entier
       host: Je suis host
       host_desc: Logez quelqu'un en échange d'aide
       volunteer: Je suis volontaire
@@ -78,8 +72,6 @@ entre host et volontaires serait imposible sans vos contributions. NiPaNiPa est
 economiquement non-viable si vous n'évalouez pas vos experiences et vous ne
 contribuez pas un peu."
     form:
-      feedback_for_user: Référence pour %{username}
-      feedback_for_nipa: Donation pour NiPaNiPa
       donated_already_html: "Merci d'avoir récompensé NiPaNiPa pour cette
 expérience. Vous pouvez toujours continuer a collaborer %{donations_url}"
       here: ici
@@ -128,16 +120,12 @@ que vous êtes vraiment quelqu'un"
       edit: Editer photo
     destroy:
       success: Photo effacée correctement
-      error: Photo effacée avec erreur
   conversations:
     index:
       title: Mes messages
       usure?: Etes-vous sur de vouloir supprimer cette conversation?
     show:
       title: Messages avec %{user}
-    update:
-      success: Ce message a été envoyé
-      error: Erreur d'envoi du message
     destroy:
       success: Conversation effacée correctement
       error: Vous n'avez pas des messages avec cet utilisateur
@@ -175,7 +163,6 @@ compétences que vous pouvez offrir à votre hôte?"
       feedback: Réferénces
       accomodation: Logis
       pictures: Images
-      references: Références
       skills_host: Compétances requises / description du travail
       skills_volunteer: Compétances / types de travaille qu'on cherche
     edit:
@@ -214,8 +201,6 @@ compétences que vous pouvez offrir à votre hôte?"
     art_project: Projet artistique
     wwoofing: Wwoofing
   sessions:
-    new:
-      newuser?: Nouvel utilisateur
     forgot_your_pwd?: Avez-vous oublié votre mot de passe?
     signin: Accéder
     signout: Sortir
@@ -235,9 +220,6 @@ en collaborant au développement de NiPaNiPa %{git_url}"
 mais vous nous comprenez, vous pouvez nous aider à la traduire"
       contribute_desc_bug_html: "Vous pouvez assi nous dire les défauts ou nous
 démander des nouvelles competences"
-      select_amount: Sélectionez le montant
-      input_amount: "Ou choisissez le montant que vous voulez, s'il n'y est pas
-sur la liste"
       here: ici
     create:
       success: Vôtre don a été reussi
@@ -250,11 +232,6 @@ sur la liste"
       language: Langue
       search: Chercher
       donate: Aidez-nous
-    footer:
-      news: Nouvelles
-  pagination:
-    previous: Page précédente
-    next: Page suivante
   enumerize:
     language_skill:
       level:
@@ -332,3 +309,8 @@ format bizarre"
               in_between: Le fichier ne peut pas peser plus de 500kb
       messages:
         record_invalid: Enregistrement non valide
+        already_confirmed: a déjà été confirmé(e)
+        confirmation_period_expired: "doit être confirmé(e) en %{period},
+veuillez en demander un(e) autre"
+        expired: est périmé, veuillez en demander un autre
+        not_found: n’a pas été trouvé(e)

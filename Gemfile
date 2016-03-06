@@ -30,6 +30,9 @@ source "https://rails-assets.org" do
   gem "rails-assets-autosize", "~> 3.0"
 end
 
+# Translations
+gem "i18n-tasks", "0.9.5"
+
 gem "activeadmin", "1.0.0.pre2"
 
 gem "rubyzip", "~> 1.1", require: false

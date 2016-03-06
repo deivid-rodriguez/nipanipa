@@ -24,6 +24,7 @@ class ExternalProfilePresenter < ApplicationPresenter
 
   def new_message_action
     {
+      # i18n-tasks-use t("shared.profile_header.new_message")
       name: tab_name("new_message"),
       dest: view.conversation_path(self),
       class: "envelope"
@@ -32,6 +33,7 @@ class ExternalProfilePresenter < ApplicationPresenter
 
   def new_feedback_action
     {
+      # i18n-tasks-use t('shared.profile_header.new_feedback')
       name: tab_name("new_feedback"),
       dest: feedback_destination(current_user, self),
       class: "ok"

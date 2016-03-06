@@ -20,6 +20,7 @@ class OwnedProfilePresenter < ApplicationPresenter
 
   def edit_profile_tab
     {
+      # i18n-tasks-use t('shared.profile_header.edit')
       name: action_name("edit"),
       dest: view.edit_user_registration_path,
       class: "pencil"
@@ -28,6 +29,7 @@ class OwnedProfilePresenter < ApplicationPresenter
 
   def delete_profile_tab
     {
+      # i18n-tasks-use t('shared.profile_header.delete')
       name: action_name("delete"),
       dest: view.confirm_delete_account_path,
       class: "trash"
@@ -36,6 +38,7 @@ class OwnedProfilePresenter < ApplicationPresenter
 
   def messages_tab
     {
+      # i18n-tasks-use t('shared.profile_header.messages')
       name: tab_name("messages"),
       path: view.conversations_path
     }

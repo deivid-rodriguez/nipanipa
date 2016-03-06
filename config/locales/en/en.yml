@@ -25,8 +25,6 @@ en:
       delete: Delete account
       new_message: New message
       new_feedback: Leave a reference
-      edit_feedback: Change reference
-      report_user: Alert about this user
     badge:
       karma: Karma
       location: Location
@@ -39,8 +37,6 @@ en:
       title: Terms & Conditions
     help:
       title: Help
-      uhost?: Are you a host?
-      uvolunteer?: Are you a volunteer?
     about:
       title: About Us
       description: "We are a Germany and Spain based association of both web designers
@@ -53,8 +49,6 @@ correct errors and make it better. We haven't had the time to make a proper cont
 form but please send an e-mail to %{mail} and let us know what you think,
 what can be improved or just say hello!"
     home:
-      welcome: 'Welcome to NiPaNiPa'
-      subtitle: 'Contacts hosts and volunteers around the world'
       host: I'm a host
       host_desc: Find volunteers to help you while they stay at your place
       volunteer: I'm a volunteer
@@ -74,8 +68,6 @@ area."
 impossible without your opinions. Plus, your donations are the only way to keep
 our site running."
     form:
-      feedback_for_user: Feedback for %{username}
-      feedback_for_nipa: Donation for NiPaNiPa
       donated_already_html: "Thanks for rewarding NiPaNiPa in exchange for a
 nice experience. You can keep on contributing %{donations_url}"
       here: here
@@ -127,16 +119,12 @@ your profile"
       edit: Edit picture
     destroy:
       success: Pictures
-      error: Error removing the picture...
   conversations:
     index:
       title: My messages
       usure?: Are you sure?
     show:
       title: Messages with %{user}
-    update:
-      success: You sent a new message
-      error: There was an error sending the message
     destroy:
       success: Conversation was removed correctly!
       error: You don't have any messages with that user
@@ -174,7 +162,6 @@ host be interested in you?"
       feedback: Feedback
       accomodation: Accomodation
       pictures: Pictures
-      references: Feedback
       skills_host: Skills required / Job description
       skills_volunteer: Skills offered / Job searched
     edit:
@@ -213,8 +200,6 @@ host be interested in you?"
     art_project: Artistic Project
     wwoofing: Wwoofing
   sessions:
-    new:
-      newuser?: New user?
     forgot_your_pwd?: Forgot your password?
     signin: Sign in
     signout: Sign out
@@ -234,8 +219,6 @@ you can help us by contributing to nipanipa development %{git_url}."
 but you can understand this, you can help us translate it!"
       contribute_desc_bug_html: "You can also report bugs or new features you
 would like to be implemented %{issues_url}."
-      select_amount: Select the amount
-      input_amount: Or choose any amount you're confortable with
       here: here
     create:
       success: Your donation was successful!
@@ -248,11 +231,6 @@ would like to be implemented %{issues_url}."
       language: Language
       search: Search
       donate: Donate
-    footer:
-      news: News
-  pagination:
-    previous: Previous page
-    next: Next page
   enumerize:
     language_skill:
       level:
@@ -329,3 +307,8 @@ site. To view the message, click on the following link:"
               in_between: File can't be bigger than 500Kb... :(
       messages:
         record_invalid: Invalid record
+        already_confirmed: was already confirmed, please try signing in
+        confirmation_period_expired: "needs to be confirmed within %{period},
+please request a new one"
+        expired: has expired, please request a new one
+        not_found: not found

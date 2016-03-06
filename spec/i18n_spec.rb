@@ -1,19 +1,19 @@
 # frozen_string_literal: true
 
-require "support/i18n"
+require "i18n/tasks"
 
-RSpec.describe "i18n files" do
-  extend I18nHelpers
+RSpec.describe "I18n" do
+  let(:i18n) { I18n::Tasks::BaseTask.new }
+  let(:missing_keys) { i18n.missing_keys }
+  let(:unused_keys) { i18n.unused_keys }
 
-  load_locales
+  it "does not have missing keys" do
+    expect(missing_keys).to \
+      be_empty, "Missing i18n keys, run `bin/i18n-tasks missing' to show them"
+  end
 
-  locales_to_keys.each do |locale, keys|
-    unique_keys.each do |key|
-      it "should translate #{key} in locale :#{locale}" do
-        err = "Expected #{key} to be among the #{locale} locale's " \
-              "translation keys, but it wasn't"
-        expect(keys.include?(key)).to(be_truthy, err)
-      end
-    end
+  it "does not have unused keys" do
+    expect(unused_keys).to \
+      be_empty, "Unused i18n keys, run `bin/i18n-tasks unused' to show them"
   end
 end

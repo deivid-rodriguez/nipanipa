@@ -25,8 +25,6 @@ it:
       delete: Cancellare profilo
       new_message: Inviare messaggio
       new_feedback: Lasciare referenza
-      edit_feedback: Modificare referenza
-      report_user: Segnalare questo utente
     badge:
       karma: Karma
       location: Luogo
@@ -39,8 +37,6 @@ it:
       title: Condizioni d'uso
     help:
       title: Aiuto
-      uhost?: Sei host?
-      uvolunteer?: Sei volontario?
     about:
       title: Chi siamo?
       description: "Siamo un gruppo di web designers e web developers stabiliti
@@ -54,8 +50,6 @@ un bel formulario di conttato ma per il momento puoi raggiungerci inviando una
 mail a %{mail}. Dicci cosa pensi del sito, che cosa non funziona, che cosa
 può essere migliorato oppure manda un abbraccio e basta!"
     home:
-      welcome: Benvenuto a NiPaNiPa
-      subtitle: Contatta volontari ed hosts in tutto il mondo
       host: Sono host
       host_desc: Da alloggio a qualcuno in cambio di aiuto
       volunteer: Sono volontario
@@ -76,8 +70,6 @@ non è possibile senza le vostre opinioni. E NiPaNiPa non è possibile senza le
 vostre donazioni che per noi sono un valore che voi date alla vostra
 esperienza."
     form:
-      feedback_for_user: Referenza per %{username}
-      feedback_for_nipa: Donazione per NiPaNiPa
       donated_already_html: "Grazie dalla tua donazione, sei un genio o genia.
 Quando vuoi farne un altra, vai %{donations_url}"
       here: qui
@@ -125,16 +117,12 @@ pìù lunga de 300 caratteri"
       edit: Modificare foto
     destroy:
       success: Foto cancellata correttamente"
-      error: Errore al cancellare la foto
   conversations:
     index:
       title: I miei messaggi
       usure?: Sei sicuro che vuoi cancellare la conversazione?
     show:
       title: Messaggi con %{user}
-    update:
-      success: Messaggio inviato
-      error: C'è stato un errore nell'invio del messagio
     destroy:
       success: La conversazione è stata cancellata correttamente
       error: Non hai nessun messagio con quel'utente
@@ -174,7 +162,6 @@ volontariato che offri"
       feedback: Referenze
       accomodation: Allogio
       pictures: Immagini
-      references: Referenze
       skills_host: Descrizione del lavoro
       skills_volunteer: Abilità
     edit:
@@ -213,8 +200,6 @@ volontariato che offri"
     art_project: Progetto artistico
     wwoofing: Wwoofing
   sessions:
-    new:
-      newuser?: Nuovo utente?
     forgot_your_pwd?: password dimenticata?
     signin: Login
     signout: Uscire
@@ -234,8 +219,6 @@ sviluppo di NiPaNiPa %{git_url}."
 puoi capire questo, puoi autarci a tradurla."
       contribute_desc_bug_html: "Puoi anche segnalare errori o chiederci nuove
 funzionalità %{issues_url}."
-      select_amount: Seleziona la cifra
-      input_amount: O scrivi quanto vuoi donare se la cifra non è nella lista
       here: qui
     create:
       success: La donazione ha avuto successo!
@@ -249,11 +232,6 @@ l'errore."
       language: Lingua
       search: Cercare
       donate: Aiutaci
-    footer:
-      news: Novità
-  pagination:
-    previous: Pagina anteriore
-    next: Pagina seguente
   enumerize:
     language_skill:
       level:
@@ -330,3 +308,8 @@ vedere il messagio, clicca qui:"
               in_between: Il file non deve essere più grande di 500Kb... :(
       messages:
         record_invalid: Registro non valido
+        already_confirmed: "è stato già confermato"
+        confirmation_period_expired: "deve essere confermato entro %{period},
+richiedi una nuova conferma"
+        expired: è scaduto, si prega di richiederne uno nuovo
+        not_found: non trovato

@@ -18,15 +18,13 @@ es:
     unknown: Desconocido
     profile_header:
       general: Perfil
-      messages: Mensajes
       feedback: Referencias
       pictures: Fotos
+      messages: Mensajes
       edit: Editar perfil
       delete: Borrar cuenta
       new_message: Enviar mensaje
       new_feedback: Dejar referencia
-      edit_feedback: Editar referencia
-      report_user: Alertar sobre usuario
     badge:
       karma: Karma
       location: Lugar
@@ -39,8 +37,6 @@ es:
       title: Términos y Condiciones
     help:
       title: Ayuda
-      uhost?: ¿Eres host?
-      uvolunteer?: ¿Eres voluntario?
     about:
       title: Quiénes Somos
       description: "Somos una asociación con base en Alemania y España de
@@ -54,8 +50,6 @@ un formulario de contacto en condiciones, pero mientras tanto puedes ponerte en
 contacto con nosotros enviando un e-mail a %{mail}. Dinos qué opinas del sitio, qué
 cosas no funcionan, qué se puede mejorar o simplemente manda un saludo!"
     home:
-      welcome: Bienvenido a NiPaNiPa
-      subtitle: Contacta a voluntarios y hosts de todo el mundo.
       host: Soy host
       host_desc: Aloja a alguien a cambio de ayuda.
       volunteer: Soy voluntario
@@ -76,8 +70,6 @@ y voluntarios es imposible sin vuestras puntuaciones. Y NiPaNiPa es inviable
 económicamente si no \"tasáis\" vuestras experiencias y aportáis vuestro granito
 de arena."
     form:
-      feedback_for_user: Referencia para %{username}
-      feedback_for_nipa: Donación para NiPaNiPa
       donated_already_html: "Gracias por haber recompensado a NiPaNiPa por esta
 experiencia. Siempre puedes seguir colaborando %{donations_url}"
       here: aquí
@@ -126,16 +118,12 @@ usuarios que eres una persona de verdad."
       edit: Editar foto
     destroy:
       success: Foto borrada correctamente
-      error: Error al borrar la foto
   conversations:
     index:
       title: Mis mensajes
       usure?: ¿Seguro que quieres borrar la conversación?
     show:
       title: Mensajes con %{user}
-    update:
-      success: Mensaje enviado
-      error: Hubo un error en el envío del mensaje
     destroy:
       success: La conversación fue borrada correctamente
       error: No tienes mensajes con ese usuario
@@ -175,7 +163,6 @@ oferta"
       feedback: Referencias
       accomodation: Alojamiento
       pictures: Imágenes
-      references: Referencias
       skills_host: Habilidades requeridas / descripción del trabajo
       skills_volunteer: Habilidades / tipo de trabajo buscado
     edit:
@@ -214,8 +201,6 @@ oferta"
     art_project: Proyecto artístico
     wwoofing: Wwoofing
   sessions:
-    new:
-      newuser?: ¿Nuevo usuario?
     forgot_your_pwd?: Olvidaste tu contraseña?
     signin: Acceder
     signout: Salir
@@ -235,8 +220,6 @@ colaborando en el desarrollo nipiano %{git_url}."
 entender esto, puedes ayudarnos a traducirlo."
       contribute_desc_bug_html: "También puedes reportarnos fallos o
 solicitarnos nuevas funcionalidades %{issues_url}."
-      select_amount: Selecciona el importe
-      input_amount: O elige el importe que tú quieras si no está en la lista
       here: aquí
     create:
       success: Tu donación fue exitosa!
@@ -249,11 +232,6 @@ solicitarnos nuevas funcionalidades %{issues_url}."
       language: Idioma
       search: Buscar
       donate: Ayúdanos
-    footer:
-      news: Noticias
-  pagination:
-    previous: Página anterior
-    next: Página siguiente
   enumerize:
     language_skill:
       level:
@@ -330,3 +308,9 @@ web. Para ver el mensaje, haz click en el siguiente enlace:"
               in_between: El fichero no puede pesar más de 500Kb... :(
       messages:
         record_invalid: Registro no válido
+        already_confirmed: "ya ha sido confirmada, por favor intenta iniciar
+sesión"
+        confirmation_period_expired: "necesita confirmarse dentro de %{period},
+por favor solicita una nueva"
+        expired: ha expirado, por favor solicita una nueva
+        not_found: no se ha encontrado

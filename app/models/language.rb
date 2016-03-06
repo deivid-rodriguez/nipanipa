@@ -10,6 +10,6 @@ class Language < ActiveRecord::Base
   has_many :users, through: :language_skills
 
   def to_s
-    I18n.t(code).mb_chars.titleize.to_s
+    I18n.t("languages.#{code}").mb_chars.titleize.to_s
   end
 end
