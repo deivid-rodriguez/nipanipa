@@ -38,7 +38,7 @@ RSpec.shared_examples_for "a nipanipa user" do
   describe "Profile Creation" do
     let(:create_btn) { t("helpers.submit.user.create") }
     let!(:region) { create(:region) }
-    let!(:l) { create(:language) }
+    let!(:language) { create(:language) }
     let!(:work_type) { create(:work_type) }
     let(:klass) { user.class }
     let(:role) { klass.name.underscore }
@@ -82,7 +82,7 @@ RSpec.shared_examples_for "a nipanipa user" do
           fill_in "user[password]", with: user.password
           fill_in "user[password_confirmation]", with: user.password
           fill_in "user[description]", with: user.description
-          select l.name, from: "user_language_skills_attributes_0_language_id"
+          select language, from: "user_language_skills_attributes_0_language_id"
           select "Expert", from: "user_language_skills_attributes_0_level"
           check "user_work_type_ids_#{work_type.id}"
           check "user_availability_2"
@@ -211,9 +211,7 @@ RSpec.describe "User profile page" do
   end
 
   it "has the user language" do
-    line = "#{Language.first.name} (#{LanguageSkill.first.level.titleize})"
-
-    expect(page).to have_content(line)
+    expect(page).to have_content(Language.first.to_s)
   end
 
   it "has the user description" do

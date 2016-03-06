@@ -16,4 +16,8 @@ class LanguageSkill < ActiveRecord::Base
   validates :language, presence: true
 
   validates :user_id, uniqueness: { scope: :language_id }
+
+  def to_s
+    "#{language} (#{level.text})"
+  end
 end

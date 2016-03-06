@@ -2,9 +2,11 @@
   = f.input :id, as: :hidden
 
   .language-select
-    = f.collection_select :language_id, Language.all, :id, \
-        lambda { |l| t(l.code).mb_chars }, \
-        include_blank: t(".language")
+    = f.collection_select :language_id,
+                          Language.all,
+                          :id,
+                          :to_s,
+                          include_blank: t(".language")
 
   .language-select
     = f.select :level, LanguageSkill.level.options, include_blank: t(".level")
