@@ -11,8 +11,12 @@ li
       .user-thumbnail-data
         h5= user.name
 
+        / TODO: Make the "currently logged in" feature work. devise's
+        / `current_sign_in_at` (trackable) does not seem to work as I
+        / expected. It could be fixed (i think) by adding a Warden's
+        / before_logout hook
         .user-thumbnail-login.col-md-6.col-sm-12
-          = render "shared/current_or_last_login", user: user
+          | #{t(".last_login")}: #{i18n_timeago(user.last_sign_in_at)}
 
         .user-thumbnail-location.col-md-6.col-sm-12
           | #{t(".location")}: #{user_location(user)}

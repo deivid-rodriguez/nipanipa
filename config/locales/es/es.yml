@@ -11,9 +11,6 @@ es:
     nopictures: No hay ninguna foto
     nofeedback: No hay ninguna referencia
     timestamp_ago: hace %{time}
-    current_or_last_login:
-      currently_logged_in: ¡Está ahora online!
-      last_login: Último acceso
     never: Nunca
     not_specified: No especificado
     edit: Editar
@@ -203,6 +200,7 @@ oferta"
       wherever: Donde sea
     user:
       karma: karma
+      last_login: Último acceso
       location: Lugar
       unknown: Desconocido
   work_types:

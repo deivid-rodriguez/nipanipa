@@ -11,9 +11,6 @@ en:
     nopictures: There are no pictures yet
     nofeedback: There is no feedback
     timestamp_ago: "%{time} ago"
-    current_or_last_login:
-      currently_logged_in: Now online!
-      last_login: Last login
     never: Never
     not_specified: Not specified
     edit: Edit
@@ -201,6 +198,7 @@ host be interested in you?"
       wherever: Wherever
     user:
       karma: karma
+      last_login: Last login
       location: Location
       unknown: Unknown
   work_types:

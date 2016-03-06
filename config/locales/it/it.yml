@@ -11,9 +11,6 @@ it:
     nopictures: Non c'è nessuna foto
     nofeedback: Non ci sono referenze
     timestamp_ago: "%{time} fa"
-    current_or_last_login:
-      currently_logged_in: È online proprio adesso!
-      last_login: Ultimo accesso
     never: Mai
     not_specified: Non specificato
     edit: Modificare
@@ -201,6 +198,7 @@ volontariato che offri"
       wherever: Ovunque
     user:
       karma: karma
+      last_login: Ultimo accesso
       location: Posto
       unknown: Sconosciuto
   work_types:

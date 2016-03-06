@@ -11,9 +11,6 @@ fr:
     nopictures: Il n'y a pas de photos
     nofeedback: Il n'y a pas de référence
     timestamp_ago: il y a %{time}
-    current_or_last_login:
-      currently_logged_in: ¡Vous êtes en ligne!
-      last_login: Dernier accès
     never: Jamais
     not_specified: Non spécifié
     edit: Éditer
@@ -203,6 +200,7 @@ compétences que vous pouvez offrir à votre hôte?"
       wherever: N'importe où
     user:
       karma: karma
+      last_login: Dernier accès
       location: Lieu
       unknown: Inconnu
   work_types:

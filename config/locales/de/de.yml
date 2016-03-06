@@ -11,9 +11,6 @@ de:
     nopictures: Es sind noch keine Fotos vorhanden.
     nofeedback: Es ist noch kein Feedback vorhanden.
     timestamp_ago: "%{time} her"
-    current_or_last_login:
-      currently_logged_in: Jetzt online!
-      last_login: Letzter Login
     never: Nie
     not_specified: Nicht angegeben
     edit: Bearbeiten
@@ -205,6 +202,7 @@ anbietest"
       wherever: Egal wo
     user:
       karma: Karma
+      last_login: Letzter Login
       location: Ort
       unknown: Unbekannt
   work_types:
