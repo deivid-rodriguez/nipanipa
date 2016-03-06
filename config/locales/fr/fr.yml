@@ -15,8 +15,8 @@ fr:
     not_specified: Non spécifié
     edit: Éditer
     delete: Efaçer
+    unknown: Inconnu
     profile_header:
-      unknown: Inconnu
       general: Profil
       messages: Messages
       feedback: Références
@@ -197,7 +197,6 @@ compétences que vous pouvez offrir à votre hôte?"
       karma: karma
       last_login: Dernier accès
       location: Lieu
-      unknown: Inconnu
   work_types:
     gardening: Jardinage
     babysitting: Garde d'enfants

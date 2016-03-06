@@ -15,8 +15,8 @@ it:
     not_specified: Non specificato
     edit: Modificare
     delete: Cancellare
+    unknown: Sconosciuto
     profile_header:
-      unknown: Sconosciuto
       general: Profilo
       messages: Conversazioni
       feedback: Referenze
@@ -196,7 +196,6 @@ volontariato che offri"
       karma: karma
       last_login: Ultimo accesso
       location: Posto
-      unknown: Sconosciuto
   work_types:
     gardening: Giardinaggio
     babysitting: Baby-sitter

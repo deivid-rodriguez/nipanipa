@@ -3,8 +3,4 @@
     = image_tag "#{name}.png"
 
   .content-info
-    span
-      strong
-        | #{t(".#{name}")}:
-
-    |  #{content}
+    = badge_content(name, content)

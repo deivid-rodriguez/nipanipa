@@ -15,6 +15,13 @@ module UsersHelper
     link_to avatar_for(user, options), user
   end
 
+  def badge_content(name, value)
+    badge = t("shared.badge.#{name}")
+    key = content_tag(:strong, "#{badge}:")
+
+    content_tag(:span, "#{key} #{value || unknown}".html_safe)
+  end
+
   def karma_to_type(karma)
     return 1 if karma < 0
     return 2 if karma == 0
@@ -24,19 +31,23 @@ module UsersHelper
   end
 
   def user_location(user)
-    return t(".unknown") if user.region.blank?
+    return if user.region.blank?
     "#{user.region.name}, #{user.region.country.name}"
   end
 
   def user_categories(user)
-    return content_tag(:em, t(".unknown")) if user.work_types.empty?
+    return if user.work_types.empty?
     user.work_types.map { |wt| t("work_types.#{wt.name}") }.join(", ")
   end
 
   def user_languages(user)
-    return content_tag(:em, t(".unknown")) if user.language_skills.empty?
+    return if user.language_skills.empty?
     user.language_skills.map do |ls|
       "#{t(ls.language.code)} (#{ls.level.text})"
     end.join(", ")
+  end
+
+  def unknown
+    content_tag(:em, t("shared.unknown"))
   end
 end

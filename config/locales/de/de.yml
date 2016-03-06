@@ -15,8 +15,8 @@ de:
     not_specified: Nicht angegeben
     edit: Bearbeiten
     delete: Löschen
+    unknown: Unbekannt
     profile_header:
-      unknown: Unbekannt
       general: Allgemein
       messages: Nachrichten
       feedback: Feedback
@@ -200,7 +200,6 @@ anbietest"
       karma: Karma
       last_login: Letzter Login
       location: Ort
-      unknown: Unbekannt
   work_types:
     gardening: Gartenarbeit
     babysitting: Babysitting

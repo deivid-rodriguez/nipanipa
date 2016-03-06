@@ -15,8 +15,8 @@ es:
     not_specified: No especificado
     edit: Editar
     delete: Borrar
+    unknown: Desconocido
     profile_header:
-      unknown: Desconocido
       general: Perfil
       messages: Mensajes
       feedback: Referencias
@@ -197,7 +197,6 @@ oferta"
       karma: karma
       last_login: Último acceso
       location: Lugar
-      unknown: Desconocido
   work_types:
     gardening: Jardinería
     babysitting: Niñero/a

@@ -15,8 +15,8 @@ en:
     not_specified: Not specified
     edit: Edit
     delete: Delete
+    unknown: Unknown
     profile_header:
-      unknown: Unknown
       general: General
       messages: Messages
       feedback: Feedback
@@ -196,7 +196,6 @@ host be interested in you?"
       karma: karma
       last_login: Last login
       location: Location
-      unknown: Unknown
   work_types:
     gardening: Gardening
     babysitting: Babysitting
