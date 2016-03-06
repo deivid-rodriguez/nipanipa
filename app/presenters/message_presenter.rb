@@ -3,15 +3,7 @@
 #
 # Presentation layer for messages
 #
-class MessagePresenter < SimpleDelegator
-  attr_reader :view
-
-  def initialize(message, view)
-    super(message)
-
-    @view = view
-  end
-
+class MessagePresenter < ApplicationPresenter
   def side(user)
     sender == user ? "left" : "right"
   end

@@ -3,15 +3,7 @@
 #
 # Base presentation layer class for feebacks
 #
-class FeedbackPresenter < SimpleDelegator
-  attr_reader :view
-
-  def initialize(feedback, view)
-    super(feedback)
-
-    @view = view
-  end
-
+class FeedbackPresenter < ApplicationPresenter
   def side
     raise NotImplementedError, "Subclass responsability"
   end
