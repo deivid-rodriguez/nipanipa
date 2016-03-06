@@ -6,6 +6,8 @@
 
   .list-users
     ul.user-thumbnails
-      = render @users
+      - @users.each do |user|
+        = render partial: "user",
+                 object: ProfileSummaryPresenter.new(user, self)
 
     = paginate @users

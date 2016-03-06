@@ -16,10 +16,10 @@ li
         / expected. It could be fixed (i think) by adding a Warden's
         / before_logout hook
         .user-thumbnail-login.col-md-6.col-sm-12
-          | #{t(".last_login")}: #{i18n_timeago(user.last_sign_in_at)}
+          | #{t(".last_login")}: #{user.last_sign_in_at}
 
         .user-thumbnail-location.col-md-6.col-sm-12
-          | #{t(".location")}: #{user_location(user)}
+          | #{t(".location")}: #{user.location}
 
         .user-thumbnail-shortdesc
           = truncate user.description,

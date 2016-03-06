@@ -79,6 +79,12 @@ class User < ActiveRecord::Base
     availability.include?(month)
   end
 
+  def location
+    return unless region
+
+    "#{region.name}, #{region.country.name}"
+  end
+
   # Use a single route for all subclasess
   def self.model_name
     ActiveModel::Naming.instance_method(:model_name).bind(User).call

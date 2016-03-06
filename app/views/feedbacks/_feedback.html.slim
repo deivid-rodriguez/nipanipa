@@ -18,7 +18,7 @@ div class="feedback #{feedback.side}" id="feedback-#{feedback.id}"
         = feedback.link_to_me
 
     .time-ago
-      = i18n_timeago(feedback.updated_at)
+      = feedback.updated_at
 
   .score-icon
     = image_tag "#{feedback.score}.png", alt: feedback.score

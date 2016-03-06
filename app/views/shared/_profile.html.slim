@@ -1,5 +1,5 @@
 div class="profile-header-#{user.type.underscore}"
-  = render "shared/profile_header", user: user
+  = render "shared/profile_header", user: present(user)
 
 .profile-content
   = yield

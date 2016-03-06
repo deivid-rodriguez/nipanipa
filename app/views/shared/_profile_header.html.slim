@@ -1,5 +1,5 @@
 .user-picture
-  = avatar_link_for @user, style: :medium
+  = avatar_link_for user, style: :medium
 
 .user-info
   .user-name
@@ -9,33 +9,28 @@
   .user-icons
     .user-status
       = render "shared/badge", name: "karma", content: user.karma
-      = render "shared/badge", name: "location", content: user_location(user)
+      = render "shared/badge", name: "location", content: user.location
 
-      = render "shared/badge",
-          name: "last_login",
-          content: i18n_timeago(user.current_sign_in_at)
+      = render "shared/badge", name: "last_login",
+                               content: user.current_sign_in_at
 
-      = render "shared/badge",
-          name: "member_since",
-          content: i18n_timeago(user.created_at)
+      = render "shared/badge", name: "member_since", content: user.created_at
 
     .user-knowledge
-      = render "shared/badge",
-          name: "categories",
-          content: user_categories(user)
+      = render "shared/badge", name: "categories", content: user.categories
 
-      = render "shared/badge", name: "languages", content: user_languages(user)
+      = render "shared/badge", name: "languages", content: user.languages
 
   .no-gutter-row
     .col-md-6.col-sm-9.col-xs-9
       ul.nav.nav-tabs
-        - tabs_for(user).each do |options|
+        - user.tabs.each do |options|
           li class=active_if_same_canonical(options[:path])
             = link_to(options[:name], options[:path])
 
     .col-md-6.col-sm-3.col-xs-3
       ul.action-group.btn-group role="group"
-        - actions_for(user).each do |link|
+        - user.actions.each do |link|
           li.btn.btn-default
             = link_to(link[:dest]) do
               .icon-info.glyphicon class="glyphicon-#{link[:class]}"

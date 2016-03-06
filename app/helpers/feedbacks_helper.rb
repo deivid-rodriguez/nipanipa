@@ -4,15 +4,6 @@
 # Various utilites for feedback pages
 #
 module FeedbacksHelper
-  def feedback_destination(from, to)
-    return new_user_feedback_path(to) unless from
-
-    feedback = from.sent_feedbacks.find_by(recipient: to)
-    return new_user_feedback_path(to) unless feedback
-
-    edit_user_feedback_path(to, feedback)
-  end
-
   def feedback_count(feedbacks)
     received_count = feedbacks.count { |f| f[0] }
     sent_count = feedbacks.count { |f| f[1] }

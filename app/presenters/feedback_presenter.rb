@@ -1,9 +1,13 @@
 # frozen_string_literal: true
 
+require "concerns/date_formatable"
+
 #
 # Base presentation layer class for feebacks
 #
 class FeedbackPresenter < ApplicationPresenter
+  include DateFormatable
+
   def side
     raise NotImplementedError, "Subclass responsability"
   end
@@ -11,6 +15,8 @@ class FeedbackPresenter < ApplicationPresenter
   def link_me
     raise NotImplementedError, "Subclass responsability"
   end
+
+  relative_time :updated_at
 
   private
 
