@@ -204,7 +204,7 @@ compétences que vous pouvez offrir à votre hôte?"
     forgot_your_pwd?: Avez-vous oublié votre mot de passe?
     signin: Accéder
     signout: Sortir
-    rememberme: Souvenez-vous de moi
+    remember_me: Souvenez-vous de moi
   donations:
     new:
       title: Contribuez à NiPaNiPa

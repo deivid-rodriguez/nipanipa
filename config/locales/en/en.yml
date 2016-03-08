@@ -203,7 +203,7 @@ host be interested in you?"
     forgot_your_pwd?: Forgot your password?
     signin: Sign in
     signout: Sign out
-    rememberme: Remember me
+    remember_me: Remember me
   donations:
     new:
       title: Contribute to NiPaNiPa

@@ -207,7 +207,7 @@ anbietest"
     forgot_your_pwd?: Passwort vergessen?
     signin: Login
     signout: Logout
-    rememberme: An mich erinnern
+    remember_me: An mich erinnern
   donations:
     new:
       title: Zu NiPaNiPa beitragen

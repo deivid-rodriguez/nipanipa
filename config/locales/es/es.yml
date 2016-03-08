@@ -204,7 +204,7 @@ oferta"
     forgot_your_pwd?: Olvidaste tu contraseña?
     signin: Acceder
     signout: Salir
-    rememberme: Recuérdame
+    remember_me: Recuérdame
   donations:
     new:
       title: Contribuye a NiPaNiPa

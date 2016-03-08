@@ -203,7 +203,7 @@ volontariato che offri"
     forgot_your_pwd?: password dimenticata?
     signin: Login
     signout: Uscire
-    rememberme: Ricordami
+    remember_me: Ricordami
   donations:
     new:
       title: Contribuisci a NiPaNiPa
