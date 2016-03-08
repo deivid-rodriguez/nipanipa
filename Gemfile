@@ -32,6 +32,7 @@ end
 
 # Translations
 gem "i18n-tasks", "0.9.5"
+gem "localeapp", "~> 1.0"
 
 gem "activeadmin", "1.0.0.pre2"
 
