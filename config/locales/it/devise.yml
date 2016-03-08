@@ -17,7 +17,7 @@ entro qualche minuto."
       confirmation_instructions:
         subject: Istruzioni per la conferma
       reset_password_instructions:
-        greeting: Ciao %name!
+        greeting: Ciao %{name}!
         info: "Qualcuno ha richiesto un link per reimpostare la tua password.
 Puoi cambiarla clickando questo link"
         change_my_pwd: Reimpostare la mia password
