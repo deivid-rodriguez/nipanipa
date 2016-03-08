@@ -170,10 +170,11 @@ SimpleForm.setup do |config|
     b.optional :pattern
     b.optional :min_max
     b.optional :readonly
-    b.use :label, class: "sr-only"
+    b.optional :label, class: "sr-only"
 
     b.use :input, class: "form-control"
     b.use :error, wrap_with: { tag: "span", class: "help-block" }
+    b.optional :hint
   end
 
   config.wrappers :inline_input_group, tag: "div",
