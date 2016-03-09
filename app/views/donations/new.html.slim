@@ -25,14 +25,14 @@
           li
             p
               - src = "https://github.com/deivid-rodriguez/nipanipa"
-              = t(".contribute_desc_dev_html",
-                  git_url: link_to(t(".here"), src))
-
-          li
-            p= t(".contribute_desc_tr")
+              = t(".contribute_desc_dev_html", here: link_to(t(".here"), src))
 
           li
             p
-              - issues = "https://github.com/deivid-rodriguez/nipanipa/issues"
-              = t(".contribute_desc_bug_html",
-                   issues_url: link_to(t(".here"), issues))
+              - tr = "https://www.localeapp.com/projects/7834"
+              = t(".contribute_desc_tr_html", here: link_to(t(".here"), tr))
+
+          li
+            p
+              - bugs = "https://github.com/deivid-rodriguez/nipanipa/issues"
+              = t(".contribute_desc_bug_html", here: link_to(t(".here"), bugs))

@@ -313,9 +313,9 @@ en:
     flattr:
       label: You can also flattr us!
     new:
-      contribute_desc_bug_html: You can also report bugs or new features you would like to be implemented %{issues_url}.
-      contribute_desc_dev_html: If you are a web developer (or you want to be), you can help us by contributing to nipanipa development %{git_url}.
-      contribute_desc_tr: If NiPaNiPa is not translated into your mother tongue but you can understand this, you can help us translate it!
+      contribute_desc_bug_html: You can also report bugs or new features you would like to be implemented %{here}.
+      contribute_desc_dev_html: If you are a web developer (or you want to be), you can help us by contributing to nipanipa development %{here}.
+      contribute_desc_tr_html: If NiPaNiPa is not translated into your mother tongue but you can understand this, you can help us translate it %{here}.
       contribute_title: Help us
       donate_desc: Help us economically. To that end, select the amount that you want to donate.
       donate_title: Donate

@@ -313,9 +313,9 @@ de:
     flattr:
       label: Du kannst uns auch flattrn!
     new:
-      contribute_desc_bug_html: Außerdem kannst du uns %{issues_url} mögliche Bugs berichten und sagen, welche Funktionen dir noch fehlen.
-      contribute_desc_dev_html: Wenn du ein Webentwickler bist (oder gerne sein möchtest), kannst du uns helfen, indem du %{git_url} an der Entwicklung von NiPaNiPa mitwirkst.
-      contribute_desc_tr: Wenn NiPaNiPa noch nicht in deine Muttersprache übersetzt wurde und du das hier verstehen kannst, kannst du uns beim Übersetzen helfen!
+      contribute_desc_bug_html: Außerdem kannst du uns %{here} mögliche Bugs berichten und sagen, welche Funktionen dir noch fehlen.
+      contribute_desc_dev_html: Wenn du ein Webentwickler bist (oder gerne sein möchtest), kannst du uns helfen, indem du %{here} an der Entwicklung von NiPaNiPa mitwirkst.
+      contribute_desc_tr_html: Wenn NiPaNiPa noch nicht in deine Muttersprache übersetzt wurde und du das hier verstehen kannst, kannst du uns %{here} beim Übersetzen helfen.
       contribute_title: Hilf uns
       donate_desc: Hilf uns finanziell. Wähle hierzu den Betrag, den du spenden möchtest.
       donate_title: Spenden

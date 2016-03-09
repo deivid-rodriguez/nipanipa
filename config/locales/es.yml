@@ -313,9 +313,9 @@ es:
     flattr:
       label: O haznos una microdonación a través de flattr
     new:
-      contribute_desc_bug_html: También puedes reportarnos fallos o solicitarnos nuevas funcionalidades %{issues_url}.
-      contribute_desc_dev_html: Si sabes programar, puedes ayudarnos colaborando en el desarrollo nipiano %{git_url}.
-      contribute_desc_tr: Si NiPaNiPa no está en tu lengua madre pero puedes entender esto, puedes ayudarnos a traducirlo.
+      contribute_desc_bug_html: También puedes reportarnos fallos o solicitarnos nuevas funcionalidades %{here}.
+      contribute_desc_dev_html: Si sabes programar, puedes ayudarnos colaborando en el desarrollo nipiano %{here}.
+      contribute_desc_tr_html: Si NiPaNiPa no está en tu lengua madre pero puedes entender esto, puedes ayudarnos a traducirlo %{here}.
       contribute_title: Ayúdanos
       donate_desc: Si puedes y quieres, haz una donación. Para ello, selecciona el importe que deseas donar.
       donate_title: Dona
