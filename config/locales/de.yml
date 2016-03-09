@@ -1,0 +1,648 @@
+de:
+  activerecord:
+    attributes:
+      message:
+        body: Nachrichtentext
+      user:
+        password_digest: Passwort
+    errors:
+      messages:
+        already_confirmed: wurde bereits bestätigt, bitte versuchen Sie, sich anzumelden
+        confirmation_period_expired: musste innerhalb von %{period} bestätigt werden, bitte neu anfordern.
+        expired: ist abgelaufen, bitte neu anfordern
+        not_found: nicht gefunden
+        record_invalid: Ungültiges Verzeichnis
+      models:
+        feedback:
+          attributes:
+            content:
+              blank: Schreib etwas über den Benutzer
+              too_long: Das Feedback ist zu lang
+        picture:
+          attributes:
+            image_file_size:
+              in_between: Die Datei darf nicht größer sein als 500 Kb... :(
+        user:
+          attributes:
+            description:
+              too_long: Der Text ist zu lang. Fasse dich kürzer
+            email:
+              blank: Du musst eine E-Mail-Adresse angeben
+              invalid: Diese E-Mail-Adresse sieht seltsam aus... kontrolliere sie noch mal
+              not_found: Diese E-Mail-Adresse gibt es bei NiPaNiPa nicht
+              taken: Diese E-Mail-Adresse ist bereits vergeben
+            name:
+              blank: Du musst einen Benutzernamen angeben
+              too_long: Dieser Benutzername ist zu lang
+            password:
+              blank: Das Passwortfeld ist leer
+              confirmation: Das Passwort und die Bestätigung stimmen nicht überein
+              too_short: Das Passwort ist zu kurz. Es muss mindestens 6 Zeichen umfassen
+            password_confirmation:
+              blank: Das Feld zur Passwortbestätigung kann nicht leer sein
+              too_short: Die Passwortbestätigung ist zu kurz
+    models:
+      host: Gastgeber
+      picture: Foto
+      volunteer: Freiwilliger
+  continents:
+    af: Afrika
+    as: Asien
+    eu: Europa
+    na: Nordamerika und Mittelamerika
+    oc: Australien-Ozeanien
+    sa: Südamerika
+  conversations:
+    destroy:
+      error: You don't have any messages with that user
+      success: Die Unterhaltung wurde erfolgreich gelöscht!
+    index:
+      title: Meine Unterhaltungen
+      usure?: Bist du dir sicher?
+    show:
+      title: Nachrichten mit %{user}
+  countries:
+    af:
+      ao: Angola
+      bf: Burkina Faso
+      bi: Burundi
+      bj: Benin
+      bw: Botswana
+      cd: Congo
+      cf: Zentralafrikanische Republik
+      cg: Demokratische Republik Kongo
+      ci: Cote d'Ivoire
+      cm: Kamerun
+      cv: Kap Verde
+      dj: Dschibuti
+      dz: Algerien
+      eg: Ägypten
+      er: Eritrea
+      et: Äthiopien
+      ga: Gabun
+      gh: Ghana
+      gm: Gambia
+      gn: Guinea
+      gq: Äquatorialguinea
+      gw: Guinea-Bissau
+      ke: Kenia
+      km: Komoren
+      lr: Liberia
+      ls: Lesotho
+      ly: Libyen
+      ma: Morokko
+      mg: Madagaskar
+      ml: Mali
+      mr: Mauretanien
+      mu: Mauritius
+      mw: Malawi
+      mz: Mosambik
+      na: Namibia
+      ne: Niger
+      ng: Nigeria
+      rw: Ruanda
+      sc: Seychellen
+      sd: Sudan
+      sl: Sierra Leone
+      sn: Senegal
+      so: Somalia
+      ss: Südsudan
+      st: São Tomé und Príncipe
+      sz: Swasiland
+      td: Tschad
+      tg: Togo
+      tn: Tunesien
+      tz: Tansania
+      ug: Uganda
+      za: Südafrika
+      zm: Sambia
+      zw: Simbabwe
+    as:
+      ae: Vereinigte Arabische Emirate
+      af: Afghanistan
+      am: Armenien
+      az: Aserbaidschan
+      bd: Bangladesch
+      bh: Bahrain
+      bn: Brunei
+      bt: Bhutan
+      cn: China, Volksrepublik
+      ge: Georgien
+      id: Indonesien
+      il: Israel
+      in: Indien
+      iq: Irak
+      ir: Iran
+      jo: Jordanien
+      jp: Japan
+      kg: Kirgisistan
+      kh: Kambodscha
+      kp: Korea, Nord
+      kr: Korea, Süd
+      kw: Kuwait
+      kz: Kasachstan
+      la: Laos
+      lb: Libanon
+      lk: Sri Lanka
+      mm: Myanmar
+      mn: Mongolei
+      mv: Malediven
+      my: Malaysia
+      np: Nepal
+      om: Oman
+      ph: Philippinen
+      pk: Pakistan
+      ps: Palästina
+      qa: Katar
+      sa: Saudi-Arabien
+      sg: Singapur
+      sy: Syrien
+      th: Thailand
+      tj: Tadschikistan
+      tm: Turkmenistan
+      tr: Türkei
+      tw: Taiwan
+      uz: Usbekistan
+      vn: Vietnam
+      ye: Jemen
+    eu:
+      ad: Andorra
+      al: Albanien
+      at: Österreich
+      ba: Bosnien und Herzegowina
+      be: Belgien
+      bg: Bulgarien
+      by: Weißrussland
+      ch: Schweiz
+      cy: Zypern
+      cz: Tschechische Republik
+      de: Deutschland
+      dk: Dänemark
+      ee: Estland
+      es: Spanien
+      fi: Finnland
+      fr: Frankreich
+      gb: Vereinigtes Königreich
+      gr: Griechenland
+      hr: Kroatien
+      hu: Ungarn
+      ie: Irland
+      is: Island
+      it: Italien
+      li: Liechtenstein
+      lt: Litauen
+      lu: Luxembourg
+      lv: Lettland
+      mc: Monaco
+      md: Moldawien
+      me: Montenegro
+      mk: Mazedonien
+      mt: Malta
+      nl: Niederlande
+      'no': Norwegen
+      pl: Polen
+      pt: Portugal
+      ro: Rumänien
+      rs: Serbien
+      ru: Russland
+      se: Schweden
+      si: Slowenien
+      sk: Slowakei
+      sm: San Marino
+      ua: Ukraine
+      va: Vatikanstadt
+      xk: Kosovo
+    na:
+      ag: Antigua und Barbuda
+      bb: Barbados
+      bs: Bahamas
+      bz: Belize
+      ca: Kanada
+      cr: Costa Rica
+      cu: Kuba
+      dm: Dominica
+      do: Dominikanische Republik
+      gd: Grenada
+      gt: Guatemala
+      hn: Honduras
+      ht: Haiti
+      jm: Jamaika
+      kn: St. Kitts und Nevis
+      lc: St. Lucia
+      mx: Mexiko
+      ni: Nicaragua
+      pa: Panama
+      sv: El Salvador
+      tt: Trinidad und Tobago
+      us: Vereinigte Staaten
+      vc: St. Vincent und die Grenadinen
+    oc:
+      au: Australien
+      fj: Fidschi
+      fm: Mikronesien
+      ki: Kiribati
+      mh: Marshallinseln
+      nr: Nauru
+      nz: Neuseeland
+      pg: Papua-Neuguinea
+      pw: Palau
+      sb: Solomonen
+      tl: Osttimor
+      to: Tonga
+      tv: Tuvalu
+      vu: Vanuatu
+      ws: Samoa
+    sa:
+      ar: Argentinien
+      bo: Bolivien
+      br: Brasilien
+      cl: Chile
+      co: Kolumbien
+      ec: Ecuador
+      gy: Guyana
+      pe: Peru
+      py: Paraguay
+      sr: Suriname
+      uy: Uruguay
+      ve: Venezuela
+  devise:
+    confirmations:
+      confirmed: Vielen Dank für Ihre Registrierung. Sie sind jetzt angemeldet.
+      new:
+        resend: Anleitung zur Bestätigung Ihres Accounts
+      send_paranoid_instructions: Falls Ihre E-Mail-Adresse in unserer Datenbank existiert, erhalten Sie in wenigen Minuten eine E-Mail mit der Sie Ihre Registrierung bestätigen können.
+    failure:
+      already_authenticated: Sie sind bereits angemeldet.
+      invalid: Ungültige Anmeldedaten.
+      not_found_in_database: Ungültige Anmeldedaten.
+      unauthenticated: Sie müssen sich anmelden oder registrieren, bevor Sie fortfahren können.
+      unconfirmed: Sie müssen Ihren Account bestätigen, bevor Sie fortfahren können.
+    mailer:
+      confirmation_instructions:
+        subject: Anleitung zur Bestätigung Ihres Accounts
+      reset_password_instructions:
+        change_my_pwd: Mein Passwort ändern
+        greeting: Hallo %{name}!
+        ignore: Wenn du die Änderung nicht selbst angefordert hast, ignoriere bitte diese E-Mail.
+        info: Jemand hat einen Link zur Änderung deines Passworts angefordert. Dies kannst du über den nachfolgenden Link tun.
+        subject: Anleitung für das Zurücksetzen Ihres Passworts
+        wont_change: Dein Passwort wird nicht geändert, solange du nicht über den obenstehenden Link ein neues erstellst.
+    passwords:
+      edit:
+        change_pwd: Mein Passwort ändern!
+        title: Passwort ändern
+      new:
+        forgotten?: Passwort vergessen?
+        send_instructions: Anweisungen senden
+      no_token: Sie können sich nicht auf dieser Seite anmelden, wenn Sie nicht von einer Passwort-Zurücksetzen-E-Mail kommen. Wenn Sie von solch einer E-Mail kommen, überprüfen Sie bitte, ob Sie die gesamte URL verwendeten.
+      send_paranoid_instructions: Falls Ihre E-Mail-Adresse in unserer Datenbank existiert, erhalten Sie in wenigen Minuten eine E-Mail mit der Anleitung, wie Sie Ihr Passwort zurücksetzen können.
+      updated: Ihr Passwort wurde geändert. Sie sind jetzt angemeldet.
+    registrations:
+      destroyed: Ihr Account wurde gelöscht.
+      user:
+        signed_up_but_unconfirmed: Sie erhalten in wenigen Minuten eine E-Mail mit einem Link für die Bestätigung der Registrierung. Klicken Sie auf den Link um Ihren Account zu aktivieren.
+        updated: Ihre Daten wurden aktualisiert.
+    sessions:
+      already_signed_out: Erfolgreich abgemeldet.
+      signed_in: Erfolgreich angemeldet.
+      signed_out: Erfolgreich abgemeldet.
+  donations:
+    create:
+      error: Es tut uns leid, bei deiner Spende ist ein Problem aufgetaucht.
+      success: Deine Spende war erfolgreich!
+    flattr:
+      label: Du kannst uns auch flattrn!
+    new:
+      contribute_desc_bug_html: Außerdem kannst du uns %{issues_url} mögliche Bugs berichten und sagen, welche Funktionen dir noch fehlen.
+      contribute_desc_dev_html: Wenn du ein Webentwickler bist (oder gerne sein möchtest), kannst du uns helfen, indem du %{git_url} an der Entwicklung von NiPaNiPa mitwirkst.
+      contribute_desc_tr: Wenn NiPaNiPa noch nicht in deine Muttersprache übersetzt wurde und du das hier verstehen kannst, kannst du uns beim Übersetzen helfen!
+      contribute_title: Hilf uns
+      donate_desc: Hilf uns finanziell. Wähle hierzu den Betrag, den du spenden möchtest.
+      donate_title: Spenden
+      here: hier
+      intro: NiPaNiPa braucht deine Hilfe, um unabhängig überleben zu können. Wie kannst du uns helfen?
+      title: Zu NiPaNiPa beitragen
+  enumerize:
+    feedback:
+      score:
+        negative: Negativ
+        neutral: Neutral
+        positive: Positiv
+    language_skill:
+      level:
+        beginner: Anfänger
+        expert: Experte
+        intermediate: Fortgeschritten
+        just_hello: nur Hallo
+        native: Muttersprache
+  feedbacks:
+    create:
+      error: Fehler beim Erstellen der neuen Referenz... :(
+      success: Du hast erfolgreich eine neue Referenz hinterlassen!
+    destroy:
+      success: Deine Referenz wurde entfernt
+    edit:
+      subtitle: Verbessere oder ändere deine Referenz ganz so, wie du willst. Jede Meinung kann sich ändern!
+      title: Referenz für %{username} bearbeiten
+    feedback:
+      from: Von
+      to: Für
+    form:
+      donated_already_html: Danke, dass du NiPaNiPa für die gute Erfahrung belohnst! Unter %{donations_url} kannst du uns weiter unterstützen.
+      here: hier
+    index:
+      title: Feedback
+    new:
+      subtitle: Danke für dein Feedback. NiPaNiPa ist ein Vertrauensnetzwerk und wäre ohne eure Rückmeldung nicht möglich. Einzig und allein euren Spenden ist es zu verdanken, dass die Seite aufrechterhalten werden kann.
+      title: Neue Referenz für %{username}
+    received:
+      one: 1 erhalten
+      other: "%{count} erhalten"
+    sent:
+      one: 1 gesendet
+      other: "%{count} gesendet"
+    update:
+      error: Fehler beim Aktualisieren der Referenz... :( Die Referenz darf nicht länger als 300 Zeichen sein
+      success: Du hast die Referenz erfolgreich bearbeitet!
+  helpers:
+    submit:
+      donation:
+        create: Jetzt spenden!
+      feedback:
+        create: Eine neue Referenz hinterlassen!
+        update: EReferenz bearbeiten
+      message:
+        create: Send
+      picture:
+        create: Foto hochladen
+        update: Foto aktualisieren
+      user:
+        create: Fertig!
+        update: Benutzer aktualisieren
+  languages:
+    af: Afrikaans
+    ar: Arabisch
+    bg: Bulgarisch
+    bn: Bengalisch
+    bo: Tibetisch
+    ca: Katalanisch
+    cs: Tschechisch
+    cy: Walisisch
+    da: Dänisch
+    de: Deutsch
+    el: Griechisch
+    en: Englisch
+    es: Spanisch
+    et: Estnisch
+    eu: Baskisch
+    fa: Persisch
+    fi: Finnisch
+    fj: Fidschi
+    fr: Französisch
+    ga: Irisch
+    gu: Gujarati
+    he: Hebräisch
+    hi: Hindi
+    hr: Kroatisch
+    hu: Ungarisch
+    hy: Armenisch
+    id: Indonesisch
+    is: Isländisch
+    it: Italienisch
+    ja: Japanisch
+    jw: Javanisch
+    ka: Georgisch
+    km: Khmer
+    ko: Koreanisch
+    la: Latein
+    lt: Lithauisch
+    lv: Lettisch
+    mi: Maorisch
+    mk: Mazedonisch
+    ml: Malayalam
+    mn: Mongolisch
+    mr: Marathi
+    ms: Malaiisch
+    mt: Maltesisch
+    ne: Nepali
+    nl: Niederländisch
+    'no': Norwegisch
+    pa: Panjabi
+    pl: Polnisch
+    pt: Portugiesisch
+    qu: Quechua
+    ro: Rumänisch
+    ru: Russisch
+    sk: Slovakisch
+    sl: Slovenisch
+    sm: Samoisch
+    sq: Albanisch
+    sr: Serbisch
+    sv: Schwedisch
+    sw: Swahili
+    ta: Tamil
+    te: Telugu
+    th: Thailändisch
+    to: Tongaisch
+    tr: Türkisch
+    tt: Tatarisch
+    uk: Ukrainisch
+    ur: Urdu
+    uz: Uzbekisch
+    vi: Vietnamesisch
+    xh: IsiXhosa
+    zh: Chinesisch
+  layouts:
+    header:
+      donate: Spenden
+      language: Sprache
+      search: Suchen
+      signup: Registrieren
+  pictures:
+    create:
+      error: Fehler beim Hochladen des Fotos... :(
+      success: Dein Foto wurde erfolgreich hochgeladen!
+    destroy:
+      success: Fotos
+    edit:
+      subtitle: Du kannst die Bildunterschrift ändern, ein neues Foto auswählen oder ein Foto als dein Hauptfoto festlegen, welches in der Übersicht und oben in deinem Profil angezeigt wird.
+      title: Foto bearbeiten
+    index:
+      new_picture: Ein neues Foto hinzufügen
+      title: Fotos
+    new:
+      subtitle: Fotos sind cool. Sie zeigen dein Vertrauen in die anderen Benutzer und zeigen, dass du auch wirklich ein Mensch bist.
+      title: Ein neues Foto hochladen
+    pictures:
+      delete: Foto entfernen
+      edit: Foto bearbeiten
+    update:
+      error: Fehler beim Hochladen des Fotos...
+      success: Dein Foto wurde erfolgreich aktualisiert!
+  sessions:
+    forgot_your_pwd?: Passwort vergessen?
+    remember_me: An mich erinnern
+    signin: Login
+    signout: Logout
+  shared:
+    badge:
+      categories: Kategorien
+      karma: Karma
+      languages: Sprachen
+      last_login: Letzter Login
+      location: Ort
+      member_since: Mitglied seit
+    delete: Löschen
+    edit: Bearbeiten
+    never: Nie
+    nofeedback: Es ist noch kein Feedback vorhanden.
+    nomessages: Keine Nachrichten
+    nopictures: Es sind noch keine Fotos vorhanden.
+    not_specified: Nicht angegeben
+    profile_header:
+      delete: Account löschen
+      edit: Profil bearbeiten
+      feedback: Feedback
+      general: Allgemein
+      messages: Nachrichten
+      new_feedback: Referenz hinterlassen
+      new_message: Neue Nachricht
+      pictures: Fotos
+    timestamp_ago: "%{time} her"
+    unknown: Unbekannt
+  simple_form:
+    error_notification:
+      default_message: Es wurden Fehler gefunden, bitte sieh nach
+    hints:
+      donation:
+        amount: Wenn du den Betrag auf 0 lässt, hinterlässt du eine Referenz, ohne etwas zu spenden.
+      feedback:
+        score: Durch deine Wertung wird das Karma von Usern steigen oder sinken
+      user:
+        password: Das Passwort muss mindestens 6 Zeichen lang sein
+    labels:
+      donation:
+        amount: Ohne eure Mitwirkung würde es uns nicht geben. Hilf uns!
+      feedback:
+        content: Was hast du mit diesem User für Erfahrungen gemacht?
+        score: Wertung
+      picture:
+        image: Datei des Fotos
+        name: Bildunterschrift
+      user:
+        accomodation: Beschreibe, welche Art Unterkunft du anbietest
+        availability: Wann bist du als Gastgeber/Freiwilliger verfügbar?
+        country: Land
+        email: E-Mail
+        name: Benutzername
+        password: Passwort
+        password_confirmation: Passwort bestätigen
+        region: Region
+    'no': Nein
+    placeholders:
+      user:
+        email: E-Mail
+        password: Passwort
+    required:
+      mark: "*"
+      text: erforderlich
+    'yes': Ja
+  static_pages:
+    about:
+      description: Wir sind ein in Deutschland und Spanien ansässiger Zusammenschluss von Webdesignern und Programmierern. Neben unserer Tätigkeit sind wir begeisterte Reisende, die sich für den Austausch zwischen Kulturen einsetzen. Vor der Existenz von NiPaNiPa hatten wir das Gefühl, dass etwas fehlt, und so haben wir es erschaffen. Viel Spaß!
+      title: Über uns
+    contact:
+      description_html: NiPaNiPa ist noch in der Betaphase. Daher benötigen wir jedes Feedback, das wir bekommen können, um Fehler zu korrigieren und NiPaNiPa zu verbessern. Bisher hatten wir noch nicht die Zeit, ein Kontaktformular zu erstellen, also schickt einfach eine Mail an %{mail}, wenn ihr Anregungen oder Verbesserungsvorschläge habt oder einfach Hallo sagen wollt!
+      title: Kontakt
+    help:
+      title: Hilfe
+    home:
+      contribute: Mitwirken
+      contribute_desc: Unterstütze NiPaNiPa, damit es kostenlos bleiben kann! Hilf uns mit einer Spende, durch die Mitwirkung an der Entwicklung der Seite oder durch die Übersetzung in deine Sprache.
+      explore: Entdecken
+      explore_desc: Entdecke zukünftige Freunde, die dich während deiner Reisen beherbergen können, oder finde heraus, welche arbeitswilligen Reisenden gerade in deiner Gegend sind!
+      host: Ich bin Gastgeber
+      host_desc: Beherberge Reisende und erhalte dafür Hilfe
+      volunteer: Ich bin Freiwilliger
+      volunteer_desc: Hilf jemanden und erhalte dafür eine Unterkunft
+    terms:
+      title: Nutzungsbedingungen
+  user_mailer:
+    message_reception:
+      greeting: Hallo %{name}!
+      message: 'Ein anderer NiPaNiPa-Benutzer hat dich auf unserer Website kontaktiert. Um die Nachricht zu lesen, klicke auf den folgenden Link:'
+      subject: Du hast eine neue Nachricht von %{from}!
+  users:
+    delete:
+      subtitle: Bist du dir sicher, dass du dein Profil löschen möchtest? In diesem Fall werden all deine Informationen, Fotos, Feedback und Nachrichten vollständig von NipaNipa gelöscht und können nicht wiederhergestellt werden.
+      title: Account löschen
+    edit:
+      header: Aktualisiere dein Profil
+      title: Profil aktualisieren
+    filters:
+      availability: Verfügbarkeit
+      host: Gastgeber
+      now: Momentan verfügbar
+      people: Leute
+      places: Orte
+      user: Alle
+      volunteer: Freiwillige
+      whenever: Egal wann
+      wherever: Egal wo
+    form:
+      description_host: Erzähl deinen zukünftigen freiwilligen Helfern etwas über dich oder deine Familie
+      description_volunteer: Erzähl deinem zukünftigen Gastgeber etwas über dich
+      skills_host: Beschreibe die Aufgaben, die die Freiwilligen erwarten
+      skills_volunteer: Was sind deine Fähigkeiten? Was kannst du tun? Warum könnte ein zukünftiger Gastgeber sich für dich interessieren?
+    index:
+      title: Suche
+    language_skill_fields:
+      language: Sprache auswählen
+      level: Fertigkeitsgrad auswählen
+      remove_language: Sprache entfernen
+    language_skills:
+      add_language: Sprache hinzufügen
+      title: Welche Sprachen sprichst du?
+    new:
+      header_host: Gastgeber Registrierung
+      header_volunteer: Freinwillige Registrierung
+      title: Registrieren
+    show:
+      accomodation: Unterkunft
+      availability: Verfügbarkeit
+      description: Über mich / uns
+      feedback: Feedback
+      pictures: Fotos
+      profile: Mein Profil
+      skills_host: Gesuchte Fähigkeiten / Beschreibung der Arbeit
+      skills_volunteer: Angebotene Fähigkeiten / Gesuchte Arbeit
+    user:
+      karma: Karma
+      last_login: Letzter Login
+      location: Ort
+    work_types:
+      title_host: Wähle aus, welchen Kategorien die Arbeit entspricht, die du anbietest
+      title_volunteer: Wähle aus, welche Arten der Arbeit du suchst
+  views:
+    pagination:
+      first: "&laquo; Erste"
+      last: Letzte &raquo;
+      next: Nächste &rsaquo;
+      previous: "&lsaquo; Vorherige"
+      truncate: "&hellip;"
+  work_types:
+    animal_care: Tierpflege
+    art_project: Kunstprojekte
+    babysitting: Babysitting
+    construction: Bauarbeiten
+    cooking: Kochen
+    elderly_care: Altenpflege
+    farming: Landwirtschaft/Farmarbeit
+    gardening: Gartenarbeit
+    housekeeping: Haushalt
+    humanitarian_aid: Humanitäre Hilfe
+    language_exchange: Sprachaustausch
+    teaching: Unterrichten
+    technical_assistance: I.T.
+    tourism: Tourismus
+    wwoofing: Wwoofing

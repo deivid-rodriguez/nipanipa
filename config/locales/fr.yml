@@ -1,0 +1,648 @@
+fr:
+  activerecord:
+    attributes:
+      message:
+        body: Contenu
+      user:
+        password_digest: Mot de passe
+    errors:
+      messages:
+        already_confirmed: a déjà été confirmé(e)
+        confirmation_period_expired: doit être confirmé(e) en %{period}, veuillez en demander un(e) autre
+        expired: est périmé, veuillez en demander un autre
+        not_found: n’a pas été trouvé(e)
+        record_invalid: Enregistrement non valide
+      models:
+        feedback:
+          attributes:
+            content:
+              blank: Ecrivez quelle chose sur l'utilisateur
+              too_long: La référence est trop longue
+        picture:
+          attributes:
+            image_file_size:
+              in_between: Le fichier ne peut pas peser plus de 500kb
+        user:
+          attributes:
+            description:
+              too_long: Le texte est trop long
+            email:
+              blank: Je bessoin d'une adresse d'e-mail
+              invalid: Vous avez introduit un courrier électronique avec un format bizarre
+              not_found: Ce courrier électronique n'existe pas
+              taken: Ce courrier existe déjà à NiPaNiPa
+            name:
+              blank: Je besoin d'un nom de utilisateur
+              too_long: Le nom d'utilisateur est trop long
+            password:
+              blank: Le mot de passe est vide
+              confirmation: Il ne coincide pas avec la confirmation
+              too_short: Le mot de passe doit avoir au moins 6 caracteres
+            password_confirmation:
+              blank: La confirmation du mot de passe est vide
+              too_short: La confirmation du mot de passe est trop courte
+    models:
+      host: Hôte
+      picture: Photo
+      volunteer: Volontaire
+  continents:
+    af: Afrique
+    as: Asie
+    eu: Europe
+    na: Amérique du Nord et Centrale
+    oc: Océanie
+    sa: Amérique du Sud
+  conversations:
+    destroy:
+      error: Vous n'avez pas des messages avec cet utilisateur
+      success: Conversation effacée correctement
+    index:
+      title: Mes messages
+      usure?: Etes-vous sur de vouloir supprimer cette conversation?
+    show:
+      title: Messages avec %{user}
+  countries:
+    af:
+      ao: Angola
+      bf: Burkina Faso
+      bi: Burundi
+      bj: Bénin
+      bw: Botswana
+      cd: Congo, République démocratique du
+      cf: République d'Afrique Centrale
+      cg: Congo
+      ci: Cote D'Ivoire
+      cm: Cameroun
+      cv: Cap Vert
+      dj: Djibouti
+      dz: Algérie
+      eg: Égypte
+      er: Érythrée
+      et: Éthiopie
+      ga: Gabon
+      gh: Ghana
+      gm: Gambie
+      gn: Guinée
+      gq: Guinée Équatoriale
+      gw: Guinée-Bissau
+      ke: Kenya
+      km: Comores
+      lr: Liberia
+      ls: Lesotho
+      ly: Libye
+      ma: Maroc
+      mg: Madagascar
+      ml: Mali
+      mr: Mauritanie
+      mu: Île Maurice
+      mw: Malawi
+      mz: Mozambique
+      na: Namibie
+      ne: Niger
+      ng: Nigeria
+      rw: Rwanda
+      sc: Seychelles
+      sd: Soudan
+      sl: Sierra Leone
+      sn: Sénégal
+      so: Somalie
+      ss: Soudan du Sud
+      st: Sao Tome et Principe
+      sz: Swaziland
+      td: Tchad
+      tg: Togo
+      tn: Tunisie
+      tz: Tanzanie
+      ug: Ouganda
+      za: Afrique du Sud
+      zm: Zambie
+      zw: Zimbabwe
+    as:
+      ae: Émirats arabes unis
+      af: Afghanistan
+      am: Arménie
+      az: Azerbaïdjan
+      bd: Bangladesh
+      bh: Bahreïn
+      bn: Brunei
+      bt: Bhutan
+      cn: Chine
+      ge: Géorgie
+      id: Indonésie
+      il: Israël
+      in: Inde
+      iq: Irak
+      ir: Iran, République Islamique de
+      jo: Jordanie
+      jp: Japon
+      kg: Kirghizstan
+      kh: Kampuchea (ex Cambodge)
+      kp: Corée du Nord
+      kr: Corée du Sud
+      kw: Koweït
+      kz: Kazakhstan
+      la: Laos
+      lb: Liban
+      lk: Sri Lanka
+      mm: Myanmar
+      mn: Mongolie
+      mv: Maldives
+      my: Malaisie
+      np: Népal
+      om: Oman
+      ph: Philippines
+      pk: Pakistan
+      ps: Palestine
+      qa: Qatar
+      sa: Arabie Saoudite
+      sg: Singapour
+      sy: Syrie
+      th: Thaïlande
+      tj: Tadjikistan
+      tm: Turkménistan
+      tr: Turquie
+      tw: Taïwan
+      uz: Ouzbékistan
+      vn: Vietnam
+      ye: Yémen
+    eu:
+      ad: Andorre
+      al: Albanie
+      at: Autriche
+      ba: Bosnie-Herzégovine
+      be: Belgique
+      bg: Bulgarie
+      by: Bélarus
+      ch: Suisse
+      cy: Chypre
+      cz: République Tchèque
+      de: Allemagne
+      dk: Danemark
+      ee: Estonie
+      es: Espagne
+      fi: Finlande
+      fr: France
+      gb: Royaume-Uni
+      gr: Grèce
+      hr: Croatie
+      hu: Hongrie
+      ie: Irlande
+      is: Islande
+      it: Italie
+      li: Liechtenstein
+      lt: Lituanie
+      lu: Luxembourg
+      lv: Lettonie
+      mc: Monaco
+      md: Moldavie
+      me: Monténégro
+      mk: Macédoine
+      mt: Malte
+      nl: Pays-Bas
+      'no': Norvège
+      pl: Pologne
+      pt: Portugal
+      ro: Roumanie
+      rs: Serbie
+      ru: Russie
+      se: Suède
+      si: Slovénie
+      sk: Slovaquie
+      sm: Saint-Marin
+      ua: Ukraine
+      va: Vatican
+      xk: Kosovo
+    na:
+      ag: Antigua-et-Barbuda
+      bb: La Barbade
+      bs: Bahamas
+      bz: Belize
+      ca: Canada
+      cr: Costa Rica
+      cu: Cuba
+      dm: Dominique
+      do: République Dominicaine
+      gd: Grenade
+      gt: Guatemala
+      hn: Honduras
+      ht: Haïti
+      jm: Jamaïque
+      kn: Saint Christophe Nieves Ang.
+      lc: Sainte Lucie
+      mx: Mexique
+      ni: Nicaragua
+      pa: Panama
+      sv: El Salvador
+      tt: Trinité et Tobago
+      us: États Unis
+      vc: Saint Vincent et Grenadines
+    oc:
+      au: Australie
+      fj: Fidji
+      fm: Micronesia, Federated States of
+      ki: Kiribati
+      mh: Îles Marshall
+      nr: Nauru
+      nz: Nouvelle Zélande
+      pg: Papouasie Nouvelle Guinée
+      pw: Palau
+      sb: Îles Salomon
+      tl: Timor Oriental
+      to: Tonga
+      tv: Tuvalu
+      vu: Vanuatu
+      ws: Samoa Occidentales
+    sa:
+      ar: Argentine
+      bo: Bolivie
+      br: Brésil
+      cl: Chili
+      co: Colombie
+      ec: Équateur
+      gy: Guyane
+      pe: Pérou
+      py: Paraguay
+      sr: Surinam
+      uy: Uruguay
+      ve: Venezuela
+  devise:
+    confirmations:
+      confirmed: Votre compte a été confirmé avec succès.
+      new:
+        resend: Renvoyer
+      send_paranoid_instructions: Si votre courriel existe sur notre base de données, vous recevrez sous quelques minutes un message avec des instructions pour confirmer votre compte.
+    failure:
+      already_authenticated: Vous êtes déjà connecté(e).
+      invalid: Courriel ou mot de passe incorrect.
+      not_found_in_database: Courriel ou mot de passe incorrect.
+      unauthenticated: Vous devez vous connecter ou vous enregistrer pour continuer.
+      unconfirmed: Vous devez confirmer votre compte par courriel.
+    mailer:
+      confirmation_instructions:
+        subject: Instructions de confirmation
+      reset_password_instructions:
+        change_my_pwd: Changer mon mot de passe
+        greeting: Bonjour %{name}!
+        ignore: Si vous n'avez pas demandé celà, ignorez ce courrier électronique
+        info: Quelqu'un a demandé un lien pour changer votre mot de passe. Vous pouvez changer votre mot de passe en cliquant sur le lien suivant
+        subject: Instructions pour changer le mot de passe
+        wont_change: Votre mot de passe changerá pas jusqu'au moment où tu accèdes au lien et tu crées un nouveau
+    passwords:
+      edit:
+        change_pwd: Changer mon mot de passe
+        title: Change du mot de passe
+      new:
+        forgotten?: Récupérer votre mot de passe
+        send_instructions: Envoie-moi des intructions
+      no_token: Vous ne pouvez pas accéder à cette page que si vous y accédez depuis un courriel de réinitialisation de mot de passe. Si vous venez en effet d’un tel courriel, vérifiez que vous avez copié l’adresse URL en entier.
+      send_paranoid_instructions: Si votre courriel existe dans notre base de données, vous recevrez un lien vous permettant de récupérer votre mot de passe.
+      updated: Votre mot de passe a été modifié avec succès. Vous êtes maintenant connecté(e).
+    registrations:
+      destroyed: Au revoir! Votre compte a été annulé avec succès. Nous espérons vous revoir bientôt.
+      user:
+        signed_up_but_unconfirmed: Un message avec un lien de confirmation vous a été envoyé par mail. Veuillez suivre ce lien pour activer votre compte.
+        updated: Votre compte a été modifié avec succès.
+    sessions:
+      already_signed_out: Déconnecté(e).
+      signed_in: Connecté(e) avec succès.
+      signed_out: Déconnecté(e) avec succès.
+  donations:
+    create:
+      error: Désole, il y a eu un problème avec vôtre don
+      success: Vôtre don a été reussi
+    flattr:
+      label: Vous pouvez aussi nous faire une micro-contribution par flattr
+    new:
+      contribute_desc_bug_html: Vous pouvez aussi nous dire les défauts ou nous démander des nouvelles competences %{issues_url}.
+      contribute_desc_dev_html: Si vous savez programmer vous pouvez nous aider en collaborant au développement de NiPaNiPa %{git_url}
+      contribute_desc_tr: Si NiPaNiPa n'est pas dans votre langue maternelle, mais vous nous comprenez, vous pouvez nous aider à la traduire
+      contribute_title: Aide-nous
+      donate_desc: Si vous pouvez et souhaitez nous fair un don. Pour celà sélectionner le montant à donner
+      donate_title: Donnez
+      here: ici
+      intro: NIPaNiPa a besoin de vôtre aide pour continuer à exister d'une manière indépendante et gratuite. Comment pouvez-vous nous aider?
+      title: Contribuez à NiPaNiPa
+  enumerize:
+    feedback:
+      score:
+        negative: Negatif
+        neutral: Neutre
+        positive: Positif
+    language_skill:
+      level:
+        beginner: Débutant
+        expert: Expert
+        intermediate: Intermédiaire
+        just_hello: Bonjour et au revoir
+        native: Natif
+  feedbacks:
+    create:
+      error: Nouvelle référence erronée
+      success: Vous avez laissé une nouvelle référence!
+    destroy:
+      success: Votre référence a eté supprimée
+    edit:
+      subtitle: Corrigez ou améliorez votre référence comme vous voulez
+      title: Éditer référence pour %{username}
+    feedback:
+      from: De
+      to: Pour
+    form:
+      donated_already_html: Merci d'avoir récompensé NiPaNiPa pour cette expérience. Vous pouvez toujours continuer a collaborer %{donations_url}
+      here: ici
+    index:
+      title: Références
+    new:
+      subtitle: Merci de laisser votre réferènce. La confiance réciproque entre host et volontaires serait imposible sans vos contributions. NiPaNiPa est economiquement non-viable si vous n'évalouez pas vos experiences et vous ne contribuez pas un peu.
+      title: Une réference pour %{username}
+    received:
+      one: "%{count} reçu"
+      other: "%{count} reçu"
+    sent:
+      one: "%{count} envoyée"
+      other: "%{count} envoyées"
+    update:
+      error: Erreur de mise à jour de votre réference (elle en peux pas dépaser 300 caracteres)
+      success: Vous avez mis à jour votre référence!
+  helpers:
+    submit:
+      donation:
+        create: Donnez maintenant!
+      feedback:
+        create: Laisser nouvelle référence
+        update: Éditer la référence
+      message:
+        create: Envoyer
+      picture:
+        create: Monter photo
+        update: Mettre à jour photo
+      user:
+        create: M'enregistrer
+        update: Mise à jour de l'utilisateur
+  languages:
+    af: africain
+    ar: arabe
+    bg: bulgare
+    bn: bengali
+    bo: tibétain
+    ca: catalan
+    cs: tchèque
+    cy: gallois
+    da: danois
+    de: allemand
+    el: grec
+    en: anglais
+    es: espagnol
+    et: estonien
+    eu: basque
+    fa: persan
+    fi: finlandais
+    fj: fidjien
+    fr: français
+    ga: irlandais
+    gu: gujarati
+    he: hébreu
+    hi: hindi
+    hr: croate
+    hu: hongrois
+    hy: arménien
+    id: indonésien
+    is: islandais
+    it: italien
+    ja: japonais
+    jw: javanais
+    ka: géorgien
+    km: khmer
+    ko: coréen
+    la: latin
+    lt: lituanien
+    lv: letton
+    mi: maori
+    mk: macédonien
+    ml: malayalam
+    mn: mongolien
+    mr: marathi
+    ms: malais
+    mt: maltais
+    ne: népalais
+    nl: néerlandais
+    'no': norvégien
+    pa: panjābī
+    pl: polonais
+    pt: portuguais
+    qu: quechua
+    ro: roumain
+    ru: russe
+    sk: slovaque
+    sl: slovène
+    sm: samoan
+    sq: albanais
+    sr: serbe
+    sv: suédois
+    sw: swahili
+    ta: tamoul
+    te: télougou
+    th: thaï
+    to: tonga
+    tr: turc
+    tt: tatar
+    uk: ukrainien
+    ur: ourdou
+    uz: ouzbek
+    vi: vietnamien
+    xh: xhosa
+    zh: chinois
+  layouts:
+    header:
+      donate: Aidez-nous
+      language: Langue
+      search: Chercher
+      signup: Inscrivez-vous
+  pictures:
+    create:
+      error: Montée de photo erronée
+      success: Montée de photo réusite
+    destroy:
+      success: Photo effacée correctement
+    edit:
+      subtitle: Vous pouvez changer le nom de la photo ou sélectionner une autre
+      title: Editer photo
+    index:
+      new_picture: Ajouter une photo
+      title: Images
+    new:
+      subtitle: Les photos sont sympas, sont rassurantes et prouvent aux autres que vous êtes vraiment quelqu'un
+      title: Ajoutez une photo
+    pictures:
+      delete: Effacer photo
+      edit: Editer photo
+    update:
+      error: Erreur pendant la mise à jour de votre photo
+      success: Photo mise à jour correctement
+  sessions:
+    forgot_your_pwd?: Avez-vous oublié votre mot de passe?
+    remember_me: Souvenez-vous de moi
+    signin: Accéder
+    signout: Sortir
+  shared:
+    badge:
+      categories: Catégories
+      karma: Karma
+      languages: Langues
+      last_login: Dernier accés
+      location: Lieu
+      member_since: Membre dès
+    delete: Efaçer
+    edit: Éditer
+    never: Jamais
+    nofeedback: Il n'y a pas de référence
+    nomessages: Il n'y a pas de messages
+    nopictures: Il n'y a pas de photos
+    not_specified: Non spécifié
+    profile_header:
+      delete: Effacer profil
+      edit: Éditer profil
+      feedback: Références
+      general: Profil
+      messages: Messages
+      new_feedback: Laisser référence
+      new_message: Envoyer message
+      pictures: Photos
+    timestamp_ago: il y a %{time}
+    unknown: Inconnu
+  simple_form:
+    error_notification:
+      default_message: S'il vous plaît examiner les questions suivantes
+    hints:
+      donation:
+        amount: Si vous laissez le champ à 0, vous aurez completé la référence sans donner
+      feedback:
+        score: Vôtre ponctuation influe en possitif où en negatif sur le karma de l'utilisateur
+      user:
+        password: La mot de passe doit comporter au moins 6 caracteres
+    labels:
+      donation:
+        amount: On existe grâce à l'apport de vos données. Aidez-nous!
+      feedback:
+        content: Racontez-nous vôtre expérience avec cet utilisateur
+        score: Ponctuation
+      picture:
+        image: Fichier avec la photo
+        name: Tittre pour la photo
+      user:
+        accomodation: Décrivez-nous le type de logement que vous offrez
+        availability: Quels mois êtes-vous disponible?
+        country: Pays
+        email: Courrier électronique
+        name: Nom d'utilisateur
+        password: Mot de passe
+        password_confirmation: Confirmer mot de passe
+        region: Région
+    'no': Non
+    placeholders:
+      user:
+        email: Courrier Électronique
+        password: Mot de passe
+    required:
+      mark: "*"
+      text: demandé
+    'yes': Oui
+  static_pages:
+    about:
+      description: Nous sommes une association de designeurs et programateurs de Web avec siège en Espagne et en Allemagne. Nous sommes aussi de voyageurs passionnés et nous avions le sentiment de que quelque chose nous manquait avant NiPaNiPa. Ce pour ça qu'on l'a creé . Jouir d'elle!
+      title: Qui sommes nous?
+    contact:
+      description_html: NiPaNiPa se trouve en phase d'essai. C'est maintenant que nous avons besoin de vos opinions. Nous n'avons pas pu, encore, créer un formulaire de contact correct, mais en attendant, vous pouvez nous contacter en envoyant un e-mail a %{mail}. Dites-nous ce que vous pensez du site, ce qui ne fonctionne pas, ce qui peut être amélioré ou simplement envoyez-nous une salutation.
+      title: Contact
+    help:
+      title: Aide
+    home:
+      contribute: Collaborez
+      contribute_desc: Appuyez NiPaNiPa pour qu'elle continue à être gratuite. Vous pouvez faire un don, où bien collaborer à son développement où nous aider à la traduire à votre langue
+      explore: Explorez
+      explore_desc: Jettez un coup d'oeil aux posibles hôtes qui vont pouvoir vous loger pendant vos vacances, ou regardez si il y a des futurs volontaires dans votre quartier, qui puisent vous aider
+      host: Je suis host
+      host_desc: Logez quelqu'un en échange d'aide
+      volunteer: Je suis volontaire
+      volunteer_desc: Aidez quelqu'un en échange de hébergement
+    terms:
+      title: Termes et conditions
+  user_mailer:
+    message_reception:
+      greeting: Bonjour %{name}!
+      message: Un autre utilisateur de NiPaNiPa vous a contacté à travers de nôtre web. Pour voire le message cliquer sur lien suivant
+      subject: Vous avez reçu un nouveau message de %{from}
+  users:
+    delete:
+      subtitle: Êtes-vous surs de vouloir supprimer votre compte? Toute votre information, photos, références et messages seront complétement effacés du site NipaNipa et vous ne pourrez plus les récupérer
+      title: Effacer profil
+    edit:
+      header: Mettez à jour votre profil
+      title: Mise à jour du profil
+    filters:
+      availability: Disponibilité
+      host: Hôte
+      now: Disponible dès maintenant
+      people: Gens
+      places: Lieu
+      user: Tous
+      volunteer: Volontaires
+      whenever: N'importe quand
+      wherever: N'importe où
+    form:
+      description_host: Racontez à vos futures volontaires quelque chose sur vous ou sur votre famille
+      description_volunteer: Racontez à vôtre futur hôte quelque chose sur vous
+      skills_host: Décrire comment sera le travail du volontaire chez vous
+      skills_volunteer: Que est-ce que vous savez faire? Quelles sont les compétences que vous pouvez offrir à votre hôte?
+    index:
+      title: Chercher
+    language_skill_fields:
+      language: Choisissez une langue
+      level: Choisissez un niveau
+      remove_language: Éliminez une langue
+    language_skills:
+      add_language: Ajoutez une langue
+      title: Dites-nous aussi quelles langues vous connaissez
+    new:
+      header_host: Enregistrement du hôte
+      header_volunteer: Enregistrement du volontaire
+      title: Enregistrement
+    show:
+      accomodation: Logis
+      availability: Disponibilité
+      description: Sur moi
+      feedback: Réferénces
+      pictures: Images
+      profile: Mon profil
+      skills_host: Compétances requises / description du travail
+      skills_volunteer: Compétances / types de travaille qu'on cherche
+    user:
+      karma: karma
+      last_login: Dernier accès
+      location: Lieu
+    work_types:
+      title_host: Choisissez le/s type de travail où ce place votre offre
+      title_volunteer: Choisissez le type de travail que vous cherchez
+  views:
+    pagination:
+      first: "&laquo; Première"
+      last: Dernière &raquo;
+      next: Suivante &rsaquo;
+      previous: "&lsaquo; Précédente"
+      truncate: "&hellip;"
+  work_types:
+    animal_care: Attention d'animaux
+    art_project: Projet artistique
+    babysitting: Garde d'enfants
+    construction: Construction
+    cooking: Cuisinier / cuisinière
+    elderly_care: Troisième âge
+    farming: Fêrme
+    gardening: Jardinage
+    housekeeping: Tâches ménagères
+    humanitarian_aid: Aide humanitaire
+    language_exchange: Échanges de langes
+    teaching: Enseignement
+    technical_assistance: Ordinateurs
+    tourism: Turisme
+    wwoofing: Wwoofing
