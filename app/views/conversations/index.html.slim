@@ -10,13 +10,12 @@
         - other_user = last_message.penpal(current_user)
 
         li.row.conversation id="conversation-preview-#{other_user.id}"
-          = link_to other_user do
+          = link_to conversation_path(other_user),
+              id: "show-link-#{other_user.id}" do
             .col-md-4.conversation-other
               = avatar_for other_user, style: :thumb_message
               = other_user.name
 
-          = link_to conversation_path(other_user),
-              id: "show-link-#{other_user.id}" do
             .col-md-5.conversation-subject
               = last_message.body.truncate(61)
 
