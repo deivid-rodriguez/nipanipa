@@ -28,3 +28,8 @@ with RuboCop and other linters. Just run
 ```
 bin/rake
 ```
+
+## Translations
+
+You can help translating NipaNipa to your language at
+[localeapp](https://www.localeapp.com/projects/7834)
