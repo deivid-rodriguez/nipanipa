@@ -48,4 +48,13 @@ namespace :deploy do
     end
   end
   before :deploy, "deploy:check_revision"
+
+  desc "Show changes to be deployed"
+  task :pending do
+    on roles(:app) do
+      within repo_path do
+        info `git diff #{strategy.fetch_revision} HEAD`
+      end
+    end
+  end
 end
