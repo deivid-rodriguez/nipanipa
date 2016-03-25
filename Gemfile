@@ -24,7 +24,7 @@ gem "coffee-rails", "~> 4.1"
 gem "bootstrap-sass", "~> 3.3"
 gem "sass-rails", "~> 5.0"
 gem "autoprefixer-rails", "~> 6.0"
-gem "uglifier", "~> 2.7"
+gem "uglifier", "~> 3.0"
 
 source "https://rails-assets.org" do
   gem "rails-assets-autosize", "~> 3.0"
