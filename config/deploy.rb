@@ -29,7 +29,7 @@ namespace :deploy do
     end
   end
 
-  desc "reload the database with seed data"
+  desc "Reload the database with seed data"
   task :seed do
     on roles(:db) do
       execute "cd #{current_path} && rake db:seed RAILS_ENV=#{rails_env}"
