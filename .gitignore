@@ -5,7 +5,7 @@
 #   git config --global core.excludesfile ~/.gitignore_global
 
 # Logfiles and tempfiles
-log/*
+log
 tmp
 
 # SimpleCov results
