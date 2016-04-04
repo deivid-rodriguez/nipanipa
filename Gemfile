@@ -14,7 +14,7 @@ gem "devise", "~> 3.5"
 gem "cancancan", "~> 1.10"
 gem "enumerize", "~> 1.0"
 gem "cocoon", "~> 1.2"
-gem "carrierwave", github: "carrierwaveuploader/carrierwave"
+gem "carrierwave", "0.11.0"
 gem "mini_magick", "~> 4.2"
 gem "quiet_assets", "~> 1.1"
 
