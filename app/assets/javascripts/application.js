@@ -13,7 +13,6 @@
 //
 //= require jquery
 //= require autosize
-//= require analytics
 //= require flattr
 //= require jquery_ujs
 //= require bootstrap-sprockets

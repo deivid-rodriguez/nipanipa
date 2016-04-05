@@ -14,3 +14,5 @@ head
   = javascript_include_tag "application"
 
   = csrf_meta_tags
+
+  = render "layouts/analytics" if Rails.env.production?
