@@ -53,7 +53,7 @@ namespace :deploy do
   task :pending do
     on roles(:app) do
       within repo_path do
-        info `git diff #{strategy.fetch_revision} HEAD`
+        info `git diff #{strategy.fetch_revision} master`
       end
     end
   end
