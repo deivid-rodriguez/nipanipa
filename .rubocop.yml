@@ -23,7 +23,7 @@ Style/Lambda:
   Enabled: false
 
 Style/ExtraSpacing:
-  Enabled: true
+  AllowForAlignment: false
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
