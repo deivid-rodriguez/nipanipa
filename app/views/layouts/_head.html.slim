@@ -8,6 +8,13 @@ head
   - content = content_for?(:description) ? yield(:description) : title
   meta content=content name="description"
 
+  - localeless_url = url_for(locale: nil, only_path: false)
+  link rel="alternate" href=localeless_url hreflang="x-default"
+
+  - I18n.available_locales.each do |locale|
+    - locale_url = url_for(locale: locale, only_path: false)
+    link rel="alternate" href=locale_url hreflang=locale
+
   = favicon_link_tag
 
   = stylesheet_link_tag "application", media: "all"
