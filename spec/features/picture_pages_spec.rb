@@ -21,7 +21,7 @@ RSpec.describe "Uploading a new picture" do
     end
 
     it "displays thumbnail in page" do
-      expect(page).to have_selector "div.picture-thumbnail", "test_img.png"
+      expect(page).to have_selector "div.picture-thumbnail img"
     end
 
     it "shows a success flash message" do
@@ -37,7 +37,7 @@ RSpec.describe "Uploading a new picture" do
     end
 
     it "does not display any thumbnail in page" do
-      expect(page).not_to have_selector "div.picture-thumbnail", "test_img.txt"
+      expect(page).not_to have_selector "div.picture-thumbnail img"
     end
 
     it "show an error flash message" do
@@ -63,7 +63,8 @@ RSpec.describe "Updating a picture" do
     end
 
     it "displays the new picture in page" do
-      expect(page).to have_selector "div.picture-thumbnail", "New name for pic"
+      expect(page).to \
+        have_selector "div.picture-thumbnail", text: "New name for pic"
     end
 
     it "shows a success flash message" do
@@ -79,7 +80,8 @@ RSpec.describe "Updating a picture" do
     end
 
     it "does not show the new picture in page" do
-      expect(page).not_to have_selector "div.picture-thumbnail", picture.name
+      expect(page).not_to \
+        have_selector "div.picture-thumbnail", text: picture.name
     end
 
     it "shows an error flash message" do
