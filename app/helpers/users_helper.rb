@@ -30,23 +30,6 @@ module UsersHelper
     5
   end
 
-  def user_location(user)
-    return if user.region.blank?
-    "#{user.region.name}, #{user.region.country.name}"
-  end
-
-  def user_categories(user)
-    return if user.work_types.empty?
-    user.work_types.map { |wt| t("work_types.#{wt.name}") }.join(", ")
-  end
-
-  def user_languages(user)
-    return if user.language_skills.empty?
-    user.language_skills.map do |ls|
-      "#{t(ls.language.code)} (#{ls.level.text})"
-    end.join(", ")
-  end
-
   def unknown
     content_tag(:em, t("shared.unknown"))
   end
