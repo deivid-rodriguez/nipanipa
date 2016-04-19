@@ -87,7 +87,7 @@ GEM
     builder (3.2.2)
     byebug (8.2.4)
     cancancan (1.13.1)
-    capistrano (3.4.0)
+    capistrano (3.4.1)
       i18n
       rake (>= 10.0.0)
       sshkit (~> 1.3)
