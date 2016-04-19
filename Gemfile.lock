@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/carrierwaveuploader/carrierwave.git
-  revision: 1778cd4577fdcbf4a383802b31dc7c1e4481e942
+  revision: 124e756a77f0425145c4623461420adf89c06cb2
   specs:
-    carrierwave (0.10.0)
+    carrierwave (0.11.0)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
