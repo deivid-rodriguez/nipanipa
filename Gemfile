@@ -72,6 +72,6 @@ group :test do
   gem "poltergeist", "~> 1.8", require: "phantomjs/poltergeist"
   gem "phantomjs", "~> 2.1"
   gem "launchy", "~> 2.4"
-  gem "webmock", "~> 1.21"
+  gem "webmock", "~> 2.0"
   gem "shoulda-matchers", "~> 3.0"
 end
