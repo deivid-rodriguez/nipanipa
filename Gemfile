@@ -49,7 +49,7 @@ group :tools do
   gem "image_optim_pack", "0.2.1.20160510"
   gem "mdl", "0.3.1"
   gem "overcommit", "0.33.0"
-  gem "rubocop", "0.39.0"
+  gem "rubocop", "0.40.0"
   gem "slim_lint", "0.7.2"
   gem "scss_lint", "0.48.0"
   gem "travis", "~> 1.8"

@@ -43,7 +43,8 @@ RSpec.describe "Signin" do
 
     it "shows an error flash message" do
       expect(page).to have_flash_message(
-        t("devise.failure.invalid", authentication_keys: "email"), "danger")
+        t("devise.failure.invalid", authentication_keys: "email"), "danger"
+      )
     end
   end
 
