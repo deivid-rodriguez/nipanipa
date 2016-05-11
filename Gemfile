@@ -43,7 +43,7 @@ gem "slim-rails", "~> 3.0"
 
 group :tools do
   gem "brakeman", "~> 3.1"
-  gem "byebug", "~> 8.0"
+  gem "byebug", "~> 9.0"
   gem "factory_girl_rails", "~> 4.5"
   gem "image_optim", "0.22.1"
   gem "image_optim_pack", "0.2.1.20160413"
