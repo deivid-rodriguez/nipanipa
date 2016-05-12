@@ -19,6 +19,10 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def authenticate_admin_user!
+    authenticate_user! && current_user.admin_at?
+  end
+
   def update_last_sign_in_at
     return unless user_signed_in? && !session[:logged_signin]
 
