@@ -63,6 +63,7 @@ group :development do
   gem "spring", "~> 1.3"
   gem "letter_opener", "~> 1.4"
   gem "capistrano-rails", "~> 1.1"
+  gem "capistrano-passenger", "0.2.0"
   gem "unicorn-rails", "~> 2.2"
 end
 

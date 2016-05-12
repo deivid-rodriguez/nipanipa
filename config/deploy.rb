@@ -20,15 +20,6 @@ set :keep_releases, 5
 set :bundle_without, "development test tools"
 
 namespace :deploy do
-  desc "Restart Passenger"
-  after :deploy, :restart_passenger do
-    on roles(:web), in: :groups, limit: 3, wait: 5 do
-      within release_path do
-        execute :touch, "tmp/restart.txt"
-      end
-    end
-  end
-
   desc "Reload the database with seed data"
   task :seed do
     on roles(:db) do

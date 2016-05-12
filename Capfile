@@ -8,3 +8,6 @@ require "capistrano/deploy"
 
 # Rails tasks
 require "capistrano/rails"
+
+# Restart passenger after deployments
+require "capistrano/passenger"
