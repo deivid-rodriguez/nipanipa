@@ -78,7 +78,7 @@ GEM
       thor (~> 0.19)
     brakeman (3.3.2)
     builder (3.2.2)
-    byebug (9.0.0)
+    byebug (9.0.5)
     cancancan (1.13.1)
     capistrano (3.5.0)
       airbrussh (>= 1.0.0)
