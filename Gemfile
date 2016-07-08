@@ -33,7 +33,7 @@ end
 gem "i18n-tasks", "0.9.5"
 gem "localeapp", "~> 1.0"
 
-gem "activeadmin", "1.0.0.pre2"
+gem "activeadmin", "1.0.0.pre4"
 
 gem "rubyzip", "~> 1.1", require: false
 gem "ruby-progressbar", "~> 1.7", require: false
