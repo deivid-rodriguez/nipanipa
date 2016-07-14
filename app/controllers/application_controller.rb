@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
 
   before_action :set_locale
   before_action :update_last_sign_in_at
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   after_action :store_location
 
@@ -28,6 +29,16 @@ class ApplicationController < ActionController::Base
 
     sign_in(current_user, force: true)
     session[:logged_signin] = true
+  end
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: permitted_params)
+    devise_parameter_sanitizer.permit(:account_update, keys: permitted_params)
+  end
+
+  def permitted_params
+    return volunteer_params if resource_class == Volunteer
+    return host_params if resource_class == Host
   end
 
   private

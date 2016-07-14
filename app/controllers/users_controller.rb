@@ -73,21 +73,6 @@ class UsersController < Devise::RegistrationsController
     resource.update_without_password(params)
   end
 
-  #
-  # Override devise parameter sanitization
-  #
-  def sign_up_params
-    user_params
-  end
-
-  def account_update_params
-    user_params
-  end
-
-  def user_params
-    send("#{resource_class.to_s.downcase}_params")
-  end
-
   def proper_fields
     %i(description email name password password_confirmation region_id skills)
   end
@@ -105,17 +90,21 @@ class UsersController < Devise::RegistrationsController
   end
 
   def host_params
-    params.require(:user).permit(:accommodation, *user_fields)
+    [:accommodation, *user_fields]
   end
 
   def volunteer_params
-    params.require(:user).permit(*user_fields)
+    user_fields
   end
 
   #
   # Correctly resolve actual class from params
   #
   def resource_class
+    params[:type] ? detected_class_from(params[:type]) : User
+  end
+
+  def resource_class_from_params
     params[:type] ? detected_class_from(params[:type]) : nil
   end
 
@@ -126,7 +115,7 @@ class UsersController < Devise::RegistrationsController
   end
 
   def filter_class
-    resource_class || resource_class_from_current_user
+    resource_class_from_params || resource_class_from_current_user
   end
   helper_method :filter_class
 
