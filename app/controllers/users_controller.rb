@@ -89,14 +89,7 @@ class UsersController < Devise::RegistrationsController
   end
 
   def proper_fields
-    %i(description
-       email
-       name
-       password
-       password_confirmation
-       region_id
-       skills
-       accomodation)
+    %i(description email name password password_confirmation region_id skills)
   end
 
   def nested_fields
@@ -112,7 +105,7 @@ class UsersController < Devise::RegistrationsController
   end
 
   def host_params
-    params.require(:user).permit(:acommodation, *user_fields)
+    params.require(:user).permit(:accomodation, *user_fields)
   end
 
   def volunteer_params
