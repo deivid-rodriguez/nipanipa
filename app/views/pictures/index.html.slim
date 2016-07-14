@@ -1,7 +1,7 @@
 - provide :title, t(".title")
 
 = render layout: "shared/profile", locals: { user: @user } do
-  - if can? :manage, @user
+  - if @user == current_user
     p.new-picture
       = link_to t("pictures.index.new_picture"),
                 new_user_picture_path(current_user)

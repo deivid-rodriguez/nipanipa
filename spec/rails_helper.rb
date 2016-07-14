@@ -52,5 +52,3 @@ RSpec.configure do |config|
   require "factory_girl_rails"
   config.include FactoryGirl::Syntax::Methods
 end
-
-require "cancan/matchers"

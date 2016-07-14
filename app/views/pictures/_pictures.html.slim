@@ -6,7 +6,7 @@
     - pictures.each do |p|
       li.col-md-6
         .picture-thumbnail
-          - if can? :manage, p
+          - if user == current_user
             .actions
               - delete_lnk = link_to t(".delete"),
                                      user_picture_path(current_user, p),

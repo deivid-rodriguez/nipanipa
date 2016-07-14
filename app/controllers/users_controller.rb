@@ -4,7 +4,7 @@
 # Main controller for all users (hosts and volunteers)
 #
 class UsersController < Devise::RegistrationsController
-  load_and_authorize_resource
+  before_action :authenticate_user!, only: [:edit, :update, :delete]
 
   def new
     super do |resource|
