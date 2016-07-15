@@ -54,7 +54,7 @@ FactoryGirl.define do
       sequence(:name) { |n| "Host #{n}" }
       description "We are a test host. We live in the countryside in the wild"
       skills "I need strong healthy people for heavy work"
-      accomodation "Type of accomodation you will be providing your volunteers"
+      accommodation "Type of accommodation you will be providing"
       hours_per_day 4
       days_per_week 5
       min_stay 1

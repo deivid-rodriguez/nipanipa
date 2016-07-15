@@ -530,7 +530,7 @@ it:
         image: File con la foto
         name: Titolo per la foto
       user:
-        accomodation: Descrivi il tipo di alloggio che fornirai ai volontari
+        accommodation: Descrivi il tipo di alloggio che fornirai ai volontari
         availability: Quando sei disponibile?
         country: Paese
         email: Mail
@@ -608,7 +608,7 @@ it:
       header_volunteer: Iscrizione di volontario
       title: Iscriviti
     show:
-      accomodation: Allogio
+      accommodation: Allogio
       availability: Disponibilità
       description: Su di me
       feedback: Referenze

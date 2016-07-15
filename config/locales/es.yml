@@ -530,7 +530,7 @@ es:
         image: Fichero con la foto
         name: Título para la foto
       user:
-        accomodation: Describe el tipo de alojamiento que ofreces a tus voluntarios
+        accommodation: Describe el tipo de alojamiento que ofreces a tus voluntarios
         availability: En qué meses estás disponible?
         country: País
         email: Correo Electrónico
@@ -608,7 +608,7 @@ es:
       header_volunteer: Registro de voluntario
       title: Regístrate
     show:
-      accomodation: Alojamiento
+      accommodation: Alojamiento
       availability: Disponibilidad
       description: Sobre mí
       feedback: Referencias

@@ -530,7 +530,7 @@ en:
         image: File with the picture
         name: Caption for the picture
       user:
-        accomodation: Describe the type of accomodation you are offering
+        accommodation: Describe the type of accommodation you are offering
         availability: When are you available for hosting/volunteering?
         country: Country
         email: E-mail
@@ -564,7 +564,7 @@ en:
       host: I'm a host
       host_desc: Find volunteers to help you while they stay at your place
       volunteer: I'm a volunteer
-      volunteer_desc: Help someone in exchange for accomodation
+      volunteer_desc: Help someone in exchange for accommodation
     terms:
       title: Terms & Conditions
   user_mailer:
@@ -608,7 +608,7 @@ en:
       header_volunteer: Volunteer registration
       title: Sign up
     show:
-      accomodation: Accomodation
+      accommodation: Accommodation
       availability: Availability
       description: About me / us
       feedback: Feedback

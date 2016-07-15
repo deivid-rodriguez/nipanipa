@@ -530,7 +530,7 @@ de:
         image: Datei des Fotos
         name: Bildunterschrift
       user:
-        accomodation: Beschreibe, welche Art Unterkunft du anbietest
+        accommodation: Beschreibe, welche Art Unterkunft du anbietest
         availability: Wann bist du als Gastgeber/Freiwilliger verfügbar?
         country: Land
         email: E-Mail
@@ -608,7 +608,7 @@ de:
       header_volunteer: Freinwillige Registrierung
       title: Registrieren
     show:
-      accomodation: Unterkunft
+      accommodation: Unterkunft
       availability: Verfügbarkeit
       description: Über mich / uns
       feedback: Feedback

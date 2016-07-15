@@ -530,7 +530,7 @@ fr:
         image: Fichier avec la photo
         name: Tittre pour la photo
       user:
-        accomodation: Décrivez-nous le type de logement que vous offrez
+        accommodation: Décrivez-nous le type de logement que vous offrez
         availability: Quels mois êtes-vous disponible?
         country: Pays
         email: Courrier électronique
@@ -608,7 +608,7 @@ fr:
       header_volunteer: Enregistrement du volontaire
       title: Enregistrement
     show:
-      accomodation: Logis
+      accommodation: Logis
       availability: Disponibilité
       description: Sur moi
       feedback: Réferénces

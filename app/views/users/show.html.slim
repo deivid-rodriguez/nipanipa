@@ -20,9 +20,9 @@
 
     - if @user.type == "Host"
       .box
-        h3= t("users.show.accomodation")
+        h3= t("users.show.accommodation")
 
-        p= simple_format(@user.accomodation)
+        p= simple_format(@user.accommodation)
 
     .box
       h3= link_to t("users.show.pictures"), user_pictures_path(@user)

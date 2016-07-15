@@ -105,7 +105,7 @@ class UsersController < Devise::RegistrationsController
   end
 
   def host_params
-    params.require(:user).permit(:accomodation, *user_fields)
+    params.require(:user).permit(:accommodation, *user_fields)
   end
 
   def volunteer_params

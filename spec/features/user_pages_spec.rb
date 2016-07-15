@@ -172,8 +172,8 @@ RSpec.describe "Hosts" do
   describe "specific fields" do
     include_context "profile edition"
 
-    context "with valid accomodation" do
-      include_examples "updating a text attribute", "accomodation"
+    context "with valid accommodation" do
+      include_examples "updating a text attribute", "accommodation"
     end
   end
 end
