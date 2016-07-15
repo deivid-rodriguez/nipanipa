@@ -13,13 +13,13 @@ RSpec.describe Feedback do
   it { is_expected.to respond_to(:recipient_id) }
   it { is_expected.to respond_to(:score) }
 
-  describe '#sender' do
+  describe "#sender" do
     subject { super().sender }
 
     it { is_expected.to eq(feedback.sender) }
   end
 
-  describe '#recipient' do
+  describe "#recipient" do
     subject { super().recipient }
 
     it { is_expected.to eq(feedback.recipient) }
@@ -63,7 +63,7 @@ RSpec.describe Feedback do
     it { is_expected.not_to be_valid }
   end
 
-  describe '#complement' do
+  describe "#complement" do
     let!(:other_feedback) do
       create(:feedback, sender: feedback.recipient, recipient: feedback.sender)
     end
@@ -73,7 +73,7 @@ RSpec.describe Feedback do
     it { is_expected.to eq(other_feedback.complement) }
   end
 
-  describe '#update_karma' do
+  describe "#update_karma" do
     context "when new_feedback" do
       it "initializes recipient's karma" do
         expect { feedback.save }.to \

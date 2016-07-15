@@ -94,7 +94,7 @@ RSpec.describe Message do
     end
   end
 
-  describe '#notify_recipient' do
+  describe "#notify_recipient" do
     before { message.notify_recipient }
 
     it "sends notification to recipient" do
@@ -109,7 +109,7 @@ RSpec.describe Message do
     end
   end
 
-  describe '#penpal' do
+  describe "#penpal" do
     let!(:msg) { create(:message) }
 
     it "returns the sender if the recipient passed as a parameter" do

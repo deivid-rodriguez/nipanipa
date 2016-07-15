@@ -24,7 +24,7 @@ RSpec.describe "Display a conversation" do
     visit conversations_path
 
     click_link("show-link-#{message.recipient.id}")
-    expect(page).to have_selector('#message_body')
+    expect(page).to have_selector("#message_body")
   end
 
   it "lists all messages between the users" do

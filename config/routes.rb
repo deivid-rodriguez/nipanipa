@@ -7,25 +7,25 @@ Rails.application.routes.draw do
 
     devise_scope :user do
       scope :join do
-        get :host, to: 'users#new',
+        get :host, to: "users#new",
                    as: :host_registration,
                    defaults: { type: "host" }
 
-        get :volunteer, to: 'users#new',
+        get :volunteer, to: "users#new",
                         as: :volunteer_registration,
                         defaults: { type: "volunteer" }
 
-        post "" => 'users#create', as: :user_registration
+        post "" => "users#create", as: :user_registration
       end
 
       scope :account do
-        get :cancel, to: 'users#cancel', as: :cancel_user_registration
+        get :cancel, to: "users#cancel", as: :cancel_user_registration
 
-        get :edit, to: 'users#edit', as: :edit_user_registration
-        patch :update, to: 'users#update', as: :update_user_registration
+        get :edit, to: "users#edit", as: :edit_user_registration
+        patch :update, to: "users#update", as: :update_user_registration
 
-        get :delete, to: 'users#delete', as: :confirm_delete_account
-        delete :destroy, to: 'users#destroy', as: :delete_account
+        get :delete, to: "users#delete", as: :confirm_delete_account
+        delete :destroy, to: "users#destroy", as: :delete_account
       end
     end
 
@@ -42,13 +42,13 @@ Rails.application.routes.draw do
 
     resources :conversations, except: %i(new create)
 
-    get "help" => 'static_pages#help'
-    get "about" => 'static_pages#about'
-    get "contact" => 'static_pages#contact'
-    get "terms" => 'static_pages#terms'
-    get "robots.txt" => 'static_pages#robots'
+    get "help" => "static_pages#help"
+    get "about" => "static_pages#about"
+    get "contact" => "static_pages#contact"
+    get "terms" => "static_pages#terms"
+    get "robots.txt" => "static_pages#robots"
 
-    root 'static_pages#home'
+    root "static_pages#home"
   end
 
   devise_for :admin_users, ActiveAdmin::Devise.config

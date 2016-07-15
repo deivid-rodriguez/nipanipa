@@ -23,11 +23,11 @@ RSpec.describe "Signin" do
     before { click_link signin }
 
     it "has user field" do
-      expect(page).to have_selector 'input#user_email'
+      expect(page).to have_selector "input#user_email"
     end
 
     it "has password field" do
-      expect(page).to have_selector 'input#user_password'
+      expect(page).to have_selector "input#user_password"
     end
   end
 

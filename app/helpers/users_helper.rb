@@ -19,7 +19,7 @@ module UsersHelper
     badge = t("shared.badge.#{name}")
     key = content_tag(:strong, "#{badge}:")
 
-    content_tag(:span, "#{key} #{value || unknown}".html_safe)
+    content_tag(:span, safe_join([key, value || unknown], " "))
   end
 
   def karma_to_type(karma)

@@ -24,6 +24,6 @@ class FeedbackPresenter < ApplicationPresenter
     preposition_i18n = I18n.t("feedbacks.feedback.#{preposition}")
     link = view.link_to author.name, author
 
-    "#{preposition_i18n} #{link}".html_safe
+    view.safe_join([preposition_i18n, link], " ")
   end
 end

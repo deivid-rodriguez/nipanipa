@@ -149,7 +149,7 @@ module Maxmind
     private
 
     def csv_n_lines
-      ` wc -l #{local_csv_path} `.split[0].to_i
+      `wc -l #{local_csv_path}`.split[0].to_i
     end
 
     def download_succeeded?
