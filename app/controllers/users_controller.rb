@@ -116,11 +116,7 @@ class UsersController < Devise::RegistrationsController
   # Correctly resolve actual class from params
   #
   def resource_class
-    return unless params[:type]
-
-    [Volunteer, Host, User].find do |klass|
-      klass.name == params[:type].classify
-    end
+    params[:type] ? detected_class_from(params[:type]) : nil
   end
 
   def resource_class_from_current_user
@@ -139,5 +135,9 @@ class UsersController < Devise::RegistrationsController
   #
   def devise_mapping
     Devise.mappings[:user]
+  end
+
+  def detected_class_from(type)
+    [Volunteer, Host, User].find { |klass| klass.name == type.classify }
   end
 end
