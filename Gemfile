@@ -69,8 +69,7 @@ end
 group :test do
   gem "capybara", "~> 2.6"
   gem "database_cleaner", "~> 1.4"
-  gem "poltergeist", "~> 1.8", require: "phantomjs/poltergeist"
-  gem "phantomjs", "~> 2.1"
+  gem "poltergeist", "~> 1.8"
   gem "launchy", "~> 2.4"
   gem "webmock", "~> 2.0"
   gem "shoulda-matchers", "~> 3.0"
