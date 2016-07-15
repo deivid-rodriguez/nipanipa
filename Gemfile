@@ -8,7 +8,7 @@ gem "rinku", "~> 1.7"
 
 gem "pg", "0.18.4"
 gem "bcrypt", "~> 3.1"
-gem "kaminari", "0.16.3"
+gem "kaminari", "0.17.0"
 gem "simple_form", "~> 3.1"
 gem "devise", "~> 4.2"
 gem "enumerize", "~> 1.0"
