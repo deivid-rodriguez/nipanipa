@@ -49,7 +49,7 @@ group :tools do
   gem "mdl", "0.3.1"
   gem "overcommit", "0.34.2"
   gem "rubocop", "0.41.2"
-  gem "slim_lint", "0.8.0"
+  gem "slim_lint", "0.8.1"
   gem "scss_lint", "0.49.0"
   gem "travis", "~> 1.8"
   gem "simplecov", "0.12.0"
