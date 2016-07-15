@@ -232,7 +232,7 @@ GEM
     mini_magick (4.5.1)
     mini_portile2 (2.1.0)
     minitest (5.9.0)
-    mixlib-cli (1.6.0)
+    mixlib-cli (1.7.0)
     mixlib-config (2.2.1)
     multi_json (1.12.1)
     multipart-post (2.0.0)
