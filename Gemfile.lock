@@ -272,8 +272,6 @@ GEM
       json
       websocket (~> 1.0)
     rack (1.6.4)
-    rack-protection (1.5.3)
-      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.7)
@@ -366,10 +364,6 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
-    sinatra (1.4.7)
-      rack (~> 1.5)
-      rack-protection (~> 1.4)
-      tilt (>= 1.3, < 3)
     slim (3.0.7)
       temple (~> 0.7.6)
       tilt (>= 1.3.3, < 2.1)
@@ -489,7 +483,6 @@ DEPENDENCIES
   shoulda-matchers (~> 3.0)
   simple_form (~> 3.1)
   simplecov (= 0.12.0)
-  sinatra (~> 1.4)
   slim-rails (~> 3.0)
   slim_lint (= 0.8.1)
   spring (~> 2.0)

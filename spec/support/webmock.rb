@@ -9,6 +9,6 @@ RSpec.configure do |config|
 
   config.before(:each, :with_fake_paypal) do
     stub_request(:any, /#{ENV['PAYPAL_HOST']}:#{ENV['PAYPAL_PORT']}/)
-      .to_rack(FakePaypalApp)
+      .to_rack(FakePaypalApp.new)
   end
 end
