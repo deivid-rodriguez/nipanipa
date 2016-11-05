@@ -53,7 +53,7 @@ group :tools do
   gem "brakeman", "~> 3.1"
   gem "byebug", "~> 9.0"
   gem "factory_girl_rails", "~> 4.5"
-  gem "image_optim", "0.22.1"
+  gem "image_optim", "0.24.0"
   gem "image_optim_pack", "0.2.3"
   gem "mdl", "0.3.1"
   gem "overcommit", "0.37.0"
