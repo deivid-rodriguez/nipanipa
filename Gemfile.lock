@@ -72,7 +72,7 @@ GEM
       activesupport (>= 3.0.0)
     arel (6.0.3)
     ast (2.3.0)
-    autoprefixer-rails (6.3.7)
+    autoprefixer-rails (6.5.1.1)
       execjs
     backports (3.6.8)
     bcrypt (3.1.11)
