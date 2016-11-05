@@ -36,8 +36,8 @@ module ApplicationHelper
     request.path =~ /sign_up/ || current_page?(root_path) || current_page?("/")
   end
 
-  def sym_params
-    params.symbolize_keys
+  def filter_params
+    params.permit(:availabilty, :con_id, :cou_id, :type)
   end
 
   def active_if_same_canonical(path)

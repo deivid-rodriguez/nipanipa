@@ -18,7 +18,7 @@ class Country < ActiveRecord::Base
 
   default_scope { includes(:continent) }
 
-  scope :with_users, -> { joins(regions: :users).uniq }
+  scope :with_users, -> { joins(regions: :users).distinct }
 
   has_many :users, through: :regions
 

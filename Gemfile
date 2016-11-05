@@ -11,8 +11,8 @@ end
 
 source "https://rubygems.org"
 
-gem "rails", "~> 4.2"
-gem "rails-i18n", "~> 4.0"
+gem "rails", "~> 5.0"
+gem "rails-i18n", "~> 5.0"
 gem "rinku", "~> 2.0"
 
 gem "pg", "0.19.0"
@@ -42,6 +42,7 @@ gem "i18n-tasks", "0.9.5"
 gem "localeapp", "~> 2.0"
 
 gem "activeadmin", github: "activeadmin"
+gem "inherited_resources", github: "josevalim/inherited_resources"
 
 gem "rubyzip", "~> 1.1", require: false
 gem "ruby-progressbar", "~> 1.7", require: false

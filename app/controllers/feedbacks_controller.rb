@@ -48,7 +48,8 @@ class FeedbacksController < ApplicationController
     flash.now[:notice] = t("feedbacks.destroy.success")
     return unless @feedback.destroy
 
-    redirect_to :back, notice: t("feedbacks.destroy.success")
+    redirect_back fallback_location: root_path,
+                  notice: t("feedbacks.destroy.success")
   end
 
   private

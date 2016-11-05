@@ -12,7 +12,7 @@ RSpec.describe StaticPagesController do
   context "locale is set as a parameter" do
     before do
       request.env["HTTP_ACCEPT_LANGUAGE"] = "en"
-      get :home, locale: :es
+      process :home, method: :get, params: { locale: :es }
     end
 
     it "is asssigned from parameter" do
@@ -23,13 +23,13 @@ RSpec.describe StaticPagesController do
   context "locale not set as a parameter" do
     it "is assigned from user preference" do
       request.env["HTTP_ACCEPT_LANGUAGE"] = "it"
-      get :home
+      process :home, method: :get
       expect(I18n.locale).to eq(:it)
     end
 
     it "is only assigned if the locale is available in the app" do
       request.env["HTTP_ACCEPT_LANGUAGE"] = "ch"
-      get :home
+      process :home, method: :get
       expect(I18n.locale).to eq(I18n.default_locale)
     end
   end
@@ -37,7 +37,7 @@ RSpec.describe StaticPagesController do
   context "locale not set as a parameter nor in HTTP_ACCEPT_LANGUAGE" do
     before do
       request.env.delete("HTTP_ACCEPT_LANGUAGE")
-      get :home
+      process :home, method: :get
     end
 
     it "is assigned from default language" do

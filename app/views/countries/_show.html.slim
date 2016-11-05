@@ -1,3 +1,3 @@
 li id="country-#{cou.id}" class=("active" if params[:cou_id] == cou.id.to_s)
   = link_to t("countries.#{cou.continent.code.downcase}.#{cou.code.downcase}"),
-            users_path(sym_params.except(:con_id).merge(cou_id: cou.id))
+            users_path(filter_params.except(:con_id).merge(cou_id: cou.id))

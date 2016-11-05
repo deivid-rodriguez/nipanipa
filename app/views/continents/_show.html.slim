@@ -1,7 +1,7 @@
 li.continent[id="continent-#{con.id}"
              class=("active" if params[:con_id] == con.id.to_s)]
   = link_to t("continents.#{con.code.downcase}"),
-            users_path(sym_params.except(:cou_id).merge(con_id: con.id))
+            users_path(filter_params.except(:cou_id).merge(con_id: con.id))
   ul
     - con.countries.with_users.sort_by(&:name).each do |cou|
       = render "countries/show", cou: cou
