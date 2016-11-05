@@ -45,7 +45,7 @@ before_script:
   - git config --local user.name 'Travis CI'
 
 script:
-  - bundle exec rake db:create
-  - bundle exec rspec
-  - bundle exec overcommit --sign
-  - bundle exec overcommit --run
+  - bin/rake db:create
+  - bin/rspec
+  - bin/overcommit --sign
+  - bin/overcommit --run
