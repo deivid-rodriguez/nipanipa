@@ -22,9 +22,6 @@ CommitMsg:
 # editor is displayed.
 #
 PreCommit:
-  Brakeman:
-    enabled: true
-
   BundleCheck:
     enabled: true
 
@@ -75,5 +72,8 @@ PreCommit:
     requires_files: true
 
 PrePush:
+  Brakeman:
+    enabled: true
+
   RSpec:
     enabled: true

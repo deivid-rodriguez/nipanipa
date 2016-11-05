@@ -47,7 +47,7 @@ group :tools do
   gem "image_optim", "0.22.1"
   gem "image_optim_pack", "0.2.3"
   gem "mdl", "0.3.1"
-  gem "overcommit", "0.34.2"
+  gem "overcommit", "0.37.0"
   gem "rubocop", "0.41.2"
   gem "slim_lint", "0.8.1"
   gem "scss_lint", "0.49.0"
