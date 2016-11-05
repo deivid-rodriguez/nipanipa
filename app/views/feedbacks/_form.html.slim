@@ -7,7 +7,7 @@
   = f.input :content, wrapper: :full_width
   = f.hidden_field :recipient_id, value: @user.id
 
-  - if @feedback.donation && @feedback.donation.amount
+  - if @feedback.donation&.amount
     = t(".donated_already_html",
         donations_url: link_to(t(".here"), new_donation_path))
   - else

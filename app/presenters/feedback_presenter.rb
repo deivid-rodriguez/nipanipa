@@ -21,9 +21,9 @@ class FeedbackPresenter < ApplicationPresenter
   private
 
   def labeled_link(preposition, author)
-    preposition_i18n = I18n.t("feedbacks.feedback.#{preposition}")
+    preposition = I18n.t("feedbacks.feedback.#{preposition}")
     link = view.link_to author.name, author
 
-    view.safe_join([preposition_i18n, link], " ")
+    view.safe_join([preposition, link], " ")
   end
 end

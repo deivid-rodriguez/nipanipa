@@ -23,8 +23,8 @@ module UsersHelper
   end
 
   def karma_to_type(karma)
-    return 1 if karma < 0
-    return 2 if karma == 0
+    return 1 if karma.negative?
+    return 2 if karma.zero?
     return 3 if karma == 1
     return 4 if karma >= 2 && karma < 10
     5
