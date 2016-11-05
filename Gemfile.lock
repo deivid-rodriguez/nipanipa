@@ -137,7 +137,7 @@ GEM
       json
       thread
       thread_safe
-    enumerize (1.1.1)
+    enumerize (2.0.1)
       activesupport (>= 3.2)
     erubis (2.7.0)
     ethon (0.9.0)
@@ -461,7 +461,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1)
   database_cleaner (~> 1.4)
   devise (~> 4.2)
-  enumerize (~> 1.0)
+  enumerize (~> 2.0)
   factory_girl_rails (~> 4.5)
   i18n-tasks (= 0.9.5)
   image_optim (= 0.24.0)
