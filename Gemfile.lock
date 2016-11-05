@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/activeadmin/activeadmin.git
+  remote: https://github.com/activeadmin/activeadmin.git
   revision: 78324a83fa01d62bbc372bafc2313be5b3837529
   specs:
     activeadmin (1.0.0.pre4)
@@ -18,7 +18,7 @@ GIT
       sprockets (< 4.1)
 
 GIT
-  remote: git://github.com/carrierwaveuploader/carrierwave.git
+  remote: https://github.com/carrierwaveuploader/carrierwave.git
   revision: 1d2f26428fe944977a91fe5fdf2fb033d5a13239
   specs:
     carrierwave (1.0.0.rc)
