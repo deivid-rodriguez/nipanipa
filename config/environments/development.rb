@@ -25,7 +25,7 @@ Rails.application.configure do
   config.assets.debug = true
 
   # Disable logging of assets
-  config.assets.logger = false
+  config.assets.quiet = true
 
   # ActionMailer Config
   config.action_mailer.delivery_method = :letter_opener

@@ -24,7 +24,6 @@ gem "enumerize", "~> 1.0"
 gem "cocoon", "~> 1.2"
 gem "carrierwave", github: "carrierwaveuploader/carrierwave"
 gem "mini_magick", "~> 4.2"
-gem "quiet_assets", "~> 1.1"
 
 # Frontend stuff
 gem "jquery-rails", "~> 4.0"
