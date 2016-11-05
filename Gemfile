@@ -55,7 +55,7 @@ group :tools do
   gem "factory_girl_rails", "~> 4.5"
   gem "image_optim", "0.24.0"
   gem "image_optim_pack", "0.3.0.20160812"
-  gem "mdl", "0.3.1"
+  gem "mdl", "0.4.0"
   gem "overcommit", "0.37.0"
   gem "rubocop", "0.41.2"
   gem "slim_lint", "0.8.1"
