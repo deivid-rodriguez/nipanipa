@@ -67,7 +67,7 @@ end
 gem "rspec-rails", "~> 3.2", groups: %i(development test)
 
 group :development do
-  gem "spring", "~> 1.3"
+  gem "spring", "~> 2.0"
   gem "letter_opener", "~> 1.4"
   gem "capistrano-rails", "~> 1.1"
   gem "capistrano-passenger", "0.2.0"
