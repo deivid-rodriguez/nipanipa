@@ -15,7 +15,7 @@ gem "rails", "~> 4.2"
 gem "rails-i18n", "~> 4.0"
 gem "rinku", "~> 2.0"
 
-gem "pg", "0.18.4"
+gem "pg", "0.19.0"
 gem "bcrypt", "~> 3.1"
 gem "kaminari", "0.17.0"
 gem "simple_form", "~> 3.1"
