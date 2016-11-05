@@ -5,7 +5,7 @@
 #
 namespace :db do
   def load_countries
-    data = YAML.load(File.read("#{Rails.root}/config/locales/en/geo.yml"))["en"]
+    data = YAML.load(File.read("#{Rails.root}/config/locales/en.yml"))["en"]
 
     traverse(data["continents"]) do |con_code|
       continent = Continent.find_or_create_by!(code: con_code.upcase)
