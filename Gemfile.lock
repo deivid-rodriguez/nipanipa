@@ -19,9 +19,9 @@ GIT
 
 GIT
   remote: git://github.com/carrierwaveuploader/carrierwave.git
-  revision: 124e756a77f0425145c4623461420adf89c06cb2
+  revision: 1d2f26428fe944977a91fe5fdf2fb033d5a13239
   specs:
-    carrierwave (0.11.0)
+    carrierwave (1.0.0.rc)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
@@ -238,7 +238,7 @@ GEM
     mime-types-data (3.2016.0521)
     mini_magick (4.5.1)
     mini_portile2 (2.1.0)
-    minitest (5.9.0)
+    minitest (5.9.1)
     mixlib-cli (1.7.0)
     mixlib-config (2.2.1)
     multi_json (1.12.1)
