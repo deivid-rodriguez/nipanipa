@@ -209,7 +209,7 @@ GEM
       image_size (~> 1.3)
       in_threads (~> 1.3)
       progress (~> 3.0, >= 3.0.1)
-    image_optim_pack (0.3.0.20160812)
+    image_optim_pack (0.3.0.20161021)
       fspath (>= 2.1, < 4)
       image_optim (~> 0.19)
     image_size (1.4.2)
@@ -473,7 +473,7 @@ DEPENDENCIES
   factory_girl_rails (~> 4.5)
   i18n-tasks (= 0.9.6)
   image_optim (= 0.24.0)
-  image_optim_pack (= 0.3.0.20160812)
+  image_optim_pack (= 0.3.0.20161021)
   inherited_resources!
   jquery-rails (~> 4.0)
   kaminari (= 0.17.0)
