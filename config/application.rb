@@ -8,16 +8,6 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
-# Load per environment configuration
-def load_configuration
-  conf = YAML.load(File.read(File.expand_path("../application.yml", __FILE__)))
-  conf.merge! conf.fetch(Rails.env, {})
-  conf.each do |key, value|
-    ENV[key] = value.to_s unless value.is_a? Hash
-  end
-end
-load_configuration unless ENV["CI"] # We separately set ENV for travis
-
 module Nipanipa
   #
   # Our Rails App

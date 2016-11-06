@@ -24,6 +24,11 @@ server "nipanipa.com", user: "deployer", roles: %w(web app db), primary: true
 set :ssh_options, forward_agent: true
 
 #
+# Permanent configuration
+#
+set :linked_files, %w(.env.production)
+
+#
 # Set default Rails environment
 #
 fetch(:default_env)[:rails_env] = :production

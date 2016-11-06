@@ -3,25 +3,18 @@ connection: &connection
   encoding: unicode
   host: localhost
   port: 5432
-  database: <%= ENV['DB_NAME'] %>
+  database: <%= ENV["DB_NAME"] %>
+  password: <%= ENV["DB_PASS"] %>
   pool: 5
   timeout: 5000
   template: template0
+  username: <%= ENV["DB_USER"] %>
 
 development:
-  username: nipanipa
-  password: nipanipa
   <<: *connection
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
 test:
-  username: nipanipa
-  password: nipanipa
   <<: *connection
 
 production:
-  username: <%= ENV['DB_USER'] %>
-  password: <%= ENV['DB_PASS'] %>
   <<: *connection
