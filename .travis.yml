@@ -16,6 +16,7 @@ before_install:
   - npm install -g coffeelint
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
+  - source bin/phantomjs.sh
 
 before_script:
   - git config --local user.email 'travis@travis.ci'
