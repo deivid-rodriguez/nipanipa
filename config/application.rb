@@ -24,11 +24,6 @@ module Nipanipa
     # config.time_zone = 'Central Time (US & Canada)'
 
     #
-    # Custom libraries autoloaded
-    #
-    config.autoload_paths += %W(#{config.root}/lib)
-
-    #
     # Silence assets log
     #
     config.assets.logger = false
