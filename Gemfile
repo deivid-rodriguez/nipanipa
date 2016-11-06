@@ -40,7 +40,7 @@ source "https://rails-assets.org" do
 end
 
 # Translations
-gem "i18n-tasks", "0.9.5"
+gem "i18n-tasks", "0.9.6"
 gem "localeapp", "~> 2.0"
 
 gem "activeadmin", github: "activeadmin"
@@ -56,12 +56,12 @@ group :tools do
   gem "byebug", "~> 9.0"
   gem "factory_girl_rails", "~> 4.5"
   gem "image_optim", "0.24.0"
-  gem "image_optim_pack", "0.3.0.20160812"
+  gem "image_optim_pack", "0.3.0.20161021"
   gem "mdl", "0.4.0"
   gem "overcommit", "0.37.0"
-  gem "rubocop", "0.43.0"
-  gem "slim_lint", "0.8.1"
-  gem "scss_lint", "0.49.0"
+  gem "rubocop", "0.45.0"
+  gem "slim_lint", "0.8.2"
+  gem "scss_lint", "0.50.3"
   gem "travis", "~> 1.8"
   gem "simplecov", "0.12.0"
 end
