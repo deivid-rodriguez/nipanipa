@@ -40,7 +40,7 @@ source "https://rails-assets.org" do
 end
 
 # Translations
-gem "i18n-tasks", "0.9.5"
+gem "i18n-tasks", "0.9.6"
 gem "localeapp", "~> 2.0"
 
 gem "activeadmin", github: "activeadmin"

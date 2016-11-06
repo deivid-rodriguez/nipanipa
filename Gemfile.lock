@@ -193,7 +193,7 @@ GEM
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.7.0)
-    i18n-tasks (0.9.5)
+    i18n-tasks (0.9.6)
       activesupport (>= 4.0.2)
       ast (>= 2.1.0)
       easy_translate (>= 0.5.0)
@@ -471,7 +471,7 @@ DEPENDENCIES
   dotenv-rails (~> 2.1)
   enumerize (~> 2.0)
   factory_girl_rails (~> 4.5)
-  i18n-tasks (= 0.9.5)
+  i18n-tasks (= 0.9.6)
   image_optim (= 0.24.0)
   image_optim_pack (= 0.3.0.20160812)
   inherited_resources!
