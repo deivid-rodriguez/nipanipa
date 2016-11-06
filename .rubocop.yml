@@ -30,3 +30,5 @@ Style/StringLiterals:
 
 Performance/Casecmp:
   Enabled: false
+
+inherit_from: .rubocop_todo.yml

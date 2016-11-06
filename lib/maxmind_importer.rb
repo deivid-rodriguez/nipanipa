@@ -12,7 +12,7 @@ module Maxmind
   # Extensions for our Country model
   #
   module CountryExtensions
-    def find_by_code_and_continent_code(geo)
+    def find_from_geo_info(geo)
       return unless geo.country_code.present? && geo.continent_code.present?
 
       scope = where(code: geo.country_code,
@@ -162,7 +162,7 @@ module Maxmind
     end
 
     def insert_one!(data)
-      country = Country.find_by_code_and_continent_code(data)
+      country = Country.find_from_geo_info(data)
       return unless country
 
       country.insert_region!(data)
