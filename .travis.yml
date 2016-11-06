@@ -8,30 +8,7 @@ rvm:
   - 2.3.0
 
 env:
-  global:
-  - PAYPAL_HOST: localhost
-  - PAYPAL_PORT: 5678
-  - MAIL_HOST=example.com
-  - secure: |-
-      AmR6J1S8LHM/0eq79r9grp83BQc6bJHFfA73LQBtu/qwr5t4r89i8XCD5FYj
-      shhMmIxlrALRhs2th2KJ3/EDWojWR7JEHIWM55K+myoeLaiVmyXDfYqCwVKs
-      Yzfzh9dqrFDgrPZML7oy0QWE/mgUnCpQrlfYc8KuR09ENaJ1d/A=
-  - secure: |-
-      m+RFNm+fh8zfsUtz9IndNjMntrt6vCQnSmmnnia3MuuZT7ujJXmIKSSKCAdv
-      9PJ7xWMOwUoBESIKAwVkil8nm58KDTkAMnFy+xAGJkjItCQqMUq4afANQSTj
-      oWjFHxp9RjEV4UQWpGfQ6KWXWF7H9oz+GZzd8p+s9z0sugF+Iog=
-  - secure: |-
-      J2A0Gln8oyfKmzLMnabpI9nd1KO1QxWspR+zf20KJLcKQpbgK999eNOspPG4
-      01E4KAF5Aqteqj5Kfdt6PS/tEMaRKZQzpRCxVi1sfT+gAqY5PJk4UYgzsljw
-      F/cI7s1WY9IypsHHQ8A3AZq4niHmDp1LjBWiPKo4Ap+EPD6EH5s=
-  - secure: |-
-      ezMd0ELSrMeUuH0goss1hy5L8ytj0d0D/aaN/CX/QZpbXIi1DMUmHq7qQY/7
-      CnY4jg0F+P8hRf4WYbLQZiq67sUWVABwf16uP1hlvWUFvwbOvemEKGOpG0Fg
-      2Kj+L21qbH2o201/TtADDmxE1JJc0ym4/elkXPygHIl5Uv55FbE=
-  - secure: |-
-      FO6RY9omEOK21JPCwAtN6exMFFaURnmETk4u3hKTBtuiGVLt48nqpNRkpbiT
-      nkc57E8i9vlssZgncYDsxE5dVYNVX8e3Z1UBlOz6h2qlyF+DHP5bCe59LhdD
-      n/JUv72go5Kp7Hla+sXCbyobGZIguW17n6Wr17jNYge9858ygec=
+  - DB_USER=travis DB_PASS=''
 
 bundler_args: --without development
 
