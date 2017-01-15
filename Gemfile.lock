@@ -27,15 +27,6 @@ GIT
       railties (>= 3.2, < 5.1)
       responders
 
-GIT
-  remote: https://github.com/carrierwaveuploader/carrierwave.git
-  revision: 1d2f26428fe944977a91fe5fdf2fb033d5a13239
-  specs:
-    carrierwave (1.0.0.rc)
-      activemodel (>= 4.0.0)
-      activesupport (>= 4.0.0)
-      mime-types (>= 1.16)
-
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -120,6 +111,10 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (1.0.0)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
     childprocess (0.5.9)
       ffi (~> 1.0, >= 1.0.11)
     cliver (0.3.2)
@@ -472,7 +467,7 @@ DEPENDENCIES
   capistrano-passenger (= 0.2.0)
   capistrano-rails (~> 1.1)
   capybara (~> 2.6)
-  carrierwave!
+  carrierwave (~> 1.0)
   cocoon (~> 1.2)
   coffee-rails (~> 4.1)
   database_cleaner (~> 1.4)

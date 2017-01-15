@@ -24,7 +24,7 @@ gem "simple_form", "~> 3.1"
 gem "devise", "~> 4.2"
 gem "enumerize", "~> 2.0"
 gem "cocoon", "~> 1.2"
-gem "carrierwave", github: "carrierwaveuploader/carrierwave"
+gem "carrierwave", "~> 1.0"
 gem "mini_magick", "~> 4.2"
 
 # Frontend stuff
