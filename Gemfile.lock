@@ -18,16 +18,7 @@ GIT
       sprockets (< 4.1)
 
 GIT
-  remote: https://github.com/carrierwaveuploader/carrierwave.git
-  revision: 1d2f26428fe944977a91fe5fdf2fb033d5a13239
-  specs:
-    carrierwave (1.0.0.rc)
-      activemodel (>= 4.0.0)
-      activesupport (>= 4.0.0)
-      mime-types (>= 1.16)
-
-GIT
-  remote: https://github.com/josevalim/inherited_resources.git
+  remote: https://github.com/activeadmin/inherited_resources.git
   revision: 6707bf7e45b9a25e84c6c95a37d67b1dc28d211d
   specs:
     inherited_resources (1.6.0)
@@ -35,6 +26,15 @@ GIT
       has_scope (~> 0.6)
       railties (>= 3.2, < 5.1)
       responders
+
+GIT
+  remote: https://github.com/carrierwaveuploader/carrierwave.git
+  revision: 1d2f26428fe944977a91fe5fdf2fb033d5a13239
+  specs:
+    carrierwave (1.0.0.rc)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
 
 GEM
   remote: https://rubygems.org/

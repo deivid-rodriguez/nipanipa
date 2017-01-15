@@ -44,7 +44,7 @@ gem "i18n-tasks", "0.9.6"
 gem "localeapp", "~> 2.0"
 
 gem "activeadmin", github: "activeadmin"
-gem "inherited_resources", github: "josevalim/inherited_resources"
+gem "inherited_resources", github: "activeadmin/inherited_resources"
 
 gem "rubyzip", "~> 1.1", require: false
 gem "ruby-progressbar", "~> 1.7", require: false
