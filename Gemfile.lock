@@ -252,7 +252,7 @@ GEM
       mixlib-config (~> 2.2, >= 2.2.1)
     method_source (0.8.2)
     mime-types (2.99.3)
-    mini_magick (4.5.1)
+    mini_magick (4.6.0)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     mixlib-cli (1.7.0)
