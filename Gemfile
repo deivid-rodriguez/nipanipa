@@ -52,7 +52,7 @@ group :tools do
   gem "brakeman", "~> 3.1"
   gem "byebug", "~> 9.0"
   gem "factory_girl_rails", "~> 4.5"
-  gem "i18n-tasks", "0.9.6"
+  gem "i18n-tasks", "0.9.11"
   gem "image_optim", "0.24.0"
   gem "image_optim_pack", "0.3.0.20161021"
   gem "localeapp", "~> 2.0"
