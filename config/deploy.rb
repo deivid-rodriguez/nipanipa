@@ -16,25 +16,3 @@ set :linked_dirs, %w(log tmp/pids tmp/cache tmp/sockets public/uploads)
 set :keep_releases, 5
 
 set :bundle_without, "development test tools"
-
-namespace :deploy do
-  desc "Reload the database with seed data"
-  task :seed do
-    on roles(:db) do
-      execute "cd #{current_path} && rake db:seed RAILS_ENV=#{rails_env}"
-    end
-  end
-
-  after :finishing, "deploy:cleanup"
-
-  desc "Make sure local git is in sync with remote"
-  task :check_revision do
-    on roles(:web) do
-      unless `git rev-parse HEAD` == `git rev-parse origin/master`
-        errmsg = "HEAD not the same as origin/master. Run `git push` to sync."
-        raise(errmsg)
-      end
-    end
-  end
-  before :deploy, "deploy:check_revision"
-end
