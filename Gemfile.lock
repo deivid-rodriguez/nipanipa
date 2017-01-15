@@ -476,7 +476,6 @@ DEPENDENCIES
   enumerize (~> 2.0)
   factory_girl_rails (~> 4.5)
   i18n-tasks (= 0.9.11)
-  image_optim (= 0.24.0)
   image_optim_pack (= 0.3.0.20161021)
   inherited_resources!
   jquery-rails (~> 4.0)
