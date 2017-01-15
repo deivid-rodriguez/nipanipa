@@ -6,7 +6,6 @@ set :repo_url, "git@github.com:deivid-rodriguez/nipanipa.git"
 set :branch, "master"
 
 set :deploy_to, "/home/deployer/nipanipa"
-set :scm, :git
 
 set :format, :pretty
 set :log_level, :debug
@@ -38,13 +37,4 @@ namespace :deploy do
     end
   end
   before :deploy, "deploy:check_revision"
-
-  desc "Show changes to be deployed"
-  task :pending do
-    on roles(:app) do
-      within repo_path do
-        info `git diff #{strategy.fetch_revision} master`
-      end
-    end
-  end
 end

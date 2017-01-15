@@ -71,6 +71,7 @@ group :development do
   gem "letter_opener", "~> 1.4"
   gem "capistrano-rails", "~> 1.1"
   gem "capistrano-passenger", "0.2.0"
+  gem "capistrano-pending"
   gem "unicorn-rails", "~> 2.2"
 end
 
