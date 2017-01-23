@@ -5,12 +5,10 @@
 #
 namespace :db do
   def load_countries
-    data = YAML.load(File.read("#{Rails.root}/config/locales/en.yml"))["en"]
-
-    traverse(data["continents"]) do |con_code|
+    traverse(i18n_data["continents"]) do |con_code|
       continent = Continent.find_or_create_by!(code: con_code.upcase)
 
-      traverse(data["countries"][con_code]) do |cou_code|
+      traverse(i18n_data["countries"][con_code]) do |cou_code|
         Country.find_or_create_by!(code: cou_code.upcase,
                                    continent_id: continent.id)
       end
@@ -35,6 +33,14 @@ namespace :db do
 
   def traverse(hash)
     hash.each { |code, _| yield(code) }
+  end
+
+  def i18n_data
+    @i18n_data ||= YAML.safe_load(i18n_contents)["en"]
+  end
+
+  def i18n_contents
+    @i18n_contents ||= File.read(Rails.root.join("config", "locales", "en.yml"))
   end
 
   namespace :maxmind do

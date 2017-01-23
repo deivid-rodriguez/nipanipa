@@ -31,7 +31,7 @@ RSpec.describe Country do
     expect(Country.with_users).to include(country)
 
     region = create(:region, country: create(:country, code: "IT"))
-    user.update_attribute(:region, region)
+    user.update!(region: region)
     expect(Country.with_users).not_to include(country)
   end
 end

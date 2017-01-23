@@ -17,22 +17,22 @@ gem "rinku", "~> 2.0"
 
 gem "dotenv-rails", "~> 2.1"
 
-gem "pg", "0.19.0"
 gem "bcrypt", "~> 3.1"
-gem "kaminari", "~> 1.0"
-gem "simple_form", "~> 3.1"
+gem "carrierwave", "~> 1.0"
+gem "cocoon", "~> 1.2"
 gem "devise", "~> 4.2"
 gem "enumerize", "~> 2.0"
-gem "cocoon", "~> 1.2"
-gem "carrierwave", "~> 1.0"
+gem "kaminari", "~> 1.0"
 gem "mini_magick", "~> 4.2"
+gem "pg", "0.19.0"
+gem "simple_form", "~> 3.1"
 
 # Frontend stuff
-gem "jquery-rails", "~> 4.0"
-gem "coffee-rails", "~> 4.1"
-gem "bootstrap-sass", "~> 3.3"
-gem "sass-rails", "~> 5.0"
 gem "autoprefixer-rails", "~> 6.0"
+gem "bootstrap-sass", "~> 3.3"
+gem "coffee-rails", "~> 4.1"
+gem "jquery-rails", "~> 4.0"
+gem "sass-rails", "~> 5.0"
 gem "uglifier", "~> 3.0"
 
 source "https://rails-assets.org" do
@@ -43,8 +43,8 @@ end
 gem "activeadmin", github: "activeadmin"
 gem "inherited_resources", github: "activeadmin/inherited_resources"
 
-gem "rubyzip", "~> 1.1", require: false
 gem "ruby-progressbar", "~> 1.7", require: false
+gem "rubyzip", "~> 1.1", require: false
 
 gem "slim-rails", "~> 3.0"
 
@@ -57,29 +57,29 @@ group :tools do
   gem "localeapp", "~> 2.0"
   gem "mdl", "0.4.0"
   gem "overcommit", "0.37.0"
-  gem "rubocop", "0.45.0"
-  gem "slim_lint", "0.8.2"
+  gem "rubocop", "0.47.1"
   gem "scss_lint", "0.52.0"
-  gem "travis", "~> 1.8"
   gem "simplecov", "0.13.0"
+  gem "slim_lint", "0.8.2"
+  gem "travis", "~> 1.8"
 end
 
 gem "rspec-rails", "~> 3.2", groups: %i(development test)
 
 group :development do
-  gem "spring", "~> 2.0"
-  gem "letter_opener", "~> 1.4"
-  gem "capistrano-rails", "~> 1.1"
   gem "capistrano-passenger", "0.2.0"
   gem "capistrano-pending"
+  gem "capistrano-rails", "~> 1.1"
+  gem "letter_opener", "~> 1.4"
+  gem "spring", "~> 2.0"
   gem "unicorn-rails", "~> 2.2"
 end
 
 group :test do
   gem "capybara", "~> 2.6"
   gem "database_cleaner", "~> 1.4"
-  gem "poltergeist", "~> 1.8"
   gem "launchy", "~> 2.4"
-  gem "webmock", "~> 2.0"
+  gem "poltergeist", "~> 1.8"
   gem "shoulda-matchers", "~> 3.0"
+  gem "webmock", "~> 2.0"
 end

@@ -6,7 +6,10 @@ RSpec.describe ImageUploader do
   include CarrierWave::Test::Matchers
 
   let!(:user) { build(:user) }
-  let!(:img) { File.open("#{Rails.root}/app/assets/images/host1_small.png") }
+
+  let!(:img) do
+    File.open(Rails.root.join("app", "assets", "images", "host1_small.png"))
+  end
 
   before do
     ImageUploader.enable_processing = true

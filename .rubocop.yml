@@ -12,6 +12,13 @@ AllCops:
 Rails:
   Enabled: true
 
+# Until https://github.com/bbatsov/rubocop/pull/3977 merged
+Rails/FilePath:
+  Enabled: false
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
 Style/ModuleFunction:
   Enabled: false
 

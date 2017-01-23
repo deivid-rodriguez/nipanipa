@@ -135,8 +135,9 @@ RSpec.shared_examples_for "a nipanipa user" do
     end
 
     describe "changing user email" do
+      let!(:old_email) { user.email }
+
       before do
-        user.update_column(:email, "old_email@example.com")
         fill_in "user[email]", with: "new_email@example.com"
         click_button update_user
       end
@@ -153,7 +154,7 @@ RSpec.shared_examples_for "a nipanipa user" do
       end
 
       it "updates hosts unconfirmed_email correctly" do
-        expect(user.reload.email).to eq("old_email@example.com")
+        expect(user.reload.email).to eq(old_email)
         expect(user.reload.unconfirmed_email).to eq("new_email@example.com")
       end
 
