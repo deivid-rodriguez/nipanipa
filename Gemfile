@@ -60,7 +60,7 @@ group :tools do
   gem "rubocop", "0.47.1"
   gem "scss_lint", "0.52.0"
   gem "simplecov", "0.13.0"
-  gem "slim_lint", "0.8.2"
+  gem "slim_lint", "0.11.0"
   gem "travis", "~> 1.8"
 end
 
