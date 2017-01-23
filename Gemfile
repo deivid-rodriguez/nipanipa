@@ -19,7 +19,7 @@ gem "dotenv-rails", "~> 2.1"
 
 gem "pg", "0.19.0"
 gem "bcrypt", "~> 3.1"
-gem "kaminari", "0.17.0"
+gem "kaminari", "~> 1.0"
 gem "simple_form", "~> 3.1"
 gem "devise", "~> 4.2"
 gem "enumerize", "~> 2.0"
