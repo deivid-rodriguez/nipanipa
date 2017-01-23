@@ -394,7 +394,7 @@ GEM
       rubocop (>= 0.36.0)
       slim (~> 3.0)
       sysexits (~> 1.1)
-    spring (2.0.0)
+    spring (2.0.1)
       activesupport (>= 4.2)
     sprockets (3.7.1)
       concurrent-ruby (~> 1.0)
