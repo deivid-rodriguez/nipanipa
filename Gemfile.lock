@@ -185,7 +185,7 @@ GEM
     has_scope (0.7.0)
       actionpack (>= 4.1, < 5.1)
       activesupport (>= 4.1, < 5.1)
-    hashdiff (0.3.0)
+    hashdiff (0.3.2)
     highline (1.7.8)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -444,7 +444,7 @@ GEM
       unicorn
     warden (1.2.6)
       rack (>= 1.0)
-    webmock (2.1.0)
+    webmock (2.3.2)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
