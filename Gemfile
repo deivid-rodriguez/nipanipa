@@ -59,7 +59,7 @@ group :tools do
   gem "overcommit", "0.37.0"
   gem "rubocop", "0.45.0"
   gem "slim_lint", "0.8.2"
-  gem "scss_lint", "0.50.3"
+  gem "scss_lint", "0.52.0"
   gem "travis", "~> 1.8"
   gem "simplecov", "0.13.0"
 end
