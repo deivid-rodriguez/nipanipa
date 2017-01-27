@@ -438,7 +438,7 @@ GEM
     unicorn-rails (2.2.1)
       rack
       unicorn
-    warden (1.2.6)
+    warden (1.2.7)
       rack (>= 1.0)
     webmock (2.3.2)
       addressable (>= 2.3.6)
