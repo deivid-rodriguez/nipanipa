@@ -56,7 +56,7 @@ group :tools do
   gem "image_optim_pack", "0.3.1.20170121"
   gem "localeapp", "~> 2.0"
   gem "mdl", "0.4.0"
-  gem "overcommit", "0.37.0"
+  gem "overcommit", github: "brigade/overcommit"
   gem "rubocop", "0.47.1"
   gem "scss_lint", "0.52.0"
   gem "simplecov", "0.13.0"
