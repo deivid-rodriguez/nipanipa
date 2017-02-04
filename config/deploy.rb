@@ -7,7 +7,6 @@ set :branch, "master"
 
 set :deploy_to, "/home/deployer/nipanipa"
 
-set :format, :pretty
 set :log_level, :debug
 set :pty, true
 
