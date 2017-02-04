@@ -17,7 +17,7 @@ namespace :db do
         --no-acl \
         --format=c \
         -n public \
-        #{config[:database]} > #{Rails.root}/db/snapshot.dump
+        #{config[:database]} > #{Rails.root.join('db', 'snapshot.dump')}
     SHELL
 
     puts "Dumping #{Rails.env} database."
@@ -36,7 +36,7 @@ namespace :db do
         --no-owner \
         --no-acl \
         -n public \
-        --dbname=#{config[:database]} #{Rails.root}/db/snapshot.dump
+        --dbname=#{config[:database]} #{Rails.root.join('db', 'snapshot.dump')}
     SHELL
 
     puts "Restoring #{Rails.env} database."

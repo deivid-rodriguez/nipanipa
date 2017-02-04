@@ -6,8 +6,15 @@ require "capistrano/setup"
 # Include default deployment tasks
 require "capistrano/deploy"
 
+# Make git commands available
+require "capistrano/scm/git"
+install_plugin Capistrano::SCM::Git
+
 # Rails tasks
 require "capistrano/rails"
 
 # Restart passenger after deployments
 require "capistrano/passenger"
+
+# Show pending changes to be deployed
+require "capistrano/pending"

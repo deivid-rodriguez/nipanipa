@@ -34,8 +34,8 @@ class Message < ActiveRecord::Base
   }
 
   def self.delete_by(uid)
-    where(sender_id: uid).update_all(deleted_by_sender_at: Time.zone.now)
-    where(recipient_id: uid).update_all(deleted_by_recipient_at: Time.zone.now)
+    where(sender_id: uid).update(deleted_by_sender_at: Time.zone.now)
+    where(recipient_id: uid).update(deleted_by_recipient_at: Time.zone.now)
 
     unscoped
       .where
