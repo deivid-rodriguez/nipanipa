@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 if Rails.env.development?
-  require "localeapp/rails"
-
   Localeapp.configure do |config|
     #
     # Set up API keys
