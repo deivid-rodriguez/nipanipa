@@ -40,8 +40,7 @@ source "https://rails-assets.org" do
 end
 
 # Translations
-gem "activeadmin", github: "activeadmin"
-gem "inherited_resources", github: "activeadmin/inherited_resources"
+gem "activeadmin", "~> 1.0"
 
 gem "ruby-progressbar", "~> 1.7", require: false
 gem "rubyzip", "~> 1.1", require: false
