@@ -39,7 +39,6 @@ source "https://rails-assets.org" do
   gem "rails-assets-autosize", "~> 3.0"
 end
 
-# Translations
 gem "activeadmin", "~> 1.0"
 
 gem "ruby-progressbar", "~> 1.7", require: false
