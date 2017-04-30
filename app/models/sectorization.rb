@@ -3,7 +3,7 @@
 #
 # Associates job categories and users
 #
-class Sectorization < ActiveRecord::Base
+class Sectorization < ApplicationRecord
   belongs_to :user
   validates :user, presence: :true
 

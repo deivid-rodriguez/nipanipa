@@ -1,5 +1,4 @@
-- if pictures.empty?
-  = render "shared/empty", message: "nopictures"
+= render "shared/empty", message: "nopictures" if pictures.empty?
 
 - pictures.each do |p|
   = link_to user_pictures_path(p.user, anchor: "image-#{p.id}") do

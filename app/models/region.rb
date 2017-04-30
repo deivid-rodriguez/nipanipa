@@ -3,7 +3,7 @@
 #
 # Represents a first level region in a country.
 #
-class Region < ActiveRecord::Base
+class Region < ApplicationRecord
   validates :code, presence: true
 
   belongs_to :country

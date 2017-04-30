@@ -16,7 +16,7 @@ set :stage, :production
 # This can be used to drop a more detailed server definition into
 # the server list. The second argument something that quacks like
 # a hash can be used to set extended properties on the server.
-server "nipanipa.com", user: "deployer", roles: %w(web app db), primary: true
+server "nipanipa.com", user: "deployer", roles: %w[web app db], primary: true
 
 #
 # Forward ssh agent globally for all servers
@@ -26,7 +26,7 @@ set :ssh_options, forward_agent: true
 #
 # Permanent configuration
 #
-set :linked_files, %w(.env.production)
+set :linked_files, %w[.env.production]
 
 #
 # Set default Rails environment

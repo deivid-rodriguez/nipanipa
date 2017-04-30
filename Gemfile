@@ -57,13 +57,14 @@ group :tools do
   gem "localeapp", "~> 2.0"
   gem "mdl", "0.4.0"
   gem "overcommit", "0.39.1"
-  gem "rubocop", "0.47.1"
+  # @todo Until https://github.com/bbatsov/rubocop/pull/4237 released
+  gem "rubocop", github: "bbatsov/rubocop"
   gem "scss_lint", "0.52.0"
   gem "simplecov", "0.13.0"
   gem "slim_lint", "0.11.0"
 end
 
-gem "rspec-rails", "~> 3.2", groups: %i(development test)
+gem "rspec-rails", "~> 3.2", groups: %i[development test]
 
 group :development do
   gem "capistrano-passenger", "0.2.0"

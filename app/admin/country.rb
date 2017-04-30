@@ -3,7 +3,7 @@
 ActiveAdmin.register Country do
   config.per_page = 200
 
-  permit_params :code, regions_attributes: [:id, :code, :name, :_destroy]
+  permit_params :code, regions_attributes: %i[id code name _destroy]
 
   form do |f|
     f.inputs "Country Info" do
@@ -24,7 +24,7 @@ ActiveAdmin.register Country do
     column :name
     column :code
 
-    [:created_at, :updated_at].each do |col|
+    %i[created_at updated_at].each do |col|
       column col, sortable: col do |country|
         country.send(col).strftime("%m/%d/%y")
       end

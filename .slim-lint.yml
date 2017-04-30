@@ -1,0 +1,34 @@
+---
+
+linters:
+  RuboCop:
+    ignored_cops:
+      - Lint/BlockAlignment
+      - Lint/EndAlignment
+      - Lint/Void
+      - Metrics/BlockLength
+      - Metrics/LineLength
+      # @todo: Until default config catches up with the Style -> Layout rename
+      - Layout/AlignHash
+      - Layout/AlignParameters
+      - Layout/BlockNesting
+      - Layout/FileName
+      - Layout/FirstParameterIndentation
+      - Layout/FrozenStringLiteralComment
+      - Layout/IfUnlessModifier
+      - Layout/IndentationConsistency
+      - Layout/IndentationWidth
+      - Layout/MultilineArrayBraceLayout
+      - Layout/MultilineAssignmentLayout
+      - Layout/MultilineHashBraceLayout
+      - Layout/MultilineMethodCallBraceLayout
+      - Layout/MultilineMethodDefinitionBraceLayout
+      - Layout/MultilineMethodCallIndentation
+      - Layout/MultilineOperationIndentation
+      - Layout/Next
+      - Layout/TrailingBlankLines
+      - Layout/TrailingWhitespace
+      - Layout/WhileUntilModifier
+      # @todo: Until ignored in the default config
+      - Style/FileName
+      - Style/FrozenStringLiteralComment

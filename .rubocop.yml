@@ -9,6 +9,9 @@ AllCops:
 
   TargetRubyVersion: 2.3
 
+Layout/ExtraSpacing:
+  AllowForAlignment: false
+
 Rails:
   Enabled: true
 
@@ -28,9 +31,6 @@ Style/FileName:
 
 Style/Lambda:
   Enabled: false
-
-Style/ExtraSpacing:
-  AllowForAlignment: false
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes

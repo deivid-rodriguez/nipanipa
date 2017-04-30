@@ -3,7 +3,7 @@
 #
 # A language to communicate with people
 #
-class Language < ActiveRecord::Base
+class Language < ApplicationRecord
   validates :code, presence: true, uniqueness: true
 
   has_many :language_skills

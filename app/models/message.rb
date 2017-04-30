@@ -3,7 +3,7 @@
 #
 # A single message between users
 #
-class Message < ActiveRecord::Base
+class Message < ApplicationRecord
   validates :body, presence: true, length: { minimum: 1, maximum: 500 }
 
   belongs_to :sender, class_name: "User"

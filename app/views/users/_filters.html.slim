@@ -10,7 +10,7 @@ ul.nav.nav-pills.nav-stacked
 
   li.nav-header= t(".people")
 
-  - %w(user host volunteer).each do |type|
+  - %w[user host volunteer].each do |type|
     li id=type class=("active" if filter_class.name.downcase == type)
       = link_to t(".#{type}"), users_path(filter_params.merge(type: type))
 

@@ -7,11 +7,11 @@
 #
 class ConversationsController < ApplicationController
   respond_to :html
-  respond_to :js, only: %i(update destroy)
+  respond_to :js, only: %i[update destroy]
 
   before_action :authenticate_user!
   before_action :load_user
-  before_action :load_conversation, only: %i(show destroy)
+  before_action :load_conversation, only: %i[show destroy]
 
   def show
     @message = Message.new(default_message_params)

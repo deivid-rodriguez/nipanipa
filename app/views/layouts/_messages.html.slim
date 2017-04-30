@@ -1,5 +1,6 @@
 - flash.each do |name, msg|
   / https://github.com/plataformatec/devise/pull/1993/commits
-  - if msg.is_a?(String)
-    = content_tag :div, class: "alert #{bootstrap_class_for(name)}" do
-      = msg
+  - next unless msg.is_a?(String)
+
+  = content_tag :div, class: "alert #{bootstrap_class_for(name)}" do
+    = msg

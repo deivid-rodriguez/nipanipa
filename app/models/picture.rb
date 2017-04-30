@@ -3,7 +3,7 @@
 #
 # Picture Model, through carrierwave
 #
-class Picture < ActiveRecord::Base
+class Picture < ApplicationRecord
   belongs_to :user
 
   scope :random, ->(num) { limit(num).order("RANDOM()") }
