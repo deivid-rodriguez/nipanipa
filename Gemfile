@@ -24,7 +24,7 @@ gem "devise", "~> 4.2"
 gem "enumerize", "~> 2.0"
 gem "kaminari", "~> 1.0"
 gem "mini_magick", "~> 4.2"
-gem "pg", "0.19.0"
+gem "pg", "0.20.0"
 gem "simple_form", "~> 3.1"
 
 # Frontend stuff
