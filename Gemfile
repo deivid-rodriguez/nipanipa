@@ -60,7 +60,7 @@ group :tools do
   # @todo Until https://github.com/bbatsov/rubocop/pull/4237 released
   gem "rubocop", github: "bbatsov/rubocop"
   gem "scss_lint", "0.52.0"
-  gem "simplecov", "0.13.0"
+  gem "simplecov", "0.14.1"
   gem "slim_lint", "0.12.0"
 end
 
