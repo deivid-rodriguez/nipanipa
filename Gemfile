@@ -52,7 +52,7 @@ group :tools do
   gem "byebug", "~> 9.0"
   gem "factory_girl_rails", "~> 4.5"
   gem "i18n-tasks", "0.9.11"
-  gem "image_optim_pack", "0.3.1.20170121"
+  gem "image_optim_pack", "0.4.0"
   gem "localeapp", "~> 2.0"
   gem "mdl", "0.4.0"
   gem "overcommit", "0.39.1"
