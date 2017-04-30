@@ -63,10 +63,6 @@ PreCommit:
   TrailingWhitespace:
     enabled: true
 
-  TravisLint:
-    enabled: true
-    requires_files: true
-
   YamlSyntax:
     enabled: true
     requires_files: true
