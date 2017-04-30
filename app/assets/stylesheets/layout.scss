@@ -121,6 +121,7 @@ footer {
 
   ul {
     @extend %vertical-align;
+
     @include clearfix();
 
     list-style: none;

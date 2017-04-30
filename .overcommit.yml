@@ -25,9 +25,6 @@ PreCommit:
   BundleCheck:
     enabled: true
 
-  CoffeeLint:
-    enabled: true
-
   ExecutePermissions:
     enabled: true
     exclude:
@@ -45,16 +42,10 @@ PreCommit:
   MergeConflicts:
     enabled: true
 
-  Mdl:
-    enabled: true
-
   RailsSchemaUpToDate:
     enabled: true
 
   RuboCop:
-    enabled: true
-
-  ScssLint:
     enabled: true
 
   SlimLint:
@@ -66,7 +57,3 @@ PreCommit:
   YamlSyntax:
     enabled: true
     requires_files: true
-
-PrePush:
-  Brakeman:
-    enabled: true
