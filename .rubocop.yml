@@ -15,7 +15,7 @@ Layout/ExtraSpacing:
 Rails:
   Enabled: true
 
-# Until https://github.com/bbatsov/rubocop/pull/3977 merged
+# Until https://github.com/bbatsov/rubocop/pull/4178 merged
 Rails/FilePath:
   Enabled: false
 
