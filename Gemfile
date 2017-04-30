@@ -52,7 +52,6 @@ group :tools do
   gem "factory_girl_rails", "~> 4.5"
   gem "i18n-tasks", "0.9.13"
   gem "image_optim_pack", "0.4.0"
-  gem "localeapp", "~> 2.0"
   gem "mdl", "0.4.0"
   gem "overcommit", "0.39.1"
   # @todo Until https://github.com/bbatsov/rubocop/pull/4237 released
@@ -68,6 +67,7 @@ group :development do
   gem "capistrano-passenger", "0.2.0"
   gem "capistrano-rails", "~> 1.1"
   gem "letter_opener", "~> 1.4"
+  gem "localeapp", "~> 2.0"
   gem "spring", "~> 2.0"
   gem "unicorn-rails", "~> 2.2"
 end
