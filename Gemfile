@@ -79,5 +79,5 @@ group :test do
   gem "launchy", "~> 2.4"
   gem "poltergeist", "~> 1.8"
   gem "shoulda-matchers", "~> 3.0"
-  gem "webmock", "~> 2.0"
+  gem "webmock", "~> 3.0"
 end
