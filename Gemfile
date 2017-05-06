@@ -50,7 +50,7 @@ group :tools do
   gem "byebug", "~> 9.0"
   gem "factory_girl_rails", "~> 4.5"
   gem "i18n-tasks", "0.9.15"
-  gem "image_optim_pack", "0.4.0"
+  gem "image_optim_pack", "0.5.0"
   gem "overcommit", "0.39.1"
   # @todo Until https://github.com/bbatsov/rubocop/pull/4237 released
   gem "rubocop", github: "bbatsov/rubocop"
