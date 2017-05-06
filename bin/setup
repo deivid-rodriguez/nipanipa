@@ -14,7 +14,7 @@ Dir.chdir APP_ROOT do
   puts "\n== Install overcommit hooks =="
   system "bin/overcommit --install"
 
-  puts "\n== Setup development databases =="
+  puts "\n== Setup development database =="
   system "bin/rake db:drop db:create db:migrate db:seed"
 
   puts "\n== Setup test database =="
