@@ -8,6 +8,8 @@ branches:
   only:
     - master
 
+cache: bundler
+
 bundler_args: --without development
 
 dist: trusty
