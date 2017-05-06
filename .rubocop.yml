@@ -1,4 +1,7 @@
 AllCops:
+  Include:
+    - bin/*
+
   Exclude:
     - db/schema.rb
     - db/migrate/*.rb
@@ -28,6 +31,9 @@ Style/ModuleFunction:
 Style/FileName:
   Exclude:
     - bin/*
+    - Capfile
+    - Gemfile
+    - Rakefile
 
 Style/Lambda:
   EnforcedStyle: literal
