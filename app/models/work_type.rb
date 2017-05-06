@@ -3,7 +3,7 @@
 #
 # Represents a job category
 #
-class WorkType < ActiveRecord::Base
+class WorkType < ApplicationRecord
   has_many :sectorizations
   has_many :users, through: :sectorizations
 

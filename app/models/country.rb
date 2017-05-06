@@ -3,7 +3,7 @@
 #
 # Represents a country
 #
-class Country < ActiveRecord::Base
+class Country < ApplicationRecord
   validates :code, presence: true, uniqueness: true
 
   belongs_to :continent

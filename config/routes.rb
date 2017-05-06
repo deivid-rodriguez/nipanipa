@@ -33,14 +33,14 @@ Rails.application.routes.draw do
       resources :regions, only: :index
     end
 
-    resources :donations, only: [:new, :create, :show]
+    resources :donations, only: %i[new create show]
 
-    resources :users, only: [:index, :show], constraints: { id: /\d+/ } do
+    resources :users, only: %i[index show], constraints: { id: /\d+/ } do
       resources :pictures
       resources :feedbacks, except: :show
     end
 
-    resources :conversations, except: %i(new create)
+    resources :conversations, except: %i[new create]
 
     get "help" => "static_pages#help"
     get "about" => "static_pages#about"

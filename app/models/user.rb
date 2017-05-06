@@ -3,7 +3,7 @@
 #
 # Main class implementing both Host and Volunteer through STI
 #
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   devise :confirmable, :database_authenticatable, :recoverable, :registerable,
          :rememberable, :trackable, :validatable
 

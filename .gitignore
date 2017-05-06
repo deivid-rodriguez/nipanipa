@@ -11,9 +11,6 @@ tmp
 # SimpleCov results
 coverage
 
-# Ignore gems installed for the project
-vendor/ruby
-
 # Byebug startup file
 .byebugrc
 

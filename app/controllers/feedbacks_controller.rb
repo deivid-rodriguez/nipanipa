@@ -5,8 +5,8 @@
 #
 class FeedbacksController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :load_user, only: [:new, :create, :index, :edit, :update]
-  before_action :load_feedback, only: [:edit, :update, :destroy]
+  before_action :load_user, only: %i[new create index edit update]
+  before_action :load_feedback, only: %i[edit update destroy]
 
   def new
     @feedback = current_user.sent_feedbacks.new
@@ -66,7 +66,7 @@ class FeedbacksController < ApplicationController
     params.require(:feedback).permit(:content,
                                      :score,
                                      :recipient_id,
-                                     donation_attributes: [:amount, :user_id])
+                                     donation_attributes: %i[amount user_id])
   end
 
   def load_user

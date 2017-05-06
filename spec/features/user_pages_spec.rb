@@ -190,7 +190,7 @@ RSpec.describe "User profile page" do
     create(:host,
            :with_language,
            description: "My website: http://mywebsite.example.com",
-           availability: %w(feb))
+           availability: %w[feb])
   end
 
   before { visit user_path(profile) }

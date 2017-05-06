@@ -5,7 +5,7 @@
 #
 class PicturesController < ApplicationController
   before_action :load_user, only: [:index]
-  before_action :load_picture, only: [:edit, :update, :destroy]
+  before_action :load_picture, only: %i[edit update destroy]
 
   def new
     @picture = current_user.pictures.build

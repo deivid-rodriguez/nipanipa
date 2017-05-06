@@ -4,7 +4,7 @@
 # Main controller for all users (hosts and volunteers)
 #
 class UsersController < Devise::RegistrationsController
-  before_action :authenticate_user!, only: [:edit, :update, :delete]
+  before_action :authenticate_user!, only: %i[edit update delete]
 
   def new
     super do |resource|
@@ -74,14 +74,14 @@ class UsersController < Devise::RegistrationsController
   end
 
   def proper_fields
-    %i(description email name password password_confirmation region_id skills)
+    %i[description email name password password_confirmation region_id skills]
   end
 
   def nested_fields
     [
       availability: [],
       work_type_ids: [],
-      language_skills_attributes: [:id, :language_id, :level, :_destroy]
+      language_skills_attributes: %i[id language_id level _destroy]
     ]
   end
 

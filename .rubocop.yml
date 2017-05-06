@@ -9,10 +9,13 @@ AllCops:
 
   TargetRubyVersion: 2.3
 
+Layout/ExtraSpacing:
+  AllowForAlignment: false
+
 Rails:
   Enabled: true
 
-# Until https://github.com/bbatsov/rubocop/pull/3977 merged
+# @todo Until https://github.com/bbatsov/rubocop/pull/4178 merged
 Rails/FilePath:
   Enabled: false
 
@@ -27,10 +30,7 @@ Style/FileName:
     - bin/*
 
 Style/Lambda:
-  Enabled: false
-
-Style/ExtraSpacing:
-  AllowForAlignment: false
+  EnforcedStyle: literal
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes

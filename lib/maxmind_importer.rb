@@ -31,7 +31,7 @@ module Maxmind
   #
   module CountryUtils
     def insert_region!(geo)
-      return unless geo.region_code.present?
+      return if geo.region_code.blank?
 
       regions.find_or_create_by!(code: geo.region_code) do |region|
         region.name = geo.region_name

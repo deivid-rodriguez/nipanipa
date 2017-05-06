@@ -26,7 +26,7 @@ namespace :db do
   end
 
   desc "Restores database from a file."
-  task restore: [:environment, :drop, :create] do
+  task restore: %i[environment drop create] do
     cmd = <<~SHELL
       PGPASSWORD=#{config[:password]} \
       pg_restore \

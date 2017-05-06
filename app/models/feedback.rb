@@ -3,7 +3,7 @@
 #
 # Feedback left by users
 #
-class Feedback < ActiveRecord::Base
+class Feedback < ApplicationRecord
   extend Enumerize
   enumerize :score, in: { negative: -1, neutral: 0, positive: 1 },
                     default: :neutral

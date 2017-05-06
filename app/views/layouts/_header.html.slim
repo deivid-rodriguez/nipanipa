@@ -31,7 +31,7 @@ nav.navbar.navbar-default role="navigation"
         li= link_to t("sessions.signout"),
                     destroy_user_session_path,
                     method: :delete
-      - elsif !(request.path =~ /signin/)
+      - elsif request.path !~ /signin/
         li.dropdown
           a.dropdown-toggle data-toggle="dropdown" href="#" role="button"
             = t("sessions.signin")

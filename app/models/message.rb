@@ -3,35 +3,35 @@
 #
 # A single message between users
 #
-class Message < ActiveRecord::Base
+class Message < ApplicationRecord
   validates :body, presence: true, length: { minimum: 1, maximum: 500 }
 
   belongs_to :sender, class_name: "User"
   belongs_to :recipient, class_name: "User"
 
-  scope :between, lambda { |uid1, uid2|
+  scope :between, ->(uid1, uid2) do
     condition = <<-SQL.squish
       (sender_id = ? AND recipient_id = ?) OR
       (sender_id = ? AND recipient_id = ?)
     SQL
 
     where(condition, uid1, uid2, uid2, uid1)
-  }
+  end
 
-  scope :involving, lambda { |user|
+  scope :involving, ->(user) do
     where(id: involving_ids(user.id))
       .non_deleted_by(user.id)
       .order(created_at: :desc)
-  }
+  end
 
-  scope :non_deleted_by, lambda { |uid|
+  scope :non_deleted_by, ->(uid) do
     condition = <<-SQL.squish
       (sender_id = ? AND deleted_by_sender_at IS NULL) OR
       (recipient_id = ? AND deleted_by_recipient_at IS NULL)
     SQL
 
     where(condition, uid, uid)
-  }
+  end
 
   def self.delete_by(uid)
     where(sender_id: uid).update(deleted_by_sender_at: Time.zone.now)

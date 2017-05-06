@@ -24,7 +24,7 @@ gem "devise", "~> 4.2"
 gem "enumerize", "~> 2.0"
 gem "kaminari", "~> 1.0"
 gem "mini_magick", "~> 4.2"
-gem "pg", "0.19.0"
+gem "pg", "0.20.0"
 gem "simple_form", "~> 3.1"
 
 # Frontend stuff
@@ -39,9 +39,7 @@ source "https://rails-assets.org" do
   gem "rails-assets-autosize", "~> 3.0"
 end
 
-# Translations
-gem "activeadmin", github: "activeadmin"
-gem "inherited_resources", github: "activeadmin/inherited_resources"
+gem "activeadmin", "~> 1.0"
 
 gem "ruby-progressbar", "~> 1.7", require: false
 gem "rubyzip", "~> 1.1", require: false
@@ -49,28 +47,24 @@ gem "rubyzip", "~> 1.1", require: false
 gem "slim-rails", "~> 3.0"
 
 group :tools do
-  gem "brakeman", "~> 3.1"
   gem "byebug", "~> 9.0"
   gem "factory_girl_rails", "~> 4.5"
-  gem "i18n-tasks", "0.9.11"
-  gem "image_optim_pack", "0.3.1.20170121"
-  gem "localeapp", "~> 2.0"
-  gem "mdl", "0.4.0"
-  gem "overcommit", github: "brigade/overcommit"
-  gem "rubocop", "0.47.1"
-  gem "scss_lint", "0.52.0"
-  gem "simplecov", "0.13.0"
-  gem "slim_lint", "0.11.0"
-  gem "travis", "~> 1.8"
+  gem "i18n-tasks", "0.9.13"
+  gem "image_optim_pack", "0.4.0"
+  gem "overcommit", "0.39.1"
+  # @todo Until https://github.com/bbatsov/rubocop/pull/4237 released
+  gem "rubocop", github: "bbatsov/rubocop"
+  gem "simplecov", "0.14.1"
+  gem "slim_lint", "0.12.0"
 end
 
-gem "rspec-rails", "~> 3.2", groups: %i(development test)
+gem "rspec-rails", "~> 3.2", groups: %i[development test]
 
 group :development do
   gem "capistrano-passenger", "0.2.0"
-  gem "capistrano-pending"
   gem "capistrano-rails", "~> 1.1"
   gem "letter_opener", "~> 1.4"
+  gem "localeapp", "~> 2.0"
   gem "spring", "~> 2.0"
   gem "unicorn-rails", "~> 2.2"
 end
@@ -81,5 +75,5 @@ group :test do
   gem "launchy", "~> 2.4"
   gem "poltergeist", "~> 1.8"
   gem "shoulda-matchers", "~> 3.0"
-  gem "webmock", "~> 2.0"
+  gem "webmock", "~> 3.0"
 end

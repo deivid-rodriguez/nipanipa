@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -20,19 +19,17 @@ ActiveRecord::Schema.define(version: 20160714235822) do
     t.string   "code",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["code"], name: "index_continents_on_code", unique: true, using: :btree
   end
-
-  add_index "continents", ["code"], name: "index_continents_on_code", unique: true, using: :btree
 
   create_table "countries", force: :cascade do |t|
     t.string   "code",         limit: 255
     t.integer  "continent_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["code"], name: "index_countries_on_code", unique: true, using: :btree
+    t.index ["continent_id"], name: "index_countries_on_continent_id", using: :btree
   end
-
-  add_index "countries", ["code"], name: "index_countries_on_code", unique: true, using: :btree
-  add_index "countries", ["continent_id"], name: "index_countries_on_continent_id", using: :btree
 
   create_table "donations", force: :cascade do |t|
     t.integer  "user_id"
@@ -49,21 +46,19 @@ ActiveRecord::Schema.define(version: 20160714235822) do
     t.integer  "score"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.index ["recipient_id", "updated_at"], name: "index_feedbacks_on_recipient_id_and_updated_at", using: :btree
+    t.index ["sender_id", "recipient_id"], name: "index_feedbacks_on_sender_id_and_recipient_id", unique: true, using: :btree
+    t.index ["sender_id", "updated_at"], name: "index_feedbacks_on_sender_id_and_updated_at", using: :btree
   end
-
-  add_index "feedbacks", ["recipient_id", "updated_at"], name: "index_feedbacks_on_recipient_id_and_updated_at", using: :btree
-  add_index "feedbacks", ["sender_id", "recipient_id"], name: "index_feedbacks_on_sender_id_and_recipient_id", unique: true, using: :btree
-  add_index "feedbacks", ["sender_id", "updated_at"], name: "index_feedbacks_on_sender_id_and_updated_at", using: :btree
 
   create_table "language_skills", force: :cascade do |t|
     t.integer "user_id"
     t.integer "language_id"
     t.string  "level",       limit: 255
+    t.index ["language_id"], name: "index_language_skills_on_language_id", using: :btree
+    t.index ["user_id", "language_id"], name: "index_language_skills_on_user_id_and_language_id", unique: true, using: :btree
+    t.index ["user_id"], name: "index_language_skills_on_user_id", using: :btree
   end
-
-  add_index "language_skills", ["language_id"], name: "index_language_skills_on_language_id", using: :btree
-  add_index "language_skills", ["user_id", "language_id"], name: "index_language_skills_on_user_id_and_language_id", unique: true, using: :btree
-  add_index "language_skills", ["user_id"], name: "index_language_skills_on_user_id", using: :btree
 
   create_table "languages", force: :cascade do |t|
     t.string "code", limit: 2
@@ -91,19 +86,17 @@ ActiveRecord::Schema.define(version: 20160714235822) do
     t.integer  "country_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["code", "country_id"], name: "index_regions_on_code_and_country_id", unique: true, using: :btree
+    t.index ["country_id"], name: "index_regions_on_country_id", using: :btree
   end
-
-  add_index "regions", ["code", "country_id"], name: "index_regions_on_code_and_country_id", unique: true, using: :btree
-  add_index "regions", ["country_id"], name: "index_regions_on_country_id", using: :btree
 
   create_table "sectorizations", force: :cascade do |t|
     t.integer "user_id"
     t.integer "work_type_id"
+    t.index ["user_id", "work_type_id"], name: "index_sectorizations_on_user_id_and_work_type_id", unique: true, using: :btree
+    t.index ["user_id"], name: "index_sectorizations_on_user_id", using: :btree
+    t.index ["work_type_id"], name: "index_sectorizations_on_work_type_id", using: :btree
   end
-
-  add_index "sectorizations", ["user_id", "work_type_id"], name: "index_sectorizations_on_user_id_and_work_type_id", unique: true, using: :btree
-  add_index "sectorizations", ["user_id"], name: "index_sectorizations_on_user_id", using: :btree
-  add_index "sectorizations", ["work_type_id"], name: "index_sectorizations_on_work_type_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 255
@@ -134,9 +127,8 @@ ActiveRecord::Schema.define(version: 20160714235822) do
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
     t.datetime "admin_at"
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
   create_table "work_types", force: :cascade do |t|
     t.string "name",        limit: 255

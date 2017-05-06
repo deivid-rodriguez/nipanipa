@@ -3,7 +3,7 @@
 #
 # A donation to the nipanipa cause
 #
-class Donation < ActiveRecord::Base
+class Donation < ApplicationRecord
   belongs_to :user
   belongs_to :feedback
 

@@ -41,8 +41,7 @@
     = f.input :skills, label: t(".skills_#{resource.type.underscore}")
 
   .form-row
-    - if resource.type == "Host"
-      = f.input :accommodation
+    = f.input :accommodation if resource.type == "Host"
 
   .form-group
     = f.button :submit, class: "primary-buttom pull-right"
