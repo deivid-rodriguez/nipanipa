@@ -1,16 +1,28 @@
 ---
 
-sudo: false
+#
+# Config
+#
+
+branches:
+  only:
+    - master
+
+bundler_args: --without development
+
+env:
+  - DB_USER=travis DB_PASS=''
 
 language: ruby
 
 rvm:
   - 2.4.1
 
-env:
-  - DB_USER=travis DB_PASS=''
+sudo: false
 
-bundler_args: --without development
+#
+# Phases
+#
 
 before_install:
   - gem update --system 2.6.10
@@ -25,7 +37,3 @@ script:
   - bin/rspec
   - bin/overcommit --sign
   - bin/overcommit --run
-
-branches:
-  only:
-    - master
