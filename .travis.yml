@@ -29,7 +29,7 @@ sudo: false
 #
 
 before_install:
-  - gem update --system 2.6.10
+  - gem update --system 2.6.12
   - npm install -g phantomjs-prebuilt
 
 before_script:
