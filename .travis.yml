@@ -10,6 +10,8 @@ branches:
 
 bundler_args: --without development
 
+dist: trusty
+
 env:
   - DB_USER=travis DB_PASS=''
 
