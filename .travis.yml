@@ -5,7 +5,7 @@ sudo: false
 language: ruby
 
 rvm:
-  - 2.4.0
+  - 2.4.1
 
 env:
   - DB_USER=travis DB_PASS=''
