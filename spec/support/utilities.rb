@@ -36,32 +36,6 @@ def reply(text)
   expect(page).to have_content text.to_s # assert text appears before going on
 end
 
-RSpec::Matchers.define :become do |count|
-  match do |block|
-    begin
-      value = block.call
-      if value != count
-        Timeout.timeout(Capybara.default_max_wait_time) do
-          loop do
-            sleep(0.1)
-            value = block.call
-            break if value == count
-          end
-          true
-        end
-      else
-        true
-      end
-    rescue TimeoutError
-      false
-    end
-  end
-
-  def supports_block_expectations?
-    true
-  end
-end
-
 RSpec::Matchers.define :have_flash_message do |message, type|
   match do |page|
     expect(page).to have_selector("div.alert.alert-#{type}", text: message)
