@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/bbatsov/rubocop.git
-  revision: 4430501c3da3d7248e464345296e6f88eafc87db
+  revision: dcb258fabd5f2624c1ea0e1634763094590c09d7
   specs:
     rubocop (0.48.1)
       parallel (~> 1.10)
@@ -245,7 +245,7 @@ GEM
     overcommit (0.39.1)
       childprocess (~> 0.6.3)
       iniparse (~> 1.4)
-    parallel (1.11.1)
+    parallel (1.11.2)
     parser (2.4.0.0)
       ast (~> 2.2)
     pg (0.20.0)
