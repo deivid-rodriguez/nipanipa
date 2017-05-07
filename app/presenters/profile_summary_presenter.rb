@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "concerns/date_formatable"
-
 #
 # Presentation layer for listing profile summaries
 #

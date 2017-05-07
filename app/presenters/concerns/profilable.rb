@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "active_support/concern"
-require "concerns/date_formatable"
 
 #
 # Common utilities for presenting profiles

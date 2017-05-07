@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "concerns/profilable"
-
 #
 # Presentation layer for external profiles (not the current user's one)
 #
