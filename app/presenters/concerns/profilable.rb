@@ -8,9 +8,11 @@ require "active_support/concern"
 module Profilable
   extend ActiveSupport::Concern
 
-  include DateFormatable
+  included do
+    include DateFormatable
 
-  included { relative_time :current_sign_in_at, :created_at }
+    relative_time :current_sign_in_at, :created_at
+  end
 
   def categories
     work_types.join(", ")
