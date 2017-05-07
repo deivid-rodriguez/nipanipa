@@ -22,13 +22,10 @@ RSpec.describe "donation" do
       click_button t("helpers.submit.donation.create")
     end
 
-    it "saves the donation in database" do
-      expect { Donation.count }.to become(1)
-    end
-
-    it "shows a success flash message" do
+    it "shows a success flash message and saves donation" do
       expect(page).to \
         have_flash_message t("donations.create.success"), "success"
+      expect(Donation.count).to eq(1)
     end
   end
 end

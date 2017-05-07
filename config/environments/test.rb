@@ -15,7 +15,7 @@ Rails.application.configure do
   # preloads Rails for running tests, you may have to set it to true.
   config.eager_load = false
 
-  # Configure static asset server for tests with Cache-Control for performance.
+  # Configure public file server for tests with Cache-Control for performance.
   config.public_file_server.enabled = true
   config.public_file_server.headers = {
     "Cache-Control" => "public, max-age=3600"
@@ -31,11 +31,16 @@ Rails.application.configure do
   # Disable request forgery protection in test environment.
   config.action_controller.allow_forgery_protection = false
 
-  # Accumulate sent emails in the ActionMailer::Base.deliveries array instead
-  # of sending them to the real world.
-  config.action_mailer.delivery_method = :test
+  # Debug mode disables concatenation and preprocessing of assets.
+  # This option may cause significant delays in view rendering with a large
+  # number of complex assets.
+  # config.assets.debug = true
 
-  # Print deprecation notices to the stderr
+  # ActionMailer config
+  config.action_mailer.delivery_method = :test
+  config.action_mailer.perform_caching = false
+
+  # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
   # Speed up tests by lowering BCrypt's cost function.
@@ -47,4 +52,7 @@ Rails.application.configure do
   # Your secret key is used for verifying the integrity of signed cookies. If
   # you change this key, all old signed cookies will become invalid!
   config.secret_key_base = "x" * 30
+
+  # Raises error for missing translations
+  # config.action_view.raise_on_missing_translations = true
 end

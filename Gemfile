@@ -28,7 +28,7 @@ gem "pg", "0.20.0"
 gem "simple_form", "~> 3.1"
 
 # Frontend stuff
-gem "autoprefixer-rails", "~> 6.0"
+gem "autoprefixer-rails", "~> 7.0"
 gem "bootstrap-sass", "~> 3.3"
 gem "coffee-rails", "~> 4.1"
 gem "jquery-rails", "~> 4.0"
@@ -49,8 +49,8 @@ gem "slim-rails", "~> 3.0"
 group :tools do
   gem "byebug", "~> 9.0"
   gem "factory_girl_rails", "~> 4.5"
-  gem "i18n-tasks", "0.9.13"
-  gem "image_optim_pack", "0.4.0"
+  gem "i18n-tasks", "0.9.15"
+  gem "image_optim_pack", "0.5.0"
   gem "overcommit", "0.39.1"
   # @todo Until https://github.com/bbatsov/rubocop/pull/4237 released
   gem "rubocop", github: "bbatsov/rubocop"

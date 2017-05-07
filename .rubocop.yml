@@ -1,4 +1,7 @@
 AllCops:
+  Include:
+    - bin/*
+
   Exclude:
     - db/schema.rb
     - db/migrate/*.rb
@@ -15,6 +18,13 @@ Layout/ExtraSpacing:
 Rails:
   Enabled: true
 
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*.rb
+    - lib/**/*.rake
+    - config/**/*.rb
+    - app/admin/**/*.rb
+
 # @todo Until https://github.com/bbatsov/rubocop/pull/4178 merged
 Rails/FilePath:
   Enabled: false
@@ -28,6 +38,9 @@ Style/ModuleFunction:
 Style/FileName:
   Exclude:
     - bin/*
+    - Capfile
+    - Gemfile
+    - Rakefile
 
 Style/Lambda:
   EnforcedStyle: literal
@@ -37,5 +50,3 @@ Style/StringLiterals:
 
 Performance/Casecmp:
   Enabled: false
-
-inherit_from: .rubocop_todo.yml

@@ -1,19 +1,35 @@
 ---
 
-sudo: false
+#
+# Config
+#
 
-language: ruby
+branches:
+  only:
+    - master
 
-rvm:
-  - 2.4.0
+cache: bundler
+
+bundler_args: --without development
+
+dist: trusty
 
 env:
   - DB_USER=travis DB_PASS=''
 
-bundler_args: --without development
+language: ruby
+
+rvm:
+  - 2.4.1
+
+sudo: false
+
+#
+# Phases
+#
 
 before_install:
-  - gem update --system 2.6.10
+  - gem update --system 2.6.12
   - npm install -g phantomjs-prebuilt
 
 before_script:
@@ -25,7 +41,3 @@ script:
   - bin/rspec
   - bin/overcommit --sign
   - bin/overcommit --run
-
-branches:
-  only:
-    - master
