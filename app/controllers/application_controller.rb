@@ -20,8 +20,8 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def authenticate_admin_user!
-    authenticate_user! && current_user.admin_at?
+  def access_denied(exception)
+    redirect_to root_path, alert: exception.message
   end
 
   def update_last_sign_in_at
