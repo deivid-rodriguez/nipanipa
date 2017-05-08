@@ -3,12 +3,7 @@
 #
 # Controller for conversations between users
 #
-# TODO: Get rid of `respond_with` or explicitly include the 'responders' gem.
-#
 class ConversationsController < ApplicationController
-  respond_to :html
-  respond_to :js, only: %i[update destroy]
-
   before_action :authenticate_user!
   before_action :load_user
   before_action :load_conversation, only: %i[show destroy]
@@ -26,22 +21,30 @@ class ConversationsController < ApplicationController
 
     @message.notify_recipient if @message.save
 
-    respond_with(@message, location: conversation_path(@message.recipient))
+    respond_to do |format|
+      format.html { redirect_to conversation_path(@message.recipient) }
+      format.js
+    end
   end
 
   def destroy
-    if @conversation.present?
-      @conversation.delete_by(current_user.id)
+    @conversation.delete_by(current_user.id) if @conversation.present?
 
+    respond_to do |format|
+      format.html { redirect_to conversations_path }
+      format.js { set_flash_after_destroy }
+    end
+  end
+
+  private
+
+  def set_flash_after_destroy
+    if @conversation.present?
       flash.now[:notice] = t("conversations.destroy.success")
     else
       flash.now[:error] = t("conversations.destroy.error")
     end
-
-    respond_with(@conversation, location: conversations_path)
   end
-
-  private
 
   def load_conversation
     @conversation = current_user.messages_with(params[:id])
