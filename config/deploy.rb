@@ -3,7 +3,7 @@
 set :application, "nipanipa"
 
 set :repo_url, "git@github.com:deivid-rodriguez/nipanipa.git"
-set :branch, "master"
+set :branch, -> { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 set :deploy_to, "/home/deployer/nipanipa"
 
