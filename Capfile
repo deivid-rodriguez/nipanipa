@@ -17,4 +17,4 @@ require "capistrano/rails"
 require "capistrano/passenger"
 
 # Show pending changes to be deployed
-require "capistrano-pending"
+import "lib/capistrano/tasks/pending.rake"
