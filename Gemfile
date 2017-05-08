@@ -62,6 +62,7 @@ gem "rspec-rails", "~> 3.2", groups: %i[development test]
 
 group :development do
   gem "capistrano-passenger", "0.2.0"
+  gem "capistrano-pending", "0.1.1"
   gem "capistrano-rails", "~> 1.1"
   gem "letter_opener", "~> 1.4"
   gem "localeapp", "~> 2.0"
