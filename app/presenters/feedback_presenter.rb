@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "concerns/date_formatable"
-
 #
 # Base presentation layer class for feebacks
 #

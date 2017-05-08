@@ -16,7 +16,7 @@ RSpec.describe "Listing user conversations" do
   end
 end
 
-RSpec.describe "Display a conversation" do
+RSpec.describe "Display a conversation", :js do
   let!(:message) { create(:message) }
 
   before do
@@ -39,7 +39,7 @@ RSpec.describe "Display a conversation" do
     expect(page).to have_button t("helpers.submit.message.create")
   end
 
-  describe "and reply to it", :js do
+  describe "and reply to it" do
     context "with a non-empty message" do
       before { reply("This is a sample reply") }
 
