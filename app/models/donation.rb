@@ -7,6 +7,8 @@ class Donation < ApplicationRecord
   belongs_to :user
   belongs_to :feedback
 
+  validates :amount, numericality: { greater_than: 0 }
+
   def paypal_url(return_url)
     uri = self.class.base_uri
     uri.query = query(return_url)
