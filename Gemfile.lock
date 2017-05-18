@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/bbatsov/rubocop.git
-  revision: dcb258fabd5f2624c1ea0e1634763094590c09d7
+  revision: d684765111b42c60f6793f6a869be756b23a4c0d
   specs:
     rubocop (0.48.1)
       parallel (~> 1.10)
