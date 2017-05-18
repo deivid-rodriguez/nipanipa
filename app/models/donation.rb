@@ -4,8 +4,8 @@
 # A donation to the nipanipa cause
 #
 class Donation < ApplicationRecord
-  belongs_to :user
-  belongs_to :feedback
+  belongs_to :user, optional: true
+  belongs_to :feedback, optional: true
 
   validates :amount, numericality: { greater_than: 0 }
 
