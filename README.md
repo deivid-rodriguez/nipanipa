@@ -2,8 +2,8 @@
 
 This is the sample application for NiPaNiPa
 
-[ci-badge]: https://travis-ci.org/deivid-rodriguez/nipanipa.png?branch=master
-[ci-url]: https://travis-ci.org/deivid-rodriguez/nipanipa
+[ci-badge]: https://circleci.com/gh/deivid-rodriguez/nipanipa.svg?style=svg
+[ci-url]: https://circleci.com/gh/deivid-rodriguez/nipanipa
 
 ## System Requirements
 

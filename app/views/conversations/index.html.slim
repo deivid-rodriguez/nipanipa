@@ -9,7 +9,7 @@
       - @conversations.each do |last_message|
         - other_user = last_message.penpal(current_user)
 
-        li.row.conversation id="conversation-preview-#{other_user.id}"
+        li.conversation id="conversation-preview-#{other_user.id}"
           = link_to conversation_path(other_user),
               id: "show-link-#{other_user.id}" do
             .col-md-4.conversation-other
