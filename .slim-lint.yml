@@ -8,7 +8,7 @@ linters:
       - Lint/Void
       - Metrics/BlockLength
       - Metrics/LineLength
-      # @todo: Until default config catches up with the Style -> Layout rename
+      # TODO: Until default config catches up with the Style -> Layout rename
       - Layout/AlignHash
       - Layout/AlignParameters
       - Layout/BlockNesting
@@ -29,6 +29,6 @@ linters:
       - Layout/TrailingBlankLines
       - Layout/TrailingWhitespace
       - Layout/WhileUntilModifier
-      # @todo: Until ignored in the default config
+      # TODO: Until ignored in the default config
       - Style/FileName
       - Style/FrozenStringLiteralComment

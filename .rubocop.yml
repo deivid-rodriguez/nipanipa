@@ -25,7 +25,7 @@ Metrics/BlockLength:
     - config/**/*.rb
     - app/admin/**/*.rb
 
-# @todo Until https://github.com/bbatsov/rubocop/pull/4178 merged
+# TODO: Until https://github.com/bbatsov/rubocop/pull/4178 merged
 Rails/FilePath:
   Enabled: false
 

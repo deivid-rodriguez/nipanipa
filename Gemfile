@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# @todo Revisited the warnings fixed by this in Bundler 2, I guess they will be
+# TODO: Revisit the warnings fixed by this in Bundler 2, I guess they will be
 # fixed and this won't be needed
 #
 git_source(:github) do |repo_name|
@@ -11,7 +11,8 @@ end
 
 source "https://rubygems.org"
 
-gem "rails", "~> 5.0"
+gem "mail", "~> 2.7.x" # TODO: Until mail 2.7.0 released
+gem "rails", "~> 5.1"
 gem "rails-i18n", "~> 5.0"
 gem "rinku", "~> 2.0"
 
@@ -52,7 +53,7 @@ group :tools do
   gem "i18n-tasks", "0.9.15"
   gem "image_optim_pack", "0.5.0"
   gem "overcommit", "0.39.1"
-  # @todo Until https://github.com/bbatsov/rubocop/pull/4237 released
+  # TODO: Until https://github.com/bbatsov/rubocop/pull/4237 released
   gem "rubocop", github: "bbatsov/rubocop"
   gem "simplecov", "0.14.1"
   gem "slim_lint", "0.12.0"
