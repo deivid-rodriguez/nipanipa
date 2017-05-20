@@ -11,6 +11,7 @@ This is the sample application for NiPaNiPa
 * _Postgresql_ 9.5. `sudo aptitude install postgresql-9.5 libpq-dev`
 * A _Javascript_ runtime. `sudo aptitude install nodejs`.
 * _Imagemagick_. `sudo aptitude install imagemagick`.
+* _Chrome_ 58.0 or higher, and _chromedriver_ 0.29 or higher.
 
 ## System setup
 

@@ -71,10 +71,10 @@ group :development do
 end
 
 group :test do
-  gem "capybara", "~> 2.6"
+  gem "capybara", github: "teamcapybara/capybara"
   gem "database_cleaner", "~> 1.4"
   gem "launchy", "~> 2.4"
-  gem "poltergeist", "~> 1.8"
+  gem "selenium-webdriver", "~> 3.4"
   gem "shoulda-matchers", "~> 3.0"
   gem "webmock", "~> 3.0"
 end
