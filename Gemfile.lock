@@ -1,16 +1,4 @@
 GIT
-  remote: https://github.com/bbatsov/rubocop.git
-  revision: d684765111b42c60f6793f6a869be756b23a4c0d
-  specs:
-    rubocop (0.48.1)
-      parallel (~> 1.10)
-      parser (>= 2.3.3.1, < 3.0)
-      powerpack (~> 0.1)
-      rainbow (>= 1.99.1, < 3.0)
-      ruby-progressbar (~> 1.7)
-      unicode-display_width (~> 1.0, >= 1.0.1)
-
-GIT
   remote: https://github.com/teamcapybara/capybara.git
   revision: 21f01c507d8e596733ab5a576a4b4cf948646c59
   specs:
@@ -325,6 +313,13 @@ GEM
       rspec-mocks (~> 3.6.0)
       rspec-support (~> 3.6.0)
     rspec-support (3.6.0)
+    rubocop (0.49.0)
+      parallel (~> 1.10)
+      parser (>= 2.3.3.1, < 3.0)
+      powerpack (~> 0.1)
+      rainbow (>= 1.99.1, < 3.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.8.1)
     rubyzip (1.2.1)
     safe_yaml (1.0.4)
@@ -444,7 +439,7 @@ DEPENDENCIES
   rails-i18n (~> 5.0)
   rinku (~> 2.0)
   rspec-rails (~> 3.2)
-  rubocop!
+  rubocop (= 0.49.0)
   ruby-progressbar (~> 1.7)
   rubyzip (~> 1.1)
   sass-rails (~> 5.0)

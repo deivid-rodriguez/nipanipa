@@ -53,8 +53,7 @@ group :tools do
   gem "i18n-tasks", "0.9.15"
   gem "image_optim_pack", "0.5.0"
   gem "overcommit", "0.39.1"
-  # TODO: Until https://github.com/bbatsov/rubocop/pull/4237 released
-  gem "rubocop", github: "bbatsov/rubocop"
+  gem "rubocop", "0.49.0"
   gem "simplecov", "0.14.1"
   gem "slim_lint", "0.12.0"
 end
