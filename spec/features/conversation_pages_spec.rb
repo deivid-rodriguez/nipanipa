@@ -83,6 +83,10 @@ RSpec.describe "Delete a conversation", :js do
     expect(page).to have_no_selector "li#conversation-preview-#{recipient.id}"
   end
 
+  it "shows a message when list becomes empty" do
+    expect(page).to have_content "No messages"
+  end
+
   context "when the other user goes to message list" do
     before do
       click_link t("sessions.signout")

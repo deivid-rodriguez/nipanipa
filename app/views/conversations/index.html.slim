@@ -5,7 +5,7 @@
     = render "shared/empty", message: "nomessages"
 
   - else
-    ul.col-md-12.no-bullets
+    ul#conversation-list.col-md-12.no-bullets
       - @conversations.each do |last_message|
         - other_user = last_message.penpal(current_user)
 
