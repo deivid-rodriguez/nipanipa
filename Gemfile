@@ -55,7 +55,7 @@ group :tools do
   gem "overcommit", "0.39.1"
   gem "rubocop", "0.49.0"
   gem "simplecov", "0.14.1"
-  gem "slim_lint", "0.12.0"
+  gem "slim_lint", "0.13.0"
 end
 
 gem "rspec-rails", "~> 3.2", groups: %i[development test]
