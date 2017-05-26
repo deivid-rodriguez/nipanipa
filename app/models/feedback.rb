@@ -33,7 +33,7 @@ class Feedback < ApplicationRecord
     recipient.karma += if new_record?
                          score.value
                        elsif score_changed? && score_was
-                         score.value - score_was
+                         score.value - score_was.value
                        else
                          0
                        end
