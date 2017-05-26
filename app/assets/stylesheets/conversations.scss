@@ -7,22 +7,31 @@
 
 .conversation {
   border-bottom: solid 1px $gray-very-light;
-  line-height: 70px;
+  margin-right: -15px;
   padding: 10px;
   $delete-cross-size: 15px;
 
   a {
     color: $gray;
-    display: block;
+    display: inline-block;
     height: 100%;
+    line-height: 70px;
 
     .conversation-date {
       padding-right: 15px;
       text-align: right;
       width: 180px;
     }
+  }
 
-    [id^="delete-"] {
+  [id^="show-link"] {
+    width: calc(100% - #{$delete-cross-size});
+  }
+
+  [id^="delete-link"] {
+    width: $delete-cross-size;
+
+    > * {
       background: image-url('delete.png') no-repeat;
       display: block;
       float: right;

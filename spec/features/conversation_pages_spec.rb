@@ -76,11 +76,11 @@ RSpec.describe "Delete a conversation", :js do
   before do
     mock_sign_in(sender)
     visit conversations_path
-    find_link("delete-link-#{recipient.id}").trigger("click")
+    accept_confirm { click_link("delete-link-#{recipient.id}") }
   end
 
   it "removes conversation from list" do
-    expect(page).not_to have_selector "li#conversation-preview-#{recipient.id}"
+    expect(page).to have_no_selector "li#conversation-preview-#{recipient.id}"
   end
 
   context "when the other user goes to message list" do
@@ -96,9 +96,9 @@ RSpec.describe "Delete a conversation", :js do
 
     context "and deletes the same conversation" do
       it "is also removed from database" do
-        find_link("delete-link-#{sender.id}").trigger("click")
+        accept_confirm { click_link("delete-link-#{sender.id}") }
 
-        expect(page).not_to have_selector "li#conversation-preview-#{sender.id}"
+        expect(page).to have_no_selector "li#conversation-preview-#{sender.id}"
         expect(Message.count).to eq(0)
       end
     end

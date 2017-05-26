@@ -22,6 +22,3 @@ public/uploads
 
 # Db dumps
 db/snapshot.dump
-
-# Phantomjs binary
-bin/phantomjs

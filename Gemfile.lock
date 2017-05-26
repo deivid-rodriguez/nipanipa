@@ -1,14 +1,14 @@
 GIT
-  remote: https://github.com/bbatsov/rubocop.git
-  revision: d684765111b42c60f6793f6a869be756b23a4c0d
+  remote: https://github.com/teamcapybara/capybara.git
+  revision: 21f01c507d8e596733ab5a576a4b4cf948646c59
   specs:
-    rubocop (0.48.1)
-      parallel (~> 1.10)
-      parser (>= 2.3.3.1, < 3.0)
-      powerpack (~> 0.1)
-      rainbow (>= 1.99.1, < 3.0)
-      ruby-progressbar (~> 1.7)
-      unicode-display_width (~> 1.0, >= 1.0.1)
+    capybara (2.14.0)
+      addressable
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
 
 GEM
   remote: https://rubygems.org/
@@ -97,24 +97,16 @@ GEM
     capistrano-rails (1.2.3)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
-    capybara (2.14.0)
-      addressable
-      mime-types (>= 1.16)
-      nokogiri (>= 1.3.3)
-      rack (>= 1.0.0)
-      rack-test (>= 0.5.4)
-      xpath (~> 2.0)
     carrierwave (1.1.0)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
     childprocess (0.6.3)
       ffi (~> 1.0, >= 1.0.11)
-    cliver (0.3.2)
     cocoon (1.2.10)
-    coffee-rails (4.2.1)
+    coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
-      railties (>= 4.0.0, < 5.2.x)
+      railties (>= 4.0.0)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
@@ -141,7 +133,7 @@ GEM
       json
       thread
       thread_safe
-    enumerize (2.1.0)
+    enumerize (2.1.2)
       activesupport (>= 3.2)
     erubi (1.6.0)
     erubis (2.7.0)
@@ -251,10 +243,6 @@ GEM
     parser (2.4.0.0)
       ast (~> 2.2)
     pg (0.20.0)
-    poltergeist (1.15.0)
-      capybara (~> 2.1)
-      cliver (~> 0.3.1)
-      websocket-driver (>= 0.2.0)
     polyamorous (1.3.1)
       activerecord (>= 3.0)
     powerpack (0.1.1)
@@ -325,6 +313,13 @@ GEM
       rspec-mocks (~> 3.6.0)
       rspec-support (~> 3.6.0)
     rspec-support (3.6.0)
+    rubocop (0.49.0)
+      parallel (~> 1.10)
+      parser (>= 2.3.3.1, < 3.0)
+      powerpack (~> 0.1)
+      rainbow (>= 1.99.1, < 3.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.8.1)
     rubyzip (1.2.1)
     safe_yaml (1.0.4)
@@ -335,6 +330,10 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    selenium-webdriver (3.4.0)
+      childprocess (~> 0.5)
+      rubyzip (~> 1.0)
+      websocket (~> 1.0)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
     simple_form (3.5.0)
@@ -352,12 +351,12 @@ GEM
       actionpack (>= 3.1)
       railties (>= 3.1)
       slim (~> 3.0)
-    slim_lint (0.12.0)
+    slim_lint (0.13.0)
       rake (>= 10, < 13)
-      rubocop (>= 0.48.0)
+      rubocop (>= 0.49.0)
       slim (~> 3.0)
       sysexits (~> 1.1)
-    spring (2.0.1)
+    spring (2.0.2)
       activesupport (>= 4.2)
     sprockets (3.7.1)
       concurrent-ruby (~> 1.0)
@@ -397,10 +396,11 @@ GEM
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
+    websocket (1.2.4)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
-    xpath (2.0.0)
+    xpath (2.1.0)
       nokogiri (~> 1.3)
 
 PLATFORMS
@@ -414,7 +414,7 @@ DEPENDENCIES
   byebug (~> 9.0)
   capistrano-passenger (= 0.2.0)
   capistrano-rails (~> 1.1)
-  capybara (~> 2.6)
+  capybara!
   carrierwave (~> 1.0)
   cocoon (~> 1.2)
   coffee-rails (~> 4.1)
@@ -434,21 +434,21 @@ DEPENDENCIES
   mini_magick (~> 4.2)
   overcommit (= 0.39.1)
   pg (= 0.20.0)
-  poltergeist (~> 1.8)
   rails (~> 5.1)
   rails-assets-autosize (~> 3.0)!
   rails-i18n (~> 5.0)
   rinku (~> 2.0)
   rspec-rails (~> 3.2)
-  rubocop!
+  rubocop (= 0.49.0)
   ruby-progressbar (~> 1.7)
   rubyzip (~> 1.1)
   sass-rails (~> 5.0)
+  selenium-webdriver (~> 3.4)
   shoulda-matchers (~> 3.0)
   simple_form (~> 3.1)
   simplecov (= 0.14.1)
   slim-rails (~> 3.0)
-  slim_lint (= 0.12.0)
+  slim_lint (= 0.13.0)
   spring (~> 2.0)
   uglifier (~> 3.0)
   unicorn-rails (~> 2.2)
