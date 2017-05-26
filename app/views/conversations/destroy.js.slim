@@ -2,5 +2,5 @@
 
 - no_messages_div = j render("shared/empty", message: "nomessages")
 
-| if ($(".conversation").length == 0)
-|   { $(".conversation").replaceWith("#{no_messages_div}") }
+| if ($("#conversation-list").is(":empty"))
+|   { $("#conversation-list").replaceWith("#{no_messages_div}") }
