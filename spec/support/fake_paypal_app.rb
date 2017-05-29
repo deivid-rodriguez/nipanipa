@@ -5,7 +5,7 @@
 #
 class FakePaypalApp
   def call(env)
-    return unless env["PATH_INFO"] =~ %r{cgi-bin/websrc}
+    return unless env["PATH_INFO"].match?(%r{cgi-bin/websrc})
 
     case env["REQUEST_METHOD"]
     when "POST" then notify(env)
