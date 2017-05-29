@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/teamcapybara/capybara.git
-  revision: 21f01c507d8e596733ab5a576a4b4cf948646c59
+  revision: 8f5f55af895d67c4b58503050e8e782b265ad2b1
   specs:
     capybara (2.14.0)
       addressable
