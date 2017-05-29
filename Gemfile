@@ -36,10 +36,6 @@ gem "jquery-rails", "~> 4.0"
 gem "sass-rails", "~> 5.0"
 gem "uglifier", "~> 3.0"
 
-source "https://rails-assets.org" do
-  gem "rails-assets-autosize", "~> 3.0"
-end
-
 gem "activeadmin", "~> 1.0"
 
 gem "ruby-progressbar", "~> 1.7", require: false
