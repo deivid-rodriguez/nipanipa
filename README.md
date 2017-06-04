@@ -25,6 +25,14 @@ sudo apt install postgresql libpq-dev
 sudo apt install nodejs
 ```
 
+* Install yarn
+
+```shell
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt update && sudo apt install yarn
+```
+
 * Install imagemagick
 
 ```shell
