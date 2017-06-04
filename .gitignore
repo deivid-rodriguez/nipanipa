@@ -22,3 +22,6 @@ public/uploads
 
 # Db dumps
 db/snapshot.dump
+
+# Js packages
+/node_modules

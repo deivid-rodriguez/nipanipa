@@ -12,7 +12,7 @@
 // details about supported directives.
 //
 //= require jquery
-//= require autosize
+//= require autosize/dist/autosize
 //= require flattr
 //= require jquery_ujs
 //= require bootstrap-sprockets

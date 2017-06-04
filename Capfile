@@ -18,3 +18,6 @@ require "capistrano/passenger"
 
 # Show pending stuff to be deployed
 require "capistrano/pending"
+
+# Install JS dependencies during deployments
+import "lib/capistrano/tasks/yarn.rake"

@@ -5,15 +5,51 @@ This is the sample application for NiPaNiPa
 [ci-badge]: https://circleci.com/gh/deivid-rodriguez/nipanipa.svg?style=svg
 [ci-url]: https://circleci.com/gh/deivid-rodriguez/nipanipa
 
-## System Requirements
-
-* _Ruby_ MRI 2.4.
-* _Postgresql_ 9.5. `sudo aptitude install postgresql-9.5 libpq-dev`
-* A _Javascript_ runtime. `sudo aptitude install nodejs`.
-* _Imagemagick_. `sudo aptitude install imagemagick`.
-* _Chrome_ 58.0 or higher, and _chromedriver_ 0.29 or higher.
-
 ## System setup
+
+### Install system dependencies
+
+* Install ruby MRI 2.4
+
+See [here](https://github.com/postmodern/ruby-install), for example.
+
+* Install postgresql
+
+```shell
+sudo apt install postgresql libpq-dev
+```
+
+* Install nodejs
+
+```shell
+sudo apt install nodejs
+```
+
+* Install yarn
+
+```shell
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt update && sudo apt install yarn
+```
+
+* Install imagemagick
+
+```shell
+sudo apt install imagemagick
+```
+
+* Install chrome 58.0 or higher
+
+```shell
+sudo apt install google-chrome-stable
+```
+
+* Install chromedriver 0.29 or higher
+
+See [here](https://sites.google.com/a/chromium.org/chromedriver/getting-started).
+
+### Install application dependencies
 
 Run
 

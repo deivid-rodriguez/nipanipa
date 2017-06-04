@@ -12,9 +12,12 @@ def system!(*args)
 end
 
 chdir APP_ROOT do
-  puts "== Installing dependencies =="
-  system! "gem install bundler --conservative"
+  puts "== Installing ruby dependencies =="
+  system! "gem install bundler"
   system("bundle check") || system!("bundle install")
+
+  puts "\n== Installing js dependencies =="
+  system("yarn check") || system!("yarn install")
 
   puts "\n== Updating database =="
   system! "bin/rails db:migrate"
