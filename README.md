@@ -8,7 +8,7 @@ This is the sample application for NiPaNiPa
 ## System Requirements
 
 * Ruby MRI 2.4.
-* Postgresql 9.5. `sudo apt install postgresql-9.5 libpq-dev`
+* Postgresql. `sudo apt install postgresql libpq-dev`
 * A Javascript runtime. `sudo apt install nodejs`.
 * Imagemagick. `sudo apt install imagemagick`.
 * Chrome 58.0 or higher, and chromedriver 0.29 or higher.
