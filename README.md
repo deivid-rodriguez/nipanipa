@@ -9,7 +9,7 @@ This is the sample application for NiPaNiPa
 
 * Ruby MRI 2.4.
 * Postgresql. `sudo apt install postgresql libpq-dev`
-* A Javascript runtime. `sudo apt install nodejs`.
+* Nodejs. `sudo apt install nodejs`.
 * Imagemagick. `sudo apt install imagemagick`.
 * Chrome 58.0 or higher, and chromedriver 0.29 or higher.
 
