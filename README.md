@@ -12,7 +12,8 @@ This is the sample application for NiPaNiPa
 * Postgresql. `sudo apt install postgresql libpq-dev`
 * Nodejs. `sudo apt install nodejs`.
 * Imagemagick. `sudo apt install imagemagick`.
-* Chrome 58.0 or higher, and chromedriver 0.29 or higher.
+* Chrome 58.0 or higher. `sudo apt install google-chrome-stable`.
+* Chromedriver 0.29 or higher. See [here](https://sites.google.com/a/chromium.org/chromedriver/getting-started).
 
 ## System setup
 
