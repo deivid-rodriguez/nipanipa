@@ -60,10 +60,13 @@ end
 
 gem "rspec-rails", "~> 3.2", groups: %i[development test]
 
-group :development do
+group :deploy do
   gem "capistrano-passenger", "0.2.0"
   gem "capistrano-pending", "0.2.0"
   gem "capistrano-rails", "~> 1.1"
+end
+
+group :development do
   gem "letter_opener", "~> 1.4"
   gem "localeapp", "~> 2.0"
   gem "spring", "~> 2.0"
