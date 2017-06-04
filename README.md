@@ -7,7 +7,8 @@ This is the sample application for NiPaNiPa
 
 ## System Requirements
 
-* Ruby MRI 2.4.
+* Ruby MRI 2.4. See [here](https://github.com/postmodern/ruby-install), for
+  example.
 * Postgresql. `sudo apt install postgresql libpq-dev`
 * Nodejs. `sudo apt install nodejs`.
 * Imagemagick. `sudo apt install imagemagick`.
