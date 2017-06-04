@@ -17,3 +17,6 @@ set :keep_releases, 5
 set :bundle_without, "deploy development test tools"
 
 set :passenger_restart_with_touch, false
+
+after "deploy:updated", "yarn:install"
+after "deploy:reverted", "yarn:install"
