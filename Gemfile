@@ -70,7 +70,7 @@ group :development do
 end
 
 group :test do
-  gem "capybara", github: "teamcapybara/capybara"
+  gem "capybara", "~> 2.14", ">= 2.14.1"
   gem "database_cleaner", "~> 1.4"
   gem "launchy", "~> 2.4"
   gem "selenium-webdriver", "~> 3.4"
