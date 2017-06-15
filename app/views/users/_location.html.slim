@@ -1,9 +1,11 @@
-- regions_url = country_regions_path(":country_id")
-
 = f.input :country,
     collection: Country.options,
     selected: f.object.country.id,
-    input_html: { data: { "regions-url" => regions_url } },
+    input_html: { \
+      data: { \
+        "regions-url" => country_regions_path(":country_id") \
+      } \
+    },
     include_blank: false,
     wrapper: :half_width
 

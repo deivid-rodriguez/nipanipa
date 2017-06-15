@@ -1,0 +1,34 @@
+---
+
+linters:
+  RuboCop:
+    ignored_cops:
+      # Default list
+      - Layout/AlignHash
+      - Layout/AlignParameters
+      - Layout/FirstParameterIndentation
+      - Layout/IndentationConsistency
+      - Layout/IndentationWidth
+      - Layout/MultilineArrayBraceLayout
+      - Layout/MultilineAssignmentLayout
+      - Layout/MultilineHashBraceLayout
+      - Layout/MultilineMethodCallBraceLayout
+      - Layout/MultilineMethodCallIndentation
+      - Layout/MultilineMethodDefinitionBraceLayout
+      - Layout/MultilineOperationIndentation
+      - Layout/TrailingBlankLines
+      - Layout/TrailingWhitespace
+      - Lint/BlockAlignment
+      - Lint/EndAlignment
+      - Lint/Void
+      - Metrics/BlockLength
+      - Metrics/LineLength
+      - Style/BlockNesting
+      - Style/FileName
+      - Style/FrozenStringLiteralComment
+      - Style/IfUnlessModifier
+      - Style/Next
+      - Style/WhileUntilModifier
+
+      # Due to https://github.com/sds/slim-lint/issues/30
+      - Layout/IndentHash
