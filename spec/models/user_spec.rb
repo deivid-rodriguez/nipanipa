@@ -140,7 +140,7 @@ RSpec.describe User do
       let!(:user) { create(:user, continent: create(:continent)) }
 
       it "filters users by continent" do
-        expect(User.from_continent(user.continent)).to include(user)
+        expect(User.from_continent(user.continent_id)).to include(user)
       end
     end
 
@@ -148,7 +148,7 @@ RSpec.describe User do
       let!(:user) { create(:user, country: create(:country)) }
 
       it "filters users by country" do
-        expect(User.from_country(user.country)).to include(user)
+        expect(User.from_country(user.country_id)).to include(user)
       end
     end
   end

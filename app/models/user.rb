@@ -25,12 +25,12 @@ class User < ApplicationRecord
 
   belongs_to :region
 
-  delegate :country, to: :region
+  delegate :country, :country_id, to: :region
   scope :from_country, ->(country_id) do
     where(regions: { country_id: country_id })
   end
 
-  delegate :continent, to: :country
+  delegate :continent, :continent_id, to: :country
   scope :from_continent, ->(continent_id) do
     where(countries: { continent_id: continent_id })
   end
