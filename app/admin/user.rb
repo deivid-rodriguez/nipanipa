@@ -28,7 +28,7 @@ ActiveAdmin.register User do
     f.inputs "Location" do
       f.label "Country", for: "user_region"
       f.collection_select :country,
-                          Country.all.sort_by(&:name),
+                          Country.options,
                           :id,
                           :name,
                           include_blank: true
