@@ -16,7 +16,7 @@ jQuery ->
   #
   # Load proper regions when country select dropdown changes
   #
-  $('#user_country').change ->
+  $('#user_country_id').change ->
     url = $(this).data('regions-url').replace(':country_id', $(this).val())
     $('#user_region_id').empty()
     $.getJSON url, (data) ->

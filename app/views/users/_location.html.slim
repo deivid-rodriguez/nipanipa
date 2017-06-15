@@ -1,6 +1,5 @@
-= f.input :country,
+= f.input :country_id,
     collection: Country.options,
-    selected: f.object.country.id,
     input_html: { \
       data: { \
         "regions-url" => country_regions_path(":country_id") \
