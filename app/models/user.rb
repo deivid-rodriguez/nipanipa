@@ -25,12 +25,12 @@ class User < ApplicationRecord
 
   belongs_to :region
 
-  delegate :country, to: :region, allow_nil: true
+  delegate :country, to: :region
   scope :from_country, ->(country_id) do
     where(regions: { country_id: country_id })
   end
 
-  delegate :continent, to: :country, allow_nil: true
+  delegate :continent, to: :country
   scope :from_continent, ->(continent_id) do
     where(countries: { continent_id: continent_id })
   end
@@ -80,8 +80,6 @@ class User < ApplicationRecord
   end
 
   def location
-    return unless region
-
     "#{region.name}, #{region.country.name}"
   end
 
