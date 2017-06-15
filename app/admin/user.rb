@@ -26,21 +26,17 @@ ActiveAdmin.register User do
     end
 
     f.inputs "Location" do
-      f.label "Country", for: "user_region"
-      f.collection_select :country,
-                          Country.options,
-                          :id,
-                          :name,
-                          include_blank: true
+      f.input :country_id,
+              collection: Country.options,
+              input_html: {
+                data: { "regions-url" => country_regions_path(":country_id") }
+              },
+              include_blank: false
 
-      f.label "Region", for: "user_country"
-      f.grouped_collection_select :region_id,
-                                  Country.includes(:regions),
-                                  :regions,
-                                  :name,
-                                  :id,
-                                  :name,
-                                  include_blank: true
+      f.input :region_id,
+              as: :select,
+              collection: f.object.country.regions,
+              include_blank: true
     end
 
     f.actions
