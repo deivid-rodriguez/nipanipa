@@ -3,7 +3,7 @@
 ActiveAdmin.register User do
   actions :all, except: :new
 
-  permit_params :region_id, :locale
+  permit_params :region_id, :locale, :description
 
   index do
     column(:name) { |user| link_to user.name, user_path(user) }
@@ -22,7 +22,7 @@ ActiveAdmin.register User do
   form do |f|
     f.inputs "Information" do
       f.input :email
-      f.input :description, input_html: { disabled: true }
+      f.input :description
     end
 
     f.inputs "Location" do
