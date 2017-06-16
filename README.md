@@ -39,13 +39,13 @@ sudo apt update && sudo apt install yarn
 sudo apt install imagemagick
 ```
 
-* Install chrome 58.0 or higher
+* Install chrome 59.0 or higher
 
 ```shell
 sudo apt install google-chrome-stable
 ```
 
-* Install chromedriver 0.29 or higher
+* Install chromedriver 0.30 or higher
 
 See [here](https://sites.google.com/a/chromium.org/chromedriver/getting-started).
 
