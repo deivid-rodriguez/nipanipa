@@ -25,7 +25,7 @@ gem "devise", "~> 4.2"
 gem "enumerize", "~> 2.0"
 gem "kaminari", "~> 1.0"
 gem "mini_magick", "~> 4.2"
-gem "pg", "0.20.0"
+gem "pg", "0.21.0"
 gem "simple_form", "~> 3.1"
 
 # Frontend stuff
@@ -47,7 +47,7 @@ group :tools do
   gem "byebug", "~> 9.0"
   gem "factory_girl_rails", "~> 4.5"
   gem "i18n-tasks", "0.9.15"
-  gem "image_optim_pack", "0.5.0"
+  gem "image_optim_pack", "0.5.0.20170609"
   gem "overcommit", "0.39.1"
   gem "rubocop", "0.49.1"
   gem "simplecov", "0.14.1"

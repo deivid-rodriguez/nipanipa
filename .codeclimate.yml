@@ -32,3 +32,6 @@ ratings:
     - "**.md"
     - "**.scss"
     - "**.rb"
+
+exclude_paths:
+  - node_modules/**

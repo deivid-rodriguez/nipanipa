@@ -7,15 +7,9 @@ require "support/port_mapper"
 require "support/fake_paypal_app"
 
 Capybara.register_driver :chrome do |app|
-  caps = Selenium::WebDriver::Remote::Capabilities.chrome(
-    "chromeOptions" => { "args" => %w[headless no-sandbox disable-gpu] }
-  )
+  options = Selenium::WebDriver::Chrome::Options.new(args: %w[headless])
 
-  Capybara::Selenium::Driver.new(
-    app,
-    browser: :chrome,
-    desired_capabilities: caps
-  )
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
 end
 
 Capybara.javascript_driver = :chrome

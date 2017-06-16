@@ -16,6 +16,10 @@ class Country < ApplicationRecord
     find_by(code: "ES")
   end
 
+  def self.options
+    all.sort_by(&:name)
+  end
+
   default_scope { includes(:continent) }
 
   scope :with_users, -> { joins(regions: :users).distinct }
