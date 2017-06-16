@@ -11,43 +11,43 @@ This is the sample application for NiPaNiPa
 
 * Install ruby MRI 2.4
 
-See [here](https://github.com/postmodern/ruby-install), for example.
+  See [here](https://github.com/postmodern/ruby-install), for example.
 
 * Install postgresql
 
-```shell
-sudo apt install postgresql libpq-dev
-```
+  ```shell
+  sudo apt install postgresql libpq-dev
+  ```
 
 * Install nodejs
 
-```shell
-sudo apt install nodejs
-```
+  ```shell
+  sudo apt install nodejs
+  ```
 
 * Install yarn
 
-```shell
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt update && sudo apt install yarn
-```
+  ```shell
+  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+  echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+  sudo apt update && sudo apt install yarn
+  ```
 
 * Install imagemagick
 
-```shell
-sudo apt install imagemagick
-```
+  ```shell
+  sudo apt install imagemagick
+  ```
 
 * Install chrome 59.0 or higher
 
-```shell
-sudo apt install google-chrome-stable
-```
+  ```shell
+  sudo apt install google-chrome-stable
+  ```
 
 * Install chromedriver 0.30 or higher
 
-See [here](https://sites.google.com/a/chromium.org/chromedriver/getting-started).
+  See [here](https://sites.google.com/a/chromium.org/chromedriver/getting-started).
 
 ### Install application dependencies
 
