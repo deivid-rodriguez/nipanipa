@@ -32,6 +32,9 @@ Rails/FilePath:
 Style/EmptyMethod:
   EnforcedStyle: expanded
 
+Style/IfUnlessModifier:
+  Enabled: false
+
 Style/ModuleFunction:
   Enabled: false
 
