@@ -42,9 +42,6 @@ PreCommit:
   MergeConflicts:
     enabled: true
 
-  RailsSchemaUpToDate:
-    enabled: true
-
   RuboCop:
     enabled: true
 
