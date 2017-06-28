@@ -11,7 +11,7 @@ def system!(*args)
   system(*args) || abort("\n== Command #{args} failed ==")
 end
 
-chdir APP_ROOT do
+Dir.chdir APP_ROOT do
   puts "== Installing ruby dependencies =="
   system! "gem install bundler"
   system("bundle check") || system!("bundle install")
