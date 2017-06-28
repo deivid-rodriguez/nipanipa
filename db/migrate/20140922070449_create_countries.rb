@@ -14,9 +14,5 @@ class CreateCountries < ActiveRecord::Migration
       t.timestamps null: true
       t.index :code, unique: true
     end
-
-    reversible do |direction|
-      direction.up { Rake::Task['db:maxmind:countries'].invoke }
-    end
   end
 end
