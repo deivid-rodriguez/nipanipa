@@ -3,7 +3,6 @@ connection: &connection
   encoding: unicode
   host: localhost
   port: 5432
-  database: <%= ENV["DB_NAME"] %>
   password: <%= ENV["DB_PASS"] %>
   pool: 5
   timeout: 5000
@@ -11,10 +10,16 @@ connection: &connection
   username: <%= ENV["DB_USER"] %>
 
 development:
+  database: nipanipa_development
+
   <<: *connection
 
 test:
+  database: nipanipa_test
+
   <<: *connection
 
 production:
+  database: <%= ENV["DB_NAME"] %>
+
   <<: *connection
