@@ -409,7 +409,7 @@ DEPENDENCIES
   capistrano-passenger (= 0.2.0)
   capistrano-pending (= 0.2.0)
   capistrano-rails (~> 1.1)
-  capybara (~> 2.14, >= 2.14.1)
+  capybara (~> 2.14)
   carrierwave (~> 1.0)
   cocoon (~> 1.2)
   coffee-rails (~> 4.1)
