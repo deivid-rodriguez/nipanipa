@@ -75,6 +75,6 @@ group :test do
   gem "database_cleaner", "~> 1.4"
   gem "launchy", "~> 2.4"
   gem "selenium-webdriver", "~> 3.4"
-  gem "shoulda-matchers", "~> 3.0"
+  gem "shoulda-matchers", "~> 3.1"
   gem "webmock", "~> 3.0"
 end
