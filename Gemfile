@@ -36,7 +36,7 @@ gem "jquery-rails", "~> 4.0"
 gem "sass-rails", "~> 5.0"
 gem "uglifier", "~> 3.0"
 
-gem "activeadmin", "~> 1.0"
+gem "activeadmin", "~> 1.1"
 
 gem "ruby-progressbar", "~> 1.7", require: false
 gem "rubyzip", "~> 1.1", require: false
