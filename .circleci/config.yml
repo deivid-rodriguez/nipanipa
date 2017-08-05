@@ -1,0 +1,37 @@
+---
+
+version: 2.0
+
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.4-node-browsers
+
+      - image: postgres:9.6.3
+        environment:
+          POSTGRES_USER: nipanipa
+
+    environment:
+      DB_NAME: nipanipa
+      DB_PASS: nipanipa
+
+    working_directory: ~/nipanipa
+
+    steps:
+      - checkout
+
+      - run: git config --local user.email 'circle@circle.ci'
+
+      - run: git config --local user.name 'Circle CI'
+
+      - run: bundle install --path vendor/bundle
+
+      - run: yarn install
+
+      - run: bin/rake db:create db:migrate
+
+      - run: bin/overcommit --sign
+
+      - run: bin/rake
+
+      - run: bin/overcommit --run
