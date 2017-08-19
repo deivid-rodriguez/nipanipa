@@ -50,7 +50,7 @@ group :tools do
   gem "image_optim_pack", "0.5.0.20170803"
   gem "overcommit", "0.40.0"
   gem "rubocop", "0.49.1"
-  gem "simplecov", "0.14.1"
+  gem "simplecov", "0.15.0"
   gem "slim_lint", "0.13.0"
   gem "squasher", "0.4.0"
 end
