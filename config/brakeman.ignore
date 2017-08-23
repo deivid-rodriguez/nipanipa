@@ -4,9 +4,10 @@
       "warning_type": "Redirect",
       "warning_code": 18,
       "fingerprint": "ce3358b36921b6a9c11a97e0e2b639a4eb20885b180e49c76ec76b320914d9de",
+      "check_name": "Redirect",
       "message": "Possible unprotected redirect",
       "file": "app/controllers/donations_controller.rb",
-      "line": 12,
+      "line": 14,
       "link": "http://brakemanscanner.org/docs/warning_types/redirect/",
       "code": "redirect_to(Donation.new(donation_params).paypal_url(donation_url(Donation.new(donation_params).id)))",
       "render_path": null,
@@ -18,26 +19,8 @@
       "user_input": "Donation.new(donation_params).paypal_url(donation_url(Donation.new(donation_params).id))",
       "confidence": "High",
       "note": ""
-    },
-    {
-      "warning_type": "Dynamic Render Path",
-      "warning_code": 15,
-      "fingerprint": "1f1d95ba5f3cb5af8f222924adf90ca00adf307573a83215e82e04aecd57cb26",
-      "message": "Render path contains parameter value",
-      "file": "app/views/users/index.html.slim",
-      "line": 9,
-      "link": "http://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
-      "code": "render(action => apply_filters.by_latest_sign_in.page(params[:page]), {})",
-      "render_path": [{"type":"controller","class":"UsersController","method":"index","line":20,"file":"app/controllers/users_controller.rb"}],
-      "location": {
-        "type": "template",
-        "template": "users/index"
-      },
-      "user_input": "params[:page]",
-      "confidence": "Weak",
-      "note": ""
     }
   ],
-  "updated": "2016-01-30 16:39:32 +0100",
-  "brakeman_version": "3.1.5"
+  "updated": "2017-08-07 12:29:19 +0200",
+  "brakeman_version": "3.7.0"
 }
