@@ -44,7 +44,7 @@ gem "rubyzip", "~> 1.1", require: false
 gem "slim-rails", "~> 3.0"
 
 group :tools do
-  gem "byebug", "~> 9.0"
+  gem "byebug", "~> 9.1"
   gem "factory_girl_rails", "~> 4.5"
   gem "i18n-tasks", "0.9.18"
   gem "image_optim_pack", "0.5.0.20170815"
