@@ -200,7 +200,7 @@ GEM
       addressable (~> 2.3)
     letter_opener (1.4.1)
       launchy (~> 2.2)
-    localeapp (2.2.0)
+    localeapp (2.3.0)
       gli
       i18n (~> 0.4)
       json
@@ -425,7 +425,7 @@ DEPENDENCIES
   kaminari (~> 1.0)
   launchy (~> 2.4)
   letter_opener (~> 1.4)
-  localeapp (~> 2.2)
+  localeapp (~> 2.3)
   mail (~> 2.7.x)
   mini_magick (~> 4.8)
   overcommit (= 0.40.0)
