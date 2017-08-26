@@ -49,7 +49,7 @@ group :tools do
   gem "factory_girl_rails", "~> 4.5"
   gem "i18n-tasks", "0.9.18"
   gem "image_optim_pack", "0.5.0.20170815"
-  gem "overcommit", "0.40.0"
+  gem "overcommit", "0.41.0"
   gem "rubocop", "0.49.1"
   gem "simplecov", "0.15.0"
   gem "slim_lint", "0.13.0"
