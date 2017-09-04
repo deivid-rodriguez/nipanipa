@@ -53,7 +53,7 @@ group :tools do
   gem "rubocop", "= 0.49.1"
   gem "simplecov", "= 0.15.0"
   gem "slim_lint", "= 0.13.0"
-  gem "squasher", "= 0.4.0"
+  gem "squasher", "= 0.5.0"
 end
 
 gem "rspec-rails", "~> 3.2", groups: %i[development test]
