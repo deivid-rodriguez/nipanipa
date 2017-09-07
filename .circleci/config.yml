@@ -35,3 +35,14 @@ jobs:
       - run: bin/rake
 
       - run: bin/overcommit --run
+
+      - add_ssh_keys:
+          fingerprints:
+            - "4a:6a:34:50:01:b9:3e:e3:5a:44:41:87:1f:47:2e:21"
+
+      - deploy:
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]
+            then
+              bin/cap production deploy
+            fi
