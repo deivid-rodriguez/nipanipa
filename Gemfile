@@ -38,7 +38,7 @@ gem "uglifier", "~> 3.0"
 
 gem "activeadmin", "~> 1.1"
 
-gem "ruby-progressbar", "~> 1.8", require: false
+gem "ruby-progressbar", "~> 1.9", require: false
 gem "rubyzip", "~> 1.1", require: false
 
 gem "slim-rails", "~> 3.0"
