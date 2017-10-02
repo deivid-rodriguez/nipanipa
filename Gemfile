@@ -19,7 +19,7 @@ gem "rinku", "~> 2.0"
 gem "dotenv-rails", "~> 2.1"
 
 gem "bcrypt", "~> 3.1"
-gem "carrierwave", "~> 1.0"
+gem "carrierwave", "~> 1.2"
 gem "cocoon", "~> 1.2"
 gem "devise", "~> 4.2"
 gem "enumerize", "~> 2.0"
