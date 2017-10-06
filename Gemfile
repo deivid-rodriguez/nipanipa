@@ -41,7 +41,7 @@ gem "activeadmin", "~> 1.1"
 gem "ruby-progressbar", "~> 1.9", require: false
 gem "rubyzip", "~> 1.1", require: false
 
-gem "slim-rails", "~> 3.0"
+gem "slim-rails", "~> 3.1"
 
 group :tools do
   gem "brakeman", "~> 4.0"
