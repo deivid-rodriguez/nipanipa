@@ -147,7 +147,7 @@ GEM
     has_scope (0.7.1)
       actionpack (>= 4.1, < 5.2)
       activesupport (>= 4.1, < 5.2)
-    hashdiff (0.3.4)
+    hashdiff (0.3.7)
     highline (1.7.8)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -389,7 +389,7 @@ GEM
       unicorn
     warden (1.2.7)
       rack (>= 1.0)
-    webmock (3.0.1)
+    webmock (3.1.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
@@ -450,7 +450,7 @@ DEPENDENCIES
   squasher (= 0.6.0)
   uglifier (~> 3.0)
   unicorn-rails (~> 2.2)
-  webmock (~> 3.0)
+  webmock (~> 3.1)
 
 BUNDLED WITH
    1.15.4
