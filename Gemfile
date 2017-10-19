@@ -56,7 +56,7 @@ group :tools do
   gem "squasher", "= 0.6.0"
 end
 
-gem "rspec-rails", "~> 3.2", groups: %i[development test]
+gem "rspec-rails", "~> 3.7", groups: %i[development test]
 
 group :deploy do
   gem "capistrano-passenger", "= 0.2.0"
