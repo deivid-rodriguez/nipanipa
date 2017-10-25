@@ -46,7 +46,7 @@ gem "slim-rails", "~> 3.1"
 group :tools do
   gem "brakeman", "~> 4.0"
   gem "byebug", "~> 9.1"
-  gem "factory_girl_rails", "~> 4.5"
+  gem "factory_girl_rails", "~> 4.9"
   gem "i18n-tasks", "= 0.9.18"
   gem "image_optim_pack", "0.5.0.20171001"
   gem "overcommit", "= 0.41.0"
