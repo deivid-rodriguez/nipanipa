@@ -11,7 +11,7 @@ end
 
 source "https://rubygems.org"
 
-gem "mail", "~> 2.7.x" # TODO: Until mail 2.7.0 released
+gem "mail", "~> 2.7"
 gem "rails", "~> 5.1"
 gem "rails-i18n", "~> 5.0"
 gem "rinku", "~> 2.0"
