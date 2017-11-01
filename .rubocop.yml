@@ -25,6 +25,13 @@ Metrics/BlockLength:
     - config/**/*.rb
     - app/admin/**/*.rb
 
+Naming/FileName:
+  Exclude:
+    - bin/*
+    - Capfile
+    - Gemfile
+    - Rakefile
+
 # TODO: Until https://github.com/bbatsov/rubocop/pull/4178 merged
 Rails/FilePath:
   Enabled: false
@@ -37,13 +44,6 @@ Style/IfUnlessModifier:
 
 Style/ModuleFunction:
   Enabled: false
-
-Style/FileName:
-  Exclude:
-    - bin/*
-    - Capfile
-    - Gemfile
-    - Rakefile
 
 Style/Lambda:
   EnforcedStyle: literal
