@@ -50,7 +50,7 @@ RSpec.shared_examples_for "a nipanipa user" do
     end
 
     it "shows correct page title" do
-      expect(page).to have_title full_title(t("users.new.title"))
+      expect(page).to have_title t("users.new.title")
     end
 
     it "shows home link" do
