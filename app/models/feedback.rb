@@ -18,7 +18,7 @@ class Feedback < ApplicationRecord
   before_save :update_karma
   before_destroy :remove_karma
 
-  has_one :donation
+  has_one :donation, dependent: :nullify
   accepts_nested_attributes_for :donation,
                                 reject_if: proc { |attr| attr[:amount] == "0" }
 

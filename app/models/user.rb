@@ -12,12 +12,12 @@ class User < ApplicationRecord
 
   before_destroy -> { Message.sent_or_received_by(id).destroy_all }
 
-  has_many :donations
+  has_many :donations, dependent: :nullify
 
-  has_many :sectorizations
+  has_many :sectorizations, dependent: :destroy
   has_many :work_types, through: :sectorizations
 
-  has_many :language_skills, inverse_of: :user
+  has_many :language_skills, dependent: :destroy, inverse_of: :user
   accepts_nested_attributes_for :language_skills
   has_many :languages, through: :language_skills
 
