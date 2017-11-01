@@ -4,7 +4,7 @@
 # Represents a job category
 #
 class WorkType < ApplicationRecord
-  has_many :sectorizations
+  has_many :sectorizations, dependent: :destroy
   has_many :users, through: :sectorizations
 
   validates :name, presence: true

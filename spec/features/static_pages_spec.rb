@@ -11,7 +11,7 @@ RSpec.describe "Static pages" do
   subject { page }
 
   shared_examples_for "all static pages" do
-    it { is_expected.to have_title full_title(page_title) }
+    it { is_expected.to have_title page_title }
     it { is_expected.to have_link help }
     it { is_expected.to have_link about }
     it { is_expected.to have_link contact }

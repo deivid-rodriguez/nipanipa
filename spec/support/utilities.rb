@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-include ApplicationHelper
-
 def t(string, options = {})
   I18n.t(string, options)
 end

@@ -11,7 +11,7 @@ class Region < ApplicationRecord
 
   validates :code, uniqueness: { scope: :country_id }
 
-  has_many :users
+  has_many :users, dependent: :nullify
 
   def self.default
     find_by(code: "MD")
