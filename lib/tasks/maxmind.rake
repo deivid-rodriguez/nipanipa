@@ -32,7 +32,7 @@ namespace :db do
   private
 
   def traverse(hash)
-    hash.each { |code, _| yield(code) }
+    hash.each_key { |code| yield(code) }
   end
 
   def i18n_data
