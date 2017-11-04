@@ -24,7 +24,7 @@ jobs:
 
       - run: git config --local user.name 'Circle CI'
 
-      - run: bundle install --path vendor/bundle
+      - run: bundle install
 
       - run: yarn install
 
