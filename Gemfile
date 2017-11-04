@@ -39,7 +39,7 @@ group :tools do
   gem "byebug", "~> 9.1"
   gem "factory_girl_rails", "~> 4.9"
   gem "i18n-tasks", "0.9.19"
-  gem "image_optim_pack", "0.5.0.20171001"
+  gem "image_optim_pack", "0.5.0.20171101"
   gem "overcommit", "0.41.0"
   gem "rubocop", "0.51.0"
   gem "simplecov", "0.15.1"
