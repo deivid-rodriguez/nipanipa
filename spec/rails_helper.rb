@@ -25,7 +25,7 @@ RSpec.configure do |config|
   config.before(:suite) do
     begin
       DatabaseCleaner.start
-      FactoryGirl.lint
+      FactoryBot.lint
     ensure
       DatabaseCleaner.clean
     end
@@ -48,7 +48,7 @@ RSpec.configure do |config|
 
   # Use the core set of syntax methods (build, build_stubbed, create,
   # attributes_for, and their *_list counterparts) without having to call them
-  # on FactoryGirl directly
-  require "factory_girl_rails"
-  config.include FactoryGirl::Syntax::Methods
+  # on FactoryBot directly
+  require "factory_bot_rails"
+  config.include FactoryBot::Syntax::Methods
 end
