@@ -43,7 +43,7 @@ group :tools do
   gem "overcommit", "0.41.0"
   gem "rubocop", "0.51.0"
   gem "simplecov", "0.15.1"
-  gem "slim_lint", "0.13.0"
+  gem "slim_lint", "0.15.0"
   gem "squasher", "0.6.0"
 end
 
