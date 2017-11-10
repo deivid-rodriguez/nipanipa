@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
     transient do
       continent nil
@@ -14,11 +14,11 @@ FactoryGirl.define do
 
     region do
       if continent
-        FactoryGirl.create(:region, continent: continent)
+        FactoryBot.create(:region, continent: continent)
       elsif country
-        FactoryGirl.create(:region, country: country)
+        FactoryBot.create(:region, country: country)
       else
-        FactoryGirl.create(:region)
+        FactoryBot.create(:region)
       end
     end
 
