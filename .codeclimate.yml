@@ -1,6 +1,8 @@
 ---
 
-engines:
+version: "2"
+
+plugins:
   brakeman:
     enabled: true
 
@@ -18,20 +20,9 @@ engines:
     enabled: true
 
     exclude_paths:
-      - coverage/**
+      - "**/*.html"
 
-ratings:
-  paths:
-    - Gemfile.lock
-    - app/**
-    - lib/**
-    - spec/**
-    - config/**
-    - db/**
-    - "**.coffee"
-    - "**.md"
-    - "**.scss"
-    - "**.rb"
-
-exclude_paths:
-  - node_modules/**
+exclude_patterns:
+  - "node_modules/"
+  - "coverage/"
+  - "tmp/"
