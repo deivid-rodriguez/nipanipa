@@ -52,7 +52,7 @@ gem "rspec-rails", "~> 3.7", groups: %i[development test]
 group :deploy do
   gem "capistrano-passenger", "0.2.0"
   gem "capistrano-pending", "0.2.0"
-  gem "capistrano-rails", "~> 1.1"
+  gem "capistrano-rails", "~> 1.3"
 end
 
 group :development do
