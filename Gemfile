@@ -20,7 +20,7 @@ gem "pg", "0.21.0"
 gem "simple_form", "~> 3.1"
 
 # Frontend stuff
-gem "autoprefixer-rails", "~> 7.1"
+gem "autoprefixer-rails", "~> 7.2"
 gem "bootstrap-sass", "~> 3.3"
 gem "coffee-rails", "~> 4.1"
 gem "jquery-rails", "~> 4.0"
