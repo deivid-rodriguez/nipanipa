@@ -25,7 +25,7 @@ gem "bootstrap-sass", "~> 3.3"
 gem "coffee-rails", "~> 4.1"
 gem "jquery-rails", "~> 4.0"
 gem "sass-rails", "~> 5.0"
-gem "uglifier", "~> 3.0"
+gem "uglifier", "~> 4.0"
 
 gem "activeadmin", "~> 1.1"
 
