@@ -17,6 +17,12 @@ CommitMsg:
   SingleLineSubject:
     enabled: true
 
+  TextWidth:
+    enabled: false
+
+  CapitalizedSubject:
+    enabled: false
+
 #
 # Hooks that are run after `git commit` is executed, before the commit message
 # editor is displayed.
