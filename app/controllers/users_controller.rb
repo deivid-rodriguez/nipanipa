@@ -30,6 +30,10 @@ class UsersController < Devise::RegistrationsController
     @user = current_user
   end
 
+  def update
+    super
+  end
+
   def delete
   end
 
