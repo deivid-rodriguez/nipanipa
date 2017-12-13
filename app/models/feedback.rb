@@ -12,8 +12,8 @@ class Feedback < ApplicationRecord
   validates :recipient_id, presence: true
   validates :content, presence: true, length: { maximum: 300 }
 
-  belongs_to :sender, class_name: "User"
-  belongs_to :recipient, class_name: "User"
+  belongs_to :sender, class_name: "User", inverse_of: :sent_feedbacks
+  belongs_to :recipient, class_name: "User", inverse_of: :received_feedbacks
 
   before_save :update_karma
   before_destroy :remove_karma

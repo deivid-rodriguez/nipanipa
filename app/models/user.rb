@@ -15,11 +15,11 @@ class User < ApplicationRecord
   has_many :donations, dependent: :nullify
 
   has_many :sectorizations, dependent: :destroy
-  has_many :work_types, through: :sectorizations
+  has_many :work_types, through: :sectorizations, inverse_of: :users
 
   has_many :language_skills, dependent: :destroy, inverse_of: :user
   accepts_nested_attributes_for :language_skills
-  has_many :languages, through: :language_skills
+  has_many :languages, through: :language_skills, inverse_of: :users
 
   has_many :pictures, dependent: :destroy
 
@@ -52,13 +52,15 @@ class User < ApplicationRecord
            -> { order(updated_at: :desc).includes(:recipient) },
            class_name: "Feedback",
            foreign_key: "sender_id",
-           dependent: :destroy
+           dependent: :destroy,
+           inverse_of: :sender
 
   has_many :received_feedbacks,
            -> { order(updated_at: :desc).includes(:sender) },
            class_name: "Feedback",
            foreign_key: "recipient_id",
-           dependent: :destroy
+           dependent: :destroy,
+           inverse_of: :recipient
 
   def messages_with(uid)
     Message.between(id, uid).non_deleted_by(id)
