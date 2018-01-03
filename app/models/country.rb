@@ -24,7 +24,7 @@ class Country < ApplicationRecord
 
   scope :with_users, -> { joins(regions: :users).distinct }
 
-  has_many :users, through: :regions
+  has_many :users, through: :regions, inverse_of: :country
 
   def name
     I18n.t("countries.#{continent.code.downcase}.#{code.downcase}")

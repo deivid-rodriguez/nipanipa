@@ -5,7 +5,7 @@
 #
 class WorkType < ApplicationRecord
   has_many :sectorizations, dependent: :destroy
-  has_many :users, through: :sectorizations
+  has_many :users, through: :sectorizations, inverse_of: :work_type
 
   validates :name, presence: true
 
