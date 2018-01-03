@@ -390,7 +390,7 @@ GEM
       unicorn
     warden (1.2.7)
       rack (>= 1.0)
-    webmock (3.1.1)
+    webmock (3.2.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
@@ -451,7 +451,7 @@ DEPENDENCIES
   squasher (= 0.6.0)
   uglifier (~> 4.1)
   unicorn-rails (~> 2.2)
-  webmock (~> 3.1)
+  webmock (~> 3.2)
 
 BUNDLED WITH
    1.16.0
