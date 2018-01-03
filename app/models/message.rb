@@ -6,8 +6,8 @@
 class Message < ApplicationRecord
   validates :body, presence: true, length: { minimum: 1, maximum: 500 }
 
-  belongs_to :sender, class_name: "User"
-  belongs_to :recipient, class_name: "User"
+  belongs_to :sender, class_name: "User", inverse_of: false
+  belongs_to :recipient, class_name: "User", inverse_of: false
 
   scope :between, ->(uid1, uid2) do
     condition = <<-SQL.squish

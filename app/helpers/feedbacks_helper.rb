@@ -12,7 +12,7 @@ module FeedbacksHelper
     if received_count.nonzero? || sent_count.nonzero?
       received = t("feedbacks.received", count: received_count)
       sent = t("feedbacks.sent", count: sent_count)
-      count_str += format(" (%s, %s)", received, sent)
+      count_str += " (#{received}, #{sent})"
     end
 
     count_str
