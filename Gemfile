@@ -56,7 +56,7 @@ group :deploy do
 end
 
 group :development do
-  gem "letter_opener", "~> 1.5"
+  gem "letter_opener", "~> 1.6"
   gem "localeapp", "~> 2.4"
   gem "spring", "~> 2.0"
   gem "unicorn-rails", "~> 2.2"

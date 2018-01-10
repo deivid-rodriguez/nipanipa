@@ -200,7 +200,7 @@ GEM
     kgio (2.11.0)
     launchy (2.4.3)
       addressable (~> 2.3)
-    letter_opener (1.5.0)
+    letter_opener (1.6.0)
       launchy (~> 2.2)
     localeapp (2.4.0)
       gli
@@ -427,7 +427,7 @@ DEPENDENCIES
   jquery-rails (~> 4.0)
   kaminari (~> 1.1)
   launchy (~> 2.4)
-  letter_opener (~> 1.5)
+  letter_opener (~> 1.6)
   localeapp (~> 2.4)
   mail (~> 2.7)
   mini_magick (~> 4.8)
