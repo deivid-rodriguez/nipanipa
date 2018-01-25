@@ -57,7 +57,7 @@ GEM
     arbre (1.1.1)
       activesupport (>= 3.0.0)
     arel (8.0.0)
-    ast (2.3.0)
+    ast (2.4.0)
     autoprefixer-rails (7.2.5)
       execjs
     bcrypt (3.1.11)
@@ -122,8 +122,7 @@ GEM
     dotenv-rails (2.2.1)
       dotenv (= 2.2.1)
       railties (>= 3.2, < 5.2)
-    easy_translate (0.5.0)
-      json
+    easy_translate (0.5.1)
       thread
       thread_safe
     enumerize (2.1.2)
@@ -148,15 +147,15 @@ GEM
       actionpack (>= 4.1, < 5.2)
       activesupport (>= 4.1, < 5.2)
     hashdiff (0.3.7)
-    highline (1.7.8)
+    highline (1.7.10)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
-    i18n (0.9.1)
+    i18n (0.9.3)
       concurrent-ruby (~> 1.0)
-    i18n-tasks (0.9.19)
+    i18n-tasks (0.9.20)
       activesupport (>= 4.0.2)
       ast (>= 2.1.0)
-      easy_translate (>= 0.5.0)
+      easy_translate (>= 0.5.1)
       erubi
       highline (>= 1.7.3)
       i18n
@@ -219,7 +218,7 @@ GEM
     mini_magick (4.8.0)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
-    minitest (5.11.1)
+    minitest (5.11.2)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (4.2.0)
@@ -422,7 +421,7 @@ DEPENDENCIES
   dotenv-rails (~> 2.1)
   enumerize (~> 2.0)
   factory_bot_rails (~> 4.8)
-  i18n-tasks (= 0.9.19)
+  i18n-tasks (= 0.9.20)
   image_optim_pack (= 0.5.0.20180103)
   jquery-rails (~> 4.0)
   kaminari (~> 1.1)
