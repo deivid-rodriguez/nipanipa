@@ -36,7 +36,7 @@ gem "slim-rails", "~> 3.1"
 
 group :tools do
   gem "brakeman", "~> 4.1"
-  gem "byebug", "~> 9.1"
+  gem "byebug", "~> 10.0"
   gem "factory_bot_rails", "~> 4.8"
   gem "i18n-tasks", "0.9.20"
   gem "image_optim_pack", "0.5.0.20180124"
