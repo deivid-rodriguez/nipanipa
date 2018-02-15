@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 gem "mail", "~> 2.7"
 gem "rails", "~> 5.1"
-gem "rails-i18n", "~> 5.0"
+gem "rails-i18n", "~> 5.1"
 gem "rinku", "~> 2.0"
 
 gem "dotenv-rails", "~> 2.1"
