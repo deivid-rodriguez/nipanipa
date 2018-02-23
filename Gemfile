@@ -35,7 +35,7 @@ gem "rubyzip", "~> 1.1", require: false
 gem "slim-rails", "~> 3.1"
 
 group :tools do
-  gem "brakeman", "~> 4.1"
+  gem "brakeman", "~> 4.2"
   gem "byebug", "~> 10.0"
   gem "factory_bot_rails", "~> 4.8"
   gem "i18n-tasks", "0.9.20"
