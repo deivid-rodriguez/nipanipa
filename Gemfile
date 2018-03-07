@@ -38,7 +38,7 @@ group :tools do
   gem "brakeman", "~> 4.2"
   gem "byebug", "~> 10.0"
   gem "factory_bot_rails", "~> 4.8"
-  gem "i18n-tasks", "0.9.20"
+  gem "i18n-tasks", "0.9.21"
   gem "image_optim_pack", "0.5.0.20180124"
   gem "overcommit", "0.43.0"
   gem "rubocop", "0.52.1"
