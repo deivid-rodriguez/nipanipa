@@ -15,12 +15,17 @@ class Donation < ApplicationRecord
     uri.to_s
   end
 
-  def self.send_pdt_post(tx)
+  def self.send_pdt_post(transaction)
     http = Net::HTTP.new(base_uri.host, base_uri.port)
     http.use_ssl = true
 
     request = Net::HTTP::Post.new(base_uri.request_uri)
-    post_params = { tx: tx, at: ENV["PAYPAL_PDT_AT"], cmd: "_notify-synch" }
+    post_params = {
+      transaction: transaction,
+      at: ENV["PAYPAL_PDT_AT"],
+      cmd: "_notify-synch"
+    }
+
     request.set_form_data(post_params)
 
     http.request(request)

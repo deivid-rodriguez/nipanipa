@@ -36,6 +36,12 @@ Naming/FileName:
 Rails/FilePath:
   Enabled: false
 
+Naming/UncommunicativeMethodParamName:
+  AllowedNames:
+    - id
+    - ip
+    - to
+
 Style/EmptyMethod:
   EnforcedStyle: expanded
 

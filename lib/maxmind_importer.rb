@@ -86,7 +86,7 @@ module Maxmind
     def download!
       return if remote_zip_file_unchanged?
 
-      open(local_zip_path, "wb") do |file|
+      File.open(local_zip_path, "wb") do |file|
         uri = URI.parse(remote_zip_url)
         Net::HTTP.start(uri.host, uri.port) do |http|
           http.request_get(uri.path) do |resp|
@@ -195,7 +195,7 @@ module Maxmind
     end
 
     def remote_zip_file_checksum
-      open(remote_checksum_url).read
+      open(remote_checksum_url).read # rubocop:disable Security/Open
     end
 
     def csv_file_name
