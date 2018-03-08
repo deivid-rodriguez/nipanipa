@@ -32,10 +32,6 @@ Naming/FileName:
     - Gemfile
     - Rakefile
 
-# TODO: Until https://github.com/bbatsov/rubocop/pull/4178 merged
-Rails/FilePath:
-  Enabled: false
-
 Naming/UncommunicativeMethodParamName:
   AllowedNames:
     - id
