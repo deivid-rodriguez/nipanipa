@@ -9,7 +9,7 @@ This is the sample application for NiPaNiPa
 
 ### Install system dependencies
 
-* Install ruby MRI 2.4
+* Install ruby MRI 2.5
 
   See [here](https://github.com/postmodern/ruby-install), for example.
 
