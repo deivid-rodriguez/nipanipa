@@ -16,9 +16,6 @@ plugins:
   markdownlint:
     enabled: true
 
-  rubocop:
-    enabled: true
-
   stylelint:
     enabled: true
 
