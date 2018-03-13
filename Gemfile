@@ -67,7 +67,7 @@ group :test do
   gem "capybara", "~> 2.18"
   gem "database_cleaner", "~> 1.6"
   gem "launchy", "~> 2.4"
-  gem "selenium-webdriver", "~> 3.10"
+  gem "selenium-webdriver", "~> 3.11"
   gem "shoulda-matchers", "~> 3.1"
   gem "webmock", "~> 3.3"
 end
