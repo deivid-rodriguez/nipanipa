@@ -204,11 +204,11 @@ GEM
       addressable (~> 2.3)
     letter_opener (1.6.0)
       launchy (~> 2.2)
-    localeapp (2.5.0)
+    localeapp (3.0.1)
       gli
-      i18n (~> 0.4)
-      json
-      rest-client
+      i18n (>= 0.7, < 2)
+      json (>= 1.7.7)
+      rest-client (>= 1.8.0)
     loofah (2.2.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -430,7 +430,7 @@ DEPENDENCIES
   kaminari (~> 1.1)
   launchy (~> 2.4)
   letter_opener (~> 1.6)
-  localeapp (~> 2.5)
+  localeapp (~> 3.0)
   mail (~> 2.7)
   mini_magick (~> 4.8)
   overcommit (= 0.44.0)
