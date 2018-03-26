@@ -2,6 +2,6 @@
   "name": "nipanipa",
   "private": true,
   "dependencies": {
-    "autosize": "^4.0.0"
+    "autosize": "^4.0.1"
   }
 }
