@@ -58,7 +58,7 @@ end
 
 group :development do
   gem "letter_opener", "~> 1.6"
-  gem "localeapp", "~> 3.0"
+  gem "localeapp", "~> 3.1"
   gem "spring", "~> 2.0"
   gem "unicorn-rails", "~> 2.2"
 end
