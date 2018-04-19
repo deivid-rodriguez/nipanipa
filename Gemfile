@@ -23,7 +23,7 @@ gem "simple_form", "~> 4.0"
 gem "autoprefixer-rails", "~> 8.2"
 gem "bootstrap-sass", "~> 3.3"
 gem "coffee-rails", "~> 4.1"
-gem "jquery-rails", "~> 4.0"
+gem "jquery-rails", "~> 4.3"
 gem "sass-rails", "~> 5.0"
 gem "uglifier", "~> 4.1"
 
