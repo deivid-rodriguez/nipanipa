@@ -40,7 +40,7 @@ group :tools do
   gem "factory_bot_rails", "~> 4.8"
   gem "i18n-tasks", "0.9.21"
   gem "image_optim_pack", "0.5.0.20180124"
-  gem "overcommit", "0.44.0"
+  gem "overcommit", "0.45.0"
   gem "rubocop", "0.54.0"
   gem "simplecov", "0.16.1"
   gem "slim_lint", "0.15.1"
