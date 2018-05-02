@@ -7,7 +7,7 @@ gem "rails", "~> 5.1"
 gem "rails-i18n", "~> 5.1"
 gem "rinku", "~> 2.0"
 
-gem "dotenv-rails", "~> 2.2"
+gem "dotenv-rails", "~> 2.4"
 
 gem "bcrypt", "~> 3.1"
 gem "carrierwave", "~> 1.2"
