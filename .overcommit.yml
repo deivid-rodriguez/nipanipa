@@ -48,7 +48,7 @@ PreCommit:
   MergeConflicts:
     enabled: true
 
-  Rubocop:
+  RuboCop:
     enabled: true
 
   SlimLint:
