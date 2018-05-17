@@ -48,11 +48,12 @@ PreCommit:
   MergeConflicts:
     enabled: true
 
-  Rubocop:
+  RuboCop:
     enabled: true
 
   SlimLint:
     enabled: true
+    on_warn: fail
 
   TrailingWhitespace:
     enabled: true
