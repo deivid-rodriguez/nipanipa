@@ -17,6 +17,8 @@ Layout/ExtraSpacing:
 
 Rails:
   Enabled: true
+  Exclude:
+    - bin/*
 
 Metrics:
   Enabled: false
