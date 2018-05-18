@@ -24,16 +24,7 @@ jobs:
 
       - run: git config --local user.name 'Circle CI'
 
-      - restore_cache:
-          keys:
-            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-
       - run: bundle install
-
-      - save_cache:
-          key: bundler-dependencies-{{ checksum "Gemfile.lock" }}
-          paths:
-            - /usr/local/bundle
 
       - run: yarn install
 
