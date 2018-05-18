@@ -2,8 +2,9 @@
 
 source "https://rubygems.org"
 
+gem "bootsnap", "~> 1.3"
 gem "mail", "~> 2.7"
-gem "rails", "~> 5.1"
+gem "rails", "~> 5.2"
 gem "rails-i18n", "~> 5.1"
 gem "rinku", "~> 2.0"
 

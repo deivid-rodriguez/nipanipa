@@ -6,7 +6,7 @@
 class Picture < ApplicationRecord
   belongs_to :user
 
-  scope :random, ->(num) { limit(num).order("RANDOM()") }
+  scope :random, ->(num) { limit(num).order(Arel.sql("RANDOM()")) }
 
   mount_uploader :image, ImageUploader
 end
