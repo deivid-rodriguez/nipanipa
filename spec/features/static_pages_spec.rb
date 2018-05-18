@@ -62,6 +62,6 @@ RSpec.describe "Static pages" do
   describe "robots.txt file" do
     before { visit "/robots.txt" }
 
-    it { is_expected.to have_content File.read("config/robots.test.txt") }
+    it { is_expected.to have_content File.read("config/robots.test.txt").squish }
   end
 end

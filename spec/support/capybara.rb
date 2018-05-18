@@ -21,3 +21,5 @@ Capybara.asset_host = "http://localhost:3000"
 
 Capybara.app = PortMapper.new(Capybara.app,
                               ENV["PAYPAL_PORT"].to_i => FakePaypalApp.new)
+
+Capybara.server = :webrick
