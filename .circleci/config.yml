@@ -36,6 +36,8 @@ jobs:
 
       - run: bin/overcommit --run
 
+      - run: bin/brakeman
+
       - add_ssh_keys:
           fingerprints:
             - "4a:6a:34:50:01:b9:3e:e3:5a:44:41:87:1f:47:2e:21"
