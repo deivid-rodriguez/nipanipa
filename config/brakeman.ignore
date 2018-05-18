@@ -1,6 +1,26 @@
 {
   "ignored_warnings": [
     {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "6147518a08179f49d4fe2e9675d4cb4f1f3fb1b1364397e2a97d3615435e485a",
+      "check_name": "Execute",
+      "message": "Possible command injection",
+      "file": "lib/maxmind_importer.rb",
+      "line": 152,
+      "link": "https://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "`wc -l #{local_csv_path}`",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Maxmind::Importer",
+        "method": "csv_n_lines"
+      },
+      "user_input": "local_csv_path",
+      "confidence": "Medium",
+      "note": ""
+    },
+    {
       "warning_type": "Redirect",
       "warning_code": 18,
       "fingerprint": "ce3358b36921b6a9c11a97e0e2b639a4eb20885b180e49c76ec76b320914d9de",
@@ -8,7 +28,7 @@
       "message": "Possible unprotected redirect",
       "file": "app/controllers/donations_controller.rb",
       "line": 14,
-      "link": "http://brakemanscanner.org/docs/warning_types/redirect/",
+      "link": "https://brakemanscanner.org/docs/warning_types/redirect/",
       "code": "redirect_to(Donation.new(donation_params).paypal_url(donation_url(Donation.new(donation_params).id)))",
       "render_path": null,
       "location": {
@@ -21,6 +41,6 @@
       "note": ""
     }
   ],
-  "updated": "2017-08-07 12:29:19 +0200",
-  "brakeman_version": "3.7.0"
+  "updated": "2018-05-17 20:23:17 -0300",
+  "brakeman_version": "4.3.0"
 }

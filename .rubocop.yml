@@ -17,13 +17,11 @@ Layout/ExtraSpacing:
 
 Rails:
   Enabled: true
-
-Metrics/BlockLength:
   Exclude:
-    - spec/**/*.rb
-    - lib/**/*.rake
-    - config/**/*.rb
-    - app/admin/**/*.rb
+    - bin/*
+
+Metrics:
+  Enabled: false
 
 Naming/FileName:
   Exclude:
