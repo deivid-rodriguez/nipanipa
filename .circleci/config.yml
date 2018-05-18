@@ -7,7 +7,7 @@ jobs:
     docker:
       - image: circleci/ruby:2.5-node-browsers
 
-      - image: postgres:9.6.3
+      - image: postgres:10
         environment:
           POSTGRES_USER: nipanipa
 
