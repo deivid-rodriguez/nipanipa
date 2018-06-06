@@ -40,7 +40,7 @@ group :tools do
   gem "byebug", "~> 10.0"
   gem "factory_bot_rails", "~> 4.10"
   gem "i18n-tasks", "0.9.21"
-  gem "image_optim_pack", "0.5.0.20180419"
+  gem "image_optim_pack", "0.5.0.20180605"
   gem "overcommit", "0.45.0"
   gem "rubocop", git: "https://github.com/bbatsov/rubocop", ref: "d3c2a7435271b0bf8efccc2a66201fde35d7d621"
   gem "simplecov", "0.16.1"
