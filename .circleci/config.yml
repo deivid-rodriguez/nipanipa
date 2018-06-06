@@ -34,6 +34,8 @@ jobs:
 
       - run: bin/rake
 
+      - run: bin/rubocop
+
       - run: bin/overcommit --run
 
       - run: bin/brakeman
