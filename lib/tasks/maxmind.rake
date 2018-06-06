@@ -40,7 +40,7 @@ namespace :db do
   end
 
   def i18n_contents
-    @i18n_contents ||= File.read(Rails.root.join("config", "locales", "en.yml"))
+    @i18n_contents ||= File.read(Rails.root.join("config/locales/en.yml"))
   end
 
   namespace :maxmind do

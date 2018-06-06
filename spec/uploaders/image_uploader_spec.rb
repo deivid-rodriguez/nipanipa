@@ -8,7 +8,7 @@ RSpec.describe ImageUploader do
   let!(:user) { build(:user) }
 
   let!(:img) do
-    File.open(Rails.root.join("app", "assets", "images", "host1_small.png"))
+    File.open(Rails.root.join("app/assets/images/host1_small.png"))
   end
 
   before do
