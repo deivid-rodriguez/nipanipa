@@ -42,7 +42,7 @@ group :tools do
   gem "i18n-tasks", "0.9.21"
   gem "image_optim_pack", "0.5.0.20180419"
   gem "overcommit", "0.45.0"
-  gem "rubocop", "0.56.0"
+  gem "rubocop", "0.57.0"
   gem "simplecov", "0.16.1"
   gem "slim_lint", "0.15.1"
   gem "squasher", "0.6.0"
