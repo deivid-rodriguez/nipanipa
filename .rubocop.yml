@@ -27,6 +27,9 @@ Rails:
   Exclude:
     - bin/*
 
+Rails/FilePath:
+  EnforcedStyle: slashes
+
 Metrics:
   Enabled: false
 
