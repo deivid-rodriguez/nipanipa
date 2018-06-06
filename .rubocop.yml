@@ -1,3 +1,10 @@
+---
+
+inherit_mode:
+  merge:
+    - Include
+    - Exclude
+
 AllCops:
   Include:
     - bin/*
