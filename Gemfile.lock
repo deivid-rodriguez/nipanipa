@@ -1,17 +1,3 @@
-GIT
-  remote: https://github.com/bbatsov/rubocop
-  revision: d3c2a7435271b0bf8efccc2a66201fde35d7d621
-  ref: d3c2a7435271b0bf8efccc2a66201fde35d7d621
-  specs:
-    rubocop (0.57.0)
-      jaro_winkler (~> 1.4.0)
-      parallel (~> 1.10)
-      parser (>= 2.5)
-      powerpack (~> 0.1)
-      rainbow (>= 2.2.2, < 4.0)
-      ruby-progressbar (~> 1.7)
-      unicode-display_width (~> 1.0, >= 1.0.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -199,7 +185,7 @@ GEM
       railties (>= 4.2, <= 5.2)
       responders
     iniparse (1.4.4)
-    jaro_winkler (1.4.0)
+    jaro_winkler (1.5.1)
     jquery-rails (4.3.3)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -261,7 +247,7 @@ GEM
     pg (1.0.0)
     polyamorous (1.3.3)
       activerecord (>= 3.0)
-    powerpack (0.1.1)
+    powerpack (0.1.2)
     progress (3.4.0)
     public_suffix (3.0.2)
     rack (2.0.5)
@@ -331,6 +317,14 @@ GEM
       rspec-mocks (~> 3.7.0)
       rspec-support (~> 3.7.0)
     rspec-support (3.7.0)
+    rubocop (0.57.2)
+      jaro_winkler (~> 1.5.1)
+      parallel (~> 1.10)
+      parser (>= 2.5)
+      powerpack (~> 0.1)
+      rainbow (>= 2.2.2, < 4.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.9.0)
     rubyzip (1.2.1)
     safe_yaml (1.0.4)
@@ -455,7 +449,7 @@ DEPENDENCIES
   rails-i18n (~> 5.1)
   rinku (~> 2.0)
   rspec-rails (~> 3.7)
-  rubocop!
+  rubocop (= 0.57.2)
   ruby-progressbar (~> 1.9)
   rubyzip (~> 1.1)
   sass-rails (~> 5.0)
