@@ -14,6 +14,8 @@ set :linked_dirs, %w[log tmp/pids tmp/cache tmp/sockets public/uploads]
 
 set :keep_releases, 5
 
+set :rbenv_type, :user
+
 set :bundle_without, "deploy development test tools"
 
 set :passenger_restart_with_touch, false
